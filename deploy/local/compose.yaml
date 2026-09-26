@@ -1,0 +1,65 @@
+name: incidentlens
+services:
+  clickhouse:
+    image: clickhouse/clickhouse-server:25.8.4.13
+    environment:
+      CLICKHOUSE_USER: default
+      CLICKHOUSE_PASSWORD: local-admin
+      CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: "1"
+    ports:
+      - "127.0.0.1:18123:8123"
+      - "127.0.0.1:19000:9000"
+    volumes:
+      - clickhouse-data:/var/lib/clickhouse
+      - ./users.xml:/etc/clickhouse-server/users.d/incidentlens.xml:ro
+    mem_limit: 2g
+    cpus: 2
+    healthcheck:
+      test: ["CMD", "clickhouse-client", "--password", "local-admin", "--query", "SELECT 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+    networks: [telemetry]
+  migrate:
+    image: clickhouse/clickhouse-server:25.8.4.13
+    entrypoint: ["/bin/sh", "-ec"]
+    command: ["for f in /migrations/*.sql; do clickhouse-client --host clickhouse --password local-admin --multiquery < \"$$f\"; done"]
+    volumes:
+      - ../../migrations/clickhouse:/migrations:ro
+    depends_on:
+      clickhouse: {condition: service_healthy}
+    networks: [telemetry]
+  ingest:
+    build:
+      context: ../..
+      dockerfile: deploy/local/Dockerfile
+    environment:
+      GRPC_ADDRESS: 0.0.0.0:4317
+      HEALTH_ADDRESS: 0.0.0.0:8080
+      CLICKHOUSE_ADDRESS: clickhouse:9000
+      CLICKHOUSE_USER: ingest
+      CLICKHOUSE_PASSWORD: local-ingest
+    ports:
+      - "127.0.0.1:14317:4317"
+      - "127.0.0.1:18080:8080"
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+    mem_limit: 512m
+    cpus: 1
+    networks: [telemetry]
+  collector:
+    image: otel/opentelemetry-collector-contrib:0.137.0
+    command: ["--config=/etc/otelcol/config.yaml"]
+    volumes:
+      - ./collector.yaml:/etc/otelcol/config.yaml:ro
+    ports:
+      - "127.0.0.1:4317:4317"
+    depends_on: [ingest]
+    mem_limit: 256m
+    cpus: 1
+    networks: [telemetry]
+networks:
+  telemetry:
+    name: incidentlens-telemetry
+volumes:
+  clickhouse-data:

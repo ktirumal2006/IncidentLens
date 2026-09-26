@@ -1,0 +1,22 @@
+frontend-1  |
+frontend-1  | > frontend@0.1.0 start
+frontend-1  | > node --require ./Instrumentation.js server.js
+frontend-1  |
+frontend-1  | Listening on port 8080
+frontend-1  | Error: 14 UNAVAILABLE: Name resolution failed for target dns:recommendationservice:9001
+frontend-1  |     at Object.callErrorFromStatus (/app/node_modules/@grpc/grpc-js/build/src/call.js:31:26)
+frontend-1  |     at Object.onReceiveStatus (/app/node_modules/@grpc/grpc-js/build/src/client.js:189:52)
+frontend-1  |     at Object.onReceiveStatus (/app/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:365:141)
+frontend-1  |     at Object.onReceiveStatus (/app/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:328:181)
+frontend-1  |     at /app/node_modules/@grpc/grpc-js/build/src/call-stream.js:187:78
+frontend-1  |     at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+frontend-1  |   code: 14,
+frontend-1  |   details: 'Name resolution failed for target dns:recommendationservice:9001',
+frontend-1  |   metadata: Metadata { internalRepr: Map(0) {}, options: {} }
+frontend-1  | }
+productcatalogservice-1  | time="2026-09-25T18:31:15Z" level=info msg="ProductCatalogService gRPC server started on port: 3550"
+productcatalogservice-1  | 2026/09/25 18:31:40 rpc error: code = Unimplemented desc = not retryable error: Permanent error: rpc error: code = Unimplemented desc = grpc: Decompressor is not installed for grpc-encoding "gzip"
+productcatalogservice-1  | 2026/09/25 18:31:45 rpc error: code = Unimplemented desc = not retryable error: Permanent error: rpc error: code = Unimplemented desc = grpc: Decompressor is not installed for grpc-encoding "gzip"
+recommendationservice-1  | {"asctime": "2026-09-25 18:31:33,775", "levelname": "INFO", "name": "recommendationservice-server", "filename": "recommendation_server.py", "lineno": 106, "otelTraceID": "00000000000000000000000000000000", "otelSpanID": "0000000000000000", "message": "RecommendationService listening on port: 9001"}
+recommendationservice-1  | {"asctime": "2026-09-25 18:31:40,012", "levelname": "INFO", "name": "recommendationservice-server", "filename": "recommendation_server.py", "lineno": 43, "otelTraceID": "f60d43ef98acb1d58bcd79ca8d958f3d", "otelSpanID": "0ba280d5dff2d459", "message": "[Recv ListRecommendations] product_ids=['6E92ZMYYFZ', '1YMWWN1N4O', '2ZYFJ3GM2N', '66VCHSJNUP', 'LS4PSXUNUM']"}
+recommendationservice-1  | Failed to export span batch, error code: StatusCode.UNIMPLEMENTED

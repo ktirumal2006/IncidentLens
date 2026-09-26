@@ -1,0 +1,10 @@
+.DS_Store
+/backend/ingest
+*.test
+coverage.out
+AGENTS.md
+
+# Local environment secrets
+.env
+.env.*
+!.env.example

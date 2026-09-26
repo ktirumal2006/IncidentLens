@@ -1,0 +1,57 @@
+# Digest-pinned upstream release images, narrowed trace-only browsing scenario.
+# Do not merge upstream Compose: it starts excluded dependencies.
+name: incidentlens-demo
+x-traces: &traces
+  OTEL_EXPORTER_OTLP_ENDPOINT: http://collector:4317
+  OTEL_EXPORTER_OTLP_TRACES_ENDPOINT: http://collector:4317
+  OTEL_EXPORTER_OTLP_INSECURE: "true"
+  OTEL_TRACES_SAMPLER: always_on
+  OTEL_METRICS_EXPORTER: none
+  OTEL_LOGS_EXPORTER: none
+  OTEL_RESOURCE_ATTRIBUTES: service.namespace=opentelemetry-demo
+services:
+  frontend:
+    image: ghcr.io/open-telemetry/demo:v0.4.0-alpha-frontend@sha256:861573bf7c028abfad3285e4e87ccc6211e57df634c5680322dbf5adb7c779bf
+    environment:
+      <<: *traces
+      OTEL_SERVICE_NAME: frontend
+      PORT: "8080"
+      AD_SERVICE_ADDR: 127.0.0.1:1
+      CART_SERVICE_ADDR: 127.0.0.1:1
+      CHECKOUT_SERVICE_ADDR: 127.0.0.1:1
+      CURRENCY_SERVICE_ADDR: 127.0.0.1:1
+      SHIPPING_SERVICE_ADDR: 127.0.0.1:1
+      FRONTEND_ADDR: frontend:8080
+      PRODUCT_CATALOG_SERVICE_ADDR: productcatalogservice:3550
+      RECOMMENDATION_SERVICE_ADDR: recommendationservice:9001
+    ports: ["127.0.0.1:8080:8080"]
+    networks: [telemetry]
+    depends_on: [recommendationservice, productcatalogservice]
+    mem_limit: 512m
+  recommendationservice:
+    image: ghcr.io/open-telemetry/demo:v0.4.0-alpha-recommendationservice@sha256:9d4ebe9c39467d20478f0c701d7783796b2ec402d8f3092cca1faddecc260ae7
+    environment:
+      <<: *traces
+      OTEL_SERVICE_NAME: recommendationservice
+      RECOMMENDATION_SERVICE_PORT: "9001"
+      PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION: python
+      PRODUCT_CATALOG_SERVICE_ADDR: productcatalogservice:3550
+    networks: [telemetry]
+    depends_on: [productcatalogservice]
+    mem_limit: 256m
+  productcatalogservice:
+    image: ghcr.io/open-telemetry/demo:v0.4.0-alpha-productcatalogservice@sha256:b164a64686d023c652e03af1db049c59c2050e4dfebfbc92fa062b7db303f16e
+    environment:
+      <<: *traces
+      OTEL_SERVICE_NAME: productcatalogservice
+      PRODUCT_CATALOG_SERVICE_PORT: "3550"
+      # Upstream requires this variable at startup. The documented product-ID
+      # exclusion avoids the only operation that uses it; no service is started.
+      FEATURE_FLAG_GRPC_SERVICE_ADDR: 127.0.0.1:1
+    networks: [telemetry]
+    mem_limit: 128m
+
+networks:
+  telemetry:
+    external: true
+    name: incidentlens-telemetry

@@ -1,0 +1,98 @@
+ Image incidentlens-demo-productcatalogservice Building
+#1 [internal] load local bake definitions
+#1 reading from stdin 620B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 1.37kB done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/golang:1.17.7-alpine
+#3 DONE 0.2s
+
+#4 [internal] load metadata for docker.io/library/alpine:latest
+#4 DONE 0.2s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 1.04kB done
+#5 DONE 0.0s
+
+#6 [builder  1/10] FROM docker.io/library/golang:1.17.7-alpine@sha256:d030a987c28ca403007a69af28ba419fca00fc15f08e7801fc8edee77c00b8ee
+#6 resolve docker.io/library/golang:1.17.7-alpine@sha256:d030a987c28ca403007a69af28ba419fca00fc15f08e7801fc8edee77c00b8ee 0.0s done
+#6 DONE 0.0s
+
+#7 [release 1/4] FROM docker.io/library/alpine:latest@sha256:294b683cb724975bec92580e1e685676bd4b50bda910ddb8c51d4cabeaec77e6
+#7 resolve docker.io/library/alpine:latest@sha256:294b683cb724975bec92580e1e685676bd4b50bda910ddb8c51d4cabeaec77e6 0.0s done
+#7 DONE 0.0s
+
+#8 [internal] load build context
+#8 transferring context: 722B done
+#8 DONE 0.0s
+
+#9 [release 2/4] WORKDIR /usr/src/app/
+#9 CACHED
+
+#10 [builder  3/10] RUN apk add build-base protoc
+#10 CACHED
+
+#11 [builder  2/10] WORKDIR /usr/src/app/
+#11 CACHED
+
+#12 [builder  4/10] COPY ./src/productcatalogservice/ ./
+#12 CACHED
+
+#13 [builder  5/10] COPY ./pb/ ./proto/
+#13 CACHED
+
+#14 [release 3/4] COPY ./src/productcatalogservice/products.json ./
+#14 CACHED
+
+#15 [builder  6/10] RUN go mod download
+#15 CACHED
+
+#16 [builder  7/10] RUN go get google.golang.org/protobuf/cmd/protoc-gen-go
+#16 0.341 go: downloading google.golang.org/protobuf v1.36.12
+#16 0.892 go: downloading github.com/google/go-cmp v0.7.0
+#16 1.004 go get: installing executables with 'go get' in module mode is deprecated.
+#16 1.004 	To adjust and download dependencies of the current module, use 'go get -d'.
+#16 1.004 	To install using requirements of the current module, use 'go install'.
+#16 1.004 	To install ignoring the current module, use 'go install' with a version,
+#16 1.004 	like 'go install example.com/cmd@latest'.
+#16 1.004 	For more information, see https://golang.org/doc/go-get-install-deprecation
+#16 1.004 	or run 'go help get' or 'go help install'.
+#16 1.123 # google.golang.org/protobuf/internal/errors
+#16 1.123 /go/pkg/mod/google.golang.org/protobuf@v1.36.12/internal/errors/errors.go:20:25: undefined: any
+#16 1.123 /go/pkg/mod/google.golang.org/protobuf@v1.36.12/internal/errors/errors.go:46:37: undefined: any
+#16 1.123 /go/pkg/mod/google.golang.org/protobuf@v1.36.12/internal/errors/errors.go:70:28: undefined: any
+#16 1.123 note: module requires Go 1.23
+#16 ERROR: process "/bin/sh -c go get google.golang.org/protobuf/cmd/protoc-gen-go" did not complete successfully: exit code: 2
+------
+ > [builder  7/10] RUN go get google.golang.org/protobuf/cmd/protoc-gen-go:
+1.004 	To install using requirements of the current module, use 'go install'.
+1.004 	To install ignoring the current module, use 'go install' with a version,
+1.004 	like 'go install example.com/cmd@latest'.
+1.004 	For more information, see https://golang.org/doc/go-get-install-deprecation
+1.004 	or run 'go help get' or 'go help install'.
+1.123 # google.golang.org/protobuf/internal/errors
+1.123 /go/pkg/mod/google.golang.org/protobuf@v1.36.12/internal/errors/errors.go:20:25: undefined: any
+1.123 /go/pkg/mod/google.golang.org/protobuf@v1.36.12/internal/errors/errors.go:46:37: undefined: any
+1.123 /go/pkg/mod/google.golang.org/protobuf@v1.36.12/internal/errors/errors.go:70:28: undefined: any
+1.123 note: module requires Go 1.23
+------
+Dockerfile:26
+
+--------------------
+
+  24 |
+
+  25 |     RUN go mod download
+
+  26 | >>> RUN go get google.golang.org/protobuf/cmd/protoc-gen-go
+
+  27 |     RUN go get google.golang.org/grpc/cmd/protoc-gen-go-grpc
+
+  28 |
+
+--------------------
+
+failed to solve: process "/bin/sh -c go get google.golang.org/protobuf/cmd/protoc-gen-go" did not complete successfully: exit code: 2
