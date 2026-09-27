@@ -1,0 +1,203 @@
+ Image incidentlens-ingest Building 
+ Image incidentlens-api Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.04kB done
+#1 DONE 0.0s
+
+#2 [api internal] load build definition from Dockerfile
+#2 transferring dockerfile: 828B done
+#2 DONE 0.0s
+
+#3 [api internal] load metadata for docker.io/library/node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c
+#3 DONE 0.1s
+
+#4 [auth] library/golang:pull token for registry-1.docker.io
+#4 DONE 0.0s
+
+#5 [ingest internal] load metadata for gcr.io/distroless/static-debian12:nonroot
+#5 DONE 0.2s
+
+#6 [api internal] load metadata for docker.io/library/golang:1.26.8-bookworm
+#6 DONE 0.4s
+
+#7 [api internal] load .dockerignore
+#7 transferring context: 207B done
+#7 DONE 0.0s
+
+#8 [ingest source 1/5] FROM docker.io/library/golang:1.26.8-bookworm@sha256:a688600ca24f8a4d3ca77f95b0dd40704a9fc787c826660eb7ba0b641b8b175d
+#8 resolve docker.io/library/golang:1.26.8-bookworm@sha256:a688600ca24f8a4d3ca77f95b0dd40704a9fc787c826660eb7ba0b641b8b175d 0.0s done
+#8 DONE 0.1s
+
+#9 [ingest ingest 1/2] FROM gcr.io/distroless/static-debian12:nonroot@sha256:afa5c872c891853ca7fcf1f12c3edb23f7eeef36189728842dd51042ff57f7ab
+#9 resolve gcr.io/distroless/static-debian12:nonroot@sha256:afa5c872c891853ca7fcf1f12c3edb23f7eeef36189728842dd51042ff57f7ab 0.0s done
+#9 DONE 0.1s
+
+#10 [api internal] load build context
+#10 transferring context: 207.73kB 0.0s done
+#10 DONE 0.0s
+
+#11 [api build-web 1/6] FROM docker.io/library/node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c
+#11 resolve docker.io/library/node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c 0.1s done
+#11 DONE 0.1s
+
+#12 [ingest internal] load build context
+#12 transferring context: 59.47kB 0.0s done
+#12 DONE 0.0s
+
+#13 [ingest source 3/5] COPY backend/go.mod backend/go.sum ./
+#13 CACHED
+
+#14 [ingest source 2/5] WORKDIR /src
+#14 CACHED
+
+#15 [api source 4/5] RUN go mod download
+#15 CACHED
+
+#16 [api build-web 2/6] WORKDIR /web
+#16 CACHED
+
+#17 [api source 5/5] COPY backend/ ./
+#17 DONE 0.1s
+
+#18 [ingest build-ingest 1/1] RUN CGO_ENABLED=0 go build -trimpath -o /ingest ./cmd/ingest
+#18 ...
+
+#19 [api source 4/5] RUN go mod download
+#19 CACHED
+
+#20 [api source 5/5] COPY backend/ ./
+#20 CACHED
+
+#21 [api source 3/5] COPY backend/go.mod backend/go.sum ./
+#21 CACHED
+
+#14 [api source 2/5] WORKDIR /src
+#14 CACHED
+
+#22 [api build-web 3/6] COPY frontend/package.json frontend/package-lock.json ./
+#22 DONE 0.1s
+
+#23 [api build-web 4/6] RUN npm ci
+#23 3.173 npm warn deprecated whatwg-encoding@3.1.1: Use @exodus/bytes instead for a more spec-conformant and faster implementation
+#23 ...
+
+#24 [api build-api 1/1] RUN CGO_ENABLED=0 go build -trimpath -o /api ./cmd/api
+#24 ...
+
+#23 [api build-web 4/6] RUN npm ci
+#23 12.41 
+#23 12.41 added 146 packages, and audited 147 packages in 12s
+#23 12.41 
+#23 12.41 26 packages are looking for funding
+#23 12.41   run `npm fund` for details
+#23 12.41 
+#23 12.41 found 0 vulnerabilities
+#23 12.41 npm notice
+#23 12.41 npm notice New major version of npm available! 10.9.9 -> 12.1.0
+#23 12.41 npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.1.0
+#23 12.41 npm notice To update run: npm install -g npm@12.1.0
+#23 12.41 npm notice
+#23 DONE 13.7s
+
+#24 [api build-api 1/1] RUN CGO_ENABLED=0 go build -trimpath -o /api ./cmd/api
+#24 ...
+
+#25 [api build-web 5/6] COPY frontend/ ./
+#25 DONE 0.3s
+
+#18 [ingest build-ingest 1/1] RUN CGO_ENABLED=0 go build -trimpath -o /ingest ./cmd/ingest
+#18 ...
+
+#26 [api build-web 6/6] RUN npm run build
+#26 0.908 
+#26 0.908 > incidentlens-explorer@0.1.0 build
+#26 0.908 > tsc -b && vite build
+#26 0.908 
+#26 8.226 vite v7.3.6 building client environment for production...
+#26 8.527 transforming...
+#26 12.59 ✓ 31 modules transformed.
+#26 13.01 rendering chunks...
+#26 13.05 computing gzip size...
+#26 13.08 dist/index.html                   0.38 kB │ gzip:  0.28 kB
+#26 13.08 dist/assets/index-PvCm4Jhr.css    9.88 kB │ gzip:  2.94 kB
+#26 13.08 dist/assets/index-D6hnl_5k.js   239.66 kB │ gzip: 74.84 kB
+#26 13.08 ✓ built in 4.78s
+#26 DONE 13.7s
+
+#18 [ingest build-ingest 1/1] RUN CGO_ENABLED=0 go build -trimpath -o /ingest ./cmd/ingest
+#18 ...
+
+#24 [api build-api 1/1] RUN CGO_ENABLED=0 go build -trimpath -o /api ./cmd/api
+#24 DONE 34.2s
+
+#18 [ingest build-ingest 1/1] RUN CGO_ENABLED=0 go build -trimpath -o /ingest ./cmd/ingest
+#18 DONE 34.5s
+
+#9 [api ingest 1/2] FROM gcr.io/distroless/static-debian12:nonroot@sha256:afa5c872c891853ca7fcf1f12c3edb23f7eeef36189728842dd51042ff57f7ab
+#9 CACHED
+
+#9 [ingest ingest 1/2] FROM gcr.io/distroless/static-debian12:nonroot@sha256:afa5c872c891853ca7fcf1f12c3edb23f7eeef36189728842dd51042ff57f7ab
+#9 CACHED
+
+#27 [api api 2/3] COPY --from=build-api /api /api
+#27 DONE 0.1s
+
+#28 [api api 3/3] COPY --from=build-web /web/dist /web
+#28 DONE 0.0s
+
+#29 [api] exporting to image
+#29 exporting layers
+#29 ...
+
+#30 [ingest ingest 2/2] COPY --from=build-ingest /ingest /ingest
+#30 DONE 0.1s
+
+#31 [ingest] exporting to image
+#31 exporting layers 1.5s done
+#31 ...
+
+#29 [api] exporting to image
+#29 exporting layers 1.6s done
+#29 exporting manifest sha256:a9a0f497f90e953fad5c37488c94032b7f2b6c162b5dfa522421e019be739e90 0.0s done
+#29 exporting config sha256:8aee608a3e6cab7a5f18d4b4a9ebae29d510d807c46d2e3286097f0eca41b2f5 0.0s done
+#29 exporting attestation manifest sha256:9d7cdc71b365a7ea18a0546f52931a683d9025702c2911c1fae0e775c01dab1e 0.0s done
+#29 exporting manifest list sha256:01f8b853fe4417265ee143d8c613a214355dcc81282d966a3ab3cd91fe6625a0 0.0s done
+#29 naming to docker.io/library/incidentlens-api:latest done
+#29 unpacking to docker.io/library/incidentlens-api:latest 0.3s done
+#29 DONE 2.0s
+
+#31 [ingest] exporting to image
+#31 exporting manifest sha256:bd36dd21ec609982bb23941f5ee22f886aca2be1ce924982b2e5d9c9ac14be34 0.0s done
+#31 exporting config sha256:f56513aa20e7b54c419fbdfba6037a7f5c5a93e0e03dc247c8ccf6f76cb16191 0.0s done
+#31 exporting attestation manifest sha256:c0ddab21b0483e1d021d44f1361f88ccb819a2ea8ff7a6b13deab1fba7d7bf09 0.0s done
+#31 exporting manifest list sha256:3302ff9e57a53ff18e6e24025f81300222daf69206fd74fa871b09df1bba0567 0.0s done
+#31 naming to docker.io/library/incidentlens-ingest:latest done
+#31 unpacking to docker.io/library/incidentlens-ingest:latest
+#31 unpacking to docker.io/library/incidentlens-ingest:latest 0.3s done
+#31 DONE 2.0s
+
+#32 [api] resolving provenance for metadata file
+#32 DONE 0.0s
+
+#33 [ingest] resolving provenance for metadata file
+#33 DONE 0.0s
+ Image incidentlens-ingest Built 
+ Image incidentlens-api Built 
+ Container incidentlens-collector-1 Running 
+ Container incidentlens-clickhouse-1 Running 
+ Container incidentlens-api-1 Recreate 
+ Container incidentlens-ingest-1 Recreate 
+ Container incidentlens-api-1 Recreated 
+ Container incidentlens-ingest-1 Recreated 
+ Container incidentlens-clickhouse-1 Waiting 
+ Container incidentlens-clickhouse-1 Healthy 
+ Container incidentlens-migrate-1 Starting 
+ Container incidentlens-migrate-1 Started 
+ Container incidentlens-migrate-1 Waiting 
+ Container incidentlens-migrate-1 Waiting 
+ Container incidentlens-migrate-1 Exited 
+ Container incidentlens-migrate-1 Exited 
+ Container incidentlens-api-1 Starting 
+ Container incidentlens-ingest-1 Starting 
+ Container incidentlens-api-1 Started 
+ Container incidentlens-ingest-1 Started 

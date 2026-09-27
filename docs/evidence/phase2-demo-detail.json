@@ -1,0 +1,868 @@
+{
+  "observed_at": "2026-09-27T05:38:53.941959735Z",
+  "from": "2026-09-27T04:38:53.929Z",
+  "to": "2026-09-27T05:39:53.929Z",
+  "trace_id": "b37cf89014eef911c8f627a333181e61",
+  "spans": [
+    {
+      "span_id": "48b28a268d03805a",
+      "parent_span_id": "ebff28a00c871b55",
+      "service_name": "frontend",
+      "service_namespace": "opentelemetry-demo",
+      "span_name": "HTTP GET",
+      "span_kind": 2,
+      "status_code": 0,
+      "status_message": "",
+      "start_time": "2026-09-27T05:38:09.679049216Z",
+      "end_time": "2026-09-27T05:38:09.693296896Z",
+      "duration_ns": "14247680",
+      "ingested_at": "2026-09-27T05:38:14.905803528Z",
+      "resource_attributes": {
+        "attributes": [
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "frontend"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "opentelemetry-demo"
+            }
+          }
+        ]
+      },
+      "span_attributes": {},
+      "scope_attributes": {},
+      "events": {},
+      "links": {},
+      "scope_name": "@opentelemetry/instrumentation-http",
+      "scope_version": "0.29.2",
+      "resource_schema_url": "",
+      "scope_schema_url": "",
+      "trace_state": "",
+      "trace_flags": 0,
+      "dropped_attributes_count": 0,
+      "dropped_events_count": 0,
+      "dropped_links_count": 0,
+      "resource_dropped_attributes_count": 0,
+      "scope_dropped_attributes_count": 0
+    },
+    {
+      "span_id": "288f61da89c85058",
+      "parent_span_id": "48b28a268d03805a",
+      "service_name": "frontend",
+      "service_namespace": "opentelemetry-demo",
+      "span_name": "grpc.hipstershop.RecommendationService/ListRecommendations",
+      "span_kind": 3,
+      "status_code": 0,
+      "status_message": "",
+      "start_time": "2026-09-27T05:38:09.682611456Z",
+      "end_time": "2026-09-27T05:38:09.686738432Z",
+      "duration_ns": "4126976",
+      "ingested_at": "2026-09-27T05:38:14.905803528Z",
+      "resource_attributes": {
+        "attributes": [
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "frontend"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "opentelemetry-demo"
+            }
+          }
+        ]
+      },
+      "span_attributes": {},
+      "scope_attributes": {},
+      "events": {},
+      "links": {},
+      "scope_name": "@opentelemetry/instrumentation-grpc",
+      "scope_version": "0.29.2",
+      "resource_schema_url": "",
+      "scope_schema_url": "",
+      "trace_state": "",
+      "trace_flags": 0,
+      "dropped_attributes_count": 0,
+      "dropped_events_count": 0,
+      "dropped_links_count": 0,
+      "resource_dropped_attributes_count": 0,
+      "scope_dropped_attributes_count": 0
+    },
+    {
+      "span_id": "6718818cdd2d9c67",
+      "parent_span_id": "48b28a268d03805a",
+      "service_name": "frontend",
+      "service_namespace": "opentelemetry-demo",
+      "span_name": "grpc.hipstershop.ProductCatalogService/GetProduct",
+      "span_kind": 3,
+      "status_code": 0,
+      "status_message": "",
+      "start_time": "2026-09-27T05:38:09.686848256Z",
+      "end_time": "2026-09-27T05:38:09.692758272Z",
+      "duration_ns": "5910016",
+      "ingested_at": "2026-09-27T05:38:14.905803528Z",
+      "resource_attributes": {
+        "attributes": [
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "frontend"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "opentelemetry-demo"
+            }
+          }
+        ]
+      },
+      "span_attributes": {},
+      "scope_attributes": {},
+      "events": {},
+      "links": {},
+      "scope_name": "@opentelemetry/instrumentation-grpc",
+      "scope_version": "0.29.2",
+      "resource_schema_url": "",
+      "scope_schema_url": "",
+      "trace_state": "",
+      "trace_flags": 0,
+      "dropped_attributes_count": 0,
+      "dropped_events_count": 0,
+      "dropped_links_count": 0,
+      "resource_dropped_attributes_count": 0,
+      "scope_dropped_attributes_count": 0
+    },
+    {
+      "span_id": "ec2358ac226c8826",
+      "parent_span_id": "48b28a268d03805a",
+      "service_name": "frontend",
+      "service_namespace": "opentelemetry-demo",
+      "span_name": "grpc.hipstershop.ProductCatalogService/GetProduct",
+      "span_kind": 3,
+      "status_code": 0,
+      "status_message": "",
+      "start_time": "2026-09-27T05:38:09.687085312Z",
+      "end_time": "2026-09-27T05:38:09.691252224Z",
+      "duration_ns": "4166912",
+      "ingested_at": "2026-09-27T05:38:14.905803528Z",
+      "resource_attributes": {
+        "attributes": [
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "frontend"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "opentelemetry-demo"
+            }
+          }
+        ]
+      },
+      "span_attributes": {},
+      "scope_attributes": {},
+      "events": {},
+      "links": {},
+      "scope_name": "@opentelemetry/instrumentation-grpc",
+      "scope_version": "0.29.2",
+      "resource_schema_url": "",
+      "scope_schema_url": "",
+      "trace_state": "",
+      "trace_flags": 0,
+      "dropped_attributes_count": 0,
+      "dropped_events_count": 0,
+      "dropped_links_count": 0,
+      "resource_dropped_attributes_count": 0,
+      "scope_dropped_attributes_count": 0
+    },
+    {
+      "span_id": "360183f074e22ac1",
+      "parent_span_id": "48b28a268d03805a",
+      "service_name": "frontend",
+      "service_namespace": "opentelemetry-demo",
+      "span_name": "grpc.hipstershop.ProductCatalogService/GetProduct",
+      "span_kind": 3,
+      "status_code": 0,
+      "status_message": "",
+      "start_time": "2026-09-27T05:38:09.68832Z",
+      "end_time": "2026-09-27T05:38:09.692174336Z",
+      "duration_ns": "3854336",
+      "ingested_at": "2026-09-27T05:38:14.905803528Z",
+      "resource_attributes": {
+        "attributes": [
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "frontend"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "opentelemetry-demo"
+            }
+          }
+        ]
+      },
+      "span_attributes": {},
+      "scope_attributes": {},
+      "events": {},
+      "links": {},
+      "scope_name": "@opentelemetry/instrumentation-grpc",
+      "scope_version": "0.29.2",
+      "resource_schema_url": "",
+      "scope_schema_url": "",
+      "trace_state": "",
+      "trace_flags": 0,
+      "dropped_attributes_count": 0,
+      "dropped_events_count": 0,
+      "dropped_links_count": 0,
+      "resource_dropped_attributes_count": 0,
+      "scope_dropped_attributes_count": 0
+    },
+    {
+      "span_id": "d32745235ec5fff2",
+      "parent_span_id": "48b28a268d03805a",
+      "service_name": "frontend",
+      "service_namespace": "opentelemetry-demo",
+      "span_name": "grpc.hipstershop.ProductCatalogService/GetProduct",
+      "span_kind": 3,
+      "status_code": 0,
+      "status_message": "",
+      "start_time": "2026-09-27T05:38:09.688905728Z",
+      "end_time": "2026-09-27T05:38:09.691826176Z",
+      "duration_ns": "2920448",
+      "ingested_at": "2026-09-27T05:38:14.905803528Z",
+      "resource_attributes": {
+        "attributes": [
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "frontend"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "opentelemetry-demo"
+            }
+          }
+        ]
+      },
+      "span_attributes": {},
+      "scope_attributes": {},
+      "events": {},
+      "links": {},
+      "scope_name": "@opentelemetry/instrumentation-grpc",
+      "scope_version": "0.29.2",
+      "resource_schema_url": "",
+      "scope_schema_url": "",
+      "trace_state": "",
+      "trace_flags": 0,
+      "dropped_attributes_count": 0,
+      "dropped_events_count": 0,
+      "dropped_links_count": 0,
+      "resource_dropped_attributes_count": 0,
+      "scope_dropped_attributes_count": 0
+    },
+    {
+      "span_id": "4562b6c46874df0a",
+      "parent_span_id": "288f61da89c85058",
+      "service_name": "recommendationservice",
+      "service_namespace": "opentelemetry-demo",
+      "span_name": "/hipstershop.RecommendationService/ListRecommendations",
+      "span_kind": 2,
+      "status_code": 0,
+      "status_message": "",
+      "start_time": "2026-09-27T05:38:09.896189799Z",
+      "end_time": "2026-09-27T05:38:09.897924421Z",
+      "duration_ns": "1734622",
+      "ingested_at": "2026-09-27T05:38:13.936277554Z",
+      "resource_attributes": {
+        "attributes": [
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "opentelemetry-demo"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "recommendationservice"
+            }
+          }
+        ]
+      },
+      "span_attributes": {
+        "attributes": [
+          {
+            "key": "rpc.system",
+            "value": {
+              "stringValue": "grpc"
+            }
+          },
+          {
+            "key": "rpc.method",
+            "value": {
+              "stringValue": "ListRecommendations"
+            }
+          },
+          {
+            "key": "rpc.service",
+            "value": {
+              "stringValue": "hipstershop.RecommendationService"
+            }
+          }
+        ]
+      },
+      "scope_attributes": {},
+      "events": {},
+      "links": {},
+      "scope_name": "opentelemetry.instrumentation.grpc",
+      "scope_version": "0.28b1",
+      "resource_schema_url": "",
+      "scope_schema_url": "",
+      "trace_state": "",
+      "trace_flags": 0,
+      "dropped_attributes_count": 0,
+      "dropped_events_count": 0,
+      "dropped_links_count": 0,
+      "resource_dropped_attributes_count": 0,
+      "scope_dropped_attributes_count": 0
+    },
+    {
+      "span_id": "72d76e138f920fc3",
+      "parent_span_id": "4562b6c46874df0a",
+      "service_name": "recommendationservice",
+      "service_namespace": "opentelemetry-demo",
+      "span_name": "get_product_list",
+      "span_kind": 1,
+      "status_code": 0,
+      "status_message": "",
+      "start_time": "2026-09-27T05:38:09.896246965Z",
+      "end_time": "2026-09-27T05:38:09.897659731Z",
+      "duration_ns": "1412766",
+      "ingested_at": "2026-09-27T05:38:13.936277554Z",
+      "resource_attributes": {
+        "attributes": [
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "opentelemetry-demo"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "recommendationservice"
+            }
+          }
+        ]
+      },
+      "span_attributes": {},
+      "scope_attributes": {},
+      "events": {},
+      "links": {},
+      "scope_name": "recommendationservice",
+      "scope_version": "",
+      "resource_schema_url": "",
+      "scope_schema_url": "",
+      "trace_state": "",
+      "trace_flags": 0,
+      "dropped_attributes_count": 0,
+      "dropped_events_count": 0,
+      "dropped_links_count": 0,
+      "resource_dropped_attributes_count": 0,
+      "scope_dropped_attributes_count": 0
+    },
+    {
+      "span_id": "09f8b32c6484e6c4",
+      "parent_span_id": "72d76e138f920fc3",
+      "service_name": "recommendationservice",
+      "service_namespace": "opentelemetry-demo",
+      "span_name": "/hipstershop.ProductCatalogService/ListProducts",
+      "span_kind": 3,
+      "status_code": 0,
+      "status_message": "",
+      "start_time": "2026-09-27T05:38:09.896320135Z",
+      "end_time": "2026-09-27T05:38:09.897587975Z",
+      "duration_ns": "1267840",
+      "ingested_at": "2026-09-27T05:38:13.936277554Z",
+      "resource_attributes": {
+        "attributes": [
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "opentelemetry-demo"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "recommendationservice"
+            }
+          }
+        ]
+      },
+      "span_attributes": {
+        "attributes": [
+          {
+            "key": "rpc.system",
+            "value": {
+              "stringValue": "grpc"
+            }
+          },
+          {
+            "key": "rpc.method",
+            "value": {
+              "stringValue": "ListProducts"
+            }
+          },
+          {
+            "key": "rpc.service",
+            "value": {
+              "stringValue": "hipstershop.ProductCatalogService"
+            }
+          }
+        ]
+      },
+      "scope_attributes": {},
+      "events": {},
+      "links": {},
+      "scope_name": "opentelemetry.instrumentation.grpc",
+      "scope_version": "0.28b1",
+      "resource_schema_url": "",
+      "scope_schema_url": "",
+      "trace_state": "",
+      "trace_flags": 0,
+      "dropped_attributes_count": 0,
+      "dropped_events_count": 0,
+      "dropped_links_count": 0,
+      "resource_dropped_attributes_count": 0,
+      "scope_dropped_attributes_count": 0
+    },
+    {
+      "span_id": "940520e677054cde",
+      "parent_span_id": "09f8b32c6484e6c4",
+      "service_name": "productcatalogservice",
+      "service_namespace": "opentelemetry-demo",
+      "span_name": "hipstershop.ProductCatalogService/ListProducts",
+      "span_kind": 2,
+      "status_code": 0,
+      "status_message": "",
+      "start_time": "2026-09-27T05:38:09.896833596Z",
+      "end_time": "2026-09-27T05:38:09.896847666Z",
+      "duration_ns": "14070",
+      "ingested_at": "2026-09-27T05:38:14.878946469Z",
+      "resource_attributes": {
+        "attributes": [
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "productcatalogservice"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "opentelemetry-demo"
+            }
+          }
+        ]
+      },
+      "span_attributes": {
+        "attributes": [
+          {
+            "key": "rpc.system",
+            "value": {
+              "stringValue": "grpc"
+            }
+          },
+          {
+            "key": "rpc.service",
+            "value": {
+              "stringValue": "hipstershop.ProductCatalogService"
+            }
+          },
+          {
+            "key": "rpc.method",
+            "value": {
+              "stringValue": "ListProducts"
+            }
+          }
+        ]
+      },
+      "scope_attributes": {},
+      "events": {
+        "events": [
+          {
+            "timeUnixNano": "1790487489896839672",
+            "name": "message"
+          },
+          {
+            "timeUnixNano": "1790487489896846806",
+            "name": "message"
+          }
+        ]
+      },
+      "links": {},
+      "scope_name": "go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc",
+      "scope_version": "semver:0.29.0",
+      "resource_schema_url": "https://opentelemetry.io/schemas/v1.7.0",
+      "scope_schema_url": "",
+      "trace_state": "",
+      "trace_flags": 0,
+      "dropped_attributes_count": 0,
+      "dropped_events_count": 0,
+      "dropped_links_count": 0,
+      "resource_dropped_attributes_count": 0,
+      "scope_dropped_attributes_count": 0
+    },
+    {
+      "span_id": "763a59b0cbea85a4",
+      "parent_span_id": "ec2358ac226c8826",
+      "service_name": "productcatalogservice",
+      "service_namespace": "opentelemetry-demo",
+      "span_name": "hipstershop.ProductCatalogService/GetProduct",
+      "span_kind": 2,
+      "status_code": 0,
+      "status_message": "",
+      "start_time": "2026-09-27T05:38:09.902685616Z",
+      "end_time": "2026-09-27T05:38:09.902709624Z",
+      "duration_ns": "24008",
+      "ingested_at": "2026-09-27T05:38:14.878946469Z",
+      "resource_attributes": {
+        "attributes": [
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "productcatalogservice"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "opentelemetry-demo"
+            }
+          }
+        ]
+      },
+      "span_attributes": {
+        "attributes": [
+          {
+            "key": "rpc.system",
+            "value": {
+              "stringValue": "grpc"
+            }
+          },
+          {
+            "key": "rpc.service",
+            "value": {
+              "stringValue": "hipstershop.ProductCatalogService"
+            }
+          },
+          {
+            "key": "rpc.method",
+            "value": {
+              "stringValue": "GetProduct"
+            }
+          }
+        ]
+      },
+      "scope_attributes": {},
+      "events": {
+        "events": [
+          {
+            "timeUnixNano": "1790487489902693612",
+            "name": "message"
+          },
+          {
+            "timeUnixNano": "1790487489902703037",
+            "name": "Product Found - ID: 66VCHSJNUP, Name: Starsense Explorer Refractor Telescope"
+          },
+          {
+            "timeUnixNano": "1790487489902708638",
+            "name": "message"
+          }
+        ]
+      },
+      "links": {},
+      "scope_name": "go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc",
+      "scope_version": "semver:0.29.0",
+      "resource_schema_url": "https://opentelemetry.io/schemas/v1.7.0",
+      "scope_schema_url": "",
+      "trace_state": "",
+      "trace_flags": 0,
+      "dropped_attributes_count": 0,
+      "dropped_events_count": 0,
+      "dropped_links_count": 0,
+      "resource_dropped_attributes_count": 0,
+      "scope_dropped_attributes_count": 0
+    },
+    {
+      "span_id": "fa8f002f467fd189",
+      "parent_span_id": "d32745235ec5fff2",
+      "service_name": "productcatalogservice",
+      "service_namespace": "opentelemetry-demo",
+      "span_name": "hipstershop.ProductCatalogService/GetProduct",
+      "span_kind": 2,
+      "status_code": 0,
+      "status_message": "",
+      "start_time": "2026-09-27T05:38:09.902738251Z",
+      "end_time": "2026-09-27T05:38:09.902756392Z",
+      "duration_ns": "18141",
+      "ingested_at": "2026-09-27T05:38:14.878946469Z",
+      "resource_attributes": {
+        "attributes": [
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "productcatalogservice"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "opentelemetry-demo"
+            }
+          }
+        ]
+      },
+      "span_attributes": {
+        "attributes": [
+          {
+            "key": "rpc.system",
+            "value": {
+              "stringValue": "grpc"
+            }
+          },
+          {
+            "key": "rpc.service",
+            "value": {
+              "stringValue": "hipstershop.ProductCatalogService"
+            }
+          },
+          {
+            "key": "rpc.method",
+            "value": {
+              "stringValue": "GetProduct"
+            }
+          }
+        ]
+      },
+      "scope_attributes": {},
+      "events": {
+        "events": [
+          {
+            "timeUnixNano": "1790487489902746936",
+            "name": "message"
+          },
+          {
+            "timeUnixNano": "1790487489902751913",
+            "name": "Product Found - ID: 2ZYFJ3GM2N, Name: Roof Binoculars"
+          },
+          {
+            "timeUnixNano": "1790487489902755454",
+            "name": "message"
+          }
+        ]
+      },
+      "links": {},
+      "scope_name": "go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc",
+      "scope_version": "semver:0.29.0",
+      "resource_schema_url": "https://opentelemetry.io/schemas/v1.7.0",
+      "scope_schema_url": "",
+      "trace_state": "",
+      "trace_flags": 0,
+      "dropped_attributes_count": 0,
+      "dropped_events_count": 0,
+      "dropped_links_count": 0,
+      "resource_dropped_attributes_count": 0,
+      "scope_dropped_attributes_count": 0
+    },
+    {
+      "span_id": "5250184d9ecee9f7",
+      "parent_span_id": "360183f074e22ac1",
+      "service_name": "productcatalogservice",
+      "service_namespace": "opentelemetry-demo",
+      "span_name": "hipstershop.ProductCatalogService/GetProduct",
+      "span_kind": 2,
+      "status_code": 0,
+      "status_message": "",
+      "start_time": "2026-09-27T05:38:09.902751254Z",
+      "end_time": "2026-09-27T05:38:09.902766034Z",
+      "duration_ns": "14780",
+      "ingested_at": "2026-09-27T05:38:14.878946469Z",
+      "resource_attributes": {
+        "attributes": [
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "productcatalogservice"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "opentelemetry-demo"
+            }
+          }
+        ]
+      },
+      "span_attributes": {
+        "attributes": [
+          {
+            "key": "rpc.system",
+            "value": {
+              "stringValue": "grpc"
+            }
+          },
+          {
+            "key": "rpc.service",
+            "value": {
+              "stringValue": "hipstershop.ProductCatalogService"
+            }
+          },
+          {
+            "key": "rpc.method",
+            "value": {
+              "stringValue": "GetProduct"
+            }
+          }
+        ]
+      },
+      "scope_attributes": {},
+      "events": {
+        "events": [
+          {
+            "timeUnixNano": "1790487489902759160",
+            "name": "message"
+          },
+          {
+            "timeUnixNano": "1790487489902762396",
+            "name": "Product Found - ID: L9ECAV7KIM, Name: Lens Cleaning Kit"
+          },
+          {
+            "timeUnixNano": "1790487489902765438",
+            "name": "message"
+          }
+        ]
+      },
+      "links": {},
+      "scope_name": "go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc",
+      "scope_version": "semver:0.29.0",
+      "resource_schema_url": "https://opentelemetry.io/schemas/v1.7.0",
+      "scope_schema_url": "",
+      "trace_state": "",
+      "trace_flags": 0,
+      "dropped_attributes_count": 0,
+      "dropped_events_count": 0,
+      "dropped_links_count": 0,
+      "resource_dropped_attributes_count": 0,
+      "scope_dropped_attributes_count": 0
+    },
+    {
+      "span_id": "60af1b772ab3946d",
+      "parent_span_id": "6718818cdd2d9c67",
+      "service_name": "productcatalogservice",
+      "service_namespace": "opentelemetry-demo",
+      "span_name": "hipstershop.ProductCatalogService/GetProduct",
+      "span_kind": 2,
+      "status_code": 0,
+      "status_message": "",
+      "start_time": "2026-09-27T05:38:09.902751316Z",
+      "end_time": "2026-09-27T05:38:09.902776116Z",
+      "duration_ns": "24800",
+      "ingested_at": "2026-09-27T05:38:14.878946469Z",
+      "resource_attributes": {
+        "attributes": [
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "productcatalogservice"
+            }
+          },
+          {
+            "key": "service.namespace",
+            "value": {
+              "stringValue": "opentelemetry-demo"
+            }
+          }
+        ]
+      },
+      "span_attributes": {
+        "attributes": [
+          {
+            "key": "rpc.system",
+            "value": {
+              "stringValue": "grpc"
+            }
+          },
+          {
+            "key": "rpc.service",
+            "value": {
+              "stringValue": "hipstershop.ProductCatalogService"
+            }
+          },
+          {
+            "key": "rpc.method",
+            "value": {
+              "stringValue": "GetProduct"
+            }
+          }
+        ]
+      },
+      "scope_attributes": {},
+      "events": {
+        "events": [
+          {
+            "timeUnixNano": "1790487489902761697",
+            "name": "message"
+          },
+          {
+            "timeUnixNano": "1790487489902772475",
+            "name": "Product Found - ID: 1YMWWN1N4O, Name: Eclipsmart Travel Refractor Telescope"
+          },
+          {
+            "timeUnixNano": "1790487489902775303",
+            "name": "message"
+          }
+        ]
+      },
+      "links": {},
+      "scope_name": "go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc",
+      "scope_version": "semver:0.29.0",
+      "resource_schema_url": "https://opentelemetry.io/schemas/v1.7.0",
+      "scope_schema_url": "",
+      "trace_state": "",
+      "trace_flags": 0,
+      "dropped_attributes_count": 0,
+      "dropped_events_count": 0,
+      "dropped_links_count": 0,
+      "resource_dropped_attributes_count": 0,
+      "scope_dropped_attributes_count": 0
+    }
+  ],
+  "truncated": false,
+  "truncation_reason": "",
+  "missing_parent_ids": [
+    "ebff28a00c871b55"
+  ],
+  "root_count": 0,
+  "has_missing_root": true,
+  "has_cycles": false,
+  "has_source_drops": false,
+  "observed_start_time": "2026-09-27T05:38:09.679049216Z",
+  "observed_end_time": "2026-09-27T05:38:09.902776116Z",
+  "observed_elapsed_ns": "223726900"
+}

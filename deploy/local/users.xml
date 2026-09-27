@@ -7,5 +7,36 @@
       <quota>default</quota>
       <grants><query>GRANT INSERT ON incidentlens.spans</query></grants>
     </ingest>
+    <query>
+      <password>local-query</password>
+      <networks><ip>::/0</ip></networks>
+      <profile>query</profile>
+      <quota>default</quota>
+      <grants><query>GRANT SELECT ON incidentlens.spans</query></grants>
+    </query>
   </users>
+  <profiles>
+    <query>
+      <readonly>2</readonly>
+      <!-- clickhouse-go adds five seconds to the remaining context deadline. -->
+      <max_execution_time>10</max_execution_time>
+      <max_memory_usage>268435456</max_memory_usage>
+      <max_rows_to_read>2000000</max_rows_to_read>
+      <max_bytes_to_read>268435456</max_bytes_to_read>
+      <read_overflow_mode>throw</read_overflow_mode>
+      <max_threads>2</max_threads>
+      <max_block_size>256</max_block_size>
+      <preferred_block_size_bytes>1048576</preferred_block_size_bytes>
+      <constraints>
+        <max_execution_time><min>1</min><max>10</max></max_execution_time>
+        <max_memory_usage><readonly/></max_memory_usage>
+        <max_rows_to_read><readonly/></max_rows_to_read>
+        <max_bytes_to_read><readonly/></max_bytes_to_read>
+        <read_overflow_mode><readonly/></read_overflow_mode>
+        <max_threads><readonly/></max_threads>
+        <max_block_size><readonly/></max_block_size>
+        <preferred_block_size_bytes><readonly/></preferred_block_size_bytes>
+      </constraints>
+    </query>
+  </profiles>
 </clickhouse>

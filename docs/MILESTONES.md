@@ -1,6 +1,6 @@
 # IncidentLens milestones
 
-Status: Phase 1 is complete; all acceptance criteria below passed. Phase 2 is the next incomplete milestone. Phases 2–9 are unstarted; begin Phase 2 only when requested.
+Status: Phases 1 and 2 are complete; their acceptance criteria passed. Phase 3 is the next incomplete milestone and has not started. Phases 3–9 require a separate request.
 
 Phases 1–3 form the functional trace-only MVP. Phase 4 establishes measured performance. Phases 5–8 are conditional extensions: each requires a concrete need and an ADR before implementation; defer or skip a phase when evidence does not justify it. Phase 9 can polish the trace-only product even if extensions are skipped. Redis, PostgreSQL, and AI/LLMs have no planned phase and remain excluded without a separately justified scope change.
 
@@ -16,7 +16,7 @@ Completed 2026-09-25 (America/New_York). See [criterion-by-criterion verificatio
 - Retrieved a real 16-span Demo trace across frontend, recommendationservice and productcatalogservice, with every observed parent present, exact stored durations, no ERROR status or source-reported drops, and an HTTP 200 response. This does not prove complete delivery for arbitrary traffic.
 - Accepted the digest-pinned historical Demo subset in [ADR 0001](adr/0001-demo-trace-only-candidate.md) and corrected Collector acknowledgment behavior in [ADR 0002](adr/0002-collector-acknowledgment.md).
 
-Remaining limitations: local synthetic use, immutable span keys, no durable Collector queue or disk-failure guarantee, downstream partial-rejection caveats, and an intentionally narrow historical Demo scenario. No query UI, detection or benchmarks are implemented. Phase 2 has not started.
+Remaining limitations: local synthetic use, immutable span keys, no durable Collector queue or disk-failure guarantee, downstream partial-rejection caveats, and an intentionally narrow historical Demo scenario. Phase 2 adds query/explorer behavior separately; detection and benchmarks remain unimplemented.
 
 Acceptance criteria:
 
@@ -32,6 +32,25 @@ Acceptance criteria:
 ## Phase 2: trace query/explorer
 
 Deliver bounded HTTP queries and the React/TypeScript trace explorer.
+
+Completed 2026-09-27 (America/New_York). See the [criterion-by-criterion verification and raw evidence](VERIFICATION_PHASE2.md).
+
+- Implemented documented, bounded service summaries, trace search and trace detail
+  APIs with SELECT-only access, duplicate-safe reads, stable cursor semantics,
+  exact nanosecond fields and explicit incomplete/truncated observations.
+- Delivered the React/TypeScript explorer with keyboard search/navigation,
+  multi-service waterfalls, span context and visible loading/error/empty/
+  insufficient-data states.
+- Passed the complete race-enabled Go suite with all real-dependency, query,
+  restart and failure gates enabled, plus vet/build, 14 frontend behavior/precision
+  tests and a real Demo-to-browser E2E test. Verified desktop/mobile rendering.
+- Followed an injected known Demo trace through ingestion, search and detail:
+  14 spans across the three supported services; the intentionally external parent
+  is reported missing rather than treated as complete telemetry.
+
+Remaining limitations: bounded local queries, nontransactional cursor pagination,
+explicit caps, incomplete telemetry and the existing immutable-span/historical
+Demo assumptions. No incident detector, incident UI or benchmark is implemented.
 
 Acceptance criteria:
 

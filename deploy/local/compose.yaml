@@ -33,6 +33,7 @@ services:
     build:
       context: ../..
       dockerfile: deploy/local/Dockerfile
+      target: ingest
     environment:
       GRPC_ADDRESS: 0.0.0.0:4317
       HEALTH_ADDRESS: 0.0.0.0:8080
@@ -42,6 +43,24 @@ services:
     ports:
       - "127.0.0.1:14317:4317"
       - "127.0.0.1:18080:8080"
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+    mem_limit: 512m
+    cpus: 1
+    networks: [telemetry]
+  api:
+    build:
+      context: ../..
+      dockerfile: deploy/local/Dockerfile
+      target: api
+    environment:
+      HTTP_ADDRESS: 0.0.0.0:8081
+      FRONTEND_DIR: /web
+      CLICKHOUSE_ADDRESS: clickhouse:9000
+      CLICKHOUSE_USER: query
+      CLICKHOUSE_PASSWORD: local-query
+    ports:
+      - "127.0.0.1:18081:8081"
     depends_on:
       migrate: {condition: service_completed_successfully}
     mem_limit: 512m

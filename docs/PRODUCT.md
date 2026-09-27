@@ -1,6 +1,6 @@
 # IncidentLens product plan
 
-Status: Phase 1 trace ingestion is complete and verified against real dependencies and the supported external Demo scenario. The investigation workflow below remains proposed; no query API, UI, or detector exists. See [milestone status](MILESTONES.md) and [verification](VERIFICATION.md).
+Status: Phases 1–2 are complete and verified: trace ingestion, service summaries, trace search and the waterfall explorer. Incident detection and comparison remain proposed. See [milestone status](MILESTONES.md), [ingestion verification](VERIFICATION.md) and [explorer verification](VERIFICATION_PHASE2.md).
 
 ## Problem statement
 

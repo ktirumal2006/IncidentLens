@@ -4,3 +4,9 @@
 **/coverage.out
 .env
 .env.*
+frontend/dist
+tests/e2e/test-results
+tests/e2e/playwright-report
+docs/evidence
+backend/api
+backend/ingest

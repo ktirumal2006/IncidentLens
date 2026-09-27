@@ -1,0 +1,15 @@
+
+> incidentlens-e2e@0.1.0 test
+> node explorer.mjs
+
+{
+  "result": "PASS",
+  "trace_id": "b37cf89014eef911c8f627a333181e61",
+  "services": [
+    "frontend",
+    "productcatalogservice",
+    "recommendationservice"
+  ],
+  "api_attribution": "injected traceparent",
+  "browser": "search submitted and result opened by keyboard; multi-service waterfall visible"
+}

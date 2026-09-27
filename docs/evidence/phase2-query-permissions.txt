@@ -1,0 +1,47 @@
+SELECT count() FROM incidentlens.spans FINAL 
+exit= 0 
+ 18836
+ 
+INSERT INTO incidentlens.spans SELECT * FROM incidentlens.spans WHERE 0 
+exit= 241 
+  Received exception from server (version 25.8.4):
+Code: 497. DB::Exception: Received from localhost:9000. DB::Exception: query: Not enough privileges. To execute this query, it's necessary to have the grant INSERT(trace_id, span_id, parent_span_id, service_name, service_namespace, span_name, span_kind, status_code, status_message, start_time, end_time, duration_ns, ingested_at, resource_attributes, span_attributes, scope_attributes, scope_name, scope_version, resource_schema_url, scope_schema_url, events, links, trace_state, trace_flags, dropped_attributes_count, dropped_events_count, dropped_links_count, resource_dropped_attributes_count, scope_dropped_attributes_count) ON incidentlens.spans. (ACCESS_DENIED)
+(query: INSERT INTO incidentlens.spans SELECT * FROM incidentlens.spans WHERE 0)
+
+SELECT 1 SETTINGS max_memory_usage=0 
+exit= 196 
+  Received exception from server (version 25.8.4):
+Code: 452. DB::Exception: Received from localhost:9000. DB::Exception: Setting max_memory_usage should not be changed. (SETTING_CONSTRAINT_VIOLATION)
+(query: SELECT 1 SETTINGS max_memory_usage=0)
+
+SELECT 1 SETTINGS max_execution_time=0 
+exit= 196 
+  Received exception from server (version 25.8.4):
+Code: 452. DB::Exception: Received from localhost:9000. DB::Exception: Setting max_execution_time shouldn't be less than 1.. (SETTING_CONSTRAINT_VIOLATION)
+(query: SELECT 1 SETTINGS max_execution_time=0)
+
+SELECT 1 SETTINGS max_execution_time=11 
+exit= 196 
+  Received exception from server (version 25.8.4):
+Code: 452. DB::Exception: Received from localhost:9000. DB::Exception: Setting max_execution_time shouldn't be greater than 10.. (SETTING_CONSTRAINT_VIOLATION)
+(query: SELECT 1 SETTINGS max_execution_time=11)
+
+SELECT 1 SETTINGS max_rows_to_read=0 
+exit= 196 
+  Received exception from server (version 25.8.4):
+Code: 452. DB::Exception: Received from localhost:9000. DB::Exception: Setting max_rows_to_read should not be changed. (SETTING_CONSTRAINT_VIOLATION)
+(query: SELECT 1 SETTINGS max_rows_to_read=0)
+
+SELECT 1 SETTINGS read_overflow_mode='break' 
+exit= 196 
+  Received exception from server (version 25.8.4):
+Code: 452. DB::Exception: Received from localhost:9000. DB::Exception: Setting read_overflow_mode should not be changed. (SETTING_CONSTRAINT_VIOLATION)
+(query: SELECT 1 SETTINGS read_overflow_mode='break')
+
+SELECT sum(number) FROM numbers(3000000) 
+exit= 158 
+  Received exception from server (version 25.8.4):
+Code: 158. DB::Exception: Received from localhost:9000. DB::Exception: Limit for rows (controlled by 'max_rows_to_read' setting) exceeded, max rows: 2.00 million, current rows: 3.00 million. (TOO_MANY_ROWS)
+(query: SELECT sum(number) FROM numbers(3000000))
+
+All read-only and budget checks passed.

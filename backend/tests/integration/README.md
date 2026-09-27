@@ -1,4 +1,4 @@
-# Phase 1 integration checks
+# Real-dependency integration checks
 
 These tests use the real ClickHouse native driver and the local Compose stack.
 They never clear existing tables or volumes. Every fixture has a random trace ID;
@@ -59,3 +59,26 @@ retryable failure during storage outage and queue overflow, check unacknowledged
 input loss across a forced Collector restart, and reconcile retried identities
 against deduplicated storage. These are correctness tests, not load benchmarks.
 See the root verification record for actual execution results.
+
+## Phase 2 queries
+
+Build and start the complete product Compose stack first. Query tests exercise
+the running HTTP API (default `http://127.0.0.1:18081`, overridden with
+`QUERY_TEST_URL`) and write uniquely identified fixtures to real ClickHouse.
+They use the same ClickHouse endpoint/admin test credentials as the ingestion
+tests; the deployed API uses its separate SELECT-only user.
+
+```sh
+INCIDENTLENS_INTEGRATION=1 INCIDENTLENS_QUERY_INTEGRATION=1 \
+  go test -race ./tests/integration -run TestQuery -v -count=1
+```
+
+Both gates are required. Coverage includes exact filters, SERVER-only summaries,
+replay before merges, exact percentiles, cursor ordering/cutoff/refresh behavior,
+typed detail context, relationships, and explicit response truncation. These
+tests temporarily stop and restore table merges; run serially without another
+merge-control suite. Never run them against an unrelated or production database.
+Fixtures expire normally; no table or volume is cleared.
+
+The [browser test](../../../tests/e2e/README.md) separately generates a real
+external Demo trace and follows that known ID through search and the explorer.

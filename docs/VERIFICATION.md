@@ -1,6 +1,6 @@
 # Phase 1 verification record
 
-Phase 1 passed on September 25, 2026 (America/New_York; the final Demo request is September 26 in UTC). Phase 2 has not started. This records correctness and compatibility, not benchmark or capacity claims.
+Phase 1 passed on September 25, 2026 (America/New_York; the final Demo request is September 26 in UTC). Phase 2 verification is recorded separately in [its acceptance record](VERIFICATION_PHASE2.md). This records correctness and compatibility, not benchmark or capacity claims.
 
 ## Environment and reproducible commands
 
@@ -62,4 +62,4 @@ Only the documented local synthetic browsing scenario is supported. The historic
 
 Collector buffering remains volatile. Unacknowledged data can be lost; ambiguous results require caller replay. Downstream partial-rejection counts are not an end-to-end receipt through the Collector. Single-node storage does not promise replication or survival of disk loss. Identical replay relies on immutable span sorting keys; conflicting copies remain unsupported. Background TTL deletion is asynchronous and query visibility must use the exact retention cutoff.
 
-No HTTP trace query API, UI, detector or measured performance envelope exists yet. Those remain later milestones.
+At Phase 1 completion no HTTP query API or UI existed. Phase 2 adds them; detector and measured performance remain later milestones.

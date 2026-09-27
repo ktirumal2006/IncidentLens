@@ -1,0 +1,13 @@
+
+> incidentlens-explorer@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.11 /Users/kousil/Documents/IncidentLens/frontend
+
+
+ Test Files  2 passed (2)
+      Tests  14 passed (14)
+   Start at  01:32:07
+   Duration  2.47s (transform 189ms, setup 0ms, import 406ms, tests 1.44s, environment 1.04s)
+

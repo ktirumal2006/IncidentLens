@@ -1,6 +1,6 @@
-# IncidentLens architecture plan
+# IncidentLens architecture
 
-Status: Phase 1 ingestion, span schema, and local configuration are implemented and runtime-verified. Query APIs, detection, and UI remain proposed. See [ingestion contract](INGESTION.md), [verification](VERIFICATION.md), and [supported Demo ADR](adr/0001-demo-trace-only-candidate.md).
+Status: Phases 1–2 are implemented and verified: trace ingestion, bounded query APIs and the trace explorer. Detection remains proposed. See [ingestion contract](INGESTION.md), [ingestion verification](VERIFICATION.md), [query/explorer verification](VERIFICATION_PHASE2.md), and [supported Demo ADR](adr/0001-demo-trace-only-candidate.md).
 
 ## MVP architecture
 
@@ -13,7 +13,7 @@ External OpenTelemetry Demo (supported service subset)
   <- React + TypeScript web application (HTTP/JSON)
 ```
 
-The target design uses two Go executables in one Go module (only ingestion exists after Phase 1): ingestion and query API. The detector is an internal package invoked by the query API, not a separate service. ClickHouse is the only product datastore. Docker Compose is the local orchestration tool; all product ports bind locally or remain on a private container network.
+The implementation uses two Go executables in one Go module: ingestion and query API. The query API also serves the built React/TypeScript explorer. The proposed Phase 3 detector will be an internal package invoked by the query API, not a separate service. ClickHouse is the only product datastore. Docker Compose is the local orchestration tool; all product ports bind locally or remain on a private container network.
 
 ## Component responsibilities
 
@@ -71,9 +71,9 @@ Storage choices implemented and tested for Phase 1:
 
 ## API boundaries
 
-The HTTP query routes below remain proposed. OTLP ingestion and health endpoints exist; define the detailed query HTTP contract alongside Phase 2 implementation.
+The service-summary, trace-search and trace-detail routes are implemented in Phase 2, alongside ingestion and process health. See the [complete query contract](../api/README.md) for exact JSON shapes, nanosecond strings, filters, pagination and errors. Only the incidents route below remains proposed.
 
-| Boundary | Proposed contract |
+| Boundary | Contract |
 | --- | --- |
 | Collector → ingestion | OTLP/gRPC `opentelemetry.proto.collector.trace.v1.TraceService/Export`. Traces only. |
 | Ingestion → storage | Parameterized, bounded batch inserts through the ClickHouse client; write credentials confined to ingestion. |
@@ -81,12 +81,12 @@ The HTTP query routes below remain proposed. OTLP ingestion and health endpoints
 | `GET /api/v1/services` | Required `from`/`to`; service/operation summaries from deduplicated SERVER spans. |
 | `GET /api/v1/traces` | Required `from`/`to`; optional service, operation, span-duration bounds, and span error status; bounded limit and cursor. Returns traces containing matching spans, with matching-span facts clearly distinguished from trace-wide facts. |
 | `GET /api/v1/traces/{traceId}` | Required `from`/`to`; spans in that interval plus parent links, missing-parent indicators, and explicit truncation metadata. An empty result is 404; an oversized trace is never silently cut off. |
-| `GET /api/v1/incidents` | Explicit evaluation end time; optional service filter. Uses versioned window/threshold configuration and returns candidates, sample counts, baseline/current values, rule version, observation time, and evidence IDs. |
+| `GET /api/v1/incidents` (Phase 3, unimplemented) | Explicit evaluation end time; optional service filter. Uses versioned window/threshold configuration and returns candidates, sample counts, baseline/current values, rule version, observation time, and evidence IDs. |
 | Process health | Liveness and dependency readiness endpoints; no telemetry analytics pipeline is implied. |
 
 Time windows are UTC half-open intervals `[from, to)` based on span start time. Initial maximum query range is 24 hours within retention; initial page limit is 100, maximum 500. Validate positive duration bounds, IDs, enum filters, and cursor/filter consistency. Use parameterized values and allowlisted sort fields, a documented query timeout, response size limits, and consistent JSON errors (400 invalid request, 404 absent trace, 503 unavailable dependency, 504 deadline exceeded).
 
-Search sorts by matching span start time with trace ID as tie-breaker, returns each trace once, and carries an ingestion cutoff in the cursor. Late arrivals remain visible on a fresh search; cursor pagination is not a transactional database snapshot. Trace detail uses the selected search interval initially; offer a bounded interval expansion for missing parents. A missing parent or root can be detected; complete delivery cannot be proven from spans alone. Do not label a trace complete merely because it has a root.
+Search sorts by earliest matching span start time ascending with trace ID as tie-breaker, returns each trace once, and carries an ingestion cutoff in the cursor. Explicit receipt-time `PREWHERE` filtering runs before `FINAL` to retain eligible pre-cutoff copies while they remain stored. Background replacement can discard older receipt metadata, so replay plus merging can change later pages. Late arrivals remain visible on a fresh search; cursor pagination is not a transactional database snapshot. Trace detail uses the selected search interval initially; offer a bounded interval expansion for missing parents. A missing parent or root can be detected; complete delivery cannot be proven from spans alone. Do not label a trace complete merely because it has a root.
 
 ## Deterministic detection proposal
 
@@ -107,9 +107,9 @@ Search sorts by matching span start time with trace ID as tie-breaker, returns e
 - Query bounds, retention, thresholds, payload caps, and hardware limits are planning defaults, not performance guarantees. Final payload/time limits and the Demo service subset remain phase 1 validation decisions.
 - Meaningful changes to storage, delivery guarantees, component boundaries, rule semantics, or dependencies require an ADR explaining evidence, alternatives, and consequences.
 
-## Proposed repository structure
+## Repository structure and later additions
 
-The tree below remains the full proposed layout; Phase 1 adds only ingestion/storage, migrations, local configuration, integration tests, and Demo integration references. Create other paths as their phase needs them, not as empty scaffolding.
+The tree below includes the full target layout. Phases 1–2 implement ingestion/storage, query/httpapi, both executables, the trace explorer, API documentation, local configuration, integration/browser tests and Demo references. Detector, incident UI and benchmarks remain unimplemented. Create later paths only when their phase is requested.
 
 ```text
 IncidentLens/
@@ -131,7 +131,7 @@ IncidentLens/
 │       ├── ingest/                 # OTLP handling and batching
 │       ├── storage/clickhouse/     # Insert/query implementation
 │       ├── query/                  # Search and trace reconstruction
-│       ├── detector/               # Pure rule evaluation where practical
+│       ├── detector/               # Phase 3, unimplemented
 │       └── httpapi/                # HTTP handlers and transport types
 ├── frontend/
 │   ├── package.json
@@ -141,7 +141,7 @@ IncidentLens/
 │       ├── components/             # Shared UI only when needed
 │       └── features/
 │           ├── traces/
-│           └── incidents/
+│           └── incidents/         # Phase 3, unimplemented
 ├── api/                           # HTTP contract, added in phase 2
 ├── migrations/clickhouse/          # Ordered schema migrations
 ├── deploy/local/                  # Product Compose and Collector config
@@ -154,4 +154,4 @@ IncidentLens/
 └── scripts/                       # Small repeatable dev/test helpers
 ```
 
-Keep unit tests next to Go/TypeScript behavior. Phase 1 cross-component tests live at `backend/tests/integration` within the Go module so they can exercise its internal packages; root test directories remain planned for later cross-product/end-to-end workflows. Keep the upstream Demo checkout outside the product repository. Store only IncidentLens-owned integration configuration and the upstream revision here; product packages must never import Demo source. Do not add directories for deferred technologies until their phase is justified.
+Keep unit tests next to Go/TypeScript behavior. Phase 1 cross-component tests live at `backend/tests/integration` within the Go module so they can exercise its internal packages; Phase 2 adds `tests/e2e` for the external Demo-to-explorer workflow. Keep the upstream Demo checkout outside the product repository. Store only IncidentLens-owned integration configuration and the upstream revision here; product packages must never import Demo source. Do not add directories for deferred technologies until their phase is justified.

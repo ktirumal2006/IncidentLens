@@ -2,14 +2,15 @@
 
 IncidentLens is a trace-only investigation project for distributed applications. The planned workflow compares healthy and degraded requests and presents trace evidence for likely responsible services.
 
-**Phase 1 is complete.** Trace-only Go ingestion, ClickHouse storage, and the bounded Collector pipeline have passed unit and real-dependency tests, including replay, outage, overflow, and restart checks. The supported external Demo browsing scenario produces a stored three-service trace. No query API, explorer UI, detector, or performance claims exist yet.
+**Phases 1 and 2 are complete.** The trace-only pipeline has a bounded HTTP query API and a React/TypeScript explorer for service summaries, trace search, and parent-linked waterfalls. Real ClickHouse tests and the external Demo-to-browser workflow pass. Detection and performance measurement remain later milestones.
 
 ## Local prerequisites
 
 - Docker Engine with Docker Compose v2.39.4 or newer, running Linux containers.
 - Go 1.26.8 for host tests. The image build uses that same version.
-- Available local ports 4317, 14317, 18080, 18123, and 19000.
-- Enough Docker memory for the product container caps (2 GiB ClickHouse, 512 MiB ingestion, 256 MiB Collector), plus Docker overhead and the optional Demo.
+- Node.js 22.12+ and npm for host frontend tests (the container builds the UI with Node 22).
+- Available local ports 4317, 14317, 18080, 18081, 18123, and 19000.
+- Enough Docker memory for the product container caps (2 GiB ClickHouse, 512 MiB each ingestion and API, 256 MiB Collector), plus Docker overhead and the optional Demo.
 
 If Docker Desktop is running on macOS but `docker` is not on PATH, run `export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"` in the terminal used for these commands.
 
@@ -23,6 +24,7 @@ From the repository root:
 docker compose -f deploy/local/compose.yaml config --quiet
 docker compose -f deploy/local/compose.yaml up --build -d
 curl --fail http://127.0.0.1:18080/readyz
+curl --fail http://127.0.0.1:18081/readyz
 ```
 
 Compose waits for ClickHouse and runs the ordered SQL migrations before ingestion starts. Migration 001 uses `CREATE IF NOT EXISTS`, so repeating it is safe for its unchanged schema:
@@ -33,18 +35,24 @@ docker compose -f deploy/local/compose.yaml run --rm migrate
 
 Apply future schema changes as new numbered migrations; `IF NOT EXISTS` does not repair schema drift. The volume retains ClickHouse data across container restarts and ordinary `down`.
 
-OTLP/gRPC traces enter the Collector on port 4317. Direct ingestion is at port 14317 for tests; it acknowledges only completed database writes. `/livez` and `/readyz` are on port 18080. ClickHouse ports are exposed only on loopback for local verification. The synthetic local passwords in Compose are not production credentials. Ingestion uses an INSERT-only database user; admin access is limited to migration and local verification commands.
+Open the explorer at **http://127.0.0.1:18081**. Select a UTC interval (up to 24 hours within the last seven days), optionally filter service, operation, matching-span duration or status, then search. Select a trace to inspect its waterfall and span details. Search results describe matching spans; detail elapsed time describes the returned observation. Missing relationships and truncation are visible. Refresh reveals late arrivals; a root is never proof of complete delivery. The supported [external Demo scenario](integrations/otel-demo/README.md) generates real three-service traces.
+
+OTLP/gRPC traces enter the Collector on port 4317. Direct ingestion is at port 14317 for tests; it acknowledges only completed database writes. `/livez` and `/readyz` are on ports 18080 (ingestion) and 18081 (API). ClickHouse ports are exposed only on loopback for local verification. The synthetic local passwords in Compose are not production credentials. Ingestion uses an INSERT-only database user; the API uses a SELECT-only user with server-enforced query budgets. Admin access is limited to migration and local verification commands.
 
 ## Test and inspect
 
 ```sh
+npm --prefix frontend ci
 ./scripts/test.sh
 cd backend
-INCIDENTLENS_INTEGRATION=1 INCIDENTLENS_RESTART_TESTS=1 INCIDENTLENS_FAILURE_TESTS=1 \
+INCIDENTLENS_INTEGRATION=1 INCIDENTLENS_QUERY_INTEGRATION=1 \
+  INCIDENTLENS_RESTART_TESTS=1 INCIDENTLENS_FAILURE_TESTS=1 \
   go test -race ./... -v -count=1
 cd ..
 ./scripts/verify-storage.sh
 ```
+
+The script runs race-enabled Go tests, vet, executable builds, frontend behavior tests, TypeScript checking and the production UI build. See [query contracts](api/README.md) for filters, exact units, pagination, caps and errors, and [browser end-to-end tests](tests/e2e/README.md) for the live Demo-to-explorer workflow.
 
 Ordinary Go tests **skip** real-dependency tests unless enabled. Enabled tests fail when dependencies are unavailable. The restart/failure options stop or restart the local services and force-kill the Collector; run them serially without concurrent Demo requests. They retain the data volume and restore services. See [test details](backend/tests/integration/README.md). Synthetic test fixtures do not substitute for the [supported external Demo scenario](integrations/otel-demo/README.md), which has its own build and acceptance requirements.
 
@@ -68,5 +76,7 @@ Do not add `--volumes` unless you intend to delete retained local telemetry.
 - [Product scope](docs/PRODUCT.md)
 - [Architecture](docs/ARCHITECTURE.md)
 - [Exact ingestion limits and delivery semantics](docs/INGESTION.md)
+- [Query API contract](api/README.md)
 - [Milestones](docs/MILESTONES.md)
 - [Verification results and outstanding gates](docs/VERIFICATION.md)
+- [Phase 2 acceptance evidence](docs/VERIFICATION_PHASE2.md)

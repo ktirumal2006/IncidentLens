@@ -1,0 +1,18 @@
+=== RUN   TestQuerySummaryFiltersReplayAndPercentiles
+--- PASS: TestQuerySummaryFiltersReplayAndPercentiles (0.09s)
+=== RUN   TestQuerySearchSameSpanFiltersAndFrozenPagination
+--- PASS: TestQuerySearchSameSpanFiltersAndFrozenPagination (0.12s)
+=== RUN   TestQueryCursorKeepsEligibleSpanAfterLaterReplay
+--- PASS: TestQueryCursorKeepsEligibleSpanAfterLaterReplay (0.06s)
+=== RUN   TestQueryDetailRelationshipsBoundsAndContext
+--- PASS: TestQueryDetailRelationshipsBoundsAndContext (0.27s)
+=== RUN   TestQueryDetailCycleAndTruncation
+--- PASS: TestQueryDetailCycleAndTruncation (0.64s)
+=== RUN   TestQueryDetailResponseByteCap
+--- PASS: TestQueryDetailResponseByteCap (1.32s)
+=== RUN   TestQueryDurationBoundsAndErrors
+--- PASS: TestQueryDurationBoundsAndErrors (0.01s)
+=== RUN   TestQueryHalfOpenTimeDurationAndNamespace
+--- PASS: TestQueryHalfOpenTimeDurationAndNamespace (0.05s)
+PASS
+ok  	incidentlens/backend/tests/integration	4.344s

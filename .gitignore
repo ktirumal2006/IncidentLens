@@ -1,5 +1,11 @@
 .DS_Store
 /backend/ingest
+/backend/api
+node_modules/
+/frontend/dist/
+*.tsbuildinfo
+test-results/
+playwright-report/
 *.test
 coverage.out
 AGENTS.md

@@ -1,0 +1,4 @@
+/livez 200 
+/readyz 503 {"error":{"code":"unavailable","message":"storage unavailable"}}
+/api/v1/traces?from=2026-09-27T05%3A33%3A37.209136%2B00%3A00&to=2026-09-27T05%3A34%3A37.209136%2B00%3A00 503 {"error":{"code":"unavailable","message":"query unavailable or resource cap reached"}}
+Restored ClickHouse; API readyz=200.

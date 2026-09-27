@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "trace_id": "b37cf89014eef911c8f627a333181e61",
+  "span_count": 14,
+  "desktop": "1440x1000",
+  "mobile": "390x844",
+  "mobile_width": {
+    "viewport": 390,
+    "document": 390
+  },
+  "console_errors": []
+}
