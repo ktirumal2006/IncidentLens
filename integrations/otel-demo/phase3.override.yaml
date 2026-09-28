@@ -1,0 +1,12 @@
+# Phase 3 scenario isolation. Compose substitutes the run-unique namespace.
+# Use only with the pinned base compose.yaml; no upstream services are added.
+services:
+  frontend:
+    environment:
+      OTEL_RESOURCE_ATTRIBUTES: service.namespace=${INCIDENTLENS_PHASE3_NAMESPACE:?set run namespace}
+  recommendationservice:
+    environment:
+      OTEL_RESOURCE_ATTRIBUTES: service.namespace=${INCIDENTLENS_PHASE3_NAMESPACE:?set run namespace}
+  productcatalogservice:
+    environment:
+      OTEL_RESOURCE_ATTRIBUTES: service.namespace=${INCIDENTLENS_PHASE3_NAMESPACE:?set run namespace}

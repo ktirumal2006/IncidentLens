@@ -3,6 +3,6 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "scripts": { "test": "node explorer.mjs" },
+  "scripts": { "test": "node explorer.mjs", "test:incidents": "node incidents.mjs" },
   "devDependencies": { "playwright": "1.63.0" }
 }

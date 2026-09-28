@@ -11,17 +11,30 @@ import (
 	"time"
 
 	"github.com/ClickHouse/clickhouse-go/v2/lib/proto"
+	"incidentlens/backend/internal/detector"
 	"incidentlens/backend/internal/query"
 )
 
 type Handler struct {
-	Store     query.Store
-	StaticDir string
-	Now       func() time.Time
+	Store          query.Store
+	StaticDir      string
+	Incidents      detector.Store
+	DetectorConfig detector.Config
+	Now            func() time.Time
 }
 
 func NewHandler(store query.Store, staticDir string) http.Handler {
-	return &Handler{Store: store, StaticDir: staticDir, Now: func() time.Time { return time.Now().UTC() }}
+	h := &Handler{Store: store, StaticDir: staticDir, DetectorConfig: detector.DefaultConfig(), Now: func() time.Time { return time.Now().UTC() }}
+	if ds, ok := store.(detector.Store); ok {
+		h.Incidents = ds
+	}
+	return h
+}
+func NewHandlerWithDetector(store query.Store, incidents detector.Store, config detector.Config, staticDir string) http.Handler {
+	h := NewHandler(store, staticDir).(*Handler)
+	h.Incidents = incidents
+	h.DetectorConfig = config
+	return h
 }
 func (h *Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	switch {
@@ -44,6 +57,9 @@ func (h *Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		w.WriteHeader(200)
+		return
+	case r.URL.Path == "/api/v1/incidents":
+		h.serveIncidents(w, r)
 		return
 	case r.URL.Path == "/api/v1/services":
 		h.serveQuery(w, r, "services")

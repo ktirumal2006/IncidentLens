@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { detail, search, services, type SearchFilters, type SearchHit, type SearchPage, type Span, type Summaries, type TraceDetail } from './api'
 import { millisecondsToNs, timestampNs, utcField } from './time'
+import { IncidentView } from './IncidentView'
 
 const minute = 60_000
 const maxWindow = 24 * 60 * minute
@@ -83,6 +84,9 @@ function Waterfall({ trace }: { trace: TraceDetail }) {
 }
 
 export function App() {
+  const [view, setView] = useState<'traces' | 'incidents'>('traces')
+  const [incidentVisited, setIncidentVisited] = useState(false)
+  const traceDetailElement = useRef<HTMLElement>(null)
   const [form, setForm] = useState<Form>(initialForm)
   const [filters, setFilters] = useState<SearchFilters | null>(null)
   const [pages, setPages] = useState<SearchPage[]>([])
@@ -98,6 +102,13 @@ export function App() {
   const [requestCursor, setRequestCursor] = useState<string | undefined>()
   const [retryNonce, setRetryNonce] = useState(0)
   const page = pages[pageIndex] || null
+
+  useEffect(() => {
+    if (selectedId && view === 'traces') {
+      traceDetailElement.current?.focus()
+      traceDetailElement.current?.scrollIntoView?.({ block: 'start', behavior: 'smooth' })
+    }
+  }, [selectedId, view])
 
   useEffect(() => {
     if (!filters) return
@@ -121,6 +132,11 @@ export function App() {
 
   function submit(event: React.FormEvent) { event.preventDefault(); try { const next = filtersOf(form); setSelectedId(null); setTrace(null); setPages([]); setPageIndex(0); setSummary(null); setRequestCursor(undefined); setFilters(next); setError('') } catch (e) { setError((e as Error).message) } }
   function open(hit: SearchHit) { if (!filters) return; setSelectedId(hit.trace_id); setDetailRange({ from: filters.from, to: filters.to }) }
+  function openEvidence(selection: { traceId: string; from: string; to: string }) {
+    setView('traces')
+    setSelectedId(selection.traceId)
+    setDetailRange({ from: selection.from, to: selection.to })
+  }
   function expand() {
     if (!detailRange) return
     const now = Date.now(); const floor = now - 7 * 24 * 60 * minute; const ceiling = now + 5 * minute
@@ -141,8 +157,9 @@ export function App() {
   const update = (name: keyof Form, value: string | number | boolean) => setForm(current => ({ ...current, [name]: value }))
 
   return <div className="app-shell">
-    <header className="site-header"><div className="brand"><span className="brand-mark">◎</span><span>IncidentLens</span></div><span className="header-meta">Trace explorer <span className="live-dot"/> Local</span></header>
-    <main><div className="intro"><div><p className="eyebrow">EXPLORE / TRACES</p><h1>Follow the request.</h1><p>Search stored spans, then inspect their timing and relationships across services.</p></div><div className="scope-note">TRACE DATA ONLY<br/><span>Observed spans may arrive late or be missing.</span></div></div>
+    <header className="site-header"><div className="brand"><span className="brand-mark">◎</span><span>IncidentLens</span></div><nav className="top-nav" aria-label="Main navigation"><button type="button" aria-current={view === 'traces' ? 'page' : undefined} onClick={() => setView('traces')}>Trace explorer</button><button type="button" aria-current={view === 'incidents' ? 'page' : undefined} onClick={() => { setIncidentVisited(true); setView('incidents') }}>Incidents</button></nav><span className="header-meta"><span className="live-dot"/> Local</span></header>
+    <main><div className="intro"><div><p className="eyebrow">EXPLORE / {view === 'traces' ? 'TRACES' : 'INCIDENTS'}</p><h1>{view === 'traces' ? 'Follow the request.' : 'Investigate a window.'}</h1><p>{view === 'traces' ? 'Search stored spans, then inspect their timing and relationships across services.' : 'Compare trace-derived service operations with a fixed baseline and inspect supporting traces.'}</p></div><div className="scope-note">TRACE DATA ONLY<br/><span>Observed spans may arrive late or be missing.</span></div></div>
+    <div hidden={view !== 'traces'}>
     <form className="search-panel" onSubmit={submit} aria-label="Trace search"><div className="panel-title"><h2>Search traces</h2><span>UTC query window · up to 24 hours</span></div>
       <div className="field-grid"><label>From (UTC)<input aria-label="From (UTC)" type="datetime-local" value={form.from} onChange={e => update('from', e.target.value)} required/></label><label>To (UTC)<input aria-label="To (UTC)" type="datetime-local" value={form.to} onChange={e => update('to', e.target.value)} required/></label><label>Service<input aria-label="Service" placeholder="e.g. frontend" value={form.service} onChange={e => update('service', e.target.value)}/></label><div className="namespace-field"><label>Namespace<input aria-label="Namespace" placeholder="Any namespace" disabled={form.emptyNamespace} value={form.namespace} onChange={e => update('namespace', e.target.value)}/></label><label className="check-label"><input type="checkbox" checked={form.emptyNamespace} onChange={e => update('emptyNamespace', e.target.checked)}/> Empty namespace only</label></div><label>Operation<input aria-label="Operation" placeholder="Exact span name" value={form.operation} onChange={e => update('operation', e.target.value)}/></label><label>Min duration · ms<input aria-label="Min duration · ms" type="text" inputMode="decimal" value={form.minMs} onChange={e => update('minMs', e.target.value)}/></label><label>Max duration · ms<input aria-label="Max duration · ms" type="text" inputMode="decimal" value={form.maxMs} onChange={e => update('maxMs', e.target.value)}/></label><label>Status<select aria-label="Status" value={form.status} onChange={e => update('status', e.target.value)}><option value="">Any status</option><option>ERROR</option><option>OK</option><option>UNSET</option></select></label></div>
       <div className="form-actions"><p>Filters apply to the same span. Durations below describe matching spans, not whole traces.</p><button className="primary" type="submit">Search traces <span aria-hidden="true">→</span></button></div>
@@ -154,6 +171,8 @@ export function App() {
       {page.traces.length === 0 ? <div className="empty">No matching traces in this window. Try a wider time range or fewer filters. This does not prove the service is healthy.</div> : <div className="trace-list">{page.traces.map(hit => <button className={`trace-hit ${selectedId === hit.trace_id ? 'active' : ''}`} type="button" key={hit.trace_id} onClick={() => open(hit)}><span><strong className="trace-id">{hit.trace_id}</strong><small>{displayTime(hit.matching_start_time)}</small></span><span className="hit-metrics"><b>{hit.matching_span_count} matched</b><small>{duration(hit.matching_min_duration_ns)}–{duration(hit.matching_max_duration_ns)} · {hit.matching_error_count} errors</small></span><span aria-hidden="true">↗</span></button>)}</div>}
       <div className="pagination"><button type="button" disabled={pageIndex === 0} onClick={previousPage}>← Previous</button><span>Page {pageIndex + 1}</span><button type="button" disabled={!page.next_cursor} onClick={nextPage}>Next →</button></div></section>
       <aside className="summary-card"><div className="section-heading"><div><p className="eyebrow">SERVER SPANS</p><h2>Service activity</h2></div></div><p className="caption">Trace-derived summaries use this time window and service, namespace, and operation filters. Duration and status filters apply only to trace results. UNSET does not mean success.</p>{summary?.truncated && <div className="notice">Summary limit reached. Narrow the filters to see more operations.</div>}{summary?.services.length === 0 && <div className="empty small">No SERVER spans observed. There is insufficient data for a service summary.</div>}{summary?.services.map((item, i) => <div className="summary-row" key={`${item.service_namespace}/${item.service_name}/${item.operation}/${i}`}><strong>{item.service_namespace && `${item.service_namespace}/`}{item.service_name}</strong><span>{item.operation}</span><div><span>{item.span_count} spans</span><span>p95 {duration(item.p95_duration_ns)}</span></div><small>{item.error_count} ERROR · {item.unset_count} UNSET</small></div>)}</aside></div>}
-    {selectedId && <section className="detail-card" aria-label="Trace detail"><div className="section-heading"><div><p className="eyebrow">TRACE DETAIL</p><h2 className="detail-title">{selectedId}</h2></div><button type="button" className="quiet" onClick={() => { setSelectedId(null); setTrace(null) }}>Close ✕</button></div>{detailRange && <p className="caption">Observed interval: {displayTime(detailRange.from)} to {displayTime(detailRange.to)}.</p>}{detailLoading && <div role="status" className="notice">Loading trace spans…</div>}{detailError && <div role="alert" className="notice error">{detailError}</div>}{trace && <><div className="caveats"><div className="notice subtle">Only returned spans are shown. A root does not prove complete delivery. Refresh to reveal late arrivals.</div>{trace.truncated && <div className="notice warning">Trace truncated{trace.truncation_reason && `: ${trace.truncation_reason}`}. The waterfall contains only returned spans.</div>}{trace.has_missing_root && <div className="notice warning">No explicit root observed in this interval.</div>}{trace.missing_parent_ids.length > 0 && <div className="notice warning">{trace.missing_parent_ids.length} parent span ID{trace.missing_parent_ids.length === 1 ? '' : 's'} missing from this view: {trace.missing_parent_ids.join(', ')}.</div>}{trace.has_cycles && <div className="notice warning">Parent links contain a cycle; indentation may not represent a valid tree.</div>}{trace.has_source_drops && <div className="notice warning">The source reported dropped attributes, events, or links. Open a span for counts.</div>}</div><div className="detail-actions"><span>{trace.root_count} explicit root{trace.root_count === 1 ? '' : 's'} · {trace.spans.length} observed spans</span><div><button type="button" onClick={() => setDetailRange({ ...detailRange! })}>↻ Refresh trace</button><button type="button" onClick={expand}>Expand interval ±15 min</button></div></div><Waterfall trace={trace}/></>}</section>}
+    {selectedId && <section ref={traceDetailElement} tabIndex={-1} className="detail-card" aria-label="Trace detail"><div className="section-heading"><div><p className="eyebrow">TRACE DETAIL</p><h2 className="detail-title">{selectedId}</h2></div><button type="button" className="quiet" onClick={() => { setSelectedId(null); setTrace(null) }}>Close ✕</button></div>{detailRange && <p className="caption">Observed interval: {displayTime(detailRange.from)} to {displayTime(detailRange.to)}.</p>}{detailLoading && <div role="status" className="notice">Loading trace spans…</div>}{detailError && <div role="alert" className="notice error">{detailError}</div>}{trace && <><div className="caveats"><div className="notice subtle">Only returned spans are shown. A root does not prove complete delivery. Refresh to reveal late arrivals.</div>{trace.truncated && <div className="notice warning">Trace truncated{trace.truncation_reason && `: ${trace.truncation_reason}`}. The waterfall contains only returned spans.</div>}{trace.has_missing_root && <div className="notice warning">No explicit root observed in this interval.</div>}{trace.missing_parent_ids.length > 0 && <div className="notice warning">{trace.missing_parent_ids.length} parent span ID{trace.missing_parent_ids.length === 1 ? '' : 's'} missing from this view: {trace.missing_parent_ids.join(', ')}.</div>}{trace.has_cycles && <div className="notice warning">Parent links contain a cycle; indentation may not represent a valid tree.</div>}{trace.has_source_drops && <div className="notice warning">The source reported dropped attributes, events, or links. Open a span for counts.</div>}</div><div className="detail-actions"><span>{trace.root_count} explicit root{trace.root_count === 1 ? '' : 's'} · {trace.spans.length} observed spans</span><div><button type="button" onClick={() => setDetailRange({ ...detailRange! })}>↻ Refresh trace</button><button type="button" onClick={expand}>Expand interval ±15 min</button></div></div><Waterfall trace={trace}/></>}</section>}
+    </div>
+    {incidentVisited && <div hidden={view !== 'incidents'}><IncidentView onOpenEvidence={openEvidence}/></div>}
     </main><footer>IncidentLens · Local trace investigation</footer></div>
 }

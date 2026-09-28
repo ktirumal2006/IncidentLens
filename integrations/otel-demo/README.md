@@ -66,3 +66,11 @@ git -C /tmp/incidentlens-otel-demo diff --exit-code HEAD --
 The upstream source-build attempt failed: the catalog's Go 1.17.7 Dockerfile downloads unversioned `protoc-gen-go`, which now resolves protobuf 1.36.12 requiring Go 1.23. [Raw failure](evidence/catalog-build-failure.txt) is retained. The supported run uses unchanged published release images instead, avoiding this floating build-tool resolution.
 
 An initial source review suspected frontend RPC addresses were compiled in by Next.js. Inspection of the actual release image showed the gateways retain destructured `process.env` access, so runtime Compose variables work; HTTP 200 confirmed it. No `.env.production` preparation or application build is needed. Unused gateways receive `127.0.0.1:1` to avoid empty client targets without introducing services. Published image labels contain no source revision, so tag-to-source correspondence is upstream release attribution rather than independently attested provenance.
+
+## Phase 3 controlled faults
+
+The verified [Phase 3 procedure](PHASE3_SCENARIO.md) adds reversible frontend CPU
+latency and the native invalid-product catalog error route, with isolated
+namespaces, real fixed windows, predeclared expectations and clean recovery.
+[ADR 0003](../../docs/adr/0003-demo-detection-faults.md) documents the narrow route
+expansion and unchanged three-service dependency closure.

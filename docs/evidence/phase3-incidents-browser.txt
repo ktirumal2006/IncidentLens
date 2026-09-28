@@ -1,0 +1,36 @@
+
+> incidentlens-e2e@0.1.0 test:incidents
+> node incidents.mjs ../../integrations/otel-demo/evidence/phase3-20260928T005118Z-836fef.json
+
+{
+  "result": "PASS",
+  "namespace": "incidentlens-phase3-20260928T005118Z-836fef",
+  "checks": [
+    {
+      "phase": "healthy_control",
+      "candidates": 0
+    },
+    {
+      "phase": "latency_fault",
+      "service": "frontend",
+      "rank": 1,
+      "trace_id": "5ffcb71dd6e8153cfb8404fc196b15c9",
+      "keyboard_evidence_open": true
+    },
+    {
+      "phase": "latency_recovery",
+      "candidates": 0
+    },
+    {
+      "phase": "error_fault",
+      "service": "productcatalogservice",
+      "rank": 1,
+      "trace_id": "ef962c185facd4b3f3309b10747275d7",
+      "keyboard_evidence_open": true
+    },
+    {
+      "phase": "error_recovery",
+      "candidates": 0
+    }
+  ]
+}

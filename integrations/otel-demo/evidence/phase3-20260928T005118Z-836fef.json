@@ -1,0 +1,5543 @@
+{
+  "cleanup_frontend_nano_cpus": "0",
+  "concurrency": 4,
+  "cpu_fault": "frontend 0.1 CPU",
+  "demo_revision": "860a35de9be667ff36788d3df09ed4a96b9290fd",
+  "expected": [
+    {
+      "candidate_service": null,
+      "phase": "healthy_baseline",
+      "triggered_rule": null
+    },
+    {
+      "candidate_service": null,
+      "phase": "healthy_control",
+      "triggered_rule": null
+    },
+    {
+      "candidate_service": "frontend",
+      "phase": "latency_fault",
+      "triggered_rule": "latency"
+    },
+    {
+      "candidate_service": null,
+      "phase": "latency_recovery",
+      "triggered_rule": null
+    },
+    {
+      "candidate_service": "productcatalogservice",
+      "phase": "error_fault",
+      "triggered_rule": "errors"
+    },
+    {
+      "candidate_service": null,
+      "phase": "error_recovery",
+      "triggered_rule": null
+    }
+  ],
+  "namespace": "incidentlens-phase3-20260928T005118Z-836fef",
+  "phases": [
+    {
+      "clickhouse_current": [
+        {
+          "error_count": 0,
+          "operation": "HTTP GET",
+          "p95_duration_ns": "49171968",
+          "service_name": "frontend",
+          "span_count": 128
+        },
+        {
+          "error_count": 0,
+          "operation": "hipstershop.ProductCatalogService/GetProduct",
+          "p95_duration_ns": "21586",
+          "service_name": "productcatalogservice",
+          "span_count": 512
+        },
+        {
+          "error_count": 0,
+          "operation": "hipstershop.ProductCatalogService/ListProducts",
+          "p95_duration_ns": "45177",
+          "service_name": "productcatalogservice",
+          "span_count": 128
+        },
+        {
+          "error_count": 0,
+          "operation": "/hipstershop.RecommendationService/ListRecommendations",
+          "p95_duration_ns": "6594296",
+          "service_name": "recommendationservice",
+          "span_count": 128
+        }
+      ],
+      "evaluation_end": "2026-09-28T00:51:44.505814Z",
+      "expected_http": 200,
+      "http_status_counts": {
+        "200": 128
+      },
+      "name": "healthy_baseline",
+      "requests": [
+        {
+          "elapsed_ms": 205.412,
+          "status": 200,
+          "trace_id": "252d772356f8d818da6a0e1b73a7217e"
+        },
+        {
+          "elapsed_ms": 194.411,
+          "status": 200,
+          "trace_id": "fce031bb078443685e0df5df64b6b06d"
+        },
+        {
+          "elapsed_ms": 207.708,
+          "status": 200,
+          "trace_id": "eb68f1fad345b4e22129c53a6eff33fd"
+        },
+        {
+          "elapsed_ms": 210.041,
+          "status": 200,
+          "trace_id": "2d7a5b1b02cca2a50af420d07909c63c"
+        },
+        {
+          "elapsed_ms": 57.802,
+          "status": 200,
+          "trace_id": "c64680e0c079167f6c7c59ddcdde7e48"
+        },
+        {
+          "elapsed_ms": 55.878,
+          "status": 200,
+          "trace_id": "c4b8d0352ab86937b60cb4e84871fb4f"
+        },
+        {
+          "elapsed_ms": 52.341,
+          "status": 200,
+          "trace_id": "7441e09af0286445302b1b8cda8e90e1"
+        },
+        {
+          "elapsed_ms": 52.89,
+          "status": 200,
+          "trace_id": "7c3854813c72bb822cf7bd94b87b38e3"
+        },
+        {
+          "elapsed_ms": 64.414,
+          "status": 200,
+          "trace_id": "59a1a0cdab67275489e43142b74e1ccc"
+        },
+        {
+          "elapsed_ms": 64.578,
+          "status": 200,
+          "trace_id": "2e0d8b7a3c94954f49e1a1bd32149f71"
+        },
+        {
+          "elapsed_ms": 61.89,
+          "status": 200,
+          "trace_id": "65c7ebbeebe518433eccbc683220ecc6"
+        },
+        {
+          "elapsed_ms": 62.623,
+          "status": 200,
+          "trace_id": "2ef16aa99deafe329fc5b6f03ed0d90d"
+        },
+        {
+          "elapsed_ms": 33.279,
+          "status": 200,
+          "trace_id": "322f161c79db20097564df3ebc1afe5f"
+        },
+        {
+          "elapsed_ms": 34.014,
+          "status": 200,
+          "trace_id": "57740f2764e15d7b9c653d0efa3c78fb"
+        },
+        {
+          "elapsed_ms": 37.905,
+          "status": 200,
+          "trace_id": "1551688a4f7d76ff4d803e66b02b3443"
+        },
+        {
+          "elapsed_ms": 34.356,
+          "status": 200,
+          "trace_id": "2deeb1c40147c2e5fb270a1aeaaa4578"
+        },
+        {
+          "elapsed_ms": 40.162,
+          "status": 200,
+          "trace_id": "73a2d5614e5975a9f160205597a9f792"
+        },
+        {
+          "elapsed_ms": 61.538,
+          "status": 200,
+          "trace_id": "94cc9617251e85fe1586b4c7e62c5341"
+        },
+        {
+          "elapsed_ms": 55.894,
+          "status": 200,
+          "trace_id": "c439a634c522cd1b61231c886699f339"
+        },
+        {
+          "elapsed_ms": 53.295,
+          "status": 200,
+          "trace_id": "3f5b843b71dfd98674224652dc021e23"
+        },
+        {
+          "elapsed_ms": 29.099,
+          "status": 200,
+          "trace_id": "943143f3fef6df2d40c8048afb30cace"
+        },
+        {
+          "elapsed_ms": 39.195,
+          "status": 200,
+          "trace_id": "48ba3ba5c566a5901149c2ab1a33f430"
+        },
+        {
+          "elapsed_ms": 29.911,
+          "status": 200,
+          "trace_id": "a9d61b48d43740e97d9c8ae0bb2bc9c3"
+        },
+        {
+          "elapsed_ms": 34.173,
+          "status": 200,
+          "trace_id": "f77fb17020727898a91bd08c465443c2"
+        },
+        {
+          "elapsed_ms": 39.211,
+          "status": 200,
+          "trace_id": "94d83f819f0860969d68189e1c4efd35"
+        },
+        {
+          "elapsed_ms": 62.387,
+          "status": 200,
+          "trace_id": "53f973188bd96af4d0df83afdfd7b802"
+        },
+        {
+          "elapsed_ms": 61.324,
+          "status": 200,
+          "trace_id": "3210bb901a3c4cb01075d558fe846074"
+        },
+        {
+          "elapsed_ms": 59.56,
+          "status": 200,
+          "trace_id": "b64620af38936a6b442f10440d02109f"
+        },
+        {
+          "elapsed_ms": 56.642,
+          "status": 200,
+          "trace_id": "e7fc739a101159feaaa26fd24b60a7fa"
+        },
+        {
+          "elapsed_ms": 58.259,
+          "status": 200,
+          "trace_id": "6bb8f4fde07bc203404ab30b6e95996a"
+        },
+        {
+          "elapsed_ms": 35.292,
+          "status": 200,
+          "trace_id": "49e554d379e208feef9aba5aef9b617e"
+        },
+        {
+          "elapsed_ms": 45.334,
+          "status": 200,
+          "trace_id": "de7375277eac2ebb81acd182e4df8afa"
+        },
+        {
+          "elapsed_ms": 49.565,
+          "status": 200,
+          "trace_id": "0f0ad0b6bd146ce2d6aee31f44d69f84"
+        },
+        {
+          "elapsed_ms": 29.723,
+          "status": 200,
+          "trace_id": "c1f8af723090f1c9e357fe92704eec53"
+        },
+        {
+          "elapsed_ms": 46.168,
+          "status": 200,
+          "trace_id": "edc7d92b08e8e02e2575a6602cdf63bf"
+        },
+        {
+          "elapsed_ms": 43.993,
+          "status": 200,
+          "trace_id": "6787e62e55cf1b97c850ac2e73fc358d"
+        },
+        {
+          "elapsed_ms": 51.377,
+          "status": 200,
+          "trace_id": "562223c5a23ee7089f4f59d402d864e4"
+        },
+        {
+          "elapsed_ms": 58.62,
+          "status": 200,
+          "trace_id": "948d15cb8b7e41964581c7532f1b89f3"
+        },
+        {
+          "elapsed_ms": 33.763,
+          "status": 200,
+          "trace_id": "f3d45395e43bc25efb0cb5dd9c7d49a7"
+        },
+        {
+          "elapsed_ms": 31.337,
+          "status": 200,
+          "trace_id": "c69ead12419cd6e4824a52f12f1650c5"
+        },
+        {
+          "elapsed_ms": 35.489,
+          "status": 200,
+          "trace_id": "e605dbc32130e80e072380c16fe82f34"
+        },
+        {
+          "elapsed_ms": 36.573,
+          "status": 200,
+          "trace_id": "7b6930a4bddb6bc267cc4700d81d46f5"
+        },
+        {
+          "elapsed_ms": 30.561,
+          "status": 200,
+          "trace_id": "e3ea8e9206236b19b737d7d447d5187d"
+        },
+        {
+          "elapsed_ms": 31.405,
+          "status": 200,
+          "trace_id": "cfab2e05beec388cf8ffda93f806c2ec"
+        },
+        {
+          "elapsed_ms": 22.548,
+          "status": 200,
+          "trace_id": "68405609a9921808e85a570e139b2e2d"
+        },
+        {
+          "elapsed_ms": 30.182,
+          "status": 200,
+          "trace_id": "d9be3af230a7d6529f7faee14bc8b209"
+        },
+        {
+          "elapsed_ms": 44.207,
+          "status": 200,
+          "trace_id": "fcd10795573947425e15bba63f71ade6"
+        },
+        {
+          "elapsed_ms": 40.677,
+          "status": 200,
+          "trace_id": "2470d125d48f07f20bfea13a711cdbc5"
+        },
+        {
+          "elapsed_ms": 45.42,
+          "status": 200,
+          "trace_id": "aeac33697e862854cee829a2a3da940a"
+        },
+        {
+          "elapsed_ms": 38.518,
+          "status": 200,
+          "trace_id": "92c386950e33807e6978e8264c6be91c"
+        },
+        {
+          "elapsed_ms": 31.887,
+          "status": 200,
+          "trace_id": "97d7497ca02f7c1ebb9b24a46e290293"
+        },
+        {
+          "elapsed_ms": 30.596,
+          "status": 200,
+          "trace_id": "52c089c0b8e2cd6cccde65ae66c67d1d"
+        },
+        {
+          "elapsed_ms": 30.0,
+          "status": 200,
+          "trace_id": "0568912adb2a614ff49f9f3a84094f20"
+        },
+        {
+          "elapsed_ms": 26.977,
+          "status": 200,
+          "trace_id": "825ba4b6f057e0e8eb8e0185f7372c2e"
+        },
+        {
+          "elapsed_ms": 27.787,
+          "status": 200,
+          "trace_id": "9a8fe640c042a890a41531fd7ce03d03"
+        },
+        {
+          "elapsed_ms": 26.232,
+          "status": 200,
+          "trace_id": "2efd3adfce9bf6009c2e669bc24dec1b"
+        },
+        {
+          "elapsed_ms": 27.318,
+          "status": 200,
+          "trace_id": "c20c7c62e0087447632f24ac30aa8fd6"
+        },
+        {
+          "elapsed_ms": 27.59,
+          "status": 200,
+          "trace_id": "1c2ceeb20a55308b58c8e9996315c2ff"
+        },
+        {
+          "elapsed_ms": 28.388,
+          "status": 200,
+          "trace_id": "40f741403c0d45e3f092fa2958fd3e91"
+        },
+        {
+          "elapsed_ms": 29.341,
+          "status": 200,
+          "trace_id": "c680f85accfeabf74da6602f0d0c01b7"
+        },
+        {
+          "elapsed_ms": 30.237,
+          "status": 200,
+          "trace_id": "f85cd3a41d5242cb398cd807e94a97db"
+        },
+        {
+          "elapsed_ms": 35.896,
+          "status": 200,
+          "trace_id": "5892dd1db901376c04f2e1aec86922cc"
+        },
+        {
+          "elapsed_ms": 41.342,
+          "status": 200,
+          "trace_id": "c78826f2cebadd98e34e67c836b0b2dd"
+        },
+        {
+          "elapsed_ms": 40.097,
+          "status": 200,
+          "trace_id": "b048b607a58b7d298c6fa7ae43f6396a"
+        },
+        {
+          "elapsed_ms": 36.073,
+          "status": 200,
+          "trace_id": "79489ff78a10a4feb59dff8b4fbe03ba"
+        },
+        {
+          "elapsed_ms": 28.28,
+          "status": 200,
+          "trace_id": "54bdd86732d04f3f1767859fb5b5ac63"
+        },
+        {
+          "elapsed_ms": 59.536,
+          "status": 200,
+          "trace_id": "7250c4431770f2ff3d6b4f30ec305bc4"
+        },
+        {
+          "elapsed_ms": 58.279,
+          "status": 200,
+          "trace_id": "c33b72d4a4b262412714a8ca6ec8bcd3"
+        },
+        {
+          "elapsed_ms": 58.721,
+          "status": 200,
+          "trace_id": "c1294ec1729a8ad978c1eb1104faf926"
+        },
+        {
+          "elapsed_ms": 48.816,
+          "status": 200,
+          "trace_id": "eeff1181666fbc759b74c198a90c4c17"
+        },
+        {
+          "elapsed_ms": 48.585,
+          "status": 200,
+          "trace_id": "4aced0d853263b4b60f1ea32369f8733"
+        },
+        {
+          "elapsed_ms": 55.561,
+          "status": 200,
+          "trace_id": "0cda8f8040f1bc1f83f7263b6e4edf1f"
+        },
+        {
+          "elapsed_ms": 47.891,
+          "status": 200,
+          "trace_id": "0d212ce08bf5edd548ff75af2c7d0f69"
+        },
+        {
+          "elapsed_ms": 52.533,
+          "status": 200,
+          "trace_id": "bc712e8de893d85cd18b72ce37166040"
+        },
+        {
+          "elapsed_ms": 47.767,
+          "status": 200,
+          "trace_id": "0c9d2d69a9e39af32b8c153107cb4a03"
+        },
+        {
+          "elapsed_ms": 47.215,
+          "status": 200,
+          "trace_id": "d335a47705220ab3fef6bd42ad0b022a"
+        },
+        {
+          "elapsed_ms": 37.191,
+          "status": 200,
+          "trace_id": "b8ab4bbb11bfed91e5be4523f7b968b2"
+        },
+        {
+          "elapsed_ms": 41.362,
+          "status": 200,
+          "trace_id": "dbdcd76eebee942a0f6c59ba08397088"
+        },
+        {
+          "elapsed_ms": 23.942,
+          "status": 200,
+          "trace_id": "5ccdac5d8e205bdbe0742475d41c089e"
+        },
+        {
+          "elapsed_ms": 29.632,
+          "status": 200,
+          "trace_id": "976884d9dd6f1f3c7f246c3e60068617"
+        },
+        {
+          "elapsed_ms": 27.288,
+          "status": 200,
+          "trace_id": "2c675e21486ed8e2275dd0027f3cdf4b"
+        },
+        {
+          "elapsed_ms": 32.263,
+          "status": 200,
+          "trace_id": "33ccd3ca1a5cba5f60bf3dadc9745492"
+        },
+        {
+          "elapsed_ms": 28.332,
+          "status": 200,
+          "trace_id": "5cafe3b7f5d5d551fe8a34970d889bb3"
+        },
+        {
+          "elapsed_ms": 35.96,
+          "status": 200,
+          "trace_id": "80a9903b19694126eb0fc5ecef267f5a"
+        },
+        {
+          "elapsed_ms": 33.848,
+          "status": 200,
+          "trace_id": "5416036fedcc5da3e804d21fa5e4f09f"
+        },
+        {
+          "elapsed_ms": 42.863,
+          "status": 200,
+          "trace_id": "499d29db9f0ab5f9899a6bae65d5ba3f"
+        },
+        {
+          "elapsed_ms": 50.892,
+          "status": 200,
+          "trace_id": "2a0c527c2b179d7bc1b072d7e07c7fb1"
+        },
+        {
+          "elapsed_ms": 66.778,
+          "status": 200,
+          "trace_id": "96bf5057948b12b071807ea693abc141"
+        },
+        {
+          "elapsed_ms": 64.659,
+          "status": 200,
+          "trace_id": "14e47e40165f24b296f075c1f4bda3aa"
+        },
+        {
+          "elapsed_ms": 79.338,
+          "status": 200,
+          "trace_id": "9299ebdc6ab6e314fffb468e5e31ffeb"
+        },
+        {
+          "elapsed_ms": 58.356,
+          "status": 200,
+          "trace_id": "45a7336f933d8f436ac8b3b89d6bdfed"
+        },
+        {
+          "elapsed_ms": 50.72,
+          "status": 200,
+          "trace_id": "6bb32b2067f670bedd65ce183a70e6e6"
+        },
+        {
+          "elapsed_ms": 48.699,
+          "status": 200,
+          "trace_id": "bc5a322819f3936b93213b07bde11463"
+        },
+        {
+          "elapsed_ms": 27.52,
+          "status": 200,
+          "trace_id": "37e5549473f59c8f227a802660e4626f"
+        },
+        {
+          "elapsed_ms": 30.732,
+          "status": 200,
+          "trace_id": "04c6c8ef67e3fbb718e37dfca0fc6b8f"
+        },
+        {
+          "elapsed_ms": 29.157,
+          "status": 200,
+          "trace_id": "d0cab67dd0c2895979c2b9f15689b1a9"
+        },
+        {
+          "elapsed_ms": 46.253,
+          "status": 200,
+          "trace_id": "3c91d7fea09f43cbd001d82017c370bb"
+        },
+        {
+          "elapsed_ms": 37.548,
+          "status": 200,
+          "trace_id": "cec6517ea369cd9a27a96b33677681e1"
+        },
+        {
+          "elapsed_ms": 57.656,
+          "status": 200,
+          "trace_id": "b7e794a953f8b2e8454d332b9df861ca"
+        },
+        {
+          "elapsed_ms": 57.89,
+          "status": 200,
+          "trace_id": "aa4b86854575a038dd2188c237eacf42"
+        },
+        {
+          "elapsed_ms": 42.6,
+          "status": 200,
+          "trace_id": "cbc25b671e62247f645214b0db6d9a1c"
+        },
+        {
+          "elapsed_ms": 40.814,
+          "status": 200,
+          "trace_id": "1230fa7fa9e9faaa686bb2e7863c3230"
+        },
+        {
+          "elapsed_ms": 21.567,
+          "status": 200,
+          "trace_id": "7e71d7ebc560d0ef64f280d6096e41b0"
+        },
+        {
+          "elapsed_ms": 30.712,
+          "status": 200,
+          "trace_id": "502debd5fedd27f0b63e417b7ad65a58"
+        },
+        {
+          "elapsed_ms": 30.782,
+          "status": 200,
+          "trace_id": "a5bfd6cd8312a74d02237a8edf287f14"
+        },
+        {
+          "elapsed_ms": 33.709,
+          "status": 200,
+          "trace_id": "db6c8da35cc68e91c51e483993df0ca1"
+        },
+        {
+          "elapsed_ms": 34.472,
+          "status": 200,
+          "trace_id": "cd825ed0222b32fe5d3083348c7b03b8"
+        },
+        {
+          "elapsed_ms": 53.476,
+          "status": 200,
+          "trace_id": "2d92cc588bdebe2249992f7a8a7420ca"
+        },
+        {
+          "elapsed_ms": 49.7,
+          "status": 200,
+          "trace_id": "ccafb96d454d5bdc0cc55e8bc70791f4"
+        },
+        {
+          "elapsed_ms": 46.5,
+          "status": 200,
+          "trace_id": "335498808532d5db7c50b8570a92edb8"
+        },
+        {
+          "elapsed_ms": 53.011,
+          "status": 200,
+          "trace_id": "67590ae2b17e4efc45efc92489336410"
+        },
+        {
+          "elapsed_ms": 50.747,
+          "status": 200,
+          "trace_id": "1fbcb39a083bba3249db27301277231c"
+        },
+        {
+          "elapsed_ms": 37.562,
+          "status": 200,
+          "trace_id": "5f2acd5c91682e6197510565a0ae16b9"
+        },
+        {
+          "elapsed_ms": 34.046,
+          "status": 200,
+          "trace_id": "e33d19f19e1adb20e01ed5e8a253255a"
+        },
+        {
+          "elapsed_ms": 42.26,
+          "status": 200,
+          "trace_id": "6fdfd4272f9f9251bcfcb1f6545a06e3"
+        },
+        {
+          "elapsed_ms": 34.011,
+          "status": 200,
+          "trace_id": "62c87ff7ad01bd076412442c63765d28"
+        },
+        {
+          "elapsed_ms": 38.568,
+          "status": 200,
+          "trace_id": "59c7e35e10577515635022eb60e2ae3a"
+        },
+        {
+          "elapsed_ms": 30.883,
+          "status": 200,
+          "trace_id": "7d39f7cc451d27c64881ad18b09f1ac5"
+        },
+        {
+          "elapsed_ms": 28.817,
+          "status": 200,
+          "trace_id": "5448b1a309deaa5063263d75f9775928"
+        },
+        {
+          "elapsed_ms": 30.904,
+          "status": 200,
+          "trace_id": "104ef9739197bba6fc604516076ca9ae"
+        },
+        {
+          "elapsed_ms": 25.483,
+          "status": 200,
+          "trace_id": "9dc1e2451910078d9fddd33a501581ae"
+        },
+        {
+          "elapsed_ms": 31.365,
+          "status": 200,
+          "trace_id": "de9ea3610a3a4d0507d57781005d557f"
+        },
+        {
+          "elapsed_ms": 29.721,
+          "status": 200,
+          "trace_id": "6c0557a6a2bcff8bd5e18cf95a31461b"
+        },
+        {
+          "elapsed_ms": 28.177,
+          "status": 200,
+          "trace_id": "a613f775dc875a5a03f0289683c7a52e"
+        },
+        {
+          "elapsed_ms": 27.906,
+          "status": 200,
+          "trace_id": "6ad560aa6c0b2f4d96bd80589b7f2424"
+        },
+        {
+          "elapsed_ms": 27.199,
+          "status": 200,
+          "trace_id": "0ea76b52a652fa1a6070e52bfeee7b69"
+        },
+        {
+          "elapsed_ms": 27.054,
+          "status": 200,
+          "trace_id": "40975a8301ca32581525abb8c43e7bf1"
+        },
+        {
+          "elapsed_ms": 14.352,
+          "status": 200,
+          "trace_id": "dfa2db4b7530fc6dcbfaa0a91ea615e3"
+        }
+      ],
+      "route": "/api/recommendations?productIds=OLJCESPC7Z&productIds=OLJCESPC7Z",
+      "status": "traffic_verified",
+      "traffic_ended_at": "2026-09-28T00:51:34.501527Z",
+      "traffic_started_at": "2026-09-28T00:51:33.001398Z"
+    },
+    {
+      "clickhouse_current": [
+        {
+          "error_count": 0,
+          "operation": "HTTP GET",
+          "p95_duration_ns": "45400320",
+          "service_name": "frontend",
+          "span_count": 128
+        },
+        {
+          "error_count": 0,
+          "operation": "hipstershop.ProductCatalogService/GetProduct",
+          "p95_duration_ns": "30515",
+          "service_name": "productcatalogservice",
+          "span_count": 512
+        },
+        {
+          "error_count": 0,
+          "operation": "hipstershop.ProductCatalogService/ListProducts",
+          "p95_duration_ns": "18978",
+          "service_name": "productcatalogservice",
+          "span_count": 128
+        },
+        {
+          "error_count": 0,
+          "operation": "/hipstershop.RecommendationService/ListRecommendations",
+          "p95_duration_ns": "6709912",
+          "service_name": "recommendationservice",
+          "span_count": 128
+        }
+      ],
+      "evaluation_end": "2026-09-28T00:56:47.960243Z",
+      "evaluation_status": "passed",
+      "expected_http": 200,
+      "http_status_counts": {
+        "200": 128
+      },
+      "incident_response": {
+        "baseline": {
+          "from": "2026-09-28T00:21:47.960243Z",
+          "to": "2026-09-28T00:51:47.960243Z"
+        },
+        "candidates": [],
+        "caveats": [
+          "missing_parent",
+          "missing_root",
+          "unset_status"
+        ],
+        "config": {
+          "error_increase_bps": 500,
+          "error_rate_bps": 500,
+          "latency_delta_ns": "100000000",
+          "latency_ratio_milli": 2000,
+          "min_samples": 100
+        },
+        "current": {
+          "from": "2026-09-28T00:51:47.960243Z",
+          "to": "2026-09-28T00:56:47.960243Z"
+        },
+        "end": "2026-09-28T00:56:47.960243Z",
+        "observed_at": "2026-09-28T15:04:33.3726794Z",
+        "operations": [
+          {
+            "baseline": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "49171968",
+              "span_count": 128,
+              "unset_count": 128,
+              "unset_rate": 1
+            },
+            "caveats": [
+              "missing_parent",
+              "missing_root",
+              "unset_status"
+            ],
+            "current": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "45400320",
+              "span_count": 128,
+              "unset_count": 128,
+              "unset_rate": 1
+            },
+            "error_rate_increase": 0,
+            "evidence": [],
+            "operation": "HTTP GET",
+            "p95_increase_ns": "-3771648",
+            "service_name": "frontend",
+            "service_namespace": "incidentlens-phase3-20260928T005118Z-836fef",
+            "state": "normal",
+            "triggered_rules": []
+          },
+          {
+            "baseline": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "21586",
+              "span_count": 512,
+              "unset_count": 512,
+              "unset_rate": 1
+            },
+            "caveats": [
+              "missing_parent",
+              "missing_root",
+              "unset_status"
+            ],
+            "current": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "30515",
+              "span_count": 512,
+              "unset_count": 512,
+              "unset_rate": 1
+            },
+            "error_rate_increase": 0,
+            "evidence": [],
+            "operation": "hipstershop.ProductCatalogService/GetProduct",
+            "p95_increase_ns": "8929",
+            "service_name": "productcatalogservice",
+            "service_namespace": "incidentlens-phase3-20260928T005118Z-836fef",
+            "state": "normal",
+            "triggered_rules": []
+          },
+          {
+            "baseline": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "45177",
+              "span_count": 128,
+              "unset_count": 128,
+              "unset_rate": 1
+            },
+            "caveats": [
+              "missing_parent",
+              "missing_root",
+              "unset_status"
+            ],
+            "current": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "18978",
+              "span_count": 128,
+              "unset_count": 128,
+              "unset_rate": 1
+            },
+            "error_rate_increase": 0,
+            "evidence": [],
+            "operation": "hipstershop.ProductCatalogService/ListProducts",
+            "p95_increase_ns": "-26199",
+            "service_name": "productcatalogservice",
+            "service_namespace": "incidentlens-phase3-20260928T005118Z-836fef",
+            "state": "normal",
+            "triggered_rules": []
+          },
+          {
+            "baseline": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "6594296",
+              "span_count": 128,
+              "unset_count": 128,
+              "unset_rate": 1
+            },
+            "caveats": [
+              "missing_parent",
+              "missing_root",
+              "unset_status"
+            ],
+            "current": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "6709912",
+              "span_count": 128,
+              "unset_count": 128,
+              "unset_rate": 1
+            },
+            "error_rate_increase": 0,
+            "evidence": [],
+            "operation": "/hipstershop.RecommendationService/ListRecommendations",
+            "p95_increase_ns": "115616",
+            "service_name": "recommendationservice",
+            "service_namespace": "incidentlens-phase3-20260928T005118Z-836fef",
+            "state": "normal",
+            "triggered_rules": []
+          }
+        ],
+        "rule_version": "trace-v1"
+      },
+      "name": "healthy_control",
+      "requests": [
+        {
+          "elapsed_ms": 47.472,
+          "status": 200,
+          "trace_id": "4e681e706fd93a926dcc498d7a62ff9b"
+        },
+        {
+          "elapsed_ms": 32.413,
+          "status": 200,
+          "trace_id": "a090f6a73ca9184d379c461b7f4aa2cd"
+        },
+        {
+          "elapsed_ms": 44.638,
+          "status": 200,
+          "trace_id": "ee0ef7797fd75d7aed13880236f76946"
+        },
+        {
+          "elapsed_ms": 48.749,
+          "status": 200,
+          "trace_id": "771da7ad31c496318e58b2a94ef8c63e"
+        },
+        {
+          "elapsed_ms": 43.958,
+          "status": 200,
+          "trace_id": "7f96930cbc8e9debaeb9779dc6953cf5"
+        },
+        {
+          "elapsed_ms": 49.454,
+          "status": 200,
+          "trace_id": "cb69bef28b9f1ce2135307ff56f45f53"
+        },
+        {
+          "elapsed_ms": 64.64,
+          "status": 200,
+          "trace_id": "e67449218cfa24134123573d24508ee9"
+        },
+        {
+          "elapsed_ms": 68.548,
+          "status": 200,
+          "trace_id": "aadd5519833d5211c09013c8460b612c"
+        },
+        {
+          "elapsed_ms": 48.218,
+          "status": 200,
+          "trace_id": "a1e040bdd552dba10018d7b386d07a86"
+        },
+        {
+          "elapsed_ms": 70.093,
+          "status": 200,
+          "trace_id": "b700c029437250c4c7a79dae72425d6f"
+        },
+        {
+          "elapsed_ms": 56.653,
+          "status": 200,
+          "trace_id": "4741f644d728252c49e1f5e30ae0c863"
+        },
+        {
+          "elapsed_ms": 55.833,
+          "status": 200,
+          "trace_id": "0d658baa760338a4404398a978cb8e9f"
+        },
+        {
+          "elapsed_ms": 49.749,
+          "status": 200,
+          "trace_id": "4b40b801a51030b782a6a79f3b165d3e"
+        },
+        {
+          "elapsed_ms": 46.035,
+          "status": 200,
+          "trace_id": "eabe55634f211b18b64432dd68271414"
+        },
+        {
+          "elapsed_ms": 50.55,
+          "status": 200,
+          "trace_id": "5cf6e686f87a4129a3f9c43f5b4f39ba"
+        },
+        {
+          "elapsed_ms": 44.457,
+          "status": 200,
+          "trace_id": "65f5f3d329c30c3f14d4d6c416c09fec"
+        },
+        {
+          "elapsed_ms": 48.467,
+          "status": 200,
+          "trace_id": "b3f5e8e78e81523eef02af8f53f0eca0"
+        },
+        {
+          "elapsed_ms": 61.665,
+          "status": 200,
+          "trace_id": "771949b277b3ffebaf729f7f36c74496"
+        },
+        {
+          "elapsed_ms": 49.569,
+          "status": 200,
+          "trace_id": "3977fa44e5f2fb23d51ed659743ff5c0"
+        },
+        {
+          "elapsed_ms": 51.513,
+          "status": 200,
+          "trace_id": "3151eef449e2de7b694421961fdbfd6f"
+        },
+        {
+          "elapsed_ms": 52.03,
+          "status": 200,
+          "trace_id": "79821b66caaa3851c7143b41447b6af8"
+        },
+        {
+          "elapsed_ms": 53.602,
+          "status": 200,
+          "trace_id": "1a40dc9a41acfc526ba3f99f066be081"
+        },
+        {
+          "elapsed_ms": 55.955,
+          "status": 200,
+          "trace_id": "236ec362ce6b65079ded79bdcede8808"
+        },
+        {
+          "elapsed_ms": 47.121,
+          "status": 200,
+          "trace_id": "ba031aea5209a84a8e9aab903759d2f8"
+        },
+        {
+          "elapsed_ms": 59.681,
+          "status": 200,
+          "trace_id": "4fec2ffa0c325c5af4e8c95929879a8d"
+        },
+        {
+          "elapsed_ms": 68.635,
+          "status": 200,
+          "trace_id": "8bb418d3e9141216e6d66f84cebdbaee"
+        },
+        {
+          "elapsed_ms": 46.3,
+          "status": 200,
+          "trace_id": "4c573c0c71e4469ef20b11e7c52a7486"
+        },
+        {
+          "elapsed_ms": 54.229,
+          "status": 200,
+          "trace_id": "b76715dcccc61cc5c6a2cc95dc607e36"
+        },
+        {
+          "elapsed_ms": 46.888,
+          "status": 200,
+          "trace_id": "acc8f13c4312005f480f27e56342bf52"
+        },
+        {
+          "elapsed_ms": 35.211,
+          "status": 200,
+          "trace_id": "5a9a2d4bf688ee56e0f0b0557b1760ef"
+        },
+        {
+          "elapsed_ms": 31.837,
+          "status": 200,
+          "trace_id": "99fac8ebcac472b73167516d73f2e2d1"
+        },
+        {
+          "elapsed_ms": 30.253,
+          "status": 200,
+          "trace_id": "faee0c1b11d57d49ed87c2cbebb320a0"
+        },
+        {
+          "elapsed_ms": 39.19,
+          "status": 200,
+          "trace_id": "b17340048a0c7324fb391b75f1f4c8cf"
+        },
+        {
+          "elapsed_ms": 49.474,
+          "status": 200,
+          "trace_id": "5eba85221e8bfb06f190a06927ddbe15"
+        },
+        {
+          "elapsed_ms": 64.129,
+          "status": 200,
+          "trace_id": "6d7a45c3eb173d3214e7eab936caa3f8"
+        },
+        {
+          "elapsed_ms": 64.697,
+          "status": 200,
+          "trace_id": "18df0de557325665a65ac278e21adaaa"
+        },
+        {
+          "elapsed_ms": 52.446,
+          "status": 200,
+          "trace_id": "4764f99c0bebe1b8ad5c6c9e743810a0"
+        },
+        {
+          "elapsed_ms": 32.017,
+          "status": 200,
+          "trace_id": "b83958d572317e3fe2ecf6af2e567782"
+        },
+        {
+          "elapsed_ms": 26.588,
+          "status": 200,
+          "trace_id": "2672bd511cbe152b9b10fa0338beffaa"
+        },
+        {
+          "elapsed_ms": 33.719,
+          "status": 200,
+          "trace_id": "ecc2b9b531db0b042db42146854e8541"
+        },
+        {
+          "elapsed_ms": 38.992,
+          "status": 200,
+          "trace_id": "2fe38bfa865871c42df2de78585ed6be"
+        },
+        {
+          "elapsed_ms": 34.052,
+          "status": 200,
+          "trace_id": "1e7f47cdcc2bc7b9eed0e57f9ec18328"
+        },
+        {
+          "elapsed_ms": 44.022,
+          "status": 200,
+          "trace_id": "82224210219bfab0ae6ae09179ddb682"
+        },
+        {
+          "elapsed_ms": 44.948,
+          "status": 200,
+          "trace_id": "fa677f7ea26e34414fbda923e8607167"
+        },
+        {
+          "elapsed_ms": 38.819,
+          "status": 200,
+          "trace_id": "8dbc71a63d93a1a021b9526e273bd2db"
+        },
+        {
+          "elapsed_ms": 54.482,
+          "status": 200,
+          "trace_id": "db3a60c8f362151ebbe96b0341c9e996"
+        },
+        {
+          "elapsed_ms": 34.517,
+          "status": 200,
+          "trace_id": "121860853a245594cd19db04c14e0352"
+        },
+        {
+          "elapsed_ms": 28.434,
+          "status": 200,
+          "trace_id": "a34198594610779ac3c032878ed157c3"
+        },
+        {
+          "elapsed_ms": 29.782,
+          "status": 200,
+          "trace_id": "c7e173f48d0f86c7b18d941549ce16dc"
+        },
+        {
+          "elapsed_ms": 34.801,
+          "status": 200,
+          "trace_id": "ec934473742cdf8c0b9b2c54de21708f"
+        },
+        {
+          "elapsed_ms": 27.426,
+          "status": 200,
+          "trace_id": "8813cbe2de83ced6fe441763e7b80287"
+        },
+        {
+          "elapsed_ms": 29.963,
+          "status": 200,
+          "trace_id": "187e0d893e53f3e5930ec9cb6b023c15"
+        },
+        {
+          "elapsed_ms": 36.033,
+          "status": 200,
+          "trace_id": "e0e17344abad8253f919306bd0cb2ac3"
+        },
+        {
+          "elapsed_ms": 33.741,
+          "status": 200,
+          "trace_id": "0dfb51360be15e1b1eefccd47d4cf1b7"
+        },
+        {
+          "elapsed_ms": 29.958,
+          "status": 200,
+          "trace_id": "0f20ecc5818a4a3af8fb33b40a126760"
+        },
+        {
+          "elapsed_ms": 29.1,
+          "status": 200,
+          "trace_id": "743c58970742162939f8dcd6dcda3cd8"
+        },
+        {
+          "elapsed_ms": 25.512,
+          "status": 200,
+          "trace_id": "1338f2c44e9ea6d6390275db44af8d8a"
+        },
+        {
+          "elapsed_ms": 31.633,
+          "status": 200,
+          "trace_id": "fab25ab6d02f7aab89799a33c42f593b"
+        },
+        {
+          "elapsed_ms": 31.069,
+          "status": 200,
+          "trace_id": "8635e4565f132164d123729ef9db2e48"
+        },
+        {
+          "elapsed_ms": 44.205,
+          "status": 200,
+          "trace_id": "8dafc14b7fd8cd79502a788531c74100"
+        },
+        {
+          "elapsed_ms": 41.155,
+          "status": 200,
+          "trace_id": "1ca8a5574cb348a27196c532784eebe4"
+        },
+        {
+          "elapsed_ms": 47.999,
+          "status": 200,
+          "trace_id": "04ca2dda9eafa3dbff9a9f129f241d77"
+        },
+        {
+          "elapsed_ms": 43.868,
+          "status": 200,
+          "trace_id": "6c9ef7a50c7c07986efed4403c76df04"
+        },
+        {
+          "elapsed_ms": 35.08,
+          "status": 200,
+          "trace_id": "e1551342bf510763340df8b87c8115f2"
+        },
+        {
+          "elapsed_ms": 57.806,
+          "status": 200,
+          "trace_id": "080bc288cfada4fea107cec7339924e3"
+        },
+        {
+          "elapsed_ms": 67.911,
+          "status": 200,
+          "trace_id": "5464185c86715c8773cc4675ba4f4ed2"
+        },
+        {
+          "elapsed_ms": 50.189,
+          "status": 200,
+          "trace_id": "a7e5448d037d45737908daa4bce8f4ad"
+        },
+        {
+          "elapsed_ms": 56.033,
+          "status": 200,
+          "trace_id": "02b8939602a08224041a6e6ffa709d40"
+        },
+        {
+          "elapsed_ms": 42.271,
+          "status": 200,
+          "trace_id": "6f3f715bd86e29f235add56f7e02894c"
+        },
+        {
+          "elapsed_ms": 61.839,
+          "status": 200,
+          "trace_id": "8325ee36bd2da5d60da065fee43e862f"
+        },
+        {
+          "elapsed_ms": 54.05,
+          "status": 200,
+          "trace_id": "965ae194688949488faca7a5e675dadc"
+        },
+        {
+          "elapsed_ms": 56.071,
+          "status": 200,
+          "trace_id": "229f4a1234d8c75823acbbbafad1ee7b"
+        },
+        {
+          "elapsed_ms": 47.458,
+          "status": 200,
+          "trace_id": "b509ccd7108df09b320603db63961147"
+        },
+        {
+          "elapsed_ms": 48.731,
+          "status": 200,
+          "trace_id": "ac0edd31f8be3ed74fb7318855ee0142"
+        },
+        {
+          "elapsed_ms": 43.357,
+          "status": 200,
+          "trace_id": "c87cae8774ffd8ba2807d887247d1061"
+        },
+        {
+          "elapsed_ms": 51.14,
+          "status": 200,
+          "trace_id": "84657084c22f7a2c28307664d514d177"
+        },
+        {
+          "elapsed_ms": 51.417,
+          "status": 200,
+          "trace_id": "e67396f02f16657f90a857597a2d4a3d"
+        },
+        {
+          "elapsed_ms": 60.012,
+          "status": 200,
+          "trace_id": "10083093d378609bcce06f08df754bb7"
+        },
+        {
+          "elapsed_ms": 59.101,
+          "status": 200,
+          "trace_id": "2239f63661c9c971e55a703c03a96150"
+        },
+        {
+          "elapsed_ms": 53.969,
+          "status": 200,
+          "trace_id": "23ee34c7438ca85e7c90b89695b917bc"
+        },
+        {
+          "elapsed_ms": 52.503,
+          "status": 200,
+          "trace_id": "b4b170613d15c4cfe5480e8ddd3fa6eb"
+        },
+        {
+          "elapsed_ms": 44.336,
+          "status": 200,
+          "trace_id": "22edd5eeec3a9553a121dcd991f1dfc2"
+        },
+        {
+          "elapsed_ms": 46.188,
+          "status": 200,
+          "trace_id": "bbcb591a246285b2b4d0bcd8ed5d4c91"
+        },
+        {
+          "elapsed_ms": 50.67,
+          "status": 200,
+          "trace_id": "62575162bf60264e2993b15a6d0a8995"
+        },
+        {
+          "elapsed_ms": 47.025,
+          "status": 200,
+          "trace_id": "64641e75f0a4876f07f44f0068d2d298"
+        },
+        {
+          "elapsed_ms": 44.598,
+          "status": 200,
+          "trace_id": "2f3f440bf2899928917db877ed9313be"
+        },
+        {
+          "elapsed_ms": 40.307,
+          "status": 200,
+          "trace_id": "d0f75c31d0e4a1762106de6d1cb31e8d"
+        },
+        {
+          "elapsed_ms": 37.399,
+          "status": 200,
+          "trace_id": "b90616b4f9536b110a7cc88087fa5620"
+        },
+        {
+          "elapsed_ms": 38.367,
+          "status": 200,
+          "trace_id": "215a0efaedd7ba7a75dd4adcd16dd0bf"
+        },
+        {
+          "elapsed_ms": 29.077,
+          "status": 200,
+          "trace_id": "957e014bca8ff584af528c75f20ac399"
+        },
+        {
+          "elapsed_ms": 49.497,
+          "status": 200,
+          "trace_id": "d3f7c13b1a3523807e185de2fb303501"
+        },
+        {
+          "elapsed_ms": 52.111,
+          "status": 200,
+          "trace_id": "f9b4f5f4889954cfae9c6e3fc1a90b5b"
+        },
+        {
+          "elapsed_ms": 45.588,
+          "status": 200,
+          "trace_id": "2a050a8c359a040bf4438a851c0fdde5"
+        },
+        {
+          "elapsed_ms": 53.933,
+          "status": 200,
+          "trace_id": "d8b3cb5b47a7feb810ce4b6b9377d1c1"
+        },
+        {
+          "elapsed_ms": 49.641,
+          "status": 200,
+          "trace_id": "8c340d4f40a0be4fff648b0abff59619"
+        },
+        {
+          "elapsed_ms": 46.856,
+          "status": 200,
+          "trace_id": "94aa177b644231506eb491157014f174"
+        },
+        {
+          "elapsed_ms": 47.82,
+          "status": 200,
+          "trace_id": "02a321cd1b704237fb74ce1c9d6900da"
+        },
+        {
+          "elapsed_ms": 24.157,
+          "status": 200,
+          "trace_id": "4584eb6ae93fa4cdbe2bb3a410326c46"
+        },
+        {
+          "elapsed_ms": 28.508,
+          "status": 200,
+          "trace_id": "df05d4a542e7ca0c71efec2b0037e426"
+        },
+        {
+          "elapsed_ms": 36.296,
+          "status": 200,
+          "trace_id": "11bcdea07e6b6908aa3d17d94a93f107"
+        },
+        {
+          "elapsed_ms": 42.078,
+          "status": 200,
+          "trace_id": "2f0fc50560be5492be09c327baef5df9"
+        },
+        {
+          "elapsed_ms": 40.281,
+          "status": 200,
+          "trace_id": "d602d5246ce76e3278faa2a0fc5c8c34"
+        },
+        {
+          "elapsed_ms": 25.881,
+          "status": 200,
+          "trace_id": "c3188f2a4255bf672afdeae9a95e4071"
+        },
+        {
+          "elapsed_ms": 35.106,
+          "status": 200,
+          "trace_id": "893945d868dfce4662c22e759df88cf3"
+        },
+        {
+          "elapsed_ms": 33.186,
+          "status": 200,
+          "trace_id": "4993e68b96a01fe6332ded9663650607"
+        },
+        {
+          "elapsed_ms": 32.9,
+          "status": 200,
+          "trace_id": "a7e3068c117e825c231d4da43626f25c"
+        },
+        {
+          "elapsed_ms": 34.625,
+          "status": 200,
+          "trace_id": "dd44e2a16e38447ad86afe83b436457d"
+        },
+        {
+          "elapsed_ms": 49.826,
+          "status": 200,
+          "trace_id": "fcc3c09664ec61c92a5283ff757eff1f"
+        },
+        {
+          "elapsed_ms": 84.726,
+          "status": 200,
+          "trace_id": "cac5c3987880d02511ab1d2107478757"
+        },
+        {
+          "elapsed_ms": 81.789,
+          "status": 200,
+          "trace_id": "2c9baf7e72609e09cb69ae28321a3c2f"
+        },
+        {
+          "elapsed_ms": 74.655,
+          "status": 200,
+          "trace_id": "1fb00b01acec2f3ca9973a31fe2bc61f"
+        },
+        {
+          "elapsed_ms": 58.695,
+          "status": 200,
+          "trace_id": "791f12197564db4ffef4885a9c92fa1d"
+        },
+        {
+          "elapsed_ms": 46.962,
+          "status": 200,
+          "trace_id": "80c5f3cb7d60e2eb0d4c0e7fb706d441"
+        },
+        {
+          "elapsed_ms": 48.475,
+          "status": 200,
+          "trace_id": "5a7ab247ef043c64b6ea4ffb0ec883a7"
+        },
+        {
+          "elapsed_ms": 45.571,
+          "status": 200,
+          "trace_id": "262a46c3d7aa220278da7c96788cbbc7"
+        },
+        {
+          "elapsed_ms": 36.279,
+          "status": 200,
+          "trace_id": "c5fab3bc8cf53868b2b1f846bc4c921d"
+        },
+        {
+          "elapsed_ms": 33.874,
+          "status": 200,
+          "trace_id": "4c397a401c4cd15e6a7a9ad4a1dc76a0"
+        },
+        {
+          "elapsed_ms": 31.76,
+          "status": 200,
+          "trace_id": "e27c16075a14b753ed98ec14b3528c65"
+        },
+        {
+          "elapsed_ms": 35.346,
+          "status": 200,
+          "trace_id": "5d0cfa0239dfa23a2c3994c44c7a5828"
+        },
+        {
+          "elapsed_ms": 29.352,
+          "status": 200,
+          "trace_id": "1343a1c0077295cd5c770a64ad6f9363"
+        },
+        {
+          "elapsed_ms": 27.873,
+          "status": 200,
+          "trace_id": "d0af57da722cf904a6b2c92de1560ee9"
+        },
+        {
+          "elapsed_ms": 25.657,
+          "status": 200,
+          "trace_id": "0e165ed5e855a9df6f9629d7e0d6eae0"
+        },
+        {
+          "elapsed_ms": 26.455,
+          "status": 200,
+          "trace_id": "e0fe2a95b08e95c733756e70cec0aef4"
+        },
+        {
+          "elapsed_ms": 26.607,
+          "status": 200,
+          "trace_id": "c234ab68fd7256c1649263a9a2636419"
+        },
+        {
+          "elapsed_ms": 31.569,
+          "status": 200,
+          "trace_id": "654794d1d8367bd24fffb52899f81b62"
+        },
+        {
+          "elapsed_ms": 38.947,
+          "status": 200,
+          "trace_id": "29f84fa51ce457af6550e6887501b6f4"
+        },
+        {
+          "elapsed_ms": 35.466,
+          "status": 200,
+          "trace_id": "f287d1783e2585e5d4ca110fa7c96d17"
+        },
+        {
+          "elapsed_ms": 35.913,
+          "status": 200,
+          "trace_id": "d629b8adbe70c04d91ba28fa6b95d6cf"
+        }
+      ],
+      "route": "/api/recommendations?productIds=OLJCESPC7Z&productIds=OLJCESPC7Z",
+      "status": "traffic_verified",
+      "traffic_ended_at": "2026-09-28T00:56:37.956888Z",
+      "traffic_started_at": "2026-09-28T00:56:36.512746Z"
+    },
+    {
+      "clickhouse_current": [
+        {
+          "error_count": 0,
+          "operation": "HTTP GET",
+          "p95_duration_ns": "1294631680",
+          "service_name": "frontend",
+          "span_count": 128
+        },
+        {
+          "error_count": 0,
+          "operation": "hipstershop.ProductCatalogService/GetProduct",
+          "p95_duration_ns": "25281",
+          "service_name": "productcatalogservice",
+          "span_count": 512
+        },
+        {
+          "error_count": 0,
+          "operation": "hipstershop.ProductCatalogService/ListProducts",
+          "p95_duration_ns": "34305",
+          "service_name": "productcatalogservice",
+          "span_count": 128
+        },
+        {
+          "error_count": 0,
+          "operation": "/hipstershop.RecommendationService/ListRecommendations",
+          "p95_duration_ns": "7002030",
+          "service_name": "recommendationservice",
+          "span_count": 128
+        }
+      ],
+      "evaluation_end": "2026-09-28T01:02:10.714595Z",
+      "evaluation_status": "passed",
+      "expected_http": 200,
+      "fault_removed_at": "2026-09-28T01:02:12.422769Z",
+      "http_status_counts": {
+        "200": 128
+      },
+      "incident_response": {
+        "baseline": {
+          "from": "2026-09-28T00:27:10.714595Z",
+          "to": "2026-09-28T00:57:10.714595Z"
+        },
+        "candidates": [
+          {
+            "baseline": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "48524288",
+              "span_count": 256,
+              "unset_count": 256,
+              "unset_rate": 1
+            },
+            "caveats": [
+              "missing_parent",
+              "missing_root",
+              "unset_status"
+            ],
+            "current": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "1294631680",
+              "span_count": 128,
+              "unset_count": 128,
+              "unset_rate": 1
+            },
+            "error_rate_increase": 0,
+            "evidence": [
+              {
+                "caveats": [
+                  "missing_parent",
+                  "missing_root",
+                  "unset_status"
+                ],
+                "downstream_anomalies": [],
+                "duration_ns": "1701054464",
+                "error_propagation": false,
+                "from": "2026-09-28T00:27:10.714595Z",
+                "span_id": "31792b1652d368d2",
+                "start_time": "2026-09-28T01:01:54.505208832Z",
+                "status_code": 0,
+                "to": "2026-09-28T01:02:10.714595Z",
+                "trace_id": "5ffcb71dd6e8153cfb8404fc196b15c9"
+              },
+              {
+                "caveats": [
+                  "missing_parent",
+                  "missing_root",
+                  "unset_status"
+                ],
+                "downstream_anomalies": [],
+                "duration_ns": "1697932288",
+                "error_propagation": false,
+                "from": "2026-09-28T00:27:10.714595Z",
+                "span_id": "a644e5270d55866b",
+                "start_time": "2026-09-28T01:01:54.604685824Z",
+                "status_code": 0,
+                "to": "2026-09-28T01:02:10.714595Z",
+                "trace_id": "3240a05c42e4d812264ed23e6a6a32d6"
+              },
+              {
+                "caveats": [
+                  "missing_parent",
+                  "missing_root",
+                  "unset_status"
+                ],
+                "downstream_anomalies": [],
+                "duration_ns": "1599921920",
+                "error_propagation": false,
+                "from": "2026-09-28T00:27:10.714595Z",
+                "span_id": "08f1aa53d04a5c20",
+                "start_time": "2026-09-28T01:01:54.705023488Z",
+                "status_code": 0,
+                "to": "2026-09-28T01:02:10.714595Z",
+                "trace_id": "b13f37143b07ecf14022cc2a6e644d9a"
+              },
+              {
+                "caveats": [
+                  "missing_parent",
+                  "missing_root",
+                  "unset_status"
+                ],
+                "downstream_anomalies": [],
+                "duration_ns": "1595581696",
+                "error_propagation": false,
+                "from": "2026-09-28T00:27:10.714595Z",
+                "span_id": "66ecfd9de5bb68c6",
+                "start_time": "2026-09-28T01:01:54.807094528Z",
+                "status_code": 0,
+                "to": "2026-09-28T01:02:10.714595Z",
+                "trace_id": "33ea005f35ec85eed44ccf34912026da"
+              },
+              {
+                "caveats": [
+                  "missing_parent",
+                  "missing_root",
+                  "unset_status"
+                ],
+                "downstream_anomalies": [],
+                "duration_ns": "1301025024",
+                "error_propagation": false,
+                "from": "2026-09-28T00:27:10.714595Z",
+                "span_id": "d327a43d5a39b563",
+                "start_time": "2026-09-28T01:01:50.902060544Z",
+                "status_code": 0,
+                "to": "2026-09-28T01:02:10.714595Z",
+                "trace_id": "c43254f0f0ff19a854eff3cb86ea2a74"
+              }
+            ],
+            "operation": "HTTP GET",
+            "p95_increase_ns": "1246107392",
+            "service_name": "frontend",
+            "service_namespace": "incidentlens-phase3-20260928T005118Z-836fef",
+            "service_rank": 1,
+            "state": "candidate",
+            "triggered_rules": [
+              "latency"
+            ]
+          }
+        ],
+        "caveats": [
+          "missing_parent",
+          "missing_root",
+          "unset_status"
+        ],
+        "config": {
+          "error_increase_bps": 500,
+          "error_rate_bps": 500,
+          "latency_delta_ns": "100000000",
+          "latency_ratio_milli": 2000,
+          "min_samples": 100
+        },
+        "current": {
+          "from": "2026-09-28T00:57:10.714595Z",
+          "to": "2026-09-28T01:02:10.714595Z"
+        },
+        "end": "2026-09-28T01:02:10.714595Z",
+        "observed_at": "2026-09-28T15:04:33.438411382Z",
+        "operations": [
+          {
+            "baseline": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "48524288",
+              "span_count": 256,
+              "unset_count": 256,
+              "unset_rate": 1
+            },
+            "caveats": [
+              "missing_parent",
+              "missing_root",
+              "unset_status"
+            ],
+            "current": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "1294631680",
+              "span_count": 128,
+              "unset_count": 128,
+              "unset_rate": 1
+            },
+            "error_rate_increase": 0,
+            "evidence": [
+              {
+                "caveats": [
+                  "missing_parent",
+                  "missing_root",
+                  "unset_status"
+                ],
+                "downstream_anomalies": [],
+                "duration_ns": "1701054464",
+                "error_propagation": false,
+                "from": "2026-09-28T00:27:10.714595Z",
+                "span_id": "31792b1652d368d2",
+                "start_time": "2026-09-28T01:01:54.505208832Z",
+                "status_code": 0,
+                "to": "2026-09-28T01:02:10.714595Z",
+                "trace_id": "5ffcb71dd6e8153cfb8404fc196b15c9"
+              },
+              {
+                "caveats": [
+                  "missing_parent",
+                  "missing_root",
+                  "unset_status"
+                ],
+                "downstream_anomalies": [],
+                "duration_ns": "1697932288",
+                "error_propagation": false,
+                "from": "2026-09-28T00:27:10.714595Z",
+                "span_id": "a644e5270d55866b",
+                "start_time": "2026-09-28T01:01:54.604685824Z",
+                "status_code": 0,
+                "to": "2026-09-28T01:02:10.714595Z",
+                "trace_id": "3240a05c42e4d812264ed23e6a6a32d6"
+              },
+              {
+                "caveats": [
+                  "missing_parent",
+                  "missing_root",
+                  "unset_status"
+                ],
+                "downstream_anomalies": [],
+                "duration_ns": "1599921920",
+                "error_propagation": false,
+                "from": "2026-09-28T00:27:10.714595Z",
+                "span_id": "08f1aa53d04a5c20",
+                "start_time": "2026-09-28T01:01:54.705023488Z",
+                "status_code": 0,
+                "to": "2026-09-28T01:02:10.714595Z",
+                "trace_id": "b13f37143b07ecf14022cc2a6e644d9a"
+              },
+              {
+                "caveats": [
+                  "missing_parent",
+                  "missing_root",
+                  "unset_status"
+                ],
+                "downstream_anomalies": [],
+                "duration_ns": "1595581696",
+                "error_propagation": false,
+                "from": "2026-09-28T00:27:10.714595Z",
+                "span_id": "66ecfd9de5bb68c6",
+                "start_time": "2026-09-28T01:01:54.807094528Z",
+                "status_code": 0,
+                "to": "2026-09-28T01:02:10.714595Z",
+                "trace_id": "33ea005f35ec85eed44ccf34912026da"
+              },
+              {
+                "caveats": [
+                  "missing_parent",
+                  "missing_root",
+                  "unset_status"
+                ],
+                "downstream_anomalies": [],
+                "duration_ns": "1301025024",
+                "error_propagation": false,
+                "from": "2026-09-28T00:27:10.714595Z",
+                "span_id": "d327a43d5a39b563",
+                "start_time": "2026-09-28T01:01:50.902060544Z",
+                "status_code": 0,
+                "to": "2026-09-28T01:02:10.714595Z",
+                "trace_id": "c43254f0f0ff19a854eff3cb86ea2a74"
+              }
+            ],
+            "operation": "HTTP GET",
+            "p95_increase_ns": "1246107392",
+            "service_name": "frontend",
+            "service_namespace": "incidentlens-phase3-20260928T005118Z-836fef",
+            "state": "candidate",
+            "triggered_rules": [
+              "latency"
+            ]
+          },
+          {
+            "baseline": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "27581",
+              "span_count": 1024,
+              "unset_count": 1024,
+              "unset_rate": 1
+            },
+            "caveats": [
+              "missing_parent",
+              "missing_root",
+              "unset_status"
+            ],
+            "current": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "25281",
+              "span_count": 512,
+              "unset_count": 512,
+              "unset_rate": 1
+            },
+            "error_rate_increase": 0,
+            "evidence": [],
+            "operation": "hipstershop.ProductCatalogService/GetProduct",
+            "p95_increase_ns": "-2300",
+            "service_name": "productcatalogservice",
+            "service_namespace": "incidentlens-phase3-20260928T005118Z-836fef",
+            "state": "normal",
+            "triggered_rules": []
+          },
+          {
+            "baseline": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "32635",
+              "span_count": 256,
+              "unset_count": 256,
+              "unset_rate": 1
+            },
+            "caveats": [
+              "missing_parent",
+              "missing_root",
+              "unset_status"
+            ],
+            "current": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "34305",
+              "span_count": 128,
+              "unset_count": 128,
+              "unset_rate": 1
+            },
+            "error_rate_increase": 0,
+            "evidence": [],
+            "operation": "hipstershop.ProductCatalogService/ListProducts",
+            "p95_increase_ns": "1670",
+            "service_name": "productcatalogservice",
+            "service_namespace": "incidentlens-phase3-20260928T005118Z-836fef",
+            "state": "normal",
+            "triggered_rules": []
+          },
+          {
+            "baseline": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "6637745",
+              "span_count": 256,
+              "unset_count": 256,
+              "unset_rate": 1
+            },
+            "caveats": [
+              "missing_parent",
+              "missing_root",
+              "unset_status"
+            ],
+            "current": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "7002030",
+              "span_count": 128,
+              "unset_count": 128,
+              "unset_rate": 1
+            },
+            "error_rate_increase": 0,
+            "evidence": [],
+            "operation": "/hipstershop.RecommendationService/ListRecommendations",
+            "p95_increase_ns": "364285",
+            "service_name": "recommendationservice",
+            "service_namespace": "incidentlens-phase3-20260928T005118Z-836fef",
+            "state": "normal",
+            "triggered_rules": []
+          }
+        ],
+        "rule_version": "trace-v1"
+      },
+      "name": "latency_fault",
+      "requests": [
+        {
+          "elapsed_ms": 88.137,
+          "status": 200,
+          "trace_id": "14b95dda2741f72294ccf4fe7f2c4854"
+        },
+        {
+          "elapsed_ms": 184.686,
+          "status": 200,
+          "trace_id": "c251e607f915531dcbd78a4779ab1a98"
+        },
+        {
+          "elapsed_ms": 190.135,
+          "status": 200,
+          "trace_id": "e5b2b0400561f4f05ac32d9d5da682e4"
+        },
+        {
+          "elapsed_ms": 184.597,
+          "status": 200,
+          "trace_id": "06fc9ba5cae0cffefa1e854136965686"
+        },
+        {
+          "elapsed_ms": 295.675,
+          "status": 200,
+          "trace_id": "5275726b91a32604c189ae3712bbb1fa"
+        },
+        {
+          "elapsed_ms": 601.819,
+          "status": 200,
+          "trace_id": "3309b90999c1fc74fba8340da96f4a68"
+        },
+        {
+          "elapsed_ms": 696.815,
+          "status": 200,
+          "trace_id": "e6710d4042f99e6ae3d2af6ee93fb351"
+        },
+        {
+          "elapsed_ms": 594.33,
+          "status": 200,
+          "trace_id": "9c4b0895973acd1170fb3fd40887c708"
+        },
+        {
+          "elapsed_ms": 604.877,
+          "status": 200,
+          "trace_id": "c0e65443adb9446c5a15ef5a8fc1bafe"
+        },
+        {
+          "elapsed_ms": 699.244,
+          "status": 200,
+          "trace_id": "5924a5dc6e5e94e6e9ad635488268a93"
+        },
+        {
+          "elapsed_ms": 599.351,
+          "status": 200,
+          "trace_id": "07324f67b74857f4289b419669c359e0"
+        },
+        {
+          "elapsed_ms": 601.197,
+          "status": 200,
+          "trace_id": "5c6391b42a4a10ee335ee8b9870c91e6"
+        },
+        {
+          "elapsed_ms": 696.9,
+          "status": 200,
+          "trace_id": "8f8ba3219811cc24f159cc4d6fa097ea"
+        },
+        {
+          "elapsed_ms": 596.888,
+          "status": 200,
+          "trace_id": "4ad1f8269904629e955fa599e2e1d9bc"
+        },
+        {
+          "elapsed_ms": 401.771,
+          "status": 200,
+          "trace_id": "d41bf4e46181f38164cc2c605bc5c7e7"
+        },
+        {
+          "elapsed_ms": 496.444,
+          "status": 200,
+          "trace_id": "8cdcde0ec76b07b62d96f28611e94f8a"
+        },
+        {
+          "elapsed_ms": 299.388,
+          "status": 200,
+          "trace_id": "91a4a07efcc5b53edcb3fcf47230d559"
+        },
+        {
+          "elapsed_ms": 499.353,
+          "status": 200,
+          "trace_id": "48c8276719b6191f588dfd6aaec9919e"
+        },
+        {
+          "elapsed_ms": 405.058,
+          "status": 200,
+          "trace_id": "dc4f2a0a56bbc2ee799aabd4a85b1d4f"
+        },
+        {
+          "elapsed_ms": 404.722,
+          "status": 200,
+          "trace_id": "fae3fefb469c3070df6e693bf497a144"
+        },
+        {
+          "elapsed_ms": 499.4,
+          "status": 200,
+          "trace_id": "62b519e9c03be8cdcedf139f317a8c7e"
+        },
+        {
+          "elapsed_ms": 397.045,
+          "status": 200,
+          "trace_id": "796670eb666af27898db2036170d677c"
+        },
+        {
+          "elapsed_ms": 396.408,
+          "status": 200,
+          "trace_id": "2c533e2a34ed5aca0350fe3bedfa281c"
+        },
+        {
+          "elapsed_ms": 397.797,
+          "status": 200,
+          "trace_id": "079fa7cc65b2a8a818736acff9c5f6e7"
+        },
+        {
+          "elapsed_ms": 302.803,
+          "status": 200,
+          "trace_id": "a0713319dfa54c8a1300227cc92a5558"
+        },
+        {
+          "elapsed_ms": 204.543,
+          "status": 200,
+          "trace_id": "7eb89cdfdd283e8fb9922470035b031e"
+        },
+        {
+          "elapsed_ms": 206.053,
+          "status": 200,
+          "trace_id": "711689fddaff5e148b61e648e482a8e5"
+        },
+        {
+          "elapsed_ms": 297.857,
+          "status": 200,
+          "trace_id": "c42a8204b56de01ea81519668963c582"
+        },
+        {
+          "elapsed_ms": 394.313,
+          "status": 200,
+          "trace_id": "78f1db3cf8fe0f2aa566a924f01a85ce"
+        },
+        {
+          "elapsed_ms": 696.766,
+          "status": 200,
+          "trace_id": "60833e7db47fbe78c06cd6d9ac2662d9"
+        },
+        {
+          "elapsed_ms": 697.914,
+          "status": 200,
+          "trace_id": "497309e162131bec90ed283d43b61f9c"
+        },
+        {
+          "elapsed_ms": 599.485,
+          "status": 200,
+          "trace_id": "6b94a038534d67beecc91c98d5de25f6"
+        },
+        {
+          "elapsed_ms": 507.825,
+          "status": 200,
+          "trace_id": "e907bce4944d8d590fdd21dde5bc41c3"
+        },
+        {
+          "elapsed_ms": 206.655,
+          "status": 200,
+          "trace_id": "705ac7e1b27d88120cec3a3bf7f211c1"
+        },
+        {
+          "elapsed_ms": 299.449,
+          "status": 200,
+          "trace_id": "7551d424e8fcbd4f4629705b044ca497"
+        },
+        {
+          "elapsed_ms": 297.718,
+          "status": 200,
+          "trace_id": "0cf982b809bcfae8ebb91267ba1e6ec2"
+        },
+        {
+          "elapsed_ms": 393.601,
+          "status": 200,
+          "trace_id": "eb0d4cdfd5872231a4ca5e63638e2a55"
+        },
+        {
+          "elapsed_ms": 709.493,
+          "status": 200,
+          "trace_id": "0c69107f389584f36e4c7a32dd94e9e4"
+        },
+        {
+          "elapsed_ms": 698.912,
+          "status": 200,
+          "trace_id": "ccd686679c828a819b6bbb23e14a4eb5"
+        },
+        {
+          "elapsed_ms": 800.109,
+          "status": 200,
+          "trace_id": "638e15844e2e2b9f8924acb6fc09e9d5"
+        },
+        {
+          "elapsed_ms": 704.226,
+          "status": 200,
+          "trace_id": "b7ce24e70a9cf1b705b23035107afb1a"
+        },
+        {
+          "elapsed_ms": 381.465,
+          "status": 200,
+          "trace_id": "8577a15da55454c548e5375e03db82fa"
+        },
+        {
+          "elapsed_ms": 207.496,
+          "status": 200,
+          "trace_id": "864da9275f7a6d97dca8bb7e1121aba3"
+        },
+        {
+          "elapsed_ms": 198.34,
+          "status": 200,
+          "trace_id": "709b74aa633b121a8b19b5f29e307eb5"
+        },
+        {
+          "elapsed_ms": 198.399,
+          "status": 200,
+          "trace_id": "bd1f9f8730a7bca38287dd768a5b835d"
+        },
+        {
+          "elapsed_ms": 798.487,
+          "status": 200,
+          "trace_id": "87513dc1b49168a9249094ef030fd680"
+        },
+        {
+          "elapsed_ms": 801.176,
+          "status": 200,
+          "trace_id": "4a3e2098fcbcb6410cd2297e103da387"
+        },
+        {
+          "elapsed_ms": 1297.726,
+          "status": 200,
+          "trace_id": "31354760460589add58c41de4b79f485"
+        },
+        {
+          "elapsed_ms": 1294.516,
+          "status": 200,
+          "trace_id": "a09648e03ef9ae283a4e08b65b0bfec8"
+        },
+        {
+          "elapsed_ms": 892.946,
+          "status": 200,
+          "trace_id": "29d10adf09bb94db71ac707d4b1fb79c"
+        },
+        {
+          "elapsed_ms": 901.405,
+          "status": 200,
+          "trace_id": "bad546b6c0d2f5eb62ae901bf4cfbb71"
+        },
+        {
+          "elapsed_ms": 1001.212,
+          "status": 200,
+          "trace_id": "db6063f95d01eb5782052430765ed38f"
+        },
+        {
+          "elapsed_ms": 999.358,
+          "status": 200,
+          "trace_id": "2899b10bad17c4621ef3eeee8c57d43f"
+        },
+        {
+          "elapsed_ms": 1599.289,
+          "status": 200,
+          "trace_id": "0c3cc3d8837964afebfb7d8f8d891d19"
+        },
+        {
+          "elapsed_ms": 1299.666,
+          "status": 200,
+          "trace_id": "b05b65fc7ca19454d35f9b902c6aa0df"
+        },
+        {
+          "elapsed_ms": 1407.486,
+          "status": 200,
+          "trace_id": "c43b5260919d7e98ec1121001b7640a4"
+        },
+        {
+          "elapsed_ms": 1405.128,
+          "status": 200,
+          "trace_id": "e09ee411a3a3bb013d3952ddc46e3102"
+        },
+        {
+          "elapsed_ms": 901.378,
+          "status": 200,
+          "trace_id": "882cd88caf9a1c3bd3f1528f8d6127b8"
+        },
+        {
+          "elapsed_ms": 704.324,
+          "status": 200,
+          "trace_id": "4804fd01965bfc9785771ae4dcf606b2"
+        },
+        {
+          "elapsed_ms": 895.518,
+          "status": 200,
+          "trace_id": "12713a60fff00771b3a34e2b32289e65"
+        },
+        {
+          "elapsed_ms": 991.745,
+          "status": 200,
+          "trace_id": "536b34a5cbf0dd7c0238637de44b01a9"
+        },
+        {
+          "elapsed_ms": 898.097,
+          "status": 200,
+          "trace_id": "3ef8ca2bb06dc0fa914f29dfbfa4db4b"
+        },
+        {
+          "elapsed_ms": 899.987,
+          "status": 200,
+          "trace_id": "44098641e6e89d87e2303a767e36003d"
+        },
+        {
+          "elapsed_ms": 802.143,
+          "status": 200,
+          "trace_id": "f12edb8396001b7ea89e32397790ed23"
+        },
+        {
+          "elapsed_ms": 415.628,
+          "status": 200,
+          "trace_id": "7f570ba0adbf0d4be14a0eb2e0187bdd"
+        },
+        {
+          "elapsed_ms": 404.548,
+          "status": 200,
+          "trace_id": "5b653026d13914a3a7e8c76fee0d50cd"
+        },
+        {
+          "elapsed_ms": 600.066,
+          "status": 200,
+          "trace_id": "476fe9342e2f534cb14cd9a9b3ccbc9e"
+        },
+        {
+          "elapsed_ms": 390.659,
+          "status": 200,
+          "trace_id": "046de07ebf7b04d35f2216be00c5a2e2"
+        },
+        {
+          "elapsed_ms": 1496.153,
+          "status": 200,
+          "trace_id": "4cb1fda957a650fe7207f62e502a54c4"
+        },
+        {
+          "elapsed_ms": 1396.678,
+          "status": 200,
+          "trace_id": "809b39f93613a64f933bced55beb2caf"
+        },
+        {
+          "elapsed_ms": 1495.358,
+          "status": 200,
+          "trace_id": "c43254f0f0ff19a854eff3cb86ea2a74"
+        },
+        {
+          "elapsed_ms": 1399.032,
+          "status": 200,
+          "trace_id": "c43660264ce104eca403300288b68174"
+        },
+        {
+          "elapsed_ms": 496.054,
+          "status": 200,
+          "trace_id": "773c6c4cae94837380cff7ed84c79be6"
+        },
+        {
+          "elapsed_ms": 400.445,
+          "status": 200,
+          "trace_id": "0f5193ccf568534ec968612c9f105721"
+        },
+        {
+          "elapsed_ms": 302.233,
+          "status": 200,
+          "trace_id": "fa7177abf9edd12d2e059c32c6938873"
+        },
+        {
+          "elapsed_ms": 395.26,
+          "status": 200,
+          "trace_id": "515a979ed2d1376da393224b7048b3bc"
+        },
+        {
+          "elapsed_ms": 408.753,
+          "status": 200,
+          "trace_id": "8e65ae8f19df2fcb417507a3e2954343"
+        },
+        {
+          "elapsed_ms": 404.911,
+          "status": 200,
+          "trace_id": "b6b3b0ab82ed0f2e798c8ed3727cc08a"
+        },
+        {
+          "elapsed_ms": 405.652,
+          "status": 200,
+          "trace_id": "69aecb587f123f0e5b3d1672dfc87989"
+        },
+        {
+          "elapsed_ms": 400.08,
+          "status": 200,
+          "trace_id": "c48ed545f174a337e7ab3a37a3500166"
+        },
+        {
+          "elapsed_ms": 499.961,
+          "status": 200,
+          "trace_id": "6acc9249deb966c25076eaa4f29b0c72"
+        },
+        {
+          "elapsed_ms": 592.03,
+          "status": 200,
+          "trace_id": "c087ffb64c66b146b02a8255e6e020f2"
+        },
+        {
+          "elapsed_ms": 592.302,
+          "status": 200,
+          "trace_id": "fdc518ba9f6a71d65d4e701854d9efb0"
+        },
+        {
+          "elapsed_ms": 407.216,
+          "status": 200,
+          "trace_id": "80dbdedcfe78b8e5b2a7896ec554a6f6"
+        },
+        {
+          "elapsed_ms": 398.784,
+          "status": 200,
+          "trace_id": "87848e5a82f728336b501d3edd049c5c"
+        },
+        {
+          "elapsed_ms": 396.105,
+          "status": 200,
+          "trace_id": "0be15b564cff48d214f5f6a697285f5f"
+        },
+        {
+          "elapsed_ms": 307.475,
+          "status": 200,
+          "trace_id": "e4521684c2c6d87c640a2060f68fe936"
+        },
+        {
+          "elapsed_ms": 402.757,
+          "status": 200,
+          "trace_id": "51d76cd9b353100cdf29d2f307ce8bca"
+        },
+        {
+          "elapsed_ms": 600.64,
+          "status": 200,
+          "trace_id": "d29dc8950d82bd70235723fad0ffaedf"
+        },
+        {
+          "elapsed_ms": 597.305,
+          "status": 200,
+          "trace_id": "fd1a74d3ee0aba6e1df372880c28b8cf"
+        },
+        {
+          "elapsed_ms": 692.769,
+          "status": 200,
+          "trace_id": "bddc310cb96cc1bc3af314a31a57e382"
+        },
+        {
+          "elapsed_ms": 503.796,
+          "status": 200,
+          "trace_id": "7fa8794f272ec6efcddd098cea215a94"
+        },
+        {
+          "elapsed_ms": 1800.634,
+          "status": 200,
+          "trace_id": "5ffcb71dd6e8153cfb8404fc196b15c9"
+        },
+        {
+          "elapsed_ms": 1894.492,
+          "status": 200,
+          "trace_id": "3240a05c42e4d812264ed23e6a6a32d6"
+        },
+        {
+          "elapsed_ms": 1893.932,
+          "status": 200,
+          "trace_id": "b13f37143b07ecf14022cc2a6e644d9a"
+        },
+        {
+          "elapsed_ms": 1899.043,
+          "status": 200,
+          "trace_id": "33ea005f35ec85eed44ccf34912026da"
+        },
+        {
+          "elapsed_ms": 397.103,
+          "status": 200,
+          "trace_id": "3b2e5ae7e3f1a5f2c5b11835adecdf76"
+        },
+        {
+          "elapsed_ms": 400.762,
+          "status": 200,
+          "trace_id": "103a163dfd8f78158220b1ed0e656961"
+        },
+        {
+          "elapsed_ms": 300.716,
+          "status": 200,
+          "trace_id": "0e47c90864de04d849092ae8d0b5c716"
+        },
+        {
+          "elapsed_ms": 403.336,
+          "status": 200,
+          "trace_id": "ee0753b78f83964b655fb80ba838d1a6"
+        },
+        {
+          "elapsed_ms": 1101.178,
+          "status": 200,
+          "trace_id": "6e5fb481744f2989235136ba828e87c9"
+        },
+        {
+          "elapsed_ms": 899.802,
+          "status": 200,
+          "trace_id": "4f8516b42357e138487b3d78b1b79092"
+        },
+        {
+          "elapsed_ms": 699.224,
+          "status": 200,
+          "trace_id": "9d0a86c169552c9bcf2beb82aeb31cc6"
+        },
+        {
+          "elapsed_ms": 898.99,
+          "status": 200,
+          "trace_id": "2bd1df75b54995ad77d66a31e7c0e849"
+        },
+        {
+          "elapsed_ms": 605.213,
+          "status": 200,
+          "trace_id": "4ebfd2234a5ac9210dfc6c81c6f0ae73"
+        },
+        {
+          "elapsed_ms": 503.138,
+          "status": 200,
+          "trace_id": "96fae7e36fc82cbfd88b1e8ce67f1416"
+        },
+        {
+          "elapsed_ms": 396.626,
+          "status": 200,
+          "trace_id": "d4284fce40dff78efa487618eec289c0"
+        },
+        {
+          "elapsed_ms": 397.016,
+          "status": 200,
+          "trace_id": "064619149235c73b8c8986fcc9f106a0"
+        },
+        {
+          "elapsed_ms": 394.614,
+          "status": 200,
+          "trace_id": "2f8937bc6ec973ebf7068486b8c76459"
+        },
+        {
+          "elapsed_ms": 394.857,
+          "status": 200,
+          "trace_id": "f1040cb9d93dcc390223d2833208c971"
+        },
+        {
+          "elapsed_ms": 306.213,
+          "status": 200,
+          "trace_id": "c244b22026c93d63fa7650dc0d9345fe"
+        },
+        {
+          "elapsed_ms": 307.105,
+          "status": 200,
+          "trace_id": "1ff5dd89ea99d0943c2aa4e66295103f"
+        },
+        {
+          "elapsed_ms": 298.729,
+          "status": 200,
+          "trace_id": "ba473ce45ede9b9746ab8f3d95881baa"
+        },
+        {
+          "elapsed_ms": 399.607,
+          "status": 200,
+          "trace_id": "9b8c4a3949beae76db5465ec37244a69"
+        },
+        {
+          "elapsed_ms": 398.042,
+          "status": 200,
+          "trace_id": "04d7aa8be1defb036381fb462800c151"
+        },
+        {
+          "elapsed_ms": 492.672,
+          "status": 200,
+          "trace_id": "9c9ee1c9af48ede18bd0fa31030773c9"
+        },
+        {
+          "elapsed_ms": 306.573,
+          "status": 200,
+          "trace_id": "d313139d2de0b3dfd6a1280643d481af"
+        },
+        {
+          "elapsed_ms": 498.689,
+          "status": 200,
+          "trace_id": "6d1d87b1a5ffbf017c1c3de14658b86a"
+        },
+        {
+          "elapsed_ms": 496.811,
+          "status": 200,
+          "trace_id": "79218a2cc02b13e4aa119775fb278e24"
+        },
+        {
+          "elapsed_ms": 305.171,
+          "status": 200,
+          "trace_id": "ae9cef781880e35616f9b1e63756e81a"
+        },
+        {
+          "elapsed_ms": 295.932,
+          "status": 200,
+          "trace_id": "21891a540fa645499cc85719b44a33f6"
+        },
+        {
+          "elapsed_ms": 302.552,
+          "status": 200,
+          "trace_id": "0eaccd6c41c3c9d0812fe73a2a734489"
+        },
+        {
+          "elapsed_ms": 502.57,
+          "status": 200,
+          "trace_id": "17f2b566841096802efd7cf9f8ead8c2"
+        },
+        {
+          "elapsed_ms": 500.481,
+          "status": 200,
+          "trace_id": "27323f39112827e8742fd7a72a3d7f28"
+        },
+        {
+          "elapsed_ms": 503.241,
+          "status": 200,
+          "trace_id": "fa09a24b0922a743af89707d6b3bc8d7"
+        },
+        {
+          "elapsed_ms": 391.474,
+          "status": 200,
+          "trace_id": "e92c866acb75c09222ddfbcef9d118a0"
+        },
+        {
+          "elapsed_ms": 1101.024,
+          "status": 200,
+          "trace_id": "5cfdc474217e4e6ec0a61ea2ac06e6b4"
+        },
+        {
+          "elapsed_ms": 1098.166,
+          "status": 200,
+          "trace_id": "8e57e393e29034b1baf3c3f72e5916c1"
+        }
+      ],
+      "route": "/api/recommendations?productIds=OLJCESPC7Z&productIds=OLJCESPC7Z",
+      "status": "traffic_verified",
+      "traffic_ended_at": "2026-09-28T01:02:00.710894Z",
+      "traffic_started_at": "2026-09-28T01:01:40.121545Z"
+    },
+    {
+      "clickhouse_current": [
+        {
+          "error_count": 0,
+          "operation": "HTTP GET",
+          "p95_duration_ns": "81463808",
+          "service_name": "frontend",
+          "span_count": 128
+        },
+        {
+          "error_count": 0,
+          "operation": "hipstershop.ProductCatalogService/GetProduct",
+          "p95_duration_ns": "23547",
+          "service_name": "productcatalogservice",
+          "span_count": 512
+        },
+        {
+          "error_count": 0,
+          "operation": "hipstershop.ProductCatalogService/ListProducts",
+          "p95_duration_ns": "22451",
+          "service_name": "productcatalogservice",
+          "span_count": 128
+        },
+        {
+          "error_count": 0,
+          "operation": "/hipstershop.RecommendationService/ListRecommendations",
+          "p95_duration_ns": "6248825",
+          "service_name": "recommendationservice",
+          "span_count": 128
+        }
+      ],
+      "evaluation_end": "2026-09-28T01:07:26.249516Z",
+      "evaluation_status": "passed",
+      "expected_http": 200,
+      "http_status_counts": {
+        "200": 128
+      },
+      "incident_response": {
+        "baseline": {
+          "from": "2026-09-28T00:32:26.249516Z",
+          "to": "2026-09-28T01:02:26.249516Z"
+        },
+        "candidates": [],
+        "caveats": [
+          "missing_parent",
+          "missing_root",
+          "unset_status"
+        ],
+        "config": {
+          "error_increase_bps": 500,
+          "error_rate_bps": 500,
+          "latency_delta_ns": "100000000",
+          "latency_ratio_milli": 2000,
+          "min_samples": 100
+        },
+        "current": {
+          "from": "2026-09-28T01:02:26.249516Z",
+          "to": "2026-09-28T01:07:26.249516Z"
+        },
+        "end": "2026-09-28T01:07:26.249516Z",
+        "observed_at": "2026-09-28T15:04:33.50674162Z",
+        "operations": [
+          {
+            "baseline": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "793680640",
+              "span_count": 384,
+              "unset_count": 384,
+              "unset_rate": 1
+            },
+            "caveats": [
+              "missing_parent",
+              "missing_root",
+              "unset_status"
+            ],
+            "current": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "81463808",
+              "span_count": 128,
+              "unset_count": 128,
+              "unset_rate": 1
+            },
+            "error_rate_increase": 0,
+            "evidence": [],
+            "operation": "HTTP GET",
+            "p95_increase_ns": "-712216832",
+            "service_name": "frontend",
+            "service_namespace": "incidentlens-phase3-20260928T005118Z-836fef",
+            "state": "normal",
+            "triggered_rules": []
+          },
+          {
+            "baseline": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "26738",
+              "span_count": 1536,
+              "unset_count": 1536,
+              "unset_rate": 1
+            },
+            "caveats": [
+              "missing_parent",
+              "missing_root",
+              "unset_status"
+            ],
+            "current": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "23547",
+              "span_count": 512,
+              "unset_count": 512,
+              "unset_rate": 1
+            },
+            "error_rate_increase": 0,
+            "evidence": [],
+            "operation": "hipstershop.ProductCatalogService/GetProduct",
+            "p95_increase_ns": "-3191",
+            "service_name": "productcatalogservice",
+            "service_namespace": "incidentlens-phase3-20260928T005118Z-836fef",
+            "state": "normal",
+            "triggered_rules": []
+          },
+          {
+            "baseline": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "33761",
+              "span_count": 384,
+              "unset_count": 384,
+              "unset_rate": 1
+            },
+            "caveats": [
+              "missing_parent",
+              "missing_root",
+              "unset_status"
+            ],
+            "current": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "22451",
+              "span_count": 128,
+              "unset_count": 128,
+              "unset_rate": 1
+            },
+            "error_rate_increase": 0,
+            "evidence": [],
+            "operation": "hipstershop.ProductCatalogService/ListProducts",
+            "p95_increase_ns": "-11310",
+            "service_name": "productcatalogservice",
+            "service_namespace": "incidentlens-phase3-20260928T005118Z-836fef",
+            "state": "normal",
+            "triggered_rules": []
+          },
+          {
+            "baseline": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "6709912",
+              "span_count": 384,
+              "unset_count": 384,
+              "unset_rate": 1
+            },
+            "caveats": [
+              "missing_parent",
+              "missing_root",
+              "unset_status"
+            ],
+            "current": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "6248825",
+              "span_count": 128,
+              "unset_count": 128,
+              "unset_rate": 1
+            },
+            "error_rate_increase": 0,
+            "evidence": [],
+            "operation": "/hipstershop.RecommendationService/ListRecommendations",
+            "p95_increase_ns": "-461087",
+            "service_name": "recommendationservice",
+            "service_namespace": "incidentlens-phase3-20260928T005118Z-836fef",
+            "state": "normal",
+            "triggered_rules": []
+          }
+        ],
+        "rule_version": "trace-v1"
+      },
+      "name": "latency_recovery",
+      "requests": [
+        {
+          "elapsed_ms": 232.683,
+          "status": 200,
+          "trace_id": "edc68d461992bc7ffde3531a4d26526a"
+        },
+        {
+          "elapsed_ms": 227.498,
+          "status": 200,
+          "trace_id": "fd2646875d4d5d0dee906d9743c152f5"
+        },
+        {
+          "elapsed_ms": 238.049,
+          "status": 200,
+          "trace_id": "6e5cff8e55bcf6be60310a222ef66219"
+        },
+        {
+          "elapsed_ms": 219.676,
+          "status": 200,
+          "trace_id": "381ebdca5e892313149ea72d16e24c10"
+        },
+        {
+          "elapsed_ms": 77.947,
+          "status": 200,
+          "trace_id": "667a72ae6cd1a6fce2eff4d009e033c7"
+        },
+        {
+          "elapsed_ms": 77.078,
+          "status": 200,
+          "trace_id": "b67483c5f9f44837b429d06344bcbc17"
+        },
+        {
+          "elapsed_ms": 75.748,
+          "status": 200,
+          "trace_id": "b969d12b6518d345ea5a57a0b742d8fc"
+        },
+        {
+          "elapsed_ms": 76.372,
+          "status": 200,
+          "trace_id": "491d2c11409245a5b788a23d740d26b4"
+        },
+        {
+          "elapsed_ms": 86.485,
+          "status": 200,
+          "trace_id": "c43642d7c0aa45340fc8f149b55dca8d"
+        },
+        {
+          "elapsed_ms": 75.365,
+          "status": 200,
+          "trace_id": "b7badcfdddddc0ee95e72cb2067f1330"
+        },
+        {
+          "elapsed_ms": 83.063,
+          "status": 200,
+          "trace_id": "03d4d66e08d98351e0bf03d9f7b075d1"
+        },
+        {
+          "elapsed_ms": 120.893,
+          "status": 200,
+          "trace_id": "b3c79c2e840f0a1f4803df2777109b8d"
+        },
+        {
+          "elapsed_ms": 79.367,
+          "status": 200,
+          "trace_id": "93177cdbea2d6cbdda26fb45b0651bf2"
+        },
+        {
+          "elapsed_ms": 81.508,
+          "status": 200,
+          "trace_id": "24ce0bbe60eab97d678bc6b147013273"
+        },
+        {
+          "elapsed_ms": 84.619,
+          "status": 200,
+          "trace_id": "ca16be74dbe7091be7cbec997d829cf3"
+        },
+        {
+          "elapsed_ms": 72.729,
+          "status": 200,
+          "trace_id": "a88e3afa665d2b0be624f3961f7fa94b"
+        },
+        {
+          "elapsed_ms": 83.256,
+          "status": 200,
+          "trace_id": "837331e674a4cdf1758790268f937f68"
+        },
+        {
+          "elapsed_ms": 77.456,
+          "status": 200,
+          "trace_id": "3f3904c56761571ee699e8fe01d61cca"
+        },
+        {
+          "elapsed_ms": 65.847,
+          "status": 200,
+          "trace_id": "53242e36bc75363827a55af9e4564827"
+        },
+        {
+          "elapsed_ms": 87.084,
+          "status": 200,
+          "trace_id": "0ed0cbe34680b4e420762d3a0a0d80e0"
+        },
+        {
+          "elapsed_ms": 55.086,
+          "status": 200,
+          "trace_id": "c49c8dd8928069a2d37a3ce932b0d2e0"
+        },
+        {
+          "elapsed_ms": 52.449,
+          "status": 200,
+          "trace_id": "3c89cc9abb26e3007a8542dd266ee2b1"
+        },
+        {
+          "elapsed_ms": 54.937,
+          "status": 200,
+          "trace_id": "1470301ac50a51d0058b420fd4153dad"
+        },
+        {
+          "elapsed_ms": 93.951,
+          "status": 200,
+          "trace_id": "281336551206af785f7aef49e1600e6e"
+        },
+        {
+          "elapsed_ms": 96.273,
+          "status": 200,
+          "trace_id": "3e4384bd5f94873f6b901dbb8eb001fc"
+        },
+        {
+          "elapsed_ms": 69.825,
+          "status": 200,
+          "trace_id": "bc52b2ea417db24129370ba51934f8a9"
+        },
+        {
+          "elapsed_ms": 96.393,
+          "status": 200,
+          "trace_id": "69e941f37d8fe010f42ee42b939f150f"
+        },
+        {
+          "elapsed_ms": 82.567,
+          "status": 200,
+          "trace_id": "b39250d58455a967841d717c411d282e"
+        },
+        {
+          "elapsed_ms": 63.328,
+          "status": 200,
+          "trace_id": "936128daba0990d1a00d8b3b58212d76"
+        },
+        {
+          "elapsed_ms": 69.181,
+          "status": 200,
+          "trace_id": "31d6e02e15d3f5c10ea438ea1f96f140"
+        },
+        {
+          "elapsed_ms": 66.336,
+          "status": 200,
+          "trace_id": "753b2252ce86c07091afab647ff4d58f"
+        },
+        {
+          "elapsed_ms": 45.276,
+          "status": 200,
+          "trace_id": "86d3ef0ce63e336afd44ee45dff98e3b"
+        },
+        {
+          "elapsed_ms": 41.454,
+          "status": 200,
+          "trace_id": "531b004d8fb90850bce8be4b5f79bbd2"
+        },
+        {
+          "elapsed_ms": 36.482,
+          "status": 200,
+          "trace_id": "44916f619c34b36ff4a83f6995d1e758"
+        },
+        {
+          "elapsed_ms": 38.093,
+          "status": 200,
+          "trace_id": "f91e558271f84730c5f29e7415f6aae9"
+        },
+        {
+          "elapsed_ms": 69.358,
+          "status": 200,
+          "trace_id": "0b03c3f37f5654fad2fa79ea0fe00d58"
+        },
+        {
+          "elapsed_ms": 69.452,
+          "status": 200,
+          "trace_id": "13888e157d696faf20b4eccf8b36fcee"
+        },
+        {
+          "elapsed_ms": 67.582,
+          "status": 200,
+          "trace_id": "aedef3068408be3305238366232eff3e"
+        },
+        {
+          "elapsed_ms": 67.985,
+          "status": 200,
+          "trace_id": "cd3084e66921ac1168dc9c6e0bb40727"
+        },
+        {
+          "elapsed_ms": 34.672,
+          "status": 200,
+          "trace_id": "8b0b347ef29f1301b6be94aac8f014e7"
+        },
+        {
+          "elapsed_ms": 35.385,
+          "status": 200,
+          "trace_id": "b83d51ff60a5e1c992c945f5ea23d6ed"
+        },
+        {
+          "elapsed_ms": 45.472,
+          "status": 200,
+          "trace_id": "9f778a66d0dea71c95adcfbfecb75547"
+        },
+        {
+          "elapsed_ms": 42.955,
+          "status": 200,
+          "trace_id": "1793be5a048d4c776b3ddd3e56e58893"
+        },
+        {
+          "elapsed_ms": 47.985,
+          "status": 200,
+          "trace_id": "0fcc2512c2d252a65e062a85ba3c99f9"
+        },
+        {
+          "elapsed_ms": 44.434,
+          "status": 200,
+          "trace_id": "66b703e4cc2c604521621fda2f46d84e"
+        },
+        {
+          "elapsed_ms": 39.803,
+          "status": 200,
+          "trace_id": "7f1b8d026ff28c9c2171de2ed9981536"
+        },
+        {
+          "elapsed_ms": 37.491,
+          "status": 200,
+          "trace_id": "de758d2ae2564aeb2fa69db1b6f3b65d"
+        },
+        {
+          "elapsed_ms": 39.581,
+          "status": 200,
+          "trace_id": "2eb29dd7abc192782091c266eb77ffc2"
+        },
+        {
+          "elapsed_ms": 37.24,
+          "status": 200,
+          "trace_id": "832d5f975c4d38ea5967069ed89167e1"
+        },
+        {
+          "elapsed_ms": 36.84,
+          "status": 200,
+          "trace_id": "c5671d1931d600fad153dee5810d68fa"
+        },
+        {
+          "elapsed_ms": 41.626,
+          "status": 200,
+          "trace_id": "d493fb5cf0bf322aa5f3d93227645615"
+        },
+        {
+          "elapsed_ms": 36.926,
+          "status": 200,
+          "trace_id": "fda8d2890f7e4a1de8e3334e9535c0c1"
+        },
+        {
+          "elapsed_ms": 39.122,
+          "status": 200,
+          "trace_id": "966b9bbb43caac12ec8a4f148c1b59a5"
+        },
+        {
+          "elapsed_ms": 40.644,
+          "status": 200,
+          "trace_id": "ffd197d97a04fc4c5c8d725135bf6a27"
+        },
+        {
+          "elapsed_ms": 37.792,
+          "status": 200,
+          "trace_id": "19ae7f23eba7d48c4da314dc62bf57a8"
+        },
+        {
+          "elapsed_ms": 39.612,
+          "status": 200,
+          "trace_id": "f867836bddab7adfcee137620cf241b4"
+        },
+        {
+          "elapsed_ms": 37.341,
+          "status": 200,
+          "trace_id": "3bd40c6ec06b7ad8e4c3479a72fcbde0"
+        },
+        {
+          "elapsed_ms": 36.513,
+          "status": 200,
+          "trace_id": "0717104a7485e73a9b0b429728dd80af"
+        },
+        {
+          "elapsed_ms": 36.87,
+          "status": 200,
+          "trace_id": "d2aa288b586c62a333bb8544b3d56eec"
+        },
+        {
+          "elapsed_ms": 57.991,
+          "status": 200,
+          "trace_id": "46c426c59fb2c3df4472fc43909dfb68"
+        },
+        {
+          "elapsed_ms": 40.316,
+          "status": 200,
+          "trace_id": "c47dc52944bf968ededd6b362dbf9625"
+        },
+        {
+          "elapsed_ms": 52.929,
+          "status": 200,
+          "trace_id": "da6dea2b37e36c6a669973c52d79ce0d"
+        },
+        {
+          "elapsed_ms": 56.796,
+          "status": 200,
+          "trace_id": "08f8ccb6745108776da1b8e8a487bdad"
+        },
+        {
+          "elapsed_ms": 39.979,
+          "status": 200,
+          "trace_id": "cba8135b404a98a4e06c1ee39d59b6e5"
+        },
+        {
+          "elapsed_ms": 40.269,
+          "status": 200,
+          "trace_id": "0369e60234c5d8235dc79ba90e02f3fb"
+        },
+        {
+          "elapsed_ms": 41.963,
+          "status": 200,
+          "trace_id": "3a0a822484d7b5766a0c2e45a1ade216"
+        },
+        {
+          "elapsed_ms": 46.636,
+          "status": 200,
+          "trace_id": "0be6b3bee7a9e69178ad2abeedba4d2e"
+        },
+        {
+          "elapsed_ms": 54.698,
+          "status": 200,
+          "trace_id": "1f5ad5606cfd7eb1c154598c20cc317a"
+        },
+        {
+          "elapsed_ms": 46.822,
+          "status": 200,
+          "trace_id": "a3143f6a03d933d02646c068932f6aad"
+        },
+        {
+          "elapsed_ms": 51.13,
+          "status": 200,
+          "trace_id": "90b73fde293848fe58b0dc3931ce8370"
+        },
+        {
+          "elapsed_ms": 54.578,
+          "status": 200,
+          "trace_id": "032e6fb193178feec4311a32042dd771"
+        },
+        {
+          "elapsed_ms": 51.182,
+          "status": 200,
+          "trace_id": "81719a37c58cb1996ceba26430feacfd"
+        },
+        {
+          "elapsed_ms": 63.805,
+          "status": 200,
+          "trace_id": "c689a94638014228041ec83fe97199bb"
+        },
+        {
+          "elapsed_ms": 54.929,
+          "status": 200,
+          "trace_id": "38aba5a06491e9b8d253850825f221c8"
+        },
+        {
+          "elapsed_ms": 44.083,
+          "status": 200,
+          "trace_id": "5f1fe5d773fd577ee31bd05cefb1641f"
+        },
+        {
+          "elapsed_ms": 37.369,
+          "status": 200,
+          "trace_id": "022aa61974a26c8d4bb461215f5ede8f"
+        },
+        {
+          "elapsed_ms": 36.147,
+          "status": 200,
+          "trace_id": "6a78d601c646d8160d918dd6986b9b55"
+        },
+        {
+          "elapsed_ms": 39.63,
+          "status": 200,
+          "trace_id": "5c6d40198881002b3d3fcbc75b3a3330"
+        },
+        {
+          "elapsed_ms": 33.157,
+          "status": 200,
+          "trace_id": "32be03dadd77edbeffc2108236c488d4"
+        },
+        {
+          "elapsed_ms": 21.662,
+          "status": 200,
+          "trace_id": "8fec1e9fc0fb6626663369338e0fafc1"
+        },
+        {
+          "elapsed_ms": 34.841,
+          "status": 200,
+          "trace_id": "03c480bb6a9d54ef512eb3c60d1e8af1"
+        },
+        {
+          "elapsed_ms": 37.991,
+          "status": 200,
+          "trace_id": "dc4c6b8c244ae72e53fdab8d9b788565"
+        },
+        {
+          "elapsed_ms": 33.952,
+          "status": 200,
+          "trace_id": "00e0716c679b2d9eb38952e099987d32"
+        },
+        {
+          "elapsed_ms": 35.731,
+          "status": 200,
+          "trace_id": "5c45c736a7e30cd636ce9c9f17615c84"
+        },
+        {
+          "elapsed_ms": 52.399,
+          "status": 200,
+          "trace_id": "19b9628154f36491c9cd68da6aceb15d"
+        },
+        {
+          "elapsed_ms": 44.729,
+          "status": 200,
+          "trace_id": "2213b24e10550d41028474f543f6ab14"
+        },
+        {
+          "elapsed_ms": 46.665,
+          "status": 200,
+          "trace_id": "a90bea396abee277c271b4a0385c1b16"
+        },
+        {
+          "elapsed_ms": 51.895,
+          "status": 200,
+          "trace_id": "4dfab049f1f96944bfe8335eecab4b77"
+        },
+        {
+          "elapsed_ms": 71.297,
+          "status": 200,
+          "trace_id": "e891e5217b6cbe551c298e4f3652b3f6"
+        },
+        {
+          "elapsed_ms": 69.628,
+          "status": 200,
+          "trace_id": "e18b70cc50d51ecb130764d328569a72"
+        },
+        {
+          "elapsed_ms": 69.13,
+          "status": 200,
+          "trace_id": "e37de1d7ae84217d231ebe8fddf58c5d"
+        },
+        {
+          "elapsed_ms": 73.086,
+          "status": 200,
+          "trace_id": "4c25c1ca3c9188ea495f2d0c8da146d3"
+        },
+        {
+          "elapsed_ms": 43.829,
+          "status": 200,
+          "trace_id": "8a36253e43b005b3aed0a0f93033040f"
+        },
+        {
+          "elapsed_ms": 43.243,
+          "status": 200,
+          "trace_id": "0ac3efdc9923dd67fa78fd98f7afda48"
+        },
+        {
+          "elapsed_ms": 43.16,
+          "status": 200,
+          "trace_id": "1057563fde6a401a97209c508c1bb2c4"
+        },
+        {
+          "elapsed_ms": 35.631,
+          "status": 200,
+          "trace_id": "61c3557d966d879de0c67cf8f9dfcbb3"
+        },
+        {
+          "elapsed_ms": 23.822,
+          "status": 200,
+          "trace_id": "0556d6332377b63b509a3a221065acfe"
+        },
+        {
+          "elapsed_ms": 45.015,
+          "status": 200,
+          "trace_id": "94a91c743032daba335277003259fa0e"
+        },
+        {
+          "elapsed_ms": 42.391,
+          "status": 200,
+          "trace_id": "f118f27907fd77221fa2676d66245862"
+        },
+        {
+          "elapsed_ms": 38.683,
+          "status": 200,
+          "trace_id": "c1b6682b60b23c9c4415a13810984801"
+        },
+        {
+          "elapsed_ms": 43.595,
+          "status": 200,
+          "trace_id": "418149c98c0c09f9e6c904e96d0b5a56"
+        },
+        {
+          "elapsed_ms": 40.753,
+          "status": 200,
+          "trace_id": "12508c4d281d54f610aacc387080bdb0"
+        },
+        {
+          "elapsed_ms": 42.674,
+          "status": 200,
+          "trace_id": "dc6d46f0392e919e3345aee55d9cc86f"
+        },
+        {
+          "elapsed_ms": 40.567,
+          "status": 200,
+          "trace_id": "249142d7a2206dbc604d1a6c3d299a33"
+        },
+        {
+          "elapsed_ms": 22.132,
+          "status": 200,
+          "trace_id": "3a29702e17828855a97a02f6b6a62446"
+        },
+        {
+          "elapsed_ms": 36.618,
+          "status": 200,
+          "trace_id": "fc842adc849f722f3a2cef6da79cc038"
+        },
+        {
+          "elapsed_ms": 40.422,
+          "status": 200,
+          "trace_id": "93a73ae7e27d9ea1cd38caddc8f83fb4"
+        },
+        {
+          "elapsed_ms": 35.227,
+          "status": 200,
+          "trace_id": "0e0f26b4d03d780fe114ea3a76046d9c"
+        },
+        {
+          "elapsed_ms": 35.833,
+          "status": 200,
+          "trace_id": "ad607cac5941ca948b137390213a2916"
+        },
+        {
+          "elapsed_ms": 30.756,
+          "status": 200,
+          "trace_id": "5d8b583ce58bcb8abe1f00195042d74d"
+        },
+        {
+          "elapsed_ms": 28.127,
+          "status": 200,
+          "trace_id": "abf5c68080a8b665d2cc335535892e58"
+        },
+        {
+          "elapsed_ms": 28.907,
+          "status": 200,
+          "trace_id": "55576959155f9d84d0e2a649f2bbd1c7"
+        },
+        {
+          "elapsed_ms": 32.456,
+          "status": 200,
+          "trace_id": "3e246a6acd056217d83ab260945519b3"
+        },
+        {
+          "elapsed_ms": 28.371,
+          "status": 200,
+          "trace_id": "fb9840168087780359c55130a67c79b0"
+        },
+        {
+          "elapsed_ms": 44.071,
+          "status": 200,
+          "trace_id": "bdafffe2aecbe93dddb149cd3db64b8e"
+        },
+        {
+          "elapsed_ms": 41.87,
+          "status": 200,
+          "trace_id": "1c760d009cb52507d38dff888dc72b80"
+        },
+        {
+          "elapsed_ms": 32.399,
+          "status": 200,
+          "trace_id": "48b25d8cf498a507c1156a24ec40c6df"
+        },
+        {
+          "elapsed_ms": 36.37,
+          "status": 200,
+          "trace_id": "e276dfa556bcc261ae4355b0e880d2f5"
+        },
+        {
+          "elapsed_ms": 38.125,
+          "status": 200,
+          "trace_id": "50c0646256dbeda5396e263e51cbcda6"
+        },
+        {
+          "elapsed_ms": 35.659,
+          "status": 200,
+          "trace_id": "b56c0b861b748e8810c14760aa38acc5"
+        },
+        {
+          "elapsed_ms": 36.382,
+          "status": 200,
+          "trace_id": "dabf08fffd52623adc338a03289fd07b"
+        },
+        {
+          "elapsed_ms": 21.025,
+          "status": 200,
+          "trace_id": "fd4e587b26f5aa08d8c3bb8cc413d145"
+        },
+        {
+          "elapsed_ms": 40.557,
+          "status": 200,
+          "trace_id": "7dc71940dda139259bc87d4ab7447881"
+        },
+        {
+          "elapsed_ms": 32.932,
+          "status": 200,
+          "trace_id": "ccbfd2d0554396179f33fe094733f632"
+        },
+        {
+          "elapsed_ms": 32.902,
+          "status": 200,
+          "trace_id": "1e1386cb3d3142885e3371f57f162829"
+        },
+        {
+          "elapsed_ms": 30.432,
+          "status": 200,
+          "trace_id": "3d017a5185a8a7e0e736e29191887df9"
+        },
+        {
+          "elapsed_ms": 31.658,
+          "status": 200,
+          "trace_id": "9f54e424e9aa5badc6c49f7d8634f2ed"
+        },
+        {
+          "elapsed_ms": 34.158,
+          "status": 200,
+          "trace_id": "9187dd58c9e62b55a355ab11b2df7250"
+        }
+      ],
+      "route": "/api/recommendations?productIds=OLJCESPC7Z&productIds=OLJCESPC7Z",
+      "status": "traffic_verified",
+      "traffic_ended_at": "2026-09-28T01:07:16.245352Z",
+      "traffic_started_at": "2026-09-28T01:07:14.434708Z"
+    },
+    {
+      "clickhouse_current": [
+        {
+          "error_count": 128,
+          "operation": "HTTP GET",
+          "p95_duration_ns": "19465472",
+          "service_name": "frontend",
+          "span_count": 128
+        },
+        {
+          "error_count": 128,
+          "operation": "hipstershop.ProductCatalogService/GetProduct",
+          "p95_duration_ns": "33690",
+          "service_name": "productcatalogservice",
+          "span_count": 128
+        }
+      ],
+      "evaluation_end": "2026-09-28T01:12:28.997205Z",
+      "evaluation_status": "passed",
+      "expected_http": 500,
+      "http_status_counts": {
+        "500": 128
+      },
+      "incident_response": {
+        "baseline": {
+          "from": "2026-09-28T00:37:28.997205Z",
+          "to": "2026-09-28T01:07:28.997205Z"
+        },
+        "candidates": [
+          {
+            "baseline": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "25675",
+              "span_count": 2048,
+              "unset_count": 2048,
+              "unset_rate": 1
+            },
+            "caveats": [
+              "missing_parent",
+              "missing_root",
+              "unset_status"
+            ],
+            "current": {
+              "error_count": 128,
+              "error_rate": 1,
+              "p95_duration_ns": "33690",
+              "span_count": 128,
+              "unset_count": 0,
+              "unset_rate": 0
+            },
+            "error_rate_increase": 1,
+            "evidence": [
+              {
+                "caveats": [
+                  "missing_parent",
+                  "missing_root"
+                ],
+                "downstream_anomalies": [],
+                "duration_ns": "115492",
+                "error_propagation": false,
+                "from": "2026-09-28T00:37:28.997205Z",
+                "span_id": "c2ed3dcfe44c9d58",
+                "start_time": "2026-09-28T01:12:18.604115892Z",
+                "status_code": 2,
+                "to": "2026-09-28T01:12:28.997205Z",
+                "trace_id": "ef962c185facd4b3f3309b10747275d7"
+              },
+              {
+                "caveats": [
+                  "missing_parent",
+                  "missing_root"
+                ],
+                "downstream_anomalies": [],
+                "duration_ns": "111260",
+                "error_propagation": false,
+                "from": "2026-09-28T00:37:28.997205Z",
+                "span_id": "31572715d55a51e2",
+                "start_time": "2026-09-28T01:12:18.662365285Z",
+                "status_code": 2,
+                "to": "2026-09-28T01:12:28.997205Z",
+                "trace_id": "6dfdc67dc6ad48ef383a7cea4e3ffdec"
+              },
+              {
+                "caveats": [
+                  "missing_parent",
+                  "missing_root"
+                ],
+                "downstream_anomalies": [],
+                "duration_ns": "73931",
+                "error_propagation": false,
+                "from": "2026-09-28T00:37:28.997205Z",
+                "span_id": "7fcf108d788a9250",
+                "start_time": "2026-09-28T01:12:18.280679559Z",
+                "status_code": 2,
+                "to": "2026-09-28T01:12:28.997205Z",
+                "trace_id": "21a302d38bd7cfe56d3ce06d51ae56af"
+              },
+              {
+                "caveats": [
+                  "missing_parent",
+                  "missing_root"
+                ],
+                "downstream_anomalies": [],
+                "duration_ns": "66618",
+                "error_propagation": false,
+                "from": "2026-09-28T00:37:28.997205Z",
+                "span_id": "96df513624e2f923",
+                "start_time": "2026-09-28T01:12:18.36147354Z",
+                "status_code": 2,
+                "to": "2026-09-28T01:12:28.997205Z",
+                "trace_id": "49b900c3bad8a3ee559ce4c5e071d7d8"
+              },
+              {
+                "caveats": [
+                  "missing_parent",
+                  "missing_root"
+                ],
+                "downstream_anomalies": [],
+                "duration_ns": "60007",
+                "error_propagation": false,
+                "from": "2026-09-28T00:37:28.997205Z",
+                "span_id": "0423f41373b3a136",
+                "start_time": "2026-09-28T01:12:18.303570989Z",
+                "status_code": 2,
+                "to": "2026-09-28T01:12:28.997205Z",
+                "trace_id": "506dc376aa4920c749de9491618278c3"
+              }
+            ],
+            "operation": "hipstershop.ProductCatalogService/GetProduct",
+            "p95_increase_ns": "8015",
+            "service_name": "productcatalogservice",
+            "service_namespace": "incidentlens-phase3-20260928T005118Z-836fef",
+            "service_rank": 1,
+            "state": "candidate",
+            "triggered_rules": [
+              "errors"
+            ]
+          },
+          {
+            "baseline": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "696237056",
+              "span_count": 512,
+              "unset_count": 512,
+              "unset_rate": 1
+            },
+            "caveats": [
+              "missing_parent",
+              "missing_root",
+              "unset_status"
+            ],
+            "current": {
+              "error_count": 128,
+              "error_rate": 1,
+              "p95_duration_ns": "19465472",
+              "span_count": 128,
+              "unset_count": 0,
+              "unset_rate": 0
+            },
+            "error_rate_increase": 1,
+            "evidence": [
+              {
+                "caveats": [
+                  "missing_parent",
+                  "missing_root"
+                ],
+                "downstream_anomalies": [
+                  {
+                    "operation": "hipstershop.ProductCatalogService/GetProduct",
+                    "service_name": "productcatalogservice",
+                    "service_namespace": "incidentlens-phase3-20260928T005118Z-836fef"
+                  }
+                ],
+                "duration_ns": "37920000",
+                "error_propagation": true,
+                "from": "2026-09-28T00:37:28.997205Z",
+                "span_id": "110276ddf8c97752",
+                "start_time": "2026-09-28T01:12:18.069808384Z",
+                "status_code": 2,
+                "to": "2026-09-28T01:12:28.997205Z",
+                "trace_id": "506dc376aa4920c749de9491618278c3"
+              },
+              {
+                "caveats": [
+                  "missing_parent",
+                  "missing_root"
+                ],
+                "downstream_anomalies": [
+                  {
+                    "operation": "hipstershop.ProductCatalogService/GetProduct",
+                    "service_name": "productcatalogservice",
+                    "service_namespace": "incidentlens-phase3-20260928T005118Z-836fef"
+                  }
+                ],
+                "duration_ns": "32723456",
+                "error_propagation": true,
+                "from": "2026-09-28T00:37:28.997205Z",
+                "span_id": "318fdb178b3c65fd",
+                "start_time": "2026-09-28T01:12:18.061007616Z",
+                "status_code": 2,
+                "to": "2026-09-28T01:12:28.997205Z",
+                "trace_id": "21a302d38bd7cfe56d3ce06d51ae56af"
+              },
+              {
+                "caveats": [
+                  "missing_parent",
+                  "missing_root"
+                ],
+                "downstream_anomalies": [
+                  {
+                    "operation": "hipstershop.ProductCatalogService/GetProduct",
+                    "service_name": "productcatalogservice",
+                    "service_namespace": "incidentlens-phase3-20260928T005118Z-836fef"
+                  }
+                ],
+                "duration_ns": "31331584",
+                "error_propagation": true,
+                "from": "2026-09-28T00:37:28.997205Z",
+                "span_id": "f63c1b87fa9ebe55",
+                "start_time": "2026-09-28T01:12:18.07802112Z",
+                "status_code": 2,
+                "to": "2026-09-28T01:12:28.997205Z",
+                "trace_id": "7a520712bd4bef51332b30662c3382ca"
+              },
+              {
+                "caveats": [
+                  "missing_parent",
+                  "missing_root"
+                ],
+                "downstream_anomalies": [
+                  {
+                    "operation": "hipstershop.ProductCatalogService/GetProduct",
+                    "service_name": "productcatalogservice",
+                    "service_namespace": "incidentlens-phase3-20260928T005118Z-836fef"
+                  }
+                ],
+                "duration_ns": "28679168",
+                "error_propagation": true,
+                "from": "2026-09-28T00:37:28.997205Z",
+                "span_id": "cb6a30b1306823c0",
+                "start_time": "2026-09-28T01:12:18.112281344Z",
+                "status_code": 2,
+                "to": "2026-09-28T01:12:28.997205Z",
+                "trace_id": "d0733e5f239725611494ab5f494b879a"
+              },
+              {
+                "caveats": [
+                  "missing_parent",
+                  "missing_root"
+                ],
+                "downstream_anomalies": [
+                  {
+                    "operation": "hipstershop.ProductCatalogService/GetProduct",
+                    "service_name": "productcatalogservice",
+                    "service_namespace": "incidentlens-phase3-20260928T005118Z-836fef"
+                  }
+                ],
+                "duration_ns": "21561344",
+                "error_propagation": true,
+                "from": "2026-09-28T00:37:28.997205Z",
+                "span_id": "73aa2eddee1c94f6",
+                "start_time": "2026-09-28T01:12:18.118067968Z",
+                "status_code": 2,
+                "to": "2026-09-28T01:12:28.997205Z",
+                "trace_id": "176f46e2617a1428482f82cf52f894c0"
+              }
+            ],
+            "operation": "HTTP GET",
+            "p95_increase_ns": "-676771584",
+            "service_name": "frontend",
+            "service_namespace": "incidentlens-phase3-20260928T005118Z-836fef",
+            "service_rank": 2,
+            "state": "candidate",
+            "triggered_rules": [
+              "errors"
+            ]
+          }
+        ],
+        "caveats": [
+          "missing_parent",
+          "missing_root",
+          "unset_status"
+        ],
+        "config": {
+          "error_increase_bps": 500,
+          "error_rate_bps": 500,
+          "latency_delta_ns": "100000000",
+          "latency_ratio_milli": 2000,
+          "min_samples": 100
+        },
+        "current": {
+          "from": "2026-09-28T01:07:28.997205Z",
+          "to": "2026-09-28T01:12:28.997205Z"
+        },
+        "end": "2026-09-28T01:12:28.997205Z",
+        "observed_at": "2026-09-28T15:04:33.587624686Z",
+        "operations": [
+          {
+            "baseline": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "696237056",
+              "span_count": 512,
+              "unset_count": 512,
+              "unset_rate": 1
+            },
+            "caveats": [
+              "missing_parent",
+              "missing_root",
+              "unset_status"
+            ],
+            "current": {
+              "error_count": 128,
+              "error_rate": 1,
+              "p95_duration_ns": "19465472",
+              "span_count": 128,
+              "unset_count": 0,
+              "unset_rate": 0
+            },
+            "error_rate_increase": 1,
+            "evidence": [
+              {
+                "caveats": [
+                  "missing_parent",
+                  "missing_root"
+                ],
+                "downstream_anomalies": [
+                  {
+                    "operation": "hipstershop.ProductCatalogService/GetProduct",
+                    "service_name": "productcatalogservice",
+                    "service_namespace": "incidentlens-phase3-20260928T005118Z-836fef"
+                  }
+                ],
+                "duration_ns": "37920000",
+                "error_propagation": true,
+                "from": "2026-09-28T00:37:28.997205Z",
+                "span_id": "110276ddf8c97752",
+                "start_time": "2026-09-28T01:12:18.069808384Z",
+                "status_code": 2,
+                "to": "2026-09-28T01:12:28.997205Z",
+                "trace_id": "506dc376aa4920c749de9491618278c3"
+              },
+              {
+                "caveats": [
+                  "missing_parent",
+                  "missing_root"
+                ],
+                "downstream_anomalies": [
+                  {
+                    "operation": "hipstershop.ProductCatalogService/GetProduct",
+                    "service_name": "productcatalogservice",
+                    "service_namespace": "incidentlens-phase3-20260928T005118Z-836fef"
+                  }
+                ],
+                "duration_ns": "32723456",
+                "error_propagation": true,
+                "from": "2026-09-28T00:37:28.997205Z",
+                "span_id": "318fdb178b3c65fd",
+                "start_time": "2026-09-28T01:12:18.061007616Z",
+                "status_code": 2,
+                "to": "2026-09-28T01:12:28.997205Z",
+                "trace_id": "21a302d38bd7cfe56d3ce06d51ae56af"
+              },
+              {
+                "caveats": [
+                  "missing_parent",
+                  "missing_root"
+                ],
+                "downstream_anomalies": [
+                  {
+                    "operation": "hipstershop.ProductCatalogService/GetProduct",
+                    "service_name": "productcatalogservice",
+                    "service_namespace": "incidentlens-phase3-20260928T005118Z-836fef"
+                  }
+                ],
+                "duration_ns": "31331584",
+                "error_propagation": true,
+                "from": "2026-09-28T00:37:28.997205Z",
+                "span_id": "f63c1b87fa9ebe55",
+                "start_time": "2026-09-28T01:12:18.07802112Z",
+                "status_code": 2,
+                "to": "2026-09-28T01:12:28.997205Z",
+                "trace_id": "7a520712bd4bef51332b30662c3382ca"
+              },
+              {
+                "caveats": [
+                  "missing_parent",
+                  "missing_root"
+                ],
+                "downstream_anomalies": [
+                  {
+                    "operation": "hipstershop.ProductCatalogService/GetProduct",
+                    "service_name": "productcatalogservice",
+                    "service_namespace": "incidentlens-phase3-20260928T005118Z-836fef"
+                  }
+                ],
+                "duration_ns": "28679168",
+                "error_propagation": true,
+                "from": "2026-09-28T00:37:28.997205Z",
+                "span_id": "cb6a30b1306823c0",
+                "start_time": "2026-09-28T01:12:18.112281344Z",
+                "status_code": 2,
+                "to": "2026-09-28T01:12:28.997205Z",
+                "trace_id": "d0733e5f239725611494ab5f494b879a"
+              },
+              {
+                "caveats": [
+                  "missing_parent",
+                  "missing_root"
+                ],
+                "downstream_anomalies": [
+                  {
+                    "operation": "hipstershop.ProductCatalogService/GetProduct",
+                    "service_name": "productcatalogservice",
+                    "service_namespace": "incidentlens-phase3-20260928T005118Z-836fef"
+                  }
+                ],
+                "duration_ns": "21561344",
+                "error_propagation": true,
+                "from": "2026-09-28T00:37:28.997205Z",
+                "span_id": "73aa2eddee1c94f6",
+                "start_time": "2026-09-28T01:12:18.118067968Z",
+                "status_code": 2,
+                "to": "2026-09-28T01:12:28.997205Z",
+                "trace_id": "176f46e2617a1428482f82cf52f894c0"
+              }
+            ],
+            "operation": "HTTP GET",
+            "p95_increase_ns": "-676771584",
+            "service_name": "frontend",
+            "service_namespace": "incidentlens-phase3-20260928T005118Z-836fef",
+            "state": "candidate",
+            "triggered_rules": [
+              "errors"
+            ]
+          },
+          {
+            "baseline": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "25675",
+              "span_count": 2048,
+              "unset_count": 2048,
+              "unset_rate": 1
+            },
+            "caveats": [
+              "missing_parent",
+              "missing_root",
+              "unset_status"
+            ],
+            "current": {
+              "error_count": 128,
+              "error_rate": 1,
+              "p95_duration_ns": "33690",
+              "span_count": 128,
+              "unset_count": 0,
+              "unset_rate": 0
+            },
+            "error_rate_increase": 1,
+            "evidence": [
+              {
+                "caveats": [
+                  "missing_parent",
+                  "missing_root"
+                ],
+                "downstream_anomalies": [],
+                "duration_ns": "115492",
+                "error_propagation": false,
+                "from": "2026-09-28T00:37:28.997205Z",
+                "span_id": "c2ed3dcfe44c9d58",
+                "start_time": "2026-09-28T01:12:18.604115892Z",
+                "status_code": 2,
+                "to": "2026-09-28T01:12:28.997205Z",
+                "trace_id": "ef962c185facd4b3f3309b10747275d7"
+              },
+              {
+                "caveats": [
+                  "missing_parent",
+                  "missing_root"
+                ],
+                "downstream_anomalies": [],
+                "duration_ns": "111260",
+                "error_propagation": false,
+                "from": "2026-09-28T00:37:28.997205Z",
+                "span_id": "31572715d55a51e2",
+                "start_time": "2026-09-28T01:12:18.662365285Z",
+                "status_code": 2,
+                "to": "2026-09-28T01:12:28.997205Z",
+                "trace_id": "6dfdc67dc6ad48ef383a7cea4e3ffdec"
+              },
+              {
+                "caveats": [
+                  "missing_parent",
+                  "missing_root"
+                ],
+                "downstream_anomalies": [],
+                "duration_ns": "73931",
+                "error_propagation": false,
+                "from": "2026-09-28T00:37:28.997205Z",
+                "span_id": "7fcf108d788a9250",
+                "start_time": "2026-09-28T01:12:18.280679559Z",
+                "status_code": 2,
+                "to": "2026-09-28T01:12:28.997205Z",
+                "trace_id": "21a302d38bd7cfe56d3ce06d51ae56af"
+              },
+              {
+                "caveats": [
+                  "missing_parent",
+                  "missing_root"
+                ],
+                "downstream_anomalies": [],
+                "duration_ns": "66618",
+                "error_propagation": false,
+                "from": "2026-09-28T00:37:28.997205Z",
+                "span_id": "96df513624e2f923",
+                "start_time": "2026-09-28T01:12:18.36147354Z",
+                "status_code": 2,
+                "to": "2026-09-28T01:12:28.997205Z",
+                "trace_id": "49b900c3bad8a3ee559ce4c5e071d7d8"
+              },
+              {
+                "caveats": [
+                  "missing_parent",
+                  "missing_root"
+                ],
+                "downstream_anomalies": [],
+                "duration_ns": "60007",
+                "error_propagation": false,
+                "from": "2026-09-28T00:37:28.997205Z",
+                "span_id": "0423f41373b3a136",
+                "start_time": "2026-09-28T01:12:18.303570989Z",
+                "status_code": 2,
+                "to": "2026-09-28T01:12:28.997205Z",
+                "trace_id": "506dc376aa4920c749de9491618278c3"
+              }
+            ],
+            "operation": "hipstershop.ProductCatalogService/GetProduct",
+            "p95_increase_ns": "8015",
+            "service_name": "productcatalogservice",
+            "service_namespace": "incidentlens-phase3-20260928T005118Z-836fef",
+            "state": "candidate",
+            "triggered_rules": [
+              "errors"
+            ]
+          },
+          {
+            "baseline": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "32102",
+              "span_count": 512,
+              "unset_count": 512,
+              "unset_rate": 1
+            },
+            "caveats": [
+              "missing_parent",
+              "missing_root",
+              "no_server_coverage",
+              "unset_status"
+            ],
+            "current": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": null,
+              "span_count": 0,
+              "unset_count": 0,
+              "unset_rate": 0
+            },
+            "error_rate_increase": null,
+            "evidence": [],
+            "operation": "hipstershop.ProductCatalogService/ListProducts",
+            "p95_increase_ns": null,
+            "service_name": "productcatalogservice",
+            "service_namespace": "incidentlens-phase3-20260928T005118Z-836fef",
+            "state": "insufficient_evidence",
+            "triggered_rules": []
+          },
+          {
+            "baseline": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "6594296",
+              "span_count": 512,
+              "unset_count": 512,
+              "unset_rate": 1
+            },
+            "caveats": [
+              "missing_parent",
+              "missing_root",
+              "no_server_coverage",
+              "unset_status"
+            ],
+            "current": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": null,
+              "span_count": 0,
+              "unset_count": 0,
+              "unset_rate": 0
+            },
+            "error_rate_increase": null,
+            "evidence": [],
+            "operation": "/hipstershop.RecommendationService/ListRecommendations",
+            "p95_increase_ns": null,
+            "service_name": "recommendationservice",
+            "service_namespace": "incidentlens-phase3-20260928T005118Z-836fef",
+            "state": "insufficient_evidence",
+            "triggered_rules": []
+          }
+        ],
+        "rule_version": "trace-v1"
+      },
+      "name": "error_fault",
+      "requests": [
+        {
+          "elapsed_ms": 53.141,
+          "status": 500,
+          "trace_id": "7a520712bd4bef51332b30662c3382ca"
+        },
+        {
+          "elapsed_ms": 52.561,
+          "status": 500,
+          "trace_id": "26a0800dc2cebe8cea92922d314807da"
+        },
+        {
+          "elapsed_ms": 51.98,
+          "status": 500,
+          "trace_id": "506dc376aa4920c749de9491618278c3"
+        },
+        {
+          "elapsed_ms": 41.571,
+          "status": 500,
+          "trace_id": "21a302d38bd7cfe56d3ce06d51ae56af"
+        },
+        {
+          "elapsed_ms": 43.926,
+          "status": 500,
+          "trace_id": "d0733e5f239725611494ab5f494b879a"
+        },
+        {
+          "elapsed_ms": 33.88,
+          "status": 500,
+          "trace_id": "176f46e2617a1428482f82cf52f894c0"
+        },
+        {
+          "elapsed_ms": 44.294,
+          "status": 500,
+          "trace_id": "e9811d166adaa5be455f493145ae2193"
+        },
+        {
+          "elapsed_ms": 45.515,
+          "status": 500,
+          "trace_id": "49b900c3bad8a3ee559ce4c5e071d7d8"
+        },
+        {
+          "elapsed_ms": 32.775,
+          "status": 500,
+          "trace_id": "e46e68df4f9802dc145120b8753327c9"
+        },
+        {
+          "elapsed_ms": 29.568,
+          "status": 500,
+          "trace_id": "e42e4571fe73a9ea37368e93f43de9a1"
+        },
+        {
+          "elapsed_ms": 39.283,
+          "status": 500,
+          "trace_id": "f5bf3a92ddf2303e4ba2a93b812c5dd6"
+        },
+        {
+          "elapsed_ms": 27.771,
+          "status": 500,
+          "trace_id": "93671b2ed43e1a090c9bce51b0ba1c82"
+        },
+        {
+          "elapsed_ms": 22.724,
+          "status": 500,
+          "trace_id": "92689e1204df677efb0a4d107d8860ee"
+        },
+        {
+          "elapsed_ms": 20.061,
+          "status": 500,
+          "trace_id": "1c3b2adf8e38607012d5a78c244bc979"
+        },
+        {
+          "elapsed_ms": 16.937,
+          "status": 500,
+          "trace_id": "5bf8a165964ae12d9ea2b594408e9bfd"
+        },
+        {
+          "elapsed_ms": 20.365,
+          "status": 500,
+          "trace_id": "12e63cf65d3510423dc39ee3b82e24b3"
+        },
+        {
+          "elapsed_ms": 23.232,
+          "status": 500,
+          "trace_id": "40ad817174e5190ef84c7ac48b860d05"
+        },
+        {
+          "elapsed_ms": 16.732,
+          "status": 500,
+          "trace_id": "89b1f4e6c116ee6c9d8fafb47967c88b"
+        },
+        {
+          "elapsed_ms": 17.976,
+          "status": 500,
+          "trace_id": "b9b05e75af006e9c4d692d89cae6e0dd"
+        },
+        {
+          "elapsed_ms": 18.95,
+          "status": 500,
+          "trace_id": "8b1918ad1f2651af6ddf0e8ac7002a1f"
+        },
+        {
+          "elapsed_ms": 16.52,
+          "status": 500,
+          "trace_id": "ee41ee0505e2f26853e8ac8b57705ef2"
+        },
+        {
+          "elapsed_ms": 22.779,
+          "status": 500,
+          "trace_id": "f983928cff1b026aa322f6a3ff9f500f"
+        },
+        {
+          "elapsed_ms": 20.523,
+          "status": 500,
+          "trace_id": "17a729e9df802eeadc52465c0608682a"
+        },
+        {
+          "elapsed_ms": 19.984,
+          "status": 500,
+          "trace_id": "1c82cae0f624a81582e83c4fdbd4763a"
+        },
+        {
+          "elapsed_ms": 17.997,
+          "status": 500,
+          "trace_id": "2b5eccefc23b29e9862953315390d1aa"
+        },
+        {
+          "elapsed_ms": 19.804,
+          "status": 500,
+          "trace_id": "ebd5ea3121ea31f8232fecab292eb0c6"
+        },
+        {
+          "elapsed_ms": 18.153,
+          "status": 500,
+          "trace_id": "4d41ca17b8d0047670fc73ac8afea41a"
+        },
+        {
+          "elapsed_ms": 19.665,
+          "status": 500,
+          "trace_id": "7a4ac9d4dbcbf0a3af9df4090cd0c31d"
+        },
+        {
+          "elapsed_ms": 18.076,
+          "status": 500,
+          "trace_id": "ee5ac3f9b43cb0bec6dc5bff49ed9255"
+        },
+        {
+          "elapsed_ms": 20.232,
+          "status": 500,
+          "trace_id": "d8d1b4c26950d3f48cfa39d35995d541"
+        },
+        {
+          "elapsed_ms": 18.124,
+          "status": 500,
+          "trace_id": "83e9c3d1b5595231504ef79af3fad3bd"
+        },
+        {
+          "elapsed_ms": 19.801,
+          "status": 500,
+          "trace_id": "63874c0a79c1ee6261582bf554192b99"
+        },
+        {
+          "elapsed_ms": 18.287,
+          "status": 500,
+          "trace_id": "cd8df4c10ce91beac0bfeab415664c55"
+        },
+        {
+          "elapsed_ms": 19.976,
+          "status": 500,
+          "trace_id": "c632dc8cf39fa7acfb53be215e9461e6"
+        },
+        {
+          "elapsed_ms": 17.657,
+          "status": 500,
+          "trace_id": "e5c10f644af399564b7280a96ac0634b"
+        },
+        {
+          "elapsed_ms": 19.512,
+          "status": 500,
+          "trace_id": "bf862dfb3521efb1da8047b9dc6f6468"
+        },
+        {
+          "elapsed_ms": 18.189,
+          "status": 500,
+          "trace_id": "3d51cd79edd7993c97a3f0e5c15f037a"
+        },
+        {
+          "elapsed_ms": 18.299,
+          "status": 500,
+          "trace_id": "5666ca1a02e6a9817db7992499ce9feb"
+        },
+        {
+          "elapsed_ms": 16.472,
+          "status": 500,
+          "trace_id": "e2d9e01aa367a15c6b4946d79d7de504"
+        },
+        {
+          "elapsed_ms": 17.86,
+          "status": 500,
+          "trace_id": "73ff8d9d75f1732f7941b66dda6b6cb7"
+        },
+        {
+          "elapsed_ms": 16.535,
+          "status": 500,
+          "trace_id": "d734edbd4e35faef16c44470f0923adc"
+        },
+        {
+          "elapsed_ms": 18.902,
+          "status": 500,
+          "trace_id": "3b1e07f2dee07f31efc75e04d3ce3235"
+        },
+        {
+          "elapsed_ms": 17.433,
+          "status": 500,
+          "trace_id": "cbe5814d0ea0e474020b8d426b59677b"
+        },
+        {
+          "elapsed_ms": 27.322,
+          "status": 500,
+          "trace_id": "2a772d25d3afede325ca576a48aaf089"
+        },
+        {
+          "elapsed_ms": 25.873,
+          "status": 500,
+          "trace_id": "012c899002131aa78d92906c0a5123db"
+        },
+        {
+          "elapsed_ms": 26.821,
+          "status": 500,
+          "trace_id": "0fff3dbc0cd9f1cebf9136b996fc8662"
+        },
+        {
+          "elapsed_ms": 24.937,
+          "status": 500,
+          "trace_id": "313408e1dab6b9ce6c3d23fd700b1eb3"
+        },
+        {
+          "elapsed_ms": 18.171,
+          "status": 500,
+          "trace_id": "20e49f6f17bda3643a9d1166703b7b1d"
+        },
+        {
+          "elapsed_ms": 18.108,
+          "status": 500,
+          "trace_id": "08a7589f9152ac973b81cf024474694f"
+        },
+        {
+          "elapsed_ms": 26.641,
+          "status": 500,
+          "trace_id": "c05ef765954c09863e98f3d99a230260"
+        },
+        {
+          "elapsed_ms": 24.493,
+          "status": 500,
+          "trace_id": "85d90f62adf1d14691277241c385b71d"
+        },
+        {
+          "elapsed_ms": 26.35,
+          "status": 500,
+          "trace_id": "2613616dcaaee82041429981f89650b9"
+        },
+        {
+          "elapsed_ms": 24.883,
+          "status": 500,
+          "trace_id": "ef962c185facd4b3f3309b10747275d7"
+        },
+        {
+          "elapsed_ms": 21.258,
+          "status": 500,
+          "trace_id": "be59f25685f8b0733554f6022dea8651"
+        },
+        {
+          "elapsed_ms": 19.172,
+          "status": 500,
+          "trace_id": "6b14028ad5ca6b86c5b19f867a3eaca4"
+        },
+        {
+          "elapsed_ms": 19.449,
+          "status": 500,
+          "trace_id": "6f27674aa53f0f63487c21daa1ab8b1a"
+        },
+        {
+          "elapsed_ms": 17.993,
+          "status": 500,
+          "trace_id": "2fa7fddd5ae9f43f9290d73b48bbaf2e"
+        },
+        {
+          "elapsed_ms": 26.772,
+          "status": 500,
+          "trace_id": "4479507511ce2f7292ac2afcfb3def44"
+        },
+        {
+          "elapsed_ms": 24.964,
+          "status": 500,
+          "trace_id": "ec17ccf76b5adffe56f3bdb41f5d4cb1"
+        },
+        {
+          "elapsed_ms": 28.795,
+          "status": 500,
+          "trace_id": "d0f0230370f46bbc0b48171f3755c130"
+        },
+        {
+          "elapsed_ms": 27.252,
+          "status": 500,
+          "trace_id": "0f807a3049c84ae6b91dbb40873a06b7"
+        },
+        {
+          "elapsed_ms": 22.143,
+          "status": 500,
+          "trace_id": "6dfdc67dc6ad48ef383a7cea4e3ffdec"
+        },
+        {
+          "elapsed_ms": 20.274,
+          "status": 500,
+          "trace_id": "c70ee0679fe3c6a3764b62000b01bdbb"
+        },
+        {
+          "elapsed_ms": 25.729,
+          "status": 500,
+          "trace_id": "f45a165fccc10d37d9cbdc40073e9dd3"
+        },
+        {
+          "elapsed_ms": 23.942,
+          "status": 500,
+          "trace_id": "0960d864c76b86387ef5caabd1b2742e"
+        },
+        {
+          "elapsed_ms": 27.358,
+          "status": 500,
+          "trace_id": "98b2da9787baaece6c4abb302725bd07"
+        },
+        {
+          "elapsed_ms": 25.131,
+          "status": 500,
+          "trace_id": "37736401430761bf78d13197bd468860"
+        },
+        {
+          "elapsed_ms": 24.275,
+          "status": 500,
+          "trace_id": "088f3455c47404b2126df9d3a56ea949"
+        },
+        {
+          "elapsed_ms": 22.246,
+          "status": 500,
+          "trace_id": "55f666e0e4f1d18eb3759fa82ef7ca95"
+        },
+        {
+          "elapsed_ms": 19.711,
+          "status": 500,
+          "trace_id": "e45f46d0a880e2836a93864e12a8b5a8"
+        },
+        {
+          "elapsed_ms": 17.765,
+          "status": 500,
+          "trace_id": "81b6bdac47b2b938da44e7c0b3fb7bf0"
+        },
+        {
+          "elapsed_ms": 21.331,
+          "status": 500,
+          "trace_id": "bddf40fd3622c90ebe43454521564d7e"
+        },
+        {
+          "elapsed_ms": 19.471,
+          "status": 500,
+          "trace_id": "458d262295f86636979a65895aeee36d"
+        },
+        {
+          "elapsed_ms": 21.246,
+          "status": 500,
+          "trace_id": "461e06baa2ff02556b1dbc85e24b3078"
+        },
+        {
+          "elapsed_ms": 19.511,
+          "status": 500,
+          "trace_id": "2d079dafcd44f94b443d9fd0ee9d22e3"
+        },
+        {
+          "elapsed_ms": 18.751,
+          "status": 500,
+          "trace_id": "fbdee5dad179b31dd902c56dd33d7a57"
+        },
+        {
+          "elapsed_ms": 17.523,
+          "status": 500,
+          "trace_id": "0fdc96c90e79ad41b6cbbed607783ba9"
+        },
+        {
+          "elapsed_ms": 18.871,
+          "status": 500,
+          "trace_id": "f4ac6a74946d3d0cf931e253a489ecf9"
+        },
+        {
+          "elapsed_ms": 17.122,
+          "status": 500,
+          "trace_id": "8c0a3ca37c7b12f279b48658ebd96239"
+        },
+        {
+          "elapsed_ms": 16.521,
+          "status": 500,
+          "trace_id": "b2d0492427da158c1aad01b0f4fafe4c"
+        },
+        {
+          "elapsed_ms": 16.52,
+          "status": 500,
+          "trace_id": "da2a9fa150319313c85c5cacd5d6d974"
+        },
+        {
+          "elapsed_ms": 17.752,
+          "status": 500,
+          "trace_id": "fd931680b47f4c507eb3faeb1c14d4de"
+        },
+        {
+          "elapsed_ms": 16.325,
+          "status": 500,
+          "trace_id": "1fd49f52694d7d0049b7970d551cb962"
+        },
+        {
+          "elapsed_ms": 17.417,
+          "status": 500,
+          "trace_id": "6a78e2b2d103899d5a6f169ea26c6aa1"
+        },
+        {
+          "elapsed_ms": 15.868,
+          "status": 500,
+          "trace_id": "79417905bfbf97a93fc6fe6671bd6c4e"
+        },
+        {
+          "elapsed_ms": 18.207,
+          "status": 500,
+          "trace_id": "9cb5f827c28cfef42e35dbfeb60670c1"
+        },
+        {
+          "elapsed_ms": 16.726,
+          "status": 500,
+          "trace_id": "fea811a4640b8e66e3513e93e18a1a4c"
+        },
+        {
+          "elapsed_ms": 17.887,
+          "status": 500,
+          "trace_id": "cb1c6b8473e622195a85ecf27e0f6a3f"
+        },
+        {
+          "elapsed_ms": 16.156,
+          "status": 500,
+          "trace_id": "7ddd7cf792e507df081043fecb179fe5"
+        },
+        {
+          "elapsed_ms": 20.377,
+          "status": 500,
+          "trace_id": "843d46b66eda0ad7550bd67f67a9f699"
+        },
+        {
+          "elapsed_ms": 17.638,
+          "status": 500,
+          "trace_id": "41a3279a53fa978d5b52c02cb6c23fcd"
+        },
+        {
+          "elapsed_ms": 29.038,
+          "status": 500,
+          "trace_id": "f0fc6e401f6aa854247e0200b5775f36"
+        },
+        {
+          "elapsed_ms": 26.989,
+          "status": 500,
+          "trace_id": "b484525c65bafb2eea5eb5706cdf9796"
+        },
+        {
+          "elapsed_ms": 36.331,
+          "status": 500,
+          "trace_id": "df466d58f8c4ab052b1afa317f879465"
+        },
+        {
+          "elapsed_ms": 33.49,
+          "status": 500,
+          "trace_id": "0f371b0405b658919e1bf2903645aaa4"
+        },
+        {
+          "elapsed_ms": 27.621,
+          "status": 500,
+          "trace_id": "a170be382e078aa7da0a297f99fe7de0"
+        },
+        {
+          "elapsed_ms": 25.483,
+          "status": 500,
+          "trace_id": "0eac371863c996e4d195f956db5941a2"
+        },
+        {
+          "elapsed_ms": 16.652,
+          "status": 500,
+          "trace_id": "82937c725c110afa33cc882774fcecab"
+        },
+        {
+          "elapsed_ms": 16.399,
+          "status": 500,
+          "trace_id": "1e574c0266c6f7ce1444b861be7c742e"
+        },
+        {
+          "elapsed_ms": 18.182,
+          "status": 500,
+          "trace_id": "1db4a29f1a6e4fb5af731f6251f9cec6"
+        },
+        {
+          "elapsed_ms": 16.484,
+          "status": 500,
+          "trace_id": "584380c454c6f6d818985ac69927e51a"
+        },
+        {
+          "elapsed_ms": 17.375,
+          "status": 500,
+          "trace_id": "73b815d42ebd2d88c4d55a02603c5d15"
+        },
+        {
+          "elapsed_ms": 16.119,
+          "status": 500,
+          "trace_id": "ed05c558816133808bd52b0a44876c59"
+        },
+        {
+          "elapsed_ms": 17.945,
+          "status": 500,
+          "trace_id": "179b3bf2c295abf9aefc3d8f2f6f140d"
+        },
+        {
+          "elapsed_ms": 16.215,
+          "status": 500,
+          "trace_id": "9a26902a577a0b9302981e89b681847b"
+        },
+        {
+          "elapsed_ms": 18.853,
+          "status": 500,
+          "trace_id": "ca389c896c184965290f55d7a4a6bfc2"
+        },
+        {
+          "elapsed_ms": 17.31,
+          "status": 500,
+          "trace_id": "a9e74b667aa09568e55a07f65c579ade"
+        },
+        {
+          "elapsed_ms": 17.943,
+          "status": 500,
+          "trace_id": "73a2ebe390166b0b8c4b35b897b7f263"
+        },
+        {
+          "elapsed_ms": 17.545,
+          "status": 500,
+          "trace_id": "b6a620d6832e4f700c1a63843a17598e"
+        },
+        {
+          "elapsed_ms": 18.542,
+          "status": 500,
+          "trace_id": "b110fae2aa7289f2bd9d48a22889054c"
+        },
+        {
+          "elapsed_ms": 16.92,
+          "status": 500,
+          "trace_id": "c1ddd14aa66dcf2e7e035ae4cb1406b7"
+        },
+        {
+          "elapsed_ms": 17.155,
+          "status": 500,
+          "trace_id": "e6e3b5f11882764998e11739e10415af"
+        },
+        {
+          "elapsed_ms": 15.919,
+          "status": 500,
+          "trace_id": "986ad7431097e34ee1093a319fdd541d"
+        },
+        {
+          "elapsed_ms": 19.535,
+          "status": 500,
+          "trace_id": "ecace47f0dfd10805ca9e1944b375f2c"
+        },
+        {
+          "elapsed_ms": 17.476,
+          "status": 500,
+          "trace_id": "b0feaf0962d2ab0d3d49cbc74d9b1247"
+        },
+        {
+          "elapsed_ms": 20.384,
+          "status": 500,
+          "trace_id": "c489fd4684d30140aa9b7b3b1aebf7e2"
+        },
+        {
+          "elapsed_ms": 18.664,
+          "status": 500,
+          "trace_id": "bf169a4a65aaeb1684a7b045a8c0c86a"
+        },
+        {
+          "elapsed_ms": 18.868,
+          "status": 500,
+          "trace_id": "c0f99163e06114b6d2676045716eeaea"
+        },
+        {
+          "elapsed_ms": 16.779,
+          "status": 500,
+          "trace_id": "bde6c8846abd43459ef68031d390e8b6"
+        },
+        {
+          "elapsed_ms": 19.379,
+          "status": 500,
+          "trace_id": "dcd04cdc0b5abb8478b0020745f7988c"
+        },
+        {
+          "elapsed_ms": 17.359,
+          "status": 500,
+          "trace_id": "3a360ba38bc614c6f739c2e644874f14"
+        },
+        {
+          "elapsed_ms": 21.917,
+          "status": 500,
+          "trace_id": "23b15a4901c385023e211666288ccd89"
+        },
+        {
+          "elapsed_ms": 20.114,
+          "status": 500,
+          "trace_id": "caf7c3e73ba596616d2c6aae49ce93c3"
+        },
+        {
+          "elapsed_ms": 23.048,
+          "status": 500,
+          "trace_id": "daae6bc9bfc331b9d2ed435bad98bfab"
+        },
+        {
+          "elapsed_ms": 21.018,
+          "status": 500,
+          "trace_id": "01d4f76aae069b1df0807cf37323cb47"
+        },
+        {
+          "elapsed_ms": 25.255,
+          "status": 500,
+          "trace_id": "209ba96e7d208527ae0222dee71d4c0d"
+        },
+        {
+          "elapsed_ms": 23.511,
+          "status": 500,
+          "trace_id": "dcea5f7e055a97b4f295a4060f3c51c4"
+        },
+        {
+          "elapsed_ms": 15.816,
+          "status": 500,
+          "trace_id": "a5f12511f03b15a66d0cfef1e6fd67ad"
+        }
+      ],
+      "route": "/api/products/PHASE3-INVALID",
+      "status": "traffic_verified",
+      "traffic_ended_at": "2026-09-28T01:12:18.992570Z",
+      "traffic_started_at": "2026-09-28T01:12:18.260078Z"
+    },
+    {
+      "clickhouse_current": [
+        {
+          "error_count": 0,
+          "operation": "HTTP GET",
+          "p95_duration_ns": "42725888",
+          "service_name": "frontend",
+          "span_count": 128
+        },
+        {
+          "error_count": 0,
+          "operation": "hipstershop.ProductCatalogService/GetProduct",
+          "p95_duration_ns": "26658",
+          "service_name": "productcatalogservice",
+          "span_count": 512
+        },
+        {
+          "error_count": 0,
+          "operation": "hipstershop.ProductCatalogService/ListProducts",
+          "p95_duration_ns": "17194",
+          "service_name": "productcatalogservice",
+          "span_count": 128
+        },
+        {
+          "error_count": 0,
+          "operation": "/hipstershop.RecommendationService/ListRecommendations",
+          "p95_duration_ns": "5387321",
+          "service_name": "recommendationservice",
+          "span_count": 128
+        }
+      ],
+      "evaluation_end": "2026-09-28T01:17:32.261452Z",
+      "evaluation_status": "passed",
+      "expected_http": 200,
+      "http_status_counts": {
+        "200": 128
+      },
+      "incident_response": {
+        "baseline": {
+          "from": "2026-09-28T00:42:32.261452Z",
+          "to": "2026-09-28T01:12:32.261452Z"
+        },
+        "candidates": [],
+        "caveats": [
+          "missing_parent",
+          "missing_root",
+          "unset_status"
+        ],
+        "config": {
+          "error_increase_bps": 500,
+          "error_rate_bps": 500,
+          "latency_delta_ns": "100000000",
+          "latency_ratio_milli": 2000,
+          "min_samples": 100
+        },
+        "current": {
+          "from": "2026-09-28T01:12:32.261452Z",
+          "to": "2026-09-28T01:17:32.261452Z"
+        },
+        "end": "2026-09-28T01:17:32.261452Z",
+        "observed_at": "2026-09-28T15:04:33.683662877Z",
+        "operations": [
+          {
+            "baseline": {
+              "error_count": 128,
+              "error_rate": 0.2,
+              "p95_duration_ns": "502750464",
+              "span_count": 640,
+              "unset_count": 512,
+              "unset_rate": 0.8
+            },
+            "caveats": [
+              "missing_parent",
+              "missing_root",
+              "unset_status"
+            ],
+            "current": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "42725888",
+              "span_count": 128,
+              "unset_count": 128,
+              "unset_rate": 1
+            },
+            "error_rate_increase": -0.2,
+            "evidence": [],
+            "operation": "HTTP GET",
+            "p95_increase_ns": "-460024576",
+            "service_name": "frontend",
+            "service_namespace": "incidentlens-phase3-20260928T005118Z-836fef",
+            "state": "normal",
+            "triggered_rules": []
+          },
+          {
+            "baseline": {
+              "error_count": 128,
+              "error_rate": 0.058823529411764705,
+              "p95_duration_ns": "26736",
+              "span_count": 2176,
+              "unset_count": 2048,
+              "unset_rate": 0.9411764705882353
+            },
+            "caveats": [
+              "missing_parent",
+              "missing_root",
+              "unset_status"
+            ],
+            "current": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "26658",
+              "span_count": 512,
+              "unset_count": 512,
+              "unset_rate": 1
+            },
+            "error_rate_increase": -0.058823529411764705,
+            "evidence": [],
+            "operation": "hipstershop.ProductCatalogService/GetProduct",
+            "p95_increase_ns": "-78",
+            "service_name": "productcatalogservice",
+            "service_namespace": "incidentlens-phase3-20260928T005118Z-836fef",
+            "state": "normal",
+            "triggered_rules": []
+          },
+          {
+            "baseline": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "32102",
+              "span_count": 512,
+              "unset_count": 512,
+              "unset_rate": 1
+            },
+            "caveats": [
+              "missing_parent",
+              "missing_root",
+              "unset_status"
+            ],
+            "current": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "17194",
+              "span_count": 128,
+              "unset_count": 128,
+              "unset_rate": 1
+            },
+            "error_rate_increase": 0,
+            "evidence": [],
+            "operation": "hipstershop.ProductCatalogService/ListProducts",
+            "p95_increase_ns": "-14908",
+            "service_name": "productcatalogservice",
+            "service_namespace": "incidentlens-phase3-20260928T005118Z-836fef",
+            "state": "normal",
+            "triggered_rules": []
+          },
+          {
+            "baseline": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "6594296",
+              "span_count": 512,
+              "unset_count": 512,
+              "unset_rate": 1
+            },
+            "caveats": [
+              "missing_parent",
+              "missing_root",
+              "unset_status"
+            ],
+            "current": {
+              "error_count": 0,
+              "error_rate": 0,
+              "p95_duration_ns": "5387321",
+              "span_count": 128,
+              "unset_count": 128,
+              "unset_rate": 1
+            },
+            "error_rate_increase": 0,
+            "evidence": [],
+            "operation": "/hipstershop.RecommendationService/ListRecommendations",
+            "p95_increase_ns": "-1206975",
+            "service_name": "recommendationservice",
+            "service_namespace": "incidentlens-phase3-20260928T005118Z-836fef",
+            "state": "normal",
+            "triggered_rules": []
+          }
+        ],
+        "rule_version": "trace-v1"
+      },
+      "name": "error_recovery",
+      "requests": [
+        {
+          "elapsed_ms": 20.955,
+          "status": 200,
+          "trace_id": "dee3d3df94054b1bdbe13adc80c9295e"
+        },
+        {
+          "elapsed_ms": 28.469,
+          "status": 200,
+          "trace_id": "c0d92b267ee2508a33d3f82a5bc52ec0"
+        },
+        {
+          "elapsed_ms": 41.065,
+          "status": 200,
+          "trace_id": "c5088f0146ec02785973e168f0da897d"
+        },
+        {
+          "elapsed_ms": 28.046,
+          "status": 200,
+          "trace_id": "19a915efd4752c402529cbf646738afd"
+        },
+        {
+          "elapsed_ms": 38.715,
+          "status": 200,
+          "trace_id": "631631a8dcd9e2f821d538aa33f91a72"
+        },
+        {
+          "elapsed_ms": 43.229,
+          "status": 200,
+          "trace_id": "2e1d343fc37a938a69e071e8278e246a"
+        },
+        {
+          "elapsed_ms": 43.46,
+          "status": 200,
+          "trace_id": "9eb60d63cf9a3d12ce1fb587f8548732"
+        },
+        {
+          "elapsed_ms": 42.313,
+          "status": 200,
+          "trace_id": "e20a9974acb366165cdd356e1ced3ab0"
+        },
+        {
+          "elapsed_ms": 44.173,
+          "status": 200,
+          "trace_id": "179aaa24ee70d09620e170a9ca2c335d"
+        },
+        {
+          "elapsed_ms": 41.84,
+          "status": 200,
+          "trace_id": "061b37bccbd0bbf79e9bc71e0667e0e6"
+        },
+        {
+          "elapsed_ms": 37.669,
+          "status": 200,
+          "trace_id": "0426be4370d0d0614d25f108e3547e34"
+        },
+        {
+          "elapsed_ms": 33.371,
+          "status": 200,
+          "trace_id": "5e14f4c41ec0114d87a4790635d7599e"
+        },
+        {
+          "elapsed_ms": 34.652,
+          "status": 200,
+          "trace_id": "042c2f4461d2e1eaaa7c3bb6d8123571"
+        },
+        {
+          "elapsed_ms": 51.36,
+          "status": 200,
+          "trace_id": "ed849bdb14c1480b08397582dceebaa5"
+        },
+        {
+          "elapsed_ms": 47.789,
+          "status": 200,
+          "trace_id": "ec43fc79a174ccd5c86432d29232428a"
+        },
+        {
+          "elapsed_ms": 46.399,
+          "status": 200,
+          "trace_id": "773d7a07a44f64e6c9e8b140f23263b4"
+        },
+        {
+          "elapsed_ms": 34.423,
+          "status": 200,
+          "trace_id": "7c24bd20cc480f4ef9b2a4b2da78fe2c"
+        },
+        {
+          "elapsed_ms": 31.837,
+          "status": 200,
+          "trace_id": "ae48e3411e02247d487f44fbdeb341bc"
+        },
+        {
+          "elapsed_ms": 45.299,
+          "status": 200,
+          "trace_id": "86eaf31b593304b77bd69e30e5c1d9a1"
+        },
+        {
+          "elapsed_ms": 41.453,
+          "status": 200,
+          "trace_id": "477a1524b36974de403cc948b11fda48"
+        },
+        {
+          "elapsed_ms": 41.039,
+          "status": 200,
+          "trace_id": "28f2eab392e0c5c92e36bd24cb6d6342"
+        },
+        {
+          "elapsed_ms": 36.818,
+          "status": 200,
+          "trace_id": "3378bcd5e488eda6acd1e43d10de987c"
+        },
+        {
+          "elapsed_ms": 38.63,
+          "status": 200,
+          "trace_id": "95ebd7049f8bc7f68d8dea260747b27b"
+        },
+        {
+          "elapsed_ms": 38.936,
+          "status": 200,
+          "trace_id": "8f5c5758e3ba281a4bd5b7b43d414d50"
+        },
+        {
+          "elapsed_ms": 34.381,
+          "status": 200,
+          "trace_id": "1883bea1c97748bd3fb5139563d1bd67"
+        },
+        {
+          "elapsed_ms": 23.016,
+          "status": 200,
+          "trace_id": "78bfa2b3178f4afd309239ed76c9c7ed"
+        },
+        {
+          "elapsed_ms": 27.236,
+          "status": 200,
+          "trace_id": "cbea07fad0925acca634cd5acdc39fd0"
+        },
+        {
+          "elapsed_ms": 27.887,
+          "status": 200,
+          "trace_id": "16143adc22de03bb1d7166858a47c11b"
+        },
+        {
+          "elapsed_ms": 29.578,
+          "status": 200,
+          "trace_id": "6bb28815d49dacc55f6d3b49655d53fb"
+        },
+        {
+          "elapsed_ms": 27.171,
+          "status": 200,
+          "trace_id": "860b48e43982e465c096060c2104febe"
+        },
+        {
+          "elapsed_ms": 35.423,
+          "status": 200,
+          "trace_id": "d4b42c0988d1c12740364150d76597cd"
+        },
+        {
+          "elapsed_ms": 52.597,
+          "status": 200,
+          "trace_id": "ccf2636655cfcf54d2b539bc6db8e496"
+        },
+        {
+          "elapsed_ms": 46.857,
+          "status": 200,
+          "trace_id": "d1c5ae51014541244a060af221c62871"
+        },
+        {
+          "elapsed_ms": 54.322,
+          "status": 200,
+          "trace_id": "68abd5a6f82d9f6a0864a563528a4b51"
+        },
+        {
+          "elapsed_ms": 57.583,
+          "status": 200,
+          "trace_id": "c3cc8c21e107c0508a4bd949261a82a0"
+        },
+        {
+          "elapsed_ms": 47.239,
+          "status": 200,
+          "trace_id": "2e6bb5fdecdcd93f323e35c0986dc4e9"
+        },
+        {
+          "elapsed_ms": 40.846,
+          "status": 200,
+          "trace_id": "e249173e26bbb52539647a6620d6e4c9"
+        },
+        {
+          "elapsed_ms": 40.256,
+          "status": 200,
+          "trace_id": "c08466b061e938acae31d271d1ba0c91"
+        },
+        {
+          "elapsed_ms": 49.644,
+          "status": 200,
+          "trace_id": "a7c6d4a084fa7626434499802f11e05e"
+        },
+        {
+          "elapsed_ms": 50.715,
+          "status": 200,
+          "trace_id": "5a7ba85f1ac050dbc91dcd552c7daf8c"
+        },
+        {
+          "elapsed_ms": 58.496,
+          "status": 200,
+          "trace_id": "91f5626a52b1392544c41e26e402f213"
+        },
+        {
+          "elapsed_ms": 56.666,
+          "status": 200,
+          "trace_id": "eb82ac9e59619dd1c1fcd21464862249"
+        },
+        {
+          "elapsed_ms": 75.302,
+          "status": 200,
+          "trace_id": "b16023409b101e790806c6540c11f796"
+        },
+        {
+          "elapsed_ms": 71.408,
+          "status": 200,
+          "trace_id": "00cc1ddf1434011ee21fe21786880b19"
+        },
+        {
+          "elapsed_ms": 74.147,
+          "status": 200,
+          "trace_id": "4aa84330294179ff4fc78b16ffc1dba6"
+        },
+        {
+          "elapsed_ms": 70.927,
+          "status": 200,
+          "trace_id": "efb8dcee0d4c65c0bdd2cb5f5db8ddd7"
+        },
+        {
+          "elapsed_ms": 51.093,
+          "status": 200,
+          "trace_id": "3e2236e2fe070d93828131e88a2049d8"
+        },
+        {
+          "elapsed_ms": 60.829,
+          "status": 200,
+          "trace_id": "09c7b2c9f72441e89614e6253f44ad53"
+        },
+        {
+          "elapsed_ms": 48.208,
+          "status": 200,
+          "trace_id": "a0d9b6499d4f74141564dc5b3b4b4274"
+        },
+        {
+          "elapsed_ms": 40.624,
+          "status": 200,
+          "trace_id": "71c178b383556e7b365deb8eb1d611ea"
+        },
+        {
+          "elapsed_ms": 49.036,
+          "status": 200,
+          "trace_id": "446cc6bcedff008d0da9764052b9e1f6"
+        },
+        {
+          "elapsed_ms": 46.01,
+          "status": 200,
+          "trace_id": "5d0ea1dbc5b5c9d2cbb9458c28dbf342"
+        },
+        {
+          "elapsed_ms": 41.801,
+          "status": 200,
+          "trace_id": "537b29ae48699eeff76071fbd0d8bedc"
+        },
+        {
+          "elapsed_ms": 43.592,
+          "status": 200,
+          "trace_id": "d03f448f8f3e43169216ea2885684daa"
+        },
+        {
+          "elapsed_ms": 44.498,
+          "status": 200,
+          "trace_id": "d5c17ed773d0ef483c07868db6463c98"
+        },
+        {
+          "elapsed_ms": 39.428,
+          "status": 200,
+          "trace_id": "acc904502385abaa26bce1ab683c32ee"
+        },
+        {
+          "elapsed_ms": 57.203,
+          "status": 200,
+          "trace_id": "4bb029bd17b481acc76b6f490a503595"
+        },
+        {
+          "elapsed_ms": 53.596,
+          "status": 200,
+          "trace_id": "17838539b77d5c6b823a61bc1507b077"
+        },
+        {
+          "elapsed_ms": 33.818,
+          "status": 200,
+          "trace_id": "a53df1def49ee001daa6295bff321bef"
+        },
+        {
+          "elapsed_ms": 29.147,
+          "status": 200,
+          "trace_id": "0f72b6b30bbee152a3375fd20ad61c35"
+        },
+        {
+          "elapsed_ms": 17.742,
+          "status": 200,
+          "trace_id": "53a02c22da3af74433771786c5e2de41"
+        },
+        {
+          "elapsed_ms": 31.048,
+          "status": 200,
+          "trace_id": "96d1b77f16715cf489b11ce39d862690"
+        },
+        {
+          "elapsed_ms": 30.397,
+          "status": 200,
+          "trace_id": "0607e124a0984de2a6963ac9de2f16ad"
+        },
+        {
+          "elapsed_ms": 32.661,
+          "status": 200,
+          "trace_id": "5af8754910eafc831cfd8b5e6e7c1a8f"
+        },
+        {
+          "elapsed_ms": 29.156,
+          "status": 200,
+          "trace_id": "1cbb42f678ae7838d17375b9559337fb"
+        },
+        {
+          "elapsed_ms": 18.4,
+          "status": 200,
+          "trace_id": "97dd5d09dbfdd170d6153aa351f4a4c5"
+        },
+        {
+          "elapsed_ms": 36.116,
+          "status": 200,
+          "trace_id": "df3c11f544f3bc9f5aad213090c8f163"
+        },
+        {
+          "elapsed_ms": 36.056,
+          "status": 200,
+          "trace_id": "ae1b611e7b64d4ee8a2731064164a26f"
+        },
+        {
+          "elapsed_ms": 36.15,
+          "status": 200,
+          "trace_id": "d6d3f43a9f8b85ada62429fcb5fc8584"
+        },
+        {
+          "elapsed_ms": 36.135,
+          "status": 200,
+          "trace_id": "04737383f1f1abc74e37a4843748aa2e"
+        },
+        {
+          "elapsed_ms": 37.576,
+          "status": 200,
+          "trace_id": "5a4b3548942de4a7eb437b06013d9485"
+        },
+        {
+          "elapsed_ms": 39.535,
+          "status": 200,
+          "trace_id": "eedc51b3213c11fa31fc7d89bc8b7f0e"
+        },
+        {
+          "elapsed_ms": 39.663,
+          "status": 200,
+          "trace_id": "15e9fa635fd14b91b87c651ad1662ccb"
+        },
+        {
+          "elapsed_ms": 40.778,
+          "status": 200,
+          "trace_id": "4f2747820bc0b58df427c214c86e341e"
+        },
+        {
+          "elapsed_ms": 45.325,
+          "status": 200,
+          "trace_id": "bb1e9f9940d630e8577093d35c285873"
+        },
+        {
+          "elapsed_ms": 41.105,
+          "status": 200,
+          "trace_id": "0084a738f695bb7e6f07c7fb792f1071"
+        },
+        {
+          "elapsed_ms": 37.42,
+          "status": 200,
+          "trace_id": "9f0a1165fe440566e2bcf12d7e62745c"
+        },
+        {
+          "elapsed_ms": 50.2,
+          "status": 200,
+          "trace_id": "21724b6a4d768cd52282a1cadac25f8f"
+        },
+        {
+          "elapsed_ms": 52.435,
+          "status": 200,
+          "trace_id": "fca082cd452516914ed97581b09a3268"
+        },
+        {
+          "elapsed_ms": 51.634,
+          "status": 200,
+          "trace_id": "9f7050e7829f642d86e0164e96d8bed7"
+        },
+        {
+          "elapsed_ms": 58.858,
+          "status": 200,
+          "trace_id": "28e2899929e18e0e2dda07945fe1935c"
+        },
+        {
+          "elapsed_ms": 46.297,
+          "status": 200,
+          "trace_id": "b93276de257cb78f481d00520088a271"
+        },
+        {
+          "elapsed_ms": 27.123,
+          "status": 200,
+          "trace_id": "b06e3710d8fed63c7361d4bc6efcca4f"
+        },
+        {
+          "elapsed_ms": 26.289,
+          "status": 200,
+          "trace_id": "535955a2242da142e9f44d9179595efb"
+        },
+        {
+          "elapsed_ms": 24.661,
+          "status": 200,
+          "trace_id": "572d8ab284623ff7bd6b3944ac816ce2"
+        },
+        {
+          "elapsed_ms": 23.379,
+          "status": 200,
+          "trace_id": "914d17e6b58f44934dc46b3e38769cb1"
+        },
+        {
+          "elapsed_ms": 28.688,
+          "status": 200,
+          "trace_id": "7e5477590115f1bc4d1355bd9bd1dcbe"
+        },
+        {
+          "elapsed_ms": 27.344,
+          "status": 200,
+          "trace_id": "43c789afcb70df6ffae923df8fa0e7b7"
+        },
+        {
+          "elapsed_ms": 33.587,
+          "status": 200,
+          "trace_id": "e78d2678be9dc297453a9f8261c90040"
+        },
+        {
+          "elapsed_ms": 32.076,
+          "status": 200,
+          "trace_id": "56f997f75b1c89f92799947c210cc256"
+        },
+        {
+          "elapsed_ms": 21.469,
+          "status": 200,
+          "trace_id": "5e9db320d51d1d5f11c2efd77b7de0f8"
+        },
+        {
+          "elapsed_ms": 24.983,
+          "status": 200,
+          "trace_id": "3b3586d427d33e89966c460e8bb4cd14"
+        },
+        {
+          "elapsed_ms": 24.453,
+          "status": 200,
+          "trace_id": "64347da6b568f1512264cbca73284d68"
+        },
+        {
+          "elapsed_ms": 28.302,
+          "status": 200,
+          "trace_id": "f847f268de2f7c6e04f3fcd91f724633"
+        },
+        {
+          "elapsed_ms": 26.316,
+          "status": 200,
+          "trace_id": "cee297944f3e3163bbbdebb8fd1356d3"
+        },
+        {
+          "elapsed_ms": 26.245,
+          "status": 200,
+          "trace_id": "5e9811f030167d70fd437c5901d8d53c"
+        },
+        {
+          "elapsed_ms": 24.689,
+          "status": 200,
+          "trace_id": "83d6c85b7bb188cb2843db760691e38e"
+        },
+        {
+          "elapsed_ms": 21.426,
+          "status": 200,
+          "trace_id": "49b9463406317d17f1008bed8ce572bf"
+        },
+        {
+          "elapsed_ms": 43.813,
+          "status": 200,
+          "trace_id": "0d33fb7c2bf1152e404675b22b411286"
+        },
+        {
+          "elapsed_ms": 43.097,
+          "status": 200,
+          "trace_id": "22d20470f0b4154049d4d712c84e9df8"
+        },
+        {
+          "elapsed_ms": 46.106,
+          "status": 200,
+          "trace_id": "233bcc7b48e26cf0d141de7322e5464f"
+        },
+        {
+          "elapsed_ms": 45.634,
+          "status": 200,
+          "trace_id": "de81c12f389f4a0654a89f42ae07ee3d"
+        },
+        {
+          "elapsed_ms": 20.876,
+          "status": 200,
+          "trace_id": "67b8c29c3b9477f8953d7bc0fbc97ad6"
+        },
+        {
+          "elapsed_ms": 26.617,
+          "status": 200,
+          "trace_id": "8a9cd819b4c483555923774ec343c0a6"
+        },
+        {
+          "elapsed_ms": 29.688,
+          "status": 200,
+          "trace_id": "cc86d585da2a4e588e497299ceea01b5"
+        },
+        {
+          "elapsed_ms": 29.824,
+          "status": 200,
+          "trace_id": "473d94fd873005cbd11bd7da482657d9"
+        },
+        {
+          "elapsed_ms": 25.735,
+          "status": 200,
+          "trace_id": "6199bb4ad252b545a1c625caca721519"
+        },
+        {
+          "elapsed_ms": 20.359,
+          "status": 200,
+          "trace_id": "9394dca270386936512cf319dd3e2fed"
+        },
+        {
+          "elapsed_ms": 26.636,
+          "status": 200,
+          "trace_id": "b0c1665f68e4afe6771a8c6e2f756d9f"
+        },
+        {
+          "elapsed_ms": 27.14,
+          "status": 200,
+          "trace_id": "843091137a5c594c73e9c0f4a1f4a359"
+        },
+        {
+          "elapsed_ms": 37.46,
+          "status": 200,
+          "trace_id": "e15c9fa445ab1770e94f42a32a425505"
+        },
+        {
+          "elapsed_ms": 36.666,
+          "status": 200,
+          "trace_id": "aa91d70fb121654eb306928e8030c94c"
+        },
+        {
+          "elapsed_ms": 39.348,
+          "status": 200,
+          "trace_id": "3f2a416c91937d666e54bc92669d990b"
+        },
+        {
+          "elapsed_ms": 38.942,
+          "status": 200,
+          "trace_id": "dc3284383c883ca7b5bd36e1285d70af"
+        },
+        {
+          "elapsed_ms": 41.69,
+          "status": 200,
+          "trace_id": "0ec24dfbb1168008030595a146bcf0c7"
+        },
+        {
+          "elapsed_ms": 36.395,
+          "status": 200,
+          "trace_id": "557d2caceaf1ee30951b0d986a1edbe2"
+        },
+        {
+          "elapsed_ms": 58.809,
+          "status": 200,
+          "trace_id": "5169ab32468e5988ff354137d46a0b1d"
+        },
+        {
+          "elapsed_ms": 56.791,
+          "status": 200,
+          "trace_id": "e4991e5f8b1ea460ffc367f04b450511"
+        },
+        {
+          "elapsed_ms": 49.35,
+          "status": 200,
+          "trace_id": "6b0ccbd4fd8eff7b53bf748f0b382e66"
+        },
+        {
+          "elapsed_ms": 49.141,
+          "status": 200,
+          "trace_id": "4953c86e77b89c75754a76d6978a90f6"
+        },
+        {
+          "elapsed_ms": 25.24,
+          "status": 200,
+          "trace_id": "15b9e7802fe67bcbbf381a525721296b"
+        },
+        {
+          "elapsed_ms": 30.391,
+          "status": 200,
+          "trace_id": "9d154844f653f4439363a6f41bd4a099"
+        },
+        {
+          "elapsed_ms": 29.703,
+          "status": 200,
+          "trace_id": "1a54d22a681208d8b97119fdcb8e9448"
+        },
+        {
+          "elapsed_ms": 27.157,
+          "status": 200,
+          "trace_id": "2fc7522921472c37ece143ecac6d6588"
+        },
+        {
+          "elapsed_ms": 28.146,
+          "status": 200,
+          "trace_id": "472bae57e4283b5edafbafb211fa7737"
+        },
+        {
+          "elapsed_ms": 31.88,
+          "status": 200,
+          "trace_id": "9d9ece3ee5fafbda975b6dab2688ac03"
+        },
+        {
+          "elapsed_ms": 30.531,
+          "status": 200,
+          "trace_id": "a7adfe11296c43e2261d3a72673339bc"
+        },
+        {
+          "elapsed_ms": 31.025,
+          "status": 200,
+          "trace_id": "23776dbb7ddcb5e7eeff873f8c4b8ddc"
+        }
+      ],
+      "route": "/api/recommendations?productIds=OLJCESPC7Z&productIds=OLJCESPC7Z",
+      "status": "traffic_verified",
+      "traffic_ended_at": "2026-09-28T01:17:22.256983Z",
+      "traffic_started_at": "2026-09-28T01:17:21.001393Z"
+    }
+  ],
+  "plan": "PHASE3_SCENARIO.md",
+  "preflight_readiness": {
+    "api": 200,
+    "ingestion": 200
+  },
+  "request_count_per_phase": 128,
+  "run_id": "20260928T005118Z-836fef",
+  "status": "passed"
+}

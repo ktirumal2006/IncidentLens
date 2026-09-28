@@ -1,0 +1,35 @@
+ok  	incidentlens/backend/cmd/api	2.765s
+?   	incidentlens/backend/cmd/ingest	[no test files]
+ok  	incidentlens/backend/internal/detector	4.438s
+ok  	incidentlens/backend/internal/httpapi	1.993s
+ok  	incidentlens/backend/internal/ingest	(cached)
+ok  	incidentlens/backend/internal/query	(cached)
+?   	incidentlens/backend/internal/storage/clickhouse	[no test files]
+ok  	incidentlens/backend/internal/trace	(cached)
+ok  	incidentlens/backend/tests/integration	3.730s
+
+> incidentlens-explorer@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.11 /Users/kousil/Documents/IncidentLens/frontend
+
+
+ Test Files  3 passed (3)
+      Tests  23 passed (23)
+   Start at  11:03:25
+   Duration  4.82s (transform 606ms, setup 0ms, import 1.44s, tests 4.38s, environment 2.93s)
+
+
+> incidentlens-explorer@0.1.0 build
+> tsc -b && vite build
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 32 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.38 kB │ gzip:  0.28 kB
+dist/assets/index-bk1FBgVx.css   15.65 kB │ gzip:  4.07 kB
+dist/assets/index-DTU8O0aU.js   250.74 kB │ gzip: 77.76 kB
+✓ built in 1.65s

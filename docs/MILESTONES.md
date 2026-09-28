@@ -1,6 +1,6 @@
 # IncidentLens milestones
 
-Status: Phases 1 and 2 are complete; their acceptance criteria passed. Phase 3 is the next incomplete milestone and has not started. Phases 3–9 require a separate request.
+Status: Phases 1–3 are complete; their acceptance criteria passed. Phase 4 is the next incomplete milestone and has not started. Phases 4–9 require a separate request.
 
 Phases 1–3 form the functional trace-only MVP. Phase 4 establishes measured performance. Phases 5–8 are conditional extensions: each requires a concrete need and an ADR before implementation; defer or skip a phase when evidence does not justify it. Phase 9 can polish the trace-only product even if extensions are skipped. Redis, PostgreSQL, and AI/LLMs have no planned phase and remain excluded without a separately justified scope change.
 
@@ -16,7 +16,7 @@ Completed 2026-09-25 (America/New_York). See [criterion-by-criterion verificatio
 - Retrieved a real 16-span Demo trace across frontend, recommendationservice and productcatalogservice, with every observed parent present, exact stored durations, no ERROR status or source-reported drops, and an HTTP 200 response. This does not prove complete delivery for arbitrary traffic.
 - Accepted the digest-pinned historical Demo subset in [ADR 0001](adr/0001-demo-trace-only-candidate.md) and corrected Collector acknowledgment behavior in [ADR 0002](adr/0002-collector-acknowledgment.md).
 
-Remaining limitations: local synthetic use, immutable span keys, no durable Collector queue or disk-failure guarantee, downstream partial-rejection caveats, and an intentionally narrow historical Demo scenario. Phase 2 adds query/explorer behavior separately; detection and benchmarks remain unimplemented.
+Remaining limitations: local synthetic use, immutable span keys, no durable Collector queue or disk-failure guarantee, downstream partial-rejection caveats, and an intentionally narrow historical Demo scenario. Query/explorer and detection were subsequently delivered in Phases 2 and 3; benchmarks remain deferred.
 
 Acceptance criteria:
 
@@ -50,7 +50,7 @@ Completed 2026-09-27 (America/New_York). See the [criterion-by-criterion verific
 
 Remaining limitations: bounded local queries, nontransactional cursor pagination,
 explicit caps, incomplete telemetry and the existing immutable-span/historical
-Demo assumptions. No incident detector, incident UI or benchmark is implemented.
+Demo assumptions. Incident detection and investigation were subsequently delivered in Phase 3; benchmarks remain deferred.
 
 Acceptance criteria:
 
@@ -64,6 +64,15 @@ Acceptance criteria:
 ## Phase 3: deterministic incident detection
 
 Deliver explained, window-specific incident candidates within the query API and UI.
+
+Completed 2026-09-28 (America/New_York). See the [criterion-by-criterion verification and raw evidence](VERIFICATION_PHASE3.md).
+
+- Implemented versioned exact rules, duplicate-safe SERVER statistics, deterministic ranking and bounded supporting evidence in the query API, with explained comparisons and keyboard evidence navigation in the UI.
+- Passed the complete race-enabled Go suite with all five real-dependency/query/detector/restart/failure gates, vet/build, 23 frontend tests, and both incident and explorer Chromium workflows. Desktop/mobile views were inspected.
+- The predeclared real Demo run returned 128 expected responses in each of six phases. Healthy control and both full-clean-window recoveries had zero candidates; frontend latency and native catalog errors each ranked first among services.
+- Retained interrupted runs, fault pilots and limitations. The [incident contract](../api/INCIDENTS.md), [ADR 0003](adr/0003-demo-detection-faults.md) and [scenario record](../integrations/otel-demo/PHASE3_SCENARIO.md) document exact configuration, timestamps and resource bounds.
+
+Remaining limitations: local on-demand hypotheses, incomplete/late telemetry, immutable span assumptions, fixed uncalibrated thresholds, bounded global context and the historical Demo subset. No persistent incident lifecycle or performance claim is added.
 
 Acceptance criteria:
 

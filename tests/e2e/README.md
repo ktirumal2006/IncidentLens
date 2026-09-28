@@ -31,3 +31,17 @@ The check covers the supported recommendations route only. A missing injected
 external parent is expected; it does not imply a broken internal service link.
 The test does not claim that a root proves complete delivery or that all Demo
 traffic is visible.
+
+After the full Phase 3 scenario passes API evaluation, its frozen windows can
+also be exercised through the incidents UI without generating new traffic:
+
+```sh
+cd tests/e2e
+npm run test:incidents -- ../../integrations/otel-demo/evidence/phase3-<run-id>.json
+```
+
+This checks healthy/recovery no-candidate states, the declared latency and error
+targets, visible baseline/current statistics and rule thresholds, uncertainty,
+and keyboard navigation from each candidate's known Demo trace evidence to the
+waterfall. The UI uses UTC seconds; the test verifies the same sample window
+against the API after dropping the recorded end's fractional seconds.

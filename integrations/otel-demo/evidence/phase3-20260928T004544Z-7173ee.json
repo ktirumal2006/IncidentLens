@@ -1,0 +1,701 @@
+{
+  "cleanup_frontend_nano_cpus": "0",
+  "concurrency": 4,
+  "cpu_fault": "frontend 0.1 CPU",
+  "demo_revision": "860a35de9be667ff36788d3df09ed4a96b9290fd",
+  "expected": [
+    {
+      "candidate_service": null,
+      "phase": "healthy_baseline",
+      "triggered_rule": null
+    },
+    {
+      "candidate_service": null,
+      "phase": "healthy_control",
+      "triggered_rule": null
+    },
+    {
+      "candidate_service": "frontend",
+      "phase": "latency_fault",
+      "triggered_rule": "latency"
+    },
+    {
+      "candidate_service": null,
+      "phase": "latency_recovery",
+      "triggered_rule": null
+    },
+    {
+      "candidate_service": "productcatalogservice",
+      "phase": "error_fault",
+      "triggered_rule": "errors"
+    },
+    {
+      "candidate_service": null,
+      "phase": "error_recovery",
+      "triggered_rule": null
+    }
+  ],
+  "failure": "KeyboardInterrupt()",
+  "interruption_reason": "Root stopped blocked ClickHouse CLI after ClickHouse became unhealthy and both product readiness endpoints returned 503; before any fault phase.",
+  "namespace": "incidentlens-phase3-20260928T004544Z-7173ee",
+  "phases": [
+    {
+      "evaluation_end": "2026-09-28T00:46:09.808721Z",
+      "expected_http": 200,
+      "http_status_counts": {
+        "200": 128
+      },
+      "name": "healthy_baseline",
+      "requests": [
+        {
+          "elapsed_ms": 225.73,
+          "status": 200,
+          "trace_id": "74c90abf61d15e93279b560f33c5ae52"
+        },
+        {
+          "elapsed_ms": 208.621,
+          "status": 200,
+          "trace_id": "1549dad6b549282988dd218929b560d2"
+        },
+        {
+          "elapsed_ms": 227.86,
+          "status": 200,
+          "trace_id": "ac10d266e3db224b755d137e910f9900"
+        },
+        {
+          "elapsed_ms": 212.293,
+          "status": 200,
+          "trace_id": "ad6dea0f6792cf099e68536058987406"
+        },
+        {
+          "elapsed_ms": 117.8,
+          "status": 200,
+          "trace_id": "7e1cf42435818eba63dab18157c0d937"
+        },
+        {
+          "elapsed_ms": 121.429,
+          "status": 200,
+          "trace_id": "a1609c1e8aec9691aac73d63ab89407c"
+        },
+        {
+          "elapsed_ms": 107.06,
+          "status": 200,
+          "trace_id": "0e56f3fe04844dc6b5d1a13f27662d47"
+        },
+        {
+          "elapsed_ms": 110.094,
+          "status": 200,
+          "trace_id": "d0a97fb63b9f22d1dee5fa19cfb0fd9d"
+        },
+        {
+          "elapsed_ms": 89.51,
+          "status": 200,
+          "trace_id": "aaf7736db5f33804b6d773362e464c50"
+        },
+        {
+          "elapsed_ms": 74.245,
+          "status": 200,
+          "trace_id": "2854fcbd4dde99293428a708b1d101ab"
+        },
+        {
+          "elapsed_ms": 75.641,
+          "status": 200,
+          "trace_id": "5a32023cde8279b34edfb23344820c35"
+        },
+        {
+          "elapsed_ms": 80.414,
+          "status": 200,
+          "trace_id": "e52dded784c730532b3bdec6c813b235"
+        },
+        {
+          "elapsed_ms": 53.044,
+          "status": 200,
+          "trace_id": "6f6afa870ddc3287bd6435ce7c2bc0b1"
+        },
+        {
+          "elapsed_ms": 43.989,
+          "status": 200,
+          "trace_id": "963069d775bea6438f70bd80aed8b773"
+        },
+        {
+          "elapsed_ms": 50.048,
+          "status": 200,
+          "trace_id": "9aaba05a711dc82cbe0d4fcfb381c101"
+        },
+        {
+          "elapsed_ms": 45.24,
+          "status": 200,
+          "trace_id": "8be2ad58ec2ffdcb4a178a2b8e2859e6"
+        },
+        {
+          "elapsed_ms": 80.873,
+          "status": 200,
+          "trace_id": "0df6cd6512173bbbfe8cd31789a97018"
+        },
+        {
+          "elapsed_ms": 73.579,
+          "status": 200,
+          "trace_id": "22f90cb8b1f29a863a106ce55fca1934"
+        },
+        {
+          "elapsed_ms": 70.862,
+          "status": 200,
+          "trace_id": "7ca1586a873649e290a75e47c05c4057"
+        },
+        {
+          "elapsed_ms": 74.652,
+          "status": 200,
+          "trace_id": "d39e456413acd3f79a738327d7947387"
+        },
+        {
+          "elapsed_ms": 35.286,
+          "status": 200,
+          "trace_id": "f8e64379c110fc50e9597c6759dfc41f"
+        },
+        {
+          "elapsed_ms": 36.49,
+          "status": 200,
+          "trace_id": "37a385b424268597d44c1ffd56e9a991"
+        },
+        {
+          "elapsed_ms": 44.754,
+          "status": 200,
+          "trace_id": "edd9a049c21f18b25a5b3b7110bacf91"
+        },
+        {
+          "elapsed_ms": 40.443,
+          "status": 200,
+          "trace_id": "7fc04c29181f2816188c89f180212802"
+        },
+        {
+          "elapsed_ms": 41.319,
+          "status": 200,
+          "trace_id": "c3ec3428bba28c2bde393bcef7f3d9c3"
+        },
+        {
+          "elapsed_ms": 43.418,
+          "status": 200,
+          "trace_id": "9bbbb44df6e60612e0815eb787ef30da"
+        },
+        {
+          "elapsed_ms": 54.372,
+          "status": 200,
+          "trace_id": "56fa38f8c3ae9b7234b77c31da68f6af"
+        },
+        {
+          "elapsed_ms": 59.302,
+          "status": 200,
+          "trace_id": "edf0c0bf832def1029454a99700486b3"
+        },
+        {
+          "elapsed_ms": 74.498,
+          "status": 200,
+          "trace_id": "11be49c2338c14bc8132651098264682"
+        },
+        {
+          "elapsed_ms": 71.107,
+          "status": 200,
+          "trace_id": "79864b752cefb08eb079f151333d00aa"
+        },
+        {
+          "elapsed_ms": 58.603,
+          "status": 200,
+          "trace_id": "8231db05d7a2c67afc060e1d909b9be6"
+        },
+        {
+          "elapsed_ms": 63.56,
+          "status": 200,
+          "trace_id": "0b026e432e555056b1686445cfffe750"
+        },
+        {
+          "elapsed_ms": 41.423,
+          "status": 200,
+          "trace_id": "221f7ef79280f846823277edd09d9a08"
+        },
+        {
+          "elapsed_ms": 41.258,
+          "status": 200,
+          "trace_id": "3707f9ee85e0f130904747b7d687f1c5"
+        },
+        {
+          "elapsed_ms": 36.533,
+          "status": 200,
+          "trace_id": "841bc84655defb87b1e9b9d30ba4976b"
+        },
+        {
+          "elapsed_ms": 47.932,
+          "status": 200,
+          "trace_id": "19169064392d0cd1b4378214b91026e0"
+        },
+        {
+          "elapsed_ms": 86.619,
+          "status": 200,
+          "trace_id": "3d2bd372cc4b24b67277daab26bc303f"
+        },
+        {
+          "elapsed_ms": 87.557,
+          "status": 200,
+          "trace_id": "5403525844e9a9eea53fe26b47f559ab"
+        },
+        {
+          "elapsed_ms": 88.4,
+          "status": 200,
+          "trace_id": "6bb20eec6400226a9ee77b388429e172"
+        },
+        {
+          "elapsed_ms": 67.447,
+          "status": 200,
+          "trace_id": "ab147de27ea944b14a59d3df44a49a24"
+        },
+        {
+          "elapsed_ms": 37.285,
+          "status": 200,
+          "trace_id": "ea1f4303a23b7482d3d609c601c90129"
+        },
+        {
+          "elapsed_ms": 34.087,
+          "status": 200,
+          "trace_id": "f52827bf4a2e6db099d327c6b21dfca5"
+        },
+        {
+          "elapsed_ms": 52.88,
+          "status": 200,
+          "trace_id": "be5f4f1828fe5c01736b99e00d45f43d"
+        },
+        {
+          "elapsed_ms": 49.9,
+          "status": 200,
+          "trace_id": "4c7d0eea0891a42070cdcdbe75caf739"
+        },
+        {
+          "elapsed_ms": 35.688,
+          "status": 200,
+          "trace_id": "638621f08e7a38bc1b8c531ac92651c5"
+        },
+        {
+          "elapsed_ms": 45.146,
+          "status": 200,
+          "trace_id": "852f52d67e84349baef9d22c3382f2ef"
+        },
+        {
+          "elapsed_ms": 48.617,
+          "status": 200,
+          "trace_id": "1f333d8a53c00e92d916da201d7bbf4d"
+        },
+        {
+          "elapsed_ms": 45.545,
+          "status": 200,
+          "trace_id": "5d4042dfd256c5e102a9ae880a11bfaf"
+        },
+        {
+          "elapsed_ms": 37.293,
+          "status": 200,
+          "trace_id": "3ff1d3e7fd4d6eeba1faf84aae4b19b1"
+        },
+        {
+          "elapsed_ms": 45.023,
+          "status": 200,
+          "trace_id": "9158804dad0f7aa745f63a120cff88dd"
+        },
+        {
+          "elapsed_ms": 44.132,
+          "status": 200,
+          "trace_id": "4ba13fe762d8f436d5abe8deb79233c2"
+        },
+        {
+          "elapsed_ms": 39.784,
+          "status": 200,
+          "trace_id": "85351f9aef14d2ee4a946d6c545f1efa"
+        },
+        {
+          "elapsed_ms": 44.534,
+          "status": 200,
+          "trace_id": "b349e606ab18c9e6601801530eed0190"
+        },
+        {
+          "elapsed_ms": 33.1,
+          "status": 200,
+          "trace_id": "ae5ebcf2f43da5019c1b2ad2af00a676"
+        },
+        {
+          "elapsed_ms": 39.184,
+          "status": 200,
+          "trace_id": "82b9ddc092548dff8ab86706371a32b9"
+        },
+        {
+          "elapsed_ms": 38.001,
+          "status": 200,
+          "trace_id": "beb85a796da91fc48863f9e1f55c224b"
+        },
+        {
+          "elapsed_ms": 49.098,
+          "status": 200,
+          "trace_id": "a22a93d25ab3b1fa99620e14a044ec8c"
+        },
+        {
+          "elapsed_ms": 43.343,
+          "status": 200,
+          "trace_id": "0696d7b4e669917937abcb986dbe3a52"
+        },
+        {
+          "elapsed_ms": 47.246,
+          "status": 200,
+          "trace_id": "bed3c7d87778fbf7d203353840a42c62"
+        },
+        {
+          "elapsed_ms": 42.02,
+          "status": 200,
+          "trace_id": "67bb1fce13b2f9e7edca4fa2c952b69f"
+        },
+        {
+          "elapsed_ms": 53.017,
+          "status": 200,
+          "trace_id": "26da5c133f24f1680473cb29c99a84ee"
+        },
+        {
+          "elapsed_ms": 54.107,
+          "status": 200,
+          "trace_id": "fc5edf5825d208541264124f8528d15a"
+        },
+        {
+          "elapsed_ms": 35.7,
+          "status": 200,
+          "trace_id": "71fbf2503f57e115744e6f88380a8112"
+        },
+        {
+          "elapsed_ms": 53.547,
+          "status": 200,
+          "trace_id": "414a0914cc7c79d199370ab7195944d7"
+        },
+        {
+          "elapsed_ms": 64.696,
+          "status": 200,
+          "trace_id": "ee72f77b4f7b6d327f2a043e0d61b59c"
+        },
+        {
+          "elapsed_ms": 59.922,
+          "status": 200,
+          "trace_id": "0b03aed0bca5e6c6248a17b7667132b7"
+        },
+        {
+          "elapsed_ms": 59.838,
+          "status": 200,
+          "trace_id": "27525ad8ccc60446339686a33c87fc46"
+        },
+        {
+          "elapsed_ms": 43.902,
+          "status": 200,
+          "trace_id": "12074b436d4d726cdd1aff53dbcfae03"
+        },
+        {
+          "elapsed_ms": 61.248,
+          "status": 200,
+          "trace_id": "d9e62f79f9102494a9a9adab83161d15"
+        },
+        {
+          "elapsed_ms": 41.005,
+          "status": 200,
+          "trace_id": "be2c3c194010aa31f54e259beaf25c2b"
+        },
+        {
+          "elapsed_ms": 67.532,
+          "status": 200,
+          "trace_id": "3080d54b0367e25131d53959a156dc78"
+        },
+        {
+          "elapsed_ms": 57.436,
+          "status": 200,
+          "trace_id": "1056c942459d70c01b891dbb55f8b551"
+        },
+        {
+          "elapsed_ms": 75.778,
+          "status": 200,
+          "trace_id": "1afef225b7b21486a6e2926a72b59d03"
+        },
+        {
+          "elapsed_ms": 61.524,
+          "status": 200,
+          "trace_id": "026cb1e1a166ab32d62a2180c9a01d52"
+        },
+        {
+          "elapsed_ms": 53.859,
+          "status": 200,
+          "trace_id": "6649478d7ea70ae1eced9217cdc03715"
+        },
+        {
+          "elapsed_ms": 52.471,
+          "status": 200,
+          "trace_id": "791b27d55f250514ea9c77fd05add32a"
+        },
+        {
+          "elapsed_ms": 41.048,
+          "status": 200,
+          "trace_id": "93002f56b57410ee77c2b093337c1493"
+        },
+        {
+          "elapsed_ms": 31.103,
+          "status": 200,
+          "trace_id": "606a9dfaca77d361b0c75192c2313d6a"
+        },
+        {
+          "elapsed_ms": 42.876,
+          "status": 200,
+          "trace_id": "b2d3a0df86b3436daa53a843c452ec6f"
+        },
+        {
+          "elapsed_ms": 43.784,
+          "status": 200,
+          "trace_id": "272c31a977863ae9a7e3462ca9eb2284"
+        },
+        {
+          "elapsed_ms": 44.617,
+          "status": 200,
+          "trace_id": "a3a38bef5d53b178bc50403587a4fac5"
+        },
+        {
+          "elapsed_ms": 36.819,
+          "status": 200,
+          "trace_id": "685e010f5fe4ed73c473f3e66499a97e"
+        },
+        {
+          "elapsed_ms": 41.133,
+          "status": 200,
+          "trace_id": "077745c933e8450c45f30f656fe3a519"
+        },
+        {
+          "elapsed_ms": 38.521,
+          "status": 200,
+          "trace_id": "c82510dd13876cc9ffbf198c8a8d8e81"
+        },
+        {
+          "elapsed_ms": 69.497,
+          "status": 200,
+          "trace_id": "84f9fe82bf6347bd3a3206a181cf17bd"
+        },
+        {
+          "elapsed_ms": 70.603,
+          "status": 200,
+          "trace_id": "d33f3a28053d253cf15a75c5f327bce0"
+        },
+        {
+          "elapsed_ms": 65.973,
+          "status": 200,
+          "trace_id": "dfb4d1b654843d2122c694a7d504ed35"
+        },
+        {
+          "elapsed_ms": 72.321,
+          "status": 200,
+          "trace_id": "ee726ba6b26b33252b3a2f8615982879"
+        },
+        {
+          "elapsed_ms": 73.836,
+          "status": 200,
+          "trace_id": "f676d54a27996e27d50e4363932d163f"
+        },
+        {
+          "elapsed_ms": 76.611,
+          "status": 200,
+          "trace_id": "e3e1bce39d76f7dbafd5cc030896ab71"
+        },
+        {
+          "elapsed_ms": 70.273,
+          "status": 200,
+          "trace_id": "79ec59302850c75d4f5491876eb7831a"
+        },
+        {
+          "elapsed_ms": 68.518,
+          "status": 200,
+          "trace_id": "ed983be0e034d9d0dc28749dea954c64"
+        },
+        {
+          "elapsed_ms": 52.699,
+          "status": 200,
+          "trace_id": "8eaa9a1f578bbcbfdc3d2221b0007fb8"
+        },
+        {
+          "elapsed_ms": 48.466,
+          "status": 200,
+          "trace_id": "0495a13100614c4077aa22039b83fffa"
+        },
+        {
+          "elapsed_ms": 43.586,
+          "status": 200,
+          "trace_id": "75aaee2a397add07eaa973b592bdfb50"
+        },
+        {
+          "elapsed_ms": 49.623,
+          "status": 200,
+          "trace_id": "f32ad7d136457ab2cf9452505832c7d1"
+        },
+        {
+          "elapsed_ms": 70.827,
+          "status": 200,
+          "trace_id": "fe542fa706b1e62cffa46df3083871c9"
+        },
+        {
+          "elapsed_ms": 55.933,
+          "status": 200,
+          "trace_id": "d863237576aace5af217e26407e1814f"
+        },
+        {
+          "elapsed_ms": 63.277,
+          "status": 200,
+          "trace_id": "fd225639272ce13a104115d2ae488b59"
+        },
+        {
+          "elapsed_ms": 63.209,
+          "status": 200,
+          "trace_id": "6e2c454be02a7f7fd78075c45af22b02"
+        },
+        {
+          "elapsed_ms": 40.793,
+          "status": 200,
+          "trace_id": "a1b4972bbb98e7127428753b2682dfac"
+        },
+        {
+          "elapsed_ms": 44.817,
+          "status": 200,
+          "trace_id": "e7deaf257b6cdaaaef6d8111aaeebaf1"
+        },
+        {
+          "elapsed_ms": 39.764,
+          "status": 200,
+          "trace_id": "191209f7bb67ffa379c49756e05bba15"
+        },
+        {
+          "elapsed_ms": 44.777,
+          "status": 200,
+          "trace_id": "31e09e8cd38cdde4fa2973a335833fc4"
+        },
+        {
+          "elapsed_ms": 36.645,
+          "status": 200,
+          "trace_id": "e474bd71013bc839acd605c378dd7ed7"
+        },
+        {
+          "elapsed_ms": 35.32,
+          "status": 200,
+          "trace_id": "569fedf34e0f5f5bde12f32f64af5049"
+        },
+        {
+          "elapsed_ms": 35.208,
+          "status": 200,
+          "trace_id": "5c3fbf013eabffa594c8e10ea22c305a"
+        },
+        {
+          "elapsed_ms": 40.611,
+          "status": 200,
+          "trace_id": "0dec868eaf7a6548e97e907c21219845"
+        },
+        {
+          "elapsed_ms": 47.056,
+          "status": 200,
+          "trace_id": "0656d649f2fdec046be2bb99f1184f22"
+        },
+        {
+          "elapsed_ms": 79.396,
+          "status": 200,
+          "trace_id": "e689064899ec7ff09d68c5de09404b51"
+        },
+        {
+          "elapsed_ms": 77.137,
+          "status": 200,
+          "trace_id": "d9156d5a906663e9db105a83e62ad9bb"
+        },
+        {
+          "elapsed_ms": 70.275,
+          "status": 200,
+          "trace_id": "2059254f26377702f9c35dbd83a71642"
+        },
+        {
+          "elapsed_ms": 62.552,
+          "status": 200,
+          "trace_id": "5301f27de0e85b5392c73eef8bb7ba47"
+        },
+        {
+          "elapsed_ms": 43.969,
+          "status": 200,
+          "trace_id": "1a9bfc5fc71502cb56acb58a7adb98f3"
+        },
+        {
+          "elapsed_ms": 44.298,
+          "status": 200,
+          "trace_id": "1fbedc0b0bfeb79efe1a49faeee7a43a"
+        },
+        {
+          "elapsed_ms": 49.217,
+          "status": 200,
+          "trace_id": "bb5105e452d9d058755acc1f0bd50aaa"
+        },
+        {
+          "elapsed_ms": 30.078,
+          "status": 200,
+          "trace_id": "fcb653c32be5ef86d5941410e037168e"
+        },
+        {
+          "elapsed_ms": 48.593,
+          "status": 200,
+          "trace_id": "37021cab6a51d530e40bfa51468db988"
+        },
+        {
+          "elapsed_ms": 61.632,
+          "status": 200,
+          "trace_id": "bdd49304de2d46ac71687c77e9b263d7"
+        },
+        {
+          "elapsed_ms": 58.0,
+          "status": 200,
+          "trace_id": "901adda7fadbb7eb8979aab939cec84b"
+        },
+        {
+          "elapsed_ms": 54.287,
+          "status": 200,
+          "trace_id": "4060fdd53f7c582abde42e6d928c2c24"
+        },
+        {
+          "elapsed_ms": 36.627,
+          "status": 200,
+          "trace_id": "43487810e152acb61e3192847d793838"
+        },
+        {
+          "elapsed_ms": 53.055,
+          "status": 200,
+          "trace_id": "c8ad730bed56772a535b4d75ba32618a"
+        },
+        {
+          "elapsed_ms": 49.441,
+          "status": 200,
+          "trace_id": "c448ad288cc4817da7013700e20be426"
+        },
+        {
+          "elapsed_ms": 53.791,
+          "status": 200,
+          "trace_id": "9348ff05f634cbb428678bc816d5794b"
+        },
+        {
+          "elapsed_ms": 37.463,
+          "status": 200,
+          "trace_id": "daa531b0641be3ba9cf14304d8877829"
+        },
+        {
+          "elapsed_ms": 33.466,
+          "status": 200,
+          "trace_id": "3589b0bdad43853d8f895103e6d0952f"
+        },
+        {
+          "elapsed_ms": 29.304,
+          "status": 200,
+          "trace_id": "de512ed52501622d53f6ea3c28d43aa1"
+        }
+      ],
+      "route": "/api/recommendations?productIds=OLJCESPC7Z&productIds=OLJCESPC7Z",
+      "status": "running",
+      "traffic_ended_at": "2026-09-28T00:45:59.804317Z",
+      "traffic_started_at": "2026-09-28T00:45:57.856227Z"
+    }
+  ],
+  "plan": "PHASE3_SCENARIO.md",
+  "request_count_per_phase": 128,
+  "run_id": "20260928T004544Z-7173ee",
+  "status": "interrupted"
+}

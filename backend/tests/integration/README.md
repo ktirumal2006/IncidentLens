@@ -82,3 +82,30 @@ Fixtures expire normally; no table or volume is cleared.
 
 The [browser test](../../../tests/e2e/README.md) separately generates a real
 external Demo trace and follows that known ID through search and the explorer.
+
+## Phase 3 detector
+
+```sh
+INCIDENTLENS_INTEGRATION=1 INCIDENTLENS_DETECTOR_INTEGRATION=1 \
+  go test -race ./tests/integration -run TestDetector -v -count=1
+```
+
+Both gates are required. These tests use the real SELECT-only query connection
+and uniquely identified historical fixtures (two, four and six hours before now).
+They verify replay before merges, exact p95 parity with ClickHouse, SERVER-only
+counts, receipt-cutoff exclusion and late-data refresh, filtered reports with
+cross-service evidence, whole-evaluation group-cap failure and nanosecond
+half-open window boundaries. The replay test stops and restores table merges;
+run it serially with other merge-control tests. No data is deleted.
+
+Enable all five flags for the complete regression suite:
+
+```sh
+INCIDENTLENS_INTEGRATION=1 INCIDENTLENS_QUERY_INTEGRATION=1 \
+  INCIDENTLENS_DETECTOR_INTEGRATION=1 INCIDENTLENS_RESTART_TESTS=1 \
+  INCIDENTLENS_FAILURE_TESTS=1 go test -race ./... -v -count=1
+```
+
+The separate [controlled Demo scenario](../../../integrations/otel-demo/PHASE3_SCENARIO.md)
+uses actual source timestamps and the default fixed windows. Finish that run and
+its browser checks before running restart/failure tests.

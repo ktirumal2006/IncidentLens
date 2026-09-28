@@ -1,0 +1,5 @@
+EVALUATED healthy_control: 0 candidate(s)
+EVALUATED latency_fault: 1 candidate(s)
+EVALUATED latency_recovery: 0 candidate(s)
+EVALUATED error_fault: 2 candidate(s)
+EVALUATED error_recovery: 0 candidate(s)

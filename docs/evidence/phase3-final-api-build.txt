@@ -1,0 +1,95 @@
+ Image incidentlens-api Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 558B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 828B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c
+#3 DONE 0.0s
+
+#4 [internal] load metadata for docker.io/library/golang:1.26.8-bookworm
+#4 DONE 0.2s
+
+#5 [internal] load metadata for gcr.io/distroless/static-debian12:nonroot
+#5 DONE 0.2s
+
+#6 [internal] load .dockerignore
+#6 transferring context: 207B done
+#6 DONE 0.0s
+
+#7 [internal] load build context
+#7 DONE 0.0s
+
+#8 [build-web 1/6] FROM docker.io/library/node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c
+#8 resolve docker.io/library/node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c 0.0s done
+#8 DONE 0.0s
+
+#9 [source 1/5] FROM docker.io/library/golang:1.26.8-bookworm@sha256:a688600ca24f8a4d3ca77f95b0dd40704a9fc787c826660eb7ba0b641b8b175d
+#9 resolve docker.io/library/golang:1.26.8-bookworm@sha256:a688600ca24f8a4d3ca77f95b0dd40704a9fc787c826660eb7ba0b641b8b175d 0.0s done
+#9 DONE 0.0s
+
+#10 [api 1/3] FROM gcr.io/distroless/static-debian12:nonroot@sha256:afa5c872c891853ca7fcf1f12c3edb23f7eeef36189728842dd51042ff57f7ab
+#10 resolve gcr.io/distroless/static-debian12:nonroot@sha256:afa5c872c891853ca7fcf1f12c3edb23f7eeef36189728842dd51042ff57f7ab 0.0s done
+#10 DONE 0.0s
+
+#7 [internal] load build context
+#7 transferring context: 22.32kB done
+#7 DONE 0.0s
+
+#11 [source 2/5] WORKDIR /src
+#11 CACHED
+
+#12 [source 3/5] COPY backend/go.mod backend/go.sum ./
+#12 CACHED
+
+#13 [source 4/5] RUN go mod download
+#13 CACHED
+
+#14 [source 5/5] COPY backend/ ./
+#14 DONE 0.0s
+
+#15 [build-api 1/1] RUN CGO_ENABLED=0 go build -trimpath -o /api ./cmd/api
+#15 DONE 15.7s
+
+#16 [build-web 4/6] RUN npm ci
+#16 CACHED
+
+#17 [build-web 2/6] WORKDIR /web
+#17 CACHED
+
+#18 [build-web 3/6] COPY frontend/package.json frontend/package-lock.json ./
+#18 CACHED
+
+#19 [build-web 5/6] COPY frontend/ ./
+#19 CACHED
+
+#10 [api 1/3] FROM gcr.io/distroless/static-debian12:nonroot@sha256:afa5c872c891853ca7fcf1f12c3edb23f7eeef36189728842dd51042ff57f7ab
+#10 CACHED
+
+#20 [api 2/3] COPY --from=build-api /api /api
+#20 DONE 0.1s
+
+#21 [build-web 6/6] RUN npm run build
+#21 CACHED
+
+#22 [api 3/3] COPY --from=build-web /web/dist /web
+#22 DONE 0.0s
+
+#23 exporting to image
+#23 exporting layers
+#23 exporting layers 1.3s done
+#23 exporting manifest sha256:f8537c1a1debf477a07d65ac159d607e3aeed82b03dfc7b3a1cd8f3add3a5550 0.0s done
+#23 exporting config sha256:2705d5f5b5ecd604462081dbc3724aa3abb513b1cc2d0b36c696aaca5fddb8c0 0.0s done
+#23 exporting attestation manifest sha256:669032660bd22de01e8c462b232b6b3e86bbd7786ceb9ed9af8a2f1051580861 0.0s done
+#23 exporting manifest list sha256:361e9512980c23e1bbbe080af2384bced665ec8132903daff43174f52cb7ff21 0.0s done
+#23 naming to docker.io/library/incidentlens-api:latest done
+#23 unpacking to docker.io/library/incidentlens-api:latest
+#23 unpacking to docker.io/library/incidentlens-api:latest 0.2s done
+#23 DONE 1.7s
+
+#24 resolving provenance for metadata file
+#24 DONE 0.0s
+ Image incidentlens-api Built 

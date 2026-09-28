@@ -1,0 +1,194 @@
+=== RUN   TestInvalidDetectorConfigFailsStartup
+--- PASS: TestInvalidDetectorConfigFailsStartup (0.00s)
+PASS
+ok  	incidentlens/backend/cmd/api	3.194s
+?   	incidentlens/backend/cmd/ingest	[no test files]
+=== RUN   TestHealthyLatencyErrorsAndRecovery
+--- PASS: TestHealthyLatencyErrorsAndRecovery (0.01s)
+=== RUN   TestZeroBaselineLowVolumeUnsetAndExactP95
+--- PASS: TestZeroBaselineLowVolumeUnsetAndExactP95 (0.00s)
+=== RUN   TestRankingEvidenceAndRelationships
+--- PASS: TestRankingEvidenceAndRelationships (0.00s)
+=== RUN   TestMissingRelationshipsAndNoCoverage
+--- PASS: TestMissingRelationshipsAndNoCoverage (0.00s)
+=== RUN   TestLimitsAndConfig
+--- PASS: TestLimitsAndConfig (0.68s)
+=== RUN   TestDuplicateOutsideWindowAndServerDenominator
+--- PASS: TestDuplicateOutsideWindowAndServerDenominator (0.00s)
+=== RUN   TestErrorBoundaryAndRatioDeltaBothRequired
+=== RUN   TestErrorBoundaryAndRatioDeltaBothRequired/exact_error_threshold
+=== RUN   TestErrorBoundaryAndRatioDeltaBothRequired/below_error_threshold
+=== RUN   TestErrorBoundaryAndRatioDeltaBothRequired/ratio_only
+=== RUN   TestErrorBoundaryAndRatioDeltaBothRequired/delta_only
+--- PASS: TestErrorBoundaryAndRatioDeltaBothRequired (0.00s)
+    --- PASS: TestErrorBoundaryAndRatioDeltaBothRequired/exact_error_threshold (0.00s)
+    --- PASS: TestErrorBoundaryAndRatioDeltaBothRequired/below_error_threshold (0.00s)
+    --- PASS: TestErrorBoundaryAndRatioDeltaBothRequired/ratio_only (0.00s)
+    --- PASS: TestErrorBoundaryAndRatioDeltaBothRequired/delta_only (0.00s)
+=== RUN   TestFilteredCandidateKeepsDownstreamContextAndFullInterval
+--- PASS: TestFilteredCandidateKeepsDownstreamContextAndFullInterval (0.00s)
+=== RUN   TestEvidenceSelectionAndCycle
+--- PASS: TestEvidenceSelectionAndCycle (0.00s)
+=== RUN   TestMissingWindowGroupLimitsAndCancellation
+--- PASS: TestMissingWindowGroupLimitsAndCancellation (0.01s)
+=== RUN   TestConfigurationFields
+--- PASS: TestConfigurationFields (0.00s)
+=== RUN   TestResponseExpansionFailsBeforeUnboundedSerialization
+--- PASS: TestResponseExpansionFailsBeforeUnboundedSerialization (0.06s)
+=== RUN   TestConfigJSONSafeIntegersAndCanonicalDelta
+--- PASS: TestConfigJSONSafeIntegersAndCanonicalDelta (0.00s)
+=== RUN   TestInputPermutationCandidateTiesAndServiceRanks
+--- PASS: TestInputPermutationCandidateTiesAndServiceRanks (0.00s)
+=== RUN   TestEvidenceAllOrderingFields
+--- PASS: TestEvidenceAllOrderingFields (0.00s)
+=== RUN   TestExactRationalThresholdsAndWideSignedDurations
+--- PASS: TestExactRationalThresholdsAndWideSignedDurations (0.00s)
+=== RUN   TestNestedEventLinkDropsAndBrokenErrorChain
+--- PASS: TestNestedEventLinkDropsAndBrokenErrorChain (0.00s)
+PASS
+ok  	incidentlens/backend/internal/detector	2.265s
+=== RUN   TestHTTPValidation
+--- PASS: TestHTTPValidation (0.00s)
+=== RUN   TestWrongMethod
+--- PASS: TestWrongMethod (0.00s)
+=== RUN   TestErrorsAndBounds
+--- PASS: TestErrorsAndBounds (0.00s)
+=== RUN   TestSearchResponseCap
+--- PASS: TestSearchResponseCap (0.14s)
+=== RUN   TestIncidentHTTPValidation
+--- PASS: TestIncidentHTTPValidation (0.00s)
+=== RUN   TestIncidentHTTPFailuresAndCap
+--- PASS: TestIncidentHTTPFailuresAndCap (0.12s)
+PASS
+ok  	incidentlens/backend/internal/httpapi	3.895s
+=== RUN   TestBatchesAndPartialSuccess
+--- PASS: TestBatchesAndPartialSuccess (0.03s)
+=== RUN   TestWriteFailureNeverPartialSuccess
+--- PASS: TestWriteFailureNeverPartialSuccess (0.03s)
+=== RUN   TestAllInvalidDoesNotWrite
+--- PASS: TestAllInvalidDoesNotWrite (0.00s)
+=== RUN   TestInflightExhaustion
+--- PASS: TestInflightExhaustion (0.00s)
+=== RUN   TestGRPCOutcomes
+--- PASS: TestGRPCOutcomes (0.03s)
+=== RUN   TestCanceledWriteCannotAcknowledge
+--- PASS: TestCanceledWriteCannotAcknowledge (0.00s)
+=== RUN   TestGRPCGzip
+--- PASS: TestGRPCGzip (0.41s)
+PASS
+ok  	incidentlens/backend/internal/ingest	4.685s
+=== RUN   TestCursorBindsFilters
+--- PASS: TestCursorBindsFilters (0.00s)
+=== RUN   TestValidateBounds
+--- PASS: TestValidateBounds (0.00s)
+=== RUN   TestRelationships
+--- PASS: TestRelationships (0.00s)
+=== RUN   TestCursorWindowAndLimitBinding
+--- PASS: TestCursorWindowAndLimitBinding (0.00s)
+=== RUN   TestWindowRetentionAndFuture
+--- PASS: TestWindowRetentionAndFuture (0.00s)
+=== RUN   TestRelationshipsRecomputeAndDropOverflow
+--- PASS: TestRelationshipsRecomputeAndDropOverflow (0.00s)
+=== RUN   TestRelationshipsNestedSourceDrops
+=== RUN   TestRelationshipsNestedSourceDrops/event
+=== RUN   TestRelationshipsNestedSourceDrops/link
+--- PASS: TestRelationshipsNestedSourceDrops (0.00s)
+    --- PASS: TestRelationshipsNestedSourceDrops/event (0.00s)
+    --- PASS: TestRelationshipsNestedSourceDrops/link (0.00s)
+PASS
+ok  	incidentlens/backend/internal/query	1.834s
+?   	incidentlens/backend/internal/storage/clickhouse	[no test files]
+=== RUN   TestValidation
+=== RUN   TestValidation/valid
+=== RUN   TestValidation/zero_trace
+=== RUN   TestValidation/short_span
+=== RUN   TestValidation/zero_parent
+=== RUN   TestValidation/missing_service
+=== RUN   TestValidation/reverse_time
+=== RUN   TestValidation/retention_edge
+=== RUN   TestValidation/expired
+=== RUN   TestValidation/future_edge
+=== RUN   TestValidation/future_end
+=== RUN   TestValidation/invalid_enum
+=== RUN   TestValidation/string_edge
+=== RUN   TestValidation/long_string
+=== RUN   TestValidation/duplicate_keys
+=== RUN   TestValidation/invalid_link
+=== RUN   TestValidation/nil_event
+--- PASS: TestValidation (0.01s)
+    --- PASS: TestValidation/valid (0.00s)
+    --- PASS: TestValidation/zero_trace (0.00s)
+    --- PASS: TestValidation/short_span (0.00s)
+    --- PASS: TestValidation/zero_parent (0.00s)
+    --- PASS: TestValidation/missing_service (0.00s)
+    --- PASS: TestValidation/reverse_time (0.00s)
+    --- PASS: TestValidation/retention_edge (0.00s)
+    --- PASS: TestValidation/expired (0.00s)
+    --- PASS: TestValidation/future_edge (0.00s)
+    --- PASS: TestValidation/future_end (0.00s)
+    --- PASS: TestValidation/invalid_enum (0.00s)
+    --- PASS: TestValidation/string_edge (0.00s)
+    --- PASS: TestValidation/long_string (0.00s)
+    --- PASS: TestValidation/duplicate_keys (0.00s)
+    --- PASS: TestValidation/invalid_link (0.00s)
+    --- PASS: TestValidation/nil_event (0.00s)
+=== RUN   TestRequestLimits
+--- PASS: TestRequestLimits (0.21s)
+=== RUN   TestTypedRoundtripAndFiltering
+--- PASS: TestTypedRoundtripAndFiltering (0.00s)
+=== RUN   TestAttributeBounds
+--- PASS: TestAttributeBounds (0.00s)
+=== RUN   TestSharedContextBudgets
+--- PASS: TestSharedContextBudgets (0.24s)
+=== RUN   TestCollectionLimits
+--- PASS: TestCollectionLimits (0.01s)
+=== RUN   TestNestedSensitiveKeysRemoved
+--- PASS: TestNestedSensitiveKeysRemoved (0.00s)
+PASS
+ok  	incidentlens/backend/internal/trace	2.887s
+=== RUN   TestCollectorStoresThreeServiceFixture
+--- PASS: TestCollectorStoresThreeServiceFixture (0.06s)
+=== RUN   TestAcknowledgedDataSurvivesLocalServiceRestarts
+--- PASS: TestAcknowledgedDataSurvivesLocalServiceRestarts (6.68s)
+=== RUN   TestDetectorClickHouseReplayCutoffPercentileAndRelationships
+    detector_test.go:154: historical detector fixture namespace=detector-9be63eec6b end=2026-09-28T13:05:15Z raw_parent=221 dedup_base=100 dedup_current=100 p95=195000000/495000000 candidates=1
+--- PASS: TestDetectorClickHouseReplayCutoffPercentileAndRelationships (0.25s)
+=== RUN   TestDetectorClickHouseGroupCapFailsWholeEvaluation
+--- PASS: TestDetectorClickHouseGroupCapFailsWholeEvaluation (0.07s)
+=== RUN   TestDetectorClickHouseHalfOpenWindows
+--- PASS: TestDetectorClickHouseHalfOpenWindows (0.04s)
+=== RUN   TestRealStorageOutageAndRetry
+    failures_test.go:145: Real storage outage returned Unavailable; replay recovered one logical span and previously acknowledged data survived
+--- PASS: TestRealStorageOutageAndRetry (9.97s)
+=== RUN   TestCollectorShortOutageAndForcedRestartRecovery
+    failures_test.go:203: Short outage waited for storage; Collector crash lost only unacknowledged input, and caller replay recovered one logical span
+--- PASS: TestCollectorShortOutageAndForcedRestartRecovery (13.35s)
+=== RUN   TestCollectorQueueExhaustionAccounting
+    failures_test.go:293: offered=16384 initially-acknowledged=8192 retryable-rejected=8192 final-unique=16384; no acknowledged input lost
+--- PASS: TestCollectorQueueExhaustionAccounting (12.24s)
+=== RUN   TestQuerySummaryFiltersReplayAndPercentiles
+--- PASS: TestQuerySummaryFiltersReplayAndPercentiles (0.13s)
+=== RUN   TestQuerySearchSameSpanFiltersAndFrozenPagination
+--- PASS: TestQuerySearchSameSpanFiltersAndFrozenPagination (0.21s)
+=== RUN   TestQueryCursorKeepsEligibleSpanAfterLaterReplay
+--- PASS: TestQueryCursorKeepsEligibleSpanAfterLaterReplay (0.06s)
+=== RUN   TestQueryDetailRelationshipsBoundsAndContext
+--- PASS: TestQueryDetailRelationshipsBoundsAndContext (0.24s)
+=== RUN   TestQueryDetailCycleAndTruncation
+--- PASS: TestQueryDetailCycleAndTruncation (0.58s)
+=== RUN   TestQueryDetailResponseByteCap
+--- PASS: TestQueryDetailResponseByteCap (1.41s)
+=== RUN   TestQueryDurationBoundsAndErrors
+--- PASS: TestQueryDurationBoundsAndErrors (0.02s)
+=== RUN   TestQueryHalfOpenTimeDurationAndNamespace
+--- PASS: TestQueryHalfOpenTimeDurationAndNamespace (0.08s)
+=== RUN   TestFullContextRoundTrip
+--- PASS: TestFullContextRoundTrip (0.11s)
+=== RUN   TestAmbiguousWriteRetryBeforeMerges
+--- PASS: TestAmbiguousWriteRetryBeforeMerges (0.07s)
+=== RUN   TestMixedBatchPersistsOnlyValidSpans
+--- PASS: TestMixedBatchPersistsOnlyValidSpans (0.04s)
+=== RUN   TestUnavailableStorageNeverAcknowledges
+--- PASS: TestUnavailableStorageNeverAcknowledges (0.01s)
+PASS
+ok  	incidentlens/backend/tests/integration	50.142s

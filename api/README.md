@@ -94,3 +94,7 @@ Each span includes `span_id`, `parent_span_id`, `service_name`, `service_namespa
 `resource_schema_url`, `scope_schema_url`, `trace_state`, `trace_flags`,
 `dropped_attributes_count`, `dropped_events_count`, `dropped_links_count`,
 `resource_dropped_attributes_count`, `scope_dropped_attributes_count`.
+
+## Incident evaluation
+
+Phase 3 adds `GET /api/v1/incidents?end=<RFC3339>`; see the [incident contract](INCIDENTS.md) for windows, configuration, exact rules, ranking, evidence and resource limits.
