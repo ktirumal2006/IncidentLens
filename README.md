@@ -2,7 +2,7 @@
 
 IncidentLens is a trace-only investigation project for distributed applications. It compares service-operation windows and presents ranked investigation candidates with supporting trace evidence and explicit uncertainty.
 
-**Phases 1–3 are complete and verified.** The trace-only pipeline has a bounded HTTP query API and a React/TypeScript explorer for service summaries, trace search, and parent-linked waterfalls. The deterministic detector and incident investigation view pass the controlled Demo fault/recovery scenarios and full acceptance checks. See the [Phase 3 verification record](docs/VERIFICATION_PHASE3.md). Phase 4 performance measurement remains deferred.
+**Phases 1–4 are complete and verified.** The trace-only pipeline has a bounded HTTP query API and a React/TypeScript explorer for service summaries, trace search, and parent-linked waterfalls. The deterministic detector and incident investigation view pass the controlled Demo fault/recovery scenarios and full acceptance checks. See the [Phase 3 verification record](docs/VERIFICATION_PHASE3.md). The [Phase 4 measurements](docs/VERIFICATION_PHASE4.md) report the tested throughput limit, query failures, loss accounting and decision to defer Phase 5.
 
 ## Local prerequisites
 

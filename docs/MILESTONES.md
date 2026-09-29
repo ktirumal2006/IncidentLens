@@ -1,6 +1,6 @@
 # IncidentLens milestones
 
-Status: Phases 1–3 are complete; their acceptance criteria passed. Phase 4 is the next incomplete milestone and has not started. Phases 4–9 require a separate request.
+Status: Phases 1–4 are complete. Phase 4 reports measured target failures and limits; completion does not mean every performance budget passed. Phase 5 is deferred by the measured decision. Phases 5–9 require a separate request.
 
 Phases 1–3 form the functional trace-only MVP. Phase 4 establishes measured performance. Phases 5–8 are conditional extensions: each requires a concrete need and an ADR before implementation; defer or skip a phase when evidence does not justify it. Phase 9 can polish the trace-only product even if extensions are skipped. Redis, PostgreSQL, and AI/LLMs have no planned phase and remain excluded without a separately justified scope change.
 
@@ -16,7 +16,7 @@ Completed 2026-09-25 (America/New_York). See [criterion-by-criterion verificatio
 - Retrieved a real 16-span Demo trace across frontend, recommendationservice and productcatalogservice, with every observed parent present, exact stored durations, no ERROR status or source-reported drops, and an HTTP 200 response. This does not prove complete delivery for arbitrary traffic.
 - Accepted the digest-pinned historical Demo subset in [ADR 0001](adr/0001-demo-trace-only-candidate.md) and corrected Collector acknowledgment behavior in [ADR 0002](adr/0002-collector-acknowledgment.md).
 
-Remaining limitations: local synthetic use, immutable span keys, no durable Collector queue or disk-failure guarantee, downstream partial-rejection caveats, and an intentionally narrow historical Demo scenario. Query/explorer and detection were subsequently delivered in Phases 2 and 3; benchmarks remain deferred.
+Remaining limitations: local synthetic use, immutable span keys, no durable Collector queue or disk-failure guarantee, downstream partial-rejection caveats, and an intentionally narrow historical Demo scenario. Query/explorer and detection were subsequently delivered in Phases 2 and 3; benchmarks were subsequently measured in Phase 4.
 
 Acceptance criteria:
 
@@ -50,7 +50,7 @@ Completed 2026-09-27 (America/New_York). See the [criterion-by-criterion verific
 
 Remaining limitations: bounded local queries, nontransactional cursor pagination,
 explicit caps, incomplete telemetry and the existing immutable-span/historical
-Demo assumptions. Incident detection and investigation were subsequently delivered in Phase 3; benchmarks remain deferred.
+Demo assumptions. Incident detection and investigation were subsequently delivered in Phase 3; benchmarks were subsequently measured in Phase 4.
 
 Acceptance criteria:
 
@@ -86,6 +86,8 @@ Acceptance criteria:
 ## Phase 4: load testing
 
 Validate capacity of the existing trace-only architecture; do not add infrastructure to manufacture a target result.
+
+Completed 2026-09-28 (America/New_York). See the [verification report, raw evidence and Phase 5 decision](VERIFICATION_PHASE4.md) and [predeclared workload](../benchmarks/WORKLOAD.md). Three steady repetitions and the storage outage recovered all planned identities. The mixed query run had two 503s; the 8,000 spans/s stage reached the declared saturation criterion with generator queue drops but no missing emitted/acknowledged data. The highest tested unsaturated stage was 2,000 spans/s for 45 measured seconds. Phase 5 is deferred; no exact capacity or production guarantee is claimed.
 
 Acceptance criteria:
 

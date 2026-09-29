@@ -1,6 +1,6 @@
 # IncidentLens architecture
 
-Status: Phases 1–2 are implemented and verified: trace ingestion, bounded query APIs and the trace explorer. The Phase 3 detector, incident API and investigation view are implemented and verified. See [ingestion contract](INGESTION.md), [ingestion verification](VERIFICATION.md), [query/explorer verification](VERIFICATION_PHASE2.md), [Phase 3 verification](VERIFICATION_PHASE3.md), and the [Demo fault-scenario decision](adr/0003-demo-detection-faults.md). Phase 4 remains deferred.
+Status: Phases 1–2 are implemented and verified: trace ingestion, bounded query APIs and the trace explorer. The Phase 3 detector, incident API and investigation view are implemented and verified. See [ingestion contract](INGESTION.md), [ingestion verification](VERIFICATION.md), [query/explorer verification](VERIFICATION_PHASE2.md), [Phase 3 verification](VERIFICATION_PHASE3.md), and the [Demo fault-scenario decision](adr/0003-demo-detection-faults.md). Phase 4 is complete; see the [measured performance report and Phase 5 decision](VERIFICATION_PHASE4.md).
 
 ## MVP architecture
 
@@ -113,12 +113,12 @@ The [predeclared external Demo scenario](../integrations/otel-demo/PHASE3_SCENAR
 - Full sampling for the supported demo scenarios, stable `service.name`, propagated IDs, reasonably synchronized clocks, and immutable completed spans. Validate these assumptions in phase 1 and surface violations rather than silently repairing them.
 - The [upstream Demo supports Docker deployment and configuration overrides](https://opentelemetry.io/docs/demo/docker-deployment/), but its full service topology is not the MVP dependency list. Phase 1 must pin and validate a reduced, read-only shopping/browsing scenario without excluded technologies. Disable optional services/backends and metrics/logs export using upstream-supported configuration. If the desired scenario requires a forbidden dependency or source changes, record the incompatibility and narrow the scenario; do not silently relax scope or fork the Demo.
 - Application stdout for troubleshooting and test-run measurements do not constitute a product logs/metrics ingestion feature. No separate signal backend or collection pipeline is introduced.
-- Query bounds, retention and payload/time caps are implemented local correctness limits, not performance guarantees. Detector thresholds are versioned configurable defaults, not production calibration. Phase 4 capacity and latency measurements remain deferred.
+- Query bounds, retention and payload/time caps are implemented local correctness limits, not performance guarantees. Detector thresholds are versioned configurable defaults, not production calibration. Phase 4 measured the bounded local workload; its failed targets and limits are documented in the performance report, and do not establish production guarantees.
 - Meaningful changes to storage, delivery guarantees, component boundaries, rule semantics, or dependencies require an ADR explaining evidence, alternatives, and consequences.
 
 ## Repository structure and later additions
 
-The tree below includes the target layout and implemented frontend entry points; unneeded directories remain plans, not evidence of functionality. Phases 1–2 delivered ingestion/storage, query/httpapi, both executables, the trace explorer, local configuration and verified integration/browser workflows. Phase 3 delivers the verified detector and incident UI/API/tests. Benchmarks and later infrastructure remain deferred; create their paths only when requested.
+The tree below includes the target layout and implemented frontend entry points; unneeded directories remain plans, not evidence of functionality. Phases 1–2 delivered ingestion/storage, query/httpapi, both executables, the trace explorer, local configuration and verified integration/browser workflows. Phase 3 delivers the verified detector and incident UI/API/tests. The Phase 4 benchmark harness and raw measurements are complete. Later infrastructure remains deferred; create its paths only when requested.
 
 ```text
 IncidentLens/
@@ -156,7 +156,7 @@ IncidentLens/
 │   ├── fixtures/                  # Small synthetic OTLP datasets
 │   ├── integration/               # Real ClickHouse/Collector checks
 │   └── e2e/                       # Demo-to-UI workflows
-├── benchmarks/                    # Deferred Phase 4 harness/reports, absent
+├── benchmarks/                    # Phase 4 harness, workload, raw results and analysis
 └── scripts/                       # Small repeatable dev/test helpers
 ```
 

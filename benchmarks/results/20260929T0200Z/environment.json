@@ -1,0 +1,631 @@
+{
+  "at": "2026-09-29T02:13:15.667376Z",
+  "binary": {
+    "bytes": 28569456,
+    "path": "/private/tmp/incidentlens-bench",
+    "sha256": "ea4c841d4dff0ceca940e5500f024a2a2902ab14479a3e263592fd53966e099b"
+  },
+  "clickhouse_version": {
+    "at": "2026-09-29T02:13:15.779589Z",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+      "exec",
+      "-T",
+      "clickhouse",
+      "clickhouse-client",
+      "--password",
+      "local-admin",
+      "--query",
+      "SELECT version()"
+    ],
+    "elapsed_seconds": 0.31960418300000004,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "25.8.4.13\n"
+  },
+  "containers": [
+    {
+      "id": "59b7a0b9e7d013b634c1b00ed69008b31e22ae63ef8123c03fdb90c0cb6a48be",
+      "image_id": "sha256:361e9512980c23e1bbbe080af2384bced665ec8132903daff43174f52cb7ff21",
+      "image_reference": "incidentlens-api",
+      "limits": {
+        "CpuPeriod": 0,
+        "CpuQuota": 0,
+        "CpusetCpus": "",
+        "Memory": 536870912,
+        "MemorySwap": 1073741824,
+        "NanoCpus": 1000000000,
+        "PidsLimit": null
+      },
+      "name": "/incidentlens-api-1",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 0,
+        "FinishedAt": "2026-09-28T15:43:31.614349992Z",
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 1611,
+        "Restarting": false,
+        "Running": true,
+        "StartedAt": "2026-09-29T01:50:20.19169592Z",
+        "Status": "running"
+      }
+    },
+    {
+      "id": "f5c8bdd48da5ce1f3911cfbdef532c0db77a0efed430a43d9214c28c00d9177d",
+      "image_id": "sha256:c48c1ed0a54e6e9fde03750860aa86de1e6f40b6fe33c6df540738867b4f6809",
+      "image_reference": "clickhouse/clickhouse-server:25.8.4.13",
+      "limits": {
+        "CpuPeriod": 0,
+        "CpuQuota": 0,
+        "CpusetCpus": "",
+        "Memory": 2147483648,
+        "MemorySwap": 4294967296,
+        "NanoCpus": 2000000000,
+        "PidsLimit": null
+      },
+      "name": "/incidentlens-clickhouse-1",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 0,
+        "FinishedAt": "2026-09-28T20:20:01.735582142Z",
+        "Health": {
+          "FailingStreak": 0,
+          "Log": [
+            {
+              "End": "2026-09-29T02:12:49.772177739Z",
+              "ExitCode": 0,
+              "Output": "1\n",
+              "Start": "2026-09-29T02:12:49.679719589Z"
+            },
+            {
+              "End": "2026-09-29T02:12:54.890362706Z",
+              "ExitCode": 0,
+              "Output": "1\n",
+              "Start": "2026-09-29T02:12:54.773573974Z"
+            },
+            {
+              "End": "2026-09-29T02:12:59.978649269Z",
+              "ExitCode": 0,
+              "Output": "1\n",
+              "Start": "2026-09-29T02:12:59.891480944Z"
+            },
+            {
+              "End": "2026-09-29T02:13:05.103371515Z",
+              "ExitCode": 0,
+              "Output": "1\n",
+              "Start": "2026-09-29T02:13:04.979272897Z"
+            },
+            {
+              "End": "2026-09-29T02:13:10.208901828Z",
+              "ExitCode": 0,
+              "Output": "1\n",
+              "Start": "2026-09-29T02:13:10.104178933Z"
+            }
+          ],
+          "Status": "healthy"
+        },
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 638,
+        "Restarting": false,
+        "Running": true,
+        "StartedAt": "2026-09-29T01:50:13.245513887Z",
+        "Status": "running"
+      }
+    },
+    {
+      "id": "75e41d53baf9c4565776ce4e105989b0286bdd5561af517a27722da25a9833de",
+      "image_id": "sha256:886722fe0f37af9d1fe24d29529253ec59fbf263b3b1df4facaf221373e19d23",
+      "image_reference": "otel/opentelemetry-collector-contrib:0.137.0",
+      "limits": {
+        "CpuPeriod": 0,
+        "CpuQuota": 0,
+        "CpusetCpus": "",
+        "Memory": 268435456,
+        "MemorySwap": 536870912,
+        "NanoCpus": 1000000000,
+        "PidsLimit": null
+      },
+      "name": "/incidentlens-collector-1",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 0,
+        "FinishedAt": "2026-09-28T15:43:31.630578444Z",
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 1766,
+        "Restarting": false,
+        "Running": true,
+        "StartedAt": "2026-09-29T01:50:20.675600572Z",
+        "Status": "running"
+      }
+    },
+    {
+      "id": "7da42bbb618bccdcf7a001db045b847c5a310f656a5a93ccbec0873e9b5e03e6",
+      "image_id": "sha256:3302ff9e57a53ff18e6e24025f81300222daf69206fd74fa871b09df1bba0567",
+      "image_reference": "incidentlens-ingest",
+      "limits": {
+        "CpuPeriod": 0,
+        "CpuQuota": 0,
+        "CpusetCpus": "",
+        "Memory": 536870912,
+        "MemorySwap": 1073741824,
+        "NanoCpus": 1000000000,
+        "PidsLimit": null
+      },
+      "name": "/incidentlens-ingest-1",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 0,
+        "FinishedAt": "2026-09-28T15:43:31.615531025Z",
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 1684,
+        "Restarting": false,
+        "Running": true,
+        "StartedAt": "2026-09-29T01:50:20.389605912Z",
+        "Status": "running"
+      }
+    }
+  ],
+  "cpu_count": 16,
+  "docker_version": {
+    "at": "2026-09-29T02:13:15.697733Z",
+    "command": [
+      "docker",
+      "version",
+      "--format",
+      "{{json .}}"
+    ],
+    "elapsed_seconds": 0.05462642800000017,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "{\"Client\":{\"Version\":\"29.8.0\",\"ApiVersion\":\"1.56\",\"DefaultAPIVersion\":\"1.56\",\"GitCommit\":\"88096ef\",\"GoVersion\":\"go1.26.8\",\"Os\":\"darwin\",\"Arch\":\"amd64\",\"BuildTime\":\"Thu Sep  3 21:49:43 2026\",\"Context\":\"desktop-linux\"},\"Server\":{\"Platform\":{\"Name\":\"Docker Desktop 4.92.0 (240144)\"},\"Version\":\"29.8.0\",\"ApiVersion\":\"1.56\",\"MinAPIVersion\":\"1.40\",\"Os\":\"linux\",\"Arch\":\"amd64\",\"Components\":[{\"Name\":\"Engine\",\"Version\":\"29.8.0\",\"Details\":{\"ApiVersion\":\"1.56\",\"Arch\":\"amd64\",\"BuildTime\":\"Thu Sep  3 21:51:20 2026\",\"Experimental\":\"false\",\"GitCommit\":\"3ce5872\",\"GoVersion\":\"go1.26.8\",\"KernelVersion\":\"7.0.12-linuxkit\",\"MinAPIVersion\":\"1.40\",\"Module\":\"github.com/moby/moby/v2\",\"ModuleVersion\":\"v2.0.0+unknown\",\"Os\":\"linux\"}},{\"Name\":\"containerd\",\"Version\":\"v2.3.5\",\"Details\":{\"GitCommit\":\"1294c24a7da8e5a793ed378161673abe94118892\"}},{\"Name\":\"runc\",\"Version\":\"1.5.1\",\"Details\":{\"GitCommit\":\"v1.5.1-0-g8f2685a4\"}},{\"Name\":\"docker-init\",\"Version\":\"0.19.0\",\"Details\":{\"GitCommit\":\"de40ad0\"}}],\"GitCommit\":\"3ce5872\",\"GoVersion\":\"go1.26.8\",\"KernelVersion\":\"7.0.12-linuxkit\",\"BuildTime\":\"2026-09-03T21:51:20.000000000+00:00\"}}\n"
+  },
+  "docker_vm": {
+    "Architecture": "x86_64",
+    "DockerRootDir": "/var/lib/docker",
+    "Driver": "overlayfs",
+    "MemTotal": 8320970752,
+    "NCPU": 16,
+    "OSType": "linux",
+    "OperatingSystem": "Docker Desktop",
+    "ServerVersion": "29.8.0"
+  },
+  "git_dirty": {
+    "at": "2026-09-29T02:13:16.122093Z",
+    "command": [
+      "git",
+      "status",
+      "--porcelain=v1"
+    ],
+    "elapsed_seconds": 0.028743541999999955,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": " M docs/ARCHITECTURE.md\n M docs/MILESTONES.md\n M docs/PRODUCT.md\n?? backend/cmd/bench/\n?? benchmarks/\n?? docs/IncidentLens.code-workspace\n"
+  },
+  "git_head": {
+    "at": "2026-09-29T02:13:16.099230Z",
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "elapsed_seconds": 0.022849507000000102,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "aa74980ae62680305e80d3fc3e7f00f01fe2801c\n"
+  },
+  "go_binary_build": {
+    "at": "2026-09-29T02:13:15.752575Z",
+    "command": [
+      "/tmp/incidentlens-toolchain/go/bin/go",
+      "version",
+      "-m",
+      "/private/tmp/incidentlens-bench"
+    ],
+    "elapsed_seconds": 0.02694675000000002,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "/private/tmp/incidentlens-bench: go1.26.8\n\tpath\tincidentlens/backend/cmd/bench\n\tmod\tincidentlens/backend\t(devel)\t\n\tdep\tgithub.com/ClickHouse/ch-go\tv0.68.0\th1:zd2VD8l2aVYnXFRyhTyKCrxvhSz1AaY4wBUXu/f0GiU=\n\tdep\tgithub.com/ClickHouse/clickhouse-go/v2\tv2.40.3\th1:46jB4kKwVDUOnECpStKMVXxvR0Cg9zeV9vdbPjtn6po=\n\tdep\tgithub.com/andybalholm/brotli\tv1.2.0\th1:ukwgCxwYrmACq68yiUqwIWnGY0cTPox/M94sVwToPjQ=\n\tdep\tgithub.com/go-faster/city\tv1.0.1\th1:4WAxSZ3V2Ws4QRDrscLEDcibJY8uf41H6AhXDrNDcGw=\n\tdep\tgithub.com/go-faster/errors\tv0.7.1\th1:MkJTnDoEdi9pDabt1dpWf7AA8/BaSYZqibYyhZ20AYg=\n\tdep\tgithub.com/google/uuid\tv1.6.0\th1:NIvaJDMOsjHA8n1jAhLSgzrAzy1Hgr+hNrb57e+94F0=\n\tdep\tgithub.com/grpc-ecosystem/grpc-gateway/v2\tv2.27.2\th1:8Tjv8EJ+pM1xP8mK6egEbD1OgnVTyacbefKhmbLhIhU=\n\tdep\tgithub.com/klauspost/compress\tv1.18.0\th1:c/Cqfb0r+Yi+JtIEq73FWXVkRonBlf0CRNYc8Zttxdo=\n\tdep\tgithub.com/paulmach/orb\tv0.11.1\th1:3koVegMC4X/WeiXYz9iswopaTwMem53NzTJuTF20JzU=\n\tdep\tgithub.com/pierrec/lz4/v4\tv4.1.22\th1:cKFw6uJDK+/gfw5BcDL0JL5aBsAFdsIT18eRtLj7VIU=\n\tdep\tgithub.com/segmentio/asm\tv1.2.0\th1:9BQrFxC+YOHJlTlHGkTrFWf59nbL3XnCoFLTwDCI7ys=\n\tdep\tgithub.com/shopspring/decimal\tv1.4.0\th1:bxl37RwXBklmTi0C79JfXCEBD1cqqHt0bbgBAGFp81k=\n\tdep\tgo.opentelemetry.io/otel\tv1.38.0\th1:RkfdswUDRimDg0m2Az18RKOsnI8UDzppJAtj01/Ymk8=\n\tdep\tgo.opentelemetry.io/otel/trace\tv1.38.0\th1:Fxk5bKrDZJUH+AMyyIXGcFAPah0oRcT+LuNtJrmcNLE=\n\tdep\tgo.opentelemetry.io/proto/otlp\tv1.9.0\th1:l706jCMITVouPOqEnii2fIAuO3IVGBRPV5ICjceRb/A=\n\tdep\tgo.yaml.in/yaml/v3\tv3.0.4\th1:tfq32ie2Jv2UxXFdLJdh3jXuOzWiL1fo0bu/FbuKpbc=\n\tdep\tgolang.org/x/net\tv0.44.0\th1:evd8IRDyfNBMBTTY5XRF1vaZlD+EmWx6x8PkhR04H/I=\n\tdep\tgolang.org/x/sys\tv0.36.0\th1:KVRy2GtZBrk1cBYA7MKu5bEZFxQk4NIDV6RLVcC8o0k=\n\tdep\tgolang.org/x/text\tv0.29.0\th1:1neNs90w9YzJ9BocxfsQNHKuAT4pkghyXc4nhZ6sJvk=\n\tdep\tgoogle.golang.org/genproto/googleapis/api\tv0.0.0-20250825161204-c5933d9347a5\th1:BIRfGDEjiHRrk0QKZe3Xv2ieMhtgRGeLcZQ0mIVn4EY=\n\tdep\tgoogle.golang.org/genproto/googleapis/rpc\tv0.0.0-20250825161204-c5933d9347a5\th1:eaY8u2EuxbRv7c3NiGK0/NedzVsCcV6hDuU5qPX5EGE=\n\tdep\tgoogle.golang.org/grpc\tv1.75.1\th1:/ODCNEuf9VghjgO3rqLcfg8fiOP0nSluljWFlDxELLI=\n\tdep\tgoogle.golang.org/protobuf\tv1.36.10\th1:AYd7cD/uASjIL6Q9LiTjz8JLcrh/88q5UObnmY3aOOE=\n\tbuild\t-buildmode=exe\n\tbuild\t-compiler=gc\n\tbuild\tCGO_ENABLED=1\n\tbuild\tCGO_CFLAGS=\n\tbuild\tCGO_CPPFLAGS=\n\tbuild\tCGO_CXXFLAGS=\n\tbuild\tCGO_LDFLAGS=\n\tbuild\tGOARCH=amd64\n\tbuild\tGOOS=darwin\n\tbuild\tGOAMD64=v1\n\tbuild\tvcs=git\n\tbuild\tvcs.revision=aa74980ae62680305e80d3fc3e7f00f01fe2801c\n\tbuild\tvcs.time=2026-09-28T20:16:36Z\n\tbuild\tvcs.modified=true\n"
+  },
+  "hardware": {
+    "hw.logicalcpu": {
+      "at": "2026-09-29T02:13:15.662327Z",
+      "command": [
+        "sysctl",
+        "-n",
+        "hw.logicalcpu"
+      ],
+      "elapsed_seconds": 0.0046016290000001625,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "16\n"
+    },
+    "hw.memsize": {
+      "at": "2026-09-29T02:13:15.652902Z",
+      "command": [
+        "sysctl",
+        "-n",
+        "hw.memsize"
+      ],
+      "elapsed_seconds": 0.0044482100000000635,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "68719476736\n"
+    },
+    "hw.model": {
+      "at": "2026-09-29T02:13:15.643456Z",
+      "command": [
+        "sysctl",
+        "-n",
+        "hw.model"
+      ],
+      "elapsed_seconds": 0.0047830549999998695,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "MacBookPro16,1\n"
+    },
+    "hw.physicalcpu": {
+      "at": "2026-09-29T02:13:15.657360Z",
+      "command": [
+        "sysctl",
+        "-n",
+        "hw.physicalcpu"
+      ],
+      "elapsed_seconds": 0.004955320000000096,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "8\n"
+    },
+    "machdep.cpu.brand_string": {
+      "at": "2026-09-29T02:13:15.648247Z",
+      "command": [
+        "sysctl",
+        "-n",
+        "machdep.cpu.brand_string"
+      ],
+      "elapsed_seconds": 0.004643338000000163,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Intel(R) Core(TM) i9-9880H CPU @ 2.30GHz\n"
+    }
+  },
+  "host_disk": {
+    "free_bytes": 3888796155904,
+    "total_bytes": 4001907707904,
+    "used_bytes": 113111552000
+  },
+  "images": [
+    {
+      "Architecture": "amd64",
+      "Created": "2026-09-27T05:29:18.579033067Z",
+      "Id": "sha256:3302ff9e57a53ff18e6e24025f81300222daf69206fd74fa871b09df1bba0567",
+      "Os": "linux",
+      "RepoDigests": [
+        "incidentlens-ingest@sha256:3302ff9e57a53ff18e6e24025f81300222daf69206fd74fa871b09df1bba0567"
+      ],
+      "RepoTags": [
+        "incidentlens-ingest:latest"
+      ]
+    },
+    {
+      "Architecture": "amd64",
+      "Created": "2026-09-28T15:06:36.507572003Z",
+      "Id": "sha256:361e9512980c23e1bbbe080af2384bced665ec8132903daff43174f52cb7ff21",
+      "Os": "linux",
+      "RepoDigests": [
+        "incidentlens-api@sha256:361e9512980c23e1bbbe080af2384bced665ec8132903daff43174f52cb7ff21"
+      ],
+      "RepoTags": [
+        "incidentlens-api:latest"
+      ]
+    },
+    {
+      "Architecture": "amd64",
+      "Created": "2025-10-07T06:03:13.145539207Z",
+      "Id": "sha256:886722fe0f37af9d1fe24d29529253ec59fbf263b3b1df4facaf221373e19d23",
+      "Os": "linux",
+      "RepoDigests": [
+        "otel/opentelemetry-collector-contrib@sha256:886722fe0f37af9d1fe24d29529253ec59fbf263b3b1df4facaf221373e19d23"
+      ],
+      "RepoTags": [
+        "otel/opentelemetry-collector-contrib:0.137.0"
+      ]
+    },
+    {
+      "Architecture": "amd64",
+      "Created": "2025-09-18T12:23:28.438783814Z",
+      "Id": "sha256:c48c1ed0a54e6e9fde03750860aa86de1e6f40b6fe33c6df540738867b4f6809",
+      "Os": "linux",
+      "RepoDigests": [
+        "clickhouse/clickhouse-server@sha256:c48c1ed0a54e6e9fde03750860aa86de1e6f40b6fe33c6df540738867b4f6809"
+      ],
+      "RepoTags": [
+        "clickhouse/clickhouse-server:25.8.4.13"
+      ]
+    }
+  ],
+  "platform": "macOS-26.6.2-x86_64-i386-64bit",
+  "python": "3.9.6",
+  "source_manifest": {
+    "files": {
+      "api/INCIDENTS.md": {
+        "bytes": 6150,
+        "sha256": "3d254d70e1910179b71a624a350ec7d99cb0e0f496f0b1c912fe18637b894d51"
+      },
+      "api/README.md": {
+        "bytes": 6140,
+        "sha256": "23bdb4260ff0fb9bf1af525ee2a44b1047ef09b70bf621129ca36b59999bff52"
+      },
+      "backend/cmd/api/main.go": {
+        "bytes": 1462,
+        "sha256": "225daba3afae29ea6701a9b9f8e75808f298c3657433b890075c4a3e910af033"
+      },
+      "backend/cmd/api/main_test.go": {
+        "bytes": 291,
+        "sha256": "0258de4c25d99ca7a4cd00e85baba97fc828f8c5f9bab5a66dda79df31b8cd75"
+      },
+      "backend/cmd/bench/bench_test.go": {
+        "bytes": 4480,
+        "sha256": "80a28645b57eb938c8e94a45237de354706040783fcb969228379cfe1d03c7b5"
+      },
+      "backend/cmd/bench/config.go": {
+        "bytes": 7453,
+        "sha256": "7f07f943aad145846ae2ac2ae46193559e6b86e2551d4f028ef6099b42a2590e"
+      },
+      "backend/cmd/bench/http.go": {
+        "bytes": 7087,
+        "sha256": "b93a6d3e97cc64ac69e460a731d4eca66a3fc6e0036d0c39de916b27c7dd8036"
+      },
+      "backend/cmd/bench/main.go": {
+        "bytes": 12137,
+        "sha256": "3905aac48db8f037dc81f7c782362abaae29e0b5bd378cadce50d5f1bdd6a864"
+      },
+      "backend/cmd/bench/reconcile.go": {
+        "bytes": 6386,
+        "sha256": "77ec54c0342cbe0c730ac57e005aa822f5e61c3ded79eee0bf90ffa1f08bd717"
+      },
+      "backend/cmd/bench/record.go": {
+        "bytes": 4405,
+        "sha256": "9d9d6a8b80706cec17fb5697546550dabd54dad4d45842d2ace9e50fbdc10627"
+      },
+      "backend/cmd/bench/summary.go": {
+        "bytes": 4502,
+        "sha256": "3070e29c4262a78c59a2aec43a4f52af3246bd59ae5d28afcae4d027bbef4327"
+      },
+      "backend/cmd/bench/workload.go": {
+        "bytes": 3350,
+        "sha256": "5ab8859cdf256f68192a24bb6a06afb5a5dc5ff419a27c4baad29befe618d144"
+      },
+      "backend/cmd/ingest/main.go": {
+        "bytes": 2376,
+        "sha256": "37306cdf150cb8320ea4eba7107d1b19a50205b05e6cdeaf8bcd269b3fd2f0d6"
+      },
+      "backend/go.mod": {
+        "bytes": 1243,
+        "sha256": "c5ca1f85128c51a5e119f1294d9a3794d4defcdcc40e2a332dc5de39a2bf41dd"
+      },
+      "backend/go.sum": {
+        "bytes": 13499,
+        "sha256": "9c2036e4077215fc1e49d362ca2b08395e3bb1cd3bb76d9d4fc76191b090c481"
+      },
+      "backend/internal/detector/detector.go": {
+        "bytes": 19541,
+        "sha256": "26cedaef686decb85e95a6fed40022e2961141698cb101ea685193a3d308c67c"
+      },
+      "backend/internal/detector/detector_test.go": {
+        "bytes": 17047,
+        "sha256": "6a0da28ca85371a73bc97df0dbcb2504c1d9db751f0ac4e8d7fb548ddfab7fbf"
+      },
+      "backend/internal/httpapi/handler.go": {
+        "bytes": 7384,
+        "sha256": "75fcc994dd27882a26f529b0f4c6ffc62842557dd86b0b6cca2b75998ae8b9a1"
+      },
+      "backend/internal/httpapi/handler_test.go": {
+        "bytes": 4390,
+        "sha256": "245b7986deed018d76607fa1361bb08b4dc001898c501879d624e2530e533545"
+      },
+      "backend/internal/httpapi/incidents.go": {
+        "bytes": 2186,
+        "sha256": "b7e2bda87c926503f2fe8c876c17ceb4a060e25a314b6c0aed94a7a9d838185a"
+      },
+      "backend/internal/httpapi/incidents_test.go": {
+        "bytes": 3231,
+        "sha256": "f4e56a14ef7823b4c3c303c66b9e6142a3230384fc88ed0a6da028dd3e41db8f"
+      },
+      "backend/internal/ingest/server.go": {
+        "bytes": 2269,
+        "sha256": "dd8ba9fba4a12354e5327a20fcd5c99132ca872f54c7e38cbaf6fb1692bf07b3"
+      },
+      "backend/internal/ingest/server_test.go": {
+        "bytes": 6728,
+        "sha256": "cd3a50fda207c66101ad1ef6daeb73286e564d460fd4b3c55c589897383260aa"
+      },
+      "backend/internal/query/query.go": {
+        "bytes": 9334,
+        "sha256": "309400a4b5d047200704829b4741e5802a4f38c72f8b7a802f4ca0b3ef2cd26f"
+      },
+      "backend/internal/query/query_test.go": {
+        "bytes": 3957,
+        "sha256": "f1b2c46bbd87d6b98cfb16cd59acd9339eea768a7e62bec9f5bb0c85e03a40a7"
+      },
+      "backend/internal/storage/clickhouse/incidents.go": {
+        "bytes": 2337,
+        "sha256": "dc23e37b92bb16d51b3930592b0854f1e0875a994949b0427c62a229adc74d5a"
+      },
+      "backend/internal/storage/clickhouse/query.go": {
+        "bytes": 8139,
+        "sha256": "f13bd0541eb4341933262640ce48f64efe22102f81dfaa9d60826fabb7864991"
+      },
+      "backend/internal/storage/clickhouse/store.go": {
+        "bytes": 2494,
+        "sha256": "5f42fd46dc83d1ab2d42e33b7010068c16ecb83b1db8cc732bd5607b5b709d0d"
+      },
+      "backend/internal/trace/normalize.go": {
+        "bytes": 10295,
+        "sha256": "f7c6cda7fe3e193e98b97e6df72fe5645124fb43a8333feefbb2c9275bd0f8f9"
+      },
+      "backend/internal/trace/normalize_test.go": {
+        "bytes": 9517,
+        "sha256": "9eb50dcb69460710105c52735879c8acd51d72422a4cef4bf8a33916a3b42e75"
+      },
+      "backend/tests/integration/README.md": {
+        "bytes": 5450,
+        "sha256": "8bcb130948cf950c165f51368d60d37e9803f271038a93c8ae1dfd14ef1c17aa"
+      },
+      "backend/tests/integration/collector_test.go": {
+        "bytes": 4157,
+        "sha256": "b7d03a82d051e606a0f36ac2bd50a8c10baad4838cf7fb9067fe325d4fe53eae"
+      },
+      "backend/tests/integration/detector_test.go": {
+        "bytes": 7968,
+        "sha256": "8c2819f40952fd273588aeaa9b7b8d0b011181f06cad8566bc36015bf26fe2df"
+      },
+      "backend/tests/integration/failures_test.go": {
+        "bytes": 10368,
+        "sha256": "aec98f4950da6bd15e67a3c2893d38b1c569e800e8f927ccaab34fdb1d88b383"
+      },
+      "backend/tests/integration/query_test.go": {
+        "bytes": 23913,
+        "sha256": "02fed8f52ee2acef152f17b4eb6e9741ad7ae0e380f92aa0bfe389bc41b6a69a"
+      },
+      "backend/tests/integration/storage_test.go": {
+        "bytes": 10777,
+        "sha256": "9e7b620e0992715d63d8971a2858ce6c99f5e13bf1c7fc3d750792aa29fb56bb"
+      },
+      "benchmarks/README.md": {
+        "bytes": 3047,
+        "sha256": "302d6b53e7f7e1cf6470ae546b5d0c435ff20c58e5a323ee1be1589e48f92a83"
+      },
+      "benchmarks/WORKLOAD.md": {
+        "bytes": 9751,
+        "sha256": "ec4e1ce18b60cc47dcc4d234c8f1efc62aa05b4331cefa74734821a739581d60"
+      },
+      "benchmarks/analyze.py": {
+        "bytes": 27224,
+        "sha256": "4ab71a8297d54ffc480f8f0aacbe89cc629b72e15a77acccac3c5f429af63fd1"
+      },
+      "benchmarks/environment.py": {
+        "bytes": 7080,
+        "sha256": "0a1b080a59bedb4ea2f5e7db2bd0dd84c017e4dc08c7a3edd70d3b860f4fd82f"
+      },
+      "benchmarks/plan.json": {
+        "bytes": 5730,
+        "sha256": "d5d109f8c2ce2f8b13e1a746b5a99deb5e44e5b6a409f768b1f90baa1d6be2f6"
+      },
+      "benchmarks/run.py": {
+        "bytes": 24473,
+        "sha256": "9b29563e3aa6aeaa2b0efa21b7793120f7965903f408102a95779ad910ade590"
+      },
+      "benchmarks/test_analyze.py": {
+        "bytes": 2299,
+        "sha256": "70a863e7bb2e67e2dfa6695df7f561dfcd95a97dfd04af90abd1522098802300"
+      },
+      "benchmarks/test_run.py": {
+        "bytes": 9555,
+        "sha256": "699c35e00fd41a56a935729a36840c6f1e214fc38106dfe2ddd19a522514da47"
+      },
+      "deploy/local/Dockerfile": {
+        "bytes": 789,
+        "sha256": "2b8f6f417eb17678910cc15cc8b5d73b773bb8a319e8ec22d628bb6d2d7d57d0"
+      },
+      "deploy/local/collector.yaml": {
+        "bytes": 1315,
+        "sha256": "70e509d6f030bd6628d5ba6a7164da10ce61cdccfdf3dccfd10b0ca8f923fb11"
+      },
+      "deploy/local/compose.yaml": {
+        "bytes": 2734,
+        "sha256": "b59527ecfeef2992be11dcd16c31d1c18ced9c7effe7db2095dffe1499ea27d2"
+      },
+      "deploy/local/users.xml": {
+        "bytes": 1630,
+        "sha256": "353ecb410f51094b256ed65454f87218b467f268774970c3110fdfafa1cea892"
+      },
+      "frontend/README.md": {
+        "bytes": 1009,
+        "sha256": "651d906625c6d5f4e9ee4dea4342411b91e35270563024e3b8d34a05765052d3"
+      },
+      "frontend/index.html": {
+        "bytes": 277,
+        "sha256": "36c143c40fb5541b84c6978ee8e3d1f02dff92ae56bc15e8a025f07007bae10f"
+      },
+      "frontend/package-lock.json": {
+        "bytes": 98009,
+        "sha256": "a81298cf05fc12d1c98b02ac837026a443ef8c11fde79367261db326cef0f0cc"
+      },
+      "frontend/package.json": {
+        "bytes": 563,
+        "sha256": "17fdd6e3ef36bd078d0de276c7a023a10944ade2f909312337eb8ae7f32e26d4"
+      },
+      "frontend/src/App.test.tsx": {
+        "bytes": 14858,
+        "sha256": "c97204f0cd3598d89c21825e77a75bc45d8877ffb644e5cf542330a819030c79"
+      },
+      "frontend/src/App.tsx": {
+        "bytes": 19755,
+        "sha256": "63eccafc704dd2f4ac259c942df24fda8adf59c6e40939af85b5b1456126cbd5"
+      },
+      "frontend/src/IncidentView.test.tsx": {
+        "bytes": 12490,
+        "sha256": "6046cb14fc42d72ddfcf0e22ccf87b4d9a299e1a8502873bea94300ba6c5369b"
+      },
+      "frontend/src/IncidentView.tsx": {
+        "bytes": 16085,
+        "sha256": "dad6f4c6630d2b01b7abfab3ad12828df626cba94e7af69d9a9ba4d190c92e24"
+      },
+      "frontend/src/api.ts": {
+        "bytes": 4563,
+        "sha256": "ed8562fb292d2000dfc9cc025a9627ebe6414783ffcefd9a79904ede15752732"
+      },
+      "frontend/src/main.tsx": {
+        "bytes": 220,
+        "sha256": "70f1f41a33b464e0a4c349112a35116d0ab68e29a05342f3b59ad0e9fd8b245b"
+      },
+      "frontend/src/style.css": {
+        "bytes": 15721,
+        "sha256": "4d5e7ff6d03bc4516aa351e4ad59762d49f1f6994ab4d484a15cc0e75b90f4c0"
+      },
+      "frontend/src/time.test.ts": {
+        "bytes": 988,
+        "sha256": "b797d080dbe49b8c9401db163e9adb3b80a1e3b27ed1d5e51450d3f3e8a4ee27"
+      },
+      "frontend/src/time.ts": {
+        "bytes": 1229,
+        "sha256": "55b815a07fadb25d6b5f3a4d70646ce5fb04300a2eee5a9e44159ff4a3b0636b"
+      },
+      "frontend/tsconfig.json": {
+        "bytes": 521,
+        "sha256": "4ce784ee33a9a8f1e0ade04799dddcd9a78cae9faa163e1799cb176cd006d02e"
+      },
+      "frontend/vite.config.ts": {
+        "bytes": 243,
+        "sha256": "b2085d00b99d90502618de75541bc48930b4bdb41e07c97a043c1900f642950d"
+      },
+      "migrations/clickhouse/001_spans.sql": {
+        "bytes": 1261,
+        "sha256": "3de409be8b7315ab44cf1c09faacffca1f67a69b157aae99fab7d18bf69fad16"
+      },
+      "scripts/test.sh": {
+        "bytes": 140,
+        "sha256": "0ce6557833cc48a2aa89c9df05da2390e9859ffb530170d762955248d4d1df31"
+      },
+      "scripts/verify-storage.sh": {
+        "bytes": 1501,
+        "sha256": "14c1489801e86738139e9e8e588776323f5a31e44e9e8b33d5bc82779181866a"
+      }
+    },
+    "git_inventory_status": [
+      0,
+      0
+    ]
+  }
+}

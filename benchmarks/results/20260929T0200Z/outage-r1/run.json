@@ -1,0 +1,371 @@
+{
+  "command": [
+    "/private/tmp/incidentlens-bench",
+    "--output-dir",
+    "benchmarks/results/20260929T0200Z/outage-r1/harness",
+    "--seed",
+    "58136e1e4ea94cfdbb71e2f9e007b7a2-outage-r1",
+    "--scenario",
+    "outage",
+    "--api",
+    "http://127.0.0.1:18081",
+    "--attempts",
+    "3",
+    "--attribute-bytes",
+    "256",
+    "--batch-traces",
+    "32",
+    "--clickhouse",
+    "127.0.0.1:19000",
+    "--collector",
+    "127.0.0.1:4317",
+    "--concurrency",
+    "16",
+    "--drain",
+    "120s",
+    "--duration",
+    "60s",
+    "--export-timeout",
+    "8s",
+    "--max-event-bytes",
+    "268435456",
+    "--query-concurrency",
+    "4",
+    "--query-rate",
+    "0",
+    "--queue",
+    "64",
+    "--rate",
+    "500",
+    "--settle",
+    "35s",
+    "--visibility-every",
+    "10",
+    "--visibility-timeout",
+    "10s",
+    "--warmup",
+    "15s"
+  ],
+  "elapsed_seconds": 111.78609857600009,
+  "ended_at": "2026-09-29T02:27:32.017769Z",
+  "harness_terminal": true,
+  "name": "outage",
+  "outage": {
+    "actual_stop_command_offset_seconds": 30.003977298736572,
+    "harness_ended_during_outage": false,
+    "load_start": "2026-09-29T02:25:40.268592Z",
+    "observed_stop_seconds": 15.00268714699996,
+    "offset_reference": "harness load_start",
+    "recovery_readiness": {
+      "api": 200,
+      "ingestion": 200
+    },
+    "requested": {
+      "after_seconds": 30,
+      "duration_seconds": 15
+    },
+    "restore_command": {
+      "at": "2026-09-29T02:26:27.052983Z",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+        "start",
+        "clickhouse"
+      ],
+      "elapsed_seconds": 0.3913387379999449,
+      "returncode": 0,
+      "stderr": " Container incidentlens-clickhouse-1 Starting \n Container incidentlens-clickhouse-1 Started \n",
+      "stdout": ""
+    },
+    "restored_at": "2026-09-29T02:26:27.444346Z",
+    "started_at": "2026-09-29T02:26:10.272521Z",
+    "status": "completed",
+    "stop_command": {
+      "at": "2026-09-29T02:26:10.272653Z",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+        "stop",
+        "-t",
+        "1",
+        "clickhouse"
+      ],
+      "elapsed_seconds": 1.777303796999945,
+      "returncode": 0,
+      "stderr": " Container incidentlens-clickhouse-1 Stopping \n Container incidentlens-clickhouse-1 Stopped \n",
+      "stdout": ""
+    }
+  },
+  "pid": 14422,
+  "returncode": 0,
+  "seed": "58136e1e4ea94cfdbb71e2f9e007b7a2-outage-r1",
+  "started_at": "2026-09-29T02:25:37.348032Z",
+  "status": "completed",
+  "summary": {
+    "config": {
+      "api": "http://127.0.0.1:18081",
+      "attribute_payload_bytes": 256,
+      "baseline_traces": 0,
+      "batch_traces": 32,
+      "clickhouse": "127.0.0.1:19000",
+      "clickhouse_user": "query",
+      "collector": "127.0.0.1:4317",
+      "drain_ns": 120000000000,
+      "duration_ns": 60000000000,
+      "estimated_event_bytes_upper_bound": 4388800,
+      "export_concurrency": 16,
+      "export_queue": 64,
+      "export_timeout_ns": 8000000000,
+      "load_spans": 37500,
+      "load_traces": 6250,
+      "max_attempts": 3,
+      "max_event_bytes": 268435456,
+      "namespace": "bench-73da6a3fa07b",
+      "output_dir": "benchmarks/results/20260929T0200Z/outage-r1/harness",
+      "query_concurrency": 4,
+      "query_mix": "services,traces,detail,incidents",
+      "query_requests_per_second": 0,
+      "rate_spans_per_second": 500,
+      "scenario": "outage",
+      "seed": "58136e1e4ea94cfdbb71e2f9e007b7a2-outage-r1",
+      "serialized_full_batch_bytes": 81822,
+      "services": [
+        "bench-frontend",
+        "bench-api",
+        "bench-store"
+      ],
+      "settle_ns": 35000000000,
+      "setup_spans": 0,
+      "span_kinds_per_trace": {
+        "CLIENT": 2,
+        "INTERNAL": 1,
+        "SERVER": 3
+      },
+      "visibility_every_batches": 10,
+      "visibility_timeout_ns": 10000000000,
+      "warmup_ns": 15000000000
+    },
+    "drain_deadline_expired": false,
+    "driver": {
+      "generator_limited": false,
+      "logging_error": "",
+      "missed_deadline_batches": 0,
+      "schedule_dropped_batches": 0
+    },
+    "error": "",
+    "event_counts": {
+      "batch_complete:measured": 156,
+      "batch_complete:warmup": 40,
+      "enqueued:measured": 156,
+      "enqueued:warmup": 40,
+      "export_attempt:measured": 184,
+      "export_attempt:warmup": 40,
+      "generated:measured": 156,
+      "generated:warmup": 40,
+      "load_start:": 1,
+      "scheduled:measured": 156,
+      "scheduled:warmup": 40,
+      "visibility:measured": 16,
+      "visibility:warmup": 4,
+      "visibility_probe:measured": 129,
+      "visibility_probe:warmup": 8
+    },
+    "latencies": {
+      "export_attempt:measured:": {
+        "count": 184,
+        "max_ns": 8000303000,
+        "p50_ns": 794219000,
+        "p95_ns": 7630338000,
+        "p99_ns": 7978494000
+      },
+      "export_attempt:measured::DeadlineExceeded": {
+        "count": 1,
+        "max_ns": 8000303000,
+        "p50_ns": 8000303000,
+        "p95_ns": 8000303000,
+        "p99_ns": 8000303000
+      },
+      "export_attempt:measured::OK": {
+        "count": 156,
+        "max_ns": 7774843000,
+        "p50_ns": 28913000,
+        "p95_ns": 4893168000,
+        "p99_ns": 7666024000
+      },
+      "export_attempt:measured::Unavailable": {
+        "count": 27,
+        "max_ns": 7978494000,
+        "p50_ns": 7339254000,
+        "p95_ns": 7942445000,
+        "p99_ns": 7978494000
+      },
+      "export_attempt:warmup:": {
+        "count": 40,
+        "max_ns": 36069000,
+        "p50_ns": 25654000,
+        "p95_ns": 31506000,
+        "p99_ns": 36069000
+      },
+      "export_attempt:warmup::OK": {
+        "count": 40,
+        "max_ns": 36069000,
+        "p50_ns": 25654000,
+        "p95_ns": 31506000,
+        "p99_ns": 36069000
+      },
+      "schedule_delay:measured": {
+        "count": 184,
+        "max_ns": 16299659000,
+        "p50_ns": 1611000,
+        "p95_ns": 14289156000,
+        "p99_ns": 16124853000
+      },
+      "schedule_delay:warmup": {
+        "count": 40,
+        "max_ns": 3026000,
+        "p50_ns": 889000,
+        "p95_ns": 2153000,
+        "p99_ns": 3026000
+      }
+    },
+    "load_start": "2026-09-29T02:25:40.268592Z",
+    "measured": {
+      "ack_latency": {
+        "count": 156,
+        "max_ns": 20649447000,
+        "p50_ns": 28913000,
+        "p95_ns": 18674303000,
+        "p99_ns": 20469936000
+      },
+      "acked_spans": 29820,
+      "acked_spans_per_second": 497,
+      "acked_spans_within_measurement_window": 29820,
+      "emitted_spans": 29820,
+      "enqueued_spans": 29820,
+      "exported_batches": 156,
+      "generated_spans": 29820,
+      "offered_spans": 29820,
+      "planned_spans": 29820,
+      "rejected_spans": 0,
+      "retried_batches": 16,
+      "schedule_to_ack_latency": {
+        "count": 156,
+        "max_ns": 20649948000,
+        "p50_ns": 29789000,
+        "p95_ns": 18675164000,
+        "p99_ns": 20470974000
+      },
+      "terminal_error_fraction": 0,
+      "terminal_failed_batches": 0,
+      "unique_ack_fraction": 1
+    },
+    "measurement_end": "2026-09-29T02:26:55.268592Z",
+    "measurement_start": "2026-09-29T02:25:55.268592Z",
+    "offering_finished": "2026-09-29T02:26:55.269339Z",
+    "raw_event_bytes": 381548,
+    "reconciliation": {
+      "acked_missing": 0,
+      "acked_spans": 37500,
+      "duplicate_logical_identities": 0,
+      "emitted_missing": 0,
+      "emitted_spans": 37500,
+      "expected_stored": 37500,
+      "final_unique_spans": 37500,
+      "ledger": "reconciliation.jsonl",
+      "never_acked_stored": 0,
+      "physical_duplicates_remaining": 0,
+      "planned_missing": 0,
+      "planned_spans": 37500,
+      "raw_rows": 37500,
+      "settled": true,
+      "snapshot_verified": true,
+      "unknown": 0,
+      "verified": true
+    },
+    "run_end": "2026-09-29T02:27:30.534Z",
+    "schema_version": 1,
+    "setup": {
+      "ack_latency": {
+        "count": 0,
+        "max_ns": 0,
+        "p50_ns": 0,
+        "p95_ns": 0,
+        "p99_ns": 0
+      },
+      "acked_spans": 0,
+      "acked_spans_per_second": 0,
+      "acked_spans_within_measurement_window": 0,
+      "emitted_spans": 0,
+      "enqueued_spans": 0,
+      "exported_batches": 0,
+      "generated_spans": 0,
+      "offered_spans": 0,
+      "planned_spans": 0,
+      "rejected_spans": 0,
+      "retried_batches": 0,
+      "schedule_to_ack_latency": {
+        "count": 0,
+        "max_ns": 0,
+        "p50_ns": 0,
+        "p95_ns": 0,
+        "p99_ns": 0
+      },
+      "terminal_error_fraction": 0,
+      "terminal_failed_batches": 0,
+      "unique_ack_fraction": 0
+    },
+    "status_counts": {
+      "export_attempt:measured::DeadlineExceeded": 1,
+      "export_attempt:measured::OK": 156,
+      "export_attempt:measured::Unavailable": 27,
+      "export_attempt:warmup::OK": 40
+    },
+    "visibility": {
+      "censored": 2,
+      "first_send_to_observation": {
+        "count": 14,
+        "max_ns": 1900206000,
+        "p50_ns": 241892000,
+        "p95_ns": 1900206000,
+        "p99_ns": 1900206000
+      },
+      "method": "sampled expected six-span trace observation; polling upper bounds, not exact storage arrival",
+      "observed_measured": 14,
+      "poll_interval_ns": 200000000
+    },
+    "warmup": {
+      "ack_latency": {
+        "count": 40,
+        "max_ns": 36069000,
+        "p50_ns": 25654000,
+        "p95_ns": 31506000,
+        "p99_ns": 36069000
+      },
+      "acked_spans": 7680,
+      "acked_spans_per_second": 12.8,
+      "acked_spans_within_measurement_window": 192,
+      "emitted_spans": 7680,
+      "enqueued_spans": 7680,
+      "exported_batches": 40,
+      "generated_spans": 7680,
+      "offered_spans": 7680,
+      "planned_spans": 7680,
+      "rejected_spans": 0,
+      "retried_batches": 0,
+      "schedule_to_ack_latency": {
+        "count": 40,
+        "max_ns": 37641000,
+        "p50_ns": 27468000,
+        "p95_ns": 32773000,
+        "p99_ns": 37641000
+      },
+      "terminal_error_fraction": 0,
+      "terminal_failed_batches": 0,
+      "unique_ack_fraction": 0.025
+    }
+  }
+}

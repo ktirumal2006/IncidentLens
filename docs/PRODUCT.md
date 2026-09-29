@@ -1,6 +1,6 @@
 # IncidentLens product plan
 
-Status: Phases 1–2 are complete and verified: trace ingestion, service summaries, trace search and the waterfall explorer. Phase 3's deterministic detector and incident comparison UI are complete and verified, including controlled Demo faults and clean recovery. See [milestone status](MILESTONES.md), [ingestion verification](VERIFICATION.md), [explorer verification](VERIFICATION_PHASE2.md), and [Phase 3 verification](VERIFICATION_PHASE3.md). Phase 4 remains deferred.
+Status: Phases 1–2 are complete and verified: trace ingestion, service summaries, trace search and the waterfall explorer. Phase 3's deterministic detector and incident comparison UI are complete and verified, including controlled Demo faults and clean recovery. See [milestone status](MILESTONES.md), [ingestion verification](VERIFICATION.md), [explorer verification](VERIFICATION_PHASE2.md), and [Phase 3 verification](VERIFICATION_PHASE3.md). Phase 4 is complete; the [measured verification report](VERIFICATION_PHASE4.md) records failed targets, limits and the decision to defer Phase 5.
 
 ## Problem statement
 
@@ -47,7 +47,7 @@ The [controlled Demo procedure](../integrations/otel-demo/PHASE3_SCENARIO.md) de
 
 ## Success criteria
 
-Phases 1–3 have verified evidence for the functional criteria below; performance measurement remains a Phase 4 target:
+Phases 1–3 have verified evidence for the functional criteria below; Phase 4 measurements and their limitations are recorded separately:
 
 - A documented local run produces a trace spanning at least three services in the supported Demo subset and makes it searchable with correct IDs, timestamps, and parent links.
 - A known finite fixture corpus is fully accounted for: accepted unique spans match expected stored/queryable spans; rejected spans are explained; replay does not inflate query results or detector statistics.
