@@ -1,0 +1,43 @@
+{
+  "output_dir": "benchmarks/results/20260930T1415Z-direct/mixed-r1/harness",
+  "seed": "a591b4599c81440bb4d2105b6a71b00b-mixed-r1",
+  "scenario": "mixed",
+  "namespace": "bench-2f22beb6c385",
+  "rate_spans_per_second": 500,
+  "duration_ns": 120000000000,
+  "warmup_ns": 10000000000,
+  "export_concurrency": 16,
+  "batch_traces": 32,
+  "export_queue": 64,
+  "max_attempts": 3,
+  "export_timeout_ns": 8000000000,
+  "drain_ns": 120000000000,
+  "settle_ns": 35000000000,
+  "estimated_event_bytes_upper_bound": 8341616,
+  "query_requests_per_second": 4,
+  "query_concurrency": 4,
+  "query_mix": "services,traces,detail,incidents",
+  "attribute_payload_bytes": 256,
+  "baseline_traces": 128,
+  "collector": "127.0.0.1:4317",
+  "api": "http://127.0.0.1:18081",
+  "clickhouse": "127.0.0.1:19000",
+  "clickhouse_user": "query",
+  "visibility_every_batches": 10,
+  "visibility_timeout_ns": 10000000000,
+  "max_event_bytes": 268435456,
+  "load_traces": 10833,
+  "load_spans": 64998,
+  "setup_spans": 768,
+  "span_kinds_per_trace": {
+    "CLIENT": 2,
+    "INTERNAL": 1,
+    "SERVER": 3
+  },
+  "serialized_full_batch_bytes": 82014,
+  "services": [
+    "bench-frontend",
+    "bench-api",
+    "bench-store"
+  ]
+}

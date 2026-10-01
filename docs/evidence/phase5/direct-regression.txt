@@ -1,0 +1,46 @@
+=== RUN   TestCollectorStoresThreeServiceFixture
+--- PASS: TestCollectorStoresThreeServiceFixture (1.84s)
+=== RUN   TestAcknowledgedDataSurvivesLocalServiceRestarts
+--- PASS: TestAcknowledgedDataSurvivesLocalServiceRestarts (8.56s)
+=== RUN   TestDetectorClickHouseReplayCutoffPercentileAndRelationships
+    detector_test.go:154: historical detector fixture namespace=detector-f10c7a10d0 end=2026-09-30T12:08:28Z raw_parent=221 dedup_base=100 dedup_current=100 p95=195000000/495000000 candidates=1
+--- PASS: TestDetectorClickHouseReplayCutoffPercentileAndRelationships (0.39s)
+=== RUN   TestDetectorClickHouseGroupCapFailsWholeEvaluation
+--- PASS: TestDetectorClickHouseGroupCapFailsWholeEvaluation (0.09s)
+=== RUN   TestDetectorClickHouseHalfOpenWindows
+--- PASS: TestDetectorClickHouseHalfOpenWindows (0.05s)
+=== RUN   TestRealStorageOutageAndRetry
+    failures_test.go:145: Real storage outage returned Unavailable; replay recovered one logical span and previously acknowledged data survived
+--- PASS: TestRealStorageOutageAndRetry (11.05s)
+=== RUN   TestCollectorShortOutageAndForcedRestartRecovery
+    failures_test.go:203: Short outage waited for storage; Collector crash lost only unacknowledged input, and caller replay recovered one logical span
+--- PASS: TestCollectorShortOutageAndForcedRestartRecovery (16.96s)
+=== RUN   TestCollectorQueueExhaustionAccounting
+    failures_test.go:293: offered=16384 initially-acknowledged=8192 retryable-rejected=8192 final-unique=16384; no acknowledged input lost
+--- PASS: TestCollectorQueueExhaustionAccounting (12.91s)
+=== RUN   TestQuerySummaryFiltersReplayAndPercentiles
+--- PASS: TestQuerySummaryFiltersReplayAndPercentiles (0.10s)
+=== RUN   TestQuerySearchSameSpanFiltersAndFrozenPagination
+--- PASS: TestQuerySearchSameSpanFiltersAndFrozenPagination (0.18s)
+=== RUN   TestQueryCursorKeepsEligibleSpanAfterLaterReplay
+--- PASS: TestQueryCursorKeepsEligibleSpanAfterLaterReplay (0.09s)
+=== RUN   TestQueryDetailRelationshipsBoundsAndContext
+--- PASS: TestQueryDetailRelationshipsBoundsAndContext (0.18s)
+=== RUN   TestQueryDetailCycleAndTruncation
+--- PASS: TestQueryDetailCycleAndTruncation (0.48s)
+=== RUN   TestQueryDetailResponseByteCap
+--- PASS: TestQueryDetailResponseByteCap (1.47s)
+=== RUN   TestQueryDurationBoundsAndErrors
+--- PASS: TestQueryDurationBoundsAndErrors (0.02s)
+=== RUN   TestQueryHalfOpenTimeDurationAndNamespace
+--- PASS: TestQueryHalfOpenTimeDurationAndNamespace (0.05s)
+=== RUN   TestFullContextRoundTrip
+--- PASS: TestFullContextRoundTrip (2.84s)
+=== RUN   TestAmbiguousWriteRetryBeforeMerges
+--- PASS: TestAmbiguousWriteRetryBeforeMerges (0.07s)
+=== RUN   TestMixedBatchPersistsOnlyValidSpans
+--- PASS: TestMixedBatchPersistsOnlyValidSpans (0.08s)
+=== RUN   TestUnavailableStorageNeverAcknowledges
+--- PASS: TestUnavailableStorageNeverAcknowledges (0.01s)
+PASS
+ok  	incidentlens/backend/tests/integration	60.398s

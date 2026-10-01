@@ -1,0 +1,77 @@
+ Image incidentlens-stream-worker Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 608B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 1.36kB done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/golang:1.26.8-bookworm
+#3 ...
+
+#4 [auth] library/golang:pull token for registry-1.docker.io
+#4 DONE 0.0s
+
+#5 [internal] load metadata for gcr.io/distroless/static-debian12:nonroot
+#5 DONE 0.3s
+
+#3 [internal] load metadata for docker.io/library/golang:1.26.8-bookworm
+#3 DONE 0.4s
+
+#6 [internal] load .dockerignore
+#6 transferring context: 207B done
+#6 DONE 0.0s
+
+#7 [internal] load build context
+#7 DONE 0.0s
+
+#8 [stream-worker 1/2] FROM gcr.io/distroless/static-debian12:nonroot@sha256:afa5c872c891853ca7fcf1f12c3edb23f7eeef36189728842dd51042ff57f7ab
+#8 resolve gcr.io/distroless/static-debian12:nonroot@sha256:afa5c872c891853ca7fcf1f12c3edb23f7eeef36189728842dd51042ff57f7ab 0.0s done
+#8 DONE 0.0s
+
+#9 [source 1/5] FROM docker.io/library/golang:1.26.8-bookworm@sha256:a688600ca24f8a4d3ca77f95b0dd40704a9fc787c826660eb7ba0b641b8b175d
+#9 resolve docker.io/library/golang:1.26.8-bookworm@sha256:a688600ca24f8a4d3ca77f95b0dd40704a9fc787c826660eb7ba0b641b8b175d
+#9 resolve docker.io/library/golang:1.26.8-bookworm@sha256:a688600ca24f8a4d3ca77f95b0dd40704a9fc787c826660eb7ba0b641b8b175d 0.0s done
+#9 DONE 0.1s
+
+#7 [internal] load build context
+#7 transferring context: 36.11kB 0.0s done
+#7 DONE 0.0s
+
+#10 [source 2/5] WORKDIR /src
+#10 CACHED
+
+#11 [source 3/5] COPY backend/go.mod backend/go.sum ./
+#11 CACHED
+
+#12 [source 4/5] RUN go mod download
+#12 CACHED
+
+#13 [source 5/5] COPY backend/ ./
+#13 DONE 0.0s
+
+#14 [build-stream-worker 1/1] RUN CGO_ENABLED=0 go build -trimpath -o /stream-worker ./cmd/stream-worker
+#14 DONE 26.7s
+
+#8 [stream-worker 1/2] FROM gcr.io/distroless/static-debian12:nonroot@sha256:afa5c872c891853ca7fcf1f12c3edb23f7eeef36189728842dd51042ff57f7ab
+#8 CACHED
+
+#15 [stream-worker 2/2] COPY --from=build-stream-worker /stream-worker /stream-worker
+#15 DONE 0.1s
+
+#16 exporting to image
+#16 exporting layers
+#16 exporting layers 2.1s done
+#16 exporting manifest sha256:2acdcd9b875feb5ae814d72572b4854ac90c9debc6f324715104144b327df70f 0.0s done
+#16 exporting config sha256:aee23f057458ba8fdcebf2bf200e813a613b9ea5c9f0e0a0fef0de167315b249 0.0s done
+#16 exporting attestation manifest sha256:f42a60ead8da1217c1b1cb9fdff857f00a3c21a267a9261eca7345480e3750f5 0.0s done
+#16 exporting manifest list sha256:ab58504ea7a54bf65e532dcd10f4065514931fe9aac67bafd05e3f999b07c1fd 0.0s done
+#16 naming to docker.io/library/incidentlens-stream-worker:latest done
+#16 unpacking to docker.io/library/incidentlens-stream-worker:latest
+#16 unpacking to docker.io/library/incidentlens-stream-worker:latest 0.3s done
+#16 DONE 2.5s
+
+#17 resolving provenance for metadata file
+#17 DONE 0.0s
+ Image incidentlens-stream-worker Built 

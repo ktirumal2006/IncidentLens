@@ -1,0 +1,247 @@
+{
+  "config": {
+    "output_dir": "benchmarks/results/20261001-streaming-outage60/outage-60s-r1/harness",
+    "seed": "59c06757b19b473a87a25c882241a0c9-outage-60s-r1",
+    "scenario": "outage-60s",
+    "namespace": "bench-cdedeae6ccc6",
+    "rate_spans_per_second": 500,
+    "duration_ns": 120000000000,
+    "warmup_ns": 15000000000,
+    "export_concurrency": 16,
+    "batch_traces": 32,
+    "export_queue": 64,
+    "max_attempts": 3,
+    "export_timeout_ns": 8000000000,
+    "drain_ns": 120000000000,
+    "settle_ns": 35000000000,
+    "estimated_event_bytes_upper_bound": 7894400,
+    "query_requests_per_second": 0,
+    "query_concurrency": 4,
+    "query_mix": "services,traces,detail,incidents",
+    "attribute_payload_bytes": 256,
+    "baseline_traces": 0,
+    "collector": "127.0.0.1:4317",
+    "api": "http://127.0.0.1:18081",
+    "clickhouse": "127.0.0.1:19000",
+    "clickhouse_user": "query",
+    "visibility_every_batches": 10,
+    "visibility_timeout_ns": 10000000000,
+    "max_event_bytes": 268435456,
+    "load_traces": 11250,
+    "load_spans": 67500,
+    "setup_spans": 0,
+    "span_kinds_per_trace": {
+      "CLIENT": 2,
+      "INTERNAL": 1,
+      "SERVER": 3
+    },
+    "serialized_full_batch_bytes": 81822,
+    "services": [
+      "bench-frontend",
+      "bench-api",
+      "bench-store"
+    ]
+  },
+  "drain_deadline_expired": false,
+  "driver": {
+    "generator_limited": false,
+    "logging_error": "",
+    "missed_deadline_batches": 0,
+    "schedule_dropped_batches": 0
+  },
+  "error": "",
+  "event_counts": {
+    "batch_complete:measured": 312,
+    "batch_complete:warmup": 40,
+    "enqueued:measured": 312,
+    "enqueued:warmup": 40,
+    "export_attempt:measured": 312,
+    "export_attempt:warmup": 40,
+    "generated:measured": 312,
+    "generated:warmup": 40,
+    "load_start:": 1,
+    "scheduled:measured": 312,
+    "scheduled:warmup": 40,
+    "visibility:measured": 32,
+    "visibility:warmup": 4,
+    "visibility_probe:measured": 748,
+    "visibility_probe:warmup": 8
+  },
+  "latencies": {
+    "export_attempt:measured:": {
+      "count": 312,
+      "p50_ns": 19990000,
+      "p95_ns": 35274000,
+      "p99_ns": 49568000,
+      "max_ns": 75602000
+    },
+    "export_attempt:measured::OK": {
+      "count": 312,
+      "p50_ns": 19990000,
+      "p95_ns": 35274000,
+      "p99_ns": 49568000,
+      "max_ns": 75602000
+    },
+    "export_attempt:warmup:": {
+      "count": 40,
+      "p50_ns": 19924000,
+      "p95_ns": 30955000,
+      "p99_ns": 33691000,
+      "max_ns": 33691000
+    },
+    "export_attempt:warmup::OK": {
+      "count": 40,
+      "p50_ns": 19924000,
+      "p95_ns": 30955000,
+      "p99_ns": 33691000,
+      "max_ns": 33691000
+    },
+    "schedule_delay:measured": {
+      "count": 312,
+      "p50_ns": 968000,
+      "p95_ns": 1727000,
+      "p99_ns": 2786000,
+      "max_ns": 79341000
+    },
+    "schedule_delay:warmup": {
+      "count": 40,
+      "p50_ns": 1085000,
+      "p95_ns": 1954000,
+      "p99_ns": 2086000,
+      "max_ns": 2086000
+    }
+  },
+  "load_start": "2026-10-01T03:04:10.95775Z",
+  "measured": {
+    "ack_latency": {
+      "count": 312,
+      "p50_ns": 19990000,
+      "p95_ns": 35274000,
+      "p99_ns": 49568000,
+      "max_ns": 75602000
+    },
+    "acked_spans": 59820,
+    "acked_spans_per_second": 498.5,
+    "acked_spans_within_measurement_window": 59820,
+    "emitted_spans": 59820,
+    "enqueued_spans": 59820,
+    "exported_batches": 312,
+    "generated_spans": 59820,
+    "offered_spans": 59820,
+    "planned_spans": 59820,
+    "rejected_spans": 0,
+    "retried_batches": 0,
+    "schedule_to_ack_latency": {
+      "count": 312,
+      "p50_ns": 20924000,
+      "p95_ns": 36894000,
+      "p99_ns": 61048000,
+      "max_ns": 131665000
+    },
+    "terminal_error_fraction": 0,
+    "terminal_failed_batches": 0,
+    "unique_ack_fraction": 1
+  },
+  "measurement_end": "2026-10-01T03:06:25.95775Z",
+  "measurement_start": "2026-10-01T03:04:25.95775Z",
+  "offering_finished": "2026-10-01T03:06:25.957924Z",
+  "raw_event_bytes": 849038,
+  "reconciliation": {
+    "settled": true,
+    "snapshot_verified": true,
+    "verified": true,
+    "planned_spans": 67500,
+    "emitted_spans": 67500,
+    "acked_spans": 67500,
+    "raw_rows": 67500,
+    "final_unique_spans": 67500,
+    "expected_stored": 67500,
+    "planned_missing": 0,
+    "emitted_missing": 0,
+    "acked_missing": 0,
+    "never_acked_stored": 0,
+    "unknown": 0,
+    "physical_duplicates_remaining": 0,
+    "duplicate_logical_identities": 0,
+    "ledger": "reconciliation.jsonl"
+  },
+  "run_end": "2026-10-01T03:07:01.29519Z",
+  "schema_version": 1,
+  "setup": {
+    "ack_latency": {
+      "count": 0,
+      "p50_ns": 0,
+      "p95_ns": 0,
+      "p99_ns": 0,
+      "max_ns": 0
+    },
+    "acked_spans": 0,
+    "acked_spans_per_second": 0,
+    "acked_spans_within_measurement_window": 0,
+    "emitted_spans": 0,
+    "enqueued_spans": 0,
+    "exported_batches": 0,
+    "generated_spans": 0,
+    "offered_spans": 0,
+    "planned_spans": 0,
+    "rejected_spans": 0,
+    "retried_batches": 0,
+    "schedule_to_ack_latency": {
+      "count": 0,
+      "p50_ns": 0,
+      "p95_ns": 0,
+      "p99_ns": 0,
+      "max_ns": 0
+    },
+    "terminal_error_fraction": 0,
+    "terminal_failed_batches": 0,
+    "unique_ack_fraction": 0
+  },
+  "status_counts": {
+    "export_attempt:measured::OK": 312,
+    "export_attempt:warmup::OK": 40
+  },
+  "visibility": {
+    "censored": 19,
+    "first_send_to_observation": {
+      "count": 13,
+      "p50_ns": 260271000,
+      "p95_ns": 9959659000,
+      "p99_ns": 9959659000,
+      "max_ns": 9959659000
+    },
+    "method": "sampled expected six-span trace observation; polling upper bounds, not exact storage arrival",
+    "observed_measured": 13,
+    "poll_interval_ns": 200000000
+  },
+  "warmup": {
+    "ack_latency": {
+      "count": 40,
+      "p50_ns": 19924000,
+      "p95_ns": 30955000,
+      "p99_ns": 33691000,
+      "max_ns": 33691000
+    },
+    "acked_spans": 7680,
+    "acked_spans_per_second": 12.8,
+    "acked_spans_within_measurement_window": 192,
+    "emitted_spans": 7680,
+    "enqueued_spans": 7680,
+    "exported_batches": 40,
+    "generated_spans": 7680,
+    "offered_spans": 7680,
+    "planned_spans": 7680,
+    "rejected_spans": 0,
+    "retried_batches": 0,
+    "schedule_to_ack_latency": {
+      "count": 40,
+      "p50_ns": 21062000,
+      "p95_ns": 32502000,
+      "p99_ns": 35176000,
+      "max_ns": 35176000
+    },
+    "terminal_error_fraction": 0,
+    "terminal_failed_batches": 0,
+    "unique_ack_fraction": 0.025
+  }
+}

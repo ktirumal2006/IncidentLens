@@ -11,6 +11,38 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 COMPOSE = ROOT / "deploy/local/compose.yaml"
+STACK = "direct"
+SERVICES = ["clickhouse", "ingest", "api", "collector"]
+
+
+def configure_stack(stack):
+    global STACK, SERVICES
+    if stack not in ("direct", "streaming"):
+        raise ValueError("unknown benchmark stack")
+    STACK = stack
+    SERVICES = (["clickhouse", "ingest", "api", "collector"] if stack == "direct" else
+                ["clickhouse", "api", "collector", "kafka", "stream-ingest", "stream-worker"])
+
+
+def compose_args():
+    args = ["docker", "compose", "-f", str(COMPOSE)]
+    if STACK == "streaming":
+        args += ["-f", str(ROOT / "deploy/streaming/compose.yaml")]
+    return args
+
+
+def readiness_addresses():
+    addresses = {"api": "http://127.0.0.1:18081/readyz",
+                 "ingestion": "http://127.0.0.1:18080/readyz"}
+    if STACK == "streaming":
+        addresses["ingestion"] = "http://127.0.0.1:18082/readyz"
+        addresses["worker"] = "http://127.0.0.1:18083/readyz"
+    return addresses
+
+
+def expected_readiness():
+    return {name: 200 for name in readiness_addresses()}
+
 
 
 def utc():
@@ -59,7 +91,7 @@ def manifest():
 
 
 def container_ids():
-    probe = command(["docker", "compose", "-f", str(COMPOSE), "ps", "-q", "clickhouse", "ingest", "api", "collector"])
+    probe = command(compose_args() + ["ps", "-q", *SERVICES])
     return probe.get("stdout", "").split(), probe
 
 
@@ -103,23 +135,41 @@ def environment(binary):
     go = os.environ.get("GO_BINARY") or shutil.which("go")
     if go is None and Path("/tmp/incidentlens-toolchain/go/bin/go").is_file():
         go = "/tmp/incidentlens-toolchain/go/bin/go"
-    return {"at": utc(), "platform": platform.platform(), "python": platform.python_version(), "cpu_count": os.cpu_count(),
+    return {"at": utc(), "stack": STACK, "services": list(SERVICES), "compose_command": compose_args(), "platform": platform.platform(), "python": platform.python_version(), "cpu_count": os.cpu_count(),
             "hardware": hardware, "docker_vm": docker_vm, "docker_version": command(["docker", "version", "--format", "{{json .}}"]),
             "go_binary_build": command([go or "go", "version", "-m", str(Path(binary).resolve())]),
-            "clickhouse_version": command(["docker", "compose", "-f", str(COMPOSE), "exec", "-T", "clickhouse", "clickhouse-client", "--password", "local-admin", "--query", "SELECT version()"]),
+            "clickhouse_version": command(compose_args() + ["exec", "-T", "clickhouse", "clickhouse-client", "--password", "local-admin", "--query", "SELECT version()"]),
             "containers": containers, "images": images, "git_head": command(["git", "rev-parse", "HEAD"]),
             "git_dirty": command(["git", "status", "--porcelain=v1"]), "source_manifest": manifest(),
             "binary": {"path": str(Path(binary).resolve()), "sha256": digest(binary), "bytes": Path(binary).stat().st_size},
             "host_disk": {"total_bytes": disk.total, "used_bytes": disk.used, "free_bytes": disk.free}}
 
 
-def storage_snapshot():
+def storage_snapshot(include_stream=True):
     sql = "SELECT table, count() AS active_parts, sum(rows) AS physical_rows, sum(bytes_on_disk) AS disk_bytes, sum(data_compressed_bytes) AS compressed_bytes, sum(data_uncompressed_bytes) AS uncompressed_bytes FROM system.parts WHERE database='incidentlens' AND active GROUP BY table FORMAT JSON"
-    probe = command(["docker", "compose", "-f", str(COMPOSE), "exec", "-T", "clickhouse", "clickhouse-client", "--password", "local-admin", "--query", sql])
+    probe = command(compose_args() + ["exec", "-T", "clickhouse", "clickhouse-client", "--password", "local-admin", "--query", sql])
     disk = shutil.disk_usage(ROOT)
-    return {"at": utc(), "clickhouse_parts": probe,
-            "clickhouse_disk": command(["docker", "compose", "-f", str(COMPOSE), "exec", "-T", "clickhouse", "df", "-k", "/var/lib/clickhouse"]),
-            "host_disk": {"total_bytes": disk.total, "used_bytes": disk.used, "free_bytes": disk.free}}
+    result = {"at": utc(), "clickhouse_parts": probe,
+              "clickhouse_disk": command(compose_args() + ["exec", "-T", "clickhouse", "df", "-k", "/var/lib/clickhouse"]),
+              "host_disk": {"total_bytes": disk.total, "used_bytes": disk.used, "free_bytes": disk.free}}
+    if STACK == "streaming":
+        result.update(kafka_disk_snapshot())
+        if include_stream:
+            # Java admin tools run only outside measured load to avoid adding
+            # their heap/CPU footprint to normal periodic sampling.
+            result["kafka_group_offsets"] = command(compose_args() + ["exec", "-T", "kafka", "/opt/kafka/bin/kafka-consumer-groups.sh", "--bootstrap-server", "kafka:9092", "--group", "incidentlens-stream-worker-v1", "--describe"], timeout=20)
+            result["kafka_topic"] = command(compose_args() + ["exec", "-T", "kafka", "/opt/kafka/bin/kafka-topics.sh", "--bootstrap-server", "kafka:9092", "--topic", "incidentlens-spans-v1", "--describe"], timeout=20)
+    return result
+
+
+def kafka_disk_snapshot():
+    """Observe broker disk without requiring ClickHouse during its outage."""
+    if STACK != "streaming":
+        return {}
+    return {
+        "kafka_disk": command(compose_args() + ["exec", "-T", "kafka", "df", "-k", "/var/lib/kafka/data"]),
+        "kafka_volume_usage": command(compose_args() + ["exec", "-T", "kafka", "du", "-sk", "/var/lib/kafka/data"]),
+    }
 
 
 def sample(pid, ids):

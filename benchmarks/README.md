@@ -67,3 +67,32 @@ The campaign's `completed` status describes orchestration, not passing performan
 budgets. The report retains query failures and overload drops. Counter resets
 produce unknown I/O deltas. Source hashes in environment.json identify the exact
 measured generator/runner; the final analyzer adds a tested counter-reset fix.
+
+## Optional Phase 5 comparison
+
+The explicitly requested Kafka learning extension uses the
+[Phase 5 declaration](WORKLOAD_PHASE5.md), `plan-phase5.json` and
+`plan-phase5-outage.json`. Run `run.py --stack direct` for the fresh baseline and
+`--stack streaming` after following the [cutover runbook](../deploy/streaming/README.md).
+The original `plan.json` remains unchanged. Run each campaign serially in a new
+output directory and preserve all prior data/evidence. Stop the unused ingestion
+path and Kafka during the direct comparison; do not run unrelated fixtures.
+
+Streaming ACK measures broker admission. The same visibility samples and original
+35-second settling snapshot still report ClickHouse observations. A streaming
+stage with missing emitted identities triggers `drain.py` for a separate bounded
+120-second identity reconciliation using the original planned/emitted/ACK ledger.
+`supplemental-drain.json` never replaces the original deadline result. An error,
+partial output, or expired deadline is unverified/incomplete recovery, not proof
+of permanent loss. The streaming ramp stops escalating on an acknowledged backlog
+at the original deadline; a high admission rate is not sustained storage capacity.
+Kafka disk safety sampling continues during ClickHouse outages. Broker offsets,
+configuration and volume size are captured before/after stages; Java admin tools
+run outside measured load, while the configured broker health check remains active.
+
+The [Phase 5 report](../docs/VERIFICATION_PHASE5.md) links the completed evidence
+and its limitations. `plan-phase5-outage15.json` repeats only the original
+15-second fault after a timestamp-parser failure left that stage unstarted in
+the final comparison; it changes no workload targets. The scheduler accepts Go
+RFC3339Nano fractional timestamps, and an incomplete declared fault now stops the
+campaign and invalidates that fault's analysis.

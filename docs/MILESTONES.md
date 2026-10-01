@@ -1,6 +1,6 @@
 # IncidentLens milestones
 
-Status: Phases 1–4 are complete. Phase 4 reports measured target failures and limits; completion does not mean every performance budget passed. Phase 5 is deferred by the measured decision. Phases 5–9 require a separate request.
+Status: Phases 1–4 are complete. Phase 4 reports measured target failures and limits; completion does not mean every performance budget passed. Phase 5 is now in progress as an explicitly requested learning exercise despite the measured deferral. Phases 6–9 require a separate request.
 
 Phases 1–3 form the functional trace-only MVP. Phase 4 establishes measured performance. Phases 5–8 are conditional extensions: each requires a concrete need and an ADR before implementation; defer or skip a phase when evidence does not justify it. Phase 9 can polish the trace-only product even if extensions are skipped. Redis, PostgreSQL, and AI/LLMs have no planned phase and remain excluded without a separately justified scope change.
 
@@ -99,6 +99,8 @@ Acceptance criteria:
 - Produce a decision on whether phase 5 is justified by measured buffering/replay or throughput needs. No fabricated benchmark numbers or unmeasured scale claims.
 
 ## Phase 5: streaming architecture — conditional
+
+Complete and verified, 2026-10-01 UTC, as an opt-in educational extension. The user explicitly selected a Kafka learning exercise despite Phase 4’s deferral. [ADR 0004](adr/0004-phase5-buffering-and-replay.md) records that scope exception, alternatives and delivery contracts. The [Phase 5 report](VERIFICATION_PHASE5.md) proves delivery/replay checks, comparable measured workloads, both storage outages and retained-volume rollback, while preserving failed performance targets and attempts. Phase 4 remains evidence for deferral in the default MVP.
 
 Gate: phase 4 demonstrates a specific ingestion, replay, or outage-buffering limitation that the simpler architecture cannot reasonably address.
 

@@ -1,0 +1,142 @@
+{
+  "at": "2026-10-01T02:48:07.304309Z",
+  "clickhouse_disk": {
+    "at": "2026-10-01T02:48:07.304440Z",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+      "-f",
+      "/Users/kousil/Documents/IncidentLens/deploy/streaming/compose.yaml",
+      "exec",
+      "-T",
+      "clickhouse",
+      "df",
+      "-k",
+      "/var/lib/clickhouse"
+    ],
+    "elapsed_seconds": 0.23616008399994826,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "Filesystem      1K-blocks     Used  Available Use% Mounted on\n/dev/vda1      2112646064 22432460 1982823092   2% /var/lib/clickhouse\n"
+  },
+  "clickhouse_parts": {
+    "at": "2026-10-01T02:48:07.043397Z",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+      "-f",
+      "/Users/kousil/Documents/IncidentLens/deploy/streaming/compose.yaml",
+      "exec",
+      "-T",
+      "clickhouse",
+      "clickhouse-client",
+      "--password",
+      "local-admin",
+      "--query",
+      "SELECT table, count() AS active_parts, sum(rows) AS physical_rows, sum(bytes_on_disk) AS disk_bytes, sum(data_compressed_bytes) AS compressed_bytes, sum(data_uncompressed_bytes) AS uncompressed_bytes FROM system.parts WHERE database='incidentlens' AND active GROUP BY table FORMAT JSON"
+    ],
+    "elapsed_seconds": 0.26074573099992904,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "{\n\t\"meta\":\n\t[\n\t\t{\n\t\t\t\"name\": \"table\",\n\t\t\t\"type\": \"String\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"active_parts\",\n\t\t\t\"type\": \"UInt64\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"physical_rows\",\n\t\t\t\"type\": \"UInt64\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"disk_bytes\",\n\t\t\t\"type\": \"UInt64\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"compressed_bytes\",\n\t\t\t\"type\": \"UInt64\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"uncompressed_bytes\",\n\t\t\t\"type\": \"UInt64\"\n\t\t}\n\t],\n\n\t\"data\":\n\t[\n\t\t{\n\t\t\t\"table\": \"spans\",\n\t\t\t\"active_parts\": 17,\n\t\t\t\"physical_rows\": 1921364,\n\t\t\t\"disk_bytes\": 45118188,\n\t\t\t\"compressed_bytes\": 45011334,\n\t\t\t\"uncompressed_bytes\": 1732648585\n\t\t}\n\t],\n\n\t\"rows\": 1,\n\n\t\"statistics\":\n\t{\n\t\t\"elapsed\": 0.003690119,\n\t\t\"rows_read\": 17,\n\t\t\"bytes_read\": 1122\n\t}\n}\n"
+  },
+  "host_disk": {
+    "free_bytes": 3877351649280,
+    "total_bytes": 4001907707904,
+    "used_bytes": 124556058624
+  },
+  "kafka_disk": {
+    "at": "2026-10-01T02:48:07.540730Z",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+      "-f",
+      "/Users/kousil/Documents/IncidentLens/deploy/streaming/compose.yaml",
+      "exec",
+      "-T",
+      "kafka",
+      "df",
+      "-k",
+      "/var/lib/kafka/data"
+    ],
+    "elapsed_seconds": 0.23620742499997505,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "Filesystem      1K-blocks     Used  Available Use% Mounted on\n/dev/vda1      2112646064 22432464 1982823088   2% /var/lib/kafka/data\n"
+  },
+  "kafka_group_offsets": {
+    "at": "2026-10-01T02:48:08.024415Z",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+      "-f",
+      "/Users/kousil/Documents/IncidentLens/deploy/streaming/compose.yaml",
+      "exec",
+      "-T",
+      "kafka",
+      "/opt/kafka/bin/kafka-consumer-groups.sh",
+      "--bootstrap-server",
+      "kafka:9092",
+      "--group",
+      "incidentlens-stream-worker-v1",
+      "--describe"
+    ],
+    "elapsed_seconds": 5.184365568999965,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "\nGROUP                         TOPIC                 PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                              HOST            CLIENT-ID\nincidentlens-stream-worker-v1 incidentlens-spans-v1 0          2060            2060            0               kgo-ab9a50a0-ba70-4366-b334-95780f9d52f3 /172.18.0.6     kgo\n"
+  },
+  "kafka_topic": {
+    "at": "2026-10-01T02:48:13.208830Z",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+      "-f",
+      "/Users/kousil/Documents/IncidentLens/deploy/streaming/compose.yaml",
+      "exec",
+      "-T",
+      "kafka",
+      "/opt/kafka/bin/kafka-topics.sh",
+      "--bootstrap-server",
+      "kafka:9092",
+      "--topic",
+      "incidentlens-spans-v1",
+      "--describe"
+    ],
+    "elapsed_seconds": 2.7588847659999374,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "Topic: incidentlens-spans-v1\tTopicId: 9YAo5rTdQSSqqnVhw6h_qw\tPartitionCount: 1\tReplicationFactor: 1\tConfigs: min.insync.replicas=1,segment.bytes=67108864,retention.ms=3600000,max.message.bytes=5242880,retention.bytes=1073741824,segment.ms=300000\n\tTopic: incidentlens-spans-v1\tPartition: 0\tLeader: 1\tReplicas: 1\tIsr: 1\tElr: \tLastKnownElr: \n"
+  },
+  "kafka_volume_usage": {
+    "at": "2026-10-01T02:48:07.777035Z",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+      "-f",
+      "/Users/kousil/Documents/IncidentLens/deploy/streaming/compose.yaml",
+      "exec",
+      "-T",
+      "kafka",
+      "du",
+      "-sk",
+      "/var/lib/kafka/data"
+    ],
+    "elapsed_seconds": 0.24727050500007408,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "25336\t/var/lib/kafka/data\n"
+  }
+}

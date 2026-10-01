@@ -1,5 +1,7 @@
 import hashlib
 import unittest
+from pathlib import Path
+from unittest.mock import patch
 import analyze
 
 class AnalysisTests(unittest.TestCase):
@@ -38,5 +40,32 @@ class AnalysisTests(unittest.TestCase):
         self.assertEqual(r['status'],'unknown')
         self.assertTrue(issues)
         self.assertEqual(analyze.analyze_reconciliation([],config,events,[])['status'],'unknown')
+
+    def test_declared_outage_requires_completed_status_for_valid_evidence(self):
+        summary = {'measurement_start':'2026-01-01T00:00:00Z',
+                   'measurement_end':'2026-01-01T00:00:01Z',
+                   'reconciliation':{'verified':True,'settled':True}}
+        metrics = {'measured_counts_spans':{}, 'visibility':{}}
+        for status, expected in [('not_started', 'incomplete'), ('completed', 'raw_evidence_available')]:
+            with self.subTest(status=status):
+                def read_json(path, _issues):
+                    if path.name == 'run.json':
+                        return {'name':'outage', 'status':'outage_failed' if status != 'completed' else 'completed',
+                                'outage':{'status':status}}
+                    if path.name == 'summary.json':
+                        return summary
+                    return {}
+                with patch.object(analyze, 'read_json', side_effect=read_json), \
+                     patch.object(analyze, 'read_jsonl', return_value=[]), \
+                     patch.object(analyze, 'analyze_events', return_value=metrics), \
+                     patch.object(analyze, 'analyze_resources', return_value={}), \
+                     patch.object(analyze, 'assess_targets', return_value={}), \
+                     patch.object(analyze, 'storage_totals', return_value={}), \
+                     patch.object(analyze, 'analyze_reconciliation', return_value={'status':'verified_ledger'}):
+                    result = analyze.analyze_stage(Path('/synthetic/outage'), {})
+                self.assertEqual(result['validity'], expected)
+                self.assertIs(result['metrics'], metrics)
+                self.assertEqual(any('outage did not complete' in issue for issue in result['issues']),
+                                 status != 'completed')
 
 if __name__=='__main__': unittest.main()

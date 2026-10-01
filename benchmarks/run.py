@@ -105,6 +105,24 @@ def disk_bytes(snapshot):
         return None
 
 
+def kafka_disk_safety(snapshot):
+    if environment.STACK != "streaming":
+        return None
+    try:
+        df, usage = snapshot["kafka_disk"], snapshot["kafka_volume_usage"]
+        if df.get("returncode") != 0 or usage.get("returncode") != 0:
+            raise ValueError("Kafka filesystem observation failed")
+        free = int(df["stdout"].strip().splitlines()[-1].split()[3]) * 1024
+        used = int(usage["stdout"].split()[0]) * 1024
+        if free < 1 << 30:
+            return "kafka_filesystem_free_below_1_GiB"
+        if used > 2 << 30:
+            return "kafka_volume_above_2_GiB"
+    except (KeyError, ValueError, IndexError):
+        return "kafka_disk_observation_unavailable"
+    return None
+
+
 def restart_baseline(observation):
     counts = {}
     for line in observation.get("stdout", "").splitlines():
@@ -177,21 +195,26 @@ def sampler(pid, ids, stop, records, interval, safety, outage_active, initial_di
         if not outage_active.is_set():
             ready = readiness(timeout=2)
             records.write({"kind": "readiness", "at": environment.utc(), "observations": ready})
-            if ready != {"api": 200, "ingestion": 200}:
+            if ready != environment.expected_readiness():
                 readiness_failures.append({"at": environment.utc(), "observations": ready})
                 if len(readiness_failures) >= 3:
                     safety.update(reason="three_consecutive_readiness_failures_outside_outage", failed_samples=list(readiness_failures))
             else:
                 readiness_failures = []
-            if now - last_disk >= 10:
-                snapshot = environment.storage_snapshot()
-                records.write({"kind": "storage_sample", **snapshot})
+        else:
+            readiness_failures = []
+        if now - last_disk >= 10:
+            snapshot = ({"at": environment.utc(), **environment.kafka_disk_snapshot()}
+                        if outage_active.is_set() else environment.storage_snapshot(include_stream=False))
+            records.write({"kind": "storage_sample", **snapshot})
+            disk_failure = kafka_disk_safety(snapshot)
+            if disk_failure:
+                safety.update(reason=disk_failure, observation=snapshot)
+            if not outage_active.is_set():
                 size = disk_bytes(snapshot)
                 if size is not None and initial_disk is not None and size - initial_disk > 4 * (1 << 30):
                     safety.update(reason="clickhouse_disk_growth_above_4_GiB", growth_bytes=size-initial_disk)
-                last_disk = time.monotonic()
-        else:
-            readiness_failures = []
+            last_disk = time.monotonic()
         if safety:
             records.write({"kind": "safety_stop", "at": environment.utc(), **safety})
             break
@@ -209,7 +232,16 @@ def read_load_start(path):
                     event = json.loads(line)
                     if event.get("kind") == "load_start":
                         value = event["started"]
-                        return value, datetime.datetime.fromisoformat(value.replace("Z", "+00:00")).timestamp()
+                        match = re.fullmatch(
+                            r"(\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d)(?:\.(\d{1,9}))?(Z|[+-]\d\d:\d\d)", value)
+                        if match is None:
+                            continue
+                        # Python 3.9's fromisoformat accepts microseconds, while
+                        # Go emits 1..9 RFC3339Nano fractional digits.
+                        fraction = (match[2] or "").ljust(6, "0")[:6]
+                        zone = "+00:00" if match[3] == "Z" else match[3]
+                        parsed = datetime.datetime.fromisoformat(f"{match[1]}.{fraction}{zone}")
+                        return value, parsed.timestamp()
                 except (ValueError, KeyError, TypeError):
                     continue
     except OSError:
@@ -240,7 +272,7 @@ def outage_worker(schedule, stop, records, result, active, events_path=None):
         result["offset_reference"] = "harness load_start"
     active.set()
     try:
-        observed = environment.command(["docker", "compose", "-f", str(environment.COMPOSE), "stop", "-t", "1", "clickhouse"], timeout=20)
+        observed = environment.command(environment.compose_args() + ["stop", "-t", "1", "clickhouse"], timeout=20)
         result["stop_command"] = observed
         records.write({"kind": "outage_stop", **observed})
         if observed.get("returncode") != 0:
@@ -252,7 +284,7 @@ def outage_worker(schedule, stop, records, result, active, events_path=None):
     except Exception as exc:
         result.update(status="failed", error=repr(exc))
     finally:
-        restored = environment.command(["docker", "compose", "-f", str(environment.COMPOSE), "start", "clickhouse"], timeout=30)
+        restored = environment.command(environment.compose_args() + ["start", "clickhouse"], timeout=30)
         result["restore_command"] = restored
         result["restored_at"] = environment.utc()
         if restored.get("returncode") != 0:
@@ -261,10 +293,10 @@ def outage_worker(schedule, stop, records, result, active, events_path=None):
             deadline = time.monotonic() + 30
             while time.monotonic() < deadline:
                 result["recovery_readiness"] = readiness(timeout=2)
-                if result["recovery_readiness"] == {"api": 200, "ingestion": 200}:
+                if result["recovery_readiness"] == environment.expected_readiness():
                     break
                 time.sleep(1)
-            if result["recovery_readiness"] != {"api": 200, "ingestion": 200}:
+            if result["recovery_readiness"] != environment.expected_readiness():
                 result["status"] = "recovery_failed"
         active.clear()
         records.write({"kind": "outage_restore", "at": environment.utc(), **result})
@@ -291,10 +323,14 @@ def run_stage(binary, stage, seed, directory, interval, campaign_initial_disk=No
     result = {"name": stage["name"], "seed": seed, "started_at": environment.utc(), "status": "running"}
     initial_snapshot = environment.storage_snapshot()
     save(directory / "storage-before.json", initial_snapshot)
+    if kafka_disk_safety(initial_snapshot):
+        result.update(status="preflight_failed", error=kafka_disk_safety(initial_snapshot), ended_at=environment.utc())
+        save(directory / "run.json", result)
+        return result
     ids, inventory = environment.container_ids()
     save(directory / "containers-before.json", inventory)
-    if disk_bytes(initial_snapshot) is None or inventory.get("returncode") != 0 or len(ids) != 4 or initial_snapshot.get("host_disk", {}).get("free_bytes", 0) < 10 * (1 << 30):
-        result.update(status="preflight_failed", error="storage snapshot or four product container IDs unavailable; no load started", ended_at=environment.utc())
+    if disk_bytes(initial_snapshot) is None or inventory.get("returncode") != 0 or len(ids) != len(environment.SERVICES) or initial_snapshot.get("host_disk", {}).get("free_bytes", 0) < 10 * (1 << 30):
+        result.update(status="preflight_failed", error="storage snapshot or required product container IDs unavailable; no load started", ended_at=environment.utc())
         save(directory / "run.json", result)
         return result
     args = bench_command(binary, stage, seed, directory / "harness")
@@ -303,7 +339,7 @@ def run_stage(binary, stage, seed, directory, interval, campaign_initial_disk=No
     records = Records(directory / "resources.jsonl")
     idle = environment.sample(os.getpid(), ids)
     records.write({"kind": "idle_sample", "observation": idle})
-    if idle["docker_stats"].get("returncode") != 0 or len(memory_percentages(idle["docker_stats"])) != 4 or idle["container_health"].get("returncode") != 0:
+    if idle["docker_stats"].get("returncode") != 0 or len(memory_percentages(idle["docker_stats"])) != len(environment.SERVICES) or idle["container_health"].get("returncode") != 0:
         result.update(status="preflight_failed", error="idle safety observations unavailable; no load started", ended_at=environment.utc())
         records.close()
         save(directory / "run.json", result)
@@ -376,13 +412,22 @@ def run_stage(binary, stage, seed, directory, interval, campaign_initial_disk=No
         if result.get("outage", {}).get("status") not in (None, "completed"):
             result["status"] = "outage_failed"
         save(directory / "storage-after.json", environment.storage_snapshot())
+        reconciliation = result.get("summary", {}).get("reconciliation", {})
+        if environment.STACK == "streaming" and reconciliation.get("snapshot_verified") and reconciliation.get("emitted_missing", 0) > 0 and not safety:
+            import drain
+            try:
+                result["supplemental_drain"] = drain.observe(directory, timeout=120)
+                save(directory / "storage-after-drain.json", environment.storage_snapshot())
+            except Exception as exc:
+                result["supplemental_drain_error"] = repr(exc)
+
         save(directory / "run.json", result)
     return result
 
 
 def readiness(timeout=5):
     observations = {}
-    for name, address in (("api", "http://127.0.0.1:18081/readyz"), ("ingestion", "http://127.0.0.1:18080/readyz")):
+    for name, address in environment.readiness_addresses().items():
         try:
             with urllib.request.urlopen(address, timeout=timeout) as response:
                 observations[name] = response.status
@@ -393,11 +438,13 @@ def readiness(timeout=5):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--stack", choices=("direct", "streaming"), default="direct")
     parser.add_argument("--plan", type=Path, required=True)
     parser.add_argument("--binary", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--sample-interval", type=float, default=2)
     args = parser.parse_args()
+    environment.configure_stack(args.stack)
     if not 1 <= args.sample_interval <= 30:
         parser.error("sample interval must be 1..30 seconds")
     plan = validate_plan(json.loads(args.plan.read_text()))
@@ -408,17 +455,17 @@ def main():
     if not binary.is_file() or not os.access(binary, os.X_OK):
         parser.error("binary must be an existing executable; build before measurement")
     args.output.mkdir(parents=True, exist_ok=False)
-    campaign = {"started_at": environment.utc(), "status": "running", "plan": plan,
+    campaign = {"started_at": environment.utc(), "status": "running", "stack": environment.STACK, "plan": plan,
                 "declaration": {"path": str(declaration), "sha256": environment.digest(declaration)},
                 "plan_sha256": environment.digest(args.plan), "stages": []}
     save(args.output / "campaign.json", campaign)
     try:
         provenance = environment.environment(binary)
         save(args.output / "environment.json", provenance)
-        if len(provenance["containers"]) != 4 or any("image_id" not in c for c in provenance["containers"]) or provenance["source_manifest"]["git_inventory_status"] != [0, 0] or "error" in provenance["docker_vm"]:
+        if len(provenance["containers"]) != len(environment.SERVICES) or any("image_id" not in c for c in provenance["containers"]) or provenance["source_manifest"]["git_inventory_status"] != [0, 0] or "error" in provenance["docker_vm"]:
             raise RuntimeError("source/runtime provenance unavailable; no workload started")
         campaign["preflight_readiness"] = readiness()
-        if campaign["preflight_readiness"] != {"api": 200, "ingestion": 200}:
+        if campaign["preflight_readiness"] != environment.expected_readiness():
             raise RuntimeError("product not ready; no workload started")
         campaign["initial_storage"] = environment.storage_snapshot()
         initial_disk = disk_bytes(campaign["initial_storage"])
@@ -443,10 +490,18 @@ def main():
                     raise KeyboardInterrupt()
                 if result.get("safety_stop") or result.get("outage", {}).get("status") in ("restore_failed", "recovery_failed"):
                     raise RuntimeError("safety boundary or failed storage recovery; campaign stopped")
+                if "outage" in stage and result.get("outage", {}).get("status") != "completed":
+                    raise RuntimeError("declared storage outage did not complete; campaign stopped")
                 if result["status"] in ("preflight_failed", "cleanup_failed"):
                     raise RuntimeError("measurement safety/provenance unavailable; campaign stopped")
                 if stage.get("group") == "ramp":
                     result["ramp_assessment"] = classify_ramp(result.get("summary", {}), float(stage["workload"]["rate"]))
+                    if environment.STACK == "streaming":
+                        result["ramp_assessment"]["ack_meaning"] = "broker admission; not sustained storage throughput"
+                        if result.get("summary", {}).get("reconciliation", {}).get("acked_missing", 0) > 0:
+                            result["ramp_assessment"]["product_saturated"] = True
+                            result["ramp_assessment"].setdefault("product_reasons", []).append("acknowledged_backlog_at_original_observation_deadline")
+
                     save(args.output / label / "run.json", result)
                     save(args.output / "campaign.json", campaign)
                     if result["ramp_assessment"]["status"] != "observed":
@@ -458,7 +513,7 @@ def main():
     finally:
         campaign["ended_at"] = environment.utc()
         campaign["final_readiness"] = readiness()
-        if campaign["final_readiness"] != {"api": 200, "ingestion": 200}:
+        if campaign["final_readiness"] != environment.expected_readiness():
             campaign["status"] = "failed"
         save(args.output / "campaign.json", campaign)
     return 0 if campaign["status"] == "completed" else 1

@@ -1,0 +1,13 @@
+=== RUN   TestPoisonRecordDoesNotAdvanceOffset
+=== RUN   TestPoisonRecordDoesNotAdvanceOffset/malformed
+    poison_test.go:100: isolated topic streamtest-855c071960d6c3f814ed50a9 retained for inspection, retention 1h/16MiB
+=== RUN   TestPoisonRecordDoesNotAdvanceOffset/unsupported
+    poison_test.go:100: isolated topic streamtest-f7586099de421b1b86bb598d retained for inspection, retention 1h/16MiB
+--- PASS: TestPoisonRecordDoesNotAdvanceOffset (0.58s)
+    --- PASS: TestPoisonRecordDoesNotAdvanceOffset/malformed (0.44s)
+    --- PASS: TestPoisonRecordDoesNotAdvanceOffset/unsupported (0.14s)
+=== RUN   TestRetainedOffsetGapFailsWithoutReset
+    poison_test.go:127: isolated topic streamtest-cbb489c0d131268883817222 retained for inspection, retention 1h/16MiB
+--- PASS: TestRetainedOffsetGapFailsWithoutReset (0.15s)
+PASS
+ok  	incidentlens/backend/tests/streaming	2.836s

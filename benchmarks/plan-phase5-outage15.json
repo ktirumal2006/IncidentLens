@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "declaration": "benchmarks/WORKLOAD_PHASE5.md",
+  "stages": [
+    {
+      "name": "outage",
+      "timeout_seconds": 285,
+      "workload": {
+        "concurrency": 16,
+        "batch-traces": 32,
+        "queue": 64,
+        "attempts": 3,
+        "export-timeout": "8s",
+        "drain": "120s",
+        "settle": "35s",
+        "attribute-bytes": 256,
+        "query-rate": 0,
+        "query-concurrency": 4,
+        "collector": "127.0.0.1:4317",
+        "api": "http://127.0.0.1:18081",
+        "clickhouse": "127.0.0.1:19000",
+        "rate": 500,
+        "warmup": "15s",
+        "duration": "60s",
+        "visibility-every": 10,
+        "visibility-timeout": "10s",
+        "max-event-bytes": 268435456
+      },
+      "outage": {
+        "after_seconds": 30,
+        "duration_seconds": 15
+      }
+    }
+  ]
+}

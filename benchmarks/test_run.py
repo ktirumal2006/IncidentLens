@@ -1,3 +1,4 @@
+import datetime
 import json
 import subprocess
 import sys
@@ -9,6 +10,65 @@ from unittest.mock import patch
 
 import environment
 import run
+
+
+class StackTests(unittest.TestCase):
+    def tearDown(self):
+        environment.configure_stack("direct")
+
+    def test_streaming_observations_cover_broker_producer_and_worker(self):
+        environment.configure_stack("streaming")
+        self.assertEqual(len(environment.SERVICES), 6)
+        self.assertNotIn("ingest", environment.SERVICES)
+        self.assertIn("stream-ingest", environment.SERVICES)
+        self.assertIn("stream-worker", environment.SERVICES)
+        self.assertIn("kafka", environment.SERVICES)
+        self.assertEqual(environment.expected_readiness(), {"api":200,"ingestion":200,"worker":200})
+        self.assertTrue(environment.readiness_addresses()["ingestion"].endswith(":18082/readyz"))
+        self.assertIn(str(environment.ROOT / "deploy/streaming/compose.yaml"),environment.compose_args())
+
+    def test_kafka_disk_failure_and_limits_fail_closed(self):
+        environment.configure_stack("streaming")
+        snapshot = {"kafka_disk":{"returncode":0,"stdout":"Filesystem 1K-blocks Used Available Use% Mounted\n/dev/x 9999999 1 2000000 1% /data\n"},
+                    "kafka_volume_usage":{"returncode":0,"stdout":"1000 /data\n"}}
+        self.assertIsNone(run.kafka_disk_safety(snapshot))
+        snapshot["kafka_volume_usage"]["stdout"] = "3000000 /data"
+        self.assertEqual(run.kafka_disk_safety(snapshot),"kafka_volume_above_2_GiB")
+        snapshot["kafka_disk"]["returncode"] = 1
+        self.assertEqual(run.kafka_disk_safety(snapshot),"kafka_disk_observation_unavailable")
+
+    def test_kafka_disk_safety_stays_active_during_clickhouse_outage(self):
+        environment.configure_stack("streaming")
+        names = ["incidentlens-" + name + "-1" for name in environment.SERVICES]
+        active = threading.Event()
+        active.set()
+        observed = {
+            "docker_stats": {"returncode": 0, "stdout": "\n".join(
+                json.dumps({"Name": name, "MemPerc": "20%"}) for name in names if "clickhouse" not in name)},
+            "container_health": {"returncode": 0, "stdout": "\n".join(
+                json.dumps(name) + ' 0 {"OOMKilled":false}' for name in names)},
+        }
+        disk = {"kafka_disk": {"returncode": 0, "stdout": "disk 9999999 1 2000000 1% /data"},
+                "kafka_volume_usage": {"returncode": 0, "stdout": "3000000 /data"}}
+        records, safety = Buffer(), {}
+        with tempfile.TemporaryDirectory() as temporary, \
+             patch.object(environment, "sample", return_value=observed), \
+             patch.object(environment, "kafka_disk_snapshot", return_value=disk) as kafka_snapshot, \
+             patch.object(environment, "storage_snapshot") as clickhouse_snapshot, \
+             patch.object(run.time, "monotonic", side_effect=[0, 0, 11, 11]), \
+             patch.object(run.shutil, "disk_usage", return_value=type("Disk", (), {"free": 20*(1<<30)})()):
+            run.sampler(1, names, ImmediateEvent(), records, 2, safety, active, 0,
+                        Path(temporary), {json.dumps(name): 0 for name in names})
+        kafka_snapshot.assert_called_once()
+        clickhouse_snapshot.assert_not_called()
+        self.assertEqual(safety["reason"], "kafka_volume_above_2_GiB")
+        self.assertTrue(any(row.get("kind") == "storage_sample" for row in records.values))
+
+    def test_direct_default_has_original_contract(self):
+        environment.configure_stack("direct")
+        self.assertEqual(environment.expected_readiness(), {"api":200,"ingestion":200})
+        self.assertEqual(environment.SERVICES,["clickhouse","ingest","api","collector"])
+        with self.assertRaises(ValueError): environment.configure_stack("unknown")
 
 
 class Buffer:
@@ -122,6 +182,36 @@ class MeasurementTests(unittest.TestCase):
 
 
 class CleanupTests(unittest.TestCase):
+    def test_unstarted_declared_outage_fails_campaign_before_next_stage(self):
+        plan = {"version": 1, "declaration": "benchmarks/WORKLOAD.md", "stages": [
+            {"name": "outage", "timeout_seconds": 180,
+             "workload": {"rate": 500, "warmup": "5s", "duration": "30s"},
+             "outage": {"after_seconds": 10, "duration_seconds": 15}},
+            {"name": "following", "timeout_seconds": 180,
+             "workload": {"rate": 500, "warmup": "5s", "duration": "30s"}},
+        ]}
+        failed = {"name": "outage", "status": "outage_failed", "outage": {"status": "not_started"}}
+        storage = {"clickhouse_parts": {"stdout": '{"data":[{"disk_bytes":1}]}'}}
+        provenance = {"containers": [{"image_id": "x"}] * 4,
+                      "source_manifest": {"git_inventory_status": [0, 0]}, "docker_vm": {}}
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary)
+            plan_path, output = directory / "plan.json", directory / "campaign"
+            plan_path.write_text(json.dumps(plan))
+            args = ["run.py", "--plan", str(plan_path), "--binary", sys.executable,
+                    "--output", str(output)]
+            with patch.object(sys, "argv", args), \
+                 patch.object(environment, "environment", return_value=provenance), \
+                 patch.object(environment, "storage_snapshot", return_value=storage), \
+                 patch.object(run, "readiness", return_value={"api": 200, "ingestion": 200}), \
+                 patch.object(run, "run_stage", return_value=failed) as stage:
+                self.assertEqual(run.main(), 1)
+            stage.assert_called_once()
+            campaign = json.loads((output / "campaign.json").read_text())
+            self.assertEqual(campaign["status"], "failed")
+            self.assertEqual(len(campaign["stages"]), 1)
+            self.assertEqual(campaign["stages"][0]["outage"]["status"], "not_started")
+
     def test_outage_restores_after_failed_stop(self):
         records, result, active = Buffer(), {}, threading.Event()
         with patch.object(environment, "command", side_effect=[{"returncode": 1}, {"returncode": 0}]) as command, patch.object(run, "readiness", return_value={"api": 200, "ingestion": 200}):
@@ -156,6 +246,27 @@ class CleanupTests(unittest.TestCase):
             value = run.read_load_start(path)
             self.assertEqual(value[0], "2026-09-28T00:00:00Z")
             self.assertEqual(value[1], 1790553600)
+
+    def test_load_start_reader_accepts_rfc3339nano_fraction_lengths_and_offsets(self):
+        cases = [
+            ("2026-10-01T02:51:42Z", 0),
+            ("2026-10-01T02:51:42.4Z", .4),
+            ("2026-10-01T02:51:42.409Z", .409),
+            ("2026-10-01T02:51:42.40954Z", .40954),
+            ("2026-10-01T02:51:42.409540Z", .40954),
+            ("2026-10-01T02:51:42.409540123Z", .40954),
+            ("2026-09-30T22:51:42.40954-04:00", .40954),
+            ("2026-10-01T04:51:42.40954+02:00", .40954),
+        ]
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary)/"events.jsonl"
+            base = datetime.datetime(2026, 10, 1, 2, 51, 42, tzinfo=datetime.timezone.utc).timestamp()
+            for timestamp, fraction in cases:
+                with self.subTest(timestamp=timestamp):
+                    path.write_text(json.dumps({"kind": "load_start", "started": timestamp}) + "\n")
+                    actual = run.read_load_start(path)
+                    self.assertEqual(actual[0], timestamp)
+                    self.assertAlmostEqual(actual[1], base + fraction, places=5)
 
     def test_forced_termination_is_explicitly_unverified(self):
         from unittest.mock import Mock

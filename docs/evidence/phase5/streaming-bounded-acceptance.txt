@@ -1,0 +1,34 @@
+=== RUN   TestCompressedBatchAboveDecompressionBoundDoesNotAdvanceOffset
+    memory_test.go:43: isolated topic streamtest-1604e75426b1e78522e567a5 retained for inspection, retention 1h/16MiB
+    memory_test.go:67: uncompressed=6291456 broker offset=0 next=1 committed=0; worker rejected before storage
+--- PASS: TestCompressedBatchAboveDecompressionBoundDoesNotAdvanceOffset (0.63s)
+=== RUN   TestOneByteFetchBudgetMakesOrderedProgressAcrossCompressedBatches
+    memory_test.go:86: isolated topic streamtest-2725cb9af067941d3913206e retained for inspection, retention 1h/16MiB
+    memory_test.go:127: four separate compressed valid records (512 normalized rows) progressed one fetch each and committed offsets 1..4
+--- PASS: TestOneByteFetchBudgetMakesOrderedProgressAcrossCompressedBatches (0.71s)
+=== RUN   TestPoisonRecordDoesNotAdvanceOffset
+=== RUN   TestPoisonRecordDoesNotAdvanceOffset/unsupported
+    poison_test.go:100: isolated topic streamtest-a25cd8ea428f2e8735fcc0e1 retained for inspection, retention 1h/16MiB
+=== RUN   TestPoisonRecordDoesNotAdvanceOffset/malformed
+    poison_test.go:100: isolated topic streamtest-3c877d1c25eeb86160890dba retained for inspection, retention 1h/16MiB
+--- PASS: TestPoisonRecordDoesNotAdvanceOffset (0.33s)
+    --- PASS: TestPoisonRecordDoesNotAdvanceOffset/unsupported (0.16s)
+    --- PASS: TestPoisonRecordDoesNotAdvanceOffset/malformed (0.17s)
+=== RUN   TestRetainedOffsetGapFailsWithoutReset
+    poison_test.go:127: isolated topic streamtest-a7a0763c1553d6dff3c5d1b0 retained for inspection, retention 1h/16MiB
+--- PASS: TestRetainedOffsetGapFailsWithoutReset (0.29s)
+=== RUN   TestBrokerAckBeforeStorageThenWorkerRecovery
+    streaming_test.go:211: Kafka ACK before retained broker restart: trace=35f091dfd0b7cab988bea7d20b078d8f namespace=streamtest-6cd7be6cb4d2
+--- PASS: TestBrokerAckBeforeStorageThenWorkerRecovery (65.18s)
+=== RUN   TestBrokerOutageReturnsRetryableFailure
+--- PASS: TestBrokerOutageReturnsRetryableFailure (36.63s)
+=== RUN   TestWriteBeforeCommitCrashAndFreshGroupReplay
+    streaming_test.go:326: isolated topic streamtest-3c7c66430159688440c0016a retained for inspection, retention 1h/16MiB
+    streaming_test.go:351: trace=b99d4bb642120f12b2a7d3e95d40bd27 group=streamtest-crash-8a4d553bf98fa4d75fa49c40 Kafka record offset=0 next=1
+    streaming_test.go:389: same-group replay committed offset=1
+    streaming_test.go:396: fresh-group replay committed offset=1
+--- PASS: TestWriteBeforeCommitCrashAndFreshGroupReplay (46.75s)
+=== RUN   TestInvalidAndOversizedRequestsFailClosed
+--- PASS: TestInvalidAndOversizedRequestsFailClosed (0.21s)
+PASS
+ok  	incidentlens/backend/tests/streaming	152.732s

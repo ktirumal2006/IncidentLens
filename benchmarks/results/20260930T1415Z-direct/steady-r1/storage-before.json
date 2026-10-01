@@ -1,0 +1,48 @@
+{
+  "at": "2026-09-30T14:17:45.394251Z",
+  "clickhouse_disk": {
+    "at": "2026-09-30T14:17:45.394308Z",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+      "exec",
+      "-T",
+      "clickhouse",
+      "df",
+      "-k",
+      "/var/lib/clickhouse"
+    ],
+    "elapsed_seconds": 0.2679844479999929,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "Filesystem      1K-blocks     Used  Available Use% Mounted on\n/dev/vda1      2112646064 21433328 1983822224   2% /var/lib/clickhouse\n"
+  },
+  "clickhouse_parts": {
+    "at": "2026-09-30T14:17:44.990744Z",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+      "exec",
+      "-T",
+      "clickhouse",
+      "clickhouse-client",
+      "--password",
+      "local-admin",
+      "--query",
+      "SELECT table, count() AS active_parts, sum(rows) AS physical_rows, sum(bytes_on_disk) AS disk_bytes, sum(data_compressed_bytes) AS compressed_bytes, sum(data_uncompressed_bytes) AS uncompressed_bytes FROM system.parts WHERE database='incidentlens' AND active GROUP BY table FORMAT JSON"
+    ],
+    "elapsed_seconds": 0.40333981699998844,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "{\n\t\"meta\":\n\t[\n\t\t{\n\t\t\t\"name\": \"table\",\n\t\t\t\"type\": \"String\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"active_parts\",\n\t\t\t\"type\": \"UInt64\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"physical_rows\",\n\t\t\t\"type\": \"UInt64\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"disk_bytes\",\n\t\t\t\"type\": \"UInt64\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"compressed_bytes\",\n\t\t\t\"type\": \"UInt64\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"uncompressed_bytes\",\n\t\t\t\"type\": \"UInt64\"\n\t\t}\n\t],\n\n\t\"data\":\n\t[\n\t\t{\n\t\t\t\"table\": \"spans\",\n\t\t\t\"active_parts\": 13,\n\t\t\t\"physical_rows\": 881204,\n\t\t\t\"disk_bytes\": 20317428,\n\t\t\t\"compressed_bytes\": 20253794,\n\t\t\t\"uncompressed_bytes\": 787860143\n\t\t}\n\t],\n\n\t\"rows\": 1,\n\n\t\"statistics\":\n\t{\n\t\t\"elapsed\": 0.005209894,\n\t\t\"rows_read\": 13,\n\t\t\"bytes_read\": 858\n\t}\n}\n"
+  },
+  "host_disk": {
+    "free_bytes": 3877963296768,
+    "total_bytes": 4001907707904,
+    "used_bytes": 123944411136
+  }
+}

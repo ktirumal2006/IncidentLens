@@ -1,0 +1,62 @@
+{
+  "started_at": "2026-10-01T02:35:08.782856+00:00",
+  "status": "failed",
+  "steps": [
+    {
+      "label": "restore_streaming",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "deploy/local/compose.yaml",
+        "-f",
+        "deploy/streaming/compose.yaml",
+        "up",
+        "-d"
+      ],
+      "started_at": "2026-10-01T02:35:09.020022+00:00",
+      "pid": 48770,
+      "returncode": 0,
+      "ended_at": "2026-10-01T02:35:35.496329+00:00"
+    },
+    {
+      "label": "bounded_acceptance",
+      "command": [
+        "/tmp/incidentlens-toolchain/go/bin/go",
+        "test",
+        "-race",
+        "./tests/streaming",
+        "-count=1",
+        "-timeout=10m",
+        "-v"
+      ],
+      "started_at": "2026-10-01T02:35:35.545447+00:00",
+      "pid": 48792,
+      "returncode": 0,
+      "ended_at": "2026-10-01T02:38:09.676691+00:00"
+    },
+    {
+      "label": "bounded_comparison",
+      "command": [
+        "caffeinate",
+        "-i",
+        "python3",
+        "benchmarks/run.py",
+        "--stack",
+        "streaming",
+        "--plan",
+        "benchmarks/plan-phase5.json",
+        "--binary",
+        "/tmp/incidentlens-bench",
+        "--output",
+        "benchmarks/results/20261001-streaming-bounded"
+      ],
+      "started_at": "2026-10-01T02:38:09.677187+00:00",
+      "pid": 48955,
+      "returncode": 1,
+      "ended_at": "2026-10-01T03:00:52.716354+00:00"
+    }
+  ],
+  "error": "RuntimeError('bounded_comparison failed')",
+  "ended_at": "2026-10-01T03:00:52.717579+00:00"
+}

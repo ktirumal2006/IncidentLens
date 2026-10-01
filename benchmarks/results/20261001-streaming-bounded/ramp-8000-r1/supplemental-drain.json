@@ -1,0 +1,21 @@
+{
+  "started_at": "2026-10-01T02:59:17.165791Z",
+  "bound_seconds": 120,
+  "original_summary": "benchmarks/results/20261001-streaming-bounded/ramp-8000-r1/harness/summary.json",
+  "meaning": "supplemental post-run observation; original deadline result remains unchanged",
+  "observations": [
+    {
+      "at": "2026-10-01T02:59:17.165904Z",
+      "elapsed_seconds": 0.00012824600003114028,
+      "planned_missing": 4416,
+      "emitted_missing": 0,
+      "acked_missing": 0,
+      "expected_stored": 395580,
+      "unknown": 0,
+      "duplicate_logical_identities": 0,
+      "snapshot_verified": true
+    }
+  ],
+  "complete": true,
+  "ended_at": "2026-10-01T02:59:19.048107Z"
+}

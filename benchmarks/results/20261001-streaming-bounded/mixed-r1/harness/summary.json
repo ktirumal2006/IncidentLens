@@ -1,0 +1,418 @@
+{
+  "config": {
+    "output_dir": "benchmarks/results/20261001-streaming-bounded/mixed-r1/harness",
+    "seed": "54efa56ad90b4dbd9d10f0f45c6b8d03-mixed-r1",
+    "scenario": "mixed",
+    "namespace": "bench-c9651838e8fe",
+    "rate_spans_per_second": 500,
+    "duration_ns": 120000000000,
+    "warmup_ns": 10000000000,
+    "export_concurrency": 16,
+    "batch_traces": 32,
+    "export_queue": 64,
+    "max_attempts": 3,
+    "export_timeout_ns": 8000000000,
+    "drain_ns": 120000000000,
+    "settle_ns": 35000000000,
+    "estimated_event_bytes_upper_bound": 8341616,
+    "query_requests_per_second": 4,
+    "query_concurrency": 4,
+    "query_mix": "services,traces,detail,incidents",
+    "attribute_payload_bytes": 256,
+    "baseline_traces": 128,
+    "collector": "127.0.0.1:4317",
+    "api": "http://127.0.0.1:18081",
+    "clickhouse": "127.0.0.1:19000",
+    "clickhouse_user": "query",
+    "visibility_every_batches": 10,
+    "visibility_timeout_ns": 10000000000,
+    "max_event_bytes": 268435456,
+    "load_traces": 10833,
+    "load_spans": 64998,
+    "setup_spans": 768,
+    "span_kinds_per_trace": {
+      "CLIENT": 2,
+      "INTERNAL": 1,
+      "SERVER": 3
+    },
+    "serialized_full_batch_bytes": 82014,
+    "services": [
+      "bench-frontend",
+      "bench-api",
+      "bench-store"
+    ]
+  },
+  "drain_deadline_expired": false,
+  "driver": {
+    "generator_limited": false,
+    "logging_error": "",
+    "missed_deadline_batches": 0,
+    "schedule_dropped_batches": 0
+  },
+  "error": "",
+  "event_counts": {
+    "batch_complete:measured": 312,
+    "batch_complete:setup": 4,
+    "batch_complete:warmup": 27,
+    "enqueued:measured": 312,
+    "enqueued:warmup": 27,
+    "export_attempt:measured": 312,
+    "export_attempt:setup": 4,
+    "export_attempt:warmup": 27,
+    "generated:measured": 312,
+    "generated:setup": 4,
+    "generated:warmup": 27,
+    "load_start:": 1,
+    "query:measured": 480,
+    "query:warmup": 40,
+    "scheduled:measured": 312,
+    "scheduled:warmup": 27,
+    "visibility:measured": 31,
+    "visibility:warmup": 3,
+    "visibility_probe:measured": 62,
+    "visibility_probe:warmup": 6
+  },
+  "latencies": {
+    "export_attempt:measured:": {
+      "count": 312,
+      "p50_ns": 19141000,
+      "p95_ns": 28289000,
+      "p99_ns": 37508000,
+      "max_ns": 65560000
+    },
+    "export_attempt:measured::OK": {
+      "count": 312,
+      "p50_ns": 19141000,
+      "p95_ns": 28289000,
+      "p99_ns": 37508000,
+      "max_ns": 65560000
+    },
+    "export_attempt:setup:": {
+      "count": 4,
+      "p50_ns": 39476000,
+      "p95_ns": 101045000,
+      "p99_ns": 101045000,
+      "max_ns": 101045000
+    },
+    "export_attempt:setup::OK": {
+      "count": 4,
+      "p50_ns": 39476000,
+      "p95_ns": 101045000,
+      "p99_ns": 101045000,
+      "max_ns": 101045000
+    },
+    "export_attempt:warmup:": {
+      "count": 27,
+      "p50_ns": 22892000,
+      "p95_ns": 30487000,
+      "p99_ns": 34896000,
+      "max_ns": 34896000
+    },
+    "export_attempt:warmup::OK": {
+      "count": 27,
+      "p50_ns": 22892000,
+      "p95_ns": 30487000,
+      "p99_ns": 34896000,
+      "max_ns": 34896000
+    },
+    "query:measured:detail": {
+      "count": 120,
+      "p50_ns": 42575000,
+      "p95_ns": 182015000,
+      "p99_ns": 347652000,
+      "max_ns": 463285000
+    },
+    "query:measured:detail:2xx": {
+      "count": 115,
+      "p50_ns": 42724000,
+      "p95_ns": 182015000,
+      "p99_ns": 347652000,
+      "max_ns": 463285000
+    },
+    "query:measured:detail:4xx": {
+      "count": 5,
+      "p50_ns": 39058000,
+      "p95_ns": 45821000,
+      "p99_ns": 45821000,
+      "max_ns": 45821000
+    },
+    "query:measured:incidents": {
+      "count": 120,
+      "p50_ns": 319866000,
+      "p95_ns": 537204000,
+      "p99_ns": 575912000,
+      "max_ns": 647035000
+    },
+    "query:measured:incidents:2xx": {
+      "count": 120,
+      "p50_ns": 319866000,
+      "p95_ns": 537204000,
+      "p99_ns": 575912000,
+      "max_ns": 647035000
+    },
+    "query:measured:services": {
+      "count": 120,
+      "p50_ns": 22445000,
+      "p95_ns": 91102000,
+      "p99_ns": 165087000,
+      "max_ns": 175145000
+    },
+    "query:measured:services:2xx": {
+      "count": 119,
+      "p50_ns": 22434000,
+      "p95_ns": 91102000,
+      "p99_ns": 165087000,
+      "max_ns": 175145000
+    },
+    "query:measured:services:5xx": {
+      "count": 1,
+      "p50_ns": 35589000,
+      "p95_ns": 35589000,
+      "p99_ns": 35589000,
+      "max_ns": 35589000
+    },
+    "query:measured:traces": {
+      "count": 120,
+      "p50_ns": 22918000,
+      "p95_ns": 33175000,
+      "p99_ns": 63765000,
+      "max_ns": 105094000
+    },
+    "query:measured:traces:2xx": {
+      "count": 120,
+      "p50_ns": 22918000,
+      "p95_ns": 33175000,
+      "p99_ns": 63765000,
+      "max_ns": 105094000
+    },
+    "query:warmup:detail": {
+      "count": 10,
+      "p50_ns": 18107000,
+      "p95_ns": 32699000,
+      "p99_ns": 32699000,
+      "max_ns": 32699000
+    },
+    "query:warmup:detail:2xx": {
+      "count": 9,
+      "p50_ns": 18107000,
+      "p95_ns": 32699000,
+      "p99_ns": 32699000,
+      "max_ns": 32699000
+    },
+    "query:warmup:detail:4xx": {
+      "count": 1,
+      "p50_ns": 17215000,
+      "p95_ns": 17215000,
+      "p99_ns": 17215000,
+      "max_ns": 17215000
+    },
+    "query:warmup:incidents": {
+      "count": 10,
+      "p50_ns": 40081000,
+      "p95_ns": 56193000,
+      "p99_ns": 56193000,
+      "max_ns": 56193000
+    },
+    "query:warmup:incidents:2xx": {
+      "count": 10,
+      "p50_ns": 40081000,
+      "p95_ns": 56193000,
+      "p99_ns": 56193000,
+      "max_ns": 56193000
+    },
+    "query:warmup:services": {
+      "count": 10,
+      "p50_ns": 15324000,
+      "p95_ns": 39757000,
+      "p99_ns": 39757000,
+      "max_ns": 39757000
+    },
+    "query:warmup:services:2xx": {
+      "count": 10,
+      "p50_ns": 15324000,
+      "p95_ns": 39757000,
+      "p99_ns": 39757000,
+      "max_ns": 39757000
+    },
+    "query:warmup:traces": {
+      "count": 10,
+      "p50_ns": 16972000,
+      "p95_ns": 47175000,
+      "p99_ns": 47175000,
+      "max_ns": 47175000
+    },
+    "query:warmup:traces:2xx": {
+      "count": 10,
+      "p50_ns": 16972000,
+      "p95_ns": 47175000,
+      "p99_ns": 47175000,
+      "max_ns": 47175000
+    },
+    "schedule_delay:measured": {
+      "count": 312,
+      "p50_ns": 853000,
+      "p95_ns": 1751000,
+      "p99_ns": 2125000,
+      "max_ns": 15791000
+    },
+    "schedule_delay:setup": {
+      "count": 4,
+      "p50_ns": 522000,
+      "p95_ns": 917000,
+      "p99_ns": 917000,
+      "max_ns": 917000
+    },
+    "schedule_delay:warmup": {
+      "count": 27,
+      "p50_ns": 1133000,
+      "p95_ns": 1998000,
+      "p99_ns": 2035000,
+      "max_ns": 2035000
+    }
+  },
+  "load_start": "2026-10-01T02:38:29.195497Z",
+  "measured": {
+    "ack_latency": {
+      "count": 312,
+      "p50_ns": 19141000,
+      "p95_ns": 28289000,
+      "p99_ns": 37508000,
+      "max_ns": 65560000
+    },
+    "acked_spans": 59814,
+    "acked_spans_per_second": 498.45,
+    "acked_spans_within_measurement_window": 59814,
+    "emitted_spans": 59814,
+    "enqueued_spans": 59814,
+    "exported_batches": 312,
+    "generated_spans": 59814,
+    "offered_spans": 59814,
+    "planned_spans": 59814,
+    "rejected_spans": 0,
+    "retried_batches": 0,
+    "schedule_to_ack_latency": {
+      "count": 312,
+      "p50_ns": 20105000,
+      "p95_ns": 29087000,
+      "p99_ns": 38143000,
+      "max_ns": 66214000
+    },
+    "terminal_error_fraction": 0,
+    "terminal_failed_batches": 0,
+    "unique_ack_fraction": 1
+  },
+  "measurement_end": "2026-10-01T02:40:39.195497Z",
+  "measurement_start": "2026-10-01T02:38:39.195497Z",
+  "offering_finished": "2026-10-01T02:40:39.195643Z",
+  "raw_event_bytes": 769101,
+  "reconciliation": {
+    "settled": true,
+    "snapshot_verified": true,
+    "verified": true,
+    "planned_spans": 65766,
+    "emitted_spans": 65766,
+    "acked_spans": 65766,
+    "raw_rows": 65766,
+    "final_unique_spans": 65766,
+    "expected_stored": 65766,
+    "planned_missing": 0,
+    "emitted_missing": 0,
+    "acked_missing": 0,
+    "never_acked_stored": 0,
+    "unknown": 0,
+    "physical_duplicates_remaining": 0,
+    "duplicate_logical_identities": 0,
+    "ledger": "reconciliation.jsonl"
+  },
+  "run_end": "2026-10-01T02:41:14.706689Z",
+  "schema_version": 1,
+  "setup": {
+    "ack_latency": {
+      "count": 4,
+      "p50_ns": 39476000,
+      "p95_ns": 101045000,
+      "p99_ns": 101045000,
+      "max_ns": 101045000
+    },
+    "acked_spans": 768,
+    "acked_spans_per_second": 0,
+    "acked_spans_within_measurement_window": 0,
+    "emitted_spans": 768,
+    "enqueued_spans": 768,
+    "exported_batches": 4,
+    "generated_spans": 768,
+    "offered_spans": 768,
+    "planned_spans": 768,
+    "rejected_spans": 0,
+    "retried_batches": 0,
+    "schedule_to_ack_latency": {
+      "count": 4,
+      "p50_ns": 39906000,
+      "p95_ns": 101962000,
+      "p99_ns": 101962000,
+      "max_ns": 101962000
+    },
+    "terminal_error_fraction": 0,
+    "terminal_failed_batches": 0,
+    "unique_ack_fraction": 0
+  },
+  "status_counts": {
+    "export_attempt:measured::OK": 312,
+    "export_attempt:setup::OK": 4,
+    "export_attempt:warmup::OK": 27,
+    "query:measured:detail:200": 115,
+    "query:measured:detail:404": 5,
+    "query:measured:incidents:200": 120,
+    "query:measured:services:200": 119,
+    "query:measured:services:503": 1,
+    "query:measured:traces:200": 120,
+    "query:warmup:detail:200": 9,
+    "query:warmup:detail:404": 1,
+    "query:warmup:incidents:200": 10,
+    "query:warmup:services:200": 10,
+    "query:warmup:traces:200": 10
+  },
+  "visibility": {
+    "censored": 0,
+    "first_send_to_observation": {
+      "count": 31,
+      "p50_ns": 239923000,
+      "p95_ns": 293947000,
+      "p99_ns": 304950000,
+      "max_ns": 304950000
+    },
+    "method": "sampled expected six-span trace observation; polling upper bounds, not exact storage arrival",
+    "observed_measured": 31,
+    "poll_interval_ns": 200000000
+  },
+  "warmup": {
+    "ack_latency": {
+      "count": 27,
+      "p50_ns": 22892000,
+      "p95_ns": 30487000,
+      "p99_ns": 34896000,
+      "max_ns": 34896000
+    },
+    "acked_spans": 5184,
+    "acked_spans_per_second": 19.2,
+    "acked_spans_within_measurement_window": 192,
+    "emitted_spans": 5184,
+    "enqueued_spans": 5184,
+    "exported_batches": 27,
+    "generated_spans": 5184,
+    "offered_spans": 5184,
+    "planned_spans": 5184,
+    "rejected_spans": 0,
+    "retried_batches": 0,
+    "schedule_to_ack_latency": {
+      "count": 27,
+      "p50_ns": 24016000,
+      "p95_ns": 31620000,
+      "p99_ns": 35890000,
+      "max_ns": 35890000
+    },
+    "terminal_error_fraction": 0,
+    "terminal_failed_batches": 0,
+    "unique_ack_fraction": 0.037037037037037035
+  }
+}

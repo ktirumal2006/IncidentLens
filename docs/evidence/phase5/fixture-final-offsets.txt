@@ -1,0 +1,3 @@
+
+GROUP                         TOPIC                 PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                              HOST            CLIENT-ID
+incidentlens-stream-worker-v1 incidentlens-spans-v1 0          10              10              0               kgo-32b407a0-ee37-49c4-ac96-ca591cbe4c94 /172.18.0.7     kgo

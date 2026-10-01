@@ -1,0 +1,25 @@
+=== RUN   TestPoisonRecordDoesNotAdvanceOffset
+=== RUN   TestPoisonRecordDoesNotAdvanceOffset/malformed
+    poison_test.go:100: isolated topic streamtest-f0b09cd74d6c411af4668a59 retained for inspection, retention 1h/16MiB
+=== RUN   TestPoisonRecordDoesNotAdvanceOffset/unsupported
+    poison_test.go:100: isolated topic streamtest-d31a1874f90bb6ae1d1d6493 retained for inspection, retention 1h/16MiB
+--- PASS: TestPoisonRecordDoesNotAdvanceOffset (0.71s)
+    --- PASS: TestPoisonRecordDoesNotAdvanceOffset/malformed (0.44s)
+    --- PASS: TestPoisonRecordDoesNotAdvanceOffset/unsupported (0.27s)
+=== RUN   TestRetainedOffsetGapFailsWithoutReset
+    poison_test.go:127: isolated topic streamtest-ce217155da0b21c829f025f9 retained for inspection, retention 1h/16MiB
+--- PASS: TestRetainedOffsetGapFailsWithoutReset (0.32s)
+=== RUN   TestBrokerAckBeforeStorageThenWorkerRecovery
+    streaming_test.go:211: Kafka ACK before retained broker restart: trace=1ba798e471ff1019d6febb95efad5549 namespace=streamtest-c4eb704e8757
+--- PASS: TestBrokerAckBeforeStorageThenWorkerRecovery (27.04s)
+=== RUN   TestBrokerOutageReturnsRetryableFailure
+--- PASS: TestBrokerOutageReturnsRetryableFailure (34.38s)
+=== RUN   TestWriteBeforeCommitCrashAndFreshGroupReplay
+    streaming_test.go:346: trace=3dea7cf3be9fec95a2a9d6228beaf4ff group=streamtest-crash-0d5e78187cc34c6255d452c7 Kafka record offset=12 next=13
+    streaming_test.go:382: code: 241, message: (total) memory limit exceeded: would use 1.80 GiB (attempt to allocate chunk of 0.00 B bytes), current RSS: 1.72 GiB, maximum: 1.80 GiB. OvercommitTracker decision: Query was selected to stop by OvercommitTracker: While executing AggregatingTransform
+--- FAIL: TestWriteBeforeCommitCrashAndFreshGroupReplay (55.21s)
+=== RUN   TestInvalidAndOversizedRequestsFailClosed
+--- PASS: TestInvalidAndOversizedRequestsFailClosed (0.40s)
+FAIL
+FAIL	incidentlens/backend/tests/streaming	119.028s
+FAIL

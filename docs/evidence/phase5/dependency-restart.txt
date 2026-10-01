@@ -1,0 +1,4 @@
+ Container incidentlens-collector-1 Restarting 
+ Container incidentlens-clickhouse-1 Restarting 
+ Container incidentlens-collector-1 Started 
+Error response from daemon: Cannot restart container f5c8bdd48da5ce1f3911cfbdef532c0db77a0efed430a43d9214c28c00d9177d: tried to kill container, but did not receive an exit event

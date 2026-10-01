@@ -48,3 +48,42 @@ Synchronous native-protocol inserts use `async_insert=0`. An acknowledged insert
 ReplacingMergeTree deduplicates physical rows during merges. Verification reads use `FINAL` immediately, before merges, and apply a seven-day event-time visibility cutoff. TTL rounds deletion eligibility upward by one second so it cannot physically delete a row before the exact nanosecond visibility cutoff; deletion then runs asynchronously. Future query APIs must apply the exact visibility cutoff independently of TTL.
 
 Immutable completed spans and stable service/start-time keys are required. Conflicting copies are unsupported; `FINAL` cannot deduplicate copies whose sorting keys differ. The verification script reports conflicting identities visible in raw storage. It cannot recover conflicts already discarded by merges. Do not interpret them as legitimate updates.
+
+
+## Optional streaming contract
+
+The [streaming overlay](../deploy/streaming/README.md) uses a separate
+`stream-ingest` OTLP/gRPC executable. The existing direct endpoint and its
+storage-ACK contract above are unchanged. Collector still waits for downstream
+results, with the same partial-rejection caveat.
+
+In this mode a successful valid export means all its records were accepted by
+Kafka with all-ISR acknowledgment. It does **not** mean ClickHouse visibility.
+Normalization uses the same trace policy, four concurrent export slots and a
+4 MiB gRPC request limit. Before publishing anything, the producer encodes every
+chunk: schema version 1, at most 256 normalized rows and 4 MiB JSON per record.
+An oversized encoded chunk returns ResourceExhausted without publishing any
+chunk. Invalid spans are permanently rejected; mixed exports return partial
+success after valid records are acknowledged. A publish failure returns retryable
+Unavailable; earlier chunks may already exist and caller replay is expected.
+Publishing has a finite five-second deadline and bounded client buffers.
+
+`stream-worker` polls one broker batch without prefetch, caps decoded batch bytes
+at 5 MiB and response bytes at 8 MiB, and fails closed on oversized decompression.
+Its one-byte fetch budgets use Kafka's first-batch progress exception; valid
+4 MiB records still progress. It processes partition offsets sequentially, writes a full record
+synchronously, then commits its next offset. A crash between write and commit
+replays the same normalized payload, including ingestion timestamp. Existing
+immutable identities and FINAL query/detector reads prevent logical inflation.
+Caller OTLP retries are normalized anew, as on the direct path. No cross-system
+transaction or exactly-once guarantee is claimed.
+
+The one-partition RF1 topic retains one hour or 1 GiB, subject to asynchronous
+segment deletion. Fresh replay groups begin at the earliest retained offset;
+this is not recovery of already deleted data. Unsupported schema, malformed or
+expired rows and a committed offset older than retained data halt consumption
+without advancing past failure. The local broker volume must survive restarts;
+there is no disk-loss, power-loss, replication or HA guarantee. The API/UI always
+reflect stored observations, potentially incomplete while the consumer lags.
+See [ADR 0004](adr/0004-phase5-buffering-and-replay.md) for bounds and
+[the runbook](../deploy/streaming/README.md) for safe drain and rollback steps.

@@ -1,0 +1,1839 @@
+{
+  "campaign_status": "completed",
+  "issues": [],
+  "note": "Targets are the predeclared WORKLOAD.md targets. No status from a harness summary is treated as proof of measured success.",
+  "schema_version": 1,
+  "source_campaign": "/Users/kousil/Documents/IncidentLens/benchmarks/results/20260930T1415Z-direct",
+  "stages": [
+    {
+      "directory": "benchmarks/results/20260930T1415Z-direct/mixed-r1",
+      "issues": [],
+      "measurement_window": {
+        "from": "2026-09-30T14:15:06.51315Z",
+        "half_open": true,
+        "to": "2026-09-30T14:17:06.51315Z"
+      },
+      "metrics": {
+        "acknowledged_final_spans_per_second": 498.45,
+        "acknowledged_fraction_within_window": 1.0,
+        "acknowledged_within_window_spans_per_second": 498.45,
+        "acknowledgment_from_first_send": {
+          "count": 312,
+          "max_ns": 418589000,
+          "p50_ns": 34915000,
+          "p95_ns": 161219000,
+          "p99_ns": 213649000,
+          "p99_tail_samples": 3
+        },
+        "batch_completion_statuses": {
+          "acknowledged": 312
+        },
+        "emitted_spans_per_second": 498.45,
+        "measured_batches": 312,
+        "measured_counts_spans": {
+          "acknowledged": 59814,
+          "acknowledged_within_window": 59814,
+          "attempted": 59814,
+          "enqueued": 59814,
+          "generated": 59814,
+          "planned": 59814,
+          "schedule_drop": 0,
+          "scheduled": 59814
+        },
+        "measurement_seconds": 120.0,
+        "missing_batch_completions": 0,
+        "offered_spans_per_second": 498.45,
+        "per_attempt_latency": {
+          "count": 312,
+          "max_ns": 418589000,
+          "p50_ns": 34915000,
+          "p95_ns": 161219000,
+          "p99_ns": 213649000,
+          "p99_tail_samples": 3
+        },
+        "queries": {
+          "detail": {
+            "failed": {
+              "count": 1,
+              "max_ns": 427881000,
+              "p50_ns": 427881000,
+              "p95_ns": 427881000,
+              "p99_ns": 427881000,
+              "p99_tail_samples": 1
+            },
+            "failed_requests": 1,
+            "response_bytes": 1124597,
+            "statuses": {
+              "200": 119,
+              "503": 1
+            },
+            "successful": {
+              "count": 119,
+              "max_ns": 1221747000,
+              "p50_ns": 116665000,
+              "p95_ns": 524015000,
+              "p99_ns": 1156077000,
+              "p99_tail_samples": 1
+            },
+            "successful_requests": 119
+          },
+          "incidents": {
+            "failed": {
+              "count": 0,
+              "max_ns": null,
+              "p50_ns": null,
+              "p95_ns": null,
+              "p99_ns": null,
+              "p99_tail_samples": 0
+            },
+            "failed_requests": 0,
+            "response_bytes": 1836755,
+            "statuses": {
+              "200": 120
+            },
+            "successful": {
+              "count": 120,
+              "max_ns": 2371320000,
+              "p50_ns": 635310000,
+              "p95_ns": 1416883000,
+              "p99_ns": 1894711000,
+              "p99_tail_samples": 1
+            },
+            "successful_requests": 120
+          },
+          "services": {
+            "failed": {
+              "count": 0,
+              "max_ns": null,
+              "p50_ns": null,
+              "p95_ns": null,
+              "p99_ns": null,
+              "p99_tail_samples": 0
+            },
+            "failed_requests": 0,
+            "response_bytes": 108419,
+            "statuses": {
+              "200": 120
+            },
+            "successful": {
+              "count": 120,
+              "max_ns": 621602000,
+              "p50_ns": 63386000,
+              "p95_ns": 241957000,
+              "p99_ns": 426891000,
+              "p99_tail_samples": 1
+            },
+            "successful_requests": 120
+          },
+          "traces": {
+            "failed": {
+              "count": 0,
+              "max_ns": null,
+              "p50_ns": null,
+              "p95_ns": null,
+              "p99_ns": null,
+              "p99_tail_samples": 0
+            },
+            "failed_requests": 0,
+            "response_bytes": 2761278,
+            "statuses": {
+              "200": 120
+            },
+            "successful": {
+              "count": 120,
+              "max_ns": 589150000,
+              "p50_ns": 37382000,
+              "p95_ns": 369606000,
+              "p99_ns": 480418000,
+              "p99_tail_samples": 1
+            },
+            "successful_requests": 120
+          }
+        },
+        "raw_event_kinds": {
+          "batch_complete": 343,
+          "enqueued": 339,
+          "export_attempt": 343,
+          "generated": 343,
+          "load_start": 1,
+          "query": 520,
+          "scheduled": 339,
+          "visibility": 34,
+          "visibility_probe": 65
+        },
+        "raw_phase_tags": {
+          "measured": 2130,
+          "setup": 12,
+          "unspecified": 1,
+          "warmup": 184
+        },
+        "rejected_spans": 0,
+        "retry_attempts": 0,
+        "schedule_to_acknowledgment": {
+          "count": 312,
+          "max_ns": 420090000,
+          "p50_ns": 36289000,
+          "p95_ns": 162437000,
+          "p99_ns": 215935000,
+          "p99_tail_samples": 3
+        },
+        "terminal_measured_batches": 0,
+        "visibility": {
+          "ack_to_observation": {
+            "count": 31,
+            "max_ns": 594125000,
+            "p50_ns": 230151000,
+            "p95_ns": 544771000,
+            "p99_ns": 594125000,
+            "p99_tail_samples": 1
+          },
+          "all_phase_probe_latency": {
+            "count": 65,
+            "max_ns": 331078000,
+            "p50_ns": 39431000,
+            "p95_ns": 223488000,
+            "p99_ns": 331078000,
+            "p99_tail_samples": 1
+          },
+          "all_phase_probe_request_count": 65,
+          "censored_count": 0,
+          "first_send_to_observation": {
+            "count": 31,
+            "max_ns": 688821000,
+            "p50_ns": 282678000,
+            "p95_ns": 573899000,
+            "p99_ns": 688821000,
+            "p99_tail_samples": 1
+          },
+          "note": "Observation latency is an upper bound; probes impose measured read traffic and may observe storage before acknowledgment.",
+          "poll_count": 59,
+          "sample_count": 31
+        }
+      },
+      "name": "mixed",
+      "reconciliation": {
+        "counts": {
+          "acked_missing": 0,
+          "emitted_missing": 0,
+          "expected_stored": 65766,
+          "never_acked_stored": 0,
+          "planned_missing": 0,
+          "planned_spans": 65766,
+          "unknown": 0
+        },
+        "note": "Stored masks derive from bounded FINAL identity queries; classifications are checked against raw export records. Physical duplicate counts cannot be inferred from masks.",
+        "status": "verified_ledger",
+        "zero_identity_loss": "pass"
+      },
+      "resources": {
+        "containers": {
+          "incidentlens-api-1": {
+            "block_read_delta_bytes": 0,
+            "block_write_delta_bytes": 0,
+            "cpu_quota_cores": 1.0,
+            "max_cpu_percent_one_core": 103.37,
+            "max_cpu_percent_quota": 103.37,
+            "max_memory_bytes_docker": 204367462,
+            "max_memory_percent": 38.07,
+            "sample_count": 55,
+            "sample_mean_cpu_percent_one_core": 63.09490909090909
+          },
+          "incidentlens-clickhouse-1": {
+            "block_read_delta_bytes": 82000000,
+            "block_write_delta_bytes": 390000000,
+            "cpu_quota_cores": 2.0,
+            "max_cpu_percent_one_core": 223.4,
+            "max_cpu_percent_quota": 111.7,
+            "max_memory_bytes_docker": 2126008811,
+            "max_memory_percent": 99.02,
+            "sample_count": 55,
+            "sample_mean_cpu_percent_one_core": 165.1849090909091
+          },
+          "incidentlens-collector-1": {
+            "block_read_delta_bytes": 0,
+            "block_write_delta_bytes": 0,
+            "cpu_quota_cores": 1.0,
+            "max_cpu_percent_one_core": 7.61,
+            "max_cpu_percent_quota": 7.61,
+            "max_memory_bytes_docker": 83760250,
+            "max_memory_percent": 31.2,
+            "sample_count": 55,
+            "sample_mean_cpu_percent_one_core": 2.5447272727272727
+          },
+          "incidentlens-ingest-1": {
+            "block_read_delta_bytes": 0,
+            "block_write_delta_bytes": 0,
+            "cpu_quota_cores": 1.0,
+            "max_cpu_percent_one_core": 17.24,
+            "max_cpu_percent_quota": 17.24,
+            "max_memory_bytes_docker": 22900899,
+            "max_memory_percent": 4.27,
+            "sample_count": 55,
+            "sample_mean_cpu_percent_one_core": 7.259454545454545
+          }
+        },
+        "generator": {
+          "max_cpu_percent": 2.1,
+          "max_rss_bytes": 30179328,
+          "sample_count": 55
+        },
+        "measurement_sample_count": 55,
+        "note": "Docker CPU100% is one core; quota-normalized maxima use inspected limits. Memory is Docker's reported usage/cache convention. Block I/O is cumulative traffic, not disk occupancy; reset counters produce null deltas. Means are unweighted sample means.",
+        "sampling_errors": 0
+      },
+      "run_status": "completed",
+      "storage": {
+        "after": {
+          "active_parts": 13,
+          "disk_bytes": 20317428,
+          "physical_rows": 881204
+        },
+        "before": {
+          "active_parts": 11,
+          "disk_bytes": 18794118,
+          "physical_rows": 815439
+        },
+        "delta": {
+          "active_parts": 2,
+          "disk_bytes": 1523310,
+          "physical_rows": 65765
+        },
+        "note": "Global retained-corpus physical rows/parts/bytes include background merges and other retained runs; they are not unique identity reconciliation."
+      },
+      "targets": {
+        "ack_p95_500_ms": "pass",
+        "ack_p99_2_seconds": "pass",
+        "acknowledged_within_window_95_percent": "pass",
+        "query_routes": {
+          "detail": {
+            "p95_1_second": "pass",
+            "p99_2_seconds": "pass",
+            "zero_non_2xx": "fail"
+          },
+          "incidents": {
+            "p95_1_second": "fail",
+            "p99_2_seconds": "pass",
+            "zero_non_2xx": "pass"
+          },
+          "services": {
+            "p95_1_second": "pass",
+            "p99_2_seconds": "pass",
+            "zero_non_2xx": "pass"
+          },
+          "traces": {
+            "p95_1_second": "pass",
+            "p99_2_seconds": "pass",
+            "zero_non_2xx": "pass"
+          }
+        },
+        "visibility": {
+          "p95_1_second": "pass",
+          "p99_3_seconds": "pass",
+          "uncensored": "pass"
+        },
+        "zero_schedule_drops": "pass",
+        "zero_terminal_valid_export_errors": "pass"
+      },
+      "validity": "raw_evidence_available"
+    },
+    {
+      "directory": "benchmarks/results/20260930T1415Z-direct/outage-r1",
+      "issues": [],
+      "measurement_window": {
+        "from": "2026-09-30T14:27:32.198422Z",
+        "half_open": true,
+        "to": "2026-09-30T14:28:32.198422Z"
+      },
+      "metrics": {
+        "acknowledged_final_spans_per_second": 497.0,
+        "acknowledged_fraction_within_window": 1.0,
+        "acknowledged_within_window_spans_per_second": 497.0,
+        "acknowledgment_from_first_send": {
+          "count": 156,
+          "max_ns": 20558714000,
+          "p50_ns": 26515000,
+          "p95_ns": 18474566000,
+          "p99_ns": 20372472000,
+          "p99_tail_samples": 1
+        },
+        "batch_completion_statuses": {
+          "acknowledged": 156
+        },
+        "emitted_spans_per_second": 497.0,
+        "measured_batches": 156,
+        "measured_counts_spans": {
+          "acknowledged": 29820,
+          "acknowledged_within_window": 29820,
+          "attempted": 29820,
+          "enqueued": 29820,
+          "generated": 29820,
+          "planned": 29820,
+          "schedule_drop": 0,
+          "scheduled": 29820
+        },
+        "measurement_seconds": 60.0,
+        "missing_batch_completions": 0,
+        "offered_spans_per_second": 497.0,
+        "per_attempt_latency": {
+          "count": 183,
+          "max_ns": 8000632000,
+          "p50_ns": 97351000,
+          "p95_ns": 7713668000,
+          "p99_ns": 8000100000,
+          "p99_tail_samples": 1
+        },
+        "queries": {},
+        "raw_event_kinds": {
+          "batch_complete": 196,
+          "enqueued": 196,
+          "export_attempt": 223,
+          "generated": 196,
+          "load_start": 1,
+          "scheduled": 196,
+          "visibility": 20,
+          "visibility_probe": 146
+        },
+        "raw_phase_tags": {
+          "measured": 961,
+          "unspecified": 1,
+          "warmup": 212
+        },
+        "rejected_spans": 0,
+        "retry_attempts": 27,
+        "schedule_to_acknowledgment": {
+          "count": 156,
+          "max_ns": 20559357000,
+          "p50_ns": 27422000,
+          "p95_ns": 18476249000,
+          "p99_ns": 20373385000,
+          "p99_tail_samples": 1
+        },
+        "terminal_measured_batches": 0,
+        "visibility": {
+          "ack_to_observation": {
+            "count": 14,
+            "max_ns": 498009000,
+            "p50_ns": 205867000,
+            "p95_ns": 498009000,
+            "p99_ns": 498009000,
+            "p99_tail_samples": 1
+          },
+          "all_phase_probe_latency": {
+            "count": 146,
+            "max_ns": 293226000,
+            "p50_ns": 9169000,
+            "p95_ns": 189895000,
+            "p99_ns": 288174000,
+            "p99_tail_samples": 1
+          },
+          "all_phase_probe_request_count": 146,
+          "censored_count": 2,
+          "first_send_to_observation": {
+            "count": 14,
+            "max_ns": 1695326000,
+            "p50_ns": 234145000,
+            "p95_ns": 1695326000,
+            "p99_ns": 1695326000,
+            "p99_tail_samples": 1
+          },
+          "note": "Observation latency is an upper bound; probes impose measured read traffic and may observe storage before acknowledgment.",
+          "poll_count": 138,
+          "sample_count": 16
+        }
+      },
+      "name": "outage",
+      "reconciliation": {
+        "counts": {
+          "acked_missing": 0,
+          "emitted_missing": 0,
+          "expected_stored": 37500,
+          "never_acked_stored": 0,
+          "planned_missing": 0,
+          "planned_spans": 37500,
+          "unknown": 0
+        },
+        "note": "Stored masks derive from bounded FINAL identity queries; classifications are checked against raw export records. Physical duplicate counts cannot be inferred from masks.",
+        "status": "verified_ledger",
+        "zero_identity_loss": "pass"
+      },
+      "resources": {
+        "containers": {
+          "incidentlens-api-1": {
+            "block_read_delta_bytes": 0,
+            "block_write_delta_bytes": 0,
+            "cpu_quota_cores": 1.0,
+            "max_cpu_percent_one_core": 2.42,
+            "max_cpu_percent_quota": 2.42,
+            "max_memory_bytes_docker": 61090037,
+            "max_memory_percent": 11.38,
+            "sample_count": 29,
+            "sample_mean_cpu_percent_one_core": 0.6344827586206897
+          },
+          "incidentlens-clickhouse-1": {
+            "block_read_delta_bytes": null,
+            "block_write_delta_bytes": null,
+            "cpu_quota_cores": 2.0,
+            "max_cpu_percent_one_core": 213.11,
+            "max_cpu_percent_quota": 106.555,
+            "max_memory_bytes_docker": 1998233534,
+            "max_memory_percent": 93.06,
+            "sample_count": 29,
+            "sample_mean_cpu_percent_one_core": 75.93758620689655
+          },
+          "incidentlens-collector-1": {
+            "block_read_delta_bytes": 0,
+            "block_write_delta_bytes": 0,
+            "cpu_quota_cores": 1.0,
+            "max_cpu_percent_one_core": 10.48,
+            "max_cpu_percent_quota": 10.48,
+            "max_memory_bytes_docker": 92631203,
+            "max_memory_percent": 34.51,
+            "sample_count": 29,
+            "sample_mean_cpu_percent_one_core": 2.2306896551724136
+          },
+          "incidentlens-ingest-1": {
+            "block_read_delta_bytes": 0,
+            "block_write_delta_bytes": 0,
+            "cpu_quota_cores": 1.0,
+            "max_cpu_percent_one_core": 36.18,
+            "max_cpu_percent_quota": 36.18,
+            "max_memory_bytes_docker": 25438453,
+            "max_memory_percent": 4.74,
+            "sample_count": 29,
+            "sample_mean_cpu_percent_one_core": 6.914482758620689
+          }
+        },
+        "generator": {
+          "max_cpu_percent": 3.9,
+          "max_rss_bytes": 60985344,
+          "sample_count": 29
+        },
+        "measurement_sample_count": 29,
+        "note": "Docker CPU100% is one core; quota-normalized maxima use inspected limits. Memory is Docker's reported usage/cache convention. Block I/O is cumulative traffic, not disk occupancy; reset counters produce null deltas. Means are unweighted sample means.",
+        "sampling_errors": 0
+      },
+      "run_status": "completed",
+      "storage": {
+        "after": {
+          "active_parts": 16,
+          "disk_bytes": 26620780,
+          "physical_rows": 1143704
+        },
+        "before": {
+          "active_parts": 15,
+          "disk_bytes": 25730162,
+          "physical_rows": 1106204
+        },
+        "delta": {
+          "active_parts": 1,
+          "disk_bytes": 890618,
+          "physical_rows": 37500
+        },
+        "note": "Global retained-corpus physical rows/parts/bytes include background merges and other retained runs; they are not unique identity reconciliation."
+      },
+      "targets": {
+        "ack_p95_500_ms": "fail",
+        "ack_p99_2_seconds": "fail",
+        "acknowledged_within_window_95_percent": "pass",
+        "query_routes": {},
+        "visibility": {
+          "p95_1_second": "fail",
+          "p99_3_seconds": "unknown",
+          "uncensored": "fail"
+        },
+        "zero_schedule_drops": "pass",
+        "zero_terminal_valid_export_errors": "pass"
+      },
+      "validity": "raw_evidence_available"
+    },
+    {
+      "directory": "benchmarks/results/20260930T1415Z-direct/ramp-2000-r1",
+      "issues": [],
+      "measurement_window": {
+        "from": "2026-09-30T14:30:46.648002Z",
+        "half_open": true,
+        "to": "2026-09-30T14:31:31.648002Z"
+      },
+      "metrics": {
+        "acknowledged_final_spans_per_second": 1996.0,
+        "acknowledged_fraction_within_window": 1.0,
+        "acknowledged_within_window_spans_per_second": 1996.0,
+        "acknowledgment_from_first_send": {
+          "count": 468,
+          "max_ns": 1196636000,
+          "p50_ns": 24062000,
+          "p95_ns": 38382000,
+          "p99_ns": 408334000,
+          "p99_tail_samples": 4
+        },
+        "batch_completion_statuses": {
+          "acknowledged": 468
+        },
+        "emitted_spans_per_second": 1996.0,
+        "measured_batches": 468,
+        "measured_counts_spans": {
+          "acknowledged": 89820,
+          "acknowledged_within_window": 89820,
+          "attempted": 89820,
+          "enqueued": 89820,
+          "generated": 89820,
+          "planned": 89820,
+          "schedule_drop": 0,
+          "scheduled": 89820
+        },
+        "measurement_seconds": 45.0,
+        "missing_batch_completions": 0,
+        "offered_spans_per_second": 1996.0,
+        "per_attempt_latency": {
+          "count": 468,
+          "max_ns": 1196636000,
+          "p50_ns": 24062000,
+          "p95_ns": 38382000,
+          "p99_ns": 408334000,
+          "p99_tail_samples": 4
+        },
+        "queries": {},
+        "raw_event_kinds": {
+          "batch_complete": 521,
+          "enqueued": 521,
+          "export_attempt": 521,
+          "generated": 521,
+          "load_start": 1,
+          "scheduled": 521,
+          "visibility": 53,
+          "visibility_probe": 112
+        },
+        "raw_phase_tags": {
+          "measured": 2487,
+          "unspecified": 1,
+          "warmup": 283
+        },
+        "rejected_spans": 0,
+        "retry_attempts": 0,
+        "schedule_to_acknowledgment": {
+          "count": 468,
+          "max_ns": 1197177000,
+          "p50_ns": 25674000,
+          "p95_ns": 40838000,
+          "p99_ns": 412120000,
+          "p99_tail_samples": 4
+        },
+        "terminal_measured_batches": 0,
+        "visibility": {
+          "ack_to_observation": {
+            "count": 47,
+            "max_ns": 1273975000,
+            "p50_ns": 235677000,
+            "p95_ns": 338513000,
+            "p99_ns": 1273975000,
+            "p99_tail_samples": 1
+          },
+          "all_phase_probe_latency": {
+            "count": 112,
+            "max_ns": 215940000,
+            "p50_ns": 29735000,
+            "p95_ns": 70875000,
+            "p99_ns": 209743000,
+            "p99_tail_samples": 1
+          },
+          "all_phase_probe_request_count": 112,
+          "censored_count": 0,
+          "first_send_to_observation": {
+            "count": 47,
+            "max_ns": 1299761000,
+            "p50_ns": 266466000,
+            "p95_ns": 368897000,
+            "p99_ns": 1299761000,
+            "p99_tail_samples": 1
+          },
+          "note": "Observation latency is an upper bound; probes impose measured read traffic and may observe storage before acknowledgment.",
+          "poll_count": 100,
+          "sample_count": 47
+        }
+      },
+      "name": "ramp-2000",
+      "reconciliation": {
+        "counts": {
+          "acked_missing": 0,
+          "emitted_missing": 0,
+          "expected_stored": 99996,
+          "never_acked_stored": 0,
+          "planned_missing": 0,
+          "planned_spans": 99996,
+          "unknown": 0
+        },
+        "note": "Stored masks derive from bounded FINAL identity queries; classifications are checked against raw export records. Physical duplicate counts cannot be inferred from masks.",
+        "status": "verified_ledger",
+        "zero_identity_loss": "pass"
+      },
+      "resources": {
+        "containers": {
+          "incidentlens-api-1": {
+            "block_read_delta_bytes": 0,
+            "block_write_delta_bytes": 0,
+            "cpu_quota_cores": 1.0,
+            "max_cpu_percent_one_core": 1.82,
+            "max_cpu_percent_quota": 1.82,
+            "max_memory_bytes_docker": 61142466,
+            "max_memory_percent": 11.39,
+            "sample_count": 22,
+            "sample_mean_cpu_percent_one_core": 0.5640909090909091
+          },
+          "incidentlens-clickhouse-1": {
+            "block_read_delta_bytes": 15000000,
+            "block_write_delta_bytes": 201000000,
+            "cpu_quota_cores": 2.0,
+            "max_cpu_percent_one_core": 155.83,
+            "max_cpu_percent_quota": 77.915,
+            "max_memory_bytes_docker": 2116345135,
+            "max_memory_percent": 98.54,
+            "sample_count": 22,
+            "sample_mean_cpu_percent_one_core": 112.02954545454546
+          },
+          "incidentlens-collector-1": {
+            "block_read_delta_bytes": 0,
+            "block_write_delta_bytes": 0,
+            "cpu_quota_cores": 1.0,
+            "max_cpu_percent_one_core": 10.65,
+            "max_cpu_percent_quota": 10.65,
+            "max_memory_bytes_docker": 90513080,
+            "max_memory_percent": 33.72,
+            "sample_count": 22,
+            "sample_mean_cpu_percent_one_core": 7.404090909090909
+          },
+          "incidentlens-ingest-1": {
+            "block_read_delta_bytes": 0,
+            "block_write_delta_bytes": 0,
+            "cpu_quota_cores": 1.0,
+            "max_cpu_percent_one_core": 25.77,
+            "max_cpu_percent_quota": 25.77,
+            "max_memory_bytes_docker": 27294433,
+            "max_memory_percent": 5.08,
+            "sample_count": 22,
+            "sample_mean_cpu_percent_one_core": 21.573636363636364
+          }
+        },
+        "generator": {
+          "max_cpu_percent": 3.3,
+          "max_rss_bytes": 31518720,
+          "sample_count": 22
+        },
+        "measurement_sample_count": 22,
+        "note": "Docker CPU100% is one core; quota-normalized maxima use inspected limits. Memory is Docker's reported usage/cache convention. Block I/O is cumulative traffic, not disk occupancy; reset counters produce null deltas. Means are unweighted sample means.",
+        "sampling_errors": 0
+      },
+      "run_status": "completed",
+      "storage": {
+        "after": {
+          "active_parts": 13,
+          "disk_bytes": 29595461,
+          "physical_rows": 1268696
+        },
+        "before": {
+          "active_parts": 12,
+          "disk_bytes": 27155147,
+          "physical_rows": 1168700
+        },
+        "delta": {
+          "active_parts": 1,
+          "disk_bytes": 2440314,
+          "physical_rows": 99996
+        },
+        "note": "Global retained-corpus physical rows/parts/bytes include background merges and other retained runs; they are not unique identity reconciliation."
+      },
+      "targets": {
+        "ack_p95_500_ms": "pass",
+        "ack_p99_2_seconds": "pass",
+        "acknowledged_within_window_95_percent": "pass",
+        "query_routes": {},
+        "visibility": {
+          "p95_1_second": "pass",
+          "p99_3_seconds": "pass",
+          "uncensored": "pass"
+        },
+        "zero_schedule_drops": "pass",
+        "zero_terminal_valid_export_errors": "pass"
+      },
+      "validity": "raw_evidence_available"
+    },
+    {
+      "directory": "benchmarks/results/20260930T1415Z-direct/ramp-500-r1",
+      "issues": [],
+      "measurement_window": {
+        "from": "2026-09-30T14:29:16.368963Z",
+        "half_open": true,
+        "to": "2026-09-30T14:30:01.368963Z"
+      },
+      "metrics": {
+        "acknowledged_final_spans_per_second": 495.73333333333335,
+        "acknowledged_fraction_within_window": 1.0,
+        "acknowledged_within_window_spans_per_second": 495.73333333333335,
+        "acknowledgment_from_first_send": {
+          "count": 117,
+          "max_ns": 43204000,
+          "p50_ns": 23884000,
+          "p95_ns": 29379000,
+          "p99_ns": 30688000,
+          "p99_tail_samples": 1
+        },
+        "batch_completion_statuses": {
+          "acknowledged": 117
+        },
+        "emitted_spans_per_second": 495.73333333333335,
+        "measured_batches": 117,
+        "measured_counts_spans": {
+          "acknowledged": 22308,
+          "acknowledged_within_window": 22308,
+          "attempted": 22308,
+          "enqueued": 22308,
+          "generated": 22308,
+          "planned": 22308,
+          "schedule_drop": 0,
+          "scheduled": 22308
+        },
+        "measurement_seconds": 45.0,
+        "missing_batch_completions": 0,
+        "offered_spans_per_second": 495.73333333333335,
+        "per_attempt_latency": {
+          "count": 117,
+          "max_ns": 43204000,
+          "p50_ns": 23884000,
+          "p95_ns": 29379000,
+          "p99_ns": 30688000,
+          "p99_tail_samples": 1
+        },
+        "queries": {},
+        "raw_event_kinds": {
+          "batch_complete": 131,
+          "enqueued": 131,
+          "export_attempt": 131,
+          "generated": 131,
+          "load_start": 1,
+          "scheduled": 131,
+          "visibility": 14,
+          "visibility_probe": 28
+        },
+        "raw_phase_tags": {
+          "measured": 621,
+          "unspecified": 1,
+          "warmup": 76
+        },
+        "rejected_spans": 0,
+        "retry_attempts": 0,
+        "schedule_to_acknowledgment": {
+          "count": 117,
+          "max_ns": 45228000,
+          "p50_ns": 25435000,
+          "p95_ns": 30716000,
+          "p99_ns": 32407000,
+          "p99_tail_samples": 1
+        },
+        "terminal_measured_batches": 0,
+        "visibility": {
+          "ack_to_observation": {
+            "count": 12,
+            "max_ns": 490552000,
+            "p50_ns": 204906000,
+            "p95_ns": 490552000,
+            "p99_ns": 490552000,
+            "p99_tail_samples": 1
+          },
+          "all_phase_probe_latency": {
+            "count": 28,
+            "max_ns": 300185000,
+            "p50_ns": 13823000,
+            "p95_ns": 36128000,
+            "p99_ns": 300185000,
+            "p99_tail_samples": 1
+          },
+          "all_phase_probe_request_count": 28,
+          "censored_count": 0,
+          "first_send_to_observation": {
+            "count": 12,
+            "max_ns": 514128000,
+            "p50_ns": 229414000,
+            "p95_ns": 514128000,
+            "p99_ns": 514128000,
+            "p99_tail_samples": 1
+          },
+          "note": "Observation latency is an upper bound; probes impose measured read traffic and may observe storage before acknowledgment.",
+          "poll_count": 24,
+          "sample_count": 12
+        }
+      },
+      "name": "ramp-500",
+      "reconciliation": {
+        "counts": {
+          "acked_missing": 0,
+          "emitted_missing": 0,
+          "expected_stored": 24996,
+          "never_acked_stored": 0,
+          "planned_missing": 0,
+          "planned_spans": 24996,
+          "unknown": 0
+        },
+        "note": "Stored masks derive from bounded FINAL identity queries; classifications are checked against raw export records. Physical duplicate counts cannot be inferred from masks.",
+        "status": "verified_ledger",
+        "zero_identity_loss": "pass"
+      },
+      "resources": {
+        "containers": {
+          "incidentlens-api-1": {
+            "block_read_delta_bytes": 0,
+            "block_write_delta_bytes": 0,
+            "cpu_quota_cores": 1.0,
+            "max_cpu_percent_one_core": 0.88,
+            "max_cpu_percent_quota": 0.88,
+            "max_memory_bytes_docker": 60544778,
+            "max_memory_percent": 11.28,
+            "sample_count": 22,
+            "sample_mean_cpu_percent_one_core": 0.1740909090909091
+          },
+          "incidentlens-clickhouse-1": {
+            "block_read_delta_bytes": 22000000,
+            "block_write_delta_bytes": 90200000,
+            "cpu_quota_cores": 2.0,
+            "max_cpu_percent_one_core": 127.69,
+            "max_cpu_percent_quota": 63.845,
+            "max_memory_bytes_docker": 2147483648,
+            "max_memory_percent": 100.0,
+            "sample_count": 22,
+            "sample_mean_cpu_percent_one_core": 83.35363636363637
+          },
+          "incidentlens-collector-1": {
+            "block_read_delta_bytes": 0,
+            "block_write_delta_bytes": 0,
+            "cpu_quota_cores": 1.0,
+            "max_cpu_percent_one_core": 2.24,
+            "max_cpu_percent_quota": 2.24,
+            "max_memory_bytes_docker": 83152076,
+            "max_memory_percent": 30.98,
+            "sample_count": 22,
+            "sample_mean_cpu_percent_one_core": 1.7845454545454547
+          },
+          "incidentlens-ingest-1": {
+            "block_read_delta_bytes": 0,
+            "block_write_delta_bytes": 0,
+            "cpu_quota_cores": 1.0,
+            "max_cpu_percent_one_core": 6.82,
+            "max_cpu_percent_quota": 6.82,
+            "max_memory_bytes_docker": 25941770,
+            "max_memory_percent": 4.83,
+            "sample_count": 22,
+            "sample_mean_cpu_percent_one_core": 5.1440909090909095
+          }
+        },
+        "generator": {
+          "max_cpu_percent": 1.0,
+          "max_rss_bytes": 28778496,
+          "sample_count": 22
+        },
+        "measurement_sample_count": 22,
+        "note": "Docker CPU100% is one core; quota-normalized maxima use inspected limits. Memory is Docker's reported usage/cache convention. Block I/O is cumulative traffic, not disk occupancy; reset counters produce null deltas. Means are unweighted sample means.",
+        "sampling_errors": 0
+      },
+      "run_status": "completed",
+      "storage": {
+        "after": {
+          "active_parts": 12,
+          "disk_bytes": 27155147,
+          "physical_rows": 1168700
+        },
+        "before": {
+          "active_parts": 16,
+          "disk_bytes": 26620780,
+          "physical_rows": 1143704
+        },
+        "delta": {
+          "active_parts": -4,
+          "disk_bytes": 534367,
+          "physical_rows": 24996
+        },
+        "note": "Global retained-corpus physical rows/parts/bytes include background merges and other retained runs; they are not unique identity reconciliation."
+      },
+      "targets": {
+        "ack_p95_500_ms": "pass",
+        "ack_p99_2_seconds": "pass",
+        "acknowledged_within_window_95_percent": "pass",
+        "query_routes": {},
+        "visibility": {
+          "p95_1_second": "pass",
+          "p99_3_seconds": "pass",
+          "uncensored": "pass"
+        },
+        "zero_schedule_drops": "pass",
+        "zero_terminal_valid_export_errors": "pass"
+      },
+      "validity": "raw_evidence_available"
+    },
+    {
+      "directory": "benchmarks/results/20260930T1415Z-direct/ramp-8000-r1",
+      "issues": [],
+      "measurement_window": {
+        "from": "2026-09-30T14:32:16.911374Z",
+        "half_open": true,
+        "to": "2026-09-30T14:33:01.911374Z"
+      },
+      "metrics": {
+        "acknowledged_final_spans_per_second": 5091.466666666666,
+        "acknowledged_fraction_within_window": 0.5948847910900663,
+        "acknowledged_within_window_spans_per_second": 4757.333333333333,
+        "acknowledgment_from_first_send": {
+          "count": 1194,
+          "max_ns": 1469031000,
+          "p50_ns": 576371000,
+          "p95_ns": 898862000,
+          "p99_ns": 1101133000,
+          "p99_tail_samples": 11
+        },
+        "batch_completion_statuses": {
+          "acknowledged": 1194
+        },
+        "emitted_spans_per_second": 5091.466666666666,
+        "measured_batches": 1194,
+        "measured_counts_spans": {
+          "acknowledged": 229116,
+          "acknowledged_within_window": 214080,
+          "attempted": 229116,
+          "enqueued": 229116,
+          "generated": 229116,
+          "planned": 359868,
+          "schedule_drop": 130752,
+          "scheduled": 359868
+        },
+        "measurement_seconds": 45.0,
+        "missing_batch_completions": 0,
+        "offered_spans_per_second": 7997.066666666667,
+        "per_attempt_latency": {
+          "count": 1194,
+          "max_ns": 1469031000,
+          "p50_ns": 576371000,
+          "p95_ns": 898862000,
+          "p99_ns": 1101133000,
+          "p99_tail_samples": 11
+        },
+        "queries": {},
+        "raw_event_kinds": {
+          "batch_complete": 2084,
+          "enqueued": 1363,
+          "export_attempt": 1363,
+          "generated": 1363,
+          "load_start": 1,
+          "schedule_drop": 721,
+          "scheduled": 2084,
+          "visibility": 142,
+          "visibility_probe": 360
+        },
+        "raw_phase_tags": {
+          "measured": 8461,
+          "unspecified": 1,
+          "warmup": 1019
+        },
+        "rejected_spans": 0,
+        "retry_attempts": 0,
+        "schedule_to_acknowledgment": {
+          "count": 1194,
+          "max_ns": 3791954000,
+          "p50_ns": 2956445000,
+          "p95_ns": 3589512000,
+          "p99_ns": 3722643000,
+          "p99_tail_samples": 11
+        },
+        "terminal_measured_batches": 0,
+        "visibility": {
+          "ack_to_observation": {
+            "count": 125,
+            "max_ns": 905997000,
+            "p50_ns": 265687000,
+            "p95_ns": 796947000,
+            "p99_ns": 902194000,
+            "p99_tail_samples": 1
+          },
+          "all_phase_probe_latency": {
+            "count": 360,
+            "max_ns": 1300782000,
+            "p50_ns": 105197000,
+            "p95_ns": 410711000,
+            "p99_ns": 999085000,
+            "p99_tail_samples": 3
+          },
+          "all_phase_probe_request_count": 360,
+          "censored_count": 0,
+          "first_send_to_observation": {
+            "count": 125,
+            "max_ns": 1708189000,
+            "p50_ns": 816223000,
+            "p95_ns": 1473313000,
+            "p99_ns": 1592441000,
+            "p99_tail_samples": 1
+          },
+          "note": "Observation latency is an upper bound; probes impose measured read traffic and may observe storage before acknowledgment.",
+          "poll_count": 323,
+          "sample_count": 125
+        }
+      },
+      "name": "ramp-8000",
+      "reconciliation": {
+        "counts": {
+          "acked_missing": 0,
+          "emitted_missing": 0,
+          "expected_stored": 261564,
+          "never_acked_stored": 0,
+          "planned_missing": 138432,
+          "planned_spans": 399996,
+          "unknown": 0
+        },
+        "note": "Stored masks derive from bounded FINAL identity queries; classifications are checked against raw export records. Physical duplicate counts cannot be inferred from masks.",
+        "status": "verified_ledger",
+        "zero_identity_loss": "fail"
+      },
+      "resources": {
+        "containers": {
+          "incidentlens-api-1": {
+            "block_read_delta_bytes": 0,
+            "block_write_delta_bytes": 0,
+            "cpu_quota_cores": 1.0,
+            "max_cpu_percent_one_core": 3.27,
+            "max_cpu_percent_quota": 3.27,
+            "max_memory_bytes_docker": 60964208,
+            "max_memory_percent": 11.35,
+            "sample_count": 20,
+            "sample_mean_cpu_percent_one_core": 2.368
+          },
+          "incidentlens-clickhouse-1": {
+            "block_read_delta_bytes": 46000000,
+            "block_write_delta_bytes": 310000000,
+            "cpu_quota_cores": 2.0,
+            "max_cpu_percent_one_core": 230.43,
+            "max_cpu_percent_quota": 115.215,
+            "max_memory_bytes_docker": 2128156295,
+            "max_memory_percent": 99.11,
+            "sample_count": 20,
+            "sample_mean_cpu_percent_one_core": 213.2825
+          },
+          "incidentlens-collector-1": {
+            "block_read_delta_bytes": 0,
+            "block_write_delta_bytes": 0,
+            "cpu_quota_cores": 1.0,
+            "max_cpu_percent_one_core": 30.41,
+            "max_cpu_percent_quota": 30.41,
+            "max_memory_bytes_docker": 99918807,
+            "max_memory_percent": 37.22,
+            "sample_count": 20,
+            "sample_mean_cpu_percent_one_core": 18.175
+          },
+          "incidentlens-ingest-1": {
+            "block_read_delta_bytes": 0,
+            "block_write_delta_bytes": 0,
+            "cpu_quota_cores": 1.0,
+            "max_cpu_percent_one_core": 91.57,
+            "max_cpu_percent_quota": 91.57,
+            "max_memory_bytes_docker": 33103544,
+            "max_memory_percent": 6.17,
+            "sample_count": 20,
+            "sample_mean_cpu_percent_one_core": 58.3955
+          }
+        },
+        "generator": {
+          "max_cpu_percent": 11.7,
+          "max_rss_bytes": 70123520,
+          "sample_count": 20
+        },
+        "measurement_sample_count": 20,
+        "note": "Docker CPU100% is one core; quota-normalized maxima use inspected limits. Memory is Docker's reported usage/cache convention. Block I/O is cumulative traffic, not disk occupancy; reset counters produce null deltas. Means are unweighted sample means.",
+        "sampling_errors": 0
+      },
+      "run_status": "completed",
+      "storage": {
+        "after": {
+          "active_parts": 14,
+          "disk_bytes": 35832961,
+          "physical_rows": 1530260
+        },
+        "before": {
+          "active_parts": 13,
+          "disk_bytes": 29595461,
+          "physical_rows": 1268696
+        },
+        "delta": {
+          "active_parts": 1,
+          "disk_bytes": 6237500,
+          "physical_rows": 261564
+        },
+        "note": "Global retained-corpus physical rows/parts/bytes include background merges and other retained runs; they are not unique identity reconciliation."
+      },
+      "targets": {
+        "ack_p95_500_ms": "fail",
+        "ack_p99_2_seconds": "pass",
+        "acknowledged_within_window_95_percent": "fail",
+        "query_routes": {},
+        "visibility": {
+          "p95_1_second": "fail",
+          "p99_3_seconds": "pass",
+          "uncensored": "pass"
+        },
+        "zero_schedule_drops": "fail",
+        "zero_terminal_valid_export_errors": "pass"
+      },
+      "validity": "raw_evidence_available"
+    },
+    {
+      "directory": "benchmarks/results/20260930T1415Z-direct/steady-r1",
+      "issues": [],
+      "measurement_window": {
+        "from": "2026-09-30T14:18:17.497982Z",
+        "half_open": true,
+        "to": "2026-09-30T14:20:17.497982Z"
+      },
+      "metrics": {
+        "acknowledged_final_spans_per_second": 498.6,
+        "acknowledged_fraction_within_window": 1.0,
+        "acknowledged_within_window_spans_per_second": 498.6,
+        "acknowledgment_from_first_send": {
+          "count": 312,
+          "max_ns": 72607000,
+          "p50_ns": 29232000,
+          "p95_ns": 41069000,
+          "p99_ns": 63505000,
+          "p99_tail_samples": 3
+        },
+        "batch_completion_statuses": {
+          "acknowledged": 312
+        },
+        "emitted_spans_per_second": 498.6,
+        "measured_batches": 312,
+        "measured_counts_spans": {
+          "acknowledged": 59832,
+          "acknowledged_within_window": 59832,
+          "attempted": 59832,
+          "enqueued": 59832,
+          "generated": 59832,
+          "planned": 59832,
+          "schedule_drop": 0,
+          "scheduled": 59832
+        },
+        "measurement_seconds": 120.0,
+        "missing_batch_completions": 0,
+        "offered_spans_per_second": 498.6,
+        "per_attempt_latency": {
+          "count": 312,
+          "max_ns": 72607000,
+          "p50_ns": 29232000,
+          "p95_ns": 41069000,
+          "p99_ns": 63505000,
+          "p99_tail_samples": 3
+        },
+        "queries": {},
+        "raw_event_kinds": {
+          "batch_complete": 391,
+          "enqueued": 391,
+          "export_attempt": 391,
+          "generated": 391,
+          "load_start": 1,
+          "scheduled": 391,
+          "visibility": 40,
+          "visibility_probe": 80
+        },
+        "raw_phase_tags": {
+          "measured": 1656,
+          "unspecified": 1,
+          "warmup": 419
+        },
+        "rejected_spans": 0,
+        "retry_attempts": 0,
+        "schedule_to_acknowledgment": {
+          "count": 312,
+          "max_ns": 77996000,
+          "p50_ns": 30200000,
+          "p95_ns": 42736000,
+          "p99_ns": 69807000,
+          "p99_tail_samples": 3
+        },
+        "terminal_measured_batches": 0,
+        "visibility": {
+          "ack_to_observation": {
+            "count": 32,
+            "max_ns": 228438000,
+            "p50_ns": 204732000,
+            "p95_ns": 222165000,
+            "p99_ns": 228438000,
+            "p99_tail_samples": 1
+          },
+          "all_phase_probe_latency": {
+            "count": 80,
+            "max_ns": 45252000,
+            "p50_ns": 18142000,
+            "p95_ns": 31175000,
+            "p99_ns": 45252000,
+            "p99_tail_samples": 1
+          },
+          "all_phase_probe_request_count": 80,
+          "censored_count": 0,
+          "first_send_to_observation": {
+            "count": 32,
+            "max_ns": 268563000,
+            "p50_ns": 238607000,
+            "p95_ns": 255954000,
+            "p99_ns": 268563000,
+            "p99_tail_samples": 1
+          },
+          "note": "Observation latency is an upper bound; probes impose measured read traffic and may observe storage before acknowledgment.",
+          "poll_count": 64,
+          "sample_count": 32
+        }
+      },
+      "name": "steady",
+      "reconciliation": {
+        "counts": {
+          "acked_missing": 0,
+          "emitted_missing": 0,
+          "expected_stored": 75000,
+          "never_acked_stored": 0,
+          "planned_missing": 0,
+          "planned_spans": 75000,
+          "unknown": 0
+        },
+        "note": "Stored masks derive from bounded FINAL identity queries; classifications are checked against raw export records. Physical duplicate counts cannot be inferred from masks.",
+        "status": "verified_ledger",
+        "zero_identity_loss": "pass"
+      },
+      "resources": {
+        "containers": {
+          "incidentlens-api-1": {
+            "block_read_delta_bytes": 0,
+            "block_write_delta_bytes": 0,
+            "cpu_quota_cores": 1.0,
+            "max_cpu_percent_one_core": 2.3,
+            "max_cpu_percent_quota": 2.3,
+            "max_memory_bytes_docker": 156447539,
+            "max_memory_percent": 29.14,
+            "sample_count": 59,
+            "sample_mean_cpu_percent_one_core": 0.21338983050847457
+          },
+          "incidentlens-clickhouse-1": {
+            "block_read_delta_bytes": 72000000,
+            "block_write_delta_bytes": 210000000,
+            "cpu_quota_cores": 2.0,
+            "max_cpu_percent_one_core": 176.69,
+            "max_cpu_percent_quota": 88.345,
+            "max_memory_bytes_docker": 1995012308,
+            "max_memory_percent": 92.92,
+            "sample_count": 59,
+            "sample_mean_cpu_percent_one_core": 99.96508474576271
+          },
+          "incidentlens-collector-1": {
+            "block_read_delta_bytes": 0,
+            "block_write_delta_bytes": 0,
+            "cpu_quota_cores": 1.0,
+            "max_cpu_percent_one_core": 7.31,
+            "max_cpu_percent_quota": 7.31,
+            "max_memory_bytes_docker": 89286246,
+            "max_memory_percent": 33.26,
+            "sample_count": 59,
+            "sample_mean_cpu_percent_one_core": 2.3203389830508474
+          },
+          "incidentlens-ingest-1": {
+            "block_read_delta_bytes": 0,
+            "block_write_delta_bytes": 0,
+            "cpu_quota_cores": 1.0,
+            "max_cpu_percent_one_core": 8.78,
+            "max_cpu_percent_quota": 8.78,
+            "max_memory_bytes_docker": 22796042,
+            "max_memory_percent": 4.25,
+            "sample_count": 59,
+            "sample_mean_cpu_percent_one_core": 6.512542372881356
+          }
+        },
+        "generator": {
+          "max_cpu_percent": 2.1,
+          "max_rss_bytes": 30740480,
+          "sample_count": 59
+        },
+        "measurement_sample_count": 59,
+        "note": "Docker CPU100% is one core; quota-normalized maxima use inspected limits. Memory is Docker's reported usage/cache convention. Block I/O is cumulative traffic, not disk occupancy; reset counters produce null deltas. Means are unweighted sample means.",
+        "sampling_errors": 0
+      },
+      "run_status": "completed",
+      "storage": {
+        "after": {
+          "active_parts": 15,
+          "disk_bytes": 22115476,
+          "physical_rows": 956204
+        },
+        "before": {
+          "active_parts": 13,
+          "disk_bytes": 20317428,
+          "physical_rows": 881204
+        },
+        "delta": {
+          "active_parts": 2,
+          "disk_bytes": 1798048,
+          "physical_rows": 75000
+        },
+        "note": "Global retained-corpus physical rows/parts/bytes include background merges and other retained runs; they are not unique identity reconciliation."
+      },
+      "targets": {
+        "ack_p95_500_ms": "pass",
+        "ack_p99_2_seconds": "pass",
+        "acknowledged_within_window_95_percent": "pass",
+        "query_routes": {},
+        "visibility": {
+          "p95_1_second": "pass",
+          "p99_3_seconds": "pass",
+          "uncensored": "pass"
+        },
+        "zero_schedule_drops": "pass",
+        "zero_terminal_valid_export_errors": "pass"
+      },
+      "validity": "raw_evidence_available"
+    },
+    {
+      "directory": "benchmarks/results/20260930T1415Z-direct/steady-r2",
+      "issues": [],
+      "measurement_window": {
+        "from": "2026-09-30T14:21:27.654102Z",
+        "half_open": true,
+        "to": "2026-09-30T14:23:27.654102Z"
+      },
+      "metrics": {
+        "acknowledged_final_spans_per_second": 498.6,
+        "acknowledged_fraction_within_window": 1.0,
+        "acknowledged_within_window_spans_per_second": 498.6,
+        "acknowledgment_from_first_send": {
+          "count": 312,
+          "max_ns": 125413000,
+          "p50_ns": 28657000,
+          "p95_ns": 51796000,
+          "p99_ns": 75546000,
+          "p99_tail_samples": 3
+        },
+        "batch_completion_statuses": {
+          "acknowledged": 312
+        },
+        "emitted_spans_per_second": 498.6,
+        "measured_batches": 312,
+        "measured_counts_spans": {
+          "acknowledged": 59832,
+          "acknowledged_within_window": 59832,
+          "attempted": 59832,
+          "enqueued": 59832,
+          "generated": 59832,
+          "planned": 59832,
+          "schedule_drop": 0,
+          "scheduled": 59832
+        },
+        "measurement_seconds": 120.0,
+        "missing_batch_completions": 0,
+        "offered_spans_per_second": 498.6,
+        "per_attempt_latency": {
+          "count": 312,
+          "max_ns": 125413000,
+          "p50_ns": 28657000,
+          "p95_ns": 51796000,
+          "p99_ns": 75546000,
+          "p99_tail_samples": 3
+        },
+        "queries": {},
+        "raw_event_kinds": {
+          "batch_complete": 391,
+          "enqueued": 391,
+          "export_attempt": 391,
+          "generated": 391,
+          "load_start": 1,
+          "scheduled": 391,
+          "visibility": 40,
+          "visibility_probe": 80
+        },
+        "raw_phase_tags": {
+          "measured": 1656,
+          "unspecified": 1,
+          "warmup": 419
+        },
+        "rejected_spans": 0,
+        "retry_attempts": 0,
+        "schedule_to_acknowledgment": {
+          "count": 312,
+          "max_ns": 126868000,
+          "p50_ns": 29789000,
+          "p95_ns": 52570000,
+          "p99_ns": 79238000,
+          "p99_tail_samples": 3
+        },
+        "terminal_measured_batches": 0,
+        "visibility": {
+          "ack_to_observation": {
+            "count": 32,
+            "max_ns": 286616000,
+            "p50_ns": 207868000,
+            "p95_ns": 229020000,
+            "p99_ns": 286616000,
+            "p99_tail_samples": 1
+          },
+          "all_phase_probe_latency": {
+            "count": 80,
+            "max_ns": 101071000,
+            "p50_ns": 17361000,
+            "p95_ns": 38174000,
+            "p99_ns": 101071000,
+            "p99_tail_samples": 1
+          },
+          "all_phase_probe_request_count": 80,
+          "censored_count": 0,
+          "first_send_to_observation": {
+            "count": 32,
+            "max_ns": 318428000,
+            "p50_ns": 238867000,
+            "p95_ns": 275127000,
+            "p99_ns": 318428000,
+            "p99_tail_samples": 1
+          },
+          "note": "Observation latency is an upper bound; probes impose measured read traffic and may observe storage before acknowledgment.",
+          "poll_count": 64,
+          "sample_count": 32
+        }
+      },
+      "name": "steady",
+      "reconciliation": {
+        "counts": {
+          "acked_missing": 0,
+          "emitted_missing": 0,
+          "expected_stored": 75000,
+          "never_acked_stored": 0,
+          "planned_missing": 0,
+          "planned_spans": 75000,
+          "unknown": 0
+        },
+        "note": "Stored masks derive from bounded FINAL identity queries; classifications are checked against raw export records. Physical duplicate counts cannot be inferred from masks.",
+        "status": "verified_ledger",
+        "zero_identity_loss": "pass"
+      },
+      "resources": {
+        "containers": {
+          "incidentlens-api-1": {
+            "block_read_delta_bytes": 0,
+            "block_write_delta_bytes": 0,
+            "cpu_quota_cores": 1.0,
+            "max_cpu_percent_one_core": 0.83,
+            "max_cpu_percent_quota": 0.83,
+            "max_memory_bytes_docker": 63313018,
+            "max_memory_percent": 11.79,
+            "sample_count": 59,
+            "sample_mean_cpu_percent_one_core": 0.14457627118644067
+          },
+          "incidentlens-clickhouse-1": {
+            "block_read_delta_bytes": 99000000,
+            "block_write_delta_bytes": 510000000,
+            "cpu_quota_cores": 2.0,
+            "max_cpu_percent_one_core": 194.1,
+            "max_cpu_percent_quota": 97.05,
+            "max_memory_bytes_docker": 2147483648,
+            "max_memory_percent": 100.0,
+            "sample_count": 59,
+            "sample_mean_cpu_percent_one_core": 115.87152542372881
+          },
+          "incidentlens-collector-1": {
+            "block_read_delta_bytes": 0,
+            "block_write_delta_bytes": 0,
+            "cpu_quota_cores": 1.0,
+            "max_cpu_percent_one_core": 7.43,
+            "max_cpu_percent_quota": 7.43,
+            "max_memory_bytes_docker": 89800048,
+            "max_memory_percent": 33.45,
+            "sample_count": 59,
+            "sample_mean_cpu_percent_one_core": 2.3569491525423727
+          },
+          "incidentlens-ingest-1": {
+            "block_read_delta_bytes": 0,
+            "block_write_delta_bytes": 0,
+            "cpu_quota_cores": 1.0,
+            "max_cpu_percent_one_core": 12.09,
+            "max_cpu_percent_quota": 12.09,
+            "max_memory_bytes_docker": 21946695,
+            "max_memory_percent": 4.09,
+            "sample_count": 59,
+            "sample_mean_cpu_percent_one_core": 6.3738983050847455
+          }
+        },
+        "generator": {
+          "max_cpu_percent": 2.0,
+          "max_rss_bytes": 29081600,
+          "sample_count": 59
+        },
+        "measurement_sample_count": 59,
+        "note": "Docker CPU100% is one core; quota-normalized maxima use inspected limits. Memory is Docker's reported usage/cache convention. Block I/O is cumulative traffic, not disk occupancy; reset counters produce null deltas. Means are unweighted sample means.",
+        "sampling_errors": 0
+      },
+      "run_status": "completed",
+      "storage": {
+        "after": {
+          "active_parts": 15,
+          "disk_bytes": 23937421,
+          "physical_rows": 1031204
+        },
+        "before": {
+          "active_parts": 15,
+          "disk_bytes": 22115476,
+          "physical_rows": 956204
+        },
+        "delta": {
+          "active_parts": 0,
+          "disk_bytes": 1821945,
+          "physical_rows": 75000
+        },
+        "note": "Global retained-corpus physical rows/parts/bytes include background merges and other retained runs; they are not unique identity reconciliation."
+      },
+      "targets": {
+        "ack_p95_500_ms": "pass",
+        "ack_p99_2_seconds": "pass",
+        "acknowledged_within_window_95_percent": "pass",
+        "query_routes": {},
+        "visibility": {
+          "p95_1_second": "pass",
+          "p99_3_seconds": "pass",
+          "uncensored": "pass"
+        },
+        "zero_schedule_drops": "pass",
+        "zero_terminal_valid_export_errors": "pass"
+      },
+      "validity": "raw_evidence_available"
+    },
+    {
+      "directory": "benchmarks/results/20260930T1415Z-direct/steady-r3",
+      "issues": [],
+      "measurement_window": {
+        "from": "2026-09-30T14:24:37.659061Z",
+        "half_open": true,
+        "to": "2026-09-30T14:26:37.659061Z"
+      },
+      "metrics": {
+        "acknowledged_final_spans_per_second": 498.6,
+        "acknowledged_fraction_within_window": 1.0,
+        "acknowledged_within_window_spans_per_second": 498.6,
+        "acknowledgment_from_first_send": {
+          "count": 312,
+          "max_ns": 38368000,
+          "p50_ns": 23638000,
+          "p95_ns": 28920000,
+          "p99_ns": 34167000,
+          "p99_tail_samples": 3
+        },
+        "batch_completion_statuses": {
+          "acknowledged": 312
+        },
+        "emitted_spans_per_second": 498.6,
+        "measured_batches": 312,
+        "measured_counts_spans": {
+          "acknowledged": 59832,
+          "acknowledged_within_window": 59832,
+          "attempted": 59832,
+          "enqueued": 59832,
+          "generated": 59832,
+          "planned": 59832,
+          "schedule_drop": 0,
+          "scheduled": 59832
+        },
+        "measurement_seconds": 120.0,
+        "missing_batch_completions": 0,
+        "offered_spans_per_second": 498.6,
+        "per_attempt_latency": {
+          "count": 312,
+          "max_ns": 38368000,
+          "p50_ns": 23638000,
+          "p95_ns": 28920000,
+          "p99_ns": 34167000,
+          "p99_tail_samples": 3
+        },
+        "queries": {},
+        "raw_event_kinds": {
+          "batch_complete": 391,
+          "enqueued": 391,
+          "export_attempt": 391,
+          "generated": 391,
+          "load_start": 1,
+          "scheduled": 391,
+          "visibility": 40,
+          "visibility_probe": 80
+        },
+        "raw_phase_tags": {
+          "measured": 1656,
+          "unspecified": 1,
+          "warmup": 419
+        },
+        "rejected_spans": 0,
+        "retry_attempts": 0,
+        "schedule_to_acknowledgment": {
+          "count": 312,
+          "max_ns": 40066000,
+          "p50_ns": 25109000,
+          "p95_ns": 30293000,
+          "p99_ns": 35476000,
+          "p99_tail_samples": 3
+        },
+        "terminal_measured_batches": 0,
+        "visibility": {
+          "ack_to_observation": {
+            "count": 32,
+            "max_ns": 209970000,
+            "p50_ns": 204483000,
+            "p95_ns": 209626000,
+            "p99_ns": 209970000,
+            "p99_tail_samples": 1
+          },
+          "all_phase_probe_latency": {
+            "count": 80,
+            "max_ns": 20094000,
+            "p50_ns": 14071000,
+            "p95_ns": 17019000,
+            "p99_ns": 20094000,
+            "p99_tail_samples": 1
+          },
+          "all_phase_probe_request_count": 80,
+          "censored_count": 0,
+          "first_send_to_observation": {
+            "count": 32,
+            "max_ns": 233431000,
+            "p50_ns": 228833000,
+            "p95_ns": 231884000,
+            "p99_ns": 233431000,
+            "p99_tail_samples": 1
+          },
+          "note": "Observation latency is an upper bound; probes impose measured read traffic and may observe storage before acknowledgment.",
+          "poll_count": 64,
+          "sample_count": 32
+        }
+      },
+      "name": "steady",
+      "reconciliation": {
+        "counts": {
+          "acked_missing": 0,
+          "emitted_missing": 0,
+          "expected_stored": 75000,
+          "never_acked_stored": 0,
+          "planned_missing": 0,
+          "planned_spans": 75000,
+          "unknown": 0
+        },
+        "note": "Stored masks derive from bounded FINAL identity queries; classifications are checked against raw export records. Physical duplicate counts cannot be inferred from masks.",
+        "status": "verified_ledger",
+        "zero_identity_loss": "pass"
+      },
+      "resources": {
+        "containers": {
+          "incidentlens-api-1": {
+            "block_read_delta_bytes": 0,
+            "block_write_delta_bytes": 0,
+            "cpu_quota_cores": 1.0,
+            "max_cpu_percent_one_core": 0.84,
+            "max_cpu_percent_quota": 0.84,
+            "max_memory_bytes_docker": 60995665,
+            "max_memory_percent": 11.36,
+            "sample_count": 60,
+            "sample_mean_cpu_percent_one_core": 0.1285
+          },
+          "incidentlens-clickhouse-1": {
+            "block_read_delta_bytes": 85000000,
+            "block_write_delta_bytes": 570000000,
+            "cpu_quota_cores": 2.0,
+            "max_cpu_percent_one_core": 135.8,
+            "max_cpu_percent_quota": 67.9,
+            "max_memory_bytes_docker": 2026150821,
+            "max_memory_percent": 94.35,
+            "sample_count": 60,
+            "sample_mean_cpu_percent_one_core": 84.81383333333333
+          },
+          "incidentlens-collector-1": {
+            "block_read_delta_bytes": 0,
+            "block_write_delta_bytes": 0,
+            "cpu_quota_cores": 1.0,
+            "max_cpu_percent_one_core": 5.63,
+            "max_cpu_percent_quota": 5.63,
+            "max_memory_bytes_docker": 89768591,
+            "max_memory_percent": 33.44,
+            "sample_count": 60,
+            "sample_mean_cpu_percent_one_core": 2.0006666666666666
+          },
+          "incidentlens-ingest-1": {
+            "block_read_delta_bytes": 0,
+            "block_write_delta_bytes": 0,
+            "cpu_quota_cores": 1.0,
+            "max_cpu_percent_one_core": 7.19,
+            "max_cpu_percent_quota": 7.19,
+            "max_memory_bytes_docker": 22009610,
+            "max_memory_percent": 4.1,
+            "sample_count": 60,
+            "sample_mean_cpu_percent_one_core": 5.057
+          }
+        },
+        "generator": {
+          "max_cpu_percent": 1.5,
+          "max_rss_bytes": 28741632,
+          "sample_count": 60
+        },
+        "measurement_sample_count": 60,
+        "note": "Docker CPU100% is one core; quota-normalized maxima use inspected limits. Memory is Docker's reported usage/cache convention. Block I/O is cumulative traffic, not disk occupancy; reset counters produce null deltas. Means are unweighted sample means.",
+        "sampling_errors": 0
+      },
+      "run_status": "completed",
+      "storage": {
+        "after": {
+          "active_parts": 15,
+          "disk_bytes": 25730162,
+          "physical_rows": 1106204
+        },
+        "before": {
+          "active_parts": 15,
+          "disk_bytes": 23937421,
+          "physical_rows": 1031204
+        },
+        "delta": {
+          "active_parts": 0,
+          "disk_bytes": 1792741,
+          "physical_rows": 75000
+        },
+        "note": "Global retained-corpus physical rows/parts/bytes include background merges and other retained runs; they are not unique identity reconciliation."
+      },
+      "targets": {
+        "ack_p95_500_ms": "pass",
+        "ack_p99_2_seconds": "pass",
+        "acknowledged_within_window_95_percent": "pass",
+        "query_routes": {},
+        "visibility": {
+          "p95_1_second": "pass",
+          "p99_3_seconds": "pass",
+          "uncensored": "pass"
+        },
+        "zero_schedule_drops": "pass",
+        "zero_terminal_valid_export_errors": "pass"
+      },
+      "validity": "raw_evidence_available"
+    }
+  ],
+  "steady_variation": {
+    "metrics": {
+      "ack_p95_ns": {
+        "count": 3,
+        "max": 51796000,
+        "mean": 40595000,
+        "min": 28920000,
+        "sample_stddev": 11445363.733844373
+      },
+      "ack_p99_ns": {
+        "count": 3,
+        "max": 75546000,
+        "mean": 57739333.333333336,
+        "min": 34167000,
+        "sample_stddev": 21283505.21726469
+      },
+      "acknowledged_spans_per_second": {
+        "count": 3,
+        "max": 498.6,
+        "mean": 498.6,
+        "min": 498.6,
+        "sample_stddev": 0.0
+      }
+    },
+    "note": "Runs remain separate; differences include the growing retained corpus and background workload.",
+    "observed_stages": 3,
+    "required_repetitions": 3
+  }
+}

@@ -1,0 +1,25 @@
+=== RUN   TestPoisonRecordDoesNotAdvanceOffset
+=== RUN   TestPoisonRecordDoesNotAdvanceOffset/malformed
+    poison_test.go:100: isolated topic streamtest-a0cba275f905e397cb56d485 retained for inspection, retention 1h/16MiB
+=== RUN   TestPoisonRecordDoesNotAdvanceOffset/unsupported
+    poison_test.go:100: isolated topic streamtest-d30133336112e2ef24e23f97 retained for inspection, retention 1h/16MiB
+--- PASS: TestPoisonRecordDoesNotAdvanceOffset (0.55s)
+    --- PASS: TestPoisonRecordDoesNotAdvanceOffset/malformed (0.41s)
+    --- PASS: TestPoisonRecordDoesNotAdvanceOffset/unsupported (0.14s)
+=== RUN   TestRetainedOffsetGapFailsWithoutReset
+    poison_test.go:127: isolated topic streamtest-9e632649818514ec6d78d05d retained for inspection, retention 1h/16MiB
+--- PASS: TestRetainedOffsetGapFailsWithoutReset (0.15s)
+=== RUN   TestBrokerAckBeforeStorageThenWorkerRecovery
+    streaming_test.go:211: Kafka ACK before retained broker restart: trace=e16577fc82d1ed58df2abe4c87bf6b9f namespace=streamtest-eba7cb9e68ce
+--- PASS: TestBrokerAckBeforeStorageThenWorkerRecovery (29.32s)
+=== RUN   TestBrokerOutageReturnsRetryableFailure
+--- PASS: TestBrokerOutageReturnsRetryableFailure (38.49s)
+=== RUN   TestWriteBeforeCommitCrashAndFreshGroupReplay
+    streaming_test.go:346: trace=a6983c10fb2b3776914adba5ce730b13 group=streamtest-crash-ea9b7da4fcfad9532bd1d083 Kafka record offset=16 next=17
+    streaming_test.go:383: same-group replay committed offset=17
+    streaming_test.go:390: fresh-group replay committed offset=17
+--- PASS: TestWriteBeforeCommitCrashAndFreshGroupReplay (56.10s)
+=== RUN   TestInvalidAndOversizedRequestsFailClosed
+--- PASS: TestInvalidAndOversizedRequestsFailClosed (0.25s)
+PASS
+ok  	incidentlens/backend/tests/streaming	126.797s

@@ -21,3 +21,15 @@ FROM gcr.io/distroless/static-debian12:nonroot AS api
 COPY --from=build-api /api /api
 COPY --from=build-web /web/dist /web
 ENTRYPOINT ["/api"]
+
+FROM source AS build-stream-ingest
+RUN CGO_ENABLED=0 go build -trimpath -o /stream-ingest ./cmd/stream-ingest
+FROM gcr.io/distroless/static-debian12:nonroot AS stream-ingest
+COPY --from=build-stream-ingest /stream-ingest /stream-ingest
+ENTRYPOINT ["/stream-ingest"]
+
+FROM source AS build-stream-worker
+RUN CGO_ENABLED=0 go build -trimpath -o /stream-worker ./cmd/stream-worker
+FROM gcr.io/distroless/static-debian12:nonroot AS stream-worker
+COPY --from=build-stream-worker /stream-worker /stream-worker
+ENTRYPOINT ["/stream-worker"]

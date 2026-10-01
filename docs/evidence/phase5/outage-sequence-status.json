@@ -1,0 +1,77 @@
+{
+  "started_at": "2026-10-01T03:01:33.176873+00:00",
+  "status": "completed",
+  "steps": [
+    {
+      "label": "outage15",
+      "command": [
+        "caffeinate",
+        "-i",
+        "python3",
+        "benchmarks/run.py",
+        "--stack",
+        "streaming",
+        "--plan",
+        "benchmarks/plan-phase5-outage15.json",
+        "--binary",
+        "/tmp/incidentlens-bench",
+        "--output",
+        "benchmarks/results/20261001-streaming-outage15"
+      ],
+      "started_at": "2026-10-01T03:01:33.201240+00:00",
+      "pid": 53769,
+      "returncode": 0,
+      "ended_at": "2026-10-01T03:03:50.130804+00:00"
+    },
+    {
+      "label": "outage15_analysis",
+      "command": [
+        "python3",
+        "benchmarks/analyze.py",
+        "benchmarks/results/20261001-streaming-outage15",
+        "--output",
+        "benchmarks/results/20261001-streaming-outage15/analysis"
+      ],
+      "started_at": "2026-10-01T03:03:50.131951+00:00",
+      "pid": 54282,
+      "returncode": 0,
+      "ended_at": "2026-10-01T03:03:50.344003+00:00"
+    },
+    {
+      "label": "outage60",
+      "command": [
+        "caffeinate",
+        "-i",
+        "python3",
+        "benchmarks/run.py",
+        "--stack",
+        "streaming",
+        "--plan",
+        "benchmarks/plan-phase5-outage.json",
+        "--binary",
+        "/tmp/incidentlens-bench",
+        "--output",
+        "benchmarks/results/20261001-streaming-outage60"
+      ],
+      "started_at": "2026-10-01T03:03:50.344553+00:00",
+      "pid": 54283,
+      "returncode": 0,
+      "ended_at": "2026-10-01T03:07:09.761409+00:00"
+    },
+    {
+      "label": "outage60_analysis",
+      "command": [
+        "python3",
+        "benchmarks/analyze.py",
+        "benchmarks/results/20261001-streaming-outage60",
+        "--output",
+        "benchmarks/results/20261001-streaming-outage60/analysis"
+      ],
+      "started_at": "2026-10-01T03:07:09.762635+00:00",
+      "pid": 54919,
+      "returncode": 0,
+      "ended_at": "2026-10-01T03:07:10.086430+00:00"
+    }
+  ],
+  "ended_at": "2026-10-01T03:07:10.087064+00:00"
+}

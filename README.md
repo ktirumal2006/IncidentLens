@@ -14,7 +14,7 @@ IncidentLens is a trace-only investigation project for distributed applications.
 
 If Docker Desktop is running on macOS but `docker` is not on PATH, run `export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"` in the terminal used for these commands.
 
-Pinned runtime versions are ClickHouse 25.8.4.13 and Collector Contrib 0.137.0. These versions passed the documented local runtime checks on Linux/amd64 under Docker Desktop. No excluded runtime technologies are part of the product stack.
+Pinned runtime versions are ClickHouse 25.8.4.13 and Collector Contrib 0.137.0. These versions passed the documented local runtime checks on Linux/amd64 under Docker Desktop. The default stack keeps the trace-only MVP dependencies. The explicitly requested [Phase 5 Kafka learning extension](deploy/streaming/README.md) is opt-in and [verified with measured limits](docs/VERIFICATION_PHASE5.md); [ADR 0004](docs/adr/0004-phase5-buffering-and-replay.md) records why it does not change the Phase 4 recommendation.
 
 ## Run the product pipeline
 

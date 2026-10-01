@@ -116,9 +116,28 @@ The [predeclared external Demo scenario](../integrations/otel-demo/PHASE3_SCENAR
 - Query bounds, retention and payload/time caps are implemented local correctness limits, not performance guarantees. Detector thresholds are versioned configurable defaults, not production calibration. Phase 4 measured the bounded local workload; its failed targets and limits are documented in the performance report, and do not establish production guarantees.
 - Meaningful changes to storage, delivery guarantees, component boundaries, rule semantics, or dependencies require an ADR explaining evidence, alternatives, and consequences.
 
+## Optional Phase 5 learning path
+
+The default direct path remains available. The explicitly requested educational
+extension uses `Collector → stream-ingest → Kafka → stream-worker → ClickHouse`.
+The API and detector continue reading duplicate-safe ClickHouse data. See
+[ADR 0004](adr/0004-phase5-buffering-and-replay.md) for alternatives and guarantees,
+[the ingestion contract](INGESTION.md#optional-streaming-contract) for the changed
+ACK boundary, and [the runbook](../deploy/streaming/README.md) for migration and rollback.
+
+A versioned, bounded JSON envelope carries normalized rows. Broker success precedes
+storage visibility; the worker commits offsets only after synchronous inserts.
+One partition preserves broker order, while immutable keys and FINAL reads absorb
+write-before-commit replay. Unsupported or expired records and retained-offset
+gaps stop processing without skipping data. The local broker has one replica,
+finite retention and no disk-loss or availability guarantee. The
+[Phase 5 verification](VERIFICATION_PHASE5.md) publishes replay/failure checks,
+comparable measurements, failed targets and observed rollback. Adding a replay
+log is an educational objective, not evidence that the Phase 4 workload requires Kafka.
+
 ## Repository structure and later additions
 
-The tree below includes the target layout and implemented frontend entry points; unneeded directories remain plans, not evidence of functionality. Phases 1–2 delivered ingestion/storage, query/httpapi, both executables, the trace explorer, local configuration and verified integration/browser workflows. Phase 3 delivers the verified detector and incident UI/API/tests. The Phase 4 benchmark harness and raw measurements are complete. Later infrastructure remains deferred; create its paths only when requested.
+The tree below includes the target layout and implemented frontend entry points; unneeded directories remain plans, not evidence of functionality. Phases 1–2 delivered ingestion/storage, query/httpapi, both executables, the trace explorer, local configuration and verified integration/browser workflows. Phase 3 delivers the verified detector and incident UI/API/tests. The Phase 4 benchmark harness and raw measurements are complete. Phase 5 adds optional stream-ingest/stream-worker executables, internal/stream and deploy/streaming. Later infrastructure remains deferred; create its paths only when requested.
 
 ```text
 IncidentLens/

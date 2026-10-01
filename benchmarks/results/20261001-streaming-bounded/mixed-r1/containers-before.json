@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-01T02:38:26.482423Z",
+  "command": [
+    "docker",
+    "compose",
+    "-f",
+    "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+    "-f",
+    "/Users/kousil/Documents/IncidentLens/deploy/streaming/compose.yaml",
+    "ps",
+    "-q",
+    "clickhouse",
+    "api",
+    "collector",
+    "kafka",
+    "stream-ingest",
+    "stream-worker"
+  ],
+  "elapsed_seconds": 0.2031010199999983,
+  "returncode": 0,
+  "stderr": "",
+  "stdout": "92fb895c3c527ef55468ea5c6f023228a4d212520a3113e073dee77c36a3c91c\nf5c8bdd48da5ce1f3911cfbdef532c0db77a0efed430a43d9214c28c00d9177d\n36d2ecec0d6573ff92e6ba8ab331e8097cfe71b4e2afb122e5e7ead15bdaf211\nf014f1435df9299993e02a0665a5461042d8cbb20a87387a064f92f87c81a0d1\n88f35e12719febfbb6c0b76a4a2d9bbe8a1eb554af0e04a722de183d17629e6b\n925c628b75a2dcc86a7731038042b6e40c3aa3855c6cc5c0314b0fb588f9aacb\n"
+}

@@ -1,0 +1,18 @@
+{
+  "at": "2026-09-30T19:37:54.601941+00:00",
+  "ready": {
+    "18081": 200,
+    "18082": 200,
+    "18083": 200
+  },
+  "incidentlens-collector-1": {
+    "state": "running",
+    "mounts": [
+      "/Users/kousil/Documents/IncidentLens/deploy/streaming/collector.yaml:/etc/otelcol/config.yaml:ro"
+    ]
+  },
+  "incidentlens-ingest-1": {
+    "state": "exited",
+    "mounts": null
+  }
+}

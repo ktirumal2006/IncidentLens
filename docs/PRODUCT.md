@@ -1,6 +1,6 @@
 # IncidentLens product plan
 
-Status: Phases 1–2 are complete and verified: trace ingestion, service summaries, trace search and the waterfall explorer. Phase 3's deterministic detector and incident comparison UI are complete and verified, including controlled Demo faults and clean recovery. See [milestone status](MILESTONES.md), [ingestion verification](VERIFICATION.md), [explorer verification](VERIFICATION_PHASE2.md), and [Phase 3 verification](VERIFICATION_PHASE3.md). Phase 4 is complete; the [measured verification report](VERIFICATION_PHASE4.md) records failed targets, limits and the decision to defer Phase 5.
+Status: Phases 1–2 are complete and verified: trace ingestion, service summaries, trace search and the waterfall explorer. Phase 3's deterministic detector and incident comparison UI are complete and verified, including controlled Demo faults and clean recovery. See [milestone status](MILESTONES.md), [ingestion verification](VERIFICATION.md), [explorer verification](VERIFICATION_PHASE2.md), and [Phase 3 verification](VERIFICATION_PHASE3.md). Phase 4 is complete; the [measured verification report](VERIFICATION_PHASE4.md) records failed targets, limits and the decision to defer Phase 5. The user subsequently authorized Phase 5 as an opt-in Kafka learning exercise; [Phase 5 verification](VERIFICATION_PHASE5.md) records replay/delivery checks, measured costs and retained-volume rollback under [ADR 0004](adr/0004-phase5-buffering-and-replay.md).
 
 ## Problem statement
 
@@ -38,7 +38,7 @@ The [controlled Demo procedure](../integrations/otel-demo/PHASE3_SCENARIO.md) de
 
 ## Explicit non-goals
 
-- No Kafka, Redis, Kubernetes, Terraform, PostgreSQL, AI/LLMs, metrics ingestion, or logs ingestion in the MVP. Upstream Demo defaults are not permission to add excluded technologies to the local setup.
+- No Kafka, Redis, Kubernetes, Terraform, PostgreSQL, AI/LLMs, metrics ingestion, or logs ingestion in the default MVP. The explicitly requested Phase 5 learning extension adds only Kafka through an opt-in overlay; it does not change the default recommendation. Upstream Demo defaults are not permission to add excluded technologies to the local setup.
 - No full observability suite, arbitrary analytics query language, or replacement for established production platforms.
 - No guaranteed root-cause attribution, automated remediation, paging integrations, or persistent incident assignment/acknowledgment workflow.
 - No multi-tenancy, public hosting, production authentication system, high availability, or exactly-once delivery guarantee.

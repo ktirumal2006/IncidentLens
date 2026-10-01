@@ -1,0 +1,6 @@
+START mixed-r1 2026-09-30T19:38:02.718642Z
+END mixed-r1 completed
+START steady-r1 2026-09-30T19:41:06.257272Z
+END steady-r1 completed
+START steady-r2 2026-09-30T19:44:27.488852Z
+END steady-r2 interrupted

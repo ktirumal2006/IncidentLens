@@ -388,6 +388,9 @@ def analyze_stage(directory, environment):
     events = read_jsonl(directory / "harness/events.jsonl", issues)
     records = read_jsonl(directory / "resources.jsonl", issues)
     result = {"directory": str(directory), "name": run.get("name", directory.name), "run_status": run.get("status", "unknown"), "metrics": None, "targets": None, "issues": issues}
+    if "outage" in run and (not isinstance(run["outage"], dict) or run["outage"].get("status") != "completed"):
+        status = run["outage"].get("status", "unknown") if isinstance(run["outage"], dict) else "unknown"
+        issues.append(f"declared storage outage did not complete: {status}")
     try:
         start, end = time_ns(summary.get("measurement_start")), time_ns(summary.get("measurement_end"))
         result["measurement_window"] = {"from": summary["measurement_start"], "to": summary["measurement_end"], "half_open": True}

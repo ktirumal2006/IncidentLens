@@ -1,0 +1,9 @@
+=== RUN   TestCompressedBatchAboveDecompressionBoundDoesNotAdvanceOffset
+    memory_test.go:43: enabled streaming test requires ClickHouse: read: read tcp 127.0.0.1:59998->127.0.0.1:19000: i/o timeout
+--- FAIL: TestCompressedBatchAboveDecompressionBoundDoesNotAdvanceOffset (1.00s)
+=== RUN   TestOneByteFetchBudgetMakesOrderedProgressAcrossCompressedBatches
+    memory_test.go:86: enabled streaming test requires ClickHouse: read: read tcp 127.0.0.1:59999->127.0.0.1:19000: i/o timeout
+--- FAIL: TestOneByteFetchBudgetMakesOrderedProgressAcrossCompressedBatches (1.00s)
+FAIL
+FAIL	incidentlens/backend/tests/streaming	3.034s
+FAIL

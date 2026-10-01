@@ -1,0 +1,8 @@
+{
+  "held_at": "2026-10-01T02:57:45.632900+00:00",
+  "sequence_pid": 48752,
+  "live_campaign_pid": 48955,
+  "reason": "Hold only the waiting sequence coordinator so timestamp regression tests can run after the current benchmark exits and before the next outage. The benchmark process is not stopped.",
+  "resumed_at": "2026-10-01T03:00:52.809589+00:00",
+  "regression_result": "29 Python tests passed after benchmark process exited"
+}

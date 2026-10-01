@@ -1,0 +1,561 @@
+{
+  "declaration": {
+    "path": "/Users/kousil/Documents/IncidentLens/benchmarks/WORKLOAD_PHASE5.md",
+    "sha256": "b88246653f5d8bca6caa4d3aa45120a1e7aa644a0ec76309cb1f00fe048cb11d"
+  },
+  "ended_at": "2026-10-01T03:03:50.107392Z",
+  "final_readiness": {
+    "api": 200,
+    "ingestion": 200,
+    "worker": 200
+  },
+  "initial_storage": {
+    "at": "2026-10-01T03:01:35.418731Z",
+    "clickhouse_disk": {
+      "at": "2026-10-01T03:01:35.418843Z",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/streaming/compose.yaml",
+        "exec",
+        "-T",
+        "clickhouse",
+        "df",
+        "-k",
+        "/var/lib/clickhouse"
+      ],
+      "elapsed_seconds": 0.23028283599999977,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Filesystem      1K-blocks     Used  Available Use% Mounted on\n/dev/vda1      2112646064 22636044 1982619508   2% /var/lib/clickhouse\n"
+    },
+    "clickhouse_parts": {
+      "at": "2026-10-01T03:01:35.126296Z",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/streaming/compose.yaml",
+        "exec",
+        "-T",
+        "clickhouse",
+        "clickhouse-client",
+        "--password",
+        "local-admin",
+        "--query",
+        "SELECT table, count() AS active_parts, sum(rows) AS physical_rows, sum(bytes_on_disk) AS disk_bytes, sum(data_compressed_bytes) AS compressed_bytes, sum(data_uncompressed_bytes) AS uncompressed_bytes FROM system.parts WHERE database='incidentlens' AND active GROUP BY table FORMAT JSON"
+      ],
+      "elapsed_seconds": 0.292311274,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n\t\"meta\":\n\t[\n\t\t{\n\t\t\t\"name\": \"table\",\n\t\t\t\"type\": \"String\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"active_parts\",\n\t\t\t\"type\": \"UInt64\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"physical_rows\",\n\t\t\t\"type\": \"UInt64\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"disk_bytes\",\n\t\t\t\"type\": \"UInt64\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"compressed_bytes\",\n\t\t\t\"type\": \"UInt64\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"uncompressed_bytes\",\n\t\t\t\"type\": \"UInt64\"\n\t\t}\n\t],\n\n\t\"data\":\n\t[\n\t\t{\n\t\t\t\"table\": \"spans\",\n\t\t\t\"active_parts\": 18,\n\t\t\t\"physical_rows\": 2554436,\n\t\t\t\"disk_bytes\": 60186047,\n\t\t\t\"compressed_bytes\": 60060748,\n\t\t\t\"uncompressed_bytes\": 2308798779\n\t\t}\n\t],\n\n\t\"rows\": 1,\n\n\t\"statistics\":\n\t{\n\t\t\"elapsed\": 0.00473381,\n\t\t\"rows_read\": 18,\n\t\t\"bytes_read\": 1188\n\t}\n}\n"
+    },
+    "host_disk": {
+      "free_bytes": 3877111169024,
+      "total_bytes": 4001907707904,
+      "used_bytes": 124796538880
+    },
+    "kafka_disk": {
+      "at": "2026-10-01T03:01:35.649284Z",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/streaming/compose.yaml",
+        "exec",
+        "-T",
+        "kafka",
+        "df",
+        "-k",
+        "/var/lib/kafka/data"
+      ],
+      "elapsed_seconds": 0.22330228399999985,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Filesystem      1K-blocks     Used  Available Use% Mounted on\n/dev/vda1      2112646064 22636044 1982619508   2% /var/lib/kafka/data\n"
+    },
+    "kafka_group_offsets": {
+      "at": "2026-10-01T03:01:36.116409Z",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/streaming/compose.yaml",
+        "exec",
+        "-T",
+        "kafka",
+        "/opt/kafka/bin/kafka-consumer-groups.sh",
+        "--bootstrap-server",
+        "kafka:9092",
+        "--group",
+        "incidentlens-stream-worker-v1",
+        "--describe"
+      ],
+      "elapsed_seconds": 4.409326146,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "\nGROUP                         TOPIC                 PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                              HOST            CLIENT-ID\nincidentlens-stream-worker-v1 incidentlens-spans-v1 0          5360            5360            0               kgo-ab9a50a0-ba70-4366-b334-95780f9d52f3 /172.18.0.6     kgo\n"
+    },
+    "kafka_topic": {
+      "at": "2026-10-01T03:01:40.526047Z",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/streaming/compose.yaml",
+        "exec",
+        "-T",
+        "kafka",
+        "/opt/kafka/bin/kafka-topics.sh",
+        "--bootstrap-server",
+        "kafka:9092",
+        "--topic",
+        "incidentlens-spans-v1",
+        "--describe"
+      ],
+      "elapsed_seconds": 2.6615329259999996,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Topic: incidentlens-spans-v1\tTopicId: 9YAo5rTdQSSqqnVhw6h_qw\tPartitionCount: 1\tReplicationFactor: 1\tConfigs: min.insync.replicas=1,segment.bytes=67108864,retention.ms=3600000,max.message.bytes=5242880,retention.bytes=1073741824,segment.ms=300000\n\tTopic: incidentlens-spans-v1\tPartition: 0\tLeader: 1\tReplicas: 1\tIsr: 1\tElr: \tLastKnownElr: \n"
+    },
+    "kafka_volume_usage": {
+      "at": "2026-10-01T03:01:35.872716Z",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/streaming/compose.yaml",
+        "exec",
+        "-T",
+        "kafka",
+        "du",
+        "-sk",
+        "/var/lib/kafka/data"
+      ],
+      "elapsed_seconds": 0.2435552539999999,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "85648\t/var/lib/kafka/data\n"
+    }
+  },
+  "plan": {
+    "declaration": "benchmarks/WORKLOAD_PHASE5.md",
+    "stages": [
+      {
+        "name": "outage",
+        "outage": {
+          "after_seconds": 30,
+          "duration_seconds": 15
+        },
+        "timeout_seconds": 285,
+        "workload": {
+          "api": "http://127.0.0.1:18081",
+          "attempts": 3,
+          "attribute-bytes": 256,
+          "batch-traces": 32,
+          "clickhouse": "127.0.0.1:19000",
+          "collector": "127.0.0.1:4317",
+          "concurrency": 16,
+          "drain": "120s",
+          "duration": "60s",
+          "export-timeout": "8s",
+          "max-event-bytes": 268435456,
+          "query-concurrency": 4,
+          "query-rate": 0,
+          "queue": 64,
+          "rate": 500,
+          "settle": "35s",
+          "visibility-every": 10,
+          "visibility-timeout": "10s",
+          "warmup": "15s"
+        }
+      }
+    ],
+    "version": 1
+  },
+  "plan_sha256": "2bfcf57cd8c7fed974ed7945d53dd940a49912549049da6e9e869ffcc2dd5b89",
+  "preflight_readiness": {
+    "api": 200,
+    "ingestion": 200,
+    "worker": 200
+  },
+  "stack": "streaming",
+  "stages": [
+    {
+      "command": [
+        "/private/tmp/incidentlens-bench",
+        "--output-dir",
+        "benchmarks/results/20261001-streaming-outage15/outage-r1/harness",
+        "--seed",
+        "cf780feb005443ec960c3be6c24fe660-outage-r1",
+        "--scenario",
+        "outage",
+        "--api",
+        "http://127.0.0.1:18081",
+        "--attempts",
+        "3",
+        "--attribute-bytes",
+        "256",
+        "--batch-traces",
+        "32",
+        "--clickhouse",
+        "127.0.0.1:19000",
+        "--collector",
+        "127.0.0.1:4317",
+        "--concurrency",
+        "16",
+        "--drain",
+        "120s",
+        "--duration",
+        "60s",
+        "--export-timeout",
+        "8s",
+        "--max-event-bytes",
+        "268435456",
+        "--query-concurrency",
+        "4",
+        "--query-rate",
+        "0",
+        "--queue",
+        "64",
+        "--rate",
+        "500",
+        "--settle",
+        "35s",
+        "--visibility-every",
+        "10",
+        "--visibility-timeout",
+        "10s",
+        "--warmup",
+        "15s"
+      ],
+      "elapsed_seconds": 110.86773088300001,
+      "ended_at": "2026-10-01T03:03:43.613986Z",
+      "harness_terminal": true,
+      "name": "outage",
+      "outage": {
+        "actual_stop_command_offset_seconds": 30.003756999969482,
+        "harness_ended_during_outage": false,
+        "load_start": "2026-10-01T03:01:52.801905Z",
+        "observed_stop_seconds": 15.004635522999997,
+        "offset_reference": "harness load_start",
+        "recovery_readiness": {
+          "api": 200,
+          "ingestion": 200,
+          "worker": 200
+        },
+        "requested": {
+          "after_seconds": 30,
+          "duration_seconds": 15
+        },
+        "restore_command": {
+          "at": "2026-10-01T03:02:39.517070Z",
+          "command": [
+            "docker",
+            "compose",
+            "-f",
+            "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+            "-f",
+            "/Users/kousil/Documents/IncidentLens/deploy/streaming/compose.yaml",
+            "start",
+            "clickhouse"
+          ],
+          "elapsed_seconds": 0.3963138619999995,
+          "returncode": 0,
+          "stderr": " Container incidentlens-clickhouse-1 Starting \n Container incidentlens-clickhouse-1 Started \n",
+          "stdout": ""
+        },
+        "restored_at": "2026-10-01T03:02:39.913413Z",
+        "started_at": "2026-10-01T03:02:22.805605Z",
+        "status": "completed",
+        "stop_command": {
+          "at": "2026-10-01T03:02:22.805852Z",
+          "command": [
+            "docker",
+            "compose",
+            "-f",
+            "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+            "-f",
+            "/Users/kousil/Documents/IncidentLens/deploy/streaming/compose.yaml",
+            "stop",
+            "-t",
+            "1",
+            "clickhouse"
+          ],
+          "elapsed_seconds": 1.7055279389999995,
+          "returncode": 0,
+          "stderr": " Container incidentlens-clickhouse-1 Stopping \n Container incidentlens-clickhouse-1 Stopped \n",
+          "stdout": ""
+        }
+      },
+      "pid": 53869,
+      "repetition": 1,
+      "returncode": 0,
+      "seed": "cf780feb005443ec960c3be6c24fe660-outage-r1",
+      "started_at": "2026-10-01T03:01:43.188389Z",
+      "status": "completed",
+      "summary": {
+        "config": {
+          "api": "http://127.0.0.1:18081",
+          "attribute_payload_bytes": 256,
+          "baseline_traces": 0,
+          "batch_traces": 32,
+          "clickhouse": "127.0.0.1:19000",
+          "clickhouse_user": "query",
+          "collector": "127.0.0.1:4317",
+          "drain_ns": 120000000000,
+          "duration_ns": 60000000000,
+          "estimated_event_bytes_upper_bound": 4388800,
+          "export_concurrency": 16,
+          "export_queue": 64,
+          "export_timeout_ns": 8000000000,
+          "load_spans": 37500,
+          "load_traces": 6250,
+          "max_attempts": 3,
+          "max_event_bytes": 268435456,
+          "namespace": "bench-e7720f6f0ebe",
+          "output_dir": "benchmarks/results/20261001-streaming-outage15/outage-r1/harness",
+          "query_concurrency": 4,
+          "query_mix": "services,traces,detail,incidents",
+          "query_requests_per_second": 0,
+          "rate_spans_per_second": 500,
+          "scenario": "outage",
+          "seed": "cf780feb005443ec960c3be6c24fe660-outage-r1",
+          "serialized_full_batch_bytes": 81822,
+          "services": [
+            "bench-frontend",
+            "bench-api",
+            "bench-store"
+          ],
+          "settle_ns": 35000000000,
+          "setup_spans": 0,
+          "span_kinds_per_trace": {
+            "CLIENT": 2,
+            "INTERNAL": 1,
+            "SERVER": 3
+          },
+          "visibility_every_batches": 10,
+          "visibility_timeout_ns": 10000000000,
+          "warmup_ns": 15000000000
+        },
+        "drain_deadline_expired": false,
+        "driver": {
+          "generator_limited": false,
+          "logging_error": "",
+          "missed_deadline_batches": 0,
+          "schedule_dropped_batches": 0
+        },
+        "error": "",
+        "event_counts": {
+          "batch_complete:measured": 156,
+          "batch_complete:warmup": 40,
+          "enqueued:measured": 156,
+          "enqueued:warmup": 40,
+          "export_attempt:measured": 156,
+          "export_attempt:warmup": 40,
+          "generated:measured": 156,
+          "generated:warmup": 40,
+          "load_start:": 1,
+          "scheduled:measured": 156,
+          "scheduled:warmup": 40,
+          "visibility:measured": 16,
+          "visibility:warmup": 4,
+          "visibility_probe:measured": 267,
+          "visibility_probe:warmup": 8
+        },
+        "latencies": {
+          "export_attempt:measured:": {
+            "count": 156,
+            "max_ns": 48946000,
+            "p50_ns": 19418000,
+            "p95_ns": 32788000,
+            "p99_ns": 45757000
+          },
+          "export_attempt:measured::OK": {
+            "count": 156,
+            "max_ns": 48946000,
+            "p50_ns": 19418000,
+            "p95_ns": 32788000,
+            "p99_ns": 45757000
+          },
+          "export_attempt:warmup:": {
+            "count": 40,
+            "max_ns": 261045000,
+            "p50_ns": 28500000,
+            "p95_ns": 104439000,
+            "p99_ns": 261045000
+          },
+          "export_attempt:warmup::OK": {
+            "count": 40,
+            "max_ns": 261045000,
+            "p50_ns": 28500000,
+            "p95_ns": 104439000,
+            "p99_ns": 261045000
+          },
+          "schedule_delay:measured": {
+            "count": 156,
+            "max_ns": 8616000,
+            "p50_ns": 985000,
+            "p95_ns": 1699000,
+            "p99_ns": 2120000
+          },
+          "schedule_delay:warmup": {
+            "count": 40,
+            "max_ns": 36691000,
+            "p50_ns": 1145000,
+            "p95_ns": 8158000,
+            "p99_ns": 36691000
+          }
+        },
+        "load_start": "2026-10-01T03:01:52.801905Z",
+        "measured": {
+          "ack_latency": {
+            "count": 156,
+            "max_ns": 48946000,
+            "p50_ns": 19418000,
+            "p95_ns": 32788000,
+            "p99_ns": 45757000
+          },
+          "acked_spans": 29820,
+          "acked_spans_per_second": 497,
+          "acked_spans_within_measurement_window": 29820,
+          "emitted_spans": 29820,
+          "enqueued_spans": 29820,
+          "exported_batches": 156,
+          "generated_spans": 29820,
+          "offered_spans": 29820,
+          "planned_spans": 29820,
+          "rejected_spans": 0,
+          "retried_batches": 0,
+          "schedule_to_ack_latency": {
+            "count": 156,
+            "max_ns": 50242000,
+            "p50_ns": 20490000,
+            "p95_ns": 33814000,
+            "p99_ns": 46583000
+          },
+          "terminal_error_fraction": 0,
+          "terminal_failed_batches": 0,
+          "unique_ack_fraction": 1
+        },
+        "measurement_end": "2026-10-01T03:03:07.801905Z",
+        "measurement_start": "2026-10-01T03:02:07.801905Z",
+        "offering_finished": "2026-10-01T03:03:07.802787Z",
+        "raw_event_bytes": 417344,
+        "reconciliation": {
+          "acked_missing": 0,
+          "acked_spans": 37500,
+          "duplicate_logical_identities": 0,
+          "emitted_missing": 0,
+          "emitted_spans": 37500,
+          "expected_stored": 37500,
+          "final_unique_spans": 37500,
+          "ledger": "reconciliation.jsonl",
+          "never_acked_stored": 0,
+          "physical_duplicates_remaining": 0,
+          "planned_missing": 0,
+          "planned_spans": 37500,
+          "raw_rows": 37500,
+          "settled": true,
+          "snapshot_verified": true,
+          "unknown": 0,
+          "verified": true
+        },
+        "run_end": "2026-10-01T03:03:43.274447Z",
+        "schema_version": 1,
+        "setup": {
+          "ack_latency": {
+            "count": 0,
+            "max_ns": 0,
+            "p50_ns": 0,
+            "p95_ns": 0,
+            "p99_ns": 0
+          },
+          "acked_spans": 0,
+          "acked_spans_per_second": 0,
+          "acked_spans_within_measurement_window": 0,
+          "emitted_spans": 0,
+          "enqueued_spans": 0,
+          "exported_batches": 0,
+          "generated_spans": 0,
+          "offered_spans": 0,
+          "planned_spans": 0,
+          "rejected_spans": 0,
+          "retried_batches": 0,
+          "schedule_to_ack_latency": {
+            "count": 0,
+            "max_ns": 0,
+            "p50_ns": 0,
+            "p95_ns": 0,
+            "p99_ns": 0
+          },
+          "terminal_error_fraction": 0,
+          "terminal_failed_batches": 0,
+          "unique_ack_fraction": 0
+        },
+        "status_counts": {
+          "export_attempt:measured::OK": 156,
+          "export_attempt:warmup::OK": 40
+        },
+        "visibility": {
+          "censored": 6,
+          "first_send_to_observation": {
+            "count": 10,
+            "max_ns": 8531328000,
+            "p50_ns": 280360000,
+            "p95_ns": 8531328000,
+            "p99_ns": 8531328000
+          },
+          "method": "sampled expected six-span trace observation; polling upper bounds, not exact storage arrival",
+          "observed_measured": 10,
+          "poll_interval_ns": 200000000
+        },
+        "warmup": {
+          "ack_latency": {
+            "count": 40,
+            "max_ns": 261045000,
+            "p50_ns": 28500000,
+            "p95_ns": 104439000,
+            "p99_ns": 261045000
+          },
+          "acked_spans": 7680,
+          "acked_spans_per_second": 0,
+          "acked_spans_within_measurement_window": 0,
+          "emitted_spans": 7680,
+          "enqueued_spans": 7680,
+          "exported_batches": 40,
+          "generated_spans": 7680,
+          "offered_spans": 7680,
+          "planned_spans": 7680,
+          "rejected_spans": 0,
+          "retried_batches": 0,
+          "schedule_to_ack_latency": {
+            "count": 40,
+            "max_ns": 262948000,
+            "p50_ns": 29626000,
+            "p95_ns": 107342000,
+            "p99_ns": 262948000
+          },
+          "terminal_error_fraction": 0,
+          "terminal_failed_batches": 0,
+          "unique_ack_fraction": 0
+        }
+      }
+    }
+  ],
+  "started_at": "2026-10-01T03:01:33.362046Z",
+  "status": "completed"
+}

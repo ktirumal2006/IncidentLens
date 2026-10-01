@@ -1,0 +1,26 @@
+=== RUN   TestPoisonRecordDoesNotAdvanceOffset
+=== RUN   TestPoisonRecordDoesNotAdvanceOffset/malformed
+    poison_test.go:100: enabled streaming test requires ClickHouse: read: read tcp 127.0.0.1:49710->127.0.0.1:19000: i/o timeout
+=== RUN   TestPoisonRecordDoesNotAdvanceOffset/unsupported
+    poison_test.go:100: enabled streaming test requires ClickHouse: read: read tcp 127.0.0.1:49711->127.0.0.1:19000: i/o timeout
+--- FAIL: TestPoisonRecordDoesNotAdvanceOffset (2.00s)
+    --- FAIL: TestPoisonRecordDoesNotAdvanceOffset/malformed (1.00s)
+    --- FAIL: TestPoisonRecordDoesNotAdvanceOffset/unsupported (1.00s)
+=== RUN   TestRetainedOffsetGapFailsWithoutReset
+    poison_test.go:127: enabled streaming test requires ClickHouse: read: read tcp 127.0.0.1:49712->127.0.0.1:19000: i/o timeout
+--- FAIL: TestRetainedOffsetGapFailsWithoutReset (1.00s)
+=== RUN   TestBrokerAckBeforeStorageThenWorkerRecovery
+    streaming_test.go:195: enabled streaming test requires ClickHouse: read: read tcp 127.0.0.1:49713->127.0.0.1:19000: i/o timeout
+--- FAIL: TestBrokerAckBeforeStorageThenWorkerRecovery (1.00s)
+=== RUN   TestBrokerOutageReturnsRetryableFailure
+    streaming_test.go:214: enabled streaming test requires ClickHouse: read: read tcp 127.0.0.1:49714->127.0.0.1:19000: i/o timeout
+--- FAIL: TestBrokerOutageReturnsRetryableFailure (1.00s)
+=== RUN   TestWriteBeforeCommitCrashAndFreshGroupReplay
+    streaming_test.go:298: enabled streaming test requires ClickHouse: read: read tcp 127.0.0.1:49715->127.0.0.1:19000: i/o timeout
+--- FAIL: TestWriteBeforeCommitCrashAndFreshGroupReplay (1.00s)
+=== RUN   TestInvalidAndOversizedRequestsFailClosed
+    streaming_test.go:391: enabled streaming test requires ClickHouse: read: read tcp 127.0.0.1:49716->127.0.0.1:19000: i/o timeout
+--- FAIL: TestInvalidAndOversizedRequestsFailClosed (1.00s)
+FAIL
+FAIL	incidentlens/backend/tests/streaming	8.299s
+FAIL

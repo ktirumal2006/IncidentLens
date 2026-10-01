@@ -1,0 +1,24 @@
+=== RUN   TestPoisonRecordDoesNotAdvanceOffset
+=== RUN   TestPoisonRecordDoesNotAdvanceOffset/malformed
+    poison_test.go:100: isolated topic streamtest-29bdeaa8e50a2d377e4857d0 retained for inspection, retention 1h/16MiB
+=== RUN   TestPoisonRecordDoesNotAdvanceOffset/unsupported
+    poison_test.go:100: isolated topic streamtest-9e64f76aee39a1df51f86294 retained for inspection, retention 1h/16MiB
+--- PASS: TestPoisonRecordDoesNotAdvanceOffset (0.79s)
+    --- PASS: TestPoisonRecordDoesNotAdvanceOffset/malformed (0.59s)
+    --- PASS: TestPoisonRecordDoesNotAdvanceOffset/unsupported (0.20s)
+=== RUN   TestRetainedOffsetGapFailsWithoutReset
+    poison_test.go:127: isolated topic streamtest-15f85a0e367bd43f20d916a8 retained for inspection, retention 1h/16MiB
+--- PASS: TestRetainedOffsetGapFailsWithoutReset (0.20s)
+=== RUN   TestBrokerAckBeforeStorageThenWorkerRecovery
+--- PASS: TestBrokerAckBeforeStorageThenWorkerRecovery (18.29s)
+=== RUN   TestBrokerOutageReturnsRetryableFailure
+--- PASS: TestBrokerOutageReturnsRetryableFailure (34.57s)
+=== RUN   TestWriteBeforeCommitCrashAndFreshGroupReplay
+    streaming_test.go:332: trace=f5208b9cd8f86d5e35fcfbbae41a2f59 group=streamtest-crash-18c78d0c3085b1a38154329a Kafka record offset=6 next=7
+    streaming_test.go:365: before replay detector count: {RuleVersion: Config:{MinSamples:0 LatencyRatioMilli:0 LatencyDeltaNS: ErrorRateBPS:0 ErrorIncreaseBPS:0} ObservedAt:0001-01-01 00:00:00 +0000 UTC End:0001-01-01 00:00:00 +0000 UTC BaselineWindow:{From:0001-01-01 00:00:00 +0000 UTC To:0001-01-01 00:00:00 +0000 UTC} CurrentWindow:{From:0001-01-01 00:00:00 +0000 UTC To:0001-01-01 00:00:00 +0000 UTC} Operations:[] Candidates:[] Caveats:[]} error=invalid request
+--- FAIL: TestWriteBeforeCommitCrashAndFreshGroupReplay (10.19s)
+=== RUN   TestInvalidAndOversizedRequestsFailClosed
+--- PASS: TestInvalidAndOversizedRequestsFailClosed (0.24s)
+FAIL
+FAIL	incidentlens/backend/tests/streaming	65.273s
+FAIL

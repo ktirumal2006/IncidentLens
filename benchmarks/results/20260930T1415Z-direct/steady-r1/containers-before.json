@@ -1,0 +1,19 @@
+{
+  "at": "2026-09-30T14:17:45.663443Z",
+  "command": [
+    "docker",
+    "compose",
+    "-f",
+    "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+    "ps",
+    "-q",
+    "clickhouse",
+    "ingest",
+    "api",
+    "collector"
+  ],
+  "elapsed_seconds": 0.19957452799999942,
+  "returncode": 0,
+  "stderr": "",
+  "stdout": "92fb895c3c527ef55468ea5c6f023228a4d212520a3113e073dee77c36a3c91c\nf5c8bdd48da5ce1f3911cfbdef532c0db77a0efed430a43d9214c28c00d9177d\n75e41d53baf9c4565776ce4e105989b0286bdd5561af517a27722da25a9833de\n1c46e8942519bee6514cde54632c2eb0a2cdb646176e92a3263c529f2c78b35e\n"
+}

@@ -1,0 +1,106 @@
+ Image incidentlens-stream-ingest Building 
+ Image incidentlens-stream-worker Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.13kB done
+#1 DONE 0.0s
+
+#2 [stream-ingest internal] load build definition from Dockerfile
+#2 transferring dockerfile: 1.36kB done
+#2 DONE 0.0s
+
+#3 [stream-worker internal] load metadata for docker.io/library/golang:1.26.8-bookworm
+#3 ...
+
+#4 [auth] library/golang:pull token for registry-1.docker.io
+#4 DONE 0.0s
+
+#5 [stream-ingest internal] load metadata for gcr.io/distroless/static-debian12:nonroot
+#5 DONE 0.3s
+
+#3 [stream-worker internal] load metadata for docker.io/library/golang:1.26.8-bookworm
+#3 DONE 0.4s
+
+#6 [stream-worker internal] load .dockerignore
+#6 transferring context: 207B done
+#6 DONE 0.0s
+
+#7 [stream-ingest stream-ingest 1/2] FROM gcr.io/distroless/static-debian12:nonroot@sha256:afa5c872c891853ca7fcf1f12c3edb23f7eeef36189728842dd51042ff57f7ab
+#7 resolve gcr.io/distroless/static-debian12:nonroot@sha256:afa5c872c891853ca7fcf1f12c3edb23f7eeef36189728842dd51042ff57f7ab 0.0s done
+#7 DONE 0.0s
+
+#8 [stream-ingest source 1/5] FROM docker.io/library/golang:1.26.8-bookworm@sha256:a688600ca24f8a4d3ca77f95b0dd40704a9fc787c826660eb7ba0b641b8b175d
+#8 resolve docker.io/library/golang:1.26.8-bookworm@sha256:a688600ca24f8a4d3ca77f95b0dd40704a9fc787c826660eb7ba0b641b8b175d 0.0s done
+#8 DONE 0.0s
+
+#9 [stream-ingest internal] load build context
+#9 transferring context: 4.44kB done
+#9 DONE 0.0s
+
+#10 [stream-ingest source 2/5] WORKDIR /src
+#10 CACHED
+
+#11 [stream-worker source 3/5] COPY backend/go.mod backend/go.sum ./
+#11 DONE 0.1s
+
+#12 [stream-ingest source 4/5] RUN go mod download
+#12 DONE 6.0s
+
+#13 [stream-worker source 5/5] COPY backend/ ./
+#13 DONE 0.2s
+
+#14 [stream-ingest build-stream-ingest 1/1] RUN CGO_ENABLED=0 go build -trimpath -o /stream-ingest ./cmd/stream-ingest
+#14 ...
+
+#15 [stream-worker build-stream-worker 1/1] RUN CGO_ENABLED=0 go build -trimpath -o /stream-worker ./cmd/stream-worker
+#15 ...
+
+#14 [stream-ingest build-stream-ingest 1/1] RUN CGO_ENABLED=0 go build -trimpath -o /stream-ingest ./cmd/stream-ingest
+#14 DONE 40.8s
+
+#15 [stream-worker build-stream-worker 1/1] RUN CGO_ENABLED=0 go build -trimpath -o /stream-worker ./cmd/stream-worker
+#15 DONE 41.9s
+
+#7 [stream-worker stream-ingest 1/2] FROM gcr.io/distroless/static-debian12:nonroot@sha256:afa5c872c891853ca7fcf1f12c3edb23f7eeef36189728842dd51042ff57f7ab
+#7 CACHED
+
+#7 [stream-ingest stream-ingest 1/2] FROM gcr.io/distroless/static-debian12:nonroot@sha256:afa5c872c891853ca7fcf1f12c3edb23f7eeef36189728842dd51042ff57f7ab
+#7 CACHED
+
+#16 [stream-ingest stream-ingest 2/2] COPY --from=build-stream-ingest /stream-ingest /stream-ingest
+#16 DONE 0.1s
+
+#17 [stream-ingest] exporting to image
+#17 exporting layers
+#17 ...
+
+#18 [stream-worker stream-worker 2/2] COPY --from=build-stream-worker /stream-worker /stream-worker
+#18 CACHED
+
+#19 [stream-worker] exporting to image
+#19 exporting layers done
+#19 exporting manifest sha256:b6b1b9860c60ce9e18a2dc5c4a805581f7fc4517464e20029855f6f6234fe041 done
+#19 exporting config sha256:c5caf650eed3c0014010ec6feb54c2de75cfcb67b2698396c2f9ab6f4c7e827a done
+#19 exporting attestation manifest sha256:82595a2bd1fc17c55c8696d4f206034f9b7b2795b1d825e7251bca8c9b62b5c3 0.0s done
+#19 exporting manifest list sha256:9e5dd9c8d30e72b557fb21f8f70573caeae1d4a6016408e7669470269a98f9cc 0.0s done
+#19 naming to docker.io/library/incidentlens-stream-worker:latest done
+#19 unpacking to docker.io/library/incidentlens-stream-worker:latest 0.0s done
+#19 DONE 0.1s
+
+#20 [stream-worker] resolving provenance for metadata file
+#20 DONE 0.0s
+
+#17 [stream-ingest] exporting to image
+#17 exporting layers 1.4s done
+#17 exporting manifest sha256:ae56f7d42d0f1028bfaab96ca87753cee6088f49069214a9099c02762736a0f1 done
+#17 exporting config sha256:288a8f6fafc37bc7620e9eb1266d5e044e9788d44d785e76a710e1f4bb552e54 done
+#17 exporting attestation manifest sha256:f70045cb74d9e6cab94226ba1b3fa1dd219bde4f5e62d14458f534da03a0d29d 0.0s done
+#17 exporting manifest list sha256:246bdfe55fa79952671d2567a0dc3bd5936eadfd0e20282c570ac03455a719a6 done
+#17 naming to docker.io/library/incidentlens-stream-ingest:latest done
+#17 unpacking to docker.io/library/incidentlens-stream-ingest:latest
+#17 unpacking to docker.io/library/incidentlens-stream-ingest:latest 0.2s done
+#17 DONE 1.7s
+
+#21 [stream-ingest] resolving provenance for metadata file
+#21 DONE 0.0s
+ Image incidentlens-stream-ingest Built 
+ Image incidentlens-stream-worker Built 

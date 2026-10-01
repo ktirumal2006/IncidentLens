@@ -1,0 +1,1 @@
+During the direct campaign, started `caffeinate -i -w 30787` after confirming PID 30787 is the benchmark runner. Prevents idle system sleep only while that process remains alive; no persistent power setting changed. Added after mixed stage. Streaming campaign will receive the same guard from startup.

@@ -1,0 +1,712 @@
+{
+  "at": "2026-09-30T14:14:50.795891Z",
+  "binary": {
+    "bytes": 28627120,
+    "path": "/private/tmp/incidentlens-bench",
+    "sha256": "53734cc78dcfdbaefaf8ae2d93dbeec649b2c253c8be4a1b4afa2afba0f22dbc"
+  },
+  "clickhouse_version": {
+    "at": "2026-09-30T14:14:50.930917Z",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+      "exec",
+      "-T",
+      "clickhouse",
+      "clickhouse-client",
+      "--password",
+      "local-admin",
+      "--query",
+      "SELECT version()"
+    ],
+    "elapsed_seconds": 0.3109365340000001,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "25.8.4.13\n"
+  },
+  "compose_command": [
+    "docker",
+    "compose",
+    "-f",
+    "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml"
+  ],
+  "containers": [
+    {
+      "id": "92fb895c3c527ef55468ea5c6f023228a4d212520a3113e073dee77c36a3c91c",
+      "image_id": "sha256:557c5eef138ff6e6339a2539cc7226ca7417a1216352415f6a110adf75d01c48",
+      "image_reference": "incidentlens-api",
+      "limits": {
+        "CpuPeriod": 0,
+        "CpuQuota": 0,
+        "CpusetCpus": "",
+        "Memory": 536870912,
+        "MemorySwap": 1073741824,
+        "NanoCpus": 1000000000,
+        "PidsLimit": null
+      },
+      "name": "/incidentlens-api-1",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 0,
+        "FinishedAt": "2026-09-30T14:06:49.546312827Z",
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 3115,
+        "Restarting": false,
+        "Running": true,
+        "StartedAt": "2026-09-30T14:07:56.016725341Z",
+        "Status": "running"
+      }
+    },
+    {
+      "id": "f5c8bdd48da5ce1f3911cfbdef532c0db77a0efed430a43d9214c28c00d9177d",
+      "image_id": "sha256:c48c1ed0a54e6e9fde03750860aa86de1e6f40b6fe33c6df540738867b4f6809",
+      "image_reference": "clickhouse/clickhouse-server:25.8.4.13",
+      "limits": {
+        "CpuPeriod": 0,
+        "CpuQuota": 0,
+        "CpusetCpus": "",
+        "Memory": 2147483648,
+        "MemorySwap": 4294967296,
+        "NanoCpus": 2000000000,
+        "PidsLimit": null
+      },
+      "name": "/incidentlens-clickhouse-1",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 0,
+        "FinishedAt": "2026-09-30T14:08:33.672021179Z",
+        "Health": {
+          "FailingStreak": 0,
+          "Log": [
+            {
+              "End": "2026-09-30T14:14:28.910692255Z",
+              "ExitCode": 0,
+              "Output": "1\n",
+              "Start": "2026-09-30T14:14:28.793949237Z"
+            },
+            {
+              "End": "2026-09-30T14:14:34.065822517Z",
+              "ExitCode": 0,
+              "Output": "1\n",
+              "Start": "2026-09-30T14:14:33.911255173Z"
+            },
+            {
+              "End": "2026-09-30T14:14:39.22460958Z",
+              "ExitCode": 0,
+              "Output": "1\n",
+              "Start": "2026-09-30T14:14:39.067613395Z"
+            },
+            {
+              "End": "2026-09-30T14:14:44.484629175Z",
+              "ExitCode": 0,
+              "Output": "1\n",
+              "Start": "2026-09-30T14:14:44.225865661Z"
+            },
+            {
+              "End": "2026-09-30T14:14:49.642990911Z",
+              "ExitCode": 0,
+              "Output": "1\n",
+              "Start": "2026-09-30T14:14:49.487442459Z"
+            }
+          ],
+          "Status": "healthy"
+        },
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 10951,
+        "Restarting": false,
+        "Running": true,
+        "StartedAt": "2026-09-30T14:08:34.134172649Z",
+        "Status": "running"
+      }
+    },
+    {
+      "id": "75e41d53baf9c4565776ce4e105989b0286bdd5561af517a27722da25a9833de",
+      "image_id": "sha256:886722fe0f37af9d1fe24d29529253ec59fbf263b3b1df4facaf221373e19d23",
+      "image_reference": "otel/opentelemetry-collector-contrib:0.137.0",
+      "limits": {
+        "CpuPeriod": 0,
+        "CpuQuota": 0,
+        "CpusetCpus": "",
+        "Memory": 268435456,
+        "MemorySwap": 536870912,
+        "NanoCpus": 1000000000,
+        "PidsLimit": null
+      },
+      "name": "/incidentlens-collector-1",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 0,
+        "FinishedAt": "2026-09-30T14:08:57.67781574Z",
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 12646,
+        "Restarting": false,
+        "Running": true,
+        "StartedAt": "2026-09-30T14:08:57.811134563Z",
+        "Status": "running"
+      }
+    },
+    {
+      "id": "1c46e8942519bee6514cde54632c2eb0a2cdb646176e92a3263c529f2c78b35e",
+      "image_id": "sha256:3ff2f51e2e7e2c1baae8b8f3f034a1fab96e67609b2b00d2d02d55932d164a4c",
+      "image_reference": "incidentlens-ingest",
+      "limits": {
+        "CpuPeriod": 0,
+        "CpuQuota": 0,
+        "CpusetCpus": "",
+        "Memory": 536870912,
+        "MemorySwap": 1073741824,
+        "NanoCpus": 1000000000,
+        "PidsLimit": null
+      },
+      "name": "/incidentlens-ingest-1",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 0,
+        "FinishedAt": "2026-09-30T14:08:59.151845631Z",
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 12884,
+        "Restarting": false,
+        "Running": true,
+        "StartedAt": "2026-09-30T14:09:02.629472Z",
+        "Status": "running"
+      }
+    }
+  ],
+  "cpu_count": 16,
+  "docker_version": {
+    "at": "2026-09-30T14:14:50.832953Z",
+    "command": [
+      "docker",
+      "version",
+      "--format",
+      "{{json .}}"
+    ],
+    "elapsed_seconds": 0.06360888099999995,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "{\"Client\":{\"Version\":\"29.8.0\",\"ApiVersion\":\"1.56\",\"DefaultAPIVersion\":\"1.56\",\"GitCommit\":\"88096ef\",\"GoVersion\":\"go1.26.8\",\"Os\":\"darwin\",\"Arch\":\"amd64\",\"BuildTime\":\"Thu Sep  3 21:49:43 2026\",\"Context\":\"desktop-linux\"},\"Server\":{\"Platform\":{\"Name\":\"Docker Desktop 4.92.0 (240144)\"},\"Version\":\"29.8.0\",\"ApiVersion\":\"1.56\",\"MinAPIVersion\":\"1.40\",\"Os\":\"linux\",\"Arch\":\"amd64\",\"Components\":[{\"Name\":\"Engine\",\"Version\":\"29.8.0\",\"Details\":{\"ApiVersion\":\"1.56\",\"Arch\":\"amd64\",\"BuildTime\":\"Thu Sep  3 21:51:20 2026\",\"Experimental\":\"false\",\"GitCommit\":\"3ce5872\",\"GoVersion\":\"go1.26.8\",\"KernelVersion\":\"7.0.12-linuxkit\",\"MinAPIVersion\":\"1.40\",\"Module\":\"github.com/moby/moby/v2\",\"ModuleVersion\":\"v2.0.0+unknown\",\"Os\":\"linux\"}},{\"Name\":\"containerd\",\"Version\":\"v2.3.5\",\"Details\":{\"GitCommit\":\"1294c24a7da8e5a793ed378161673abe94118892\"}},{\"Name\":\"runc\",\"Version\":\"1.5.1\",\"Details\":{\"GitCommit\":\"v1.5.1-0-g8f2685a4\"}},{\"Name\":\"docker-init\",\"Version\":\"0.19.0\",\"Details\":{\"GitCommit\":\"de40ad0\"}}],\"GitCommit\":\"3ce5872\",\"GoVersion\":\"go1.26.8\",\"KernelVersion\":\"7.0.12-linuxkit\",\"BuildTime\":\"2026-09-03T21:51:20.000000000+00:00\"}}\n"
+  },
+  "docker_vm": {
+    "Architecture": "x86_64",
+    "DockerRootDir": "/var/lib/docker",
+    "Driver": "overlayfs",
+    "MemTotal": 8320958464,
+    "NCPU": 16,
+    "OSType": "linux",
+    "OperatingSystem": "Docker Desktop",
+    "ServerVersion": "29.8.0"
+  },
+  "git_dirty": {
+    "at": "2026-09-30T14:14:51.269106Z",
+    "command": [
+      "git",
+      "status",
+      "--porcelain=v1"
+    ],
+    "elapsed_seconds": 0.03567324000000016,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": " M README.md\n M backend/go.mod\n M backend/go.sum\n M benchmarks/README.md\n M benchmarks/environment.py\n M benchmarks/run.py\n M benchmarks/test_run.py\n M deploy/local/Dockerfile\n M docs/ARCHITECTURE.md\n M docs/INGESTION.md\n M docs/MILESTONES.md\n M docs/PRODUCT.md\n?? backend/cmd/stream-ingest/\n?? backend/cmd/stream-worker/\n?? backend/internal/stream/\n?? backend/tests/streaming/\n?? benchmarks/WORKLOAD_PHASE5.md\n?? benchmarks/drain.py\n?? benchmarks/plan-phase5-outage.json\n?? benchmarks/plan-phase5.json\n?? benchmarks/results/20260930T1415Z-direct/\n?? benchmarks/test_drain.py\n?? deploy/streaming/\n?? docs/IncidentLens.code-workspace\n?? docs/VERIFICATION_PHASE5.md\n?? docs/adr/0004-phase5-buffering-and-replay.md\n?? docs/evidence/phase5/\n"
+  },
+  "git_head": {
+    "at": "2026-09-30T14:14:51.241903Z",
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "elapsed_seconds": 0.027190349000000058,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "29900e2995d4157cc9836f637325da676ef128f2\n"
+  },
+  "go_binary_build": {
+    "at": "2026-09-30T14:14:50.896809Z",
+    "command": [
+      "/tmp/incidentlens-toolchain/go/bin/go",
+      "version",
+      "-m",
+      "/private/tmp/incidentlens-bench"
+    ],
+    "elapsed_seconds": 0.03402500900000005,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "/private/tmp/incidentlens-bench: go1.26.8\n\tpath\tincidentlens/backend/cmd/bench\n\tmod\tincidentlens/backend\t(devel)\t\n\tdep\tgithub.com/ClickHouse/ch-go\tv0.68.0\th1:zd2VD8l2aVYnXFRyhTyKCrxvhSz1AaY4wBUXu/f0GiU=\n\tdep\tgithub.com/ClickHouse/clickhouse-go/v2\tv2.40.3\th1:46jB4kKwVDUOnECpStKMVXxvR0Cg9zeV9vdbPjtn6po=\n\tdep\tgithub.com/andybalholm/brotli\tv1.2.0\th1:ukwgCxwYrmACq68yiUqwIWnGY0cTPox/M94sVwToPjQ=\n\tdep\tgithub.com/go-faster/city\tv1.0.1\th1:4WAxSZ3V2Ws4QRDrscLEDcibJY8uf41H6AhXDrNDcGw=\n\tdep\tgithub.com/go-faster/errors\tv0.7.1\th1:MkJTnDoEdi9pDabt1dpWf7AA8/BaSYZqibYyhZ20AYg=\n\tdep\tgithub.com/google/uuid\tv1.6.0\th1:NIvaJDMOsjHA8n1jAhLSgzrAzy1Hgr+hNrb57e+94F0=\n\tdep\tgithub.com/grpc-ecosystem/grpc-gateway/v2\tv2.27.2\th1:8Tjv8EJ+pM1xP8mK6egEbD1OgnVTyacbefKhmbLhIhU=\n\tdep\tgithub.com/klauspost/compress\tv1.20.0\th1:a3C1ke2ohxFymNlb2HWAHjDeKCI90scRskErZkR0ezA=\n\tdep\tgithub.com/paulmach/orb\tv0.11.1\th1:3koVegMC4X/WeiXYz9iswopaTwMem53NzTJuTF20JzU=\n\tdep\tgithub.com/pierrec/lz4/v4\tv4.1.30\th1:cchX8N2DVP668WkElI9QMwVyoNabLkq1LofDHFeIrdg=\n\tdep\tgithub.com/segmentio/asm\tv1.2.0\th1:9BQrFxC+YOHJlTlHGkTrFWf59nbL3XnCoFLTwDCI7ys=\n\tdep\tgithub.com/shopspring/decimal\tv1.4.0\th1:bxl37RwXBklmTi0C79JfXCEBD1cqqHt0bbgBAGFp81k=\n\tdep\tgo.opentelemetry.io/otel\tv1.38.0\th1:RkfdswUDRimDg0m2Az18RKOsnI8UDzppJAtj01/Ymk8=\n\tdep\tgo.opentelemetry.io/otel/trace\tv1.38.0\th1:Fxk5bKrDZJUH+AMyyIXGcFAPah0oRcT+LuNtJrmcNLE=\n\tdep\tgo.opentelemetry.io/proto/otlp\tv1.9.0\th1:l706jCMITVouPOqEnii2fIAuO3IVGBRPV5ICjceRb/A=\n\tdep\tgo.yaml.in/yaml/v3\tv3.0.4\th1:tfq32ie2Jv2UxXFdLJdh3jXuOzWiL1fo0bu/FbuKpbc=\n\tdep\tgolang.org/x/net\tv0.44.0\th1:evd8IRDyfNBMBTTY5XRF1vaZlD+EmWx6x8PkhR04H/I=\n\tdep\tgolang.org/x/sys\tv0.36.0\th1:KVRy2GtZBrk1cBYA7MKu5bEZFxQk4NIDV6RLVcC8o0k=\n\tdep\tgolang.org/x/text\tv0.29.0\th1:1neNs90w9YzJ9BocxfsQNHKuAT4pkghyXc4nhZ6sJvk=\n\tdep\tgoogle.golang.org/genproto/googleapis/api\tv0.0.0-20250825161204-c5933d9347a5\th1:BIRfGDEjiHRrk0QKZe3Xv2ieMhtgRGeLcZQ0mIVn4EY=\n\tdep\tgoogle.golang.org/genproto/googleapis/rpc\tv0.0.0-20250825161204-c5933d9347a5\th1:eaY8u2EuxbRv7c3NiGK0/NedzVsCcV6hDuU5qPX5EGE=\n\tdep\tgoogle.golang.org/grpc\tv1.75.1\th1:/ODCNEuf9VghjgO3rqLcfg8fiOP0nSluljWFlDxELLI=\n\tdep\tgoogle.golang.org/protobuf\tv1.36.10\th1:AYd7cD/uASjIL6Q9LiTjz8JLcrh/88q5UObnmY3aOOE=\n\tbuild\t-buildmode=exe\n\tbuild\t-compiler=gc\n\tbuild\tCGO_ENABLED=1\n\tbuild\tCGO_CFLAGS=\n\tbuild\tCGO_CPPFLAGS=\n\tbuild\tCGO_CXXFLAGS=\n\tbuild\tCGO_LDFLAGS=\n\tbuild\tGOARCH=amd64\n\tbuild\tGOOS=darwin\n\tbuild\tGOAMD64=v1\n\tbuild\tvcs=git\n\tbuild\tvcs.revision=29900e2995d4157cc9836f637325da676ef128f2\n\tbuild\tvcs.time=2026-09-29T16:32:20Z\n\tbuild\tvcs.modified=true\n"
+  },
+  "hardware": {
+    "hw.logicalcpu": {
+      "at": "2026-09-30T14:14:50.788398Z",
+      "command": [
+        "sysctl",
+        "-n",
+        "hw.logicalcpu"
+      ],
+      "elapsed_seconds": 0.006917704999999996,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "16\n"
+    },
+    "hw.memsize": {
+      "at": "2026-09-30T14:14:50.775331Z",
+      "command": [
+        "sysctl",
+        "-n",
+        "hw.memsize"
+      ],
+      "elapsed_seconds": 0.0070345869999999255,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "68719476736\n"
+    },
+    "hw.model": {
+      "at": "2026-09-30T14:14:50.762984Z",
+      "command": [
+        "sysctl",
+        "-n",
+        "hw.model"
+      ],
+      "elapsed_seconds": 0.005824352999999949,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "MacBookPro16,1\n"
+    },
+    "hw.physicalcpu": {
+      "at": "2026-09-30T14:14:50.782376Z",
+      "command": [
+        "sysctl",
+        "-n",
+        "hw.physicalcpu"
+      ],
+      "elapsed_seconds": 0.006004836999999874,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "8\n"
+    },
+    "machdep.cpu.brand_string": {
+      "at": "2026-09-30T14:14:50.768824Z",
+      "command": [
+        "sysctl",
+        "-n",
+        "machdep.cpu.brand_string"
+      ],
+      "elapsed_seconds": 0.006495370999999972,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Intel(R) Core(TM) i9-9880H CPU @ 2.30GHz\n"
+    }
+  },
+  "host_disk": {
+    "free_bytes": 3878270578688,
+    "total_bytes": 4001907707904,
+    "used_bytes": 123637129216
+  },
+  "images": [
+    {
+      "Architecture": "amd64",
+      "Created": "2026-09-30T00:14:34.190003446Z",
+      "Id": "sha256:3ff2f51e2e7e2c1baae8b8f3f034a1fab96e67609b2b00d2d02d55932d164a4c",
+      "Os": "linux",
+      "RepoDigests": [
+        "incidentlens-ingest@sha256:3ff2f51e2e7e2c1baae8b8f3f034a1fab96e67609b2b00d2d02d55932d164a4c"
+      ],
+      "RepoTags": [
+        "incidentlens-ingest:latest"
+      ]
+    },
+    {
+      "Architecture": "amd64",
+      "Created": "2026-09-30T00:14:34.028556357Z",
+      "Id": "sha256:557c5eef138ff6e6339a2539cc7226ca7417a1216352415f6a110adf75d01c48",
+      "Os": "linux",
+      "RepoDigests": [
+        "incidentlens-api@sha256:557c5eef138ff6e6339a2539cc7226ca7417a1216352415f6a110adf75d01c48"
+      ],
+      "RepoTags": [
+        "incidentlens-api:latest"
+      ]
+    },
+    {
+      "Architecture": "amd64",
+      "Created": "2025-10-07T06:03:13.145539207Z",
+      "Id": "sha256:886722fe0f37af9d1fe24d29529253ec59fbf263b3b1df4facaf221373e19d23",
+      "Os": "linux",
+      "RepoDigests": [
+        "otel/opentelemetry-collector-contrib@sha256:886722fe0f37af9d1fe24d29529253ec59fbf263b3b1df4facaf221373e19d23"
+      ],
+      "RepoTags": [
+        "otel/opentelemetry-collector-contrib:0.137.0"
+      ]
+    },
+    {
+      "Architecture": "amd64",
+      "Created": "2025-09-18T12:23:28.438783814Z",
+      "Id": "sha256:c48c1ed0a54e6e9fde03750860aa86de1e6f40b6fe33c6df540738867b4f6809",
+      "Os": "linux",
+      "RepoDigests": [
+        "clickhouse/clickhouse-server@sha256:c48c1ed0a54e6e9fde03750860aa86de1e6f40b6fe33c6df540738867b4f6809"
+      ],
+      "RepoTags": [
+        "clickhouse/clickhouse-server:25.8.4.13"
+      ]
+    }
+  ],
+  "platform": "macOS-26.6.2-x86_64-i386-64bit",
+  "python": "3.9.6",
+  "services": [
+    "clickhouse",
+    "ingest",
+    "api",
+    "collector"
+  ],
+  "source_manifest": {
+    "files": {
+      "api/INCIDENTS.md": {
+        "bytes": 6150,
+        "sha256": "3d254d70e1910179b71a624a350ec7d99cb0e0f496f0b1c912fe18637b894d51"
+      },
+      "api/README.md": {
+        "bytes": 6140,
+        "sha256": "23bdb4260ff0fb9bf1af525ee2a44b1047ef09b70bf621129ca36b59999bff52"
+      },
+      "backend/cmd/api/main.go": {
+        "bytes": 1462,
+        "sha256": "225daba3afae29ea6701a9b9f8e75808f298c3657433b890075c4a3e910af033"
+      },
+      "backend/cmd/api/main_test.go": {
+        "bytes": 291,
+        "sha256": "0258de4c25d99ca7a4cd00e85baba97fc828f8c5f9bab5a66dda79df31b8cd75"
+      },
+      "backend/cmd/bench/bench_test.go": {
+        "bytes": 4480,
+        "sha256": "80a28645b57eb938c8e94a45237de354706040783fcb969228379cfe1d03c7b5"
+      },
+      "backend/cmd/bench/config.go": {
+        "bytes": 7453,
+        "sha256": "7f07f943aad145846ae2ac2ae46193559e6b86e2551d4f028ef6099b42a2590e"
+      },
+      "backend/cmd/bench/http.go": {
+        "bytes": 7087,
+        "sha256": "b93a6d3e97cc64ac69e460a731d4eca66a3fc6e0036d0c39de916b27c7dd8036"
+      },
+      "backend/cmd/bench/main.go": {
+        "bytes": 12137,
+        "sha256": "3905aac48db8f037dc81f7c782362abaae29e0b5bd378cadce50d5f1bdd6a864"
+      },
+      "backend/cmd/bench/reconcile.go": {
+        "bytes": 6386,
+        "sha256": "77ec54c0342cbe0c730ac57e005aa822f5e61c3ded79eee0bf90ffa1f08bd717"
+      },
+      "backend/cmd/bench/record.go": {
+        "bytes": 4405,
+        "sha256": "9d9d6a8b80706cec17fb5697546550dabd54dad4d45842d2ace9e50fbdc10627"
+      },
+      "backend/cmd/bench/summary.go": {
+        "bytes": 4502,
+        "sha256": "3070e29c4262a78c59a2aec43a4f52af3246bd59ae5d28afcae4d027bbef4327"
+      },
+      "backend/cmd/bench/workload.go": {
+        "bytes": 3350,
+        "sha256": "5ab8859cdf256f68192a24bb6a06afb5a5dc5ff419a27c4baad29befe618d144"
+      },
+      "backend/cmd/ingest/main.go": {
+        "bytes": 2376,
+        "sha256": "37306cdf150cb8320ea4eba7107d1b19a50205b05e6cdeaf8bcd269b3fd2f0d6"
+      },
+      "backend/cmd/stream-ingest/main.go": {
+        "bytes": 2166,
+        "sha256": "565911074924fce3004a15bbbb1cdf3fb3e3a1e516213fd852b3db4653cc73b5"
+      },
+      "backend/cmd/stream-worker/main.go": {
+        "bytes": 2729,
+        "sha256": "c8932c13cfef5a168f162c332d207b5e3fbc5913d22389c0894195a52d2c00b8"
+      },
+      "backend/go.mod": {
+        "bytes": 1320,
+        "sha256": "0d96655e0af480e1e00156828ec36041d754a66ffaa813e132ce8d79d47a8d1b"
+      },
+      "backend/go.sum": {
+        "bytes": 13855,
+        "sha256": "d92a42e66e7b7da61cb11b1be19e99f6da9d25e507d4e6f57fd2a06a81c753d7"
+      },
+      "backend/internal/detector/detector.go": {
+        "bytes": 19541,
+        "sha256": "26cedaef686decb85e95a6fed40022e2961141698cb101ea685193a3d308c67c"
+      },
+      "backend/internal/detector/detector_test.go": {
+        "bytes": 17047,
+        "sha256": "6a0da28ca85371a73bc97df0dbcb2504c1d9db751f0ac4e8d7fb548ddfab7fbf"
+      },
+      "backend/internal/httpapi/handler.go": {
+        "bytes": 7384,
+        "sha256": "75fcc994dd27882a26f529b0f4c6ffc62842557dd86b0b6cca2b75998ae8b9a1"
+      },
+      "backend/internal/httpapi/handler_test.go": {
+        "bytes": 4390,
+        "sha256": "245b7986deed018d76607fa1361bb08b4dc001898c501879d624e2530e533545"
+      },
+      "backend/internal/httpapi/incidents.go": {
+        "bytes": 2186,
+        "sha256": "b7e2bda87c926503f2fe8c876c17ceb4a060e25a314b6c0aed94a7a9d838185a"
+      },
+      "backend/internal/httpapi/incidents_test.go": {
+        "bytes": 3231,
+        "sha256": "f4e56a14ef7823b4c3c303c66b9e6142a3230384fc88ed0a6da028dd3e41db8f"
+      },
+      "backend/internal/ingest/server.go": {
+        "bytes": 2269,
+        "sha256": "dd8ba9fba4a12354e5327a20fcd5c99132ca872f54c7e38cbaf6fb1692bf07b3"
+      },
+      "backend/internal/ingest/server_test.go": {
+        "bytes": 6728,
+        "sha256": "cd3a50fda207c66101ad1ef6daeb73286e564d460fd4b3c55c589897383260aa"
+      },
+      "backend/internal/query/query.go": {
+        "bytes": 9334,
+        "sha256": "309400a4b5d047200704829b4741e5802a4f38c72f8b7a802f4ca0b3ef2cd26f"
+      },
+      "backend/internal/query/query_test.go": {
+        "bytes": 3957,
+        "sha256": "f1b2c46bbd87d6b98cfb16cd59acd9339eea768a7e62bec9f5bb0c85e03a40a7"
+      },
+      "backend/internal/storage/clickhouse/incidents.go": {
+        "bytes": 2337,
+        "sha256": "dc23e37b92bb16d51b3930592b0854f1e0875a994949b0427c62a229adc74d5a"
+      },
+      "backend/internal/storage/clickhouse/query.go": {
+        "bytes": 8139,
+        "sha256": "f13bd0541eb4341933262640ce48f64efe22102f81dfaa9d60826fabb7864991"
+      },
+      "backend/internal/storage/clickhouse/store.go": {
+        "bytes": 2494,
+        "sha256": "5f42fd46dc83d1ab2d42e33b7010068c16ecb83b1db8cc732bd5607b5b709d0d"
+      },
+      "backend/internal/stream/envelope.go": {
+        "bytes": 3800,
+        "sha256": "f4572080f7b7a53b19c57db70baf3f89ba04dc153fa0c9cca1b2fadea4daed08"
+      },
+      "backend/internal/stream/health.go": {
+        "bytes": 988,
+        "sha256": "c5861f29763ad29fe7650bebf18be3f0182bf54ad5c8baf220645b01f9441c2f"
+      },
+      "backend/internal/stream/producer.go": {
+        "bytes": 3626,
+        "sha256": "fc1e18fc95908862352f3867cdc380a6b60b9eef045bd70a6f73e6110b148415"
+      },
+      "backend/internal/stream/stream_test.go": {
+        "bytes": 9322,
+        "sha256": "c47e8211264677b153f08668a4c000af8e2b878610c24e5fc8ca113b3e346a50"
+      },
+      "backend/internal/stream/worker.go": {
+        "bytes": 4662,
+        "sha256": "9492d3850aa49e6f214d89ca75293d3de4b9ccc7c105e0293c6b9705b68d422e"
+      },
+      "backend/internal/trace/normalize.go": {
+        "bytes": 10295,
+        "sha256": "f7c6cda7fe3e193e98b97e6df72fe5645124fb43a8333feefbb2c9275bd0f8f9"
+      },
+      "backend/internal/trace/normalize_test.go": {
+        "bytes": 9517,
+        "sha256": "9eb50dcb69460710105c52735879c8acd51d72422a4cef4bf8a33916a3b42e75"
+      },
+      "backend/tests/integration/README.md": {
+        "bytes": 5450,
+        "sha256": "8bcb130948cf950c165f51368d60d37e9803f271038a93c8ae1dfd14ef1c17aa"
+      },
+      "backend/tests/integration/collector_test.go": {
+        "bytes": 4157,
+        "sha256": "b7d03a82d051e606a0f36ac2bd50a8c10baad4838cf7fb9067fe325d4fe53eae"
+      },
+      "backend/tests/integration/detector_test.go": {
+        "bytes": 7968,
+        "sha256": "8c2819f40952fd273588aeaa9b7b8d0b011181f06cad8566bc36015bf26fe2df"
+      },
+      "backend/tests/integration/failures_test.go": {
+        "bytes": 10368,
+        "sha256": "aec98f4950da6bd15e67a3c2893d38b1c569e800e8f927ccaab34fdb1d88b383"
+      },
+      "backend/tests/integration/query_test.go": {
+        "bytes": 23913,
+        "sha256": "02fed8f52ee2acef152f17b4eb6e9741ad7ae0e380f92aa0bfe389bc41b6a69a"
+      },
+      "backend/tests/integration/storage_test.go": {
+        "bytes": 10777,
+        "sha256": "9e7b620e0992715d63d8971a2858ce6c99f5e13bf1c7fc3d750792aa29fb56bb"
+      },
+      "backend/tests/streaming/poison_test.go": {
+        "bytes": 5685,
+        "sha256": "ceb56e46682063497acc6afe42e1190b80f0494b57834f1fa71cf5c1bf594056"
+      },
+      "backend/tests/streaming/streaming_test.go": {
+        "bytes": 17615,
+        "sha256": "77e1bca5163662e8bbbcee409ec92e058946e760214c8d6f0222a9e869f46b17"
+      },
+      "benchmarks/README.md": {
+        "bytes": 5106,
+        "sha256": "362f1fa4b7c9361931588a83f8a3c552da8e620d1b1bc19b74507370f7aa5c3b"
+      },
+      "benchmarks/WORKLOAD.md": {
+        "bytes": 9751,
+        "sha256": "ec4e1ce18b60cc47dcc4d234c8f1efc62aa05b4331cefa74734821a739581d60"
+      },
+      "benchmarks/WORKLOAD_PHASE5.md": {
+        "bytes": 5544,
+        "sha256": "c50527335501bdab331796d682683e27fa7d20571ad6cb714684248a20c285f0"
+      },
+      "benchmarks/analyze.py": {
+        "bytes": 27445,
+        "sha256": "f3c156af916b31d528f4a92ca407df47afc2eebaa9aa86bf03902b70e18aa9b0"
+      },
+      "benchmarks/drain.py": {
+        "bytes": 4245,
+        "sha256": "65d2799629be720eed3a60e0fc1f02b577f66d9764d678c522515d9aeb10af99"
+      },
+      "benchmarks/environment.py": {
+        "bytes": 9206,
+        "sha256": "9dca4bee7aa3c247e4283c2b7b9e221bec579b3844b7d7df325e6dda49ebef0f"
+      },
+      "benchmarks/plan-phase5-outage.json": {
+        "bytes": 844,
+        "sha256": "385cfc4f2c786fb814471eb227b92a0b5cce5f25753fae0076a9d1de0ccb6251"
+      },
+      "benchmarks/plan-phase5.json": {
+        "bytes": 5737,
+        "sha256": "cfaba7f90e3efea00c3b473ee4bf85bf597491c633e669e4001fb60a761acb41"
+      },
+      "benchmarks/plan.json": {
+        "bytes": 5730,
+        "sha256": "d5d109f8c2ce2f8b13e1a746b5a99deb5e44e5b6a409f768b1f90baa1d6be2f6"
+      },
+      "benchmarks/run.py": {
+        "bytes": 26964,
+        "sha256": "c0eb45a7b5f232960cbf4ecefa51516ac9bf9465bad2454eb37c1d48d70c75db"
+      },
+      "benchmarks/test_analyze.py": {
+        "bytes": 2545,
+        "sha256": "3ebd64957f35abff6d8ba58e8d9c41ff83be76c83e6d47d2c9e5fb8deed369b7"
+      },
+      "benchmarks/test_drain.py": {
+        "bytes": 754,
+        "sha256": "dbcf03133d3bff009f0aba6e647edb511b507696224777cf8ded1cd8f40169ce"
+      },
+      "benchmarks/test_run.py": {
+        "bytes": 13213,
+        "sha256": "9393a95ab98dc47ae7e2d9f4c3be458680dec8e2faa24d773a63d9966727ad93"
+      },
+      "deploy/local/Dockerfile": {
+        "bytes": 1323,
+        "sha256": "7503e9897fbc432ad820952472879a9ff24461b7c592895c82bcd3cc3668d9b4"
+      },
+      "deploy/local/collector.yaml": {
+        "bytes": 1315,
+        "sha256": "70e509d6f030bd6628d5ba6a7164da10ce61cdccfdf3dccfd10b0ca8f923fb11"
+      },
+      "deploy/local/compose.yaml": {
+        "bytes": 2734,
+        "sha256": "b59527ecfeef2992be11dcd16c31d1c18ced9c7effe7db2095dffe1499ea27d2"
+      },
+      "deploy/local/users.xml": {
+        "bytes": 1630,
+        "sha256": "353ecb410f51094b256ed65454f87218b467f268774970c3110fdfafa1cea892"
+      },
+      "deploy/streaming/README.md": {
+        "bytes": 5972,
+        "sha256": "7e6b6df4595270765e1d41466d9c351379a979220f55124c9c665f1389d061e1"
+      },
+      "deploy/streaming/collector.yaml": {
+        "bytes": 1322,
+        "sha256": "bc4874d5b5b53082c24cf443c4ff602512799e8d899cc32782c5a835db4abaf8"
+      },
+      "deploy/streaming/compose.yaml": {
+        "bytes": 4166,
+        "sha256": "c5679cd71c8c35c6f86cd56369b10bfdee8b9e2598562567ec6ab86442fc0491"
+      },
+      "frontend/README.md": {
+        "bytes": 1009,
+        "sha256": "651d906625c6d5f4e9ee4dea4342411b91e35270563024e3b8d34a05765052d3"
+      },
+      "frontend/index.html": {
+        "bytes": 277,
+        "sha256": "36c143c40fb5541b84c6978ee8e3d1f02dff92ae56bc15e8a025f07007bae10f"
+      },
+      "frontend/package-lock.json": {
+        "bytes": 98009,
+        "sha256": "a81298cf05fc12d1c98b02ac837026a443ef8c11fde79367261db326cef0f0cc"
+      },
+      "frontend/package.json": {
+        "bytes": 563,
+        "sha256": "17fdd6e3ef36bd078d0de276c7a023a10944ade2f909312337eb8ae7f32e26d4"
+      },
+      "frontend/src/App.test.tsx": {
+        "bytes": 14858,
+        "sha256": "c97204f0cd3598d89c21825e77a75bc45d8877ffb644e5cf542330a819030c79"
+      },
+      "frontend/src/App.tsx": {
+        "bytes": 19755,
+        "sha256": "63eccafc704dd2f4ac259c942df24fda8adf59c6e40939af85b5b1456126cbd5"
+      },
+      "frontend/src/IncidentView.test.tsx": {
+        "bytes": 12490,
+        "sha256": "6046cb14fc42d72ddfcf0e22ccf87b4d9a299e1a8502873bea94300ba6c5369b"
+      },
+      "frontend/src/IncidentView.tsx": {
+        "bytes": 16085,
+        "sha256": "dad6f4c6630d2b01b7abfab3ad12828df626cba94e7af69d9a9ba4d190c92e24"
+      },
+      "frontend/src/api.ts": {
+        "bytes": 4563,
+        "sha256": "ed8562fb292d2000dfc9cc025a9627ebe6414783ffcefd9a79904ede15752732"
+      },
+      "frontend/src/main.tsx": {
+        "bytes": 220,
+        "sha256": "70f1f41a33b464e0a4c349112a35116d0ab68e29a05342f3b59ad0e9fd8b245b"
+      },
+      "frontend/src/style.css": {
+        "bytes": 15721,
+        "sha256": "4d5e7ff6d03bc4516aa351e4ad59762d49f1f6994ab4d484a15cc0e75b90f4c0"
+      },
+      "frontend/src/time.test.ts": {
+        "bytes": 988,
+        "sha256": "b797d080dbe49b8c9401db163e9adb3b80a1e3b27ed1d5e51450d3f3e8a4ee27"
+      },
+      "frontend/src/time.ts": {
+        "bytes": 1229,
+        "sha256": "55b815a07fadb25d6b5f3a4d70646ce5fb04300a2eee5a9e44159ff4a3b0636b"
+      },
+      "frontend/tsconfig.json": {
+        "bytes": 521,
+        "sha256": "4ce784ee33a9a8f1e0ade04799dddcd9a78cae9faa163e1799cb176cd006d02e"
+      },
+      "frontend/vite.config.ts": {
+        "bytes": 243,
+        "sha256": "b2085d00b99d90502618de75541bc48930b4bdb41e07c97a043c1900f642950d"
+      },
+      "migrations/clickhouse/001_spans.sql": {
+        "bytes": 1261,
+        "sha256": "3de409be8b7315ab44cf1c09faacffca1f67a69b157aae99fab7d18bf69fad16"
+      },
+      "scripts/test.sh": {
+        "bytes": 140,
+        "sha256": "0ce6557833cc48a2aa89c9df05da2390e9859ffb530170d762955248d4d1df31"
+      },
+      "scripts/verify-storage.sh": {
+        "bytes": 1501,
+        "sha256": "14c1489801e86738139e9e8e588776323f5a31e44e9e8b33d5bc82779181866a"
+      }
+    },
+    "git_inventory_status": [
+      0,
+      0
+    ]
+  },
+  "stack": "direct"
+}

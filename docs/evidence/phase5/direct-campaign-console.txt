@@ -1,0 +1,16 @@
+START mixed-r1 2026-09-30T14:14:52.152932Z
+END mixed-r1 completed
+START steady-r1 2026-09-30T14:17:44.990351Z
+END steady-r1 completed
+START steady-r2 2026-09-30T14:20:55.135286Z
+END steady-r2 completed
+START steady-r3 2026-09-30T14:24:05.041925Z
+END steady-r3 completed
+START outage-r1 2026-09-30T14:27:14.445269Z
+END outage-r1 completed
+START ramp-500-r1 2026-09-30T14:29:08.566521Z
+END ramp-500-r1 completed
+START ramp-2000-r1 2026-09-30T14:30:38.899597Z
+END ramp-2000-r1 completed
+START ramp-8000-r1 2026-09-30T14:32:09.165981Z
+END ramp-8000-r1 completed

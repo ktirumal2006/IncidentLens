@@ -1,0 +1,6 @@
+ Container incidentlens-stream-ingest-1 Stopping 
+ Container incidentlens-stream-ingest-1 Stopped 
+ Container incidentlens-stream-worker-1 Stopping 
+ Container incidentlens-stream-worker-1 Stopped 
+ Container incidentlens-kafka-1 Stopping 
+ Container incidentlens-kafka-1 Stopped 

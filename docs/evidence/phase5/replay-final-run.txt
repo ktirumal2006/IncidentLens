@@ -1,0 +1,7 @@
+=== RUN   TestWriteBeforeCommitCrashAndFreshGroupReplay
+    streaming_test.go:332: trace=b35441eabe0ab8e0a99d220bb768834e group=streamtest-crash-451e49fb25608e3163ce0d03 Kafka record offset=8 next=9
+    streaming_test.go:369: same-group replay committed offset=9
+    streaming_test.go:376: fresh-group replay committed offset=9
+--- PASS: TestWriteBeforeCommitCrashAndFreshGroupReplay (55.51s)
+PASS
+ok  	incidentlens/backend/tests/streaming	57.399s

@@ -1,0 +1,357 @@
+{
+  "started_at": "2026-10-01T03:08:21.194943+00:00",
+  "status": "completed",
+  "commands": [
+    {
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "deploy/local/compose.yaml",
+        "-f",
+        "deploy/streaming/compose.yaml",
+        "stop",
+        "collector",
+        "stream-ingest"
+      ],
+      "started_at": "2026-10-01T03:08:21.195364+00:00",
+      "returncode": 0,
+      "output": " Container incidentlens-collector-1 Stopping \n Container incidentlens-collector-1 Stopped \n Container incidentlens-stream-ingest-1 Stopping \n Container incidentlens-stream-ingest-1 Stopped \n",
+      "ended_at": "2026-10-01T03:08:21.971966+00:00"
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "deploy/local/compose.yaml",
+        "-f",
+        "deploy/streaming/compose.yaml",
+        "exec",
+        "-T",
+        "kafka",
+        "/opt/kafka/bin/kafka-get-offsets.sh",
+        "--bootstrap-server",
+        "kafka:9092",
+        "--topic",
+        "incidentlens-spans-v1",
+        "--time",
+        "-1"
+      ],
+      "started_at": "2026-10-01T03:08:21.972789+00:00",
+      "returncode": 0,
+      "output": "incidentlens-spans-v1:0:5908\n",
+      "ended_at": "2026-10-01T03:08:27.165936+00:00"
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "deploy/local/compose.yaml",
+        "-f",
+        "deploy/streaming/compose.yaml",
+        "exec",
+        "-T",
+        "kafka",
+        "/opt/kafka/bin/kafka-consumer-groups.sh",
+        "--bootstrap-server",
+        "kafka:9092",
+        "--group",
+        "incidentlens-stream-worker-v1",
+        "--describe"
+      ],
+      "started_at": "2026-10-01T03:08:27.167056+00:00",
+      "returncode": 0,
+      "output": "\nGROUP                         TOPIC                 PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                              HOST            CLIENT-ID\nincidentlens-stream-worker-v1 incidentlens-spans-v1 0          5908            5908            0               kgo-ab9a50a0-ba70-4366-b334-95780f9d52f3 /172.18.0.6     kgo\n",
+      "ended_at": "2026-10-01T03:08:30.027458+00:00"
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "deploy/local/compose.yaml",
+        "-f",
+        "deploy/streaming/compose.yaml",
+        "stop",
+        "stream-worker",
+        "kafka"
+      ],
+      "started_at": "2026-10-01T03:08:36.274902+00:00",
+      "returncode": 0,
+      "output": " Container incidentlens-stream-worker-1 Stopping \n Container incidentlens-stream-worker-1 Stopped \n Container incidentlens-kafka-1 Stopping \n Container incidentlens-kafka-1 Stopped \n",
+      "ended_at": "2026-10-01T03:08:37.852619+00:00"
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "deploy/local/compose.yaml",
+        "up",
+        "-d",
+        "ingest",
+        "collector"
+      ],
+      "started_at": "2026-10-01T03:08:37.854437+00:00",
+      "returncode": 0,
+      "output": "time=\"2026-09-30T23:08:38-04:00\" level=warning msg=\"Found orphan containers (incidentlens-stream-worker-1, incidentlens-stream-ingest-1, incidentlens-kafka-topic-1, incidentlens-kafka-1) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up.\"\n Container incidentlens-clickhouse-1 Running \n Container incidentlens-collector-1 Recreate \n Container incidentlens-collector-1 Recreated \n Container incidentlens-clickhouse-1 Waiting \n Container incidentlens-clickhouse-1 Healthy \n Container incidentlens-migrate-1 Starting \n Container incidentlens-migrate-1 Started \n Container incidentlens-migrate-1 Waiting \n Container incidentlens-migrate-1 Exited \n Container incidentlens-ingest-1 Starting \n Container incidentlens-ingest-1 Started \n Container incidentlens-collector-1 Starting \n Container incidentlens-collector-1 Started \n",
+      "ended_at": "2026-10-01T03:08:40.303250+00:00"
+    },
+    {
+      "command": [
+        "docker",
+        "inspect",
+        "incidentlens-collector-1",
+        "--format",
+        "{{json .Mounts}}"
+      ],
+      "started_at": "2026-10-01T03:08:40.321132+00:00",
+      "returncode": 0,
+      "output": "[{\"Type\":\"bind\",\"Source\":\"/Users/kousil/Documents/IncidentLens/deploy/local/collector.yaml\",\"Destination\":\"/etc/otelcol/config.yaml\",\"Mode\":\"ro\",\"RW\":false,\"Propagation\":\"rprivate\"}]\n",
+      "ended_at": "2026-10-01T03:08:40.437527+00:00"
+    },
+    {
+      "command": [
+        "docker",
+        "inspect",
+        "incidentlens-kafka-1",
+        "--format",
+        "{{json .State}}"
+      ],
+      "started_at": "2026-10-01T03:08:40.438913+00:00",
+      "returncode": 0,
+      "output": "{\"Status\":\"exited\",\"Running\":false,\"Paused\":false,\"Restarting\":false,\"OOMKilled\":false,\"Dead\":false,\"Pid\":0,\"ExitCode\":143,\"Error\":\"\",\"StartedAt\":\"2026-10-01T02:36:55.246845653Z\",\"FinishedAt\":\"2026-10-01T03:08:37.64780432Z\",\"Health\":{\"Status\":\"unhealthy\",\"FailingStreak\":0,\"Log\":[{\"Start\":\"2026-10-01T03:07:59.098332316Z\",\"End\":\"2026-10-01T03:08:01.919195917Z\",\"ExitCode\":0,\"Output\":\"kafka:9092 (id: 1 rack: null isFenced: false) -> (\\n\\tProduce(0): 0 to 13 [usable: 13],\\n\\tFetch(1): 4 to 18 [usable: 18],\\n\\tListOffsets(2): 1 to 10 [usable: 10],\\n\\tMetadata(3): 0 to 13 [usable: 13],\\n\\tOffsetCommit(8): 2 to 9 [usable: 9],\\n\\tOffsetFetch(9): 1 to 9 [usable: 9],\\n\\tFindCoordinator(10): 0 to 6 [usable: 6],\\n\\tJoinGroup(11): 0 to 9 [usable: 9],\\n\\tHeartbeat(12): 0 to 4 [usable: 4],\\n\\tLeaveGroup(13): 0 to 5 [usable: 5],\\n\\tSyncGroup(14): 0 to 5 [usable: 5],\\n\\tDescribeGroups(15): 0 to 6 [usable: 6],\\n\\tListGroups(16): 0 to 5 [usable: 5],\\n\\tSaslHandshake(17): 0 to 1 [usable: 1],\\n\\tApiVersions(18): 0 to 4 [usable: 4],\\n\\tCreateTopics(19): 2 to 7 [usable: 7],\\n\\tDeleteTopics(20): 1 to 6 [usable: 6],\\n\\tDeleteRecords(21): 0 to 2 [usable: 2],\\n\\tInitProducerId(22): 0 to 5 [usable: 5],\\n\\tOffsetForLeaderEpoch(23): 2 to 4 [usable: 4],\\n\\tAddPartitionsToTxn(24): 0 to 5 [usable: 5],\\n\\tAddOffsetsToTxn(25): 0 to 4 [usable: 4],\\n\\tEndTxn(26): 0 to 5 [usable: 5],\\n\\tWriteTxnMarkers(27): 1 [usable: 1],\\n\\tTxnOffsetCommit(28): 0 to 5 [usable: 5],\\n\\tDescribeAcls(29): 1 to 3 [usable: 3],\\n\\tCreateAcls(30): 1 to 3 [usable: 3],\\n\\tDeleteAcls(31): 1 to 3 [usable: 3],\\n\\tDescribeConfigs(32): 1 to 4 [usable: 4],\\n\\tAlterConfigs(33): 0 to 2 [usable: 2],\\n\\tAlterReplicaLogDirs(34): 1 to 2 [usable: 2],\\n\\tDescribeLogDirs(35): 1 to 4 [usable: 4],\\n\\tSaslAuthenticate(36): 0 to 2 [usable: 2],\\n\\tCreatePartitions(37): 0 to 3 [usable: 3],\\n\\tCreateDelegationToken(38): 1 to 3 [usable: 3],\\n\\tRenewDelegationToken(39): 1 to 2 [usable: 2],\\n\\tExpireDelegationToken(40): 1 to 2 [usable: 2],\\n\\tDescribeDelegationToken(41): 1 to 3 [usable: 3],\\n\\tDeleteGroups(42): 0 to 2 [usable: 2],\\n\\tElectLeaders(43): 0 to 2 [usable: 2],\\n\\tIncrementalAlterConfigs(44): 0 to 1 [usable: 1],\\n\\tAlterPartitionReassignments(45): 0 to 1 [usable: 1],\\n\\tListPartitionReassignments(46): 0 [usable: 0],\\n\\tOffsetDelete(47): 0 [usable: 0],\\n\\tDescribeClientQuotas(48): 0 to 1 [usable: 1],\\n\\tAlterClientQuotas(49): 0 to 1 [usable: 1],\\n\\tDescribeUserScramCredentials(50): 0 [usable: 0],\\n\\tAlterUserScramCredentials(51): 0 [usable: 0],\\n\\tDescribeQuorum(55): 0 to 2 [usable: 2],\\n\\tUpdateFeatures(57): 0 to 2 [usable: 2],\\n\\tDescribeCluster(60): 0 to 2 [usable: 2],\\n\\tDescribeProducers(61): 0 [usable: 0],\\n\\tUnregisterBroker(64): 0 [usable: 0],\\n\\tDescribeTransactions(65): 0 [usable: 0],\\n\\tListTransactions(66): 0 to 2 [usable: 2],\\n\\tConsumerGroupHeartbeat(68): 0 to 1 [usable: 1],\\n\\tConsumerGroupDescribe(69): 0 to 1 [usable: 1],\\n\\tGetTelemetrySubscriptions(71): UNSUPPORTED,\\n\\tPushTelemetry(72): UNSUPPORTED,\\n\\tListConfigResources(74): 0 to 1 [usable: 1],\\n\\tDescribeTopicPartitions(75): 0 [usable: 0],\\n\\tShareGroupHeartbeat(76): 1 [usable: 1],\\n\\tShareGroupDescribe(77): 1 [usable: 1],\\n\\tShareFetch(78): 1 [usable: 1],\\n\\tShareAcknowledge(79): 1 [usable: 1],\\n\\tAddRaftVoter(80): 0 [usable: 0],\\n\\tRemoveRaftVoter(81): 0 [usable: 0],\\n\\tInitializeShareGroupState(83): 0 [usable: 0],\\n\\tReadShareGroupState(84): 0 [usable: 0],\\n\\tWriteShareGroupState(85): 0 [usable: 0],\\n\\tDeleteShareGroupState(86): 0 [usable: 0],\\n\\tReadShareGroupStateSummary(87): 0 [usable: 0],\\n\\tStreamsGroupHeartbeat(88): UNSUPPORTED,\\n\\tStreamsGroupDescribe(89): UNSUPPORTED,\\n\\tDescribeShareGroupOffsets(90): 0 [usable: 0],\\n\\tAlterShareGroupOffsets(91): 0 [usable: 0],\\n\\tDeleteShareGroupOffsets(92): 0 [usable: 0]\\n)\\n\"},{\"Start\":\"2026-10-01T03:08:06.92120962Z\",\"End\":\"2026-10-01T03:08:09.332218963Z\",\"ExitCode\":0,\"Output\":\"kafka:9092 (id: 1 rack: null isFenced: false) -> (\\n\\tProduce(0): 0 to 13 [usable: 13],\\n\\tFetch(1): 4 to 18 [usable: 18],\\n\\tListOffsets(2): 1 to 10 [usable: 10],\\n\\tMetadata(3): 0 to 13 [usable: 13],\\n\\tOffsetCommit(8): 2 to 9 [usable: 9],\\n\\tOffsetFetch(9): 1 to 9 [usable: 9],\\n\\tFindCoordinator(10): 0 to 6 [usable: 6],\\n\\tJoinGroup(11): 0 to 9 [usable: 9],\\n\\tHeartbeat(12): 0 to 4 [usable: 4],\\n\\tLeaveGroup(13): 0 to 5 [usable: 5],\\n\\tSyncGroup(14): 0 to 5 [usable: 5],\\n\\tDescribeGroups(15): 0 to 6 [usable: 6],\\n\\tListGroups(16): 0 to 5 [usable: 5],\\n\\tSaslHandshake(17): 0 to 1 [usable: 1],\\n\\tApiVersions(18): 0 to 4 [usable: 4],\\n\\tCreateTopics(19): 2 to 7 [usable: 7],\\n\\tDeleteTopics(20): 1 to 6 [usable: 6],\\n\\tDeleteRecords(21): 0 to 2 [usable: 2],\\n\\tInitProducerId(22): 0 to 5 [usable: 5],\\n\\tOffsetForLeaderEpoch(23): 2 to 4 [usable: 4],\\n\\tAddPartitionsToTxn(24): 0 to 5 [usable: 5],\\n\\tAddOffsetsToTxn(25): 0 to 4 [usable: 4],\\n\\tEndTxn(26): 0 to 5 [usable: 5],\\n\\tWriteTxnMarkers(27): 1 [usable: 1],\\n\\tTxnOffsetCommit(28): 0 to 5 [usable: 5],\\n\\tDescribeAcls(29): 1 to 3 [usable: 3],\\n\\tCreateAcls(30): 1 to 3 [usable: 3],\\n\\tDeleteAcls(31): 1 to 3 [usable: 3],\\n\\tDescribeConfigs(32): 1 to 4 [usable: 4],\\n\\tAlterConfigs(33): 0 to 2 [usable: 2],\\n\\tAlterReplicaLogDirs(34): 1 to 2 [usable: 2],\\n\\tDescribeLogDirs(35): 1 to 4 [usable: 4],\\n\\tSaslAuthenticate(36): 0 to 2 [usable: 2],\\n\\tCreatePartitions(37): 0 to 3 [usable: 3],\\n\\tCreateDelegationToken(38): 1 to 3 [usable: 3],\\n\\tRenewDelegationToken(39): 1 to 2 [usable: 2],\\n\\tExpireDelegationToken(40): 1 to 2 [usable: 2],\\n\\tDescribeDelegationToken(41): 1 to 3 [usable: 3],\\n\\tDeleteGroups(42): 0 to 2 [usable: 2],\\n\\tElectLeaders(43): 0 to 2 [usable: 2],\\n\\tIncrementalAlterConfigs(44): 0 to 1 [usable: 1],\\n\\tAlterPartitionReassignments(45): 0 to 1 [usable: 1],\\n\\tListPartitionReassignments(46): 0 [usable: 0],\\n\\tOffsetDelete(47): 0 [usable: 0],\\n\\tDescribeClientQuotas(48): 0 to 1 [usable: 1],\\n\\tAlterClientQuotas(49): 0 to 1 [usable: 1],\\n\\tDescribeUserScramCredentials(50): 0 [usable: 0],\\n\\tAlterUserScramCredentials(51): 0 [usable: 0],\\n\\tDescribeQuorum(55): 0 to 2 [usable: 2],\\n\\tUpdateFeatures(57): 0 to 2 [usable: 2],\\n\\tDescribeCluster(60): 0 to 2 [usable: 2],\\n\\tDescribeProducers(61): 0 [usable: 0],\\n\\tUnregisterBroker(64): 0 [usable: 0],\\n\\tDescribeTransactions(65): 0 [usable: 0],\\n\\tListTransactions(66): 0 to 2 [usable: 2],\\n\\tConsumerGroupHeartbeat(68): 0 to 1 [usable: 1],\\n\\tConsumerGroupDescribe(69): 0 to 1 [usable: 1],\\n\\tGetTelemetrySubscriptions(71): UNSUPPORTED,\\n\\tPushTelemetry(72): UNSUPPORTED,\\n\\tListConfigResources(74): 0 to 1 [usable: 1],\\n\\tDescribeTopicPartitions(75): 0 [usable: 0],\\n\\tShareGroupHeartbeat(76): 1 [usable: 1],\\n\\tShareGroupDescribe(77): 1 [usable: 1],\\n\\tShareFetch(78): 1 [usable: 1],\\n\\tShareAcknowledge(79): 1 [usable: 1],\\n\\tAddRaftVoter(80): 0 [usable: 0],\\n\\tRemoveRaftVoter(81): 0 [usable: 0],\\n\\tInitializeShareGroupState(83): 0 [usable: 0],\\n\\tReadShareGroupState(84): 0 [usable: 0],\\n\\tWriteShareGroupState(85): 0 [usable: 0],\\n\\tDeleteShareGroupState(86): 0 [usable: 0],\\n\\tReadShareGroupStateSummary(87): 0 [usable: 0],\\n\\tStreamsGroupHeartbeat(88): UNSUPPORTED,\\n\\tStreamsGroupDescribe(89): UNSUPPORTED,\\n\\tDescribeShareGroupOffsets(90): 0 [usable: 0],\\n\\tAlterShareGroupOffsets(91): 0 [usable: 0],\\n\\tDeleteShareGroupOffsets(92): 0 [usable: 0]\\n)\\n\"},{\"Start\":\"2026-10-01T03:08:14.334313934Z\",\"End\":\"2026-10-01T03:08:16.942391282Z\",\"ExitCode\":0,\"Output\":\"kafka:9092 (id: 1 rack: null isFenced: false) -> (\\n\\tProduce(0): 0 to 13 [usable: 13],\\n\\tFetch(1): 4 to 18 [usable: 18],\\n\\tListOffsets(2): 1 to 10 [usable: 10],\\n\\tMetadata(3): 0 to 13 [usable: 13],\\n\\tOffsetCommit(8): 2 to 9 [usable: 9],\\n\\tOffsetFetch(9): 1 to 9 [usable: 9],\\n\\tFindCoordinator(10): 0 to 6 [usable: 6],\\n\\tJoinGroup(11): 0 to 9 [usable: 9],\\n\\tHeartbeat(12): 0 to 4 [usable: 4],\\n\\tLeaveGroup(13): 0 to 5 [usable: 5],\\n\\tSyncGroup(14): 0 to 5 [usable: 5],\\n\\tDescribeGroups(15): 0 to 6 [usable: 6],\\n\\tListGroups(16): 0 to 5 [usable: 5],\\n\\tSaslHandshake(17): 0 to 1 [usable: 1],\\n\\tApiVersions(18): 0 to 4 [usable: 4],\\n\\tCreateTopics(19): 2 to 7 [usable: 7],\\n\\tDeleteTopics(20): 1 to 6 [usable: 6],\\n\\tDeleteRecords(21): 0 to 2 [usable: 2],\\n\\tInitProducerId(22): 0 to 5 [usable: 5],\\n\\tOffsetForLeaderEpoch(23): 2 to 4 [usable: 4],\\n\\tAddPartitionsToTxn(24): 0 to 5 [usable: 5],\\n\\tAddOffsetsToTxn(25): 0 to 4 [usable: 4],\\n\\tEndTxn(26): 0 to 5 [usable: 5],\\n\\tWriteTxnMarkers(27): 1 [usable: 1],\\n\\tTxnOffsetCommit(28): 0 to 5 [usable: 5],\\n\\tDescribeAcls(29): 1 to 3 [usable: 3],\\n\\tCreateAcls(30): 1 to 3 [usable: 3],\\n\\tDeleteAcls(31): 1 to 3 [usable: 3],\\n\\tDescribeConfigs(32): 1 to 4 [usable: 4],\\n\\tAlterConfigs(33): 0 to 2 [usable: 2],\\n\\tAlterReplicaLogDirs(34): 1 to 2 [usable: 2],\\n\\tDescribeLogDirs(35): 1 to 4 [usable: 4],\\n\\tSaslAuthenticate(36): 0 to 2 [usable: 2],\\n\\tCreatePartitions(37): 0 to 3 [usable: 3],\\n\\tCreateDelegationToken(38): 1 to 3 [usable: 3],\\n\\tRenewDelegationToken(39): 1 to 2 [usable: 2],\\n\\tExpireDelegationToken(40): 1 to 2 [usable: 2],\\n\\tDescribeDelegationToken(41): 1 to 3 [usable: 3],\\n\\tDeleteGroups(42): 0 to 2 [usable: 2],\\n\\tElectLeaders(43): 0 to 2 [usable: 2],\\n\\tIncrementalAlterConfigs(44): 0 to 1 [usable: 1],\\n\\tAlterPartitionReassignments(45): 0 to 1 [usable: 1],\\n\\tListPartitionReassignments(46): 0 [usable: 0],\\n\\tOffsetDelete(47): 0 [usable: 0],\\n\\tDescribeClientQuotas(48): 0 to 1 [usable: 1],\\n\\tAlterClientQuotas(49): 0 to 1 [usable: 1],\\n\\tDescribeUserScramCredentials(50): 0 [usable: 0],\\n\\tAlterUserScramCredentials(51): 0 [usable: 0],\\n\\tDescribeQuorum(55): 0 to 2 [usable: 2],\\n\\tUpdateFeatures(57): 0 to 2 [usable: 2],\\n\\tDescribeCluster(60): 0 to 2 [usable: 2],\\n\\tDescribeProducers(61): 0 [usable: 0],\\n\\tUnregisterBroker(64): 0 [usable: 0],\\n\\tDescribeTransactions(65): 0 [usable: 0],\\n\\tListTransactions(66): 0 to 2 [usable: 2],\\n\\tConsumerGroupHeartbeat(68): 0 to 1 [usable: 1],\\n\\tConsumerGroupDescribe(69): 0 to 1 [usable: 1],\\n\\tGetTelemetrySubscriptions(71): UNSUPPORTED,\\n\\tPushTelemetry(72): UNSUPPORTED,\\n\\tListConfigResources(74): 0 to 1 [usable: 1],\\n\\tDescribeTopicPartitions(75): 0 [usable: 0],\\n\\tShareGroupHeartbeat(76): 1 [usable: 1],\\n\\tShareGroupDescribe(77): 1 [usable: 1],\\n\\tShareFetch(78): 1 [usable: 1],\\n\\tShareAcknowledge(79): 1 [usable: 1],\\n\\tAddRaftVoter(80): 0 [usable: 0],\\n\\tRemoveRaftVoter(81): 0 [usable: 0],\\n\\tInitializeShareGroupState(83): 0 [usable: 0],\\n\\tReadShareGroupState(84): 0 [usable: 0],\\n\\tWriteShareGroupState(85): 0 [usable: 0],\\n\\tDeleteShareGroupState(86): 0 [usable: 0],\\n\\tReadShareGroupStateSummary(87): 0 [usable: 0],\\n\\tStreamsGroupHeartbeat(88): UNSUPPORTED,\\n\\tStreamsGroupDescribe(89): UNSUPPORTED,\\n\\tDescribeShareGroupOffsets(90): 0 [usable: 0],\\n\\tAlterShareGroupOffsets(91): 0 [usable: 0],\\n\\tDeleteShareGroupOffsets(92): 0 [usable: 0]\\n)\\n\"},{\"Start\":\"2026-10-01T03:08:21.94459627Z\",\"End\":\"2026-10-01T03:08:26.817849Z\",\"ExitCode\":0,\"Output\":\"kafka:9092 (id: 1 rack: null isFenced: false) -> (\\n\\tProduce(0): 0 to 13 [usable: 13],\\n\\tFetch(1): 4 to 18 [usable: 18],\\n\\tListOffsets(2): 1 to 10 [usable: 10],\\n\\tMetadata(3): 0 to 13 [usable: 13],\\n\\tOffsetCommit(8): 2 to 9 [usable: 9],\\n\\tOffsetFetch(9): 1 to 9 [usable: 9],\\n\\tFindCoordinator(10): 0 to 6 [usable: 6],\\n\\tJoinGroup(11): 0 to 9 [usable: 9],\\n\\tHeartbeat(12): 0 to 4 [usable: 4],\\n\\tLeaveGroup(13): 0 to 5 [usable: 5],\\n\\tSyncGroup(14): 0 to 5 [usable: 5],\\n\\tDescribeGroups(15): 0 to 6 [usable: 6],\\n\\tListGroups(16): 0 to 5 [usable: 5],\\n\\tSaslHandshake(17): 0 to 1 [usable: 1],\\n\\tApiVersions(18): 0 to 4 [usable: 4],\\n\\tCreateTopics(19): 2 to 7 [usable: 7],\\n\\tDeleteTopics(20): 1 to 6 [usable: 6],\\n\\tDeleteRecords(21): 0 to 2 [usable: 2],\\n\\tInitProducerId(22): 0 to 5 [usable: 5],\\n\\tOffsetForLeaderEpoch(23): 2 to 4 [usable: 4],\\n\\tAddPartitionsToTxn(24): 0 to 5 [usable: 5],\\n\\tAddOffsetsToTxn(25): 0 to 4 [usable: 4],\\n\\tEndTxn(26): 0 to 5 [usable: 5],\\n\\tWriteTxnMarkers(27): 1 [usable: 1],\\n\\tTxnOffsetCommit(28): 0 to 5 [usable: 5],\\n\\tDescribeAcls(29): 1 to 3 [usable: 3],\\n\\tCreateAcls(30): 1 to 3 [usable: 3],\\n\\tDeleteAcls(31): 1 to 3 [usable: 3],\\n\\tDescribeConfigs(32): 1 to 4 [usable: 4],\\n\\tAlterConfigs(33): 0 to 2 [usable: 2],\\n\\tAlterReplicaLogDirs(34): 1 to 2 [usable: 2],\\n\\tDescribeLogDirs(35): 1 to 4 [usable: 4],\\n\\tSaslAuthenticate(36): 0 to 2 [usable: 2],\\n\\tCreatePartitions(37): 0 to 3 [usable: 3],\\n\\tCreateDelegationToken(38): 1 to 3 [usable: 3],\\n\\tRenewDelegationToken(39): 1 to 2 [usable: 2],\\n\\tExpireDelegationToken(40): 1 to 2 [usable: 2],\\n\\tDescribeDelegationToken(41): 1 to 3 [usable: 3],\\n\\tDeleteGroups(42): 0 to 2 [usable: 2],\\n\\tElectLeaders(43): 0 to 2 [usable: 2],\\n\\tIncrementalAlterConfigs(44): 0 to 1 [usable: 1],\\n\\tAlterPartitionReassignments(45): 0 to 1 [usable: 1],\\n\\tListPartitionReassignments(46): 0 [usable: 0],\\n\\tOffsetDelete(47): 0 [usable: 0],\\n\\tDescribeClientQuotas(48): 0 to 1 [usable: 1],\\n\\tAlterClientQuotas(49): 0 to 1 [usable: 1],\\n\\tDescribeUserScramCredentials(50): 0 [usable: 0],\\n\\tAlterUserScramCredentials(51): 0 [usable: 0],\\n\\tDescribeQuorum(55): 0 to 2 [usable: 2],\\n\\tUpdateFeatures(57): 0 to 2 [usable: 2],\\n\\tDescribeCluster(60): 0 to 2 [usable: 2],\\n\\tDescribeProducers(61): 0 [usable: 0],\\n\\tUnregisterBroker(64): 0 [usable: 0],\\n\\tDescribeTransactions(65): 0 [usable: 0],\\n\\tListTransactions(66): 0 to 2 [usable: 2],\\n\\tConsumerGroupHeartbeat(68): 0 to 1 [usable: 1],\\n\\tConsumerGroupDescribe(69): 0 to 1 [usable: 1],\\n\\tGetTelemetrySubscriptions(71): UNSUPPORTED,\\n\\tPushTelemetry(72): UNSUPPORTED,\\n\\tListConfigResources(74): 0 to 1 [usable: 1],\\n\\tDescribeTopicPartitions(75): 0 [usable: 0],\\n\\tShareGroupHeartbeat(76): 1 [usable: 1],\\n\\tShareGroupDescribe(77): 1 [usable: 1],\\n\\tShareFetch(78): 1 [usable: 1],\\n\\tShareAcknowledge(79): 1 [usable: 1],\\n\\tAddRaftVoter(80): 0 [usable: 0],\\n\\tRemoveRaftVoter(81): 0 [usable: 0],\\n\\tInitializeShareGroupState(83): 0 [usable: 0],\\n\\tReadShareGroupState(84): 0 [usable: 0],\\n\\tWriteShareGroupState(85): 0 [usable: 0],\\n\\tDeleteShareGroupState(86): 0 [usable: 0],\\n\\tReadShareGroupStateSummary(87): 0 [usable: 0],\\n\\tStreamsGroupHeartbeat(88): UNSUPPORTED,\\n\\tStreamsGroupDescribe(89): UNSUPPORTED,\\n\\tDescribeShareGroupOffsets(90): 0 [usable: 0],\\n\\tAlterShareGroupOffsets(91): 0 [usable: 0],\\n\\tDeleteShareGroupOffsets(92): 0 [usable: 0]\\n)\\n\"},{\"Start\":\"2026-10-01T03:08:31.819727836Z\",\"End\":\"2026-10-01T03:08:34.862438652Z\",\"ExitCode\":0,\"Output\":\"kafka:9092 (id: 1 rack: null isFenced: false) -> (\\n\\tProduce(0): 0 to 13 [usable: 13],\\n\\tFetch(1): 4 to 18 [usable: 18],\\n\\tListOffsets(2): 1 to 10 [usable: 10],\\n\\tMetadata(3): 0 to 13 [usable: 13],\\n\\tOffsetCommit(8): 2 to 9 [usable: 9],\\n\\tOffsetFetch(9): 1 to 9 [usable: 9],\\n\\tFindCoordinator(10): 0 to 6 [usable: 6],\\n\\tJoinGroup(11): 0 to 9 [usable: 9],\\n\\tHeartbeat(12): 0 to 4 [usable: 4],\\n\\tLeaveGroup(13): 0 to 5 [usable: 5],\\n\\tSyncGroup(14): 0 to 5 [usable: 5],\\n\\tDescribeGroups(15): 0 to 6 [usable: 6],\\n\\tListGroups(16): 0 to 5 [usable: 5],\\n\\tSaslHandshake(17): 0 to 1 [usable: 1],\\n\\tApiVersions(18): 0 to 4 [usable: 4],\\n\\tCreateTopics(19): 2 to 7 [usable: 7],\\n\\tDeleteTopics(20): 1 to 6 [usable: 6],\\n\\tDeleteRecords(21): 0 to 2 [usable: 2],\\n\\tInitProducerId(22): 0 to 5 [usable: 5],\\n\\tOffsetForLeaderEpoch(23): 2 to 4 [usable: 4],\\n\\tAddPartitionsToTxn(24): 0 to 5 [usable: 5],\\n\\tAddOffsetsToTxn(25): 0 to 4 [usable: 4],\\n\\tEndTxn(26): 0 to 5 [usable: 5],\\n\\tWriteTxnMarkers(27): 1 [usable: 1],\\n\\tTxnOffsetCommit(28): 0 to 5 [usable: 5],\\n\\tDescribeAcls(29): 1 to 3 [usable: 3],\\n\\tCreateAcls(30): 1 to 3 [usable: 3],\\n\\tDeleteAcls(31): 1 to 3 [usable: 3],\\n\\tDescribeConfigs(32): 1 to 4 [usable: 4],\\n\\tAlterConfigs(33): 0 to 2 [usable: 2],\\n\\tAlterReplicaLogDirs(34): 1 to 2 [usable: 2],\\n\\tDescribeLogDirs(35): 1 to 4 [usable: 4],\\n\\tSaslAuthenticate(36): 0 to 2 [usable: 2],\\n\\tCreatePartitions(37): 0 to 3 [usable: 3],\\n\\tCreateDelegationToken(38): 1 to 3 [usable: 3],\\n\\tRenewDelegationToken(39): 1 to 2 [usable: 2],\\n\\tExpireDelegationToken(40): 1 to 2 [usable: 2],\\n\\tDescribeDelegationToken(41): 1 to 3 [usable: 3],\\n\\tDeleteGroups(42): 0 to 2 [usable: 2],\\n\\tElectLeaders(43): 0 to 2 [usable: 2],\\n\\tIncrementalAlterConfigs(44): 0 to 1 [usable: 1],\\n\\tAlterPartitionReassignments(45): 0 to 1 [usable: 1],\\n\\tListPartitionReassignments(46): 0 [usable: 0],\\n\\tOffsetDelete(47): 0 [usable: 0],\\n\\tDescribeClientQuotas(48): 0 to 1 [usable: 1],\\n\\tAlterClientQuotas(49): 0 to 1 [usable: 1],\\n\\tDescribeUserScramCredentials(50): 0 [usable: 0],\\n\\tAlterUserScramCredentials(51): 0 [usable: 0],\\n\\tDescribeQuorum(55): 0 to 2 [usable: 2],\\n\\tUpdateFeatures(57): 0 to 2 [usable: 2],\\n\\tDescribeCluster(60): 0 to 2 [usable: 2],\\n\\tDescribeProducers(61): 0 [usable: 0],\\n\\tUnregisterBroker(64): 0 [usable: 0],\\n\\tDescribeTransactions(65): 0 [usable: 0],\\n\\tListTransactions(66): 0 to 2 [usable: 2],\\n\\tConsumerGroupHeartbeat(68): 0 to 1 [usable: 1],\\n\\tConsumerGroupDescribe(69): 0 to 1 [usable: 1],\\n\\tGetTelemetrySubscriptions(71): UNSUPPORTED,\\n\\tPushTelemetry(72): UNSUPPORTED,\\n\\tListConfigResources(74): 0 to 1 [usable: 1],\\n\\tDescribeTopicPartitions(75): 0 [usable: 0],\\n\\tShareGroupHeartbeat(76): 1 [usable: 1],\\n\\tShareGroupDescribe(77): 1 [usable: 1],\\n\\tShareFetch(78): 1 [usable: 1],\\n\\tShareAcknowledge(79): 1 [usable: 1],\\n\\tAddRaftVoter(80): 0 [usable: 0],\\n\\tRemoveRaftVoter(81): 0 [usable: 0],\\n\\tInitializeShareGroupState(83): 0 [usable: 0],\\n\\tReadShareGroupState(84): 0 [usable: 0],\\n\\tWriteShareGroupState(85): 0 [usable: 0],\\n\\tDeleteShareGroupState(86): 0 [usable: 0],\\n\\tReadShareGroupStateSummary(87): 0 [usable: 0],\\n\\tStreamsGroupHeartbeat(88): UNSUPPORTED,\\n\\tStreamsGroupDescribe(89): UNSUPPORTED,\\n\\tDescribeShareGroupOffsets(90): 0 [usable: 0],\\n\\tAlterShareGroupOffsets(91): 0 [usable: 0],\\n\\tDeleteShareGroupOffsets(92): 0 [usable: 0]\\n)\\n\"}]}}\n",
+      "ended_at": "2026-10-01T03:08:40.519207+00:00"
+    },
+    {
+      "command": [
+        "docker",
+        "inspect",
+        "incidentlens-stream-ingest-1",
+        "--format",
+        "{{json .State}}"
+      ],
+      "started_at": "2026-10-01T03:08:40.522892+00:00",
+      "returncode": 0,
+      "output": "{\"Status\":\"exited\",\"Running\":false,\"Paused\":false,\"Restarting\":false,\"OOMKilled\":false,\"Dead\":false,\"Pid\":0,\"ExitCode\":0,\"Error\":\"\",\"StartedAt\":\"2026-10-01T02:35:34.596817473Z\",\"FinishedAt\":\"2026-10-01T03:08:21.72913228Z\"}\n",
+      "ended_at": "2026-10-01T03:08:40.599087+00:00"
+    },
+    {
+      "command": [
+        "docker",
+        "inspect",
+        "incidentlens-stream-worker-1",
+        "--format",
+        "{{json .State}}"
+      ],
+      "started_at": "2026-10-01T03:08:40.600799+00:00",
+      "returncode": 0,
+      "output": "{\"Status\":\"exited\",\"Running\":false,\"Paused\":false,\"Restarting\":false,\"OOMKilled\":false,\"Dead\":false,\"Pid\":0,\"ExitCode\":0,\"Error\":\"\",\"StartedAt\":\"2026-10-01T02:36:00.56200676Z\",\"FinishedAt\":\"2026-10-01T03:08:36.527048006Z\"}\n",
+      "ended_at": "2026-10-01T03:08:40.670995+00:00"
+    },
+    {
+      "command": [
+        "docker",
+        "volume",
+        "inspect",
+        "incidentlens_kafka-data",
+        "incidentlens_clickhouse-data",
+        "--format",
+        "{{.Name}}"
+      ],
+      "started_at": "2026-10-01T03:08:40.673139+00:00",
+      "returncode": 0,
+      "output": "incidentlens_kafka-data\nincidentlens_clickhouse-data\n",
+      "ended_at": "2026-10-01T03:08:40.740479+00:00"
+    },
+    {
+      "command": [
+        "/tmp/incidentlens-bench",
+        "--output-dir",
+        "/Users/kousil/Documents/IncidentLens/docs/evidence/phase5/rollback-direct-smoke",
+        "--seed",
+        "phase5-rollback-1790824120741834000",
+        "--rate",
+        "24",
+        "--duration",
+        "5s",
+        "--warmup",
+        "0s",
+        "--batch-traces",
+        "4",
+        "--concurrency",
+        "2",
+        "--query-rate",
+        "0",
+        "--visibility-every",
+        "1",
+        "--settle",
+        "2s",
+        "--drain",
+        "20s"
+      ],
+      "started_at": "2026-10-01T03:08:40.741839+00:00",
+      "returncode": 0,
+      "output": "{\"config\":{\"output_dir\":\"/Users/kousil/Documents/IncidentLens/docs/evidence/phase5/rollback-direct-smoke\",\"seed\":\"phase5-rollback-1790824120741834000\",\"scenario\":\"steady\",\"namespace\":\"bench-88e2a9498a2e\",\"rate_spans_per_second\":24,\"duration_ns\":5000000000,\"warmup_ns\":0,\"export_concurrency\":2,\"batch_traces\":4,\"export_queue\":64,\"max_attempts\":3,\"export_timeout_ns\":8000000000,\"drain_ns\":20000000000,\"settle_ns\":2000000000,\"estimated_event_bytes_upper_bound\":403120,\"query_requests_per_second\":0,\"query_concurrency\":4,\"query_mix\":\"services,traces,detail,incidents\",\"attribute_payload_bytes\":256,\"baseline_traces\":0,\"collector\":\"127.0.0.1:4317\",\"api\":\"http://127.0.0.1:18081\",\"clickhouse\":\"127.0.0.1:19000\",\"clickhouse_user\":\"query\",\"visibility_every_batches\":1,\"visibility_timeout_ns\":10000000000,\"max_event_bytes\":268435456,\"load_traces\":20,\"load_spans\":120,\"setup_spans\":0,\"span_kinds_per_trace\":{\"CLIENT\":2,\"INTERNAL\":1,\"SERVER\":3},\"serialized_full_batch_bytes\":10724,\"services\":[\"bench-frontend\",\"bench-api\",\"bench-store\"]},\"drain_deadline_expired\":false,\"driver\":{\"generator_limited\":false,\"logging_error\":\"\",\"missed_deadline_batches\":0,\"schedule_dropped_batches\":0},\"error\":\"\",\"event_counts\":{\"batch_complete:measured\":5,\"enqueued:measured\":5,\"export_attempt:measured\":5,\"generated:measured\":5,\"load_start:\":1,\"scheduled:measured\":5,\"visibility:measured\":5,\"visibility_probe:measured\":10},\"latencies\":{\"export_attempt:measured:\":{\"count\":5,\"p50_ns\":14365000,\"p95_ns\":22050000,\"p99_ns\":22050000,\"max_ns\":22050000},\"export_attempt:measured::OK\":{\"count\":5,\"p50_ns\":14365000,\"p95_ns\":22050000,\"p99_ns\":22050000,\"max_ns\":22050000},\"schedule_delay:measured\":{\"count\":5,\"p50_ns\":1129000,\"p95_ns\":1240000,\"p99_ns\":1240000,\"max_ns\":1240000}},\"load_start\":\"2026-10-01T03:08:40.789816Z\",\"measured\":{\"ack_latency\":{\"count\":5,\"p50_ns\":14365000,\"p95_ns\":22050000,\"p99_ns\":22050000,\"max_ns\":22050000},\"acked_spans\":120,\"acked_spans_per_second\":24,\"acked_spans_within_measurement_window\":120,\"emitted_spans\":120,\"enqueued_spans\":120,\"exported_batches\":5,\"generated_spans\":120,\"offered_spans\":120,\"planned_spans\":120,\"rejected_spans\":0,\"retried_batches\":0,\"schedule_to_ack_latency\":{\"count\":5,\"p50_ns\":15494000,\"p95_ns\":22552000,\"p99_ns\":22552000,\"max_ns\":22552000},\"terminal_error_fraction\":0,\"terminal_failed_batches\":0,\"unique_ack_fraction\":1},\"measurement_end\":\"2026-10-01T03:08:45.789816Z\",\"measurement_start\":\"2026-10-01T03:08:40.789816Z\",\"offering_finished\":\"2026-10-01T03:08:45.790734Z\",\"raw_event_bytes\":13968,\"reconciliation\":{\"settled\":true,\"snapshot_verified\":true,\"verified\":true,\"planned_spans\":120,\"emitted_spans\":120,\"acked_spans\":120,\"raw_rows\":120,\"final_unique_spans\":120,\"expected_stored\":120,\"planned_missing\":0,\"emitted_missing\":0,\"acked_missing\":0,\"never_acked_stored\":0,\"unknown\":0,\"physical_duplicates_remaining\":0,\"duplicate_logical_identities\":0,\"ledger\":\"reconciliation.jsonl\"},\"run_end\":\"2026-10-01T03:08:47.973044Z\",\"schema_version\":1,\"setup\":{\"ack_latency\":{\"count\":0,\"p50_ns\":0,\"p95_ns\":0,\"p99_ns\":0,\"max_ns\":0},\"acked_spans\":0,\"acked_spans_per_second\":0,\"acked_spans_within_measurement_window\":0,\"emitted_spans\":0,\"enqueued_spans\":0,\"exported_batches\":0,\"generated_spans\":0,\"offered_spans\":0,\"planned_spans\":0,\"rejected_spans\":0,\"retried_batches\":0,\"schedule_to_ack_latency\":{\"count\":0,\"p50_ns\":0,\"p95_ns\":0,\"p99_ns\":0,\"max_ns\":0},\"terminal_error_fraction\":0,\"terminal_failed_batches\":0,\"unique_ack_fraction\":0},\"status_counts\":{\"export_attempt:measured::OK\":5},\"visibility\":{\"censored\":0,\"first_send_to_observation\":{\"count\":5,\"p50_ns\":227462000,\"p95_ns\":235243000,\"p99_ns\":235243000,\"max_ns\":235243000},\"method\":\"sampled expected six-span trace observation; polling upper bounds, not exact storage arrival\",\"observed_measured\":5,\"poll_interval_ns\":200000000},\"warmup\":{\"ack_latency\":{\"count\":0,\"p50_ns\":0,\"p95_ns\":0,\"p99_ns\":0,\"max_ns\":0},\"acked_spans\":0,\"acked_spans_per_second\":0,\"acked_spans_within_measurement_window\":0,\"emitted_spans\":0,\"enqueued_spans\":0,\"exported_batches\":0,\"generated_spans\":0,\"offered_spans\":0,\"planned_spans\":0,\"rejected_spans\":0,\"retried_batches\":0,\"schedule_to_ack_latency\":{\"count\":0,\"p50_ns\":0,\"p95_ns\":0,\"p99_ns\":0,\"max_ns\":0},\"terminal_error_fraction\":0,\"terminal_failed_batches\":0,\"unique_ack_fraction\":0}}\n",
+      "ended_at": "2026-10-01T03:08:47.976866+00:00"
+    }
+  ],
+  "identity_checks": [
+    {
+      "stage": "benchmarks/results/20261001-streaming-bounded/mixed-r1/harness/summary.json",
+      "at": "2026-10-01T03:08:30.583140+00:00",
+      "namespace": "bench-c9651838e8fe",
+      "planned_missing": 0,
+      "emitted_missing": 0,
+      "acked_missing": 0,
+      "expected_stored": 65766,
+      "unknown": 0,
+      "duplicate_logical_identities": 0
+    },
+    {
+      "stage": "benchmarks/results/20261001-streaming-bounded/outage-r1/harness/summary.json",
+      "at": "2026-10-01T03:08:30.853516+00:00",
+      "namespace": "bench-a226c3231163",
+      "planned_missing": 0,
+      "emitted_missing": 0,
+      "acked_missing": 0,
+      "expected_stored": 37500,
+      "unknown": 0,
+      "duplicate_logical_identities": 0
+    },
+    {
+      "stage": "benchmarks/results/20261001-streaming-bounded/ramp-2000-r1/harness/summary.json",
+      "at": "2026-10-01T03:08:31.416174+00:00",
+      "namespace": "bench-dbba28b03468",
+      "planned_missing": 0,
+      "emitted_missing": 0,
+      "acked_missing": 0,
+      "expected_stored": 99996,
+      "unknown": 0,
+      "duplicate_logical_identities": 0
+    },
+    {
+      "stage": "benchmarks/results/20261001-streaming-bounded/ramp-500-r1/harness/summary.json",
+      "at": "2026-10-01T03:08:31.616195+00:00",
+      "namespace": "bench-e2ab5f2ced78",
+      "planned_missing": 0,
+      "emitted_missing": 0,
+      "acked_missing": 0,
+      "expected_stored": 24996,
+      "unknown": 0,
+      "duplicate_logical_identities": 0
+    },
+    {
+      "stage": "benchmarks/results/20261001-streaming-bounded/ramp-8000-r1/harness/summary.json",
+      "at": "2026-10-01T03:08:34.193875+00:00",
+      "namespace": "bench-97e4c0243884",
+      "planned_missing": 4416,
+      "emitted_missing": 0,
+      "acked_missing": 0,
+      "expected_stored": 395580,
+      "unknown": 0,
+      "duplicate_logical_identities": 0
+    },
+    {
+      "stage": "benchmarks/results/20261001-streaming-bounded/steady-r1/harness/summary.json",
+      "at": "2026-10-01T03:08:34.738086+00:00",
+      "namespace": "bench-baf780a75133",
+      "planned_missing": 0,
+      "emitted_missing": 0,
+      "acked_missing": 0,
+      "expected_stored": 75000,
+      "unknown": 0,
+      "duplicate_logical_identities": 0
+    },
+    {
+      "stage": "benchmarks/results/20261001-streaming-bounded/steady-r2/harness/summary.json",
+      "at": "2026-10-01T03:08:35.181224+00:00",
+      "namespace": "bench-b0f42ee3351b",
+      "planned_missing": 0,
+      "emitted_missing": 0,
+      "acked_missing": 0,
+      "expected_stored": 75000,
+      "unknown": 0,
+      "duplicate_logical_identities": 0
+    },
+    {
+      "stage": "benchmarks/results/20261001-streaming-bounded/steady-r3/harness/summary.json",
+      "at": "2026-10-01T03:08:35.622715+00:00",
+      "namespace": "bench-db1a5f0c87bb",
+      "planned_missing": 0,
+      "emitted_missing": 0,
+      "acked_missing": 0,
+      "expected_stored": 75000,
+      "unknown": 0,
+      "duplicate_logical_identities": 0
+    },
+    {
+      "stage": "benchmarks/results/20261001-streaming-outage15/outage-r1/harness/summary.json",
+      "at": "2026-10-01T03:08:35.871681+00:00",
+      "namespace": "bench-e7720f6f0ebe",
+      "planned_missing": 0,
+      "emitted_missing": 0,
+      "acked_missing": 0,
+      "expected_stored": 37500,
+      "unknown": 0,
+      "duplicate_logical_identities": 0
+    },
+    {
+      "stage": "benchmarks/results/20261001-streaming-outage60/outage-60s-r1/harness/summary.json",
+      "at": "2026-10-01T03:08:36.274088+00:00",
+      "namespace": "bench-cdedeae6ccc6",
+      "planned_missing": 0,
+      "emitted_missing": 0,
+      "acked_missing": 0,
+      "expected_stored": 67500,
+      "unknown": 0,
+      "duplicate_logical_identities": 0
+    }
+  ],
+  "captured_end_offset": 5908,
+  "committed_offset": 5908,
+  "lag": 0,
+  "direct_readiness": {
+    "ingestion": 200,
+    "api": 200
+  },
+  "collector_mounts": [
+    {
+      "Type": "bind",
+      "Source": "/Users/kousil/Documents/IncidentLens/deploy/local/collector.yaml",
+      "Destination": "/etc/otelcol/config.yaml",
+      "Mode": "ro",
+      "RW": false,
+      "Propagation": "rprivate"
+    }
+  ],
+  "direct_smoke_reconciliation": {
+    "settled": true,
+    "snapshot_verified": true,
+    "verified": true,
+    "planned_spans": 120,
+    "emitted_spans": 120,
+    "acked_spans": 120,
+    "raw_rows": 120,
+    "final_unique_spans": 120,
+    "expected_stored": 120,
+    "planned_missing": 0,
+    "emitted_missing": 0,
+    "acked_missing": 0,
+    "never_acked_stored": 0,
+    "unknown": 0,
+    "physical_duplicates_remaining": 0,
+    "duplicate_logical_identities": 0,
+    "ledger": "reconciliation.jsonl"
+  },
+  "retained_streaming_trace": {
+    "namespace": "bench-cdedeae6ccc6",
+    "trace_id": "c4c56e3c337846bb0027de25b7a2d756",
+    "final_spans": 6,
+    "http_status": 200,
+    "api_spans": 6
+  },
+  "ended_at": "2026-10-01T03:08:48.243581+00:00"
+}

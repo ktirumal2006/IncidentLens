@@ -1,0 +1,13 @@
+=== RUN   TestBrokerAckBeforeStorageThenWorkerRecovery
+--- PASS: TestBrokerAckBeforeStorageThenWorkerRecovery (21.06s)
+=== RUN   TestBrokerOutageReturnsRetryableFailure
+    streaming_test.go:204: FINAL trace c07d4ac245e288e1106b979e3e3a63e4 has 0 spans; want 1
+--- FAIL: TestBrokerOutageReturnsRetryableFailure (68.20s)
+=== RUN   TestWriteBeforeCommitCrashAndFreshGroupReplay
+--- PASS: TestWriteBeforeCommitCrashAndFreshGroupReplay (55.95s)
+=== RUN   TestInvalidAndOversizedRequestsFailClosed
+    streaming_test.go:351: code: 241, message: (total) memory limit exceeded: would use 1.54 GiB (attempt to allocate chunk of 4.49 MiB bytes), current RSS: 1.78 GiB, maximum: 1.80 GiB. OvercommitTracker decision: Query was selected to stop by OvercommitTracker: (while reading column trace_id): (while reading from part /var/lib/clickhouse/store/716/7165616b-aa6b-46e2-bc1d-ab8332cc7b3e/20260929_3892_4223_29/ in table incidentlens.spans (7165616b-aa6b-46e2-bc1d-ab8332cc7b3e) located on disk default of type local, from mark 0 with max_rows_to_read = 16384, offset = 0): While executing MergeTreeSelect(pool: ReadPoolInOrder, algorithm: InOrder)
+--- FAIL: TestInvalidAndOversizedRequestsFailClosed (0.38s)
+FAIL
+FAIL	incidentlens/backend/tests/streaming	146.669s
+FAIL
