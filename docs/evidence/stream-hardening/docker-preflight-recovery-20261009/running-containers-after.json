@@ -1,0 +1,11 @@
+{
+  "command": [
+    "docker",
+    "ps",
+    "--format",
+    "{{.ID}} {{.Names}} {{.Status}}"
+  ],
+  "returncode": 0,
+  "stdout": "",
+  "stderr": ""
+}

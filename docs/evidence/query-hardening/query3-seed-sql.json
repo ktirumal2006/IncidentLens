@@ -1,0 +1,7 @@
+{
+  "queries": [
+    "SELECT trace_id,span_id,start_time,duration_ns,status_code FROM spans FINAL PREWHERE ingested_at<=fromUnixTimestamp64Nano(1791735181951083712) AND start_time>=fromUnixTimestamp64Nano(1791734880949972000) AND start_time<fromUnixTimestamp64Nano(1791735180949972000) AND service_namespace='bench-9584c6ebf2f7' AND service_name='bench-store' WHERE span_kind=2 AND span_name='Request' ORDER BY status_code=2 DESC,duration_ns DESC,start_time ASC,trace_id ASC,span_id ASC LIMIT 1 BY trace_id LIMIT 5",
+    "SELECT trace_id,span_id,start_time,duration_ns,status_code FROM spans FINAL PREWHERE ingested_at<=fromUnixTimestamp64Nano(1791735181951083712) AND start_time>=fromUnixTimestamp64Nano(1791734880949972000) AND start_time<fromUnixTimestamp64Nano(1791735180949972000) AND service_namespace='bench-9584c6ebf2f7' AND service_name='bench-frontend' WHERE span_kind=2 AND span_name='Request' ORDER BY status_code=2 DESC,duration_ns DESC,start_time ASC,trace_id ASC,span_id ASC LIMIT 1 BY trace_id LIMIT 5",
+    "SELECT trace_id,span_id,start_time,duration_ns,status_code FROM spans FINAL PREWHERE ingested_at<=fromUnixTimestamp64Nano(1791735181951083712) AND start_time>=fromUnixTimestamp64Nano(1791734880949972000) AND start_time<fromUnixTimestamp64Nano(1791735180949972000) AND service_namespace='bench-9584c6ebf2f7' AND service_name='bench-api' WHERE span_kind=2 AND span_name='Request' ORDER BY status_code=2 DESC,duration_ns DESC,start_time ASC,trace_id ASC,span_id ASC LIMIT 1 BY trace_id LIMIT 5"
+  ]
+}

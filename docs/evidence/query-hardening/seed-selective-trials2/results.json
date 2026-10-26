@@ -1,0 +1,137 @@
+[
+  {
+    "variant": "ordered_grouped",
+    "repetition": 1,
+    "queries": [
+      {
+        "id": "seed-selective-0f249b8f29144b77a2233a7b2f34b8eb",
+        "sql": "SELECT service_namespace,service_name,span_name,trace_id,span_id,start_time,duration_ns,status_code FROM (SELECT service_namespace,service_name,span_name,trace_id,span_id,start_time,duration_ns,status_code FROM spans FINAL PREWHERE ingested_at<=fromUnixTimestamp64Nano(1791674843632105182) AND start_time>=fromUnixTimestamp64Nano(1791674542630589000) AND start_time<fromUnixTimestamp64Nano(1791674842630589000) WHERE span_kind=2 AND ((service_namespace='bench-207159f20bbd' AND service_name='bench-api' AND span_name='Request') OR (service_namespace='bench-207159f20bbd' AND service_name='bench-frontend' AND span_name='Request') OR (service_namespace='bench-207159f20bbd' AND service_name='bench-store' AND span_name='Request')) ORDER BY service_namespace,service_name,span_name,status_code=2 DESC,duration_ns DESC,start_time ASC,trace_id ASC,span_id ASC LIMIT 1 BY service_namespace,service_name,span_name,trace_id) ORDER BY service_namespace,service_name,span_name,status_code=2 DESC,duration_ns DESC,start_time ASC,trace_id ASC,span_id ASC LIMIT 5 BY service_namespace,service_name,span_name"
+      }
+    ],
+    "output": [],
+    "complete": false,
+    "error": "RemoteDisconnected('Remote end closed connection without response')",
+    "server_error": "",
+    "elapsed_seconds": 0.05708241599999997
+  },
+  {
+    "variant": "per_operation_distinct",
+    "repetition": 1,
+    "queries": [
+      {
+        "id": "seed-selective-39335930c2c04dd19c40b46968822941",
+        "sql": "SELECT service_namespace,service_name,span_name,trace_id,span_id,start_time,duration_ns,status_code FROM spans FINAL PREWHERE ingested_at<=fromUnixTimestamp64Nano(1791674843632105182) AND start_time>=fromUnixTimestamp64Nano(1791674542630589000) AND start_time<fromUnixTimestamp64Nano(1791674842630589000) AND service_namespace='bench-207159f20bbd' AND service_name='bench-api' WHERE span_kind=2 AND span_name='Request' ORDER BY status_code=2 DESC,duration_ns DESC,start_time ASC,trace_id ASC,span_id ASC LIMIT 1 BY trace_id LIMIT 5"
+      }
+    ],
+    "output": [],
+    "complete": false,
+    "error": "RemoteDisconnected('Remote end closed connection without response')",
+    "server_error": "",
+    "elapsed_seconds": 0.007592477999999958
+  },
+  {
+    "variant": "per_operation_top5",
+    "repetition": 1,
+    "queries": [
+      {
+        "id": "seed-selective-49ef4c670faa4f97a8c66642e25380d6",
+        "sql": "SELECT service_namespace,service_name,span_name,trace_id,span_id,start_time,duration_ns,status_code FROM spans FINAL PREWHERE ingested_at<=fromUnixTimestamp64Nano(1791674843632105182) AND start_time>=fromUnixTimestamp64Nano(1791674542630589000) AND start_time<fromUnixTimestamp64Nano(1791674842630589000) AND service_namespace='bench-207159f20bbd' AND service_name='bench-api' WHERE span_kind=2 AND span_name='Request' ORDER BY status_code=2 DESC,duration_ns DESC,start_time ASC,trace_id ASC,span_id ASC LIMIT 5"
+      }
+    ],
+    "output": [],
+    "complete": false,
+    "error": "RemoteDisconnected('Remote end closed connection without response')",
+    "server_error": "",
+    "elapsed_seconds": 0.008603309000000059
+  },
+  {
+    "variant": "per_operation_top5",
+    "repetition": 2,
+    "queries": [
+      {
+        "id": "seed-selective-9f3730f71a484c8c932842d4d100b18c",
+        "sql": "SELECT service_namespace,service_name,span_name,trace_id,span_id,start_time,duration_ns,status_code FROM spans FINAL PREWHERE ingested_at<=fromUnixTimestamp64Nano(1791674843632105182) AND start_time>=fromUnixTimestamp64Nano(1791674542630589000) AND start_time<fromUnixTimestamp64Nano(1791674842630589000) AND service_namespace='bench-207159f20bbd' AND service_name='bench-api' WHERE span_kind=2 AND span_name='Request' ORDER BY status_code=2 DESC,duration_ns DESC,start_time ASC,trace_id ASC,span_id ASC LIMIT 5"
+      }
+    ],
+    "output": [],
+    "complete": false,
+    "error": "RemoteDisconnected('Remote end closed connection without response')",
+    "server_error": "",
+    "elapsed_seconds": 0.010344986999999972
+  },
+  {
+    "variant": "per_operation_distinct",
+    "repetition": 2,
+    "queries": [
+      {
+        "id": "seed-selective-e376c550180d41928ab46ea517d23b46",
+        "sql": "SELECT service_namespace,service_name,span_name,trace_id,span_id,start_time,duration_ns,status_code FROM spans FINAL PREWHERE ingested_at<=fromUnixTimestamp64Nano(1791674843632105182) AND start_time>=fromUnixTimestamp64Nano(1791674542630589000) AND start_time<fromUnixTimestamp64Nano(1791674842630589000) AND service_namespace='bench-207159f20bbd' AND service_name='bench-api' WHERE span_kind=2 AND span_name='Request' ORDER BY status_code=2 DESC,duration_ns DESC,start_time ASC,trace_id ASC,span_id ASC LIMIT 1 BY trace_id LIMIT 5"
+      }
+    ],
+    "output": [],
+    "complete": false,
+    "error": "RemoteDisconnected('Remote end closed connection without response')",
+    "server_error": "",
+    "elapsed_seconds": 0.00649498599999998
+  },
+  {
+    "variant": "ordered_grouped",
+    "repetition": 2,
+    "queries": [
+      {
+        "id": "seed-selective-7e19b52fdb784f92a13eb9da609a1d9f",
+        "sql": "SELECT service_namespace,service_name,span_name,trace_id,span_id,start_time,duration_ns,status_code FROM (SELECT service_namespace,service_name,span_name,trace_id,span_id,start_time,duration_ns,status_code FROM spans FINAL PREWHERE ingested_at<=fromUnixTimestamp64Nano(1791674843632105182) AND start_time>=fromUnixTimestamp64Nano(1791674542630589000) AND start_time<fromUnixTimestamp64Nano(1791674842630589000) WHERE span_kind=2 AND ((service_namespace='bench-207159f20bbd' AND service_name='bench-api' AND span_name='Request') OR (service_namespace='bench-207159f20bbd' AND service_name='bench-frontend' AND span_name='Request') OR (service_namespace='bench-207159f20bbd' AND service_name='bench-store' AND span_name='Request')) ORDER BY service_namespace,service_name,span_name,status_code=2 DESC,duration_ns DESC,start_time ASC,trace_id ASC,span_id ASC LIMIT 1 BY service_namespace,service_name,span_name,trace_id) ORDER BY service_namespace,service_name,span_name,status_code=2 DESC,duration_ns DESC,start_time ASC,trace_id ASC,span_id ASC LIMIT 5 BY service_namespace,service_name,span_name"
+      }
+    ],
+    "output": [],
+    "complete": false,
+    "error": "RemoteDisconnected('Remote end closed connection without response')",
+    "server_error": "",
+    "elapsed_seconds": 0.006324710000000011
+  },
+  {
+    "variant": "ordered_grouped",
+    "repetition": 3,
+    "queries": [
+      {
+        "id": "seed-selective-12700ae156164db78be8471457e366cc",
+        "sql": "SELECT service_namespace,service_name,span_name,trace_id,span_id,start_time,duration_ns,status_code FROM (SELECT service_namespace,service_name,span_name,trace_id,span_id,start_time,duration_ns,status_code FROM spans FINAL PREWHERE ingested_at<=fromUnixTimestamp64Nano(1791674843632105182) AND start_time>=fromUnixTimestamp64Nano(1791674542630589000) AND start_time<fromUnixTimestamp64Nano(1791674842630589000) WHERE span_kind=2 AND ((service_namespace='bench-207159f20bbd' AND service_name='bench-api' AND span_name='Request') OR (service_namespace='bench-207159f20bbd' AND service_name='bench-frontend' AND span_name='Request') OR (service_namespace='bench-207159f20bbd' AND service_name='bench-store' AND span_name='Request')) ORDER BY service_namespace,service_name,span_name,status_code=2 DESC,duration_ns DESC,start_time ASC,trace_id ASC,span_id ASC LIMIT 1 BY service_namespace,service_name,span_name,trace_id) ORDER BY service_namespace,service_name,span_name,status_code=2 DESC,duration_ns DESC,start_time ASC,trace_id ASC,span_id ASC LIMIT 5 BY service_namespace,service_name,span_name"
+      }
+    ],
+    "output": [],
+    "complete": false,
+    "error": "RemoteDisconnected('Remote end closed connection without response')",
+    "server_error": "",
+    "elapsed_seconds": 0.006211591999999988
+  },
+  {
+    "variant": "per_operation_distinct",
+    "repetition": 3,
+    "queries": [
+      {
+        "id": "seed-selective-8f1137f908ac44c4ba96e01dd325ef87",
+        "sql": "SELECT service_namespace,service_name,span_name,trace_id,span_id,start_time,duration_ns,status_code FROM spans FINAL PREWHERE ingested_at<=fromUnixTimestamp64Nano(1791674843632105182) AND start_time>=fromUnixTimestamp64Nano(1791674542630589000) AND start_time<fromUnixTimestamp64Nano(1791674842630589000) AND service_namespace='bench-207159f20bbd' AND service_name='bench-api' WHERE span_kind=2 AND span_name='Request' ORDER BY status_code=2 DESC,duration_ns DESC,start_time ASC,trace_id ASC,span_id ASC LIMIT 1 BY trace_id LIMIT 5"
+      }
+    ],
+    "output": [],
+    "complete": false,
+    "error": "RemoteDisconnected('Remote end closed connection without response')",
+    "server_error": "",
+    "elapsed_seconds": 0.009112077999999912
+  },
+  {
+    "variant": "per_operation_top5",
+    "repetition": 3,
+    "queries": [
+      {
+        "id": "seed-selective-d68c1b45c0f549fdb8952b7df2898289",
+        "sql": "SELECT service_namespace,service_name,span_name,trace_id,span_id,start_time,duration_ns,status_code FROM spans FINAL PREWHERE ingested_at<=fromUnixTimestamp64Nano(1791674843632105182) AND start_time>=fromUnixTimestamp64Nano(1791674542630589000) AND start_time<fromUnixTimestamp64Nano(1791674842630589000) AND service_namespace='bench-207159f20bbd' AND service_name='bench-api' WHERE span_kind=2 AND span_name='Request' ORDER BY status_code=2 DESC,duration_ns DESC,start_time ASC,trace_id ASC,span_id ASC LIMIT 5"
+      }
+    ],
+    "output": [],
+    "complete": false,
+    "error": "RemoteDisconnected('Remote end closed connection without response')",
+    "server_error": "",
+    "elapsed_seconds": 0.0035733110000000234
+  }
+]

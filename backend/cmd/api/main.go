@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"os"
 	"os/signal"
+	"strings"
 	"syscall"
 	"time"
 
@@ -36,7 +37,18 @@ func run() error {
 		return err
 	}
 	defer store.Close()
-	server := &http.Server{Addr: env("HTTP_ADDRESS", "127.0.0.1:18081"), Handler: httpapi.NewHandlerWithDetector(store, store, cfg, env("FRONTEND_DIR", "")), ReadHeaderTimeout: 2 * time.Second, ReadTimeout: 7 * time.Second, WriteTimeout: 7 * time.Second, IdleTimeout: 30 * time.Second, MaxHeaderBytes: 8192}
+	handler := httpapi.NewHandlerWithDetector(store, store, cfg, env("FRONTEND_DIR", "")).(*httpapi.Handler)
+	mode := strings.ToLower(env("INGESTION_MODE", "direct"))
+	if mode != "direct" && mode != "streaming" {
+		return errors.New("INGESTION_MODE must be direct or streaming")
+	}
+	if mode == "streaming" {
+		handler.IngestionStatus, err = httpapi.NewIngestionStatusProxy(env("STREAM_STATUS_URL", "http://stream-worker:8083/internal/stream-status"))
+		if err != nil {
+			return err
+		}
+	}
+	server := &http.Server{Addr: env("HTTP_ADDRESS", "127.0.0.1:18081"), Handler: handler, ReadHeaderTimeout: 2 * time.Second, ReadTimeout: 7 * time.Second, WriteTimeout: 7 * time.Second, IdleTimeout: 30 * time.Second, MaxHeaderBytes: 8192}
 	errs := make(chan error, 1)
 	go func() { errs <- server.ListenAndServe() }()
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)

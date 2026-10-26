@@ -1,0 +1,216 @@
+{
+  "config": {
+    "output_dir": "/Users/kousil/Documents/IncidentLens/docs/evidence/stream-hardening/status-browser2/prime",
+    "seed": "incidentlens-retro-hardening-acceptance1-status-browser2-prime",
+    "scenario": "prime",
+    "namespace": "bench-f94937f1ef4a",
+    "rate_spans_per_second": 96,
+    "duration_ns": 3000000000,
+    "warmup_ns": 0,
+    "export_concurrency": 16,
+    "batch_traces": 4,
+    "export_queue": 64,
+    "max_attempts": 3,
+    "export_timeout_ns": 8000000000,
+    "drain_ns": 30000000000,
+    "settle_ns": 2000000000,
+    "estimated_event_bytes_upper_bound": 93888,
+    "query_requests_per_second": 0,
+    "query_concurrency": 4,
+    "query_mix": "services,traces,detail,incidents",
+    "attribute_payload_bytes": 256,
+    "baseline_traces": 0,
+    "collector": "127.0.0.1:4317",
+    "api": "http://127.0.0.1:18081",
+    "clickhouse": "127.0.0.1:19000",
+    "clickhouse_user": "query",
+    "visibility_every_batches": 0,
+    "visibility_timeout_ns": 10000000000,
+    "max_event_bytes": 268435456,
+    "load_traces": 48,
+    "load_spans": 288,
+    "setup_spans": 0,
+    "span_kinds_per_trace": {
+      "CLIENT": 2,
+      "INTERNAL": 1,
+      "SERVER": 3
+    },
+    "serialized_full_batch_bytes": 10724,
+    "services": [
+      "bench-frontend",
+      "bench-api",
+      "bench-store"
+    ]
+  },
+  "drain_deadline_expired": false,
+  "driver": {
+    "generator_limited": false,
+    "logging_error": "",
+    "missed_deadline_batches": 0,
+    "schedule_dropped_batches": 0
+  },
+  "error": "",
+  "event_counts": {
+    "batch_complete:measured": 12,
+    "enqueued:measured": 12,
+    "export_attempt:measured": 12,
+    "generated:measured": 12,
+    "load_start:": 1,
+    "scheduled:measured": 12
+  },
+  "latencies": {
+    "export_attempt:measured:": {
+      "count": 12,
+      "p50_ns": 7678000,
+      "p95_ns": 9999000,
+      "p99_ns": 9999000,
+      "max_ns": 9999000
+    },
+    "export_attempt:measured::OK": {
+      "count": 12,
+      "p50_ns": 7678000,
+      "p95_ns": 9999000,
+      "p99_ns": 9999000,
+      "max_ns": 9999000
+    },
+    "schedule_delay:measured": {
+      "count": 12,
+      "p50_ns": 491000,
+      "p95_ns": 1432000,
+      "p99_ns": 1432000,
+      "max_ns": 1432000
+    }
+  },
+  "load_start": "2026-10-06T20:01:55.992425Z",
+  "measured": {
+    "ack_latency": {
+      "count": 12,
+      "p50_ns": 7678000,
+      "p95_ns": 9999000,
+      "p99_ns": 9999000,
+      "max_ns": 9999000
+    },
+    "acked_spans": 288,
+    "acked_spans_per_second": 96,
+    "acked_spans_within_measurement_window": 288,
+    "emitted_spans": 288,
+    "enqueued_spans": 288,
+    "exported_batches": 12,
+    "generated_spans": 288,
+    "offered_spans": 288,
+    "planned_spans": 288,
+    "rejected_spans": 0,
+    "retried_batches": 0,
+    "schedule_to_ack_latency": {
+      "count": 12,
+      "p50_ns": 8078000,
+      "p95_ns": 10246000,
+      "p99_ns": 10246000,
+      "max_ns": 10246000
+    },
+    "terminal_error_fraction": 0,
+    "terminal_failed_batches": 0,
+    "unique_ack_fraction": 1
+  },
+  "measurement_end": "2026-10-06T20:01:58.992425Z",
+  "measurement_start": "2026-10-06T20:01:55.992425Z",
+  "offering_finished": "2026-10-06T20:01:58.993493Z",
+  "raw_event_bytes": 18444,
+  "reconciliation": {
+    "settled": true,
+    "snapshot_verified": true,
+    "verified": true,
+    "planned_spans": 288,
+    "emitted_spans": 288,
+    "acked_spans": 288,
+    "raw_rows": 288,
+    "final_unique_spans": 288,
+    "expected_stored": 288,
+    "planned_missing": 0,
+    "emitted_missing": 0,
+    "acked_missing": 0,
+    "never_acked_stored": 0,
+    "unknown": 0,
+    "physical_duplicates_remaining": 0,
+    "duplicate_logical_identities": 0,
+    "ledger": "reconciliation.jsonl"
+  },
+  "run_end": "2026-10-06T20:02:01.0997Z",
+  "schema_version": 1,
+  "setup": {
+    "ack_latency": {
+      "count": 0,
+      "p50_ns": 0,
+      "p95_ns": 0,
+      "p99_ns": 0,
+      "max_ns": 0
+    },
+    "acked_spans": 0,
+    "acked_spans_per_second": 0,
+    "acked_spans_within_measurement_window": 0,
+    "emitted_spans": 0,
+    "enqueued_spans": 0,
+    "exported_batches": 0,
+    "generated_spans": 0,
+    "offered_spans": 0,
+    "planned_spans": 0,
+    "rejected_spans": 0,
+    "retried_batches": 0,
+    "schedule_to_ack_latency": {
+      "count": 0,
+      "p50_ns": 0,
+      "p95_ns": 0,
+      "p99_ns": 0,
+      "max_ns": 0
+    },
+    "terminal_error_fraction": 0,
+    "terminal_failed_batches": 0,
+    "unique_ack_fraction": 0
+  },
+  "status_counts": {
+    "export_attempt:measured::OK": 12
+  },
+  "visibility": {
+    "censored": 0,
+    "first_send_to_observation": {
+      "count": 0,
+      "p50_ns": 0,
+      "p95_ns": 0,
+      "p99_ns": 0,
+      "max_ns": 0
+    },
+    "method": "sampled expected six-span trace observation; polling upper bounds, not exact storage arrival",
+    "observed_measured": 0,
+    "poll_interval_ns": 200000000
+  },
+  "warmup": {
+    "ack_latency": {
+      "count": 0,
+      "p50_ns": 0,
+      "p95_ns": 0,
+      "p99_ns": 0,
+      "max_ns": 0
+    },
+    "acked_spans": 0,
+    "acked_spans_per_second": 0,
+    "acked_spans_within_measurement_window": 0,
+    "emitted_spans": 0,
+    "enqueued_spans": 0,
+    "exported_batches": 0,
+    "generated_spans": 0,
+    "offered_spans": 0,
+    "planned_spans": 0,
+    "rejected_spans": 0,
+    "retried_batches": 0,
+    "schedule_to_ack_latency": {
+      "count": 0,
+      "p50_ns": 0,
+      "p95_ns": 0,
+      "p99_ns": 0,
+      "max_ns": 0
+    },
+    "terminal_error_fraction": 0,
+    "terminal_failed_batches": 0,
+    "unique_ack_fraction": 0
+  }
+}

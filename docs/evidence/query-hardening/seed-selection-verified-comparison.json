@@ -1,0 +1,77 @@
+{
+  "note": "Supersedes initial exact_rows_match flags, which incorrectly used an HTTP 200 partial response followed by an in-band exception as the oracle. Success requires server QueryFinish and no in-band exception. Original responses preserved.",
+  "reference_query_id": "seed-plan-6f6a464a71624a08a378d21cc08f887d",
+  "complete_comparisons": [
+    {
+      "variant": "ordered_distinct",
+      "query_id": "seed-plan-dfcd6aee94114ee3a957b3a4f55edbd8",
+      "rows": 15,
+      "exact_rows_match": true,
+      "server": [
+        {
+          "type": "QueryFinish",
+          "query_duration_ms": 1039,
+          "read_rows": 1065576,
+          "read_bytes": 96808610,
+          "memory_usage": 112573255,
+          "exception_code": 0
+        }
+      ]
+    },
+    {
+      "variant": "ordered_distinct",
+      "query_id": "seed-plan-f36f9f5a051d41d5a42398994ac0ed9c",
+      "rows": 15,
+      "exact_rows_match": true,
+      "server": [
+        {
+          "type": "QueryFinish",
+          "query_duration_ms": 961,
+          "read_rows": 1065576,
+          "read_bytes": 96808610,
+          "memory_usage": 113304749,
+          "exception_code": 0
+        }
+      ]
+    },
+    {
+      "variant": "window",
+      "query_id": "seed-plan-6f6a464a71624a08a378d21cc08f887d",
+      "rows": 15,
+      "exact_rows_match": true,
+      "server": [
+        {
+          "type": "QueryFinish",
+          "query_duration_ms": 4342,
+          "read_rows": 1065576,
+          "read_bytes": 96808610,
+          "memory_usage": 126206598,
+          "exception_code": 0
+        }
+      ]
+    },
+    {
+      "variant": "ordered_distinct",
+      "query_id": "seed-plan-630c3254a6624422a0e42ebe33d17f14",
+      "rows": 15,
+      "exact_rows_match": true,
+      "server": [
+        {
+          "type": "QueryFinish",
+          "query_duration_ms": 3228,
+          "read_rows": 1065576,
+          "read_bytes": 96808610,
+          "memory_usage": 112814665,
+          "exception_code": 0
+        }
+      ]
+    }
+  ],
+  "incomplete_query_ids": [
+    "seed-plan-d88b0424ec0d4589a2c93a6d49c6724e",
+    "seed-plan-7576e3294e834f4f971b534a39c90cfd",
+    "seed-plan-9fbb3e9089d14abfa1339281465af7fb",
+    "seed-plan-8a52d09edb664a9da9ec7fb25d64effa",
+    "seed-plan-8a6e434183dc4ea7a4888d777e0fa8ed"
+  ]
+}

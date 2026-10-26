@@ -1,0 +1,23 @@
+{
+  "observed_at_utc": "2026-10-09T00:29:17.773494+00:00",
+  "project": "incidentlens-retro-hardening-acceptance3",
+  "go_command": "/Users/kousil/Library/Caches/IncidentLens/toolchain/go/bin/go -C backend test -race ./tests/streaming -count=1 -v -timeout=15m",
+  "test_environment": {
+    "INCIDENTLENS_STREAMING_TESTS": "1",
+    "INCIDENTLENS_STREAM_TEST_PROJECT": "incidentlens-retro-hardening-acceptance3",
+    "STREAM_TEST_PROJECT": "incidentlens-retro-hardening-acceptance3",
+    "STREAM_CANDIDATE_TAG": "candidate3",
+    "INCIDENTLENS_STREAM_TEST_COMPOSE_FILES": "absolute local, streaming, hardening, hardening-candidate, hardening-acceptance files in that order"
+  },
+  "images": {
+    "stream-worker": "sha256:c2ce7cbd08d106118166a906fd6c5d5271823835e76bb1a3e2f20d58f6997f06",
+    "stream-ingest": "sha256:8e83a459513f56c3fc4221b29b148f4f05ce79510f9ea73b84ac34bde26098c9",
+    "api": "sha256:bfc2716d394de25e299940107d53fe536fc6ca2646a70fefbc767fd45a110662"
+  },
+  "test_log": "docs/evidence/stream-hardening/acceptance3-streaming-tests.txt",
+  "passed": 13,
+  "failed": 0,
+  "skipped": 0,
+  "suite_pass": true,
+  "query_diagnostic_check": "docs/evidence/stream-hardening/acceptance3-query-diagnostic-check.json"
+}

@@ -317,3 +317,10 @@ visibility limits. The measured steady visibility tails did not improve, and
 the higher-rate backlog illustrates the distinction. Keep direct ingestion as
 the default MVP. Collector disk persistence remains an unimplemented alternative,
 and no production durability, HA or universal zero-loss claim follows.
+
+## Subsequent controlled retrospective
+
+The [October 2 controlled comparison](RETROSPECTIVE_PHASE5.md) adds 28 paired
+sustained, burst and CPU-slowdown cases, exact operation/lag evidence and a
+bounded architectural decision. It preserves this original verification and
+its historical reasons for the educational extension.

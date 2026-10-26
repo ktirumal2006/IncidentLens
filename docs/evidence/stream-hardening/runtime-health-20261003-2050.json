@@ -1,0 +1,41 @@
+{
+  "at": "2026-10-03T20:50:31.151253+00:00",
+  "observations": [
+    {
+      "command": [
+        "docker",
+        "stats",
+        "--no-stream",
+        "--format",
+        "{{json .}}"
+      ],
+      "returncode": 0,
+      "stdout": "{\"BlockIO\":\"1.18MB / 0B\",\"CPUPerc\":\"0.04%\",\"Container\":\"db64b208fb7985544c15488807bce42ceaee4ddaf7917ef7659f11eb284a6533\",\"ID\":\"db64b208fb79\",\"MemPerc\":\"14.64%\",\"MemUsage\":\"37.47MiB / 256MiB\",\"Name\":\"incidentlens-collector-1\",\"NetIO\":\"66.3kB / 15.3kB\",\"PIDs\":\"14\"}\n{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"0.00%\",\"Container\":\"92fb895c3c527ef55468ea5c6f023228a4d212520a3113e073dee77c36a3c91c\",\"ID\":\"92fb895c3c52\",\"MemPerc\":\"1.07%\",\"MemUsage\":\"5.492MiB / 512MiB\",\"Name\":\"incidentlens-api-1\",\"NetIO\":\"49.9kB / 46.2kB\",\"PIDs\":\"8\"}\n{\"BlockIO\":\"9.15MB / 0B\",\"CPUPerc\":\"0.00%\",\"Container\":\"1c46e8942519bee6514cde54632c2eb0a2cdb646176e92a3263c529f2c78b35e\",\"ID\":\"1c46e8942519\",\"MemPerc\":\"3.68%\",\"MemUsage\":\"18.83MiB / 512MiB\",\"Name\":\"incidentlens-ingest-1\",\"NetIO\":\"73.9kB / 163kB\",\"PIDs\":\"8\"}\n{\"BlockIO\":\"963MB / 4.44GB\",\"CPUPerc\":\"0.00%\",\"Container\":\"f5c8bdd48da5ce1f3911cfbdef532c0db77a0efed430a43d9214c28c00d9177d\",\"ID\":\"f5c8bdd48da5\",\"MemPerc\":\"89.50%\",\"MemUsage\":\"1.79GiB / 2GiB\",\"Name\":\"incidentlens-clickhouse-1\",\"NetIO\":\"49.6kB / 48.2kB\",\"PIDs\":\"813\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "curl",
+        "-sS",
+        "--max-time",
+        "3",
+        "http://127.0.0.1:18081/readyz"
+      ],
+      "returncode": 0,
+      "stdout": "{\"error\":{\"code\":\"unavailable\",\"message\":\"storage unavailable\"}}",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "logs",
+        "--tail",
+        "30",
+        "incidentlens-clickhouse-1"
+      ],
+      "returncode": 0,
+      "stdout": "/entrypoint.sh: create new user 'default' instead 'default'\nClickHouse Database directory appears to contain a database; Skipping initialization\n/entrypoint.sh: create new user 'default' instead 'default'\nClickHouse Database directory appears to contain a database; Skipping initialization\n/entrypoint.sh: create new user 'default' instead 'default'\nClickHouse Database directory appears to contain a database; Skipping initialization\n/entrypoint.sh: create new user 'default' instead 'default'\nClickHouse Database directory appears to contain a database; Skipping initialization\n/entrypoint.sh: create new user 'default' instead 'default'\nClickHouse Database directory appears to contain a database; Skipping initialization\n",
+      "stderr": "Processing configuration file '/etc/clickhouse-server/config.xml'.\nMerging configuration file '/etc/clickhouse-server/config.d/docker_related_config.xml'.\nLogging trace to /var/log/clickhouse-server/clickhouse-server.log\nLogging errors to /var/log/clickhouse-server/clickhouse-server.err.log\nProcessing configuration file '/etc/clickhouse-server/config.xml'.\nMerging configuration file '/etc/clickhouse-server/config.d/docker_related_config.xml'.\nLogging trace to /var/log/clickhouse-server/clickhouse-server.log\nLogging errors to /var/log/clickhouse-server/clickhouse-server.err.log\nProcessing configuration file '/etc/clickhouse-server/config.xml'.\nMerging configuration file '/etc/clickhouse-server/config.d/docker_related_config.xml'.\nLogging trace to /var/log/clickhouse-server/clickhouse-server.log\nLogging errors to /var/log/clickhouse-server/clickhouse-server.err.log\nProcessing configuration file '/etc/clickhouse-server/config.xml'.\nMerging configuration file '/etc/clickhouse-server/config.d/docker_related_config.xml'.\nLogging trace to /var/log/clickhouse-server/clickhouse-server.log\nLogging errors to /var/log/clickhouse-server/clickhouse-server.err.log\nProcessing configuration file '/etc/clickhouse-server/config.xml'.\nMerging configuration file '/etc/clickhouse-server/config.d/docker_related_config.xml'.\nLogging trace to /var/log/clickhouse-server/clickhouse-server.log\nLogging errors to /var/log/clickhouse-server/clickhouse-server.err.log\n"
+    }
+  ]
+}

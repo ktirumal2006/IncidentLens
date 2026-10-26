@@ -4,6 +4,7 @@ package main
 import (
 	"context"
 	"errors"
+	"incidentlens/backend/internal/benchobs"
 	"log"
 	"net"
 	"net/http"
@@ -30,6 +31,16 @@ func main() {
 }
 
 func run() error {
+	closeObservations, observationErr := benchobs.FromEnv()
+	if observationErr != nil {
+		return observationErr
+	}
+	defer func() {
+		if err := closeObservations(); err != nil {
+			log.Print(err)
+		}
+	}()
+
 	store, err := clickhouse.Open(env("CLICKHOUSE_ADDRESS", "127.0.0.1:19000"),
 		env("CLICKHOUSE_USER", "ingest"), env("CLICKHOUSE_PASSWORD", "local-ingest"), "incidentlens")
 	if err != nil {

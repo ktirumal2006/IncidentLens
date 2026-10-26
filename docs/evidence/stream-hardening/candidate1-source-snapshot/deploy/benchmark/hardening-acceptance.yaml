@@ -1,0 +1,6 @@
+# Dedicated correctness stack. Apply after local, streaming, hardening, and
+# hardening-candidate image overlays. No operation recorder: crash/replay tests
+# deliberately run concurrent worker processes, each with its own group.
+networks:
+  telemetry:
+    name: ${STREAM_TEST_PROJECT:?set dedicated acceptance project}-telemetry

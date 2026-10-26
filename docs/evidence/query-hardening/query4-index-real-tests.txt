@@ -1,0 +1,7 @@
+=== RUN   TestQueryTraceIndexFinalReplayAndCutoff
+    query_index_test.go:177: FINAL indexed plan: Expression ((Project names + (Projection + Change column names to column identifiers)))   ReadFromMergeTree (incidentlens.query_index_dd72d32954)   Indexes:     MinMax       Keys:         start_time       Condition: and((start_time in (-Inf, '1791760944')), (start_time in ['1791760644', +Inf)))       Parts: 5/5       Granules: 19/19     Partition       Keys:         toDate(start_time)       Condition: and((toDate(start_time) in (-Inf, 20737]), (toDate(start_time) in [20737, +Inf)))       Parts: 5/5       Granules: 19/19     PrimaryKey       Keys:         start_time         trace_id       Condition: and((start_time in (-Inf, '1791760944')), and((start_time in ['1791760644', +Inf)), (trace_id in ['26c76f04c60d7a8b06491fd16b491a9f', '26c76f04c60d7a8b06491fd16b491a9f'])))       Parts: 5/5       Granules: 19/19       Search Algorithm: generic exclusion search     Skip       Name: idx_trace_id       Description: bloom_filter GRANULARITY 1       Parts: 4/5       Granules: 4/19     PrimaryKeyExpand       Description: Selects all granules that intersect by PK values with the previous skip indexes selection       Parts: 4/4       Granules: 4/4       Ranges: 4 
+    query_index_test.go:183: clickhouse [ScanRow]: (getSetting('max_memory_usage')) converting UInt32 to *uint64 is unsupported. try using *uint32
+--- FAIL: TestQueryTraceIndexFinalReplayAndCutoff (1.02s)
+FAIL
+FAIL	incidentlens/backend/tests/integration	2.190s
+FAIL

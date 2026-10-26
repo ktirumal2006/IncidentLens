@@ -1,0 +1,13 @@
+# Measurement-only overlay. Original data volumes remain untouched.
+services:
+  ingest:
+    image: incidentlens-retro-ingest
+    environment:
+      BENCH_OPS_FILE: /bench-evidence/ingest.jsonl
+    volumes:
+      - ${BENCH_EVIDENCE_DIR:?set new evidence directory}:/bench-evidence
+  api:
+    image: incidentlens-api
+networks:
+  telemetry:
+    name: ${RETRO_PROJECT:?set isolated project}-telemetry

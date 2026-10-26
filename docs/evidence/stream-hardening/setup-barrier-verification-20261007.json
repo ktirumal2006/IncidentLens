@@ -1,0 +1,63 @@
+{
+  "status": "completed",
+  "campaign": "benchmarks/results/20261007-hardening-smoke2",
+  "binary": {
+    "path": "/Users/kousil/Library/Caches/IncidentLens/bin/bench-setup-barrier",
+    "sha256": "6d5a74c42ed4cd48f67219ee841d67ee5e87677356752afb303821d5760a27b0"
+  },
+  "cases": [
+    {
+      "label": "smoke-r1-baseline",
+      "status": "completed",
+      "barrier_events": 1,
+      "reconciliation": {
+        "settled": true,
+        "snapshot_verified": true,
+        "verified": true,
+        "planned_spans": 888,
+        "emitted_spans": 888,
+        "acked_spans": 888,
+        "raw_rows": 888,
+        "final_unique_spans": 888,
+        "expected_stored": 888,
+        "planned_missing": 0,
+        "emitted_missing": 0,
+        "acked_missing": 0,
+        "never_acked_stored": 0,
+        "unknown": 0,
+        "physical_duplicates_remaining": 0,
+        "duplicate_logical_identities": 0,
+        "ledger": "reconciliation.jsonl"
+      },
+      "analysis_status": "observed",
+      "analysis_issues": []
+    },
+    {
+      "label": "smoke-r1-candidate",
+      "status": "completed",
+      "barrier_events": 1,
+      "reconciliation": {
+        "settled": true,
+        "snapshot_verified": true,
+        "verified": true,
+        "planned_spans": 888,
+        "emitted_spans": 888,
+        "acked_spans": 888,
+        "raw_rows": 888,
+        "final_unique_spans": 888,
+        "expected_stored": 888,
+        "planned_missing": 0,
+        "emitted_missing": 0,
+        "acked_missing": 0,
+        "never_acked_stored": 0,
+        "unknown": 0,
+        "physical_duplicates_remaining": 0,
+        "duplicate_logical_identities": 0,
+        "ledger": "reconciliation.jsonl"
+      },
+      "analysis_status": "observed",
+      "analysis_issues": []
+    }
+  ],
+  "review": "Read-only subagent review found no setup-barrier blocker; same barrier on both variants, numerical gates unchanged."
+}

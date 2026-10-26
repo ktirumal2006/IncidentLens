@@ -1,0 +1,115 @@
+{
+  "scope": "bounded candidate3 diagnostic decision",
+  "gates": [
+    {
+      "name": "sustained-8000-r1/admission_at_least_95_percent",
+      "status": "pass",
+      "observed": {
+        "baseline": 439488,
+        "candidate": 920190
+      }
+    },
+    {
+      "name": "sustained-8000-r1/ack_p95_ns",
+      "status": "pass",
+      "observed": {
+        "baseline": 1088845000,
+        "candidate": 544028000
+      }
+    },
+    {
+      "name": "sustained-8000-r1/ack_p99_ns",
+      "status": "pass",
+      "observed": {
+        "baseline": 1247276000,
+        "candidate": 686745000
+      }
+    },
+    {
+      "name": "sustained-8000-r1/completed_rows_per_second_1_25x",
+      "status": "pass",
+      "observed": {
+        "baseline": "4432/5",
+        "candidate": "44439/10"
+      }
+    },
+    {
+      "name": "sustained-8000-r1/drain_upper_bound_half",
+      "status": "pass",
+      "observed": {
+        "baseline": {
+          "first_zero_started_ns": 1791566190195091000,
+          "lower_bound_ns": 139905256000,
+          "second_zero_finished_ns": 1791566191199706000,
+          "stable_end": 2554,
+          "status": "observed_bounded",
+          "upper_bound_ns": 141910333000
+        },
+        "candidate": {
+          "first_zero_started_ns": 1791566439766834000,
+          "lower_bound_ns": 34935524000,
+          "second_zero_finished_ns": 1791566440774140000,
+          "stable_end": 20854,
+          "status": "observed_bounded",
+          "upper_bound_ns": 36942528000
+        }
+      }
+    },
+    {
+      "name": "sustained-8000-r1/visibility_censored_fraction_half",
+      "status": "fail",
+      "observed": {
+        "baseline": [
+          229,
+          229
+        ],
+        "candidate": [
+          382,
+          476
+        ]
+      }
+    },
+    {
+      "name": "sustained-8000-r1/non404_query_failure_fraction_increase_at_most_1_20",
+      "status": "fail",
+      "observed": {
+        "baseline": "35/93",
+        "candidate": "209/419",
+        "baseline_counts": [
+          175,
+          465,
+          84
+        ],
+        "candidate_counts": [
+          209,
+          419,
+          50
+        ]
+      }
+    },
+    {
+      "name": "sustained-8000-r1/query_schedule_drop_fraction_increase_at_most_1_20",
+      "status": "fail",
+      "observed": {
+        "baseline": "1/32",
+        "candidate": "19/160",
+        "baseline_counts": [
+          15,
+          480,
+          0,
+          0
+        ],
+        "candidate_counts": [
+          57,
+          480,
+          0,
+          4
+        ]
+      }
+    }
+  ],
+  "issues": {
+    "baseline": [],
+    "candidate": []
+  }
+}

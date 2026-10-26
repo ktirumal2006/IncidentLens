@@ -1,0 +1,4 @@
+services:
+  stream-worker:
+    environment:
+      BENCH_OPS_FILE: /bench-evidence/recovery-worker.jsonl

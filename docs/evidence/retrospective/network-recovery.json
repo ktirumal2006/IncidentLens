@@ -1,0 +1,124 @@
+{
+  "purpose": "release completed smoke project networks; retain all volumes",
+  "commands": [
+    {
+      "command": [
+        "docker",
+        "volume",
+        "ls",
+        "--format",
+        "{{.Name}}"
+      ],
+      "returncode": 0,
+      "stdout": "0a7a2188afcb14548830e26f4fe95baaf8319b712b283abd5c27578084cdb95d\n0a38d985079671fdfddcc7b5880660627c8fc5306fd504704d023662461bc55a\n00ac399a13db636254222e745dc8f9fce8845b08552a2a7cc5fa9c58dae0d058\n1b8323b7c8e09f899d10e1a228008191c90b42cf4530e04e62391dc6e6743d76\n2c4cf278523a973fdfed7b28e766209165ceceaee4878bb3e6f7d079a3d0ed67\n3a8e0ab53ea374715ecec6a8a4b6fe75c40dc2206b686d2224667fb09bab0c66\n3dd7bb15a2e8228d5a450de97ff13a72b03daa97c132e99eb7f03b547275be59\n3e5747f6873a248a6ad98b5c4af0ea3912ffe6fe8f1130afea1d1d308db0e0e7\n4a7d9de892efc9a1701ecb3649264fd0ae77d5173087e765c1a1e34c8185144f\n4b7b6465af0f7db5143887838a7d9040a2044ce67f1e6b8fadf6ad13006792e3\n4e08769a8c764d4f7fd3cc4c59fd9de42897c6578af482ee3a5a9004542b2647\n5b2ff30de83c823f25468c3a396ade027e620a367afae6fc5d53c812169a534b\n5bc992a472314c92486731ba1ce5946f82ad2ffefa34687477156f3840fefe7d\n5c8846479b6dfd48e7731935cd6863a709d2b486e585964a7516fd7508f2f1cf\n5f5fe02b8f3c78ba48832f411716829b4df375b5087feed2cc1cbda1fe99aac0\n6ea6c554e1c34dceaf8d1ef7e5315479943beb442c329205c7276788a225c729\n7c46866a4ff9b17290294d95e9826d35b23a57e850bcb8331d7ac688c8d5b054\n7d5abf4a33660bb2554578e32d6a812e5a7c6923b74da042c22c4434f0af7a4f\n7d35b20e7fa3a026c8dd61be692c64ba45a096962d1f790e39e614b839f67c5b\n7e99c5ba73dc9c9a22cc269f504e5b63175fabcd1f7feeba295d9889a9097d5f\n7eee2ba1064b46c1a8563e5b7bc004f53c8904f5833d48e79bcbb8ff0662d2f8\n7ef2b561eb58470585c8206245b8f1a0140cc6a6130f3fc1bbf5c1912322ecc5\n8abb35bc80c6832fe2ea63729542294aebc7a0c1c4b0b21a2baffeb816f15f01\n8e84f6f9bec78b8fb84717d1fde58d112834fd41eb394efdab89514173e2c2e6\n08e81a1e7900f15f9a7b1913e592eb5ebf247cf3bf541f2c8c6cb2f9527c260a\n9aa63fcbdba43d31ea19a4a4ec8716e98bcdd08c92120fc4185fbd9685450a64\n9b75b2498acc09bf668dbd8adbe200e1373abc51e8233d057ab33a5ed05abcef\n9f260514f953e04f5c6073ee3508832c30d2146402506deb5d1b430d286c43f0\n10dafbc4020bafdb325d3b071ce7133c3eaf2904ae8ff065ea73a1d99d4c4e3a\n12a0c2aad643a5fa3c387633c2a95154f3e86d9b96759540758e82eaa564901b\n16a6c48948822be5148ee09becc871f82b81f0aa57a26baec9b1969114ec55d9\n20e9d457bfbca91a1e133a068de5c96879ec372aacda7f702defaeaac86fd3fe\n22fd8e227d7b08023fedbbb9c29b6fd4d71b36981abe74201afad61ecb394fd3\n022baa0f6c40530d65266294e73e07d018e7b7bec219aa22a63e8f66a708b017\n37c18f40989d779578628bd36e87839a218b8cd755464b8ae683f139c8a6ec9f\n38d83aa2feb29cf4a9f77dc2d704cd7589f00ae1c5ee20482113799f49a16773\n40e2c07525874b8040480f0328a976b970009163c4c1d722750325bb2b64747e\n44dd92472b23d97385438d6109d7eb21d3f03d669ec50a4d37da56b8297da011\n60c266392886d9ed89bf9e43f9bf510e3ca9d7185ceee7d4b251acb25ebada9b\n75b4025249d2500c9f72a57c6df1ef24d7d18cad38c18c82828ac417b7d72e7c\n82d6f7b2ad0b89a610ed38b1b13d9ebca45be62fd0797e4aaf64dbcc1e56531b\n85a7b117fed40a7a290018f15ee16f51801eef301a3ca67beb109f33a83fb41d\n88fbec12b78dbca36a98dfc05c95fe0f6f60110f3aad14ba7e965d297e9adf9a\n92da142be77f493e1d4a12f4e8e49ca9c8c98625da85adaac3e44d382d2d1480\n93a7e21e9937dcb9af44f7ff9844c34c31300b6b6f504c3a0d7c30ead0879847\n171a9f29e5d22dcbe24f1665c7e393aae50599f7fcfe939a1103efcbe4c26e4d\n186e5d80508e220c83711ca16cddced95fd12a19be0a713388703c7b2ff1d0d8\n380cf0b5a2399565d9e13f702aef77a5d8ec204403ba0b18ef0d1130e3b9057e\n408b73200b8e5178bc89d89ba6f6df293f9605ad209669582169710fea99e41a\n654a848a7846648817ea3d003ee4e9a10b6526149015c6e04586a6e158a44419\n665f993ec0bf30fee5f9f0b3962e8faaa1317aa32124282dfd4c38dbd0685f0b\n856fd82f83a1c58a00a8c0ea2c486cb83f1ba3821bf404eafe9abbf3fdef9c2b\n896f5b29f7a42ac19b0845626e3cf4a4f40ccb39992c47fa46248bd2e7645d2a\n920b5d84016dadcaedcfe3ff87b5214cbbe567671de20293552a27f4a49757fc\n965b5ccafd3b74b73d5368c771cdad23e3cc43669ecf783d7c4a99c48fd59fc9\n3246d5d8d1b161602ed073a465e79380ad79e497db18e39ac8013370ea2647a3\n3436cee8e514c302c9052d7aabfa86e659fbe95f4bbb575ea92c57ced6406622\n3739ec98fc519b9b1ed61409e0adbc31f7520364e3cb4af6145457821a431f70\n3846db7bbc27e408172e7508a5ef5c4dc9d6661a5951d84cca527f416d960bd5\n5747f0944213a46e1bc922218df2dd3072c622eaf152066459dd27be4595b434\n6604c1e28b18a7076ee8a36d0be95b7e4c4958626511da8643b2822fbbe71ee7\n9539b59478462abaa353908c9517eab9aa1c83463af20c76a239f809d11fac0d\n36657c229e85e137b73a5b052d1dabb33ad4f96eed3c6e82ec73071a1caf12c5\n65377f4667bd48984d3546947be7e2f0452633347eb1d4e2bc3aeb63a458c40a\n123133a572351527e8b16189b1395cef92d56702bcd2abcf11f3f8b0eaca406b\n220490a8db76e5593c6761dbd533820525659713ac987985f026716b83044da5\n802157fb792c2b351ceb9336a43177d989d94399bba2a11965f322312dfd6160\n15568200a3ade40acd273c7da51c776e020adbfebc385c1940e599b6b6f074cf\n421124755f8d874995af29d2d2645aaea382058bd555fa135d0ffa7e26c6273a\na4d227d3812d74c9027d23a3d742d25e521272710a917830ef4a162f89a418f1\na89abc507ad5f7080d217adfb1086d110cc861188bd4b6334e6f9528fc57e8e8\na7849dc3d135e8c705a8844f01cf186dcff60852512bb57715c50b67cff53a57\na82761190e00c724eed81d5aa383a82ae857e48de9d656aa635b0b3deccdd80b\naa2454d683abe3de60e134c3ba7e4a5badd156b17588cbcc86938284adf3fd56\nafa3ac1fc70044e2727aa9e88f6c9582fca307e24a0f0635483c4b4ff5da4a6d\nb0affc713a8ab4cbe5c2aa36af99713fdfdc0352b5a06001bec349fa5bef498a\nb5b7f5db2a597591de2d77fbc1b1eefd33f12169b0e7ad9690b2621cb1bbd20d\nb6a5262bb40e0da39ed30962e17c16ce9bce1e6f0f3df44cbc2b581e46134e0e\nb43fd07383a0f2543ede100df7dde102e066c853c453b638019d3cb24069e7e2\nb8418fdaf1e8fee5bf02a51e86dfbf5854fc3e11d5a0bf292962fce4de0a0274\nbd4a061f26631652062bec88abf314743b529dc39852fa9d18c1f7e784fba390\nbd61fc7b2b8f5768d31457689fb426b4cbde681d2429b71ebd779331829f7468\nbe0b6f5ec5880e6fc0b98116d7784397122bfa1c281326b74578c26a343069ea\nc7ae5249e764c6f4994c105eeb172136d86b456d2022d17a52e8ae0a6f25c04a\nc980251a6bb9d6f7637820d550c9dc4379ea3077d5cd1d4b492c932721559b36\nce859ca4aa800c4181fe439b8ef31c4a4797bf92fa361504b936f8779505c5aa\nce996521b79dceec158c650f65bb3833ef27848fb1d65a11dbedb1bff9ec8c4c\nd91f2013abf9c7d4a3a57fe71d23c0edc402fc3b46f03ccd7de5c0015d991709\nd6446d2cefc54d1e5957c1d5362018b3831d167fa5a8227a720f52a17b3cf913\nd56658f8fb2fee66789a882c07ca93584db9365218f22fdc742707934625c217\ndda5bba466d4d0016fab9ad4ca049a0e4ef1ac5e0652ba86d533bb88d45cb2e3\ne3ef9782c91ca2e37aed8b246757db5c14a8a568b1d3f41bb314a2ae94c8c43d\ne6b74edc5e11b8a0fdbd068f24724cd87354966bf8a4fe8a2ee88793f09c2171\ne8ca40b58cfd81de2d18a54408a74b76a039d3c6090712495d260d4f56f29741\ne0455e97dcd0397c48327c1cd7feb39c76d2ceca3958bde7c2cdf752a00f7623\neb6ba1f3b4727f57b309194f86e6511422015f145f1fe72c86dc1b4810b12bf0\ned5f5d6a6381b94a9a28c71009048158882a58c6e88a5d98ea8c69cbc82da3ba\nee7b3d87068c356a2f2bcdcd903eb5eb6400037899565fff64bb317d35cd3fb0\nf7b2621c9adcd5f3c3c846fdb3e686e5a3ffeb8e41a53a341044029f13e352c6\nf34b17b214d5342895a8e555f71a418d0fe1a245c66724a92ea367fe9a121589\nf36ed2503ea046cf0736edc411f29a563ac54ba08603c6307d007c6bc699ff11\nf3912982c2fd08ee634e94ecf0983c2d8f1da062d7b2ff8b301b7c8528bf49b8\nf64789497843c50f819deffce4f4f140465dc7f3f1a36a2fd49ce6f7ebc0363a\nfbb2a192cdf329b2e4a29dcb09e4e78c81f8edbc25797f45fb9c9446c1ef8102\nincidentlens-retro-24abaea4-0_clickhouse-data\nincidentlens-retro-24abaea4-1_clickhouse-data\nincidentlens-retro-24abaea4-1_kafka-data\nincidentlens-retro-24abaea4-2_clickhouse-data\nincidentlens-retro-24abaea4-3_clickhouse-data\nincidentlens-retro-24abaea4-3_kafka-data\nincidentlens-retro-24abaea4-4_clickhouse-data\nincidentlens-retro-24abaea4-5_clickhouse-data\nincidentlens-retro-24abaea4-5_kafka-data\nincidentlens-retro-24abaea4-6_clickhouse-data\nincidentlens-retro-24abaea4-7_clickhouse-data\nincidentlens-retro-24abaea4-7_kafka-data\nincidentlens-retro-24abaea4-8_clickhouse-data\nincidentlens-retro-24abaea4-9_clickhouse-data\nincidentlens-retro-24abaea4-9_kafka-data\nincidentlens-retro-24abaea4-10_clickhouse-data\nincidentlens-retro-24abaea4-11_clickhouse-data\nincidentlens-retro-24abaea4-11_kafka-data\nincidentlens-retro-24abaea4-12_clickhouse-data\nincidentlens-retro-24abaea4-13_clickhouse-data\nincidentlens-retro-24abaea4-13_kafka-data\nincidentlens-retro-24abaea4-14_clickhouse-data\nincidentlens-retro-24abaea4-14_kafka-data\nincidentlens-retro-24abaea4-15_clickhouse-data\nincidentlens-retro-24abaea4-16_clickhouse-data\nincidentlens-retro-24abaea4-16_kafka-data\nincidentlens-retro-24abaea4-17_clickhouse-data\nincidentlens-retro-24abaea4-18_clickhouse-data\nincidentlens-retro-24abaea4-18_kafka-data\nincidentlens-retro-24abaea4-19_clickhouse-data\nincidentlens-retro-24abaea4-20_clickhouse-data\nincidentlens-retro-24abaea4-20_kafka-data\nincidentlens-retro-24abaea4-21_clickhouse-data\nincidentlens-retro-24abaea4-22_clickhouse-data\nincidentlens-retro-24abaea4-22_kafka-data\nincidentlens-retro-24abaea4-23_clickhouse-data\nincidentlens-retro-24abaea4-24_clickhouse-data\nincidentlens-retro-24abaea4-24_kafka-data\nincidentlens-retro-24abaea4-25_clickhouse-data\nincidentlens-retro-24abaea4-26_clickhouse-data\nincidentlens-retro-24abaea4-26_kafka-data\nincidentlens-retro-be898079-0_clickhouse-data\nincidentlens-retro-be898079-1_clickhouse-data\nincidentlens-retro-be898079-1_kafka-data\nincidentlens_clickhouse-data\nincidentlens_kafka-data\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "ps",
+        "-aq",
+        "--filter",
+        "label=com.docker.compose.project=incidentlens-retro-be898079-0"
+      ],
+      "returncode": 0,
+      "stdout": "3a79a49cc034\nc51e70b164aa\ncc18bf8c329e\neecc09cfd588\n9b9dabb43afa\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "inspect",
+        "--format",
+        "{{.Name}} {{.State.Running}}",
+        "3a79a49cc034",
+        "c51e70b164aa",
+        "cc18bf8c329e",
+        "eecc09cfd588",
+        "9b9dabb43afa"
+      ],
+      "returncode": 0,
+      "stdout": "/incidentlens-retro-be898079-0-collector-1 false\n/incidentlens-retro-be898079-0-api-1 false\n/incidentlens-retro-be898079-0-ingest-1 false\n/incidentlens-retro-be898079-0-migrate-1 false\n/incidentlens-retro-be898079-0-clickhouse-1 false\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+        "-p",
+        "incidentlens-retro-be898079-0",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/benchmark/direct.yaml",
+        "down"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": " Container incidentlens-retro-be898079-0-collector-1 Stopping \n Container incidentlens-retro-be898079-0-api-1 Stopping \n Container incidentlens-retro-be898079-0-api-1 Stopped \n Container incidentlens-retro-be898079-0-api-1 Removing \n Container incidentlens-retro-be898079-0-collector-1 Stopped \n Container incidentlens-retro-be898079-0-collector-1 Removing \n Container incidentlens-retro-be898079-0-collector-1 Removed \n Container incidentlens-retro-be898079-0-ingest-1 Stopping \n Container incidentlens-retro-be898079-0-ingest-1 Stopped \n Container incidentlens-retro-be898079-0-ingest-1 Removing \n Container incidentlens-retro-be898079-0-api-1 Removed \n Container incidentlens-retro-be898079-0-ingest-1 Removed \n Container incidentlens-retro-be898079-0-migrate-1 Stopping \n Container incidentlens-retro-be898079-0-migrate-1 Stopped \n Container incidentlens-retro-be898079-0-migrate-1 Removing \n Container incidentlens-retro-be898079-0-migrate-1 Removed \n Container incidentlens-retro-be898079-0-clickhouse-1 Stopping \n Container incidentlens-retro-be898079-0-clickhouse-1 Stopped \n Container incidentlens-retro-be898079-0-clickhouse-1 Removing \n Container incidentlens-retro-be898079-0-clickhouse-1 Removed \n Network incidentlens-retro-be898079-0-telemetry Removing \n Network incidentlens-retro-be898079-0-telemetry Removed \n"
+    },
+    {
+      "command": [
+        "docker",
+        "ps",
+        "-aq",
+        "--filter",
+        "label=com.docker.compose.project=incidentlens-retro-be898079-1"
+      ],
+      "returncode": 0,
+      "stdout": "7aaf7e755229\n088b1b629e94\nf4433ca9ce04\n4edc4bac95c5\na8a0023d89f7\n6774a61dfd74\nb3505f075132\nb479126f678f\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "inspect",
+        "--format",
+        "{{.Name}} {{.State.Running}}",
+        "7aaf7e755229",
+        "088b1b629e94",
+        "f4433ca9ce04",
+        "4edc4bac95c5",
+        "a8a0023d89f7",
+        "6774a61dfd74",
+        "b3505f075132",
+        "b479126f678f"
+      ],
+      "returncode": 0,
+      "stdout": "/incidentlens-retro-be898079-1-collector-1 false\n/incidentlens-retro-be898079-1-stream-worker-1 false\n/incidentlens-retro-be898079-1-stream-ingest-1 false\n/incidentlens-retro-be898079-1-api-1 false\n/incidentlens-retro-be898079-1-kafka-topic-1 false\n/incidentlens-retro-be898079-1-migrate-1 false\n/incidentlens-retro-be898079-1-clickhouse-1 false\n/incidentlens-retro-be898079-1-kafka-1 false\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+        "-p",
+        "incidentlens-retro-be898079-1",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/streaming/compose.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/benchmark/streaming.yaml",
+        "down"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": " Container incidentlens-retro-be898079-1-stream-worker-1 Stopping \n Container incidentlens-retro-be898079-1-api-1 Stopping \n Container incidentlens-retro-be898079-1-collector-1 Stopping \n Container incidentlens-retro-be898079-1-collector-1 Stopped \n Container incidentlens-retro-be898079-1-collector-1 Removing \n Container incidentlens-retro-be898079-1-api-1 Stopped \n Container incidentlens-retro-be898079-1-api-1 Removing \n Container incidentlens-retro-be898079-1-stream-worker-1 Stopped \n Container incidentlens-retro-be898079-1-stream-worker-1 Removing \n Container incidentlens-retro-be898079-1-api-1 Removed \n Container incidentlens-retro-be898079-1-collector-1 Removed \n Container incidentlens-retro-be898079-1-stream-ingest-1 Stopping \n Container incidentlens-retro-be898079-1-stream-ingest-1 Stopped \n Container incidentlens-retro-be898079-1-stream-ingest-1 Removing \n Container incidentlens-retro-be898079-1-stream-worker-1 Removed \n Container incidentlens-retro-be898079-1-migrate-1 Stopping \n Container incidentlens-retro-be898079-1-migrate-1 Stopped \n Container incidentlens-retro-be898079-1-migrate-1 Removing \n Container incidentlens-retro-be898079-1-stream-ingest-1 Removed \n Container incidentlens-retro-be898079-1-kafka-topic-1 Stopping \n Container incidentlens-retro-be898079-1-kafka-topic-1 Stopped \n Container incidentlens-retro-be898079-1-kafka-topic-1 Removing \n Container incidentlens-retro-be898079-1-migrate-1 Removed \n Container incidentlens-retro-be898079-1-clickhouse-1 Stopping \n Container incidentlens-retro-be898079-1-clickhouse-1 Stopped \n Container incidentlens-retro-be898079-1-clickhouse-1 Removing \n Container incidentlens-retro-be898079-1-kafka-topic-1 Removed \n Container incidentlens-retro-be898079-1-kafka-1 Stopping \n Container incidentlens-retro-be898079-1-kafka-1 Stopped \n Container incidentlens-retro-be898079-1-kafka-1 Removing \n Container incidentlens-retro-be898079-1-clickhouse-1 Removed \n Container incidentlens-retro-be898079-1-kafka-1 Removed \n Network incidentlens-retro-be898079-1-telemetry Removing \n Network incidentlens-retro-be898079-1-telemetry Removed \n"
+    },
+    {
+      "command": [
+        "docker",
+        "volume",
+        "ls",
+        "--format",
+        "{{.Name}}"
+      ],
+      "returncode": 0,
+      "stdout": "0a7a2188afcb14548830e26f4fe95baaf8319b712b283abd5c27578084cdb95d\n0a38d985079671fdfddcc7b5880660627c8fc5306fd504704d023662461bc55a\n00ac399a13db636254222e745dc8f9fce8845b08552a2a7cc5fa9c58dae0d058\n1b8323b7c8e09f899d10e1a228008191c90b42cf4530e04e62391dc6e6743d76\n2c4cf278523a973fdfed7b28e766209165ceceaee4878bb3e6f7d079a3d0ed67\n3a8e0ab53ea374715ecec6a8a4b6fe75c40dc2206b686d2224667fb09bab0c66\n3dd7bb15a2e8228d5a450de97ff13a72b03daa97c132e99eb7f03b547275be59\n3e5747f6873a248a6ad98b5c4af0ea3912ffe6fe8f1130afea1d1d308db0e0e7\n4a7d9de892efc9a1701ecb3649264fd0ae77d5173087e765c1a1e34c8185144f\n4b7b6465af0f7db5143887838a7d9040a2044ce67f1e6b8fadf6ad13006792e3\n4e08769a8c764d4f7fd3cc4c59fd9de42897c6578af482ee3a5a9004542b2647\n5b2ff30de83c823f25468c3a396ade027e620a367afae6fc5d53c812169a534b\n5bc992a472314c92486731ba1ce5946f82ad2ffefa34687477156f3840fefe7d\n5c8846479b6dfd48e7731935cd6863a709d2b486e585964a7516fd7508f2f1cf\n5f5fe02b8f3c78ba48832f411716829b4df375b5087feed2cc1cbda1fe99aac0\n6ea6c554e1c34dceaf8d1ef7e5315479943beb442c329205c7276788a225c729\n7c46866a4ff9b17290294d95e9826d35b23a57e850bcb8331d7ac688c8d5b054\n7d5abf4a33660bb2554578e32d6a812e5a7c6923b74da042c22c4434f0af7a4f\n7d35b20e7fa3a026c8dd61be692c64ba45a096962d1f790e39e614b839f67c5b\n7e99c5ba73dc9c9a22cc269f504e5b63175fabcd1f7feeba295d9889a9097d5f\n7eee2ba1064b46c1a8563e5b7bc004f53c8904f5833d48e79bcbb8ff0662d2f8\n7ef2b561eb58470585c8206245b8f1a0140cc6a6130f3fc1bbf5c1912322ecc5\n8abb35bc80c6832fe2ea63729542294aebc7a0c1c4b0b21a2baffeb816f15f01\n8e84f6f9bec78b8fb84717d1fde58d112834fd41eb394efdab89514173e2c2e6\n08e81a1e7900f15f9a7b1913e592eb5ebf247cf3bf541f2c8c6cb2f9527c260a\n9aa63fcbdba43d31ea19a4a4ec8716e98bcdd08c92120fc4185fbd9685450a64\n9b75b2498acc09bf668dbd8adbe200e1373abc51e8233d057ab33a5ed05abcef\n9f260514f953e04f5c6073ee3508832c30d2146402506deb5d1b430d286c43f0\n10dafbc4020bafdb325d3b071ce7133c3eaf2904ae8ff065ea73a1d99d4c4e3a\n12a0c2aad643a5fa3c387633c2a95154f3e86d9b96759540758e82eaa564901b\n16a6c48948822be5148ee09becc871f82b81f0aa57a26baec9b1969114ec55d9\n20e9d457bfbca91a1e133a068de5c96879ec372aacda7f702defaeaac86fd3fe\n22fd8e227d7b08023fedbbb9c29b6fd4d71b36981abe74201afad61ecb394fd3\n022baa0f6c40530d65266294e73e07d018e7b7bec219aa22a63e8f66a708b017\n37c18f40989d779578628bd36e87839a218b8cd755464b8ae683f139c8a6ec9f\n38d83aa2feb29cf4a9f77dc2d704cd7589f00ae1c5ee20482113799f49a16773\n40e2c07525874b8040480f0328a976b970009163c4c1d722750325bb2b64747e\n44dd92472b23d97385438d6109d7eb21d3f03d669ec50a4d37da56b8297da011\n60c266392886d9ed89bf9e43f9bf510e3ca9d7185ceee7d4b251acb25ebada9b\n75b4025249d2500c9f72a57c6df1ef24d7d18cad38c18c82828ac417b7d72e7c\n82d6f7b2ad0b89a610ed38b1b13d9ebca45be62fd0797e4aaf64dbcc1e56531b\n85a7b117fed40a7a290018f15ee16f51801eef301a3ca67beb109f33a83fb41d\n88fbec12b78dbca36a98dfc05c95fe0f6f60110f3aad14ba7e965d297e9adf9a\n92da142be77f493e1d4a12f4e8e49ca9c8c98625da85adaac3e44d382d2d1480\n93a7e21e9937dcb9af44f7ff9844c34c31300b6b6f504c3a0d7c30ead0879847\n171a9f29e5d22dcbe24f1665c7e393aae50599f7fcfe939a1103efcbe4c26e4d\n186e5d80508e220c83711ca16cddced95fd12a19be0a713388703c7b2ff1d0d8\n380cf0b5a2399565d9e13f702aef77a5d8ec204403ba0b18ef0d1130e3b9057e\n408b73200b8e5178bc89d89ba6f6df293f9605ad209669582169710fea99e41a\n654a848a7846648817ea3d003ee4e9a10b6526149015c6e04586a6e158a44419\n665f993ec0bf30fee5f9f0b3962e8faaa1317aa32124282dfd4c38dbd0685f0b\n856fd82f83a1c58a00a8c0ea2c486cb83f1ba3821bf404eafe9abbf3fdef9c2b\n896f5b29f7a42ac19b0845626e3cf4a4f40ccb39992c47fa46248bd2e7645d2a\n920b5d84016dadcaedcfe3ff87b5214cbbe567671de20293552a27f4a49757fc\n965b5ccafd3b74b73d5368c771cdad23e3cc43669ecf783d7c4a99c48fd59fc9\n3246d5d8d1b161602ed073a465e79380ad79e497db18e39ac8013370ea2647a3\n3436cee8e514c302c9052d7aabfa86e659fbe95f4bbb575ea92c57ced6406622\n3739ec98fc519b9b1ed61409e0adbc31f7520364e3cb4af6145457821a431f70\n3846db7bbc27e408172e7508a5ef5c4dc9d6661a5951d84cca527f416d960bd5\n5747f0944213a46e1bc922218df2dd3072c622eaf152066459dd27be4595b434\n6604c1e28b18a7076ee8a36d0be95b7e4c4958626511da8643b2822fbbe71ee7\n9539b59478462abaa353908c9517eab9aa1c83463af20c76a239f809d11fac0d\n36657c229e85e137b73a5b052d1dabb33ad4f96eed3c6e82ec73071a1caf12c5\n65377f4667bd48984d3546947be7e2f0452633347eb1d4e2bc3aeb63a458c40a\n123133a572351527e8b16189b1395cef92d56702bcd2abcf11f3f8b0eaca406b\n220490a8db76e5593c6761dbd533820525659713ac987985f026716b83044da5\n802157fb792c2b351ceb9336a43177d989d94399bba2a11965f322312dfd6160\n15568200a3ade40acd273c7da51c776e020adbfebc385c1940e599b6b6f074cf\n421124755f8d874995af29d2d2645aaea382058bd555fa135d0ffa7e26c6273a\na4d227d3812d74c9027d23a3d742d25e521272710a917830ef4a162f89a418f1\na89abc507ad5f7080d217adfb1086d110cc861188bd4b6334e6f9528fc57e8e8\na7849dc3d135e8c705a8844f01cf186dcff60852512bb57715c50b67cff53a57\na82761190e00c724eed81d5aa383a82ae857e48de9d656aa635b0b3deccdd80b\naa2454d683abe3de60e134c3ba7e4a5badd156b17588cbcc86938284adf3fd56\nafa3ac1fc70044e2727aa9e88f6c9582fca307e24a0f0635483c4b4ff5da4a6d\nb0affc713a8ab4cbe5c2aa36af99713fdfdc0352b5a06001bec349fa5bef498a\nb5b7f5db2a597591de2d77fbc1b1eefd33f12169b0e7ad9690b2621cb1bbd20d\nb6a5262bb40e0da39ed30962e17c16ce9bce1e6f0f3df44cbc2b581e46134e0e\nb43fd07383a0f2543ede100df7dde102e066c853c453b638019d3cb24069e7e2\nb8418fdaf1e8fee5bf02a51e86dfbf5854fc3e11d5a0bf292962fce4de0a0274\nbd4a061f26631652062bec88abf314743b529dc39852fa9d18c1f7e784fba390\nbd61fc7b2b8f5768d31457689fb426b4cbde681d2429b71ebd779331829f7468\nbe0b6f5ec5880e6fc0b98116d7784397122bfa1c281326b74578c26a343069ea\nc7ae5249e764c6f4994c105eeb172136d86b456d2022d17a52e8ae0a6f25c04a\nc980251a6bb9d6f7637820d550c9dc4379ea3077d5cd1d4b492c932721559b36\nce859ca4aa800c4181fe439b8ef31c4a4797bf92fa361504b936f8779505c5aa\nce996521b79dceec158c650f65bb3833ef27848fb1d65a11dbedb1bff9ec8c4c\nd91f2013abf9c7d4a3a57fe71d23c0edc402fc3b46f03ccd7de5c0015d991709\nd6446d2cefc54d1e5957c1d5362018b3831d167fa5a8227a720f52a17b3cf913\nd56658f8fb2fee66789a882c07ca93584db9365218f22fdc742707934625c217\ndda5bba466d4d0016fab9ad4ca049a0e4ef1ac5e0652ba86d533bb88d45cb2e3\ne3ef9782c91ca2e37aed8b246757db5c14a8a568b1d3f41bb314a2ae94c8c43d\ne6b74edc5e11b8a0fdbd068f24724cd87354966bf8a4fe8a2ee88793f09c2171\ne8ca40b58cfd81de2d18a54408a74b76a039d3c6090712495d260d4f56f29741\ne0455e97dcd0397c48327c1cd7feb39c76d2ceca3958bde7c2cdf752a00f7623\neb6ba1f3b4727f57b309194f86e6511422015f145f1fe72c86dc1b4810b12bf0\ned5f5d6a6381b94a9a28c71009048158882a58c6e88a5d98ea8c69cbc82da3ba\nee7b3d87068c356a2f2bcdcd903eb5eb6400037899565fff64bb317d35cd3fb0\nf7b2621c9adcd5f3c3c846fdb3e686e5a3ffeb8e41a53a341044029f13e352c6\nf34b17b214d5342895a8e555f71a418d0fe1a245c66724a92ea367fe9a121589\nf36ed2503ea046cf0736edc411f29a563ac54ba08603c6307d007c6bc699ff11\nf3912982c2fd08ee634e94ecf0983c2d8f1da062d7b2ff8b301b7c8528bf49b8\nf64789497843c50f819deffce4f4f140465dc7f3f1a36a2fd49ce6f7ebc0363a\nfbb2a192cdf329b2e4a29dcb09e4e78c81f8edbc25797f45fb9c9446c1ef8102\nincidentlens-retro-24abaea4-0_clickhouse-data\nincidentlens-retro-24abaea4-1_clickhouse-data\nincidentlens-retro-24abaea4-1_kafka-data\nincidentlens-retro-24abaea4-2_clickhouse-data\nincidentlens-retro-24abaea4-3_clickhouse-data\nincidentlens-retro-24abaea4-3_kafka-data\nincidentlens-retro-24abaea4-4_clickhouse-data\nincidentlens-retro-24abaea4-5_clickhouse-data\nincidentlens-retro-24abaea4-5_kafka-data\nincidentlens-retro-24abaea4-6_clickhouse-data\nincidentlens-retro-24abaea4-7_clickhouse-data\nincidentlens-retro-24abaea4-7_kafka-data\nincidentlens-retro-24abaea4-8_clickhouse-data\nincidentlens-retro-24abaea4-9_clickhouse-data\nincidentlens-retro-24abaea4-9_kafka-data\nincidentlens-retro-24abaea4-10_clickhouse-data\nincidentlens-retro-24abaea4-11_clickhouse-data\nincidentlens-retro-24abaea4-11_kafka-data\nincidentlens-retro-24abaea4-12_clickhouse-data\nincidentlens-retro-24abaea4-13_clickhouse-data\nincidentlens-retro-24abaea4-13_kafka-data\nincidentlens-retro-24abaea4-14_clickhouse-data\nincidentlens-retro-24abaea4-14_kafka-data\nincidentlens-retro-24abaea4-15_clickhouse-data\nincidentlens-retro-24abaea4-16_clickhouse-data\nincidentlens-retro-24abaea4-16_kafka-data\nincidentlens-retro-24abaea4-17_clickhouse-data\nincidentlens-retro-24abaea4-18_clickhouse-data\nincidentlens-retro-24abaea4-18_kafka-data\nincidentlens-retro-24abaea4-19_clickhouse-data\nincidentlens-retro-24abaea4-20_clickhouse-data\nincidentlens-retro-24abaea4-20_kafka-data\nincidentlens-retro-24abaea4-21_clickhouse-data\nincidentlens-retro-24abaea4-22_clickhouse-data\nincidentlens-retro-24abaea4-22_kafka-data\nincidentlens-retro-24abaea4-23_clickhouse-data\nincidentlens-retro-24abaea4-24_clickhouse-data\nincidentlens-retro-24abaea4-24_kafka-data\nincidentlens-retro-24abaea4-25_clickhouse-data\nincidentlens-retro-24abaea4-26_clickhouse-data\nincidentlens-retro-24abaea4-26_kafka-data\nincidentlens-retro-be898079-0_clickhouse-data\nincidentlens-retro-be898079-1_clickhouse-data\nincidentlens-retro-be898079-1_kafka-data\nincidentlens_clickhouse-data\nincidentlens_kafka-data\n",
+      "stderr": ""
+    }
+  ],
+  "volumes_preserved": true,
+  "status": "completed"
+}

@@ -34,9 +34,10 @@ services:
     cpus: 2
     healthcheck:
       test: ["CMD", "/opt/kafka/bin/kafka-broker-api-versions.sh", "--bootstrap-server", "localhost:9092"]
-      interval: 5s
-      timeout: 5s
-      retries: 30
+      interval: 30s
+      timeout: 20s
+      start_period: 30s
+      retries: 5
     networks: [telemetry]
   kafka-topic:
     image: apache/kafka:4.1.1@sha256:0bc1bb2478f45b6cea78864df86acdc11e8df2c5172477819a4d12942cbe5d40

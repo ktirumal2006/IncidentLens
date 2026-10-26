@@ -1,0 +1,25 @@
+{
+  "completed_utc": "2026-10-09T17:09:58.474984+00:00",
+  "method": "docker desktop restart after benchmark runner PID 12056 was absent",
+  "volume_count_before": 379,
+  "volume_count_after": 379,
+  "volumes_identical": true,
+  "volume_inventory_sha256_before": "13e8727c07e51fb17cf5c44fe5e06ff2500767bf3a41fd284d2c08c6a88af77f",
+  "volume_inventory_sha256_after": "13e8727c07e51fb17cf5c44fe5e06ff2500767bf3a41fd284d2c08c6a88af77f",
+  "original_clickhouse": {
+    "container_id": "f5c8bdd48da5ce1f3911cfbdef532c0db77a0efed430a43d9214c28c00d9177d",
+    "status_after_clean_stop": "exited",
+    "exit_code": 0,
+    "oom_killed": false,
+    "most_recent_health_check": {
+      "Start": "2026-10-09T17:09:44.093087783Z",
+      "End": "2026-10-09T17:09:44.7104499Z",
+      "ExitCode": 0,
+      "Output": "1\n"
+    },
+    "data_volume": "incidentlens_clickhouse-data"
+  },
+  "desktop_status": "Name                Value\nStatus              running\nSessionID           561135a9-197f-466f-9a17-e3b000e87de0",
+  "running_containers": [],
+  "removed_volumes": []
+}

@@ -1,0 +1,21 @@
+.......................F.............START outage-r1 2026-10-07T02:15:48.488942Z
+END outage-r1 outage_failed
+...............
+======================================================================
+FAIL: test_schedule_reversal_and_control_drift (test_analyze_stream_hardening.PairGateTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/kousil/Documents/IncidentLens/benchmarks/test_analyze_stream_hardening.py", line 113, in test_schedule_reversal_and_control_drift
+    self.assertEqual(issues,[])
+AssertionError: Lists differ: ['sustained-2000-r1-baseline: setup lag ba[2321 chars]ols'] != []
+
+First list contains 32 additional elements.
+First extra element 0:
+'sustained-2000-r1-baseline: setup lag barrier path missing or incorrect'
+
+Diff is 2469 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 52 tests in 0.059s
+
+FAILED (failures=1)

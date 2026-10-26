@@ -1,0 +1,63 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.36kB 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for gcr.io/distroless/static-debian12:nonroot
+#2 DONE 0.3s
+
+#3 [auth] library/golang:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#4 [internal] load metadata for docker.io/library/golang:1.26.8-bookworm
+#4 DONE 0.5s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 207B done
+#5 DONE 0.0s
+
+#6 [source 1/5] FROM docker.io/library/golang:1.26.8-bookworm@sha256:a688600ca24f8a4d3ca77f95b0dd40704a9fc787c826660eb7ba0b641b8b175d
+#6 resolve docker.io/library/golang:1.26.8-bookworm@sha256:a688600ca24f8a4d3ca77f95b0dd40704a9fc787c826660eb7ba0b641b8b175d 0.0s done
+#6 DONE 0.0s
+
+#7 [stream-ingest 1/2] FROM gcr.io/distroless/static-debian12:nonroot@sha256:afa5c872c891853ca7fcf1f12c3edb23f7eeef36189728842dd51042ff57f7ab
+#7 resolve gcr.io/distroless/static-debian12:nonroot@sha256:afa5c872c891853ca7fcf1f12c3edb23f7eeef36189728842dd51042ff57f7ab 0.0s done
+#7 DONE 0.0s
+
+#8 [internal] load build context
+#8 transferring context: 377.89kB 0.0s done
+#8 DONE 0.0s
+
+#9 [source 2/5] WORKDIR /src
+#9 CACHED
+
+#10 [source 3/5] COPY backend/go.mod backend/go.sum ./
+#10 CACHED
+
+#11 [source 4/5] RUN go mod download
+#11 CACHED
+
+#12 [source 5/5] COPY backend/ ./
+#12 DONE 0.1s
+
+#13 [build-stream-ingest 1/1] RUN CGO_ENABLED=0 go build -trimpath -o /stream-ingest ./cmd/stream-ingest
+#13 DONE 16.4s
+
+#7 [stream-ingest 1/2] FROM gcr.io/distroless/static-debian12:nonroot@sha256:afa5c872c891853ca7fcf1f12c3edb23f7eeef36189728842dd51042ff57f7ab
+#7 CACHED
+
+#14 [stream-ingest 2/2] COPY --from=build-stream-ingest /stream-ingest /stream-ingest
+#14 DONE 0.1s
+
+#15 exporting to image
+#15 exporting layers
+#15 exporting layers 1.6s done
+#15 exporting manifest sha256:0fbaf87cea9b25fa1222142e6354f593224930b37733f4f906bb47afb2bfd449 0.0s done
+#15 exporting config sha256:60c1f8680a0bfe508f968f743ab21383ded9e3dceea90bb36d215947352cf5ed 0.0s done
+#15 exporting attestation manifest sha256:b8f2344a9bc239d46f46dd83e23dc9f8364660085f945f8b7731ca2f8738b887 0.0s done
+#15 exporting manifest list sha256:8e83a459513f56c3fc4221b29b148f4f05ce79510f9ea73b84ac34bde26098c9 0.0s done
+#15 naming to docker.io/library/incidentlens-hardening-producer:candidate1 done
+#15 unpacking to docker.io/library/incidentlens-hardening-producer:candidate1
+#15 unpacking to docker.io/library/incidentlens-hardening-producer:candidate1 0.2s done
+#15 DONE 1.9s

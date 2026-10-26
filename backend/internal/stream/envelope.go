@@ -18,7 +18,9 @@ import (
 )
 
 const (
-	Topic          = "incidentlens-spans-v1"
+	Topic          = "incidentlens-spans-v2"
+	TopicV1        = "incidentlens-spans-v1"
+	PartitionCount = 4
 	Version        = 1
 	MaxRecordBytes = 4 << 20
 	MaxRows        = 256

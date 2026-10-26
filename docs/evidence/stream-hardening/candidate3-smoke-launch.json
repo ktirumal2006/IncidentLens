@@ -1,0 +1,21 @@
+{
+  "pid": 3579,
+  "command": [
+    "/usr/bin/caffeinate",
+    "-i",
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "/Users/kousil/Documents/IncidentLens/benchmarks/stream_hardening.py",
+    "--output",
+    "/Users/kousil/Documents/IncidentLens/benchmarks/results/20261009-hardening-candidate3-smoke",
+    "--binary",
+    "/Users/kousil/Library/Caches/IncidentLens/bin/bench-setup-barrier",
+    "--lag-binary",
+    "/Users/kousil/Library/Caches/IncidentLens/bin/bench-lag",
+    "--candidate-tag",
+    "candidate3",
+    "--smoke"
+  ],
+  "started_at": "2026-10-09T00:30:22.824682+00:00",
+  "output": "/Users/kousil/Documents/IncidentLens/benchmarks/results/20261009-hardening-candidate3-smoke",
+  "log": "/Users/kousil/Documents/IncidentLens/docs/evidence/stream-hardening/candidate3-smoke-driver.txt"
+}

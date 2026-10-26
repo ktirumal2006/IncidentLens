@@ -1,0 +1,23 @@
+{
+  "started_at": "2026-10-05T21:54:18.337481+00:00",
+  "command": [
+    "/tmp/incidentlens-toolchain-restored/go/bin/go",
+    "test",
+    "-race",
+    "./tests/streaming",
+    "-count=1",
+    "-v",
+    "-timeout",
+    "15m"
+  ],
+  "compose_files": [
+    "deploy/local/compose.yaml",
+    "deploy/streaming/compose.yaml",
+    "deploy/streaming/hardening.yaml",
+    "deploy/benchmark/hardening-candidate.yaml",
+    "deploy/benchmark/hardening-acceptance.yaml"
+  ],
+  "project": "incidentlens-retro-hardening-acceptance1",
+  "returncode": 1,
+  "finished_at": "2026-10-05T21:59:46.452923+00:00"
+}

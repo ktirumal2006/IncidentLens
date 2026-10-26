@@ -318,7 +318,7 @@ def terminate(process, grace_seconds=100):
     return result
 
 
-def run_stage(binary, stage, seed, directory, interval, campaign_initial_disk=None):
+def run_stage(binary, stage, seed, directory, interval, campaign_initial_disk=None, extra_fault=None):
     directory.mkdir()
     result = {"name": stage["name"], "seed": seed, "started_at": environment.utc(), "status": "running"}
     initial_snapshot = environment.storage_snapshot()
@@ -359,6 +359,9 @@ def run_stage(binary, stage, seed, directory, interval, campaign_initial_disk=No
             if "outage" in stage:
                 result["outage"] = {}
                 workers.append(threading.Thread(target=outage_worker, args=(stage["outage"], stop, records, result["outage"], outage_active, directory / "harness/events.jsonl")))
+            if extra_fault is not None:
+                result["slowdown"] = {}
+                workers.append(threading.Thread(target=extra_fault, args=(stop, records, result["slowdown"], outage_active, directory / "harness/events.jsonl")))
             for worker in workers:
                 worker.start()
             try:
@@ -411,6 +414,8 @@ def run_stage(binary, stage, seed, directory, interval, campaign_initial_disk=No
                 result["status"] = "missing_summary"
         if result.get("outage", {}).get("status") not in (None, "completed"):
             result["status"] = "outage_failed"
+        if result.get("slowdown", {}).get("status") not in (None, "completed"):
+            result["status"] = "slowdown_failed"
         save(directory / "storage-after.json", environment.storage_snapshot())
         reconciliation = result.get("summary", {}).get("reconciliation", {})
         if environment.STACK == "streaming" and reconciliation.get("snapshot_verified") and reconciliation.get("emitted_missing", 0) > 0 and not safety:

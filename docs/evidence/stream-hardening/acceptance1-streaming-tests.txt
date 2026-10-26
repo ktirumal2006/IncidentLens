@@ -1,0 +1,50 @@
+=== RUN   TestFourPartitionRoutingBatchAndFreshGroupReplay
+--- PASS: TestFourPartitionRoutingBatchAndFreshGroupReplay (1.76s)
+=== RUN   TestFourPartitionWriteBeforeCommitCrashReplays
+--- PASS: TestFourPartitionWriteBeforeCommitCrashReplays (46.98s)
+=== RUN   TestRebalanceWhileWriteStalledPreservesOffsets
+--- PASS: TestRebalanceWhileWriteStalledPreservesOffsets (1.82s)
+=== RUN   TestTwoLanePartialWriteFailureReplaysWholeCohort
+--- PASS: TestTwoLanePartialWriteFailureReplaysWholeCohort (1.64s)
+=== RUN   TestCompressedBatchAboveDecompressionBoundDoesNotAdvanceOffset
+    memory_test.go:43: isolated topic streamtest-50ab74df7cd89acd189f88af retained for inspection, retention 1h/16MiB
+    memory_test.go:67: uncompressed=6291456 broker offset=0 next=1 committed=0; worker rejected before storage
+--- PASS: TestCompressedBatchAboveDecompressionBoundDoesNotAdvanceOffset (0.56s)
+=== RUN   TestOneByteFetchBudgetMakesOrderedProgressAcrossCompressedBatches
+    memory_test.go:86: isolated topic streamtest-a39866bd202e8fffeda299e8 retained for inspection, retention 1h/16MiB
+    memory_test.go:127: four separate compressed valid records (512 normalized rows) progressed one fetch each and committed offsets 1..4
+--- PASS: TestOneByteFetchBudgetMakesOrderedProgressAcrossCompressedBatches (1.15s)
+=== RUN   TestPoisonRecordDoesNotAdvanceOffset
+=== RUN   TestPoisonRecordDoesNotAdvanceOffset/malformed
+    poison_test.go:100: isolated topic streamtest-d7a86cf285165c875942d2b8 retained for inspection, retention 1h/16MiB
+=== RUN   TestPoisonRecordDoesNotAdvanceOffset/unsupported
+    poison_test.go:100: isolated topic streamtest-c0c02d697f5e4b4bc0a3e308 retained for inspection, retention 1h/16MiB
+--- PASS: TestPoisonRecordDoesNotAdvanceOffset (0.49s)
+    --- PASS: TestPoisonRecordDoesNotAdvanceOffset/malformed (0.24s)
+    --- PASS: TestPoisonRecordDoesNotAdvanceOffset/unsupported (0.24s)
+=== RUN   TestRetainedOffsetGapFailsWithoutReset
+    poison_test.go:127: isolated topic streamtest-7bbd807ea7ae05a1a7b6f2de retained for inspection, retention 1h/16MiB
+--- PASS: TestRetainedOffsetGapFailsWithoutReset (0.22s)
+=== RUN   TestBrokerAckBeforeStorageThenWorkerRecovery
+    streaming_test.go:239: Kafka ACK before retained broker restart: trace=5327b91a6892b7c5c9f3626556524716 namespace=streamtest-45ddb88ddfa2
+--- PASS: TestBrokerAckBeforeStorageThenWorkerRecovery (86.43s)
+=== RUN   TestBrokerOutageReturnsRetryableFailure
+    streaming_test.go:266: compose [start stream-worker]: signal: killed:  Container incidentlens-retro-hardening-acceptance1-kafka-1 Waiting 
+         Container incidentlens-retro-hardening-acceptance1-clickhouse-1 Waiting 
+         Container incidentlens-retro-hardening-acceptance1-clickhouse-1 Healthy 
+         Container incidentlens-retro-hardening-acceptance1-migrate-1 Starting 
+         Container incidentlens-retro-hardening-acceptance1-migrate-1 Started 
+         Container incidentlens-retro-hardening-acceptance1-kafka-topic-1 Starting 
+        
+--- FAIL: TestBrokerOutageReturnsRetryableFailure (133.95s)
+=== RUN   TestWriteBeforeCommitCrashAndFreshGroupReplay
+    streaming_test.go:354: isolated topic streamtest-375c60ffe1fe71bfae4b9845 retained for inspection, retention 1h/16MiB
+    streaming_test.go:379: trace=36d6106954ac1db37a40969b88245d49 group=streamtest-crash-7845ea635d797db95b2055ec Kafka record offset=0 next=1
+    streaming_test.go:415: same-group replay committed offset=1
+    streaming_test.go:422: fresh-group replay committed offset=1
+--- PASS: TestWriteBeforeCommitCrashAndFreshGroupReplay (46.68s)
+=== RUN   TestInvalidAndOversizedRequestsFailClosed
+--- PASS: TestInvalidAndOversizedRequestsFailClosed (0.18s)
+FAIL
+FAIL	incidentlens/backend/tests/streaming	323.553s
+FAIL

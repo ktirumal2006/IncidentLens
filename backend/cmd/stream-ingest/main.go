@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"errors"
+	"incidentlens/backend/internal/benchobs"
 	"log"
 	"net"
 	"net/http"
@@ -27,12 +28,26 @@ func main() {
 	}
 }
 func run() error {
+	closeObservations, observationErr := benchobs.FromEnv()
+	if observationErr != nil {
+		return observationErr
+	}
+	defer func() {
+		if err := closeObservations(); err != nil {
+			log.Print(err)
+		}
+	}()
+
 	brokers := strings.Split(env("KAFKA_BROKERS", "127.0.0.1:19092"), ",")
 	producer, err := stream.NewProducer(brokers, env("KAFKA_TOPIC", stream.Topic))
 	if err != nil {
 		return err
 	}
 	defer producer.Close()
+	startup, cancelStartup := context.WithTimeout(context.Background(), 5*time.Second)
+	err = producer.Ping(startup)
+	cancelStartup()
+	if err != nil { return err }
 	listener, err := net.Listen("tcp", env("STREAM_GRPC_ADDRESS", "127.0.0.1:14318"))
 	if err != nil {
 		return err

@@ -1,0 +1,96 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.36kB 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/distroless/static-debian12:nonroot
+#3 ...
+
+#4 [internal] load metadata for docker.io/library/golang:1.26.8-bookworm
+#4 DONE 0.3s
+
+#5 [stream-worker 1/2] FROM gcr.io/distroless/static-debian12:nonroot@sha256:afa5c872c891853ca7fcf1f12c3edb23f7eeef36189728842dd51042ff57f7ab
+#5 resolve gcr.io/distroless/static-debian12:nonroot@sha256:afa5c872c891853ca7fcf1f12c3edb23f7eeef36189728842dd51042ff57f7ab 0.0s done
+#5 DONE 0.0s
+
+#6 [source 1/5] FROM docker.io/library/golang:1.26.8-bookworm@sha256:a688600ca24f8a4d3ca77f95b0dd40704a9fc787c826660eb7ba0b641b8b175d
+#6 resolve docker.io/library/golang:1.26.8-bookworm@sha256:a688600ca24f8a4d3ca77f95b0dd40704a9fc787c826660eb7ba0b641b8b175d 0.0s done
+#6 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/distroless/static-debian12:nonroot
+#3 DONE 0.3s
+
+#7 [internal] load .dockerignore
+#7 transferring context: 207B done
+#7 DONE 0.0s
+
+#8 [internal] load build context
+#8 transferring context: 237.44kB 0.0s done
+#8 DONE 0.1s
+
+#9 [build-web 1/6] FROM docker.io/library/node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c
+#9 resolve docker.io/library/node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c
+#9 resolve docker.io/library/node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c 0.1s done
+#9 DONE 0.1s
+
+#10 [source 4/5] RUN go mod download
+#10 CACHED
+
+#11 [source 5/5] COPY backend/ ./
+#11 DONE 0.1s
+
+#12 [source 5/5] COPY backend/ ./
+#12 CACHED
+
+#13 [source 2/5] WORKDIR /src
+#13 CACHED
+
+#14 [source 3/5] COPY backend/go.mod backend/go.sum ./
+#14 CACHED
+
+#15 [source 4/5] RUN go mod download
+#15 CACHED
+
+#16 [build-api 1/1] RUN CGO_ENABLED=0 go build -trimpath -o /api ./cmd/api
+#16 DONE 48.9s
+
+#5 [stream-worker 1/2] FROM gcr.io/distroless/static-debian12:nonroot@sha256:afa5c872c891853ca7fcf1f12c3edb23f7eeef36189728842dd51042ff57f7ab
+#5 CACHED
+
+#17 [build-web 3/6] COPY frontend/package.json frontend/package-lock.json ./
+#17 CACHED
+
+#18 [build-web 4/6] RUN npm ci
+#18 CACHED
+
+#19 [build-web 2/6] WORKDIR /web
+#19 CACHED
+
+#20 [build-web 5/6] COPY frontend/ ./
+#20 CACHED
+
+#21 [build-web 6/6] RUN npm run build
+#21 CACHED
+
+#22 [api 2/3] COPY --from=build-api /api /api
+#22 DONE 0.1s
+
+#23 [api 3/3] COPY --from=build-web /web/dist /web
+#23 DONE 0.2s
+
+#24 exporting to image
+#24 exporting layers
+#24 exporting layers 2.7s done
+#24 exporting manifest sha256:3dfc738e2b0fae58db1acee47660a0ec7055dc1d62a670ef7deb9f9026cb9721 0.0s done
+#24 exporting config sha256:317892035ff152d191ef878b5b3c9fbfbac52f983b2462755eebff31f09fdc04 0.0s done
+#24 exporting attestation manifest sha256:b2eef16cd371447cf06ed4486e6abe7189e2993450358d5cad217db4b6364255 0.0s done
+#24 exporting manifest list sha256:bfc2716d394de25e299940107d53fe536fc6ca2646a70fefbc767fd45a110662
+#24 exporting manifest list sha256:bfc2716d394de25e299940107d53fe536fc6ca2646a70fefbc767fd45a110662 0.0s done
+#24 naming to docker.io/library/incidentlens-hardening-api:candidate1 done
+#24 unpacking to docker.io/library/incidentlens-hardening-api:candidate1
+#24 unpacking to docker.io/library/incidentlens-hardening-api:candidate1 0.6s done
+#24 DONE 3.6s

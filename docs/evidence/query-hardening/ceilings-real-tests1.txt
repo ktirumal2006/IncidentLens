@@ -1,0 +1,13 @@
+=== RUN   TestQueryHardeningDetectorRowCeilingAndDetail
+    query_hardening_test.go:150: old raw evaluator rejects rows=100002 accounted_bytes=25300506 row_limit=100000 byte_limit=33554432
+    query_hardening_test.go:151: exact FINAL aggregate rows=100002 baseline=100000 current=2 evidence=2
+    query_hardening_test.go:168: product detail lookup after large insert: spans=0 err=json: error calling MarshalJSON for type json.RawMessage: unexpected end of JSON input
+--- FAIL: TestQueryHardeningDetectorRowCeilingAndDetail (1.35s)
+=== RUN   TestQueryHardeningDetectorByteCeiling
+    query_hardening_test.go:244: old raw evaluator rejects rows=33002 accounted_bytes=42605582 row_limit=100000 byte_limit=33554432
+    query_hardening_test.go:245: exact FINAL aggregate rows=33002 baseline=33000 current=2 evidence=2
+    query_hardening_test.go:246: old detector input accounting=42605582 bytes exceeds 33554432; exact aggregate succeeded
+--- PASS: TestQueryHardeningDetectorByteCeiling (0.80s)
+FAIL
+FAIL	incidentlens/backend/tests/integration	4.542s
+FAIL

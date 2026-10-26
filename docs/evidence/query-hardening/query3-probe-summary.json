@@ -1,0 +1,431 @@
+{
+  "scope": "diagnostic only; full repeated campaign and operational acceptance still required",
+  "campaign": "/Users/kousil/Documents/IncidentLens/benchmarks/results/20261011-candidate3-query3-probe",
+  "provenance": {
+    "frozen_baseline_manifest": "/Users/kousil/Documents/IncidentLens/benchmarks/baselines/phase5-streaming-20261003/manifest.json",
+    "frozen_baseline_archive_sha256": "d432390f16ef25eff98332fd3446e1362537b73c4162eb6f0d06743e9670a61a",
+    "declaration_sha256": "91accabea9e21996eb5146c295735cb30871b5d5560c6df7706ce2d4c8669a21",
+    "campaign_case_count": 2
+  },
+  "provenance_issues": [
+    "diagnostic sustained probe is not a full measured comparison"
+  ],
+  "cases": {
+    "baseline": {
+      "acked_measured_spans": 703998,
+      "acked_within_window_spans": 688896,
+      "measurement_duration_ns": 120000000000,
+      "counts": {
+        "acked_full_run_spans": 784446,
+        "acked_measured_spans": 703998,
+        "acked_within_window_spans": 688896,
+        "emitted_full_run_spans": 784446,
+        "emitted_measured_spans": 703998,
+        "generated_full_run_spans": 784446,
+        "generated_measured_spans": 703998,
+        "never_emitted_driver_spans": 256320,
+        "physical_rows_at_snapshot": 485184,
+        "planned_spans": 1040766,
+        "stored_unique_at_original_snapshot_spans": 485312,
+        "stored_unique_final_spans": 485312,
+        "unresolved_acked_at_original_deadline": 299134,
+        "unresolved_emitted_at_original_deadline": 299134
+      },
+      "final_recovered_stored_unique_spans": 784446,
+      "recovered": true,
+      "ack_latency": {
+        "count": 3667,
+        "max_ns": 1222124000,
+        "p50_ns": 487894000,
+        "p95_ns": 926559000,
+        "p99_ns": 1106557000,
+        "p99_tail_samples": 36
+      },
+      "write_completed_rows_per_second": "7456/5",
+      "commit_completed_rows_per_second": "7456/5",
+      "peak_kafka_lag_records": 2952,
+      "drain": {
+        "first_zero_started_ns": 1791734979379185000,
+        "lower_bound_ns": 98952188000,
+        "second_zero_finished_ns": 1791734980385667000,
+        "stable_end": 4086,
+        "status": "observed_bounded",
+        "upper_bound_ns": 100958704000
+      },
+      "visibility": {
+        "censored_count": 363,
+        "first_send_to_observation": {
+          "count": 0,
+          "max_ns": null,
+          "p50_ns": null,
+          "p95_ns": null,
+          "p99_ns": null,
+          "p99_tail_samples": 0
+        },
+        "note": "Probe HTTP traffic is separate from the four-route paced query mix.",
+        "observed_count": 0,
+        "probe_http_failures": 927,
+        "probe_http_requests_measured_phase": 927,
+        "probe_http_statuses": {
+          "0": 97,
+          "404": 447,
+          "503": 383
+        },
+        "probe_request_latency": {
+          "count": 927,
+          "p50_ns": 24266000,
+          "p95_ns": 208297000,
+          "p99_ns": 324017000
+        },
+        "probe_response_bytes": 58864,
+        "sample_count": 363
+      },
+      "non404_counts": [
+        169,
+        473,
+        95
+      ],
+      "query_drop_counts": [
+        7,
+        480,
+        0,
+        0
+      ],
+      "paced_query_started_window": [
+        {
+          "route": "detail",
+          "http_status": 404,
+          "cause": "unclassified",
+          "count": 95
+        },
+        {
+          "route": "detail",
+          "http_status": 503,
+          "cause": "unclassified",
+          "count": 22
+        },
+        {
+          "route": "incidents",
+          "http_status": 200,
+          "cause": "unclassified",
+          "count": 35
+        },
+        {
+          "route": "incidents",
+          "http_status": 503,
+          "cause": "unclassified",
+          "count": 81
+        },
+        {
+          "route": "incidents",
+          "http_status": 504,
+          "cause": "unclassified",
+          "count": 3
+        },
+        {
+          "route": "services",
+          "http_status": 200,
+          "cause": "unclassified",
+          "count": 95
+        },
+        {
+          "route": "services",
+          "http_status": 503,
+          "cause": "unclassified",
+          "count": 23
+        },
+        {
+          "route": "traces",
+          "http_status": 200,
+          "cause": "unclassified",
+          "count": 79
+        },
+        {
+          "route": "traces",
+          "http_status": 503,
+          "cause": "unclassified",
+          "count": 40
+        }
+      ],
+      "visibility_probe_measured_phase": [
+        {
+          "http_status": 0,
+          "cause": "unclassified",
+          "count": 97
+        },
+        {
+          "http_status": 404,
+          "cause": "unclassified",
+          "count": 447
+        },
+        {
+          "http_status": 503,
+          "cause": "unclassified",
+          "count": 383
+        }
+      ]
+    },
+    "candidate": {
+      "acked_measured_spans": 959934,
+      "acked_within_window_spans": 957504,
+      "measurement_duration_ns": 120000000000,
+      "counts": {
+        "acked_full_run_spans": 1040766,
+        "acked_measured_spans": 959934,
+        "acked_within_window_spans": 957504,
+        "emitted_full_run_spans": 1040766,
+        "emitted_measured_spans": 959934,
+        "generated_full_run_spans": 1040766,
+        "generated_measured_spans": 959934,
+        "never_emitted_driver_spans": 0,
+        "physical_rows_at_snapshot": 1040766,
+        "planned_spans": 1040766,
+        "stored_unique_at_original_snapshot_spans": 1040766,
+        "stored_unique_final_spans": 1040766,
+        "unresolved_acked_at_original_deadline": 0,
+        "unresolved_emitted_at_original_deadline": 0
+      },
+      "final_recovered_stored_unique_spans": 1040766,
+      "recovered": true,
+      "ack_latency": {
+        "count": 5000,
+        "max_ns": 587744000,
+        "p50_ns": 29743000,
+        "p95_ns": 325465000,
+        "p99_ns": 444878000,
+        "p99_tail_samples": 50
+      },
+      "write_completed_rows_per_second": "62191/10",
+      "commit_completed_rows_per_second": "62191/10",
+      "peak_kafka_lag_records": 4523,
+      "drain": {
+        "first_zero_started_ns": 1791735202000901000,
+        "lower_bound_ns": 20922971000,
+        "second_zero_finished_ns": 1791735203008468000,
+        "stable_end": 21683,
+        "status": "observed_bounded",
+        "upper_bound_ns": 22931508000
+      },
+      "visibility": {
+        "censored_count": 218,
+        "first_send_to_observation": {
+          "count": 282,
+          "max_ns": 9946254000,
+          "p50_ns": 1072451000,
+          "p95_ns": 3583565000,
+          "p99_ns": 9831094000,
+          "p99_tail_samples": 2
+        },
+        "note": "Probe HTTP traffic is separate from the four-route paced query mix.",
+        "observed_count": 282,
+        "probe_http_failures": 1082,
+        "probe_http_requests_measured_phase": 1364,
+        "probe_http_statuses": {
+          "0": 13,
+          "200": 282,
+          "404": 583,
+          "503": 486
+        },
+        "probe_request_latency": {
+          "count": 1364,
+          "p50_ns": 14174000,
+          "p95_ns": 96462000,
+          "p99_ns": 174740000
+        },
+        "probe_response_bytes": 2746553,
+        "sample_count": 500
+      },
+      "non404_counts": [
+        49,
+        427,
+        95
+      ],
+      "query_drop_counts": [
+        49,
+        480,
+        0,
+        4
+      ],
+      "paced_query_started_window": [
+        {
+          "route": "detail",
+          "http_status": 404,
+          "cause": "unclassified",
+          "count": 95
+        },
+        {
+          "route": "detail",
+          "http_status": 503,
+          "cause": "admission_busy",
+          "count": 12
+        },
+        {
+          "route": "incidents",
+          "http_status": 200,
+          "cause": "unclassified",
+          "count": 97
+        },
+        {
+          "route": "incidents",
+          "http_status": 503,
+          "cause": "admission_busy",
+          "count": 7
+        },
+        {
+          "route": "services",
+          "http_status": 200,
+          "cause": "unclassified",
+          "count": 94
+        },
+        {
+          "route": "services",
+          "http_status": 503,
+          "cause": "admission_busy",
+          "count": 12
+        },
+        {
+          "route": "traces",
+          "http_status": 200,
+          "cause": "unclassified",
+          "count": 92
+        },
+        {
+          "route": "traces",
+          "http_status": 503,
+          "cause": "admission_busy",
+          "count": 18
+        }
+      ],
+      "visibility_probe_measured_phase": [
+        {
+          "http_status": 0,
+          "cause": "unclassified",
+          "count": 13
+        },
+        {
+          "http_status": 200,
+          "cause": "unclassified",
+          "count": 282
+        },
+        {
+          "http_status": 404,
+          "cause": "unclassified",
+          "count": 583
+        },
+        {
+          "http_status": 503,
+          "cause": "admission_busy",
+          "count": 486
+        }
+      ]
+    }
+  },
+  "gates": [
+    {
+      "name": "sustained-8000-r1/admission_at_least_95_percent",
+      "status": "pass",
+      "observed": {
+        "baseline": 703998,
+        "candidate": 959934
+      }
+    },
+    {
+      "name": "sustained-8000-r1/ack_p95_ns",
+      "status": "pass",
+      "observed": {
+        "baseline": 926559000,
+        "candidate": 325465000
+      }
+    },
+    {
+      "name": "sustained-8000-r1/ack_p99_ns",
+      "status": "pass",
+      "observed": {
+        "baseline": 1106557000,
+        "candidate": 444878000
+      }
+    },
+    {
+      "name": "sustained-8000-r1/completed_rows_per_second_1_25x",
+      "status": "pass",
+      "observed": {
+        "baseline": "7456/5",
+        "candidate": "62191/10"
+      }
+    },
+    {
+      "name": "sustained-8000-r1/drain_upper_bound_half",
+      "status": "pass",
+      "observed": {
+        "baseline": {
+          "first_zero_started_ns": 1791734979379185000,
+          "lower_bound_ns": 98952188000,
+          "second_zero_finished_ns": 1791734980385667000,
+          "stable_end": 4086,
+          "status": "observed_bounded",
+          "upper_bound_ns": 100958704000
+        },
+        "candidate": {
+          "first_zero_started_ns": 1791735202000901000,
+          "lower_bound_ns": 20922971000,
+          "second_zero_finished_ns": 1791735203008468000,
+          "stable_end": 21683,
+          "status": "observed_bounded",
+          "upper_bound_ns": 22931508000
+        }
+      }
+    },
+    {
+      "name": "sustained-8000-r1/visibility_censored_fraction_half",
+      "status": "pass",
+      "observed": {
+        "baseline": [
+          363,
+          363
+        ],
+        "candidate": [
+          218,
+          500
+        ]
+      }
+    },
+    {
+      "name": "sustained-8000-r1/non404_query_failure_fraction_increase_at_most_1_20",
+      "status": "pass",
+      "observed": {
+        "baseline": "169/473",
+        "candidate": "7/61",
+        "baseline_counts": [
+          169,
+          473,
+          95
+        ],
+        "candidate_counts": [
+          49,
+          427,
+          95
+        ]
+      }
+    },
+    {
+      "name": "sustained-8000-r1/query_schedule_drop_fraction_increase_at_most_1_20",
+      "status": "fail",
+      "observed": {
+        "baseline": "7/480",
+        "candidate": "49/480",
+        "baseline_counts": [
+          7,
+          480,
+          0,
+          0
+        ],
+        "candidate_counts": [
+          49,
+          480,
+          0,
+          4
+        ]
+      }
+    }
+  ]
+}

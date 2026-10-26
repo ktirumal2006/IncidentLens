@@ -1,6 +1,6 @@
 # Incident evaluation API (Phase 3)
 
-`GET /api/v1/incidents?end=<RFC3339>` evaluates trace rule version `trace-v1`.
+`GET /api/v1/incidents?end=<RFC3339>` evaluates trace rule version `trace-v2`.
 `end` is required, accepts an explicit timezone, and is returned in UTC with
 nanosecond precision. Optional exact `service` and `namespace` filters select
 reported operation groups; absence means all and an empty namespace is literal.
@@ -11,7 +11,7 @@ deadline apply. The UI initially selects one minute before now.
 Current window: `[end-5m,end)`; baseline: `[end-35m,end-5m)`. Both must be inside
 seven-day retention and `end` must not be in the future. SERVER spans alone form
 request denominators, grouped by namespace/service/operation. CLIENT and other
-spans supply relationship evidence, never extra requests. Reads use `FINAL` and
+spans supply selected-trace relationship evidence, never extra requests. Reads use `FINAL` and
 one observation/ingestion cutoff. Repeating frozen input, windows and configuration
 produces the same evaluations, candidate ordering and evidence; `observed_at`
 naturally changes, and late ingestion can change a later evaluation.
@@ -82,16 +82,29 @@ chains in the same trace; error propagation means an ERROR descendant is seen
 along an ERROR parent chain. Neither proves causation. Child durations are never
 summed as elapsed time.
 
-Missing parents/roots, cycles, source-reported drops (including event/link
-attribute drops), no SERVER coverage and UNSET status yield explicit caveats
-where relevant. Even an observed root does not establish complete delivery.
+`trace-v2` computes complete SERVER statistics across the window but examines
+relationships only in the selected evidence traces. Global
+`relationship_context_sampled` and per-operation
+`trace_context_not_evaluated` caveats make this scope explicit. Global and
+per-operation `unset_status` flags derive from all SERVER aggregate rows;
+CLIENT UNSET outside selected traces is not assessed. Each selected evidence
+trace reports its own missing parents/roots, cycles, source-reported drops
+(including event/link attribute drops), and UNSET status. Positive selected
+trace caveats may appear on a candidate operation; their absence never claims
+that other traces lack those conditions. `no_server_coverage` still describes
+absent SERVER samples. The historical `trace-v1` evaluator remains a test
+oracle; it loaded every span in the window and is not the HTTP path. Even an
+observed root does not establish complete delivery.
 
 ## Resource limits
 
-Evaluation reads only the selected 35-minute interval and bounded normalized
-span fields, with at most 100,000 deduplicated spans and 32 MiB of accounted input,
-and at most 500 SERVER operation groups. Crossing any input/group limit fails
-with 503 rather than ranking partial statistics. The existing 8 MiB response cap,
+Evaluation aggregates all deduplicated SERVER spans in the selected 35-minute
+interval without a total input-span cap. At most 500 SERVER operation groups
+and 2 MiB of accounted group-key data are returned. At most five distinct
+evidence traces per candidate are selected; selected full-trace context is
+bounded to 2,500 trace IDs, 100,000 spans and 32 MiB of accounted input.
+Crossing a group/context limit fails with 503 rather than ranking partial
+statistics or truncating evidence. The existing 8 MiB response cap,
 four concurrent database-read slots and ClickHouse profile limits apply.
 Evaluation accounts for repeated operation and evidence JSON while building the
 result, failing the entire evaluation before a response expansion exceeds its

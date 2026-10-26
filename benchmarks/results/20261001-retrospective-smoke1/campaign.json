@@ -1,0 +1,48 @@
+{
+  "cases": [],
+  "commands": [
+    {
+      "at": "2026-10-01T16:50:30.549825Z",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+        "stop",
+        "collector",
+        "ingest",
+        "api",
+        "clickhouse"
+      ],
+      "elapsed_seconds": 17.93074284,
+      "returncode": 1,
+      "stderr": " Container incidentlens-collector-1 Stopping \n Container incidentlens-api-1 Stopping \n Container incidentlens-api-1 Stopped \n Container incidentlens-collector-1 Stopped \n Container incidentlens-ingest-1 Stopping \n Container incidentlens-ingest-1 Stopped \n Container incidentlens-clickhouse-1 Stopping \n Container incidentlens-clickhouse-1 Error Error while Stopping\nError response from daemon: cannot stop container: f5c8bdd48da5ce1f3911cfbdef532c0db77a0efed430a43d9214c28c00d9177d: tried to kill container, but did not receive an exit event\n",
+      "stdout": ""
+    }
+  ],
+  "declaration_sha256": "fdd1b21ff48cbcab0997a52c8aedb903b66e3248892c0968a23de1f6c79d9f20",
+  "ended_at": "2026-10-01T16:52:50.356491Z",
+  "error": "RuntimeError(\"command failed: ['docker', 'compose', '-f', '/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml', 'stop', 'collector', 'ingest', 'api', 'clickhouse']\")",
+  "restore_direct": {
+    "at": "2026-10-01T16:50:48.482670Z",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+      "up",
+      "-d",
+      "ingest",
+      "api",
+      "collector"
+    ],
+    "elapsed_seconds": 0.9104359220000013,
+    "returncode": 1,
+    "stderr": "time=\"2026-10-01T12:50:48-04:00\" level=warning msg=\"Found orphan containers (incidentlens-stream-worker-1, incidentlens-stream-ingest-1, incidentlens-kafka-topic-1, incidentlens-kafka-1) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up.\"\n Container incidentlens-clickhouse-1 Running \n Container incidentlens-clickhouse-1 Waiting \n Container incidentlens-clickhouse-1 Error dependency clickhouse failed to start\ndependency failed to start: container incidentlens-clickhouse-1 is unhealthy\n",
+    "stdout": ""
+  },
+  "restore_error": "RuntimeError('dependencies not ready')",
+  "smoke": true,
+  "started_at": "2026-10-01T16:50:30.548321Z",
+  "status": "failed"
+}

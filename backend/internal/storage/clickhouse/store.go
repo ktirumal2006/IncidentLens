@@ -4,6 +4,7 @@ package clickhouse
 import (
 	"context"
 	"fmt"
+	"incidentlens/backend/internal/benchobs"
 	"time"
 
 	ch "github.com/ClickHouse/clickhouse-go/v2"
@@ -40,18 +41,34 @@ dropped_links_count, resource_dropped_attributes_count, scope_dropped_attributes
 
 // Write sends one bounded batch. Send must complete before callers acknowledge it.
 // A failed Send may have committed data: callers must assume replay is possible.
-func (s *Store) Write(ctx context.Context, rows []trace.Row) error {
+func (s *Store) Write(ctx context.Context, rows []trace.Row) (result error) {
+	return s.write(ctx, rows, 256)
+}
+
+// WriteBatch is reserved for bounded stream cohorts. Direct OTLP writes keep
+// their original 256-row contract through Write.
+func (s *Store) WriteBatch(ctx context.Context, rows []trace.Row) error {
+	return s.write(ctx, rows, 4096)
+}
+
+func (s *Store) write(ctx context.Context, rows []trace.Row, maxRows int) (result error) {
 	if len(rows) == 0 {
 		return nil
 	}
-	if len(rows) > 256 {
-		return fmt.Errorf("batch exceeds 256 spans")
+	if len(rows) > maxRows {
+		return fmt.Errorf("batch exceeds %d spans", maxRows)
 	}
+	started := benchobs.Start()
+	event := benchobs.Event{Kind: "clickhouse_write", Rows: len(rows)}
+	defer func() { event.Success = result == nil; benchobs.Finish(started, event) }()
+	phase := benchobs.Start()
 	batch, err := s.conn.PrepareBatch(ctx, insertSQL)
+	event.PrepareNS = benchobs.Elapsed(phase)
 	if err != nil {
 		return err
 	}
 	defer batch.Abort()
+	phase = benchobs.Start()
 	for _, r := range rows {
 		if err := batch.Append(r.TraceID, r.SpanID, r.ParentSpanID,
 			r.ServiceName, r.ServiceNamespace, r.SpanName, r.SpanKind,
@@ -64,5 +81,9 @@ func (s *Store) Write(ctx context.Context, rows []trace.Row) error {
 			return err
 		}
 	}
-	return batch.Send()
+	event.AppendNS = benchobs.Elapsed(phase)
+	phase = benchobs.Start()
+	result = batch.Send()
+	event.SendNS = benchobs.Elapsed(phase)
+	return result
 }

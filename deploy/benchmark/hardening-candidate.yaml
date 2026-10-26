@@ -1,0 +1,9 @@
+# Apply after streaming/hardening.yaml and benchmark/streaming.yaml.
+# New tags keep the immutable baseline images untouched.
+services:
+  stream-ingest:
+    image: incidentlens-hardening-producer:${STREAM_CANDIDATE_TAG:-candidate1}
+  stream-worker:
+    image: incidentlens-hardening-worker:${STREAM_CANDIDATE_TAG:-candidate1}
+  api:
+    image: incidentlens-hardening-api:${STREAM_CANDIDATE_TAG:-candidate1}

@@ -1,0 +1,3 @@
+ok  	incidentlens/backend/internal/benchobs	1.699s
+ok  	incidentlens/backend/internal/stream	(cached)
+?   	incidentlens/backend/cmd/bench-lag	[no test files]

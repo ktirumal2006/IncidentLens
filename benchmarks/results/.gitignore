@@ -1,0 +1,25 @@
+# Raw Phase 5 campaigns are preserved in ../archives/phase5-checkpoint-20261026/.
+# Selected compact summaries are tracked explicitly.
+/20261001-retrospective/
+/20261001-retrospective-smoke1/
+/20261001-retrospective-smoke2/
+/20261002-retrospective-continuation/
+/20261006-hardening-candidate1/
+/20261006-hardening-smoke1/
+/20261007-hardening-candidate1/
+/20261007-hardening-candidate1-retry1/
+/20261007-hardening-smoke2/
+/20261008-hardening-candidate2-probe/
+/20261008-hardening-candidate2-smoke/
+/20261009-hardening-candidate3-decision/
+/20261009-hardening-candidate3-probe/
+/20261009-hardening-candidate3-smoke/
+/20261010-candidate3-query-control/
+/20261010-candidate3-query1-probe/
+/20261010-candidate3-query1-smoke/
+/20261010-candidate3-query2-probe/
+/20261010-candidate3-query2-smoke/
+/20261011-candidate3-query-control2/
+/20261011-candidate3-query3-probe/
+/20261011-candidate3-query3-smoke/
+/20261012-candidate3-query4-smoke/

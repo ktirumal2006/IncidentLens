@@ -35,6 +35,7 @@ type Config struct {
 	QueryMix             string         `json:"query_mix"`
 	AttributeBytes       int            `json:"attribute_payload_bytes"`
 	BaselineTraces       int            `json:"baseline_traces"`
+	SetupLagFile         string         `json:"setup_lag_file,omitempty"`
 	Collector            string         `json:"collector"`
 	API                  string         `json:"api"`
 	ClickHouse           string         `json:"clickhouse"`
@@ -72,6 +73,7 @@ func parseConfig(args []string) (Config, error) {
 	f.StringVar(&c.QueryMix, "query-mix", "services,traces,detail,incidents", "round-robin route mix")
 	f.IntVar(&c.AttributeBytes, "attribute-bytes", 256, "test.payload string bytes/span")
 	f.IntVar(&c.BaselineTraces, "baseline-traces", 0, "separate setup traces atnow-20min")
+	f.StringVar(&c.SetupLagFile, "setup-lag-file", "", "optional observer JSONL; wait up to30s for setup offsets before load")
 	f.StringVar(&c.Collector, "collector", "127.0.0.1:4317", "Collector OTLP/gRPC address")
 	f.StringVar(&c.API, "api", "http://127.0.0.1:18081", "API base URL")
 	f.StringVar(&c.ClickHouse, "clickhouse", "127.0.0.1:19000", "native ClickHouse address")

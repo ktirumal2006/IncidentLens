@@ -13,21 +13,34 @@ ROOT = Path(__file__).resolve().parent.parent
 COMPOSE = ROOT / "deploy/local/compose.yaml"
 STACK = "direct"
 SERVICES = ["clickhouse", "ingest", "api", "collector"]
+PROJECT = None
+OVERLAYS = []
+STREAM_TOPIC = "incidentlens-spans-v1"
+STREAM_GROUP = "incidentlens-stream-worker-v1"
 
 
-def configure_stack(stack):
-    global STACK, SERVICES
+def configure_stack(stack, project=None, overlays=(), stream_topic="incidentlens-spans-v1", stream_group="incidentlens-stream-worker-v1"):
+    global STACK, SERVICES, PROJECT, OVERLAYS, STREAM_TOPIC, STREAM_GROUP
     if stack not in ("direct", "streaming"):
         raise ValueError("unknown benchmark stack")
     STACK = stack
+    if project is not None and (not project.startswith("incidentlens-retro-") or
+                                any(c not in "abcdefghijklmnopqrstuvwxyz0123456789-" for c in project)):
+        raise ValueError("experiment project must use the incidentlens-retro- prefix")
+    PROJECT, OVERLAYS = project, [str(Path(p).resolve()) for p in overlays]
+    STREAM_TOPIC, STREAM_GROUP = stream_topic, stream_group
     SERVICES = (["clickhouse", "ingest", "api", "collector"] if stack == "direct" else
                 ["clickhouse", "api", "collector", "kafka", "stream-ingest", "stream-worker"])
 
 
 def compose_args():
     args = ["docker", "compose", "-f", str(COMPOSE)]
+    if PROJECT:
+        args += ["-p", PROJECT]
     if STACK == "streaming":
         args += ["-f", str(ROOT / "deploy/streaming/compose.yaml")]
+    for overlay in OVERLAYS:
+        args += ["-f", overlay]
     return args
 
 
@@ -157,8 +170,8 @@ def storage_snapshot(include_stream=True):
         if include_stream:
             # Java admin tools run only outside measured load to avoid adding
             # their heap/CPU footprint to normal periodic sampling.
-            result["kafka_group_offsets"] = command(compose_args() + ["exec", "-T", "kafka", "/opt/kafka/bin/kafka-consumer-groups.sh", "--bootstrap-server", "kafka:9092", "--group", "incidentlens-stream-worker-v1", "--describe"], timeout=20)
-            result["kafka_topic"] = command(compose_args() + ["exec", "-T", "kafka", "/opt/kafka/bin/kafka-topics.sh", "--bootstrap-server", "kafka:9092", "--topic", "incidentlens-spans-v1", "--describe"], timeout=20)
+            result["kafka_group_offsets"] = command(compose_args() + ["exec", "-T", "kafka", "/opt/kafka/bin/kafka-consumer-groups.sh", "--bootstrap-server", "kafka:9092", "--group", STREAM_GROUP, "--describe"], timeout=20)
+            result["kafka_topic"] = command(compose_args() + ["exec", "-T", "kafka", "/opt/kafka/bin/kafka-topics.sh", "--bootstrap-server", "kafka:9092", "--topic", STREAM_TOPIC, "--describe"], timeout=20)
     return result
 
 

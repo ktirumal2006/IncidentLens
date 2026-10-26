@@ -45,3 +45,21 @@ targets, visible baseline/current statistics and rule thresholds, uncertainty,
 and keyboard navigation from each candidate's known Demo trace evidence to the
 waterfall. The UI uses UTC seconds; the test verifies the same sample window
 against the API after dropping the recorded end's fractional seconds.
+
+For the Phase 5 hardening status acceptance, start a dedicated candidate stack
+with the four-partition topic, built UI and API, and no other load. Run
+`node tests/e2e/streaming_status.mjs` with absolute
+`INCIDENTLENS_STREAM_TEST_COMPOSE_FILES` (colon-separated base, streaming and
+acceptance overlays), `BENCH_BINARY`, and `STREAM_STATUS_EVIDENCE_DIR`, plus
+`STREAM_TEST_PROJECT` beginning `incidentlens-retro-hardening-`. Optional
+`INCIDENTLENS_API_URL` and `INCIDENTLENS_UI_URL` override port 18081.
+The script requires the existing Playwright installation and Docker CLI. It
+retains both finite harness runs, raw status observations, screenshots, command
+results and pass/fail JSON in the evidence directory. It pauses ClickHouse to
+observe real backlog, pending age and retry during a 600 spans/s, six-second
+3,600-span offered load, then verifies recovery. The prime load offers 288
+spans. It pauses
+the worker for a real unavailable state. The stale screenshot uses a browser
+route that freezes a previously successful real status response; this checks
+UI stale rendering only. The script unpauses services on failure and does not
+start or remove the Compose stack.

@@ -1,0 +1,55 @@
+{
+  "scope": "provisional first pair only; not campaign/default acceptance",
+  "campaign": "benchmarks/results/20261007-hardening-candidate1",
+  "gates": [
+    {
+      "name": "sustained-2000-r1/visibility_no_censor_and_p95_at_most_5s",
+      "status": "pass",
+      "observed": {
+        "censored": 0,
+        "samples": 125,
+        "observed_p95_ns": 808126000
+      }
+    },
+    {
+      "name": "sustained-2000-r1/non404_query_failure_fraction_increase_at_most_1_20",
+      "status": "pass",
+      "observed": {
+        "baseline": "97/480",
+        "candidate": "91/480",
+        "baseline_counts": [
+          97,
+          480,
+          38
+        ],
+        "candidate_counts": [
+          91,
+          480,
+          87
+        ]
+      }
+    },
+    {
+      "name": "sustained-2000-r1/query_schedule_drop_fraction_increase_at_most_1_20",
+      "status": "pass",
+      "observed": {
+        "baseline": "0",
+        "candidate": "0",
+        "baseline_counts": [
+          0,
+          480,
+          0,
+          0
+        ],
+        "candidate_counts": [
+          0,
+          480,
+          0,
+          0
+        ]
+      }
+    }
+  ],
+  "baseline_issues": [],
+  "candidate_issues": []
+}

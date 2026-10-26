@@ -1,0 +1,25 @@
+{
+  "started_at": "2026-10-06T19:59:06.326770+00:00",
+  "command": [
+    "/Users/kousil/Library/Caches/IncidentLens/toolchain/go/bin/go",
+    "test",
+    "-race",
+    "./tests/streaming",
+    "-run",
+    "TestBroker(AckBeforeStorageThenWorkerRecovery|OutageReturnsRetryableFailure)$",
+    "-count=1",
+    "-v",
+    "-timeout",
+    "8m"
+  ],
+  "compose_files": [
+    "deploy/local/compose.yaml",
+    "deploy/streaming/compose.yaml",
+    "deploy/streaming/hardening.yaml",
+    "deploy/benchmark/hardening-candidate.yaml",
+    "deploy/benchmark/hardening-acceptance.yaml"
+  ],
+  "project": "incidentlens-retro-hardening-acceptance1",
+  "returncode": 0,
+  "finished_at": "2026-10-06T19:59:50.408390+00:00"
+}

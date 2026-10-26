@@ -361,7 +361,7 @@ func TestQueryCursorKeepsEligibleSpanAfterLaterReplay(t *testing.T) {
 
 func TestQueryDetailRelationshipsBoundsAndContext(t *testing.T) {
 	baseURL := queryEnabled(t)
-	store, _ := database(t)
+	store, conn := database(t)
 	service := "query-" + queryID(t, 5)
 	base := time.Now().UTC().Add(-4 * time.Minute).Truncate(time.Second)
 	id := queryID(t, 16)
@@ -457,6 +457,26 @@ func TestQueryDetailRelationshipsBoundsAndContext(t *testing.T) {
 		if err != nil || !strings.Contains(string(encoded), pair.needle) {
 			t.Fatalf("%s context mismatch: %s (%v)", name, encoded, err)
 		}
+	}
+	// Keep replay copies physically present while checking the detail query's
+	// pre-FINAL trace and time filters against the real replacement table.
+	if err := conn.Exec(context.Background(), "SYSTEM STOP MERGES incidentlens.spans"); err != nil {
+		t.Fatal(err)
+	}
+	defer func() { _ = conn.Exec(context.Background(), "SYSTEM START MERGES incidentlens.spans") }()
+	if err := store.Write(context.Background(), rows); err != nil {
+		t.Fatal(err)
+	}
+	var physical uint64
+	if err := conn.QueryRow(context.Background(), "SELECT count() FROM spans WHERE trace_id = ?", id).Scan(&physical); err != nil {
+		t.Fatal(err)
+	}
+	if physical != 6 {
+		t.Fatalf("physical replay rows=%d want 6", physical)
+	}
+	queryGET(t, baseURL, "/api/v1/traces/"+id, v, 200, &detail)
+	if len(detail.Spans) != 3 || detail.Spans[0].SpanID != root || detail.Spans[1].SpanID != child || detail.Spans[2].SpanID != rows[2].SpanID {
+		t.Fatalf("replayed detail was not deduplicated: %+v", detail)
 	}
 	// Narrowing the selected interval makes the formerly present root missing.
 	v.Set("from", base.Add(500*time.Millisecond).Format(time.RFC3339Nano))

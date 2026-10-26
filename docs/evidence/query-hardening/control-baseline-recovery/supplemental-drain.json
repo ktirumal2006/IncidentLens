@@ -1,0 +1,21 @@
+{
+  "started_at": "2026-10-10T16:49:21.791481Z",
+  "bound_seconds": 120,
+  "original_summary": "/Users/kousil/Documents/IncidentLens/docs/evidence/query-hardening/control-baseline-recovery/harness/summary.json",
+  "meaning": "supplemental post-run observation; original deadline result remains unchanged",
+  "observations": [
+    {
+      "at": "2026-10-10T16:49:21.792207Z",
+      "elapsed_seconds": 0.0007414830000000983,
+      "planned_missing": 27456,
+      "emitted_missing": 0,
+      "acked_missing": 0,
+      "expected_stored": 1013310,
+      "unknown": 0,
+      "duplicate_logical_identities": 0,
+      "snapshot_verified": true
+    }
+  ],
+  "complete": true,
+  "ended_at": "2026-10-10T16:49:27.421769Z"
+}

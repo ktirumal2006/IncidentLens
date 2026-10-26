@@ -1,0 +1,13 @@
+{
+  "archive": {
+    "filename": "go1.26.8.darwin-amd64.tar.gz",
+    "os": "darwin",
+    "arch": "amd64",
+    "version": "go1.26.8",
+    "sha256": "186be014105aa6542b767d2c6ed5cca10a0214bdff809ef1724022a8c7894150",
+    "size": 67759394,
+    "kind": "archive"
+  },
+  "location": "/Users/kousil/Library/Caches/IncidentLens/toolchain/go",
+  "reason": "Host restart repeatedly clears temporary toolchain and harness binaries."
+}

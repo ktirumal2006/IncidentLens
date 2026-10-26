@@ -1,0 +1,20 @@
+=== RUN   TestCohortBatchesAcrossRecordsAndCommitsContiguousHighest
+--- PASS: TestCohortBatchesAcrossRecordsAndCommitsContiguousHighest (0.03s)
+=== RUN   TestCohortWriteFailureRetainsOffsets
+--- PASS: TestCohortWriteFailureRetainsOffsets (0.02s)
+=== RUN   TestWholeCohortWriteCompletesBeforeAnyOffsetCommit
+--- PASS: TestWholeCohortWriteCompletesBeforeAnyOffsetCommit (0.02s)
+=== RUN   TestFetchedResponseSplitsAtHardRecordCap
+--- PASS: TestFetchedResponseSplitsAtHardRecordCap (0.02s)
+=== RUN   TestWholeCohortRespectsTargetAndHardBounds
+--- PASS: TestWholeCohortRespectsTargetAndHardBounds (0.60s)
+PASS
+ok  	incidentlens/backend/internal/stream	2.430s
+=== RUN   TestCohortTargetAcrossBrokerBatchAndReplay
+    hardening_test.go:207: set INCIDENTLENS_STREAMING_TESTS=1 on the dedicated local streaming stack
+--- SKIP: TestCohortTargetAcrossBrokerBatchAndReplay (0.00s)
+=== RUN   TestPartialBatchWriteAmbiguityReplaysWholeCohort
+    hardening_test.go:670: set INCIDENTLENS_STREAMING_TESTS=1 on the dedicated local streaming stack
+--- SKIP: TestPartialBatchWriteAmbiguityReplaysWholeCohort (0.00s)
+PASS
+ok  	incidentlens/backend/tests/streaming	2.381s

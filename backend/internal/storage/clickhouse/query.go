@@ -33,7 +33,7 @@ func (s *QueryStore) acquire(ctx context.Context) error {
 	case <-ctx.Done():
 		return ctx.Err()
 	default:
-		return query.ErrTooLarge
+		return query.ErrBusy
 	}
 }
 func (s *QueryStore) release() { <-s.slots }
@@ -168,7 +168,10 @@ func (s *QueryStore) Detail(ctx context.Context, w query.Window, id string, obse
 		return out, err
 	}
 	defer s.release()
-	rows, err := s.conn.Query(ctx, `SELECT `+detailColumns+` FROM spans FINAL WHERE trace_id=? AND start_time >= fromUnixTimestamp64Nano(?) AND start_time < fromUnixTimestamp64Nano(?) ORDER BY start_time,span_id LIMIT ?`, id, w.From.UnixNano(), w.To.UnixNano(), query.MaxDetail+1)
+	// All three predicates use immutable replacement-key columns. Applying them
+	// before FINAL keeps replay copies together while avoiding wide-column reads
+	// for unrelated traces.
+	rows, err := s.conn.Query(ctx, `SELECT `+detailColumns+` FROM spans FINAL PREWHERE trace_id=? AND start_time >= fromUnixTimestamp64Nano(?) AND start_time < fromUnixTimestamp64Nano(?) ORDER BY start_time,span_id LIMIT ?`, id, w.From.UnixNano(), w.To.UnixNano(), query.MaxDetail+1)
 	if err != nil {
 		return out, err
 	}

@@ -1,0 +1,9 @@
+[
+  {
+    "name": "trace_id_bloom_trial",
+    "type": "bloom_filter",
+    "data_compressed_bytes": 979423,
+    "data_uncompressed_bytes": 975175,
+    "marks_bytes": 544
+  }
+]

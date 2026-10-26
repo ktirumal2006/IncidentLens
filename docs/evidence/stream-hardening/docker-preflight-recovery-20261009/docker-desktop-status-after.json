@@ -1,0 +1,10 @@
+{
+  "command": [
+    "docker",
+    "desktop",
+    "status"
+  ],
+  "returncode": 0,
+  "stdout": "Name                Value\nStatus              starting\nSessionID           561135a9-197f-466f-9a17-e3b000e87de0\n",
+  "stderr": ""
+}

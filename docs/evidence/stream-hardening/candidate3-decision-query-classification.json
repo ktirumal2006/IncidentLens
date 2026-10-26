@@ -1,0 +1,227 @@
+{
+  "scope": "Read-only classification of the completed frozen candidate3 sustained-8000 r1 decision pair. No gate or API behavior changed.",
+  "source": "Measured HTTP events are taken from measurement/harness/events.jsonl and checked against analysis-exact.json. Server SELECT entries come from server-queries.json system.query_log after the case; measured entries are filtered by query_start_time_microseconds into the same half-open UTC measurement window. Full-case log counts include warmup, drain, and diagnostic phase and are labeled separately.",
+  "code_contract": {
+    "input_limit": "backend/internal/detector/detector.go sets MaxSpans=100000. backend/internal/storage/clickhouse/incidents.go issues SELECT ... LIMIT MaxSpans+1 and returns detector.ErrLimit if the 100001st row is read or the byte limit is crossed.",
+    "http_mapping": "backend/internal/httpapi/incidents.go maps deadline exceeded or ClickHouse code 159 to HTTP 504. Its other incident evaluation/storage/admission/resource failures, including detector.ErrLimit, map to generic HTTP 503; invalid output and response caps also map to 503. Other routes have independent 503 causes.",
+    "attribution_limit": "Captured system.query_log fields omit SQL text and query ID, and HTTP events have no join key. A successful SELECT with exactly 100001 rows is cap eligible and strongly supports detector input-limit exposure at case level; it does not prove any individual 503 was caused by the cap. Query log exception codes likewise cannot be joined to individual HTTP results or interpreted alone as a storage failure."
+  },
+  "cases": {
+    "baseline": {
+      "source_case": "benchmarks/results/20261009-hardening-candidate3-decision/sustained-8000-r1-baseline",
+      "measurement_window_utc": [
+        "2026-10-09T17:12:09.289315Z",
+        "2026-10-09T17:14:09.289315Z"
+      ],
+      "measured_http_statuses_by_route": {
+        "services": {
+          "200": 83,
+          "503": 36
+        },
+        "traces": {
+          "200": 74,
+          "503": 41
+        },
+        "detail": {
+          "404": 84,
+          "503": 32
+        },
+        "incidents": {
+          "200": 49,
+          "503": 54,
+          "504": 12
+        }
+      },
+      "measured_http_requests": 465,
+      "measured_query_schedule": {
+        "services": {
+          "issued_measured": 119,
+          "late_start": 0,
+          "queue_dropped": 1,
+          "scheduled_measured": 120,
+          "skipped_no_acknowledged_trace": 0,
+          "started_in_window": 119
+        },
+        "traces": {
+          "issued_measured": 115,
+          "late_start": 0,
+          "queue_dropped": 5,
+          "scheduled_measured": 120,
+          "skipped_no_acknowledged_trace": 0,
+          "started_in_window": 115
+        },
+        "detail": {
+          "issued_measured": 116,
+          "late_start": 0,
+          "queue_dropped": 4,
+          "scheduled_measured": 120,
+          "skipped_no_acknowledged_trace": 0,
+          "started_in_window": 116
+        },
+        "incidents": {
+          "issued_measured": 115,
+          "late_start": 0,
+          "queue_dropped": 5,
+          "scheduled_measured": 120,
+          "skipped_no_acknowledged_trace": 0,
+          "started_in_window": 115
+        }
+      },
+      "query_log_window_uses_query_start_time": true,
+      "measured_query_log": {
+        "entries": 1210,
+        "types": {
+          "ExceptionWhileProcessing": 28,
+          "QueryFinish": 577,
+          "QueryStart": 605
+        },
+        "successful_selects_with_exactly_100001_result_rows": 19,
+        "successful_selects_with_more_than_100000_result_rows": 19,
+        "exception_while_processing_by_code": {
+          "210": 24,
+          "735": 4
+        }
+      },
+      "full_case_query_log_including_other_phases": {
+        "entries": 1642,
+        "types": {
+          "ExceptionWhileProcessing": 34,
+          "QueryFinish": 787,
+          "QueryStart": 821
+        },
+        "successful_selects_with_exactly_100001_result_rows": 19,
+        "successful_selects_with_more_than_100000_result_rows": 27,
+        "exception_while_processing_by_code": {
+          "210": 30,
+          "735": 4
+        }
+      },
+      "first_cap_eligible_select_start_utc": "2026-10-09T17:13:39.188956Z",
+      "first_incident_503_start_utc": "2026-10-09T17:12:10.039557Z",
+      "incident_http_started_before_first_cap_eligible_select": {
+        "200": 49,
+        "503": 27,
+        "504": 12
+      },
+      "incident_http_started_at_or_after_first_cap_eligible_select": {
+        "503": 27
+      }
+    },
+    "candidate": {
+      "source_case": "benchmarks/results/20261009-hardening-candidate3-decision/sustained-8000-r1-candidate",
+      "measurement_window_utc": [
+        "2026-10-09T17:18:03.830976Z",
+        "2026-10-09T17:20:03.830976Z"
+      ],
+      "measured_http_statuses_by_route": {
+        "services": {
+          "200": 74,
+          "503": 31
+        },
+        "traces": {
+          "200": 83,
+          "503": 27
+        },
+        "detail": {
+          "404": 50,
+          "503": 56
+        },
+        "incidents": {
+          "200": 3,
+          "503": 95
+        }
+      },
+      "measured_http_requests": 419,
+      "measured_query_schedule": {
+        "services": {
+          "issued_measured": 106,
+          "late_start": 1,
+          "queue_dropped": 14,
+          "scheduled_measured": 120,
+          "skipped_no_acknowledged_trace": 0,
+          "started_in_window": 105
+        },
+        "traces": {
+          "issued_measured": 111,
+          "late_start": 1,
+          "queue_dropped": 9,
+          "scheduled_measured": 120,
+          "skipped_no_acknowledged_trace": 0,
+          "started_in_window": 110
+        },
+        "detail": {
+          "issued_measured": 107,
+          "late_start": 1,
+          "queue_dropped": 13,
+          "scheduled_measured": 120,
+          "skipped_no_acknowledged_trace": 0,
+          "started_in_window": 106
+        },
+        "incidents": {
+          "issued_measured": 99,
+          "late_start": 1,
+          "queue_dropped": 21,
+          "scheduled_measured": 120,
+          "skipped_no_acknowledged_trace": 0,
+          "started_in_window": 98
+        }
+      },
+      "query_log_window_uses_query_start_time": true,
+      "measured_query_log": {
+        "entries": 1238,
+        "types": {
+          "ExceptionWhileProcessing": 52,
+          "QueryFinish": 567,
+          "QueryStart": 619
+        },
+        "successful_selects_with_exactly_100001_result_rows": 75,
+        "successful_selects_with_more_than_100000_result_rows": 75,
+        "exception_while_processing_by_code": {
+          "210": 16,
+          "307": 34,
+          "735": 2
+        }
+      },
+      "full_case_query_log_including_other_phases": {
+        "entries": 1692,
+        "types": {
+          "ExceptionWhileProcessing": 55,
+          "QueryFinish": 791,
+          "QueryStart": 846
+        },
+        "successful_selects_with_exactly_100001_result_rows": 76,
+        "successful_selects_with_more_than_100000_result_rows": 79,
+        "exception_while_processing_by_code": {
+          "210": 19,
+          "307": 34,
+          "735": 2
+        }
+      },
+      "first_cap_eligible_select_start_utc": "2026-10-09T17:18:07.605809Z",
+      "first_incident_503_start_utc": "2026-10-09T17:18:07.581125Z",
+      "incident_http_started_before_first_cap_eligible_select": {
+        "200": 3,
+        "503": 1
+      },
+      "incident_http_started_at_or_after_first_cap_eligible_select": {
+        "503": 94
+      }
+    }
+  },
+  "comparison": {
+    "measured_incident_http_503": {
+      "baseline": 54,
+      "candidate": 95
+    },
+    "measured_incident_http_504": {
+      "baseline": 12,
+      "candidate": 0
+    },
+    "measured_cap_eligible_successful_selects": {
+      "baseline": 19,
+      "candidate": 75
+    },
+    "interpretation": "Both variants reached the detector-sized successful SELECT result of 100001 rows. The candidate had many more such SELECTs and incident 503s; baseline incident 503s and 504s also occurred before its first cap-eligible SELECT. Candidate first 503 began milliseconds before its first logged cap-eligible SELECT; timing alone does not establish causality. Non-incident routes also returned 503s, which the detector cap cannot explain."
+  },
+  "acceptance_effect": "All recorded HTTP 503 and 504 responses and query schedule drops remain failures under the original query gates. Neither detector-cap evidence nor generic query-log exceptions waive them. The decision pair therefore cannot pass by reclassifying these failures. No individual HTTP 503 is asserted to have a proven cause."
+}

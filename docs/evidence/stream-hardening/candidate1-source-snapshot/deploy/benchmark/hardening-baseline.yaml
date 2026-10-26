@@ -1,0 +1,8 @@
+# Frozen pre-hardening binaries; apply after streaming.yaml instrumentation.
+services:
+  stream-ingest:
+    image: incidentlens-phase5-baseline-producer:20261003
+  stream-worker:
+    image: incidentlens-phase5-baseline-worker:20261003
+  api:
+    image: incidentlens-phase5-baseline-api:20261003

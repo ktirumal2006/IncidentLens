@@ -1,0 +1,110 @@
+{
+  "controls": {
+    "case_count": 28,
+    "clickhouse_version_observation_variants": 1,
+    "continuation_campaign_status": "completed",
+    "continuation_restore_direct_returncode": 0,
+    "cpu_count_variants": 1,
+    "credential_scan": {
+      "manual_false_positive": {
+        "file": "backend/internal/storage/clickhouse/store.go",
+        "line": 20,
+        "reason": "constructor forwards password variable; no credential literal"
+      },
+      "potential_match_count": 0,
+      "potential_matches": [],
+      "text_files_scanned": 19
+    },
+    "current_direct_readiness": {
+      "api": 200,
+      "ingestion": 200,
+      "source": "root agent harness run.readiness(timeout=2) after restored direct smoke"
+    },
+    "declaration_sha256_variants": 1,
+    "direct_readiness_history": [
+      {
+        "observation": "earlier point-in-time probe",
+        "result": {
+          "api": {
+            "error_type": "URLError"
+          },
+          "ingest": {
+            "error_type": "URLError"
+          }
+        }
+      },
+      {
+        "at": "2026-10-02T03:53:48.816819Z",
+        "observation": "subagent sandboxed harness run.readiness probe",
+        "result": {
+          "api": "URLError(PermissionError(1, 'Operation not permitted'))",
+          "ingestion": "URLError(PermissionError(1, 'Operation not permitted'))"
+        }
+      },
+      {
+        "observation": "root harness run.readiness after restored direct smoke",
+        "result": {
+          "api": 200,
+          "ingestion": 200
+        },
+        "source": "root agent reported completed read-only check"
+      }
+    ],
+    "docker_version_observation_variants": 1,
+    "docker_vm_variants": 1,
+    "go_binary_build_observation_variants": 1,
+    "hardware_observation_variants": 1,
+    "image_id_variants_by_role": {
+      "api": 1,
+      "clickhouse": 1,
+      "collector": 1,
+      "ingest": 1,
+      "kafka": 1,
+      "stream-ingest": 1,
+      "stream-worker": 1
+    },
+    "labels_unique": true,
+    "lag_binary_sha256_variants": 1,
+    "native_bench_binary_sha256_variants": 1,
+    "original_campaign_status": "failed",
+    "original_restore_direct_returncode": 0,
+    "platform_variants": 1,
+    "product_backend_frontend_deploy_source_hashes_identical": true,
+    "resource_limit_variants_by_role": {
+      "api": 1,
+      "clickhouse": 1,
+      "collector": 1,
+      "ingest": 1,
+      "kafka": 1,
+      "stream-ingest": 1,
+      "stream-worker": 1
+    },
+    "restored_direct_smoke": {
+      "acked_spans": 120,
+      "final_unique_spans": 120,
+      "planned_spans": 120,
+      "snapshot_verified": true,
+      "source": "benchmarks/results/20261002-retrospective-continuation/restored-direct-smoke/summary.json"
+    },
+    "source_hash_variants": {
+      "benchmarks/analyze_retrospective.py": 2,
+      "benchmarks/retrospective.py": 2,
+      "benchmarks/test_analyze_retrospective.py": 2,
+      "benchmarks/test_retrospective.py": 2
+    },
+    "source_manifest_file_count": 95,
+    "unexpected_source_hash_changes": []
+  },
+  "findings": [],
+  "generated_at": "2026-10-02T03:51:41.738042Z",
+  "notes": [
+    "Original failed campaign and startup failure retained; continuation completed the two missing cases.",
+    "Current readiness is a point-in-time read-only HTTP observation.",
+    "Source hash variants restricted to runner/analyzer tests; all product source files match.",
+    "Documented local-* fixture credentials are excluded from potential-secret matches.",
+    "The sole heuristic credential assignment was manually identified as a variable forwarding, not a literal secret.",
+    "Subagent sandboxed HTTP probes returned PermissionError; root independently ran harness run.readiness(timeout=2) and observed api 200 and ingestion 200 after direct smoke."
+  ],
+  "schema_version": 1,
+  "scope": "28 completed cases across original failed campaign and successful continuation"
+}

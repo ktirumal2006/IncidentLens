@@ -1,0 +1,33 @@
+{
+  "actual_top_level_tests": 14,
+  "candidate_tag": "candidate2",
+  "final_lines": [
+    "PASS",
+    "ok  \tincidentlens/backend/tests/streaming\t154.057s"
+  ],
+  "go_command": "/Users/kousil/Library/Caches/IncidentLens/toolchain/go/bin/go -C backend test -race ./tests/streaming -count=1 -v -timeout=15m",
+  "images": {
+    "incidentlens-hardening-api:candidate2": "sha256:bfc2716d394de25e299940107d53fe536fc6ca2646a70fefbc767fd45a110662",
+    "incidentlens-hardening-producer:candidate2": "sha256:8e83a459513f56c3fc4221b29b148f4f05ce79510f9ea73b84ac34bde26098c9",
+    "incidentlens-hardening-worker:candidate2": "sha256:45c6b71850429feaed4bb78d8cb7421d43b54c98ea8c0c4e429cece00538980d"
+  },
+  "log_sha256": "bd1763047fe9d13c5adbf5769cb0f4873c97acdca451e6c16ee508a9d867b95a",
+  "project": "incidentlens-retro-hardening-acceptance2",
+  "remaining_containers": [],
+  "retained_volumes": [
+    "incidentlens-retro-hardening-acceptance2_clickhouse-data",
+    "incidentlens-retro-hardening-acceptance2_kafka-data"
+  ],
+  "shutdown_utc": "2026-10-08T18:54:53.197599+00:00",
+  "skipped_lines": [],
+  "source_sha256": {
+    "backend/internal/stream/hardening_test.go": "d240569b27b6150678c5d3b4e91e081842fe835e342b54bc7ad9079ba7e9767c",
+    "backend/internal/stream/worker.go": "3b36e6d4460c60585369dc743798998757fb678fbd71547da27d7a1e1186057e",
+    "backend/tests/streaming/hardening_test.go": "1dfdd73250c93fdf84866da54f78af5c014d963ea48bea0b0fb994ecc34ee0cd",
+    "deploy/benchmark/hardening-acceptance.yaml": "49309dc86b22a31b5402cbf4ae09fc68f2f84aa0b635dd7b350b34ea8e77ae9b",
+    "deploy/benchmark/hardening-candidate.yaml": "76ae2bd738bfb016cb55510b405e79392778e30602185d232fd7db25a160b871"
+  },
+  "top_level_failed": 0,
+  "top_level_passed": 12,
+  "utc": "2026-10-08T18:54:40.890498+00:00"
+}

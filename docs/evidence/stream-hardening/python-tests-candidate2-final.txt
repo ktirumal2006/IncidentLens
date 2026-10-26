@@ -1,0 +1,66 @@
+test_counter_reset_is_unknown_not_negative_io (test_analyze.AnalysisTests) ... ok
+test_declared_outage_requires_completed_status_for_valid_evidence (test_analyze.AnalysisTests) ... ok
+test_identity_ledger_missing_duplicate_and_loss (test_analyze.AnalysisTests) ... ok
+test_nanosecond_timestamp_and_offset (test_analyze.AnalysisTests) ... ok
+test_partial_offering_uses_planned_denominator (test_analyze.AnalysisTests) ... ok
+test_percentiles_and_no_samples (test_analyze.AnalysisTests) ... ok
+test_completed_rows_can_cross_measurement_boundary (test_analyze_retrospective.ExactAnalysisTests) ... ok
+test_continuation_keeps_failed_parent_attempt_and_combines_28_unique_labels (test_analyze_retrospective.ExactAnalysisTests) ... ok
+test_lag_load_gap_invalid_but_startup_error_can_be_excluded (test_analyze_retrospective.ExactAnalysisTests) ... ok
+test_lag_zeros_before_final_end_do_not_claim_drain (test_analyze_retrospective.ExactAnalysisTests) ... ok
+test_operation_throughput_uses_successful_rows_and_exact_window (test_analyze_retrospective.ExactAnalysisTests) ... ok
+test_operation_trailer_and_dropped_records_fail_closed (test_analyze_retrospective.ExactAnalysisTests) ... ok
+test_query_schedule_separates_drops_skips_and_late_starts (test_analyze_retrospective.ExactAnalysisTests) ... ok
+test_rational_rates_and_integer_percentiles (test_analyze_retrospective.ExactAnalysisTests) ... ok
+test_server_finish_stats_exclude_start_records_and_keep_source_ms (test_analyze_retrospective.ExactAnalysisTests) ... ok
+test_stable_two_zero_lag_bounds_and_missing_trailer (test_analyze_retrospective.ExactAnalysisTests) ... ok
+test_visibility_probe_traffic_is_distinct_from_paced_queries (test_analyze_retrospective.ExactAnalysisTests) ... ok
+test_zero_time_unacknowledged_completion_is_not_bucketed (test_analyze_retrospective.ExactAnalysisTests) ... ok
+test_exact_sustained_8000_boundaries (test_analyze_stream_hardening.PairGateTests) ... ok
+test_hardware_comparison_ignores_observation_times (test_analyze_stream_hardening.PairGateTests) ... ok
+test_invalid_raw_fractions_are_unavailable (test_analyze_stream_hardening.PairGateTests) ... ok
+test_missing_metrics_do_not_pass_and_recovery_is_finite (test_analyze_stream_hardening.PairGateTests) ... ok
+test_query_404_separate_and_exact_absolute_increase (test_analyze_stream_hardening.PairGateTests) ... ok
+test_schedule_reversal_and_control_drift (test_analyze_stream_hardening.PairGateTests) ... ok
+test_zero_baseline_censoring_requires_zero_candidate (test_analyze_stream_hardening.PairGateTests) ... ok
+test_accounting_distinguishes_unemitted_and_unacknowledged (test_drain.DrainTests) ... ok
+test_continuation_preserves_completed_prefix_and_rejects_measured_retry (test_retrospective.RetrospectiveTests) ... ok
+test_failed_cpu_throttle_still_restores_original_quota (test_retrospective.RetrospectiveTests) ... ok
+test_isolated_project_and_overlay_do_not_change_default (test_retrospective.RetrospectiveTests) ... ok
+test_workloads_retain_fixed_limits_and_fit_caps (test_retrospective.RetrospectiveTests) ... ok
+test_command_timeout_keeps_partial_raw_output (test_run.CleanupTests) ... ok
+test_forced_termination_is_explicitly_unverified (test_run.CleanupTests) ... ok
+test_load_start_reader_accepts_rfc3339nano_fraction_lengths_and_offsets (test_run.CleanupTests) ... ok
+test_load_start_reader_skips_partial_lines (test_run.CleanupTests) ... ok
+test_outage_cancelled_before_start_does_not_mutate (test_run.CleanupTests) ... ok
+test_outage_restores_after_failed_stop (test_run.CleanupTests) ... ok
+test_process_group_termination_leaves_no_live_harness (test_run.CleanupTests) ... ok
+test_unstarted_declared_outage_fails_campaign_before_next_stage (test_run.CleanupTests) ... START outage-r1 2026-10-08T18:50:48.418614Z
+END outage-r1 outage_failed
+ok
+test_driver_drops_do_not_prove_product_saturation (test_run.MeasurementTests) ... ok
+test_failed_storage_preflight_never_starts_process (test_run.MeasurementTests) ... ok
+test_missing_resource_observation_fails_closed (test_run.MeasurementTests) ... ok
+test_missing_summary_is_not_sustainable_result (test_run.MeasurementTests) ... ok
+test_product_breach_requires_exact_boundary_or_evidence (test_run.MeasurementTests) ... ok
+test_raw_stats_and_disk_parse_failures_remain_visible (test_run.MeasurementTests) ... ok
+test_three_readiness_failures_are_required (test_run.MeasurementTests) ... ok
+test_command_does_not_use_shell_or_split_values (test_run.PlanTests) ... ok
+test_committed_plan_matches_bounded_workload (test_run.PlanTests) ... ok
+test_unsafe_plans_rejected (test_run.PlanTests) ... ok
+test_direct_default_has_original_contract (test_run.StackTests) ... ok
+test_kafka_disk_failure_and_limits_fail_closed (test_run.StackTests) ... ok
+test_kafka_disk_safety_stays_active_during_clickhouse_outage (test_run.StackTests) ... ok
+test_streaming_observations_cover_broker_producer_and_worker (test_run.StackTests) ... ok
+test_cleanup_abandoned_preserves_volumes_and_releases_network (test_stream_hardening_runner.ResumeTests) ... ok
+test_full_schedule_reverses_second_repetition_and_probe_is_one_pair (test_stream_hardening_runner.ResumeTests) ... ok
+test_live_runner_blocks_explicit_resume_before_any_campaign_read (test_stream_hardening_runner.ResumeTests) ... ok
+test_partial_pair_is_archived_and_completed_pair_remains_canonical (test_stream_hardening_runner.ResumeTests) ... ok
+test_reject_changed_controls_provenance_or_incomplete_evidence (test_stream_hardening_runner.ResumeTests) ... ok
+test_reject_running_campaign_and_cases_after_partial_pair (test_stream_hardening_runner.ResumeTests) ... ok
+test_resume_journal_survives_interrupted_archive_move (test_stream_hardening_runner.ResumeTests) ... ok
+
+----------------------------------------------------------------------
+Ran 59 tests in 0.310s
+
+OK

@@ -1,0 +1,79 @@
+{
+  "audited_at": "2026-10-09T22:53:36.906865+00:00",
+  "objective": "Freeze candidate3, fix readiness, obtain one controlled pair and issue bounded promotion decision",
+  "requirements": [
+    {
+      "requirement": "Freeze candidate3 application; no new candidate/Phase6",
+      "result": "verified",
+      "evidence": [
+        "bounded-decision-freeze-20261009.json",
+        "candidate3-decision-source.json",
+        "candidate3-final-pair-audit.json"
+      ],
+      "observation": "Current selected source differs from candidate3 archive only in authorized common readiness Compose and predeclared workload documentation."
+    },
+    {
+      "requirement": "Diagnose/fix readiness with unchanged runtime quotas",
+      "result": "verified",
+      "evidence": [
+        "readiness-fix-20261009/verification.json",
+        "candidate3-final-pair-audit.json"
+      ],
+      "observation": "Protocol probe exceeded old5s;20s timeout/30sinterval fixedcheck;2CPU1GiB512MiBheap unchanged;positive andnegative probes verified andbothmeasuredcases started."
+    },
+    {
+      "requirement": "Separate input-limit evidence from storage/transport failures",
+      "result": "verified with explicit attribution limits",
+      "evidence": [
+        "candidate3-decision-query-classification.json"
+      ],
+      "observation": "Cap-eligible successfulSELECT counts19/75; deadlines andgeneric503 separated; per-request unknowns not fabricated or excluded."
+    },
+    {
+      "requirement": "One valid controlled baseline/candidate diagnostic",
+      "result": "verified",
+      "evidence": [
+        "candidate3-final-pair-audit.json",
+        "candidate3-decision-gates.json"
+      ],
+      "observation": "Rawanalysis/provenance match;5gatespass3fail."
+    },
+    {
+      "requirement": "Conditional fullcampaign or failedcriteria publication andstop",
+      "result": "verified",
+      "evidence": [
+        "../../PHASE5_PROMOTION_DECISION.md"
+      ],
+      "observation": "Visibility,error,drop gatesfail;nofullcampaign,nofurther tuning,nobenchmarkprocessrunning."
+    },
+    {
+      "requirement": "Measure admission,persistence,ACK,lag,drain,visibility,querystatus,loss",
+      "result": "verified",
+      "evidence": [
+        "../../PHASE5_PROMOTION_DECISION.md",
+        "candidate3-final-pair-audit.json"
+      ],
+      "observation": "Allmetrics tabulatedwithunits,censoring,snapshot/supplemental distinctions;490368/1001022 ACKidentities recovered."
+    },
+    {
+      "requirement": "Promote only afteracceptanceandcutover",
+      "result": "verified conditional branch",
+      "evidence": [
+        "../../PHASE5_PROMOTION_DECISION.md",
+        "../../adr/0005-hardened-streaming-default.md"
+      ],
+      "observation": "No promotion;no rootcompose.yaml;directdefaultretained;cutoverunexecuted andclearlylabelled."
+    },
+    {
+      "requirement": "Preservefailureevidence",
+      "result": "verified",
+      "evidence": [
+        "docker-preflight-recovery-20261009/recovery-result.json",
+        "candidate3-final-pair-audit.json"
+      ],
+      "observation": "Priorcampaigns,archives,retentionloss7734,preflightfailurejournal,andnamedvolumesretained."
+    }
+  ],
+  "decision": "no promotion; stop tuning",
+  "completion_claim": "Bounded decision goal complete, not Kafka default promotion."
+}

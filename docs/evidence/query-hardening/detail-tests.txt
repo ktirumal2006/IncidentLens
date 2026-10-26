@@ -1,0 +1,4 @@
+=== RUN   TestQueryDetailRelationshipsBoundsAndContext
+--- PASS: TestQueryDetailRelationshipsBoundsAndContext (0.21s)
+PASS
+ok  	incidentlens/backend/tests/integration	1.253s

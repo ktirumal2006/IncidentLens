@@ -1,0 +1,1907 @@
+{
+  "baseline_manifest_sha256": "4cce44de8ff9de239efbf01cb15ef85bbc3b9ba4730a16219004a2807c20e95d",
+  "binary": {
+    "path": "/Users/kousil/Library/Caches/IncidentLens/bin/bench-query-diagnostics",
+    "sha256": "fa312656588f00be17193c71ebfbaf5e9736d99b48e75cda66c29beaed21c096"
+  },
+  "candidate_tag": "candidate3-query3",
+  "cases": [
+    {
+      "label": "sustained-8000-r1-baseline",
+      "lag_pid": 25127,
+      "path": "streaming",
+      "project": "incidentlens-retro-6774f303-0",
+      "repetition": 1,
+      "result": {
+        "command": [
+          "/Users/kousil/Library/Caches/IncidentLens/bin/bench-query-diagnostics",
+          "--output-dir",
+          "/Users/kousil/Documents/IncidentLens/benchmarks/results/20261011-candidate3-query3-probe/sustained-8000-r1-baseline/measurement/harness",
+          "--seed",
+          "969e49a5071343d2af7938719f5c0d9b",
+          "--scenario",
+          "sustained-8000",
+          "--attempts",
+          "3",
+          "--attribute-bytes",
+          "256",
+          "--baseline-traces",
+          "128",
+          "--batch-traces",
+          "32",
+          "--concurrency",
+          "16",
+          "--drain",
+          "120s",
+          "--duration",
+          "120s",
+          "--export-timeout",
+          "8s",
+          "--max-event-bytes",
+          "268435456",
+          "--query-concurrency",
+          "4",
+          "--query-mix",
+          "services,traces,detail,incidents",
+          "--query-rate",
+          "4",
+          "--queue",
+          "64",
+          "--rate",
+          "8000",
+          "--settle",
+          "35s",
+          "--setup-lag-file",
+          "/Users/kousil/Documents/IncidentLens/benchmarks/results/20261011-candidate3-query3-probe/sustained-8000-r1-baseline/lag.jsonl",
+          "--visibility-every",
+          "10",
+          "--visibility-timeout",
+          "10s",
+          "--warmup",
+          "10s"
+        ],
+        "elapsed_seconds": 180.736920057,
+        "ended_at": "2026-10-11T16:08:48.044130Z",
+        "harness_terminal": true,
+        "name": "sustained-8000",
+        "pid": 25168,
+        "returncode": 0,
+        "seed": "969e49a5071343d2af7938719f5c0d9b",
+        "started_at": "2026-10-11T16:05:37.374896Z",
+        "status": "completed",
+        "summary": {
+          "config": {
+            "api": "http://127.0.0.1:18081",
+            "attribute_payload_bytes": 256,
+            "baseline_traces": 128,
+            "batch_traces": 32,
+            "clickhouse": "127.0.0.1:19000",
+            "clickhouse_user": "query",
+            "collector": "127.0.0.1:4317",
+            "drain_ns": 120000000000,
+            "duration_ns": 120000000000,
+            "estimated_event_bytes_upper_bound": 121454416,
+            "export_concurrency": 16,
+            "export_queue": 64,
+            "export_timeout_ns": 8000000000,
+            "load_spans": 1039998,
+            "load_traces": 173333,
+            "max_attempts": 3,
+            "max_event_bytes": 268435456,
+            "namespace": "bench-b5a9843c8721",
+            "output_dir": "/Users/kousil/Documents/IncidentLens/benchmarks/results/20261011-candidate3-query3-probe/sustained-8000-r1-baseline/measurement/harness",
+            "query_concurrency": 4,
+            "query_mix": "services,traces,detail,incidents",
+            "query_requests_per_second": 4,
+            "rate_spans_per_second": 8000,
+            "scenario": "sustained-8000",
+            "seed": "969e49a5071343d2af7938719f5c0d9b",
+            "serialized_full_batch_bytes": 82014,
+            "services": [
+              "bench-frontend",
+              "bench-api",
+              "bench-store"
+            ],
+            "settle_ns": 35000000000,
+            "setup_lag_file": "/Users/kousil/Documents/IncidentLens/benchmarks/results/20261011-candidate3-query3-probe/sustained-8000-r1-baseline/lag.jsonl",
+            "setup_spans": 768,
+            "span_kinds_per_trace": {
+              "CLIENT": 2,
+              "INTERNAL": 1,
+              "SERVER": 3
+            },
+            "visibility_every_batches": 10,
+            "visibility_timeout_ns": 10000000000,
+            "warmup_ns": 10000000000
+          },
+          "drain_deadline_expired": false,
+          "driver": {
+            "generator_limited": true,
+            "logging_error": "",
+            "missed_deadline_batches": 37,
+            "schedule_dropped_batches": 1335
+          },
+          "error": "",
+          "event_counts": {
+            "batch_complete:measured": 5000,
+            "batch_complete:setup": 4,
+            "batch_complete:warmup": 417,
+            "enqueued:measured": 3667,
+            "enqueued:warmup": 415,
+            "export_attempt:measured": 3667,
+            "export_attempt:setup": 4,
+            "export_attempt:warmup": 415,
+            "generated:measured": 3667,
+            "generated:setup": 4,
+            "generated:warmup": 415,
+            "load_start:": 1,
+            "query:measured": 473,
+            "query:warmup": 40,
+            "query_drop:measured": 7,
+            "schedule_drop:measured": 1333,
+            "schedule_drop:warmup": 2,
+            "scheduled:measured": 5000,
+            "scheduled:warmup": 417,
+            "setup_offsets_ready:": 1,
+            "visibility:measured": 363,
+            "visibility:warmup": 42,
+            "visibility_probe:measured": 927,
+            "visibility_probe:warmup": 128
+          },
+          "latencies": {
+            "export_attempt:measured:": {
+              "count": 3667,
+              "max_ns": 1222124000,
+              "p50_ns": 487894000,
+              "p95_ns": 926559000,
+              "p99_ns": 1106557000
+            },
+            "export_attempt:measured::OK": {
+              "count": 3667,
+              "max_ns": 1222124000,
+              "p50_ns": 487894000,
+              "p95_ns": 926559000,
+              "p99_ns": 1106557000
+            },
+            "export_attempt:setup:": {
+              "count": 4,
+              "max_ns": 402306000,
+              "p50_ns": 33399000,
+              "p95_ns": 402306000,
+              "p99_ns": 402306000
+            },
+            "export_attempt:setup::OK": {
+              "count": 4,
+              "max_ns": 402306000,
+              "p50_ns": 33399000,
+              "p95_ns": 402306000,
+              "p99_ns": 402306000
+            },
+            "export_attempt:warmup:": {
+              "count": 415,
+              "max_ns": 903016000,
+              "p50_ns": 79403000,
+              "p95_ns": 765109000,
+              "p99_ns": 854563000
+            },
+            "export_attempt:warmup::OK": {
+              "count": 415,
+              "max_ns": 903016000,
+              "p50_ns": 79403000,
+              "p95_ns": 765109000,
+              "p99_ns": 854563000
+            },
+            "query:measured:detail": {
+              "count": 117,
+              "max_ns": 2700306000,
+              "p50_ns": 242119000,
+              "p95_ns": 1755754000,
+              "p99_ns": 2031594000
+            },
+            "query:measured:detail:4xx": {
+              "count": 95,
+              "max_ns": 2700306000,
+              "p50_ns": 365911000,
+              "p95_ns": 1813789000,
+              "p99_ns": 2700306000
+            },
+            "query:measured:detail:5xx": {
+              "count": 22,
+              "max_ns": 89440000,
+              "p50_ns": 6468000,
+              "p95_ns": 74784000,
+              "p99_ns": 89440000
+            },
+            "query:measured:incidents": {
+              "count": 119,
+              "max_ns": 5048942000,
+              "p50_ns": 1267361000,
+              "p95_ns": 4722510000,
+              "p99_ns": 5048806000
+            },
+            "query:measured:incidents:2xx": {
+              "count": 35,
+              "max_ns": 4839913000,
+              "p50_ns": 1899382000,
+              "p95_ns": 4452289000,
+              "p99_ns": 4839913000
+            },
+            "query:measured:incidents:5xx": {
+              "count": 84,
+              "max_ns": 5048942000,
+              "p50_ns": 1059750000,
+              "p95_ns": 4722510000,
+              "p99_ns": 5048942000
+            },
+            "query:measured:services": {
+              "count": 118,
+              "max_ns": 1347277000,
+              "p50_ns": 267756000,
+              "p95_ns": 1250093000,
+              "p99_ns": 1297899000
+            },
+            "query:measured:services:2xx": {
+              "count": 95,
+              "max_ns": 1347277000,
+              "p50_ns": 367257000,
+              "p95_ns": 1271013000,
+              "p99_ns": 1347277000
+            },
+            "query:measured:services:5xx": {
+              "count": 23,
+              "max_ns": 113894000,
+              "p50_ns": 4527000,
+              "p95_ns": 110881000,
+              "p99_ns": 113894000
+            },
+            "query:measured:traces": {
+              "count": 119,
+              "max_ns": 2103136000,
+              "p50_ns": 216664000,
+              "p95_ns": 1537076000,
+              "p99_ns": 1913041000
+            },
+            "query:measured:traces:2xx": {
+              "count": 79,
+              "max_ns": 2103136000,
+              "p50_ns": 447578000,
+              "p95_ns": 1810486000,
+              "p99_ns": 2103136000
+            },
+            "query:measured:traces:5xx": {
+              "count": 40,
+              "max_ns": 255406000,
+              "p50_ns": 16872000,
+              "p95_ns": 215705000,
+              "p99_ns": 255406000
+            },
+            "query:warmup:detail": {
+              "count": 10,
+              "max_ns": 1184144000,
+              "p50_ns": 84912000,
+              "p95_ns": 1184144000,
+              "p99_ns": 1184144000
+            },
+            "query:warmup:detail:4xx": {
+              "count": 9,
+              "max_ns": 1184144000,
+              "p50_ns": 84912000,
+              "p95_ns": 1184144000,
+              "p99_ns": 1184144000
+            },
+            "query:warmup:detail:5xx": {
+              "count": 1,
+              "max_ns": 2456000,
+              "p50_ns": 2456000,
+              "p95_ns": 2456000,
+              "p99_ns": 2456000
+            },
+            "query:warmup:incidents": {
+              "count": 10,
+              "max_ns": 1355814000,
+              "p50_ns": 450743000,
+              "p95_ns": 1355814000,
+              "p99_ns": 1355814000
+            },
+            "query:warmup:incidents:2xx": {
+              "count": 10,
+              "max_ns": 1355814000,
+              "p50_ns": 450743000,
+              "p95_ns": 1355814000,
+              "p99_ns": 1355814000
+            },
+            "query:warmup:services": {
+              "count": 10,
+              "max_ns": 166893000,
+              "p50_ns": 75315000,
+              "p95_ns": 166893000,
+              "p99_ns": 166893000
+            },
+            "query:warmup:services:2xx": {
+              "count": 8,
+              "max_ns": 166893000,
+              "p50_ns": 92032000,
+              "p95_ns": 166893000,
+              "p99_ns": 166893000
+            },
+            "query:warmup:services:5xx": {
+              "count": 2,
+              "max_ns": 7545000,
+              "p50_ns": 7545000,
+              "p95_ns": 7545000,
+              "p99_ns": 7545000
+            },
+            "query:warmup:traces": {
+              "count": 10,
+              "max_ns": 603742000,
+              "p50_ns": 65084000,
+              "p95_ns": 603742000,
+              "p99_ns": 603742000
+            },
+            "query:warmup:traces:2xx": {
+              "count": 10,
+              "max_ns": 603742000,
+              "p50_ns": 65084000,
+              "p95_ns": 603742000,
+              "p99_ns": 603742000
+            },
+            "schedule_delay:measured": {
+              "count": 3667,
+              "max_ns": 4080107000,
+              "p50_ns": 1832906000,
+              "p95_ns": 3431591000,
+              "p99_ns": 3850599000
+            },
+            "schedule_delay:setup": {
+              "count": 4,
+              "max_ns": 760000,
+              "p50_ns": 558000,
+              "p95_ns": 760000,
+              "p99_ns": 760000
+            },
+            "schedule_delay:warmup": {
+              "count": 415,
+              "max_ns": 975278000,
+              "p50_ns": 1063000,
+              "p95_ns": 900523000,
+              "p99_ns": 941603000
+            }
+          },
+          "load_start": "2026-10-11T16:05:49.426814Z",
+          "measured": {
+            "ack_latency": {
+              "count": 3667,
+              "max_ns": 1222124000,
+              "p50_ns": 487894000,
+              "p95_ns": 926559000,
+              "p99_ns": 1106557000
+            },
+            "acked_spans": 703998,
+            "acked_spans_per_second": 5740.8,
+            "acked_spans_within_measurement_window": 688896,
+            "emitted_spans": 703998,
+            "enqueued_spans": 703998,
+            "exported_batches": 3667,
+            "generated_spans": 703998,
+            "offered_spans": 959934,
+            "planned_spans": 959934,
+            "rejected_spans": 0,
+            "retried_batches": 0,
+            "schedule_to_ack_latency": {
+              "count": 3667,
+              "max_ns": 4833777000,
+              "p50_ns": 2313352000,
+              "p95_ns": 4201562000,
+              "p99_ns": 4617742000
+            },
+            "terminal_error_fraction": 0,
+            "terminal_failed_batches": 0,
+            "unique_ack_fraction": 0.7176493383920145
+          },
+          "measurement_end": "2026-10-11T16:07:59.426814Z",
+          "measurement_start": "2026-10-11T16:05:59.426814Z",
+          "offering_finished": "2026-10-11T16:07:59.426963Z",
+          "raw_event_bytes": 8343513,
+          "reconciliation": {
+            "acked_missing": 299134,
+            "acked_spans": 784446,
+            "duplicate_logical_identities": 0,
+            "emitted_missing": 299134,
+            "emitted_spans": 784446,
+            "expected_stored": 485312,
+            "final_unique_spans": 485312,
+            "ledger": "reconciliation.jsonl",
+            "never_acked_stored": 0,
+            "physical_duplicates_remaining": 0,
+            "planned_missing": 555454,
+            "planned_spans": 1040766,
+            "raw_rows": 485184,
+            "settled": true,
+            "snapshot_verified": true,
+            "unknown": 0,
+            "verified": true
+          },
+          "run_end": "2026-10-11T16:08:47.718307Z",
+          "schema_version": 1,
+          "setup": {
+            "ack_latency": {
+              "count": 4,
+              "max_ns": 402306000,
+              "p50_ns": 33399000,
+              "p95_ns": 402306000,
+              "p99_ns": 402306000
+            },
+            "acked_spans": 768,
+            "acked_spans_per_second": 0,
+            "acked_spans_within_measurement_window": 0,
+            "emitted_spans": 768,
+            "enqueued_spans": 768,
+            "exported_batches": 4,
+            "generated_spans": 768,
+            "offered_spans": 768,
+            "planned_spans": 768,
+            "rejected_spans": 0,
+            "retried_batches": 0,
+            "schedule_to_ack_latency": {
+              "count": 4,
+              "max_ns": 403066000,
+              "p50_ns": 33874000,
+              "p95_ns": 403066000,
+              "p99_ns": 403066000
+            },
+            "terminal_error_fraction": 0,
+            "terminal_failed_batches": 0,
+            "unique_ack_fraction": 0
+          },
+          "status_counts": {
+            "export_attempt:measured::OK": 3667,
+            "export_attempt:setup::OK": 4,
+            "export_attempt:warmup::OK": 415,
+            "query:measured:detail:404": 95,
+            "query:measured:detail:503": 22,
+            "query:measured:incidents:200": 35,
+            "query:measured:incidents:503": 81,
+            "query:measured:incidents:504": 3,
+            "query:measured:services:200": 95,
+            "query:measured:services:503": 23,
+            "query:measured:traces:200": 79,
+            "query:measured:traces:503": 40,
+            "query:warmup:detail:404": 9,
+            "query:warmup:detail:503": 1,
+            "query:warmup:incidents:200": 10,
+            "query:warmup:services:200": 8,
+            "query:warmup:services:503": 2,
+            "query:warmup:traces:200": 10
+          },
+          "visibility": {
+            "censored": 385,
+            "first_send_to_observation": {
+              "count": 0,
+              "max_ns": 0,
+              "p50_ns": 0,
+              "p95_ns": 0,
+              "p99_ns": 0
+            },
+            "method": "sampled expected six-span trace observation; polling upper bounds, not exact storage arrival",
+            "observed_measured": 0,
+            "poll_interval_ns": 200000000
+          },
+          "warmup": {
+            "ack_latency": {
+              "count": 415,
+              "max_ns": 903016000,
+              "p50_ns": 79403000,
+              "p95_ns": 765109000,
+              "p99_ns": 854563000
+            },
+            "acked_spans": 79680,
+            "acked_spans_per_second": 979.2,
+            "acked_spans_within_measurement_window": 9792,
+            "emitted_spans": 79680,
+            "enqueued_spans": 79680,
+            "exported_batches": 415,
+            "generated_spans": 79680,
+            "offered_spans": 80064,
+            "planned_spans": 80064,
+            "rejected_spans": 0,
+            "retried_batches": 0,
+            "schedule_to_ack_latency": {
+              "count": 415,
+              "max_ns": 1580478000,
+              "p50_ns": 79976000,
+              "p95_ns": 1326460000,
+              "p99_ns": 1508046000
+            },
+            "terminal_error_fraction": 0,
+            "terminal_failed_batches": 0,
+            "unique_ack_fraction": 0.1223021582733813
+          }
+        },
+        "supplemental_drain": {
+          "bound_seconds": 120,
+          "complete": true,
+          "ended_at": "2026-10-11T16:09:44.858087Z",
+          "meaning": "supplemental post-run observation; original deadline result remains unchanged",
+          "observations": [
+            {
+              "acked_missing": 235326,
+              "at": "2026-10-11T16:08:58.117540Z",
+              "duplicate_logical_identities": 0,
+              "elapsed_seconds": 0.0002060489999848869,
+              "emitted_missing": 235326,
+              "expected_stored": 549120,
+              "planned_missing": 491646,
+              "snapshot_verified": true,
+              "unknown": 0
+            },
+            {
+              "acked_missing": 187710,
+              "at": "2026-10-11T16:09:06.605714Z",
+              "duplicate_logical_identities": 0,
+              "elapsed_seconds": 8.488496972000007,
+              "emitted_missing": 187710,
+              "expected_stored": 596736,
+              "planned_missing": 444030,
+              "snapshot_verified": true,
+              "unknown": 0
+            },
+            {
+              "acked_missing": 140670,
+              "at": "2026-10-11T16:09:14.592505Z",
+              "duplicate_logical_identities": 0,
+              "elapsed_seconds": 16.475373450000006,
+              "emitted_missing": 140670,
+              "expected_stored": 643776,
+              "planned_missing": 396990,
+              "snapshot_verified": true,
+              "unknown": 0
+            },
+            {
+              "acked_missing": 91326,
+              "at": "2026-10-11T16:09:23.019981Z",
+              "duplicate_logical_identities": 0,
+              "elapsed_seconds": 24.902946145999977,
+              "emitted_missing": 91326,
+              "expected_stored": 693120,
+              "planned_missing": 347646,
+              "snapshot_verified": true,
+              "unknown": 0
+            },
+            {
+              "acked_missing": 39870,
+              "at": "2026-10-11T16:09:31.826781Z",
+              "duplicate_logical_identities": 0,
+              "elapsed_seconds": 33.70985588299999,
+              "emitted_missing": 39870,
+              "expected_stored": 744576,
+              "planned_missing": 296190,
+              "snapshot_verified": true,
+              "unknown": 0
+            },
+            {
+              "acked_missing": 0,
+              "at": "2026-10-11T16:09:40.684356Z",
+              "duplicate_logical_identities": 0,
+              "elapsed_seconds": 42.56751956699998,
+              "emitted_missing": 0,
+              "expected_stored": 784446,
+              "planned_missing": 256320,
+              "snapshot_verified": true,
+              "unknown": 0
+            }
+          ],
+          "original_summary": "/Users/kousil/Documents/IncidentLens/benchmarks/results/20261011-candidate3-query3-probe/sustained-8000-r1-baseline/measurement/harness/summary.json",
+          "started_at": "2026-10-11T16:08:58.117351Z"
+        }
+      },
+      "retained_volumes": {
+        "after": [
+          "incidentlens-retro-6774f303-0_clickhouse-data",
+          "incidentlens-retro-6774f303-0_kafka-data"
+        ],
+        "before": [
+          "incidentlens-retro-6774f303-0_clickhouse-data",
+          "incidentlens-retro-6774f303-0_kafka-data"
+        ]
+      },
+      "stage": {
+        "name": "sustained-8000",
+        "timeout_seconds": 480,
+        "workload": {
+          "attempts": 3,
+          "attribute-bytes": 256,
+          "baseline-traces": 128,
+          "batch-traces": 32,
+          "concurrency": 16,
+          "drain": "120s",
+          "duration": "120s",
+          "export-timeout": "8s",
+          "max-event-bytes": 268435456,
+          "query-concurrency": 4,
+          "query-mix": "services,traces,detail,incidents",
+          "query-rate": 4,
+          "queue": 64,
+          "rate": 8000,
+          "settle": "35s",
+          "setup-lag-file": "/Users/kousil/Documents/IncidentLens/benchmarks/results/20261011-candidate3-query3-probe/sustained-8000-r1-baseline/lag.jsonl",
+          "visibility-every": 10,
+          "visibility-timeout": "10s",
+          "warmup": "10s"
+        }
+      },
+      "status": "completed",
+      "variant": "baseline"
+    },
+    {
+      "label": "sustained-8000-r1-candidate",
+      "lag_pid": 25967,
+      "path": "streaming",
+      "project": "incidentlens-retro-6774f303-1",
+      "repetition": 1,
+      "result": {
+        "command": [
+          "/Users/kousil/Library/Caches/IncidentLens/bin/bench-query-diagnostics",
+          "--output-dir",
+          "/Users/kousil/Documents/IncidentLens/benchmarks/results/20261011-candidate3-query3-probe/sustained-8000-r1-candidate/measurement/harness",
+          "--seed",
+          "763be85e0fbc481e93df7982b2e8a090",
+          "--scenario",
+          "sustained-8000",
+          "--attempts",
+          "3",
+          "--attribute-bytes",
+          "256",
+          "--baseline-traces",
+          "128",
+          "--batch-traces",
+          "32",
+          "--concurrency",
+          "16",
+          "--drain",
+          "120s",
+          "--duration",
+          "120s",
+          "--export-timeout",
+          "8s",
+          "--max-event-bytes",
+          "268435456",
+          "--query-concurrency",
+          "4",
+          "--query-mix",
+          "services,traces,detail,incidents",
+          "--query-rate",
+          "4",
+          "--queue",
+          "64",
+          "--rate",
+          "8000",
+          "--settle",
+          "35s",
+          "--setup-lag-file",
+          "/Users/kousil/Documents/IncidentLens/benchmarks/results/20261011-candidate3-query3-probe/sustained-8000-r1-candidate/lag.jsonl",
+          "--visibility-every",
+          "10",
+          "--visibility-timeout",
+          "10s",
+          "--warmup",
+          "10s"
+        ],
+        "elapsed_seconds": 181.31626316400002,
+        "ended_at": "2026-10-11T16:13:48.741716Z",
+        "harness_terminal": true,
+        "name": "sustained-8000",
+        "pid": 26010,
+        "returncode": 0,
+        "seed": "763be85e0fbc481e93df7982b2e8a090",
+        "started_at": "2026-10-11T16:10:37.999216Z",
+        "status": "completed",
+        "summary": {
+          "config": {
+            "api": "http://127.0.0.1:18081",
+            "attribute_payload_bytes": 256,
+            "baseline_traces": 128,
+            "batch_traces": 32,
+            "clickhouse": "127.0.0.1:19000",
+            "clickhouse_user": "query",
+            "collector": "127.0.0.1:4317",
+            "drain_ns": 120000000000,
+            "duration_ns": 120000000000,
+            "estimated_event_bytes_upper_bound": 121454416,
+            "export_concurrency": 16,
+            "export_queue": 64,
+            "export_timeout_ns": 8000000000,
+            "load_spans": 1039998,
+            "load_traces": 173333,
+            "max_attempts": 3,
+            "max_event_bytes": 268435456,
+            "namespace": "bench-9584c6ebf2f7",
+            "output_dir": "/Users/kousil/Documents/IncidentLens/benchmarks/results/20261011-candidate3-query3-probe/sustained-8000-r1-candidate/measurement/harness",
+            "query_concurrency": 4,
+            "query_mix": "services,traces,detail,incidents",
+            "query_requests_per_second": 4,
+            "rate_spans_per_second": 8000,
+            "scenario": "sustained-8000",
+            "seed": "763be85e0fbc481e93df7982b2e8a090",
+            "serialized_full_batch_bytes": 82014,
+            "services": [
+              "bench-frontend",
+              "bench-api",
+              "bench-store"
+            ],
+            "settle_ns": 35000000000,
+            "setup_lag_file": "/Users/kousil/Documents/IncidentLens/benchmarks/results/20261011-candidate3-query3-probe/sustained-8000-r1-candidate/lag.jsonl",
+            "setup_spans": 768,
+            "span_kinds_per_trace": {
+              "CLIENT": 2,
+              "INTERNAL": 1,
+              "SERVER": 3
+            },
+            "visibility_every_batches": 10,
+            "visibility_timeout_ns": 10000000000,
+            "warmup_ns": 10000000000
+          },
+          "drain_deadline_expired": false,
+          "driver": {
+            "generator_limited": false,
+            "logging_error": "",
+            "missed_deadline_batches": 0,
+            "schedule_dropped_batches": 0
+          },
+          "error": "",
+          "event_counts": {
+            "batch_complete:measured": 5000,
+            "batch_complete:setup": 4,
+            "batch_complete:warmup": 417,
+            "enqueued:measured": 5000,
+            "enqueued:warmup": 417,
+            "export_attempt:measured": 5000,
+            "export_attempt:setup": 4,
+            "export_attempt:warmup": 417,
+            "generated:measured": 5000,
+            "generated:setup": 4,
+            "generated:warmup": 417,
+            "load_start:": 1,
+            "query:measured": 431,
+            "query:warmup": 40,
+            "query_drop:measured": 49,
+            "scheduled:measured": 5000,
+            "scheduled:warmup": 417,
+            "setup_offsets_ready:": 1,
+            "visibility:measured": 500,
+            "visibility:warmup": 42,
+            "visibility_probe:measured": 1364,
+            "visibility_probe:warmup": 111
+          },
+          "latencies": {
+            "export_attempt:measured:": {
+              "count": 5000,
+              "max_ns": 587744000,
+              "p50_ns": 29743000,
+              "p95_ns": 325465000,
+              "p99_ns": 444878000
+            },
+            "export_attempt:measured::OK": {
+              "count": 5000,
+              "max_ns": 587744000,
+              "p50_ns": 29743000,
+              "p95_ns": 325465000,
+              "p99_ns": 444878000
+            },
+            "export_attempt:setup:": {
+              "count": 4,
+              "max_ns": 403835000,
+              "p50_ns": 43297000,
+              "p95_ns": 403835000,
+              "p99_ns": 403835000
+            },
+            "export_attempt:setup::OK": {
+              "count": 4,
+              "max_ns": 403835000,
+              "p50_ns": 43297000,
+              "p95_ns": 403835000,
+              "p99_ns": 403835000
+            },
+            "export_attempt:warmup:": {
+              "count": 417,
+              "max_ns": 332673000,
+              "p50_ns": 26306000,
+              "p95_ns": 178497000,
+              "p99_ns": 244609000
+            },
+            "export_attempt:warmup::OK": {
+              "count": 417,
+              "max_ns": 332673000,
+              "p50_ns": 26306000,
+              "p95_ns": 178497000,
+              "p99_ns": 244609000
+            },
+            "query:measured:detail": {
+              "count": 108,
+              "max_ns": 495621000,
+              "p50_ns": 73939000,
+              "p95_ns": 390790000,
+              "p99_ns": 494120000
+            },
+            "query:measured:detail:4xx": {
+              "count": 96,
+              "max_ns": 495621000,
+              "p50_ns": 92746000,
+              "p95_ns": 393144000,
+              "p99_ns": 495621000
+            },
+            "query:measured:detail:5xx": {
+              "count": 12,
+              "max_ns": 9541000,
+              "p50_ns": 2650000,
+              "p95_ns": 9541000,
+              "p99_ns": 9541000
+            },
+            "query:measured:incidents": {
+              "count": 105,
+              "max_ns": 4498240000,
+              "p50_ns": 628600000,
+              "p95_ns": 3890754000,
+              "p99_ns": 3993112000
+            },
+            "query:measured:incidents:2xx": {
+              "count": 98,
+              "max_ns": 4498240000,
+              "p50_ns": 735379000,
+              "p95_ns": 3903831000,
+              "p99_ns": 4498240000
+            },
+            "query:measured:incidents:5xx": {
+              "count": 7,
+              "max_ns": 15371000,
+              "p50_ns": 1625000,
+              "p95_ns": 15371000,
+              "p99_ns": 15371000
+            },
+            "query:measured:services": {
+              "count": 107,
+              "max_ns": 1503276000,
+              "p50_ns": 197369000,
+              "p95_ns": 1301463000,
+              "p99_ns": 1407650000
+            },
+            "query:measured:services:2xx": {
+              "count": 95,
+              "max_ns": 1503276000,
+              "p50_ns": 276109000,
+              "p95_ns": 1391987000,
+              "p99_ns": 1503276000
+            },
+            "query:measured:services:5xx": {
+              "count": 12,
+              "max_ns": 18237000,
+              "p50_ns": 3719000,
+              "p95_ns": 18237000,
+              "p99_ns": 18237000
+            },
+            "query:measured:traces": {
+              "count": 111,
+              "max_ns": 2587617000,
+              "p50_ns": 238237000,
+              "p95_ns": 2303638000,
+              "p99_ns": 2492605000
+            },
+            "query:measured:traces:2xx": {
+              "count": 93,
+              "max_ns": 2587617000,
+              "p50_ns": 353768000,
+              "p95_ns": 2303696000,
+              "p99_ns": 2587617000
+            },
+            "query:measured:traces:5xx": {
+              "count": 18,
+              "max_ns": 8543000,
+              "p50_ns": 2569000,
+              "p95_ns": 8543000,
+              "p99_ns": 8543000
+            },
+            "query:warmup:detail": {
+              "count": 10,
+              "max_ns": 26716000,
+              "p50_ns": 21102000,
+              "p95_ns": 26716000,
+              "p99_ns": 26716000
+            },
+            "query:warmup:detail:4xx": {
+              "count": 10,
+              "max_ns": 26716000,
+              "p50_ns": 21102000,
+              "p95_ns": 26716000,
+              "p99_ns": 26716000
+            },
+            "query:warmup:incidents": {
+              "count": 10,
+              "max_ns": 185741000,
+              "p50_ns": 107408000,
+              "p95_ns": 185741000,
+              "p99_ns": 185741000
+            },
+            "query:warmup:incidents:2xx": {
+              "count": 10,
+              "max_ns": 185741000,
+              "p50_ns": 107408000,
+              "p95_ns": 185741000,
+              "p99_ns": 185741000
+            },
+            "query:warmup:services": {
+              "count": 10,
+              "max_ns": 47856000,
+              "p50_ns": 26430000,
+              "p95_ns": 47856000,
+              "p99_ns": 47856000
+            },
+            "query:warmup:services:2xx": {
+              "count": 10,
+              "max_ns": 47856000,
+              "p50_ns": 26430000,
+              "p95_ns": 47856000,
+              "p99_ns": 47856000
+            },
+            "query:warmup:traces": {
+              "count": 10,
+              "max_ns": 51600000,
+              "p50_ns": 31055000,
+              "p95_ns": 51600000,
+              "p99_ns": 51600000
+            },
+            "query:warmup:traces:2xx": {
+              "count": 10,
+              "max_ns": 51600000,
+              "p50_ns": 31055000,
+              "p95_ns": 51600000,
+              "p99_ns": 51600000
+            },
+            "schedule_delay:measured": {
+              "count": 5000,
+              "max_ns": 249178000,
+              "p50_ns": 743000,
+              "p95_ns": 2212000,
+              "p99_ns": 158655000
+            },
+            "schedule_delay:setup": {
+              "count": 4,
+              "max_ns": 796000,
+              "p50_ns": 617000,
+              "p95_ns": 796000,
+              "p99_ns": 796000
+            },
+            "schedule_delay:warmup": {
+              "count": 417,
+              "max_ns": 2458000,
+              "p50_ns": 628000,
+              "p95_ns": 1357000,
+              "p99_ns": 1765000
+            }
+          },
+          "load_start": "2026-10-11T16:10:50.076707Z",
+          "measured": {
+            "ack_latency": {
+              "count": 5000,
+              "max_ns": 587744000,
+              "p50_ns": 29743000,
+              "p95_ns": 325465000,
+              "p99_ns": 444878000
+            },
+            "acked_spans": 959934,
+            "acked_spans_per_second": 7979.2,
+            "acked_spans_within_measurement_window": 957504,
+            "emitted_spans": 959934,
+            "enqueued_spans": 959934,
+            "exported_batches": 5000,
+            "generated_spans": 959934,
+            "offered_spans": 959934,
+            "planned_spans": 959934,
+            "rejected_spans": 0,
+            "retried_batches": 0,
+            "schedule_to_ack_latency": {
+              "count": 5000,
+              "max_ns": 632465000,
+              "p50_ns": 30599000,
+              "p95_ns": 365790000,
+              "p99_ns": 541808000
+            },
+            "terminal_error_fraction": 0,
+            "terminal_failed_batches": 0,
+            "unique_ack_fraction": 0.9974685759645976
+          },
+          "measurement_end": "2026-10-11T16:13:00.076707Z",
+          "measurement_start": "2026-10-11T16:11:00.076707Z",
+          "offering_finished": "2026-10-11T16:13:00.07696Z",
+          "raw_event_bytes": 9450136,
+          "reconciliation": {
+            "acked_missing": 0,
+            "acked_spans": 1040766,
+            "duplicate_logical_identities": 0,
+            "emitted_missing": 0,
+            "emitted_spans": 1040766,
+            "expected_stored": 1040766,
+            "final_unique_spans": 1040766,
+            "ledger": "reconciliation.jsonl",
+            "never_acked_stored": 0,
+            "physical_duplicates_remaining": 0,
+            "planned_missing": 0,
+            "planned_spans": 1040766,
+            "raw_rows": 1040766,
+            "settled": true,
+            "snapshot_verified": true,
+            "unknown": 0,
+            "verified": true
+          },
+          "run_end": "2026-10-11T16:13:46.786235Z",
+          "schema_version": 1,
+          "setup": {
+            "ack_latency": {
+              "count": 4,
+              "max_ns": 403835000,
+              "p50_ns": 43297000,
+              "p95_ns": 403835000,
+              "p99_ns": 403835000
+            },
+            "acked_spans": 768,
+            "acked_spans_per_second": 0,
+            "acked_spans_within_measurement_window": 0,
+            "emitted_spans": 768,
+            "enqueued_spans": 768,
+            "exported_batches": 4,
+            "generated_spans": 768,
+            "offered_spans": 768,
+            "planned_spans": 768,
+            "rejected_spans": 0,
+            "retried_batches": 0,
+            "schedule_to_ack_latency": {
+              "count": 4,
+              "max_ns": 404631000,
+              "p50_ns": 43763000,
+              "p95_ns": 404631000,
+              "p99_ns": 404631000
+            },
+            "terminal_error_fraction": 0,
+            "terminal_failed_batches": 0,
+            "unique_ack_fraction": 0
+          },
+          "status_counts": {
+            "export_attempt:measured::OK": 5000,
+            "export_attempt:setup::OK": 4,
+            "export_attempt:warmup::OK": 417,
+            "query:measured:detail:404": 96,
+            "query:measured:detail:503": 12,
+            "query:measured:incidents:200": 98,
+            "query:measured:incidents:503": 7,
+            "query:measured:services:200": 95,
+            "query:measured:services:503": 12,
+            "query:measured:traces:200": 93,
+            "query:measured:traces:503": 18,
+            "query:warmup:detail:404": 10,
+            "query:warmup:incidents:200": 10,
+            "query:warmup:services:200": 10,
+            "query:warmup:traces:200": 10
+          },
+          "visibility": {
+            "censored": 218,
+            "first_send_to_observation": {
+              "count": 282,
+              "max_ns": 9946254000,
+              "p50_ns": 1072451000,
+              "p95_ns": 3583565000,
+              "p99_ns": 9831094000
+            },
+            "method": "sampled expected six-span trace observation; polling upper bounds, not exact storage arrival",
+            "observed_measured": 282,
+            "poll_interval_ns": 200000000
+          },
+          "warmup": {
+            "ack_latency": {
+              "count": 417,
+              "max_ns": 332673000,
+              "p50_ns": 26306000,
+              "p95_ns": 178497000,
+              "p99_ns": 244609000
+            },
+            "acked_spans": 80064,
+            "acked_spans_per_second": 153.6,
+            "acked_spans_within_measurement_window": 1536,
+            "emitted_spans": 80064,
+            "enqueued_spans": 80064,
+            "exported_batches": 417,
+            "generated_spans": 80064,
+            "offered_spans": 80064,
+            "planned_spans": 80064,
+            "rejected_spans": 0,
+            "retried_batches": 0,
+            "schedule_to_ack_latency": {
+              "count": 417,
+              "max_ns": 333341000,
+              "p50_ns": 27147000,
+              "p95_ns": 179422000,
+              "p99_ns": 245256000
+            },
+            "terminal_error_fraction": 0,
+            "terminal_failed_batches": 0,
+            "unique_ack_fraction": 0.019184652278177457
+          }
+        }
+      },
+      "retained_volumes": {
+        "after": [
+          "incidentlens-retro-6774f303-1_clickhouse-data",
+          "incidentlens-retro-6774f303-1_kafka-data"
+        ],
+        "before": [
+          "incidentlens-retro-6774f303-1_clickhouse-data",
+          "incidentlens-retro-6774f303-1_kafka-data"
+        ]
+      },
+      "stage": {
+        "name": "sustained-8000",
+        "timeout_seconds": 480,
+        "workload": {
+          "attempts": 3,
+          "attribute-bytes": 256,
+          "baseline-traces": 128,
+          "batch-traces": 32,
+          "concurrency": 16,
+          "drain": "120s",
+          "duration": "120s",
+          "export-timeout": "8s",
+          "max-event-bytes": 268435456,
+          "query-concurrency": 4,
+          "query-mix": "services,traces,detail,incidents",
+          "query-rate": 4,
+          "queue": 64,
+          "rate": 8000,
+          "settle": "35s",
+          "setup-lag-file": "/Users/kousil/Documents/IncidentLens/benchmarks/results/20261011-candidate3-query3-probe/sustained-8000-r1-candidate/lag.jsonl",
+          "visibility-every": 10,
+          "visibility-timeout": "10s",
+          "warmup": "10s"
+        }
+      },
+      "status": "completed",
+      "variant": "candidate"
+    }
+  ],
+  "commands": [
+    {
+      "at": "2026-10-11T16:04:40.936198Z",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+        "stop",
+        "collector",
+        "ingest",
+        "api",
+        "clickhouse"
+      ],
+      "elapsed_seconds": 4.230199197,
+      "returncode": 0,
+      "stderr": " Container incidentlens-collector-1 Stopping \n Container incidentlens-api-1 Stopping \n Container incidentlens-collector-1 Stopped \n Container incidentlens-ingest-1 Stopping \n Container incidentlens-api-1 Stopped \n Container incidentlens-ingest-1 Stopped \n Container incidentlens-clickhouse-1 Stopping \n Container incidentlens-clickhouse-1 Stopped \n",
+      "stdout": ""
+    },
+    {
+      "at": "2026-10-11T16:04:45.174901Z",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+        "-p",
+        "incidentlens-retro-6774f303-0",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/streaming/compose.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/benchmark/streaming.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/benchmark/hardening-baseline.yaml",
+        "up",
+        "-d",
+        "--no-build"
+      ],
+      "elapsed_seconds": 37.185735034,
+      "returncode": 0,
+      "stderr": " Volume incidentlens-retro-6774f303-0_clickhouse-data Creating \n Volume incidentlens-retro-6774f303-0_clickhouse-data Creating \n Volume incidentlens-retro-6774f303-0_kafka-data Creating \n Volume incidentlens-retro-6774f303-0_kafka-data Creating \n Network incidentlens-retro-6774f303-0-telemetry Creating \n Network incidentlens-retro-6774f303-0-telemetry Creating \n Volume incidentlens-retro-6774f303-0_clickhouse-data Created \n Volume incidentlens-retro-6774f303-0_clickhouse-data Created \n Volume incidentlens-retro-6774f303-0_kafka-data Created \n Volume incidentlens-retro-6774f303-0_kafka-data Created \n Network incidentlens-retro-6774f303-0-telemetry Created \n Network incidentlens-retro-6774f303-0-telemetry Created \n Container incidentlens-retro-6774f303-0-clickhouse-1 Creating \n Container incidentlens-retro-6774f303-0-kafka-1 Creating \n Container incidentlens-retro-6774f303-0-kafka-1 Created \n Container incidentlens-retro-6774f303-0-kafka-topic-1 Creating \n Container incidentlens-retro-6774f303-0-clickhouse-1 Created \n Container incidentlens-retro-6774f303-0-migrate-1 Creating \n Container incidentlens-retro-6774f303-0-migrate-1 Created \n Container incidentlens-retro-6774f303-0-api-1 Creating \n Container incidentlens-retro-6774f303-0-kafka-topic-1 Created \n Container incidentlens-retro-6774f303-0-stream-worker-1 Creating \n Container incidentlens-retro-6774f303-0-stream-ingest-1 Creating \n Container incidentlens-retro-6774f303-0-api-1 Created \n Container incidentlens-retro-6774f303-0-stream-worker-1 Created \n Container incidentlens-retro-6774f303-0-stream-ingest-1 Created \n Container incidentlens-retro-6774f303-0-collector-1 Creating \n Container incidentlens-retro-6774f303-0-collector-1 Created \n Container incidentlens-retro-6774f303-0-clickhouse-1 Starting \n Container incidentlens-retro-6774f303-0-kafka-1 Starting \n Container incidentlens-retro-6774f303-0-clickhouse-1 Started \n Container incidentlens-retro-6774f303-0-clickhouse-1 Waiting \n Container incidentlens-retro-6774f303-0-kafka-1 Started \n Container incidentlens-retro-6774f303-0-kafka-1 Waiting \n Container incidentlens-retro-6774f303-0-clickhouse-1 Healthy \n Container incidentlens-retro-6774f303-0-migrate-1 Starting \n Container incidentlens-retro-6774f303-0-migrate-1 Started \n Container incidentlens-retro-6774f303-0-migrate-1 Waiting \n Container incidentlens-retro-6774f303-0-migrate-1 Exited \n Container incidentlens-retro-6774f303-0-api-1 Starting \n Container incidentlens-retro-6774f303-0-api-1 Started \n Container incidentlens-retro-6774f303-0-kafka-1 Healthy \n Container incidentlens-retro-6774f303-0-kafka-topic-1 Starting \n Container incidentlens-retro-6774f303-0-kafka-topic-1 Started \n Container incidentlens-retro-6774f303-0-kafka-topic-1 Waiting \n Container incidentlens-retro-6774f303-0-kafka-topic-1 Waiting \n Container incidentlens-retro-6774f303-0-migrate-1 Waiting \n Container incidentlens-retro-6774f303-0-migrate-1 Exited \n Container incidentlens-retro-6774f303-0-kafka-topic-1 Exited \n Container incidentlens-retro-6774f303-0-stream-worker-1 Starting \n Container incidentlens-retro-6774f303-0-kafka-topic-1 Exited \n Container incidentlens-retro-6774f303-0-stream-ingest-1 Starting \n Container incidentlens-retro-6774f303-0-stream-worker-1 Started \n Container incidentlens-retro-6774f303-0-stream-ingest-1 Started \n Container incidentlens-retro-6774f303-0-collector-1 Starting \n Container incidentlens-retro-6774f303-0-collector-1 Started \n",
+      "stdout": ""
+    },
+    {
+      "at": "2026-10-11T16:09:55.919596Z",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+        "-p",
+        "incidentlens-retro-6774f303-0",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/streaming/compose.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/benchmark/streaming.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/benchmark/hardening-baseline.yaml",
+        "stop",
+        "-t",
+        "15"
+      ],
+      "elapsed_seconds": 3.605879974000004,
+      "returncode": 0,
+      "stderr": " Container incidentlens-retro-6774f303-0-collector-1 Stopping \n Container incidentlens-retro-6774f303-0-stream-worker-1 Stopping \n Container incidentlens-retro-6774f303-0-api-1 Stopping \n Container incidentlens-retro-6774f303-0-api-1 Stopped \n Container incidentlens-retro-6774f303-0-collector-1 Stopped \n Container incidentlens-retro-6774f303-0-stream-ingest-1 Stopping \n Container incidentlens-retro-6774f303-0-stream-worker-1 Stopped \n Container incidentlens-retro-6774f303-0-migrate-1 Stopping \n Container incidentlens-retro-6774f303-0-migrate-1 Stopped \n Container incidentlens-retro-6774f303-0-clickhouse-1 Stopping \n Container incidentlens-retro-6774f303-0-stream-ingest-1 Stopped \n Container incidentlens-retro-6774f303-0-kafka-topic-1 Stopping \n Container incidentlens-retro-6774f303-0-kafka-topic-1 Stopped \n Container incidentlens-retro-6774f303-0-kafka-1 Stopping \n Container incidentlens-retro-6774f303-0-kafka-1 Stopped \n Container incidentlens-retro-6774f303-0-clickhouse-1 Stopped \n",
+      "stdout": ""
+    },
+    {
+      "at": "2026-10-11T16:09:59.594784Z",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+        "-p",
+        "incidentlens-retro-6774f303-0",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/streaming/compose.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/benchmark/streaming.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/benchmark/hardening-baseline.yaml",
+        "down",
+        "--timeout",
+        "15"
+      ],
+      "elapsed_seconds": 0.7614642870000239,
+      "returncode": 0,
+      "stderr": " Container incidentlens-retro-6774f303-0-collector-1 Stopping \n Container incidentlens-retro-6774f303-0-api-1 Stopping \n Container incidentlens-retro-6774f303-0-stream-worker-1 Stopping \n Container incidentlens-retro-6774f303-0-stream-worker-1 Stopped \n Container incidentlens-retro-6774f303-0-stream-worker-1 Removing \n Container incidentlens-retro-6774f303-0-api-1 Stopped \n Container incidentlens-retro-6774f303-0-api-1 Removing \n Container incidentlens-retro-6774f303-0-collector-1 Stopped \n Container incidentlens-retro-6774f303-0-collector-1 Removing \n Container incidentlens-retro-6774f303-0-stream-worker-1 Removed \n Container incidentlens-retro-6774f303-0-collector-1 Removed \n Container incidentlens-retro-6774f303-0-stream-ingest-1 Stopping \n Container incidentlens-retro-6774f303-0-stream-ingest-1 Stopped \n Container incidentlens-retro-6774f303-0-stream-ingest-1 Removing \n Container incidentlens-retro-6774f303-0-api-1 Removed \n Container incidentlens-retro-6774f303-0-migrate-1 Stopping \n Container incidentlens-retro-6774f303-0-migrate-1 Stopped \n Container incidentlens-retro-6774f303-0-migrate-1 Removing \n Container incidentlens-retro-6774f303-0-stream-ingest-1 Removed \n Container incidentlens-retro-6774f303-0-kafka-topic-1 Stopping \n Container incidentlens-retro-6774f303-0-kafka-topic-1 Stopped \n Container incidentlens-retro-6774f303-0-kafka-topic-1 Removing \n Container incidentlens-retro-6774f303-0-migrate-1 Removed \n Container incidentlens-retro-6774f303-0-clickhouse-1 Stopping \n Container incidentlens-retro-6774f303-0-clickhouse-1 Stopped \n Container incidentlens-retro-6774f303-0-clickhouse-1 Removing \n Container incidentlens-retro-6774f303-0-kafka-topic-1 Removed \n Container incidentlens-retro-6774f303-0-kafka-1 Stopping \n Container incidentlens-retro-6774f303-0-kafka-1 Stopped \n Container incidentlens-retro-6774f303-0-kafka-1 Removing \n Container incidentlens-retro-6774f303-0-clickhouse-1 Removed \n Container incidentlens-retro-6774f303-0-kafka-1 Removed \n Network incidentlens-retro-6774f303-0-telemetry Removing \n Network incidentlens-retro-6774f303-0-telemetry Removed \n",
+      "stdout": ""
+    },
+    {
+      "at": "2026-10-11T16:10:04.996548Z",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+        "-p",
+        "incidentlens-retro-6774f303-1",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/streaming/compose.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/benchmark/streaming.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/streaming/hardening.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/benchmark/hardening-candidate.yaml",
+        "up",
+        "-d",
+        "--no-build"
+      ],
+      "elapsed_seconds": 23.242085419999967,
+      "returncode": 0,
+      "stderr": " Network incidentlens-retro-6774f303-1-telemetry Creating \n Volume incidentlens-retro-6774f303-1_kafka-data Creating \n Volume incidentlens-retro-6774f303-1_kafka-data Creating \n Network incidentlens-retro-6774f303-1-telemetry Creating \n Volume incidentlens-retro-6774f303-1_clickhouse-data Creating \n Volume incidentlens-retro-6774f303-1_clickhouse-data Creating \n Volume incidentlens-retro-6774f303-1_clickhouse-data Created \n Volume incidentlens-retro-6774f303-1_clickhouse-data Created \n Volume incidentlens-retro-6774f303-1_kafka-data Created \n Volume incidentlens-retro-6774f303-1_kafka-data Created \n Network incidentlens-retro-6774f303-1-telemetry Created \n Network incidentlens-retro-6774f303-1-telemetry Created \n Container incidentlens-retro-6774f303-1-kafka-1 Creating \n Container incidentlens-retro-6774f303-1-clickhouse-1 Creating \n Container incidentlens-retro-6774f303-1-clickhouse-1 Created \n Container incidentlens-retro-6774f303-1-migrate-1 Creating \n Container incidentlens-retro-6774f303-1-kafka-1 Created \n Container incidentlens-retro-6774f303-1-kafka-topic-1 Creating \n Container incidentlens-retro-6774f303-1-migrate-1 Created \n Container incidentlens-retro-6774f303-1-api-1 Creating \n Container incidentlens-retro-6774f303-1-kafka-topic-1 Created \n Container incidentlens-retro-6774f303-1-stream-worker-1 Creating \n Container incidentlens-retro-6774f303-1-stream-ingest-1 Creating \n Container incidentlens-retro-6774f303-1-api-1 Created \n Container incidentlens-retro-6774f303-1-stream-ingest-1 Created \n Container incidentlens-retro-6774f303-1-collector-1 Creating \n Container incidentlens-retro-6774f303-1-stream-worker-1 Created \n Container incidentlens-retro-6774f303-1-collector-1 Created \n Container incidentlens-retro-6774f303-1-kafka-1 Starting \n Container incidentlens-retro-6774f303-1-clickhouse-1 Starting \n Container incidentlens-retro-6774f303-1-kafka-1 Started \n Container incidentlens-retro-6774f303-1-kafka-1 Waiting \n Container incidentlens-retro-6774f303-1-clickhouse-1 Started \n Container incidentlens-retro-6774f303-1-clickhouse-1 Waiting \n Container incidentlens-retro-6774f303-1-clickhouse-1 Healthy \n Container incidentlens-retro-6774f303-1-migrate-1 Starting \n Container incidentlens-retro-6774f303-1-migrate-1 Started \n Container incidentlens-retro-6774f303-1-migrate-1 Waiting \n Container incidentlens-retro-6774f303-1-migrate-1 Exited \n Container incidentlens-retro-6774f303-1-api-1 Starting \n Container incidentlens-retro-6774f303-1-api-1 Started \n Container incidentlens-retro-6774f303-1-kafka-1 Healthy \n Container incidentlens-retro-6774f303-1-kafka-topic-1 Starting \n Container incidentlens-retro-6774f303-1-kafka-topic-1 Started \n Container incidentlens-retro-6774f303-1-kafka-topic-1 Waiting \n Container incidentlens-retro-6774f303-1-migrate-1 Waiting \n Container incidentlens-retro-6774f303-1-kafka-topic-1 Waiting \n Container incidentlens-retro-6774f303-1-migrate-1 Exited \n Container incidentlens-retro-6774f303-1-kafka-topic-1 Exited \n Container incidentlens-retro-6774f303-1-stream-ingest-1 Starting \n Container incidentlens-retro-6774f303-1-kafka-topic-1 Exited \n Container incidentlens-retro-6774f303-1-stream-worker-1 Starting \n Container incidentlens-retro-6774f303-1-stream-ingest-1 Started \n Container incidentlens-retro-6774f303-1-collector-1 Starting \n Container incidentlens-retro-6774f303-1-stream-worker-1 Started \n Container incidentlens-retro-6774f303-1-collector-1 Started \n",
+      "stdout": ""
+    },
+    {
+      "at": "2026-10-11T16:13:59.788805Z",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+        "-p",
+        "incidentlens-retro-6774f303-1",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/streaming/compose.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/benchmark/streaming.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/streaming/hardening.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/benchmark/hardening-candidate.yaml",
+        "stop",
+        "-t",
+        "15"
+      ],
+      "elapsed_seconds": 4.991636146000019,
+      "returncode": 0,
+      "stderr": " Container incidentlens-retro-6774f303-1-collector-1 Stopping \n Container incidentlens-retro-6774f303-1-api-1 Stopping \n Container incidentlens-retro-6774f303-1-stream-worker-1 Stopping \n Container incidentlens-retro-6774f303-1-api-1 Stopped \n Container incidentlens-retro-6774f303-1-collector-1 Stopped \n Container incidentlens-retro-6774f303-1-stream-ingest-1 Stopping \n Container incidentlens-retro-6774f303-1-stream-worker-1 Stopped \n Container incidentlens-retro-6774f303-1-migrate-1 Stopping \n Container incidentlens-retro-6774f303-1-migrate-1 Stopped \n Container incidentlens-retro-6774f303-1-clickhouse-1 Stopping \n Container incidentlens-retro-6774f303-1-stream-ingest-1 Stopped \n Container incidentlens-retro-6774f303-1-kafka-topic-1 Stopping \n Container incidentlens-retro-6774f303-1-kafka-topic-1 Stopped \n Container incidentlens-retro-6774f303-1-kafka-1 Stopping \n Container incidentlens-retro-6774f303-1-kafka-1 Stopped \n Container incidentlens-retro-6774f303-1-clickhouse-1 Stopped \n",
+      "stdout": ""
+    },
+    {
+      "at": "2026-10-11T16:14:04.859851Z",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+        "-p",
+        "incidentlens-retro-6774f303-1",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/streaming/compose.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/benchmark/streaming.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/streaming/hardening.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/benchmark/hardening-candidate.yaml",
+        "down",
+        "--timeout",
+        "15"
+      ],
+      "elapsed_seconds": 0.5949605560000464,
+      "returncode": 0,
+      "stderr": " Container incidentlens-retro-6774f303-1-api-1 Stopping \n Container incidentlens-retro-6774f303-1-stream-worker-1 Stopping \n Container incidentlens-retro-6774f303-1-collector-1 Stopping \n Container incidentlens-retro-6774f303-1-api-1 Stopped \n Container incidentlens-retro-6774f303-1-api-1 Removing \n Container incidentlens-retro-6774f303-1-collector-1 Stopped \n Container incidentlens-retro-6774f303-1-collector-1 Removing \n Container incidentlens-retro-6774f303-1-stream-worker-1 Stopped \n Container incidentlens-retro-6774f303-1-stream-worker-1 Removing \n Container incidentlens-retro-6774f303-1-collector-1 Removed \n Container incidentlens-retro-6774f303-1-stream-ingest-1 Stopping \n Container incidentlens-retro-6774f303-1-stream-ingest-1 Stopped \n Container incidentlens-retro-6774f303-1-stream-ingest-1 Removing \n Container incidentlens-retro-6774f303-1-stream-worker-1 Removed \n Container incidentlens-retro-6774f303-1-api-1 Removed \n Container incidentlens-retro-6774f303-1-migrate-1 Stopping \n Container incidentlens-retro-6774f303-1-migrate-1 Stopped \n Container incidentlens-retro-6774f303-1-migrate-1 Removing \n Container incidentlens-retro-6774f303-1-stream-ingest-1 Removed \n Container incidentlens-retro-6774f303-1-kafka-topic-1 Stopping \n Container incidentlens-retro-6774f303-1-kafka-topic-1 Stopped \n Container incidentlens-retro-6774f303-1-kafka-topic-1 Removing \n Container incidentlens-retro-6774f303-1-migrate-1 Removed \n Container incidentlens-retro-6774f303-1-clickhouse-1 Stopping \n Container incidentlens-retro-6774f303-1-clickhouse-1 Stopped \n Container incidentlens-retro-6774f303-1-clickhouse-1 Removing \n Container incidentlens-retro-6774f303-1-kafka-topic-1 Removed \n Container incidentlens-retro-6774f303-1-kafka-1 Stopping \n Container incidentlens-retro-6774f303-1-kafka-1 Stopped \n Container incidentlens-retro-6774f303-1-kafka-1 Removing \n Container incidentlens-retro-6774f303-1-clickhouse-1 Removed \n Container incidentlens-retro-6774f303-1-kafka-1 Removed \n Network incidentlens-retro-6774f303-1-telemetry Removing \n Network incidentlens-retro-6774f303-1-telemetry Removed \n",
+      "stdout": ""
+    }
+  ],
+  "declaration_sha256": "91accabea9e21996eb5146c295735cb30871b5d5560c6df7706ce2d4c8669a21",
+  "ended_at": "2026-10-11T16:14:17.389464Z",
+  "images": {
+    "baseline": {
+      "api": {
+        "id": "sha256:557c5eef138ff6e6339a2539cc7226ca7417a1216352415f6a110adf75d01c48",
+        "reference": "incidentlens-phase5-baseline-api:20261003"
+      },
+      "stream-ingest": {
+        "id": "sha256:30e660bb7ce6d7813a946fc139512a91bf75d5b141533f0d4e68277d25aef4b6",
+        "reference": "incidentlens-phase5-baseline-producer:20261003"
+      },
+      "stream-worker": {
+        "id": "sha256:554a2583bab603277b344cdc322c19e2c45976e72560ea6b7b6ad0ad53478f30",
+        "reference": "incidentlens-phase5-baseline-worker:20261003"
+      }
+    },
+    "candidate": {
+      "api": {
+        "id": "sha256:e2c56ce75e80757f02d78357a6ba18020363c7fb23a249d7bd0b30f81901e1f2",
+        "reference": "incidentlens-hardening-api:candidate3-query3"
+      },
+      "stream-ingest": {
+        "id": "sha256:8e83a459513f56c3fc4221b29b148f4f05ce79510f9ea73b84ac34bde26098c9",
+        "reference": "incidentlens-hardening-producer:candidate3-query3"
+      },
+      "stream-worker": {
+        "id": "sha256:c2ce7cbd08d106118166a906fd6c5d5271823835e76bb1a3e2f20d58f6997f06",
+        "reference": "incidentlens-hardening-worker:candidate3-query3"
+      }
+    }
+  },
+  "lag_binary": {
+    "path": "/Users/kousil/Library/Caches/IncidentLens/bin/bench-lag",
+    "sha256": "659df221e8ea4d2118f215413cb8e87f9d34a0c487060d09273fca9300285f3d"
+  },
+  "probe_sustained": true,
+  "restore_direct": {
+    "at": "2026-10-11T16:14:09.626407Z",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+      "up",
+      "-d",
+      "ingest",
+      "api",
+      "collector"
+    ],
+    "elapsed_seconds": 7.692710904000023,
+    "returncode": 0,
+    "stderr": "time=\"2026-10-11T12:14:09-04:00\" level=warning msg=\"Found orphan containers (incidentlens-stream-worker-1, incidentlens-stream-ingest-1, incidentlens-kafka-topic-1, incidentlens-kafka-1) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up.\"\n Container incidentlens-clickhouse-1 Starting \n Container incidentlens-clickhouse-1 Started \n Container incidentlens-clickhouse-1 Waiting \n Container incidentlens-clickhouse-1 Healthy \n Container incidentlens-migrate-1 Starting \n Container incidentlens-migrate-1 Started \n Container incidentlens-migrate-1 Waiting \n Container incidentlens-migrate-1 Waiting \n Container incidentlens-migrate-1 Exited \n Container incidentlens-api-1 Starting \n Container incidentlens-migrate-1 Exited \n Container incidentlens-ingest-1 Starting \n Container incidentlens-api-1 Started \n Container incidentlens-ingest-1 Started \n Container incidentlens-collector-1 Starting \n Container incidentlens-collector-1 Started \n",
+    "stdout": ""
+  },
+  "smoke": false,
+  "source_manifest": {
+    "files": {
+      "api/INCIDENTS.md": {
+        "bytes": 7057,
+        "sha256": "df773db8c840e9bab307a3dbb2c4fe2c002686df34c7fe97a3cd8fd176e64b30"
+      },
+      "api/INGESTION_STATUS.md": {
+        "bytes": 2477,
+        "sha256": "1232cb4327bb2bcf870064fbb6b3bc3d86be40a9ede2a6ecec908749ed07c845"
+      },
+      "api/README.md": {
+        "bytes": 6140,
+        "sha256": "23bdb4260ff0fb9bf1af525ee2a44b1047ef09b70bf621129ca36b59999bff52"
+      },
+      "backend/cmd/api/main.go": {
+        "bytes": 1893,
+        "sha256": "e3e0c1bd273bee6a4f8ea74c87e6cff78cc1aca080815d6d97809224d87dc09d"
+      },
+      "backend/cmd/api/main_test.go": {
+        "bytes": 291,
+        "sha256": "0258de4c25d99ca7a4cd00e85baba97fc828f8c5f9bab5a66dda79df31b8cd75"
+      },
+      "backend/cmd/bench-lag/main.go": {
+        "bytes": 5594,
+        "sha256": "5de0163d0a103759b79909df5ca8b8cbff04c850ee58068f9f0bf5fcbf7baae7"
+      },
+      "backend/cmd/bench/bench_test.go": {
+        "bytes": 4480,
+        "sha256": "80a28645b57eb938c8e94a45237de354706040783fcb969228379cfe1d03c7b5"
+      },
+      "backend/cmd/bench/config.go": {
+        "bytes": 7648,
+        "sha256": "55917a64ceda8311cc8a374cfca827ee50cb53c9d048a47c6f94e6563fe14281"
+      },
+      "backend/cmd/bench/http.go": {
+        "bytes": 7989,
+        "sha256": "d3c2aad0f5f72dd9392abc35bc46fec6d001f18ca1067d443b419edbaf1731f6"
+      },
+      "backend/cmd/bench/http_test.go": {
+        "bytes": 558,
+        "sha256": "a562e34db476fdf708d62fac06f04ca808ea9acf3f9684cead3f9731a8601992"
+      },
+      "backend/cmd/bench/main.go": {
+        "bytes": 12467,
+        "sha256": "3c0ff9c5ef35cfa892941f25784913a1c695364b4b7ddf1a7ec4736d1880ccd4"
+      },
+      "backend/cmd/bench/reconcile.go": {
+        "bytes": 6386,
+        "sha256": "77ec54c0342cbe0c730ac57e005aa822f5e61c3ded79eee0bf90ffa1f08bd717"
+      },
+      "backend/cmd/bench/record.go": {
+        "bytes": 4467,
+        "sha256": "366c4dcff260976980bceae77f4719b72cf66a025e59d1f64514e5903b98d88d"
+      },
+      "backend/cmd/bench/setup_offsets.go": {
+        "bytes": 2493,
+        "sha256": "fd2801be7285ec8b2f1fe27386e860e6f3aa5043b46de23ab500729085da3c37"
+      },
+      "backend/cmd/bench/setup_offsets_test.go": {
+        "bytes": 2125,
+        "sha256": "791a76bcb7758234e22afbb1cacb528dff5fa30bd0e0294095b80ef9f58b0b47"
+      },
+      "backend/cmd/bench/summary.go": {
+        "bytes": 4502,
+        "sha256": "3070e29c4262a78c59a2aec43a4f52af3246bd59ae5d28afcae4d027bbef4327"
+      },
+      "backend/cmd/bench/workload.go": {
+        "bytes": 3350,
+        "sha256": "5ab8859cdf256f68192a24bb6a06afb5a5dc5ff419a27c4baad29befe618d144"
+      },
+      "backend/cmd/ingest/main.go": {
+        "bytes": 2620,
+        "sha256": "66c1b5a42b859bc76abbd71605a5318c1740c6586f19e199e9c4ba49740626ba"
+      },
+      "backend/cmd/stream-ingest/main.go": {
+        "bytes": 2571,
+        "sha256": "f9623d9591df80b72c775f6585e427b01a26ff6c673a599d253375c2057b71f2"
+      },
+      "backend/cmd/stream-worker/main.go": {
+        "bytes": 5130,
+        "sha256": "10846e69a2d0b2a00b67da31550e7014cc419c0aec8495f8cbdfdd4a34439dce"
+      },
+      "backend/cmd/stream-worker/main_test.go": {
+        "bytes": 1264,
+        "sha256": "c4c32f97b1ba978dfd1297491d187dc7e18166913d2fefbec6787420c63a1855"
+      },
+      "backend/go.mod": {
+        "bytes": 1320,
+        "sha256": "0d96655e0af480e1e00156828ec36041d754a66ffaa813e132ce8d79d47a8d1b"
+      },
+      "backend/go.sum": {
+        "bytes": 13855,
+        "sha256": "d92a42e66e7b7da61cb11b1be19e99f6da9d25e507d4e6f57fd2a06a81c753d7"
+      },
+      "backend/internal/benchobs/recorder.go": {
+        "bytes": 3576,
+        "sha256": "6e8121b8ff07aa700975f9dd270a271de5c5d79a43a80ef83049f18f205be7c0"
+      },
+      "backend/internal/benchobs/recorder_test.go": {
+        "bytes": 1890,
+        "sha256": "d31da275cc8c90efcba260774fdb98d947ea9aab89bc81b16e32353e3862d6ac"
+      },
+      "backend/internal/detector/detector.go": {
+        "bytes": 19609,
+        "sha256": "48d7942c6817549c029d0fea7cb43928ed73f3d276443fe4a3424213cb193068"
+      },
+      "backend/internal/detector/detector_test.go": {
+        "bytes": 17047,
+        "sha256": "6a0da28ca85371a73bc97df0dbcb2504c1d9db751f0ac4e8d7fb548ddfab7fbf"
+      },
+      "backend/internal/detector/incident_aggregate.go": {
+        "bytes": 7455,
+        "sha256": "a7c62c1ce9d9ce3768c49f0766d65508edbcfab6e017aa93be05174e40905509"
+      },
+      "backend/internal/detector/incident_aggregate_test.go": {
+        "bytes": 5959,
+        "sha256": "23b7b2897f02096c58934fbc156c76302eee0ac813bc35f89a4d68cc84ebd09c"
+      },
+      "backend/internal/httpapi/diagnostics.go": {
+        "bytes": 1915,
+        "sha256": "cbe6909a89c3621d3becdd94e15b00ce477c8a476781aed3f6f1102620069241"
+      },
+      "backend/internal/httpapi/diagnostics_test.go": {
+        "bytes": 3625,
+        "sha256": "3d13e80f2f21bcccc9ffa8fb17485cbf75efc9b4802c6dfd4ef070aef33c509a"
+      },
+      "backend/internal/httpapi/handler.go": {
+        "bytes": 7417,
+        "sha256": "7201621a56d93132bfeb2184602ac9e74e0187162b7f0ee96c3789f08ae9339c"
+      },
+      "backend/internal/httpapi/handler_test.go": {
+        "bytes": 4390,
+        "sha256": "245b7986deed018d76607fa1361bb08b4dc001898c501879d624e2530e533545"
+      },
+      "backend/internal/httpapi/incidents.go": {
+        "bytes": 2040,
+        "sha256": "b6a6e95439d3a39c01c7af062eac8d18d0cfbcd97281824e3a0ba6b7aca692e9"
+      },
+      "backend/internal/httpapi/incidents_test.go": {
+        "bytes": 3231,
+        "sha256": "f4e56a14ef7823b4c3c303c66b9e6142a3230384fc88ed0a6da028dd3e41db8f"
+      },
+      "backend/internal/httpapi/ingestion_status.go": {
+        "bytes": 5884,
+        "sha256": "e70bfef999149b3f6105b4d2f6e6124121cd1864718bbca91f98b7322f5c5122"
+      },
+      "backend/internal/httpapi/ingestion_status_test.go": {
+        "bytes": 3771,
+        "sha256": "786185a34fc155297995101c0406a79a41fc17151779529976b5980c292e4275"
+      },
+      "backend/internal/ingest/server.go": {
+        "bytes": 2269,
+        "sha256": "dd8ba9fba4a12354e5327a20fcd5c99132ca872f54c7e38cbaf6fb1692bf07b3"
+      },
+      "backend/internal/ingest/server_test.go": {
+        "bytes": 6728,
+        "sha256": "cd3a50fda207c66101ad1ef6daeb73286e564d460fd4b3c55c589897383260aa"
+      },
+      "backend/internal/query/query.go": {
+        "bytes": 9551,
+        "sha256": "e724aa5101f6ffcc5677f2b3189187106bd8857ba2b0289d140419947d13cb34"
+      },
+      "backend/internal/query/query_test.go": {
+        "bytes": 3957,
+        "sha256": "f1b2c46bbd87d6b98cfb16cd59acd9339eea768a7e62bec9f5bb0c85e03a40a7"
+      },
+      "backend/internal/storage/clickhouse/incident_seeds_test.go": {
+        "bytes": 2452,
+        "sha256": "3cdbd92d5b2204b8e85dcaf259765833936edf44a09183d55fd4199d9fbe322b"
+      },
+      "backend/internal/storage/clickhouse/incidents.go": {
+        "bytes": 7437,
+        "sha256": "11aa899e127f455d89dc91a41c5ea7d488bbfd375c10fa911a5a1c25c2b871cc"
+      },
+      "backend/internal/storage/clickhouse/query.go": {
+        "bytes": 8321,
+        "sha256": "b80b8815180384a27c18d36c97a64fd0f355572b949c3605e58276195e2fe7c3"
+      },
+      "backend/internal/storage/clickhouse/store.go": {
+        "bytes": 3322,
+        "sha256": "5e72479f919c9ea6fbac96b61e4a19aa525168a782f0d965aaecf096f32651f3"
+      },
+      "backend/internal/storage/clickhouse/store_batch_test.go": {
+        "bytes": 623,
+        "sha256": "7a14d07fff8b16100264f58957fc3241dc060f4d028b78ce3ec0b6b228692cdb"
+      },
+      "backend/internal/stream/envelope.go": {
+        "bytes": 3862,
+        "sha256": "ddb84c0bae745253d94d69db55c3490e67c5f5d0e70c61319cb3b839d16a4466"
+      },
+      "backend/internal/stream/hardening_test.go": {
+        "bytes": 11804,
+        "sha256": "6b64aab28e4398e632790e2a2d0863c8cd8c393d9ebae97937f6bff880ed0a05"
+      },
+      "backend/internal/stream/health.go": {
+        "bytes": 1617,
+        "sha256": "681330d622652aedc4c68adb72ea3b1947bbd59ed5832350de3c7b783d3d95a5"
+      },
+      "backend/internal/stream/producer.go": {
+        "bytes": 7452,
+        "sha256": "deba87432221524ab0238da9474f3af621aa3dc879942181bc3bc6de3ce411e0"
+      },
+      "backend/internal/stream/stream_test.go": {
+        "bytes": 9604,
+        "sha256": "e64f95de440ac58c41b7d7406836cae5d79b0dc484b40a96643cdbecd54c8232"
+      },
+      "backend/internal/stream/worker.go": {
+        "bytes": 11248,
+        "sha256": "921a7e4e4021bb270389acf182ac742714362e8f1aab660acce39444b1dc990a"
+      },
+      "backend/internal/streamstatus/probe.go": {
+        "bytes": 5689,
+        "sha256": "17be62e167887358515c990062f243b444b4b3c168ae1fa7ef3f82f062dc1dfb"
+      },
+      "backend/internal/streamstatus/status.go": {
+        "bytes": 7878,
+        "sha256": "39d471b33defe647baa67dc1a79229b9815cd0a40129c5e5ea7ac11e3588e55a"
+      },
+      "backend/internal/streamstatus/status_test.go": {
+        "bytes": 5625,
+        "sha256": "cd1a9f172ce54b9443fc5ed2846855a2411b147dc10a9b2483413e34bf17b02c"
+      },
+      "backend/internal/trace/normalize.go": {
+        "bytes": 10295,
+        "sha256": "f7c6cda7fe3e193e98b97e6df72fe5645124fb43a8333feefbb2c9275bd0f8f9"
+      },
+      "backend/internal/trace/normalize_test.go": {
+        "bytes": 9517,
+        "sha256": "9eb50dcb69460710105c52735879c8acd51d72422a4cef4bf8a33916a3b42e75"
+      },
+      "backend/tests/integration/README.md": {
+        "bytes": 5450,
+        "sha256": "8bcb130948cf950c165f51368d60d37e9803f271038a93c8ae1dfd14ef1c17aa"
+      },
+      "backend/tests/integration/collector_test.go": {
+        "bytes": 4157,
+        "sha256": "b7d03a82d051e606a0f36ac2bd50a8c10baad4838cf7fb9067fe325d4fe53eae"
+      },
+      "backend/tests/integration/detector_test.go": {
+        "bytes": 9910,
+        "sha256": "7e5163c9411eb49bea2e25bfe00c75bb5564f4a799e1c8a689759335e60b78e9"
+      },
+      "backend/tests/integration/failures_test.go": {
+        "bytes": 10368,
+        "sha256": "aec98f4950da6bd15e67a3c2893d38b1c569e800e8f927ccaab34fdb1d88b383"
+      },
+      "backend/tests/integration/query_hardening_test.go": {
+        "bytes": 12408,
+        "sha256": "524bd7aa8b9595886ec3b4945b208be2ff7446f8439c43583b1cae541d190f82"
+      },
+      "backend/tests/integration/query_selection_test.go": {
+        "bytes": 5433,
+        "sha256": "c29006a03f92752c2562e1593d1b2422cdeb16b68b1a8ddc22f48b35cb1cc9a3"
+      },
+      "backend/tests/integration/query_test.go": {
+        "bytes": 24878,
+        "sha256": "225b5c0557d117ca066ad89a87675aaf0a46a0edbe24e60d6c5ff0b33313256c"
+      },
+      "backend/tests/integration/storage_test.go": {
+        "bytes": 10777,
+        "sha256": "9e7b620e0992715d63d8971a2858ce6c99f5e13bf1c7fc3d750792aa29fb56bb"
+      },
+      "backend/tests/streaming/hardening_test.go": {
+        "bytes": 26609,
+        "sha256": "07ad87b24c28531dcef8ff45b835d48730da2039fa38a2e52561247b59a1dbd5"
+      },
+      "backend/tests/streaming/memory_test.go": {
+        "bytes": 4897,
+        "sha256": "b01fdfe880ffda811d0a3d59774f38750d67e3b28eacfdde89d56f57367bfc84"
+      },
+      "backend/tests/streaming/poison_test.go": {
+        "bytes": 5685,
+        "sha256": "ceb56e46682063497acc6afe42e1190b80f0494b57834f1fa71cf5c1bf594056"
+      },
+      "backend/tests/streaming/streaming_test.go": {
+        "bytes": 19816,
+        "sha256": "94a433318e940b66dea5c869cf7a7fa7d049290db4e5631a9f8eea8772a4816b"
+      },
+      "benchmarks/README.md": {
+        "bytes": 5551,
+        "sha256": "7c23d57de053e83490eef99ca6ca659feab25a34b401bb7ab42f827733133078"
+      },
+      "benchmarks/WORKLOAD.md": {
+        "bytes": 9751,
+        "sha256": "ec4e1ce18b60cc47dcc4d234c8f1efc62aa05b4331cefa74734821a739581d60"
+      },
+      "benchmarks/WORKLOAD_PHASE5.md": {
+        "bytes": 7312,
+        "sha256": "b88246653f5d8bca6caa4d3aa45120a1e7aa644a0ec76309cb1f00fe048cb11d"
+      },
+      "benchmarks/WORKLOAD_RETROSPECTIVE.md": {
+        "bytes": 6383,
+        "sha256": "fdd1b21ff48cbcab0997a52c8aedb903b66e3248892c0968a23de1f6c79d9f20"
+      },
+      "benchmarks/WORKLOAD_STREAM_HARDENING.md": {
+        "bytes": 19983,
+        "sha256": "91accabea9e21996eb5146c295735cb30871b5d5560c6df7706ce2d4c8669a21"
+      },
+      "benchmarks/analyze.py": {
+        "bytes": 27740,
+        "sha256": "5d300fe67a6724758b63fdb39359ce0f49ca50686d3ef9f693b90c9cb9dd436b"
+      },
+      "benchmarks/analyze_retrospective.py": {
+        "bytes": 31276,
+        "sha256": "07e70b0ed72c5d89ab4ca99e2bdf5189d56de9c703931a735299311a312ab6a4"
+      },
+      "benchmarks/analyze_stream_hardening.py": {
+        "bytes": 22997,
+        "sha256": "b7573e233c48fc2f93d9fda64428042baec378b4cfdd3adfdf0ba69db3db2707"
+      },
+      "benchmarks/drain.py": {
+        "bytes": 4245,
+        "sha256": "65d2799629be720eed3a60e0fc1f02b577f66d9764d678c522515d9aeb10af99"
+      },
+      "benchmarks/environment.py": {
+        "bytes": 9967,
+        "sha256": "bc46d6c717a1cb5ca57b00aee8eac3b383951546bf38d3bf00c17dfd5c908697"
+      },
+      "benchmarks/plan-phase5-outage.json": {
+        "bytes": 844,
+        "sha256": "385cfc4f2c786fb814471eb227b92a0b5cce5f25753fae0076a9d1de0ccb6251"
+      },
+      "benchmarks/plan-phase5-outage15.json": {
+        "bytes": 839,
+        "sha256": "2bfcf57cd8c7fed974ed7945d53dd940a49912549049da6e9e869ffcc2dd5b89"
+      },
+      "benchmarks/plan-phase5.json": {
+        "bytes": 5737,
+        "sha256": "cfaba7f90e3efea00c3b473ee4bf85bf597491c633e669e4001fb60a761acb41"
+      },
+      "benchmarks/plan.json": {
+        "bytes": 5730,
+        "sha256": "d5d109f8c2ce2f8b13e1a746b5a99deb5e44e5b6a409f768b1f90baa1d6be2f6"
+      },
+      "benchmarks/retrospective.py": {
+        "bytes": 15195,
+        "sha256": "0f189b5ea058a8d953f0ef2b0feefd63c8c4208e0cddaa7a1981c176f5a38577"
+      },
+      "benchmarks/run.py": {
+        "bytes": 28117,
+        "sha256": "8d64726347f759cc77ad2ddc7365902006a8a6bc62465f758185b8d272673d4a"
+      },
+      "benchmarks/stream_hardening.py": {
+        "bytes": 23946,
+        "sha256": "aa6a0a7a9b71e1d2f9c303d3899a31836a262331538fca812f44e2eaa5218a8a"
+      },
+      "benchmarks/test_analyze.py": {
+        "bytes": 4453,
+        "sha256": "4ac4c4397875b742e5174b80d3d2ba165e0fb75a0beb062cc4c10cf7463226c0"
+      },
+      "benchmarks/test_analyze_retrospective.py": {
+        "bytes": 10854,
+        "sha256": "ad75b562f946d5db39320df26a8aab93ef2a1464ac49e1e255693817f515b128"
+      },
+      "benchmarks/test_analyze_stream_hardening.py": {
+        "bytes": 7360,
+        "sha256": "d71c698d1ca3c7cbbd92378f45442e32fc14d16228f85500cfd969efa90281aa"
+      },
+      "benchmarks/test_drain.py": {
+        "bytes": 754,
+        "sha256": "dbcf03133d3bff009f0aba6e647edb511b507696224777cf8ded1cd8f40169ce"
+      },
+      "benchmarks/test_retrospective.py": {
+        "bytes": 4337,
+        "sha256": "bef676034c31ef2cd41d2948028c1dde5a0fbe34fd989f094725e6fe2ab1ff8a"
+      },
+      "benchmarks/test_run.py": {
+        "bytes": 16327,
+        "sha256": "fef498b8e43740cd3ee18bbce39139341ef84b95582adce14c7da5e71555391f"
+      },
+      "benchmarks/test_stream_hardening_runner.py": {
+        "bytes": 8076,
+        "sha256": "cc3494395c5215b5d9ca749283fe03442b2e6895807eeb00f3ed5c94075bc277"
+      },
+      "deploy/benchmark/direct.yaml": {
+        "bytes": 397,
+        "sha256": "f1ca8b3abdbf8f77ff921ac53f8a54529df97148b7f003244dfa39bb7daebce6"
+      },
+      "deploy/benchmark/hardening-acceptance.yaml": {
+        "bytes": 329,
+        "sha256": "49309dc86b22a31b5402cbf4ae09fc68f2f84aa0b635dd7b350b34ea8e77ae9b"
+      },
+      "deploy/benchmark/hardening-baseline.yaml": {
+        "bytes": 295,
+        "sha256": "52be316df1360c98f2a528a38677a795638440c310bfdc963ac6630d2252f0b7"
+      },
+      "deploy/benchmark/hardening-candidate.yaml": {
+        "bytes": 407,
+        "sha256": "76ae2bd738bfb016cb55510b405e79392778e30602185d232fd7db25a160b871"
+      },
+      "deploy/benchmark/streaming.yaml": {
+        "bytes": 639,
+        "sha256": "cbe98c27310160ea98cfc9973992eb53a7b20828f3e69dae3e696d22c782ffa4"
+      },
+      "deploy/local/Dockerfile": {
+        "bytes": 1323,
+        "sha256": "7503e9897fbc432ad820952472879a9ff24461b7c592895c82bcd3cc3668d9b4"
+      },
+      "deploy/local/collector.yaml": {
+        "bytes": 1315,
+        "sha256": "70e509d6f030bd6628d5ba6a7164da10ce61cdccfdf3dccfd10b0ca8f923fb11"
+      },
+      "deploy/local/compose.yaml": {
+        "bytes": 2734,
+        "sha256": "b59527ecfeef2992be11dcd16c31d1c18ced9c7effe7db2095dffe1499ea27d2"
+      },
+      "deploy/local/users.xml": {
+        "bytes": 1630,
+        "sha256": "353ecb410f51094b256ed65454f87218b467f268774970c3110fdfafa1cea892"
+      },
+      "deploy/streaming/README.md": {
+        "bytes": 7321,
+        "sha256": "a73f7074fd709fb4f2cbf7a04c3704383c3d853439f45adb42ab30ee29fb4911"
+      },
+      "deploy/streaming/collector.yaml": {
+        "bytes": 1322,
+        "sha256": "bc4874d5b5b53082c24cf443c4ff602512799e8d899cc32782c5a835db4abaf8"
+      },
+      "deploy/streaming/compose.yaml": {
+        "bytes": 4191,
+        "sha256": "0dbc712190bb087398c00b9ac350d5dd5a3b38663faebfc58b2d56277c1fc9ee"
+      },
+      "deploy/streaming/hardening.yaml": {
+        "bytes": 1558,
+        "sha256": "43d76f259279529a2f333a6080f91ce11a7962751779e6bdf1e780508a6aa1d5"
+      },
+      "frontend/README.md": {
+        "bytes": 1009,
+        "sha256": "651d906625c6d5f4e9ee4dea4342411b91e35270563024e3b8d34a05765052d3"
+      },
+      "frontend/index.html": {
+        "bytes": 277,
+        "sha256": "36c143c40fb5541b84c6978ee8e3d1f02dff92ae56bc15e8a025f07007bae10f"
+      },
+      "frontend/package-lock.json": {
+        "bytes": 98009,
+        "sha256": "a81298cf05fc12d1c98b02ac837026a443ef8c11fde79367261db326cef0f0cc"
+      },
+      "frontend/package.json": {
+        "bytes": 563,
+        "sha256": "17fdd6e3ef36bd078d0de276c7a023a10944ade2f909312337eb8ae7f32e26d4"
+      },
+      "frontend/src/App.test.tsx": {
+        "bytes": 15083,
+        "sha256": "b918d5f6fbfd9b54d637d83709b51765b565c9401424e19c0e0d0b4f7b74c412"
+      },
+      "frontend/src/App.tsx": {
+        "bytes": 19825,
+        "sha256": "84d2f493b56af574f1fd006d061a17d2930b8631882e8f1e6e32f8ba12ae849f"
+      },
+      "frontend/src/IncidentView.test.tsx": {
+        "bytes": 13325,
+        "sha256": "3d7235fad99440ff90a92ff2d60829151dea8a9e0bc256a332e5bbd97bbbb48c"
+      },
+      "frontend/src/IncidentView.tsx": {
+        "bytes": 16319,
+        "sha256": "2c7b317fc79057745af3c17ff3c5268ba8c5fa0da6dd527503987ec0160ca36a"
+      },
+      "frontend/src/IngestionBanner.test.tsx": {
+        "bytes": 4366,
+        "sha256": "66815a55861463fc0c2413e8abce44abc986119e88a46b22d8ab370d6f4660a3"
+      },
+      "frontend/src/IngestionBanner.tsx": {
+        "bytes": 4859,
+        "sha256": "34eeb57283a9890e905d6d502533ea26432c698398928c4ef4410e054e2eea2b"
+      },
+      "frontend/src/api.ts": {
+        "bytes": 5213,
+        "sha256": "c751d57606857694849829f14cfa773e42638a14c2b2e7cf73a405720ffb7bad"
+      },
+      "frontend/src/main.tsx": {
+        "bytes": 220,
+        "sha256": "70f1f41a33b464e0a4c349112a35116d0ab68e29a05342f3b59ad0e9fd8b245b"
+      },
+      "frontend/src/style.css": {
+        "bytes": 16194,
+        "sha256": "df7d3dfe1e10ead20ed00e956809c350f39d61c6f9c95dcd58ffa32adc97d781"
+      },
+      "frontend/src/time.test.ts": {
+        "bytes": 988,
+        "sha256": "b797d080dbe49b8c9401db163e9adb3b80a1e3b27ed1d5e51450d3f3e8a4ee27"
+      },
+      "frontend/src/time.ts": {
+        "bytes": 1229,
+        "sha256": "55b815a07fadb25d6b5f3a4d70646ce5fb04300a2eee5a9e44159ff4a3b0636b"
+      },
+      "frontend/tsconfig.json": {
+        "bytes": 521,
+        "sha256": "4ce784ee33a9a8f1e0ade04799dddcd9a78cae9faa163e1799cb176cd006d02e"
+      },
+      "frontend/vite.config.ts": {
+        "bytes": 243,
+        "sha256": "b2085d00b99d90502618de75541bc48930b4bdb41e07c97a043c1900f642950d"
+      },
+      "migrations/clickhouse/001_spans.sql": {
+        "bytes": 1261,
+        "sha256": "3de409be8b7315ab44cf1c09faacffca1f67a69b157aae99fab7d18bf69fad16"
+      },
+      "scripts/test.sh": {
+        "bytes": 140,
+        "sha256": "0ce6557833cc48a2aa89c9df05da2390e9859ffb530170d762955248d4d1df31"
+      },
+      "scripts/verify-storage.sh": {
+        "bytes": 1501,
+        "sha256": "14c1489801e86738139e9e8e588776323f5a31e44e9e8b33d5bc82779181866a"
+      }
+    },
+    "git_inventory_status": [
+      0,
+      0
+    ]
+  },
+  "started_at": "2026-10-11T16:04:40.931633Z",
+  "status": "completed"
+}

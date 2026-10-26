@@ -81,7 +81,7 @@ The service-summary, trace-search and trace-detail routes were delivered in Phas
 | `GET /api/v1/services` | Required `from`/`to`; service/operation summaries from deduplicated SERVER spans. |
 | `GET /api/v1/traces` | Required `from`/`to`; optional service, operation, span-duration bounds, and span error status; bounded limit and cursor. Returns traces containing matching spans, with matching-span facts clearly distinguished from trace-wide facts. |
 | `GET /api/v1/traces/{traceId}` | Required `from`/`to`; spans in that interval plus parent links, missing-parent indicators, and explicit truncation metadata. An empty result is 404; an oversized trace is never silently cut off. |
-| `GET /api/v1/incidents` | Required UTC-compatible RFC3339 `end`; optional exact service and namespace filters. Evaluates rule `trace-v1` and returns operation states, ranked candidates, both windows' statistics, configuration, observation time and bounded trace evidence. |
+| `GET /api/v1/incidents` | Required UTC-compatible RFC3339 `end`; optional exact service and namespace filters. Evaluates rule `trace-v2` and returns operation states, ranked candidates, both windows' statistics, configuration, observation time and bounded trace evidence. |
 | Process health | Liveness and dependency readiness endpoints; no telemetry analytics pipeline is implied. |
 
 Time windows are UTC half-open intervals `[from, to)` based on span start time. Initial maximum query range is 24 hours within retention; initial page limit is 100, maximum 500. Validate positive duration bounds, IDs, enum filters, and cursor/filter consistency. Use parameterized values and allowlisted sort fields, a documented query timeout, response size limits, and consistent JSON errors (400 invalid request, 404 absent trace, 503 unavailable dependency, 504 deadline exceeded).
@@ -103,7 +103,9 @@ The detector and UI below are implemented and verified by the controlled Demo sc
 
 The five startup settings are `DETECTOR_MIN_SAMPLES`, `DETECTOR_LATENCY_RATIO_MILLI`, `DETECTOR_LATENCY_DELTA_NS`, `DETECTOR_ERROR_RATE_BPS` and `DETECTOR_ERROR_INCREASE_BPS`; Compose forwards them to the API. Invalid settings fail startup. The [incident contract](../api/INCIDENTS.md) defines their units and supported ranges.
 
-Each evaluation reads all service context in the selected 35-minute interval using `FINAL` and one receipt cutoff. Service/namespace filters apply only to reported operation groups, so filtering does not reduce detector input or guarantee relief from a resource cap. Input is limited to 100,000 deduplicated spans, 32 MiB of accounted normalized input and 500 SERVER operation groups; the response remains capped at 8 MiB. The five-second API deadline, four database-read slots and existing ClickHouse profile budgets also apply. Limits fail explicitly with 503 or deadline errors instead of returning partial statistics or rankings. They are correctness bounds, not measured capacity.
+The query-hardening implementation uses `trace-v2` ([ADR 0006](adr/0006-bounded-detector-query-plan.md)): exact `FINAL` SERVER statistics for all service/operation groups, then bounded supporting-trace reads under a common receipt cutoff. Report-only filters preserve the global candidate map and cross-service relationships in selected evidence. Aggregate output is bounded to 500 operation groups and 2 MiB of accounted group keys. Selected trace context is bounded to 2,500 trace IDs, 100,000 spans and 32 MiB; the response remains capped at 8 MiB. The five-second API deadline, four database-read slots and existing ClickHouse profile budgets remain unchanged. Limits fail explicitly instead of returning partial statistics or rankings. These are correctness bounds, not measured capacity.
+
+Relationship caveats now cover selected supporting traces, not every trace in the window. The API and UI explicitly report `relationship_context_sampled` and `trace_context_not_evaluated`; normal statistics do not establish complete or healthy telemetry. Exact rule arithmetic, ranking and evidence selection retain the historical contract. The retained `trace-v1` evaluator is a test oracle. Query-hardening promotion benchmarks are pending; the historical Phase 3 Demo verification below used `trace-v1`.
 
 The [predeclared external Demo scenario](../integrations/otel-demo/PHASE3_SCENARIO.md) exercises healthy traffic, frontend CPU latency, catalog's native invalid-product ERROR and clean recovery using unchanged pinned services and real timestamps. [ADR 0003](adr/0003-demo-detection-faults.md) records the route expansion, alternatives and cleanup. The complete scenario passed its predeclared acceptance checks.
 
@@ -117,6 +119,11 @@ The [predeclared external Demo scenario](../integrations/otel-demo/PHASE3_SCENAR
 - Meaningful changes to storage, delivery guarantees, component boundaries, rule semantics, or dependencies require an ADR explaining evidence, alternatives, and consequences.
 
 ## Optional Phase 5 learning path
+
+The October 9 [candidate 3 promotion decision](PHASE5_PROMOTION_DECISION.md)
+retains the direct default. Four-partition batching and delivery-status reporting
+remain an opt-in hardening implementation: correctness passed, but the bounded
+diagnostic failed visibility and query error/drop gates. Further tuning stopped.
 
 The default direct path remains available. The explicitly requested educational
 extension uses `Collector → stream-ingest → Kafka → stream-worker → ClickHouse`.
@@ -180,3 +187,13 @@ IncidentLens/
 ```
 
 Keep unit tests next to Go/TypeScript behavior. Phase 1 cross-component tests live at `backend/tests/integration` within the Go module so they can exercise its internal packages; Phase 2 adds `tests/e2e` for the external Demo-to-explorer workflow. Keep the upstream Demo checkout outside the product repository. Store only IncidentLens-owned integration configuration and the upstream revision here; product packages must never import Demo source. Do not add directories for deferred technologies until their phase is justified.
+
+## Opt-in benchmark observations
+
+The [controlled retrospective](RETROSPECTIVE_PHASE5.md) compares the direct and
+streaming paths with unchanged product quotas and fixtures. `BENCH_OPS_FILE`
+enables bounded operation timing records only in the benchmark overlays; it is
+off by default. A separate read-only offset sampler observes Kafka lag. These
+files are benchmark evidence, not a product logs or metrics ingestion pipeline.
+The measurements support finite admission buffering during bursts/slowdown,
+while preserving growing backlog, delayed visibility and query failures.

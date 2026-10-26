@@ -1,0 +1,10 @@
+{
+  "campaign": "benchmarks/results/20261010-candidate3-query1-probe",
+  "status": "verified_diagnostic_pair_only",
+  "expected_full_campaign_rejection": [
+    "diagnostic sustained probe is not a full measured comparison"
+  ],
+  "source_matches_frozen_archive": true,
+  "retained_volumes_preserved": true,
+  "images_resources_clocks_setup_barriers_verified_by_existing_provenance_checker": true
+}

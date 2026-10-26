@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-03T15:17:19.117468Z",
+  "readiness": {
+    "api": 200,
+    "ingestion": 200
+  },
+  "expected": {
+    "api": 200,
+    "ingestion": 200
+  }
+}

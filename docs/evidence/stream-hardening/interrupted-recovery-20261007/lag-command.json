@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/Users/kousil/Library/Caches/IncidentLens/bin/bench-lag",
+    "--output",
+    "docs/evidence/stream-hardening/interrupted-recovery-20261007/recovered-lag.jsonl",
+    "--topic",
+    "incidentlens-spans-v2",
+    "--group",
+    "incidentlens-stream-worker-v2",
+    "--partitions",
+    "4",
+    "--duration",
+    "3s"
+  ],
+  "returncode": 0,
+  "stderr": ""
+}

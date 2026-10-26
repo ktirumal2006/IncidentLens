@@ -1,0 +1,210 @@
+{
+  "campaign": "benchmarks/results/20261009-hardening-candidate3-decision",
+  "cases": {
+    "baseline": {
+      "ack_p95_ns": 1088845000,
+      "ack_p99_ns": 1247276000,
+      "analysis_issues": [],
+      "benchmark_binary_sha256": "6d5a74c42ed4cd48f67219ee841d67ee5e87677356752afb303821d5760a27b0",
+      "completed_clickhouse_rows_per_second": "4432/5",
+      "final_stored_unique_spans": 490368,
+      "full_run_acked_spans": 490368,
+      "image_ids": {
+        "api": "sha256:557c5eef138ff6e6339a2539cc7226ca7417a1216352415f6a110adf75d01c48",
+        "clickhouse": "sha256:c48c1ed0a54e6e9fde03750860aa86de1e6f40b6fe33c6df540738867b4f6809",
+        "collector": "sha256:886722fe0f37af9d1fe24d29529253ec59fbf263b3b1df4facaf221373e19d23",
+        "kafka": "sha256:0bc1bb2478f45b6cea78864df86acdc11e8df2c5172477819a4d12942cbe5d40",
+        "stream-ingest": "sha256:30e660bb7ce6d7813a946fc139512a91bf75d5b141533f0d4e68277d25aef4b6",
+        "stream-worker": "sha256:554a2583bab603277b344cdc322c19e2c45976e72560ea6b7b6ad0ad53478f30"
+      },
+      "kafka_health_at_environment_sample": "healthy",
+      "label": "sustained-8000-r1-baseline",
+      "limits_nano_cpus_bytes": {
+        "api": [
+          1000000000,
+          536870912
+        ],
+        "clickhouse": [
+          2000000000,
+          2147483648
+        ],
+        "collector": [
+          1000000000,
+          268435456
+        ],
+        "kafka": [
+          2000000000,
+          1073741824
+        ],
+        "stream-ingest": [
+          1000000000,
+          536870912
+        ],
+        "stream-worker": [
+          1000000000,
+          536870912
+        ]
+      },
+      "measured_acked_spans": 439488,
+      "original_deadline_missing_acked_spans": 250432,
+      "original_deadline_stored_unique_spans": 239936,
+      "peak_sampled_kafka_lag_records": 1890,
+      "query_schedule_dropped": 15,
+      "query_schedule_total": 480,
+      "query_statuses": {
+        "detail": {
+          "404": 84,
+          "503": 32
+        },
+        "incidents": {
+          "200": 49,
+          "503": 54,
+          "504": 12
+        },
+        "services": {
+          "200": 83,
+          "503": 36
+        },
+        "traces": {
+          "200": 74,
+          "503": 41
+        }
+      },
+      "raw_analysis_matches_saved": true,
+      "retained_volumes_unchanged": true,
+      "setup_offsets_ready_events": 1,
+      "source_manifest_matches_campaign": true,
+      "status": "completed",
+      "supplemental_complete": true,
+      "visibility_censored_count": 229,
+      "visibility_observed_count": 0,
+      "visibility_sample_count": 229
+    },
+    "candidate": {
+      "ack_p95_ns": 544028000,
+      "ack_p99_ns": 686745000,
+      "analysis_issues": [],
+      "benchmark_binary_sha256": "6d5a74c42ed4cd48f67219ee841d67ee5e87677356752afb303821d5760a27b0",
+      "completed_clickhouse_rows_per_second": "44439/10",
+      "final_stored_unique_spans": 1001022,
+      "full_run_acked_spans": 1001022,
+      "image_ids": {
+        "api": "sha256:bfc2716d394de25e299940107d53fe536fc6ca2646a70fefbc767fd45a110662",
+        "clickhouse": "sha256:c48c1ed0a54e6e9fde03750860aa86de1e6f40b6fe33c6df540738867b4f6809",
+        "collector": "sha256:886722fe0f37af9d1fe24d29529253ec59fbf263b3b1df4facaf221373e19d23",
+        "kafka": "sha256:0bc1bb2478f45b6cea78864df86acdc11e8df2c5172477819a4d12942cbe5d40",
+        "stream-ingest": "sha256:8e83a459513f56c3fc4221b29b148f4f05ce79510f9ea73b84ac34bde26098c9",
+        "stream-worker": "sha256:c2ce7cbd08d106118166a906fd6c5d5271823835e76bb1a3e2f20d58f6997f06"
+      },
+      "kafka_health_at_environment_sample": "healthy",
+      "label": "sustained-8000-r1-candidate",
+      "limits_nano_cpus_bytes": {
+        "api": [
+          1000000000,
+          536870912
+        ],
+        "clickhouse": [
+          2000000000,
+          2147483648
+        ],
+        "collector": [
+          1000000000,
+          268435456
+        ],
+        "kafka": [
+          2000000000,
+          1073741824
+        ],
+        "stream-ingest": [
+          1000000000,
+          536870912
+        ],
+        "stream-worker": [
+          1000000000,
+          536870912
+        ]
+      },
+      "measured_acked_spans": 920190,
+      "original_deadline_missing_acked_spans": 0,
+      "original_deadline_stored_unique_spans": 1001022,
+      "peak_sampled_kafka_lag_records": 8117,
+      "query_schedule_dropped": 57,
+      "query_schedule_total": 480,
+      "query_statuses": {
+        "detail": {
+          "404": 50,
+          "503": 56
+        },
+        "incidents": {
+          "200": 3,
+          "503": 95
+        },
+        "services": {
+          "200": 74,
+          "503": 31
+        },
+        "traces": {
+          "200": 83,
+          "503": 27
+        }
+      },
+      "raw_analysis_matches_saved": true,
+      "retained_volumes_unchanged": true,
+      "setup_offsets_ready_events": 1,
+      "source_manifest_matches_campaign": true,
+      "status": "completed",
+      "supplemental_complete": null,
+      "visibility_censored_count": 382,
+      "visibility_observed_count": 94,
+      "visibility_sample_count": 476
+    }
+  },
+  "checks": {
+    "all_acked_eventually_stored": true,
+    "archive_file_hashes_match_manifest": true,
+    "campaign_completed_pair_only": true,
+    "case_images_match_campaign": true,
+    "declaration_and_frozen_baseline_hashes_match": true,
+    "direct_restore_command_succeeded": true,
+    "gate_file_matches_recomputed_after_json_normalization": true,
+    "healthfix_in_shared_compose_and_healthy_both": true,
+    "quotas_equal_and_predeclared": true,
+    "raw_analysis_matches_saved": true,
+    "retained_volumes_both": true,
+    "same_host_vm_kafka_collector_clickhouse_images": true,
+    "setup_barrier_both": true,
+    "source_archive_sha256_matches": true,
+    "source_manifest_matches_campaign": true
+  },
+  "failed_gates": [
+    "sustained-8000-r1/visibility_censored_fraction_half",
+    "sustained-8000-r1/non404_query_failure_fraction_increase_at_most_1_20",
+    "sustained-8000-r1/query_schedule_drop_fraction_increase_at_most_1_20"
+  ],
+  "gate_statuses": {
+    "sustained-8000-r1/ack_p95_ns": "pass",
+    "sustained-8000-r1/ack_p99_ns": "pass",
+    "sustained-8000-r1/admission_at_least_95_percent": "pass",
+    "sustained-8000-r1/completed_rows_per_second_1_25x": "pass",
+    "sustained-8000-r1/drain_upper_bound_half": "pass",
+    "sustained-8000-r1/non404_query_failure_fraction_increase_at_most_1_20": "fail",
+    "sustained-8000-r1/query_schedule_drop_fraction_increase_at_most_1_20": "fail",
+    "sustained-8000-r1/visibility_censored_fraction_half": "fail"
+  },
+  "healthcheck_declared": {
+    "shared_compose_used_by_both": true,
+    "start_period": "30s",
+    "test": "kafka-broker-api-versions.sh --bootstrap-server localhost:9092",
+    "timeout": "20s"
+  },
+  "limits": [
+    "Single diagnostic pair only; no second repetition, burst, slowdown, or retained-volume cutover in this audit.",
+    "Baseline original deadline missed 250432 acknowledged spans; supplemental verified all 490368 by 61.0 seconds after supplemental observation began. Candidate had all 1001022 stored by original deadline.",
+    "Visibility is heavily censored; observed p95 is unavailable for baseline and candidate.",
+    "Maximum Kafka lag is a sampled, sequential-offset-read value, not an atomic exact peak.",
+    "This pair does not prove zero loss beyond its finite acknowledged identity ledgers or beyond Kafka retention."
+  ],
+  "restore_note": "The completed campaign has restore_direct.returncode=0 and status=completed. restore_error still contains RuntimeError(dependencies not ready) from the abandoned first preflight; it was not cleared on resume. Do not read that stale field as a failed final restore.",
+  "saved_gates": "docs/evidence/stream-hardening/candidate3-decision-gates.json",
+  "scope": "read-only audit of the completed single sustained-8000 r1 diagnostic pair; not full 16-case acceptance"
+}

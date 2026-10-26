@@ -1,0 +1,122 @@
+[
+  {
+    "phase": "detector_statistics",
+    "type": "QueryStart",
+    "exception_code": 0,
+    "calls": 88,
+    "p50_ms": 0,
+    "max_ms": 0,
+    "max_read_rows": 0,
+    "max_memory": 0
+  },
+  {
+    "phase": "detector_statistics",
+    "type": "QueryFinish",
+    "exception_code": 0,
+    "calls": 88,
+    "p50_ms": 392,
+    "max_ms": 1214,
+    "max_read_rows": 895208,
+    "max_memory": 32112732
+  },
+  {
+    "phase": "evidence_context",
+    "type": "QueryStart",
+    "exception_code": 0,
+    "calls": 37,
+    "p50_ms": 0,
+    "max_ms": 0,
+    "max_read_rows": 0,
+    "max_memory": 0
+  },
+  {
+    "phase": "evidence_context",
+    "type": "QueryFinish",
+    "exception_code": 0,
+    "calls": 37,
+    "p50_ms": 23,
+    "max_ms": 289,
+    "max_read_rows": 355674,
+    "max_memory": 4896652
+  },
+  {
+    "phase": "evidence_selection",
+    "type": "QueryStart",
+    "exception_code": 0,
+    "calls": 88,
+    "p50_ms": 0,
+    "max_ms": 0,
+    "max_read_rows": 0,
+    "max_memory": 0
+  },
+  {
+    "phase": "evidence_selection",
+    "type": "QueryFinish",
+    "exception_code": 0,
+    "calls": 37,
+    "p50_ms": 410,
+    "max_ms": 4315,
+    "max_read_rows": 342456,
+    "max_memory": 38636708
+  },
+  {
+    "phase": "evidence_selection",
+    "type": "ExceptionWhileProcessing",
+    "exception_code": 236,
+    "calls": 44,
+    "p50_ms": 4408,
+    "max_ms": 4885,
+    "max_read_rows": 902142,
+    "max_memory": 105955077
+  },
+  {
+    "phase": "evidence_selection",
+    "type": "ExceptionWhileProcessing",
+    "exception_code": 735,
+    "calls": 7,
+    "p50_ms": 4497,
+    "max_ms": 4606,
+    "max_read_rows": 745066,
+    "max_memory": 76302851
+  },
+  {
+    "phase": "other",
+    "type": "QueryStart",
+    "exception_code": 0,
+    "calls": 840,
+    "p50_ms": 0,
+    "max_ms": 0,
+    "max_read_rows": 0,
+    "max_memory": 0
+  },
+  {
+    "phase": "other",
+    "type": "QueryFinish",
+    "exception_code": 0,
+    "calls": 832,
+    "p50_ms": 21,
+    "max_ms": 2009,
+    "max_read_rows": 895208,
+    "max_memory": 101057214
+  },
+  {
+    "phase": "other",
+    "type": "ExceptionWhileProcessing",
+    "exception_code": 210,
+    "calls": 7,
+    "p50_ms": 83,
+    "max_ms": 101,
+    "max_read_rows": 2640,
+    "max_memory": 4298865
+  },
+  {
+    "phase": "other",
+    "type": "ExceptionWhileProcessing",
+    "exception_code": 735,
+    "calls": 1,
+    "p50_ms": 199,
+    "max_ms": 199,
+    "max_read_rows": 64950,
+    "max_memory": 34632812
+  }
+]

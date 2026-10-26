@@ -1,0 +1,9 @@
+#!/bin/sh
+set -eu
+cd "$(dirname "$0")/../backend"
+go test -race ./...
+go vet ./...
+go build ./cmd/...
+cd ../frontend
+npm test
+npm run build

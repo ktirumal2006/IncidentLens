@@ -1,0 +1,57 @@
+{
+  "pid": 24219,
+  "started_at": "2026-10-11T16:00:50.903793Z",
+  "status": "diagnostic_failed",
+  "stages": [
+    {
+      "name": "smoke",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-u",
+        "/Users/kousil/Documents/IncidentLens/benchmarks/stream_hardening.py",
+        "--output",
+        "/Users/kousil/Documents/IncidentLens/benchmarks/results/20261011-candidate3-query3-smoke",
+        "--binary",
+        "/Users/kousil/Library/Caches/IncidentLens/bin/bench-query-diagnostics",
+        "--lag-binary",
+        "/Users/kousil/Library/Caches/IncidentLens/bin/bench-lag",
+        "--candidate-tag",
+        "candidate3-query3",
+        "--smoke"
+      ],
+      "output": "/Users/kousil/Documents/IncidentLens/benchmarks/results/20261011-candidate3-query3-smoke",
+      "started_at": "2026-10-11T16:00:51.095858Z",
+      "pid": 24222,
+      "returncode": 0,
+      "ended_at": "2026-10-11T16:04:39.003191Z",
+      "status": "completed"
+    },
+    {
+      "name": "probe",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-u",
+        "/Users/kousil/Documents/IncidentLens/benchmarks/stream_hardening.py",
+        "--output",
+        "/Users/kousil/Documents/IncidentLens/benchmarks/results/20261011-candidate3-query3-probe",
+        "--binary",
+        "/Users/kousil/Library/Caches/IncidentLens/bin/bench-query-diagnostics",
+        "--lag-binary",
+        "/Users/kousil/Library/Caches/IncidentLens/bin/bench-lag",
+        "--candidate-tag",
+        "candidate3-query3",
+        "--probe-sustained"
+      ],
+      "output": "/Users/kousil/Documents/IncidentLens/benchmarks/results/20261011-candidate3-query3-probe",
+      "started_at": "2026-10-11T16:04:39.268292Z",
+      "pid": 24977,
+      "returncode": 0,
+      "ended_at": "2026-10-11T16:14:17.506061Z",
+      "status": "completed"
+    }
+  ],
+  "failed_gates": [
+    "sustained-8000-r1/query_schedule_drop_fraction_increase_at_most_1_20"
+  ],
+  "ended_at": "2026-10-11T16:14:17.674284Z"
+}

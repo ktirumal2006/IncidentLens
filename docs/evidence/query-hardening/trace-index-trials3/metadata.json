@@ -1,0 +1,30 @@
+[
+  {
+    "name": "max_threads",
+    "value": "2"
+  },
+  {
+    "name": "use_skip_indexes_if_final",
+    "value": "1"
+  },
+  {
+    "name": "use_skip_indexes_if_final_exact_mode",
+    "value": "1"
+  },
+  {
+    "name": "max_rows_to_read",
+    "value": "2000000"
+  },
+  {
+    "name": "max_bytes_to_read",
+    "value": "268435456"
+  },
+  {
+    "name": "max_memory_usage",
+    "value": "268435456"
+  },
+  {
+    "name": "use_query_condition_cache",
+    "value": "1"
+  }
+]

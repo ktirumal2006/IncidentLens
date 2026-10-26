@@ -1,0 +1,19 @@
+{
+  "pid": 14104,
+  "command": [
+    "/usr/bin/caffeinate",
+    "-i",
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "/Users/kousil/Documents/IncidentLens/benchmarks/stream_hardening.py",
+    "--output",
+    "/Users/kousil/Documents/IncidentLens/benchmarks/results/20261007-hardening-candidate1-retry1",
+    "--binary",
+    "/Users/kousil/Library/Caches/IncidentLens/bin/bench-setup-barrier",
+    "--lag-binary",
+    "/Users/kousil/Library/Caches/IncidentLens/bin/bench-lag"
+  ],
+  "started_at": "2026-10-07T14:31:20.561368+00:00",
+  "output": "/Users/kousil/Documents/IncidentLens/benchmarks/results/20261007-hardening-candidate1-retry1",
+  "log": "/Users/kousil/Documents/IncidentLens/docs/evidence/stream-hardening/candidate1-retry1-driver.txt",
+  "note": "Detached runner; caffeinate prevents idle sleep only while command lives. Application images, quotas and workload unchanged."
+}

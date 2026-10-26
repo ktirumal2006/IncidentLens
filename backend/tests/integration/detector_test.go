@@ -198,3 +198,50 @@ func TestDetectorClickHouseHalfOpenWindows(t *testing.T) {
 		t.Fatalf("half-open windows=%+v", r)
 	}
 }
+
+func TestDetectorClickHouseAggregateEvidenceDistinctTraceOrder(t *testing.T) {
+	reader := detectorDatabase(t)
+	writer, _ := database(t)
+	end := time.Now().UTC().Add(-3 * time.Hour).Truncate(time.Second)
+	observed := time.Now().UTC()
+	ns := "detector-evidence-" + queryID(t, 5)
+	rows := make([]trace.Row, 0, 13)
+	wantTraceIDs := make([]string, 6)
+	for i := 0; i < 6; i++ {
+		id := queryID(t, 16)
+		wantTraceIDs[i] = id
+		base := querySpan(id, queryID(t, 8), "", "seed", "Request", end.Add(-34*time.Minute).Add(time.Duration(i)*time.Second), 1, 2, 1)
+		current := querySpan(id, queryID(t, 8), "", "seed", "Request", end.Add(-4*time.Minute).Add(time.Duration(i)*time.Second), uint64(10+i), 2, 2)
+		base.ServiceNamespace, current.ServiceNamespace = ns, ns
+		base.IngestedAt, current.IngestedAt = observed.Add(-time.Second), observed.Add(-time.Second)
+		rows = append(rows, base, current)
+		if i == 0 {
+			stronger := current
+			stronger.SpanID = queryID(t, 8)
+			stronger.DurationNS = 100
+			stronger.EndTime = stronger.StartTime.Add(100 * time.Nanosecond)
+			rows = append(rows, stronger)
+		}
+	}
+	detectorWrite(t, writer, rows)
+	cfg := detector.DefaultConfig()
+	cfg.MinSamples = 1
+	cfg.LatencyDeltaNS = "1"
+	got, err := reader.Incidents(context.Background(), end, observed, cfg, detector.Filter{Namespace: &ns})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if got.RuleVersion != detector.AggregateVersion || len(got.Candidates) != 1 || len(got.Candidates[0].Evidence) != 5 || got.Candidates[0].Evidence[0].DurationNS != "100" {
+		t.Fatalf("aggregate evidence selection=%+v", got)
+	}
+	seen := map[string]bool{}
+	for index, ev := range got.Candidates[0].Evidence {
+		if ev.TraceID != wantTraceIDs[[]int{0, 5, 4, 3, 2}[index]] {
+			t.Fatalf("wrong distinct evidence order at %d: %+v", index, got.Candidates[0].Evidence)
+		}
+		if seen[ev.TraceID] {
+			t.Fatalf("duplicate evidence trace: %+v", got.Candidates[0].Evidence)
+		}
+		seen[ev.TraceID] = true
+	}
+}

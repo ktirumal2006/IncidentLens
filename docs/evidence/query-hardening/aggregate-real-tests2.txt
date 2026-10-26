@@ -1,0 +1,22 @@
+=== RUN   TestDetectorClickHouseReplayCutoffPercentileAndRelationships
+    detector_test.go:154: historical detector fixture namespace=detector-33e3216b60 end=2026-10-10T14:12:35Z raw_parent=221 dedup_base=100 dedup_current=100 p95=195000000/495000000 candidates=1
+--- PASS: TestDetectorClickHouseReplayCutoffPercentileAndRelationships (0.32s)
+=== RUN   TestDetectorClickHouseGroupCapFailsWholeEvaluation
+--- PASS: TestDetectorClickHouseGroupCapFailsWholeEvaluation (0.07s)
+=== RUN   TestDetectorClickHouseHalfOpenWindows
+--- PASS: TestDetectorClickHouseHalfOpenWindows (0.06s)
+=== RUN   TestDetectorClickHouseAggregateEvidenceDistinctTraceOrder
+--- PASS: TestDetectorClickHouseAggregateEvidenceDistinctTraceOrder (0.07s)
+=== RUN   TestQueryHardeningDetectorRowCeilingAndDetail
+    query_hardening_test.go:150: old raw evaluator rejects rows=100002 accounted_bytes=25300506 row_limit=100000 byte_limit=33554432
+    query_hardening_test.go:151: exact FINAL aggregate rows=100002 baseline=100000 current=2 evidence=2
+    query_hardening_test.go:181: clickhouse [ScanRow]: (getSetting('max_memory_usage')) converting UInt32 to *uint64 is unsupported. try using *uint32
+--- FAIL: TestQueryHardeningDetectorRowCeilingAndDetail (0.75s)
+=== RUN   TestQueryHardeningDetectorByteCeiling
+    query_hardening_test.go:244: old raw evaluator rejects rows=33002 accounted_bytes=42605582 row_limit=100000 byte_limit=33554432
+    query_hardening_test.go:245: exact FINAL aggregate rows=33002 baseline=33000 current=2 evidence=2
+    query_hardening_test.go:246: old detector input accounting=42605582 bytes exceeds 33554432; exact aggregate succeeded
+--- PASS: TestQueryHardeningDetectorByteCeiling (0.43s)
+FAIL
+FAIL	incidentlens/backend/tests/integration	6.547s
+FAIL

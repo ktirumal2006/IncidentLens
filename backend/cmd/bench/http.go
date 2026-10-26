@@ -17,6 +17,22 @@ type queryTask struct {
 	scheduled    time.Time
 }
 
+// Persist only the API's fixed diagnostic categories, never arbitrary header
+// text from a proxy or a failed dependency.
+func boundedQueryFailure(value string) string {
+	switch value {
+	case "admission_busy", "detector_input_limit", "deadline", "resource_cap", "response_cap", "invalid_stored_data", "other_query_error":
+		return value
+	}
+	if strings.HasPrefix(value, "clickhouse_") && len(value) <= len("clickhouse_")+5 {
+		code := strings.TrimPrefix(value, "clickhouse_")
+		if n, err := strconv.Atoi(code); err == nil && n >= 0 && n <= 99999 && strconv.Itoa(n) == code {
+			return value
+		}
+	}
+	return ""
+}
+
 func (h *Harness) queryURL(route string, known *Known) string {
 	q := url.Values{}
 	q.Set("namespace", h.config.Namespace)
@@ -60,11 +76,13 @@ func (h *Harness) startQueries(offerCtx context.Context) <-chan struct{} {
 				var response *http.Response
 				var size int64
 				statusCode := 0
+				queryFailure := ""
 				if e == nil {
 					response, e = client.Do(request)
 				}
 				if response != nil {
 					statusCode = response.StatusCode
+					queryFailure = boundedQueryFailure(response.Header.Get("X-IncidentLens-Query-Failure"))
 					var readErr error
 					size, readErr = io.Copy(io.Discard, io.LimitReader(response.Body, (8<<20)+1))
 					if readErr != nil {
@@ -76,7 +94,7 @@ func (h *Harness) startQueries(offerCtx context.Context) <-chan struct{} {
 					}
 				}
 				finished := time.Now().UTC()
-				event := Event{Kind: "query", Phase: task.phase, Route: task.route, Scheduled: task.scheduled, Started: started, Finished: finished, LatencyNS: finished.Sub(started).Nanoseconds(), SchedulingDelayNS: started.Sub(task.scheduled).Nanoseconds(), HTTPStatus: statusCode, Status: strconv.Itoa(statusCode), ResponseBytes: size}
+				event := Event{Kind: "query", Phase: task.phase, Route: task.route, Scheduled: task.scheduled, Started: started, Finished: finished, LatencyNS: finished.Sub(started).Nanoseconds(), SchedulingDelayNS: started.Sub(task.scheduled).Nanoseconds(), HTTPStatus: statusCode, Status: strconv.Itoa(statusCode), ResponseBytes: size, QueryFailure: queryFailure}
 				if e != nil {
 					event.Error = e.Error()
 					event.Status = "transport_error"
@@ -144,9 +162,11 @@ func (h *Harness) startProbes() {
 					}
 					found := false
 					code := 0
+					queryFailure := ""
 					size := int64(0)
 					if response != nil {
 						code = response.StatusCode
+						queryFailure = boundedQueryFailure(response.Header.Get("X-IncidentLens-Query-Failure"))
 						body, readErr := io.ReadAll(io.LimitReader(response.Body, (64<<10)+1))
 						size = int64(len(body))
 						response.Body.Close()
@@ -174,7 +194,7 @@ func (h *Harness) startProbes() {
 					cancel()
 					finished := time.Now().UTC()
 					result.polls++
-					event := Event{Kind: "visibility_probe", Phase: probe.Batch.Phase, Batch: probe.Batch.ID, TraceID: probe.TraceID, Started: started, Finished: finished, LatencyNS: finished.Sub(started).Nanoseconds(), HTTPStatus: code, Status: strconv.Itoa(code), ResponseBytes: size}
+					event := Event{Kind: "visibility_probe", Phase: probe.Batch.Phase, Batch: probe.Batch.ID, TraceID: probe.TraceID, Started: started, Finished: finished, LatencyNS: finished.Sub(started).Nanoseconds(), HTTPStatus: code, Status: strconv.Itoa(code), ResponseBytes: size, QueryFailure: queryFailure}
 					if e != nil {
 						event.Error = e.Error()
 					}

@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-03T20:54:36.823791+00:00",
+  "command": [
+    "docker",
+    "restart",
+    "--time",
+    "10",
+    "incidentlens-clickhouse-1"
+  ],
+  "returncode": 1,
+  "stdout": "Flag --time has been deprecated, use --timeout instead\n",
+  "stderr": "Error response from daemon: Cannot restart container incidentlens-clickhouse-1: tried to kill container, but did not receive an exit event\n"
+}

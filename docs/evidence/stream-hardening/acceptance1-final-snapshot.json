@@ -1,0 +1,1228 @@
+{
+  "environment": {
+    "at": "2026-10-06T20:03:25.466159Z",
+    "stack": "streaming",
+    "services": [
+      "clickhouse",
+      "api",
+      "collector",
+      "kafka",
+      "stream-ingest",
+      "stream-worker"
+    ],
+    "compose_command": [
+      "docker",
+      "compose",
+      "-f",
+      "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+      "-p",
+      "incidentlens-retro-hardening-acceptance1",
+      "-f",
+      "/Users/kousil/Documents/IncidentLens/deploy/streaming/compose.yaml",
+      "-f",
+      "/Users/kousil/Documents/IncidentLens/deploy/streaming/hardening.yaml",
+      "-f",
+      "/Users/kousil/Documents/IncidentLens/deploy/benchmark/hardening-candidate.yaml",
+      "-f",
+      "/Users/kousil/Documents/IncidentLens/deploy/benchmark/hardening-acceptance.yaml"
+    ],
+    "platform": "macOS-26.6.2-x86_64-i386-64bit",
+    "python": "3.9.6",
+    "cpu_count": 16,
+    "hardware": {
+      "hw.model": {
+        "at": "2026-10-06T20:03:25.442140Z",
+        "command": [
+          "sysctl",
+          "-n",
+          "hw.model"
+        ],
+        "returncode": 0,
+        "stdout": "MacBookPro16,1\n",
+        "stderr": "",
+        "elapsed_seconds": 0.004789333000000173
+      },
+      "machdep.cpu.brand_string": {
+        "at": "2026-10-06T20:03:25.446937Z",
+        "command": [
+          "sysctl",
+          "-n",
+          "machdep.cpu.brand_string"
+        ],
+        "returncode": 0,
+        "stdout": "Intel(R) Core(TM) i9-9880H CPU @ 2.30GHz\n",
+        "stderr": "",
+        "elapsed_seconds": 0.004511070999999589
+      },
+      "hw.memsize": {
+        "at": "2026-10-06T20:03:25.451455Z",
+        "command": [
+          "sysctl",
+          "-n",
+          "hw.memsize"
+        ],
+        "returncode": 0,
+        "stdout": "68719476736\n",
+        "stderr": "",
+        "elapsed_seconds": 0.004554376000000193
+      },
+      "hw.physicalcpu": {
+        "at": "2026-10-06T20:03:25.456015Z",
+        "command": [
+          "sysctl",
+          "-n",
+          "hw.physicalcpu"
+        ],
+        "returncode": 0,
+        "stdout": "8\n",
+        "stderr": "",
+        "elapsed_seconds": 0.004723815999999825
+      },
+      "hw.logicalcpu": {
+        "at": "2026-10-06T20:03:25.460746Z",
+        "command": [
+          "sysctl",
+          "-n",
+          "hw.logicalcpu"
+        ],
+        "returncode": 0,
+        "stdout": "16\n",
+        "stderr": "",
+        "elapsed_seconds": 0.005313189999999857
+      }
+    },
+    "docker_vm": {
+      "ServerVersion": "29.8.0",
+      "OperatingSystem": "Docker Desktop",
+      "OSType": "linux",
+      "Architecture": "x86_64",
+      "NCPU": 16,
+      "MemTotal": 8320962560,
+      "DockerRootDir": "/var/lib/docker",
+      "Driver": "overlayfs"
+    },
+    "docker_version": {
+      "at": "2026-10-06T20:03:25.494843Z",
+      "command": [
+        "docker",
+        "version",
+        "--format",
+        "{{json .}}"
+      ],
+      "returncode": 0,
+      "stdout": "{\"Client\":{\"Version\":\"29.8.0\",\"ApiVersion\":\"1.56\",\"DefaultAPIVersion\":\"1.56\",\"GitCommit\":\"88096ef\",\"GoVersion\":\"go1.26.8\",\"Os\":\"darwin\",\"Arch\":\"amd64\",\"BuildTime\":\"Thu Sep  3 21:49:43 2026\",\"Context\":\"desktop-linux\"},\"Server\":{\"Platform\":{\"Name\":\"Docker Desktop 4.92.0 (240144)\"},\"Version\":\"29.8.0\",\"ApiVersion\":\"1.56\",\"MinAPIVersion\":\"1.40\",\"Os\":\"linux\",\"Arch\":\"amd64\",\"Components\":[{\"Name\":\"Engine\",\"Version\":\"29.8.0\",\"Details\":{\"ApiVersion\":\"1.56\",\"Arch\":\"amd64\",\"BuildTime\":\"Thu Sep  3 21:51:20 2026\",\"Experimental\":\"false\",\"GitCommit\":\"3ce5872\",\"GoVersion\":\"go1.26.8\",\"KernelVersion\":\"7.0.12-linuxkit\",\"MinAPIVersion\":\"1.40\",\"Module\":\"github.com/moby/moby/v2\",\"ModuleVersion\":\"v2.0.0+unknown\",\"Os\":\"linux\"}},{\"Name\":\"containerd\",\"Version\":\"v2.3.5\",\"Details\":{\"GitCommit\":\"1294c24a7da8e5a793ed378161673abe94118892\"}},{\"Name\":\"runc\",\"Version\":\"1.5.1\",\"Details\":{\"GitCommit\":\"v1.5.1-0-g8f2685a4\"}},{\"Name\":\"docker-init\",\"Version\":\"0.19.0\",\"Details\":{\"GitCommit\":\"de40ad0\"}}],\"GitCommit\":\"3ce5872\",\"GoVersion\":\"go1.26.8\",\"KernelVersion\":\"7.0.12-linuxkit\",\"BuildTime\":\"2026-09-03T21:51:20.000000000+00:00\"}}\n",
+      "stderr": "",
+      "elapsed_seconds": 0.047073340999999935
+    },
+    "go_binary_build": {
+      "at": "2026-10-06T20:03:25.542156Z",
+      "command": [
+        "/Users/kousil/Library/Caches/IncidentLens/toolchain/go/bin/go",
+        "version",
+        "-m",
+        "/Users/kousil/Library/Caches/IncidentLens/bin/bench"
+      ],
+      "returncode": 0,
+      "stdout": "/Users/kousil/Library/Caches/IncidentLens/bin/bench: go1.26.8\n\tpath\tincidentlens/backend/cmd/bench\n\tmod\tincidentlens/backend\t(devel)\t\n\tdep\tgithub.com/ClickHouse/ch-go\tv0.68.0\th1:zd2VD8l2aVYnXFRyhTyKCrxvhSz1AaY4wBUXu/f0GiU=\n\tdep\tgithub.com/ClickHouse/clickhouse-go/v2\tv2.40.3\th1:46jB4kKwVDUOnECpStKMVXxvR0Cg9zeV9vdbPjtn6po=\n\tdep\tgithub.com/andybalholm/brotli\tv1.2.0\th1:ukwgCxwYrmACq68yiUqwIWnGY0cTPox/M94sVwToPjQ=\n\tdep\tgithub.com/go-faster/city\tv1.0.1\th1:4WAxSZ3V2Ws4QRDrscLEDcibJY8uf41H6AhXDrNDcGw=\n\tdep\tgithub.com/go-faster/errors\tv0.7.1\th1:MkJTnDoEdi9pDabt1dpWf7AA8/BaSYZqibYyhZ20AYg=\n\tdep\tgithub.com/google/uuid\tv1.6.0\th1:NIvaJDMOsjHA8n1jAhLSgzrAzy1Hgr+hNrb57e+94F0=\n\tdep\tgithub.com/grpc-ecosystem/grpc-gateway/v2\tv2.27.2\th1:8Tjv8EJ+pM1xP8mK6egEbD1OgnVTyacbefKhmbLhIhU=\n\tdep\tgithub.com/klauspost/compress\tv1.20.0\th1:a3C1ke2ohxFymNlb2HWAHjDeKCI90scRskErZkR0ezA=\n\tdep\tgithub.com/paulmach/orb\tv0.11.1\th1:3koVegMC4X/WeiXYz9iswopaTwMem53NzTJuTF20JzU=\n\tdep\tgithub.com/pierrec/lz4/v4\tv4.1.30\th1:cchX8N2DVP668WkElI9QMwVyoNabLkq1LofDHFeIrdg=\n\tdep\tgithub.com/segmentio/asm\tv1.2.0\th1:9BQrFxC+YOHJlTlHGkTrFWf59nbL3XnCoFLTwDCI7ys=\n\tdep\tgithub.com/shopspring/decimal\tv1.4.0\th1:bxl37RwXBklmTi0C79JfXCEBD1cqqHt0bbgBAGFp81k=\n\tdep\tgo.opentelemetry.io/otel\tv1.38.0\th1:RkfdswUDRimDg0m2Az18RKOsnI8UDzppJAtj01/Ymk8=\n\tdep\tgo.opentelemetry.io/otel/trace\tv1.38.0\th1:Fxk5bKrDZJUH+AMyyIXGcFAPah0oRcT+LuNtJrmcNLE=\n\tdep\tgo.opentelemetry.io/proto/otlp\tv1.9.0\th1:l706jCMITVouPOqEnii2fIAuO3IVGBRPV5ICjceRb/A=\n\tdep\tgo.yaml.in/yaml/v3\tv3.0.4\th1:tfq32ie2Jv2UxXFdLJdh3jXuOzWiL1fo0bu/FbuKpbc=\n\tdep\tgolang.org/x/net\tv0.44.0\th1:evd8IRDyfNBMBTTY5XRF1vaZlD+EmWx6x8PkhR04H/I=\n\tdep\tgolang.org/x/sys\tv0.36.0\th1:KVRy2GtZBrk1cBYA7MKu5bEZFxQk4NIDV6RLVcC8o0k=\n\tdep\tgolang.org/x/text\tv0.29.0\th1:1neNs90w9YzJ9BocxfsQNHKuAT4pkghyXc4nhZ6sJvk=\n\tdep\tgoogle.golang.org/genproto/googleapis/api\tv0.0.0-20250825161204-c5933d9347a5\th1:BIRfGDEjiHRrk0QKZe3Xv2ieMhtgRGeLcZQ0mIVn4EY=\n\tdep\tgoogle.golang.org/genproto/googleapis/rpc\tv0.0.0-20250825161204-c5933d9347a5\th1:eaY8u2EuxbRv7c3NiGK0/NedzVsCcV6hDuU5qPX5EGE=\n\tdep\tgoogle.golang.org/grpc\tv1.75.1\th1:/ODCNEuf9VghjgO3rqLcfg8fiOP0nSluljWFlDxELLI=\n\tdep\tgoogle.golang.org/protobuf\tv1.36.10\th1:AYd7cD/uASjIL6Q9LiTjz8JLcrh/88q5UObnmY3aOOE=\n\tbuild\t-buildmode=exe\n\tbuild\t-compiler=gc\n\tbuild\t-trimpath=true\n\tbuild\tCGO_ENABLED=1\n\tbuild\tGOARCH=amd64\n\tbuild\tGOOS=darwin\n\tbuild\tGOAMD64=v1\n",
+      "stderr": "",
+      "elapsed_seconds": 0.026166450000000285
+    },
+    "clickhouse_version": {
+      "at": "2026-10-06T20:03:25.568434Z",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+        "-p",
+        "incidentlens-retro-hardening-acceptance1",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/streaming/compose.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/streaming/hardening.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/benchmark/hardening-candidate.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/benchmark/hardening-acceptance.yaml",
+        "exec",
+        "-T",
+        "clickhouse",
+        "clickhouse-client",
+        "--password",
+        "local-admin",
+        "--query",
+        "SELECT version()"
+      ],
+      "returncode": 0,
+      "stdout": "25.8.4.13\n",
+      "stderr": "",
+      "elapsed_seconds": 0.23217190700000012
+    },
+    "containers": [
+      {
+        "id": "047419a98bca3692ddc68a305a3e78338d2372f99de87d8315dae73b00eb4a95",
+        "name": "/incidentlens-retro-hardening-acceptance1-api-1",
+        "image_id": "sha256:bfc2716d394de25e299940107d53fe536fc6ca2646a70fefbc767fd45a110662",
+        "image_reference": "incidentlens-hardening-api:candidate1",
+        "state": {
+          "Status": "running",
+          "Running": true,
+          "Paused": false,
+          "Restarting": false,
+          "OOMKilled": false,
+          "Dead": false,
+          "Pid": 3420,
+          "ExitCode": 0,
+          "Error": "",
+          "StartedAt": "2026-10-06T19:57:49.646370494Z",
+          "FinishedAt": "2026-10-06T01:40:57.738598144Z"
+        },
+        "limits": {
+          "Memory": 536870912,
+          "MemorySwap": 1073741824,
+          "NanoCpus": 1000000000,
+          "CpuQuota": 0,
+          "CpuPeriod": 0,
+          "CpusetCpus": "",
+          "PidsLimit": null
+        }
+      },
+      {
+        "id": "0b52d1d7cec7f0240ff97f15231d4db7336349984d63ca79f49f803828646157",
+        "name": "/incidentlens-retro-hardening-acceptance1-clickhouse-1",
+        "image_id": "sha256:c48c1ed0a54e6e9fde03750860aa86de1e6f40b6fe33c6df540738867b4f6809",
+        "image_reference": "clickhouse/clickhouse-server:25.8.4.13",
+        "state": {
+          "Status": "running",
+          "Running": true,
+          "Paused": false,
+          "Restarting": false,
+          "OOMKilled": false,
+          "Dead": false,
+          "Pid": 1127,
+          "ExitCode": 0,
+          "Error": "",
+          "StartedAt": "2026-10-06T19:57:33.066014284Z",
+          "FinishedAt": "2026-10-06T01:40:59.363026672Z",
+          "Health": {
+            "Status": "healthy",
+            "FailingStreak": 0,
+            "Log": [
+              {
+                "Start": "2026-10-06T20:03:00.985948375Z",
+                "End": "2026-10-06T20:03:01.07237129Z",
+                "ExitCode": 0,
+                "Output": "1\n"
+              },
+              {
+                "Start": "2026-10-06T20:03:06.073657324Z",
+                "End": "2026-10-06T20:03:06.159795895Z",
+                "ExitCode": 0,
+                "Output": "1\n"
+              },
+              {
+                "Start": "2026-10-06T20:03:11.161345115Z",
+                "End": "2026-10-06T20:03:11.276394204Z",
+                "ExitCode": 0,
+                "Output": "1\n"
+              },
+              {
+                "Start": "2026-10-06T20:03:16.276915517Z",
+                "End": "2026-10-06T20:03:16.374169192Z",
+                "ExitCode": 0,
+                "Output": "1\n"
+              },
+              {
+                "Start": "2026-10-06T20:03:21.375375208Z",
+                "End": "2026-10-06T20:03:21.46316434Z",
+                "ExitCode": 0,
+                "Output": "1\n"
+              }
+            ]
+          }
+        },
+        "limits": {
+          "Memory": 2147483648,
+          "MemorySwap": 4294967296,
+          "NanoCpus": 2000000000,
+          "CpuQuota": 0,
+          "CpuPeriod": 0,
+          "CpusetCpus": "",
+          "PidsLimit": null
+        }
+      },
+      {
+        "id": "742b638af1b7d026afb7230f8c79e0814767e6fdb3ee45994f450ea1c1e33208",
+        "name": "/incidentlens-retro-hardening-acceptance1-collector-1",
+        "image_id": "sha256:886722fe0f37af9d1fe24d29529253ec59fbf263b3b1df4facaf221373e19d23",
+        "image_reference": "otel/opentelemetry-collector-contrib:0.137.0",
+        "state": {
+          "Status": "running",
+          "Running": true,
+          "Paused": false,
+          "Restarting": false,
+          "OOMKilled": false,
+          "Dead": false,
+          "Pid": 5745,
+          "ExitCode": 0,
+          "Error": "",
+          "StartedAt": "2026-10-06T19:58:14.720065633Z",
+          "FinishedAt": "2026-10-06T01:40:57.765252327Z"
+        },
+        "limits": {
+          "Memory": 268435456,
+          "MemorySwap": 536870912,
+          "NanoCpus": 1000000000,
+          "CpuQuota": 0,
+          "CpuPeriod": 0,
+          "CpusetCpus": "",
+          "PidsLimit": null
+        }
+      },
+      {
+        "id": "6e2c4d0ef838c233db23ec84cd040c5e83637bd2a14336ad838545fa33e76f2c",
+        "name": "/incidentlens-retro-hardening-acceptance1-kafka-1",
+        "image_id": "sha256:0bc1bb2478f45b6cea78864df86acdc11e8df2c5172477819a4d12942cbe5d40",
+        "image_reference": "apache/kafka:4.1.1@sha256:0bc1bb2478f45b6cea78864df86acdc11e8df2c5172477819a4d12942cbe5d40",
+        "state": {
+          "Status": "running",
+          "Running": true,
+          "Paused": false,
+          "Restarting": false,
+          "OOMKilled": false,
+          "Dead": false,
+          "Pid": 10355,
+          "ExitCode": 0,
+          "Error": "",
+          "StartedAt": "2026-10-06T19:59:35.06276118Z",
+          "FinishedAt": "2026-10-06T19:59:25.372740014Z",
+          "Health": {
+            "Status": "healthy",
+            "FailingStreak": 0,
+            "Log": [
+              {
+                "Start": "2026-10-06T20:02:47.486916561Z",
+                "End": "2026-10-06T20:02:49.529857769Z",
+                "ExitCode": 0,
+                "Output": "kafka:9092 (id: 1 rack: null isFenced: false) -> (\n\tProduce(0): 0 to 13 [usable: 13],\n\tFetch(1): 4 to 18 [usable: 18],\n\tListOffsets(2): 1 to 10 [usable: 10],\n\tMetadata(3): 0 to 13 [usable: 13],\n\tOffsetCommit(8): 2 to 9 [usable: 9],\n\tOffsetFetch(9): 1 to 9 [usable: 9],\n\tFindCoordinator(10): 0 to 6 [usable: 6],\n\tJoinGroup(11): 0 to 9 [usable: 9],\n\tHeartbeat(12): 0 to 4 [usable: 4],\n\tLeaveGroup(13): 0 to 5 [usable: 5],\n\tSyncGroup(14): 0 to 5 [usable: 5],\n\tDescribeGroups(15): 0 to 6 [usable: 6],\n\tListGroups(16): 0 to 5 [usable: 5],\n\tSaslHandshake(17): 0 to 1 [usable: 1],\n\tApiVersions(18): 0 to 4 [usable: 4],\n\tCreateTopics(19): 2 to 7 [usable: 7],\n\tDeleteTopics(20): 1 to 6 [usable: 6],\n\tDeleteRecords(21): 0 to 2 [usable: 2],\n\tInitProducerId(22): 0 to 5 [usable: 5],\n\tOffsetForLeaderEpoch(23): 2 to 4 [usable: 4],\n\tAddPartitionsToTxn(24): 0 to 5 [usable: 5],\n\tAddOffsetsToTxn(25): 0 to 4 [usable: 4],\n\tEndTxn(26): 0 to 5 [usable: 5],\n\tWriteTxnMarkers(27): 1 [usable: 1],\n\tTxnOffsetCommit(28): 0 to 5 [usable: 5],\n\tDescribeAcls(29): 1 to 3 [usable: 3],\n\tCreateAcls(30): 1 to 3 [usable: 3],\n\tDeleteAcls(31): 1 to 3 [usable: 3],\n\tDescribeConfigs(32): 1 to 4 [usable: 4],\n\tAlterConfigs(33): 0 to 2 [usable: 2],\n\tAlterReplicaLogDirs(34): 1 to 2 [usable: 2],\n\tDescribeLogDirs(35): 1 to 4 [usable: 4],\n\tSaslAuthenticate(36): 0 to 2 [usable: 2],\n\tCreatePartitions(37): 0 to 3 [usable: 3],\n\tCreateDelegationToken(38): 1 to 3 [usable: 3],\n\tRenewDelegationToken(39): 1 to 2 [usable: 2],\n\tExpireDelegationToken(40): 1 to 2 [usable: 2],\n\tDescribeDelegationToken(41): 1 to 3 [usable: 3],\n\tDeleteGroups(42): 0 to 2 [usable: 2],\n\tElectLeaders(43): 0 to 2 [usable: 2],\n\tIncrementalAlterConfigs(44): 0 to 1 [usable: 1],\n\tAlterPartitionReassignments(45): 0 to 1 [usable: 1],\n\tListPartitionReassignments(46): 0 [usable: 0],\n\tOffsetDelete(47): 0 [usable: 0],\n\tDescribeClientQuotas(48): 0 to 1 [usable: 1],\n\tAlterClientQuotas(49): 0 to 1 [usable: 1],\n\tDescribeUserScramCredentials(50): 0 [usable: 0],\n\tAlterUserScramCredentials(51): 0 [usable: 0],\n\tDescribeQuorum(55): 0 to 2 [usable: 2],\n\tUpdateFeatures(57): 0 to 2 [usable: 2],\n\tDescribeCluster(60): 0 to 2 [usable: 2],\n\tDescribeProducers(61): 0 [usable: 0],\n\tUnregisterBroker(64): 0 [usable: 0],\n\tDescribeTransactions(65): 0 [usable: 0],\n\tListTransactions(66): 0 to 2 [usable: 2],\n\tConsumerGroupHeartbeat(68): 0 to 1 [usable: 1],\n\tConsumerGroupDescribe(69): 0 to 1 [usable: 1],\n\tGetTelemetrySubscriptions(71): UNSUPPORTED,\n\tPushTelemetry(72): UNSUPPORTED,\n\tListConfigResources(74): 0 to 1 [usable: 1],\n\tDescribeTopicPartitions(75): 0 [usable: 0],\n\tShareGroupHeartbeat(76): 1 [usable: 1],\n\tShareGroupDescribe(77): 1 [usable: 1],\n\tShareFetch(78): 1 [usable: 1],\n\tShareAcknowledge(79): 1 [usable: 1],\n\tAddRaftVoter(80): 0 [usable: 0],\n\tRemoveRaftVoter(81): 0 [usable: 0],\n\tInitializeShareGroupState(83): 0 [usable: 0],\n\tReadShareGroupState(84): 0 [usable: 0],\n\tWriteShareGroupState(85): 0 [usable: 0],\n\tDeleteShareGroupState(86): 0 [usable: 0],\n\tReadShareGroupStateSummary(87): 0 [usable: 0],\n\tStreamsGroupHeartbeat(88): UNSUPPORTED,\n\tStreamsGroupDescribe(89): UNSUPPORTED,\n\tDescribeShareGroupOffsets(90): 0 [usable: 0],\n\tAlterShareGroupOffsets(91): 0 [usable: 0],\n\tDeleteShareGroupOffsets(92): 0 [usable: 0]\n)\n"
+              },
+              {
+                "Start": "2026-10-06T20:02:54.53132385Z",
+                "End": "2026-10-06T20:02:57.233652763Z",
+                "ExitCode": 0,
+                "Output": "kafka:9092 (id: 1 rack: null isFenced: false) -> (\n\tProduce(0): 0 to 13 [usable: 13],\n\tFetch(1): 4 to 18 [usable: 18],\n\tListOffsets(2): 1 to 10 [usable: 10],\n\tMetadata(3): 0 to 13 [usable: 13],\n\tOffsetCommit(8): 2 to 9 [usable: 9],\n\tOffsetFetch(9): 1 to 9 [usable: 9],\n\tFindCoordinator(10): 0 to 6 [usable: 6],\n\tJoinGroup(11): 0 to 9 [usable: 9],\n\tHeartbeat(12): 0 to 4 [usable: 4],\n\tLeaveGroup(13): 0 to 5 [usable: 5],\n\tSyncGroup(14): 0 to 5 [usable: 5],\n\tDescribeGroups(15): 0 to 6 [usable: 6],\n\tListGroups(16): 0 to 5 [usable: 5],\n\tSaslHandshake(17): 0 to 1 [usable: 1],\n\tApiVersions(18): 0 to 4 [usable: 4],\n\tCreateTopics(19): 2 to 7 [usable: 7],\n\tDeleteTopics(20): 1 to 6 [usable: 6],\n\tDeleteRecords(21): 0 to 2 [usable: 2],\n\tInitProducerId(22): 0 to 5 [usable: 5],\n\tOffsetForLeaderEpoch(23): 2 to 4 [usable: 4],\n\tAddPartitionsToTxn(24): 0 to 5 [usable: 5],\n\tAddOffsetsToTxn(25): 0 to 4 [usable: 4],\n\tEndTxn(26): 0 to 5 [usable: 5],\n\tWriteTxnMarkers(27): 1 [usable: 1],\n\tTxnOffsetCommit(28): 0 to 5 [usable: 5],\n\tDescribeAcls(29): 1 to 3 [usable: 3],\n\tCreateAcls(30): 1 to 3 [usable: 3],\n\tDeleteAcls(31): 1 to 3 [usable: 3],\n\tDescribeConfigs(32): 1 to 4 [usable: 4],\n\tAlterConfigs(33): 0 to 2 [usable: 2],\n\tAlterReplicaLogDirs(34): 1 to 2 [usable: 2],\n\tDescribeLogDirs(35): 1 to 4 [usable: 4],\n\tSaslAuthenticate(36): 0 to 2 [usable: 2],\n\tCreatePartitions(37): 0 to 3 [usable: 3],\n\tCreateDelegationToken(38): 1 to 3 [usable: 3],\n\tRenewDelegationToken(39): 1 to 2 [usable: 2],\n\tExpireDelegationToken(40): 1 to 2 [usable: 2],\n\tDescribeDelegationToken(41): 1 to 3 [usable: 3],\n\tDeleteGroups(42): 0 to 2 [usable: 2],\n\tElectLeaders(43): 0 to 2 [usable: 2],\n\tIncrementalAlterConfigs(44): 0 to 1 [usable: 1],\n\tAlterPartitionReassignments(45): 0 to 1 [usable: 1],\n\tListPartitionReassignments(46): 0 [usable: 0],\n\tOffsetDelete(47): 0 [usable: 0],\n\tDescribeClientQuotas(48): 0 to 1 [usable: 1],\n\tAlterClientQuotas(49): 0 to 1 [usable: 1],\n\tDescribeUserScramCredentials(50): 0 [usable: 0],\n\tAlterUserScramCredentials(51): 0 [usable: 0],\n\tDescribeQuorum(55): 0 to 2 [usable: 2],\n\tUpdateFeatures(57): 0 to 2 [usable: 2],\n\tDescribeCluster(60): 0 to 2 [usable: 2],\n\tDescribeProducers(61): 0 [usable: 0],\n\tUnregisterBroker(64): 0 [usable: 0],\n\tDescribeTransactions(65): 0 [usable: 0],\n\tListTransactions(66): 0 to 2 [usable: 2],\n\tConsumerGroupHeartbeat(68): 0 to 1 [usable: 1],\n\tConsumerGroupDescribe(69): 0 to 1 [usable: 1],\n\tGetTelemetrySubscriptions(71): UNSUPPORTED,\n\tPushTelemetry(72): UNSUPPORTED,\n\tListConfigResources(74): 0 to 1 [usable: 1],\n\tDescribeTopicPartitions(75): 0 [usable: 0],\n\tShareGroupHeartbeat(76): 1 [usable: 1],\n\tShareGroupDescribe(77): 1 [usable: 1],\n\tShareFetch(78): 1 [usable: 1],\n\tShareAcknowledge(79): 1 [usable: 1],\n\tAddRaftVoter(80): 0 [usable: 0],\n\tRemoveRaftVoter(81): 0 [usable: 0],\n\tInitializeShareGroupState(83): 0 [usable: 0],\n\tReadShareGroupState(84): 0 [usable: 0],\n\tWriteShareGroupState(85): 0 [usable: 0],\n\tDeleteShareGroupState(86): 0 [usable: 0],\n\tReadShareGroupStateSummary(87): 0 [usable: 0],\n\tStreamsGroupHeartbeat(88): UNSUPPORTED,\n\tStreamsGroupDescribe(89): UNSUPPORTED,\n\tDescribeShareGroupOffsets(90): 0 [usable: 0],\n\tAlterShareGroupOffsets(91): 0 [usable: 0],\n\tDeleteShareGroupOffsets(92): 0 [usable: 0]\n)\n"
+              },
+              {
+                "Start": "2026-10-06T20:03:02.234811785Z",
+                "End": "2026-10-06T20:03:04.268863087Z",
+                "ExitCode": 0,
+                "Output": "kafka:9092 (id: 1 rack: null isFenced: false) -> (\n\tProduce(0): 0 to 13 [usable: 13],\n\tFetch(1): 4 to 18 [usable: 18],\n\tListOffsets(2): 1 to 10 [usable: 10],\n\tMetadata(3): 0 to 13 [usable: 13],\n\tOffsetCommit(8): 2 to 9 [usable: 9],\n\tOffsetFetch(9): 1 to 9 [usable: 9],\n\tFindCoordinator(10): 0 to 6 [usable: 6],\n\tJoinGroup(11): 0 to 9 [usable: 9],\n\tHeartbeat(12): 0 to 4 [usable: 4],\n\tLeaveGroup(13): 0 to 5 [usable: 5],\n\tSyncGroup(14): 0 to 5 [usable: 5],\n\tDescribeGroups(15): 0 to 6 [usable: 6],\n\tListGroups(16): 0 to 5 [usable: 5],\n\tSaslHandshake(17): 0 to 1 [usable: 1],\n\tApiVersions(18): 0 to 4 [usable: 4],\n\tCreateTopics(19): 2 to 7 [usable: 7],\n\tDeleteTopics(20): 1 to 6 [usable: 6],\n\tDeleteRecords(21): 0 to 2 [usable: 2],\n\tInitProducerId(22): 0 to 5 [usable: 5],\n\tOffsetForLeaderEpoch(23): 2 to 4 [usable: 4],\n\tAddPartitionsToTxn(24): 0 to 5 [usable: 5],\n\tAddOffsetsToTxn(25): 0 to 4 [usable: 4],\n\tEndTxn(26): 0 to 5 [usable: 5],\n\tWriteTxnMarkers(27): 1 [usable: 1],\n\tTxnOffsetCommit(28): 0 to 5 [usable: 5],\n\tDescribeAcls(29): 1 to 3 [usable: 3],\n\tCreateAcls(30): 1 to 3 [usable: 3],\n\tDeleteAcls(31): 1 to 3 [usable: 3],\n\tDescribeConfigs(32): 1 to 4 [usable: 4],\n\tAlterConfigs(33): 0 to 2 [usable: 2],\n\tAlterReplicaLogDirs(34): 1 to 2 [usable: 2],\n\tDescribeLogDirs(35): 1 to 4 [usable: 4],\n\tSaslAuthenticate(36): 0 to 2 [usable: 2],\n\tCreatePartitions(37): 0 to 3 [usable: 3],\n\tCreateDelegationToken(38): 1 to 3 [usable: 3],\n\tRenewDelegationToken(39): 1 to 2 [usable: 2],\n\tExpireDelegationToken(40): 1 to 2 [usable: 2],\n\tDescribeDelegationToken(41): 1 to 3 [usable: 3],\n\tDeleteGroups(42): 0 to 2 [usable: 2],\n\tElectLeaders(43): 0 to 2 [usable: 2],\n\tIncrementalAlterConfigs(44): 0 to 1 [usable: 1],\n\tAlterPartitionReassignments(45): 0 to 1 [usable: 1],\n\tListPartitionReassignments(46): 0 [usable: 0],\n\tOffsetDelete(47): 0 [usable: 0],\n\tDescribeClientQuotas(48): 0 to 1 [usable: 1],\n\tAlterClientQuotas(49): 0 to 1 [usable: 1],\n\tDescribeUserScramCredentials(50): 0 [usable: 0],\n\tAlterUserScramCredentials(51): 0 [usable: 0],\n\tDescribeQuorum(55): 0 to 2 [usable: 2],\n\tUpdateFeatures(57): 0 to 2 [usable: 2],\n\tDescribeCluster(60): 0 to 2 [usable: 2],\n\tDescribeProducers(61): 0 [usable: 0],\n\tUnregisterBroker(64): 0 [usable: 0],\n\tDescribeTransactions(65): 0 [usable: 0],\n\tListTransactions(66): 0 to 2 [usable: 2],\n\tConsumerGroupHeartbeat(68): 0 to 1 [usable: 1],\n\tConsumerGroupDescribe(69): 0 to 1 [usable: 1],\n\tGetTelemetrySubscriptions(71): UNSUPPORTED,\n\tPushTelemetry(72): UNSUPPORTED,\n\tListConfigResources(74): 0 to 1 [usable: 1],\n\tDescribeTopicPartitions(75): 0 [usable: 0],\n\tShareGroupHeartbeat(76): 1 [usable: 1],\n\tShareGroupDescribe(77): 1 [usable: 1],\n\tShareFetch(78): 1 [usable: 1],\n\tShareAcknowledge(79): 1 [usable: 1],\n\tAddRaftVoter(80): 0 [usable: 0],\n\tRemoveRaftVoter(81): 0 [usable: 0],\n\tInitializeShareGroupState(83): 0 [usable: 0],\n\tReadShareGroupState(84): 0 [usable: 0],\n\tWriteShareGroupState(85): 0 [usable: 0],\n\tDeleteShareGroupState(86): 0 [usable: 0],\n\tReadShareGroupStateSummary(87): 0 [usable: 0],\n\tStreamsGroupHeartbeat(88): UNSUPPORTED,\n\tStreamsGroupDescribe(89): UNSUPPORTED,\n\tDescribeShareGroupOffsets(90): 0 [usable: 0],\n\tAlterShareGroupOffsets(91): 0 [usable: 0],\n\tDeleteShareGroupOffsets(92): 0 [usable: 0]\n)\n"
+              },
+              {
+                "Start": "2026-10-06T20:03:09.269566808Z",
+                "End": "2026-10-06T20:03:11.400635048Z",
+                "ExitCode": 0,
+                "Output": "kafka:9092 (id: 1 rack: null isFenced: false) -> (\n\tProduce(0): 0 to 13 [usable: 13],\n\tFetch(1): 4 to 18 [usable: 18],\n\tListOffsets(2): 1 to 10 [usable: 10],\n\tMetadata(3): 0 to 13 [usable: 13],\n\tOffsetCommit(8): 2 to 9 [usable: 9],\n\tOffsetFetch(9): 1 to 9 [usable: 9],\n\tFindCoordinator(10): 0 to 6 [usable: 6],\n\tJoinGroup(11): 0 to 9 [usable: 9],\n\tHeartbeat(12): 0 to 4 [usable: 4],\n\tLeaveGroup(13): 0 to 5 [usable: 5],\n\tSyncGroup(14): 0 to 5 [usable: 5],\n\tDescribeGroups(15): 0 to 6 [usable: 6],\n\tListGroups(16): 0 to 5 [usable: 5],\n\tSaslHandshake(17): 0 to 1 [usable: 1],\n\tApiVersions(18): 0 to 4 [usable: 4],\n\tCreateTopics(19): 2 to 7 [usable: 7],\n\tDeleteTopics(20): 1 to 6 [usable: 6],\n\tDeleteRecords(21): 0 to 2 [usable: 2],\n\tInitProducerId(22): 0 to 5 [usable: 5],\n\tOffsetForLeaderEpoch(23): 2 to 4 [usable: 4],\n\tAddPartitionsToTxn(24): 0 to 5 [usable: 5],\n\tAddOffsetsToTxn(25): 0 to 4 [usable: 4],\n\tEndTxn(26): 0 to 5 [usable: 5],\n\tWriteTxnMarkers(27): 1 [usable: 1],\n\tTxnOffsetCommit(28): 0 to 5 [usable: 5],\n\tDescribeAcls(29): 1 to 3 [usable: 3],\n\tCreateAcls(30): 1 to 3 [usable: 3],\n\tDeleteAcls(31): 1 to 3 [usable: 3],\n\tDescribeConfigs(32): 1 to 4 [usable: 4],\n\tAlterConfigs(33): 0 to 2 [usable: 2],\n\tAlterReplicaLogDirs(34): 1 to 2 [usable: 2],\n\tDescribeLogDirs(35): 1 to 4 [usable: 4],\n\tSaslAuthenticate(36): 0 to 2 [usable: 2],\n\tCreatePartitions(37): 0 to 3 [usable: 3],\n\tCreateDelegationToken(38): 1 to 3 [usable: 3],\n\tRenewDelegationToken(39): 1 to 2 [usable: 2],\n\tExpireDelegationToken(40): 1 to 2 [usable: 2],\n\tDescribeDelegationToken(41): 1 to 3 [usable: 3],\n\tDeleteGroups(42): 0 to 2 [usable: 2],\n\tElectLeaders(43): 0 to 2 [usable: 2],\n\tIncrementalAlterConfigs(44): 0 to 1 [usable: 1],\n\tAlterPartitionReassignments(45): 0 to 1 [usable: 1],\n\tListPartitionReassignments(46): 0 [usable: 0],\n\tOffsetDelete(47): 0 [usable: 0],\n\tDescribeClientQuotas(48): 0 to 1 [usable: 1],\n\tAlterClientQuotas(49): 0 to 1 [usable: 1],\n\tDescribeUserScramCredentials(50): 0 [usable: 0],\n\tAlterUserScramCredentials(51): 0 [usable: 0],\n\tDescribeQuorum(55): 0 to 2 [usable: 2],\n\tUpdateFeatures(57): 0 to 2 [usable: 2],\n\tDescribeCluster(60): 0 to 2 [usable: 2],\n\tDescribeProducers(61): 0 [usable: 0],\n\tUnregisterBroker(64): 0 [usable: 0],\n\tDescribeTransactions(65): 0 [usable: 0],\n\tListTransactions(66): 0 to 2 [usable: 2],\n\tConsumerGroupHeartbeat(68): 0 to 1 [usable: 1],\n\tConsumerGroupDescribe(69): 0 to 1 [usable: 1],\n\tGetTelemetrySubscriptions(71): UNSUPPORTED,\n\tPushTelemetry(72): UNSUPPORTED,\n\tListConfigResources(74): 0 to 1 [usable: 1],\n\tDescribeTopicPartitions(75): 0 [usable: 0],\n\tShareGroupHeartbeat(76): 1 [usable: 1],\n\tShareGroupDescribe(77): 1 [usable: 1],\n\tShareFetch(78): 1 [usable: 1],\n\tShareAcknowledge(79): 1 [usable: 1],\n\tAddRaftVoter(80): 0 [usable: 0],\n\tRemoveRaftVoter(81): 0 [usable: 0],\n\tInitializeShareGroupState(83): 0 [usable: 0],\n\tReadShareGroupState(84): 0 [usable: 0],\n\tWriteShareGroupState(85): 0 [usable: 0],\n\tDeleteShareGroupState(86): 0 [usable: 0],\n\tReadShareGroupStateSummary(87): 0 [usable: 0],\n\tStreamsGroupHeartbeat(88): UNSUPPORTED,\n\tStreamsGroupDescribe(89): UNSUPPORTED,\n\tDescribeShareGroupOffsets(90): 0 [usable: 0],\n\tAlterShareGroupOffsets(91): 0 [usable: 0],\n\tDeleteShareGroupOffsets(92): 0 [usable: 0]\n)\n"
+              },
+              {
+                "Start": "2026-10-06T20:03:16.402138133Z",
+                "End": "2026-10-06T20:03:18.351991862Z",
+                "ExitCode": 0,
+                "Output": "kafka:9092 (id: 1 rack: null isFenced: false) -> (\n\tProduce(0): 0 to 13 [usable: 13],\n\tFetch(1): 4 to 18 [usable: 18],\n\tListOffsets(2): 1 to 10 [usable: 10],\n\tMetadata(3): 0 to 13 [usable: 13],\n\tOffsetCommit(8): 2 to 9 [usable: 9],\n\tOffsetFetch(9): 1 to 9 [usable: 9],\n\tFindCoordinator(10): 0 to 6 [usable: 6],\n\tJoinGroup(11): 0 to 9 [usable: 9],\n\tHeartbeat(12): 0 to 4 [usable: 4],\n\tLeaveGroup(13): 0 to 5 [usable: 5],\n\tSyncGroup(14): 0 to 5 [usable: 5],\n\tDescribeGroups(15): 0 to 6 [usable: 6],\n\tListGroups(16): 0 to 5 [usable: 5],\n\tSaslHandshake(17): 0 to 1 [usable: 1],\n\tApiVersions(18): 0 to 4 [usable: 4],\n\tCreateTopics(19): 2 to 7 [usable: 7],\n\tDeleteTopics(20): 1 to 6 [usable: 6],\n\tDeleteRecords(21): 0 to 2 [usable: 2],\n\tInitProducerId(22): 0 to 5 [usable: 5],\n\tOffsetForLeaderEpoch(23): 2 to 4 [usable: 4],\n\tAddPartitionsToTxn(24): 0 to 5 [usable: 5],\n\tAddOffsetsToTxn(25): 0 to 4 [usable: 4],\n\tEndTxn(26): 0 to 5 [usable: 5],\n\tWriteTxnMarkers(27): 1 [usable: 1],\n\tTxnOffsetCommit(28): 0 to 5 [usable: 5],\n\tDescribeAcls(29): 1 to 3 [usable: 3],\n\tCreateAcls(30): 1 to 3 [usable: 3],\n\tDeleteAcls(31): 1 to 3 [usable: 3],\n\tDescribeConfigs(32): 1 to 4 [usable: 4],\n\tAlterConfigs(33): 0 to 2 [usable: 2],\n\tAlterReplicaLogDirs(34): 1 to 2 [usable: 2],\n\tDescribeLogDirs(35): 1 to 4 [usable: 4],\n\tSaslAuthenticate(36): 0 to 2 [usable: 2],\n\tCreatePartitions(37): 0 to 3 [usable: 3],\n\tCreateDelegationToken(38): 1 to 3 [usable: 3],\n\tRenewDelegationToken(39): 1 to 2 [usable: 2],\n\tExpireDelegationToken(40): 1 to 2 [usable: 2],\n\tDescribeDelegationToken(41): 1 to 3 [usable: 3],\n\tDeleteGroups(42): 0 to 2 [usable: 2],\n\tElectLeaders(43): 0 to 2 [usable: 2],\n\tIncrementalAlterConfigs(44): 0 to 1 [usable: 1],\n\tAlterPartitionReassignments(45): 0 to 1 [usable: 1],\n\tListPartitionReassignments(46): 0 [usable: 0],\n\tOffsetDelete(47): 0 [usable: 0],\n\tDescribeClientQuotas(48): 0 to 1 [usable: 1],\n\tAlterClientQuotas(49): 0 to 1 [usable: 1],\n\tDescribeUserScramCredentials(50): 0 [usable: 0],\n\tAlterUserScramCredentials(51): 0 [usable: 0],\n\tDescribeQuorum(55): 0 to 2 [usable: 2],\n\tUpdateFeatures(57): 0 to 2 [usable: 2],\n\tDescribeCluster(60): 0 to 2 [usable: 2],\n\tDescribeProducers(61): 0 [usable: 0],\n\tUnregisterBroker(64): 0 [usable: 0],\n\tDescribeTransactions(65): 0 [usable: 0],\n\tListTransactions(66): 0 to 2 [usable: 2],\n\tConsumerGroupHeartbeat(68): 0 to 1 [usable: 1],\n\tConsumerGroupDescribe(69): 0 to 1 [usable: 1],\n\tGetTelemetrySubscriptions(71): UNSUPPORTED,\n\tPushTelemetry(72): UNSUPPORTED,\n\tListConfigResources(74): 0 to 1 [usable: 1],\n\tDescribeTopicPartitions(75): 0 [usable: 0],\n\tShareGroupHeartbeat(76): 1 [usable: 1],\n\tShareGroupDescribe(77): 1 [usable: 1],\n\tShareFetch(78): 1 [usable: 1],\n\tShareAcknowledge(79): 1 [usable: 1],\n\tAddRaftVoter(80): 0 [usable: 0],\n\tRemoveRaftVoter(81): 0 [usable: 0],\n\tInitializeShareGroupState(83): 0 [usable: 0],\n\tReadShareGroupState(84): 0 [usable: 0],\n\tWriteShareGroupState(85): 0 [usable: 0],\n\tDeleteShareGroupState(86): 0 [usable: 0],\n\tReadShareGroupStateSummary(87): 0 [usable: 0],\n\tStreamsGroupHeartbeat(88): UNSUPPORTED,\n\tStreamsGroupDescribe(89): UNSUPPORTED,\n\tDescribeShareGroupOffsets(90): 0 [usable: 0],\n\tAlterShareGroupOffsets(91): 0 [usable: 0],\n\tDeleteShareGroupOffsets(92): 0 [usable: 0]\n)\n"
+              }
+            ]
+          }
+        },
+        "limits": {
+          "Memory": 1073741824,
+          "MemorySwap": 2147483648,
+          "NanoCpus": 2000000000,
+          "CpuQuota": 0,
+          "CpuPeriod": 0,
+          "CpusetCpus": "",
+          "PidsLimit": null
+        }
+      },
+      {
+        "id": "d8809595a4da163285d0ecba493d1ce6c3c491881201eb47fe7b2e0f675e4702",
+        "name": "/incidentlens-retro-hardening-acceptance1-stream-ingest-1",
+        "image_id": "sha256:8e83a459513f56c3fc4221b29b148f4f05ce79510f9ea73b84ac34bde26098c9",
+        "image_reference": "incidentlens-hardening-producer:candidate1",
+        "state": {
+          "Status": "running",
+          "Running": true,
+          "Paused": false,
+          "Restarting": false,
+          "OOMKilled": false,
+          "Dead": false,
+          "Pid": 5656,
+          "ExitCode": 0,
+          "Error": "",
+          "StartedAt": "2026-10-06T19:58:14.173034846Z",
+          "FinishedAt": "2026-10-06T01:40:57.722488499Z"
+        },
+        "limits": {
+          "Memory": 536870912,
+          "MemorySwap": 1073741824,
+          "NanoCpus": 1000000000,
+          "CpuQuota": 0,
+          "CpuPeriod": 0,
+          "CpusetCpus": "",
+          "PidsLimit": null
+        }
+      },
+      {
+        "id": "d4ed3859358ff0214fe9dd85acc142aecce62e0669916b2c4af93cbfaa086b19",
+        "name": "/incidentlens-retro-hardening-acceptance1-stream-worker-1",
+        "image_id": "sha256:6fe541153b665896590ce22b051d0092ca80e6c6a36f9843d0072ae4154c43fe",
+        "image_reference": "incidentlens-hardening-worker:candidate1",
+        "state": {
+          "Status": "running",
+          "Running": true,
+          "Paused": false,
+          "Restarting": false,
+          "OOMKilled": false,
+          "Dead": false,
+          "Pid": 10166,
+          "ExitCode": 0,
+          "Error": "",
+          "StartedAt": "2026-10-06T19:59:21.855302785Z",
+          "FinishedAt": "2026-10-06T19:59:09.310016133Z"
+        },
+        "limits": {
+          "Memory": 536870912,
+          "MemorySwap": 1073741824,
+          "NanoCpus": 1000000000,
+          "CpuQuota": 0,
+          "CpuPeriod": 0,
+          "CpusetCpus": "",
+          "PidsLimit": null
+        }
+      }
+    ],
+    "images": [
+      {
+        "Id": "sha256:0bc1bb2478f45b6cea78864df86acdc11e8df2c5172477819a4d12942cbe5d40",
+        "RepoTags": [
+          "apache/kafka:4.1.1"
+        ],
+        "RepoDigests": [
+          "apache/kafka@sha256:0bc1bb2478f45b6cea78864df86acdc11e8df2c5172477819a4d12942cbe5d40"
+        ],
+        "Created": "2025-10-27T13:23:35.696514097Z",
+        "Architecture": "amd64",
+        "Os": "linux"
+      },
+      {
+        "Id": "sha256:6fe541153b665896590ce22b051d0092ca80e6c6a36f9843d0072ae4154c43fe",
+        "RepoTags": [
+          "incidentlens-hardening-worker:candidate1"
+        ],
+        "RepoDigests": [
+          "incidentlens-hardening-worker@sha256:6fe541153b665896590ce22b051d0092ca80e6c6a36f9843d0072ae4154c43fe"
+        ],
+        "Created": "2026-10-05T21:53:39.782672049Z",
+        "Architecture": "amd64",
+        "Os": "linux"
+      },
+      {
+        "Id": "sha256:886722fe0f37af9d1fe24d29529253ec59fbf263b3b1df4facaf221373e19d23",
+        "RepoTags": [
+          "otel/opentelemetry-collector-contrib:0.137.0"
+        ],
+        "RepoDigests": [
+          "otel/opentelemetry-collector-contrib@sha256:886722fe0f37af9d1fe24d29529253ec59fbf263b3b1df4facaf221373e19d23"
+        ],
+        "Created": "2025-10-07T06:03:13.145539207Z",
+        "Architecture": "amd64",
+        "Os": "linux"
+      },
+      {
+        "Id": "sha256:8e83a459513f56c3fc4221b29b148f4f05ce79510f9ea73b84ac34bde26098c9",
+        "RepoTags": [
+          "incidentlens-hardening-producer:candidate1"
+        ],
+        "RepoDigests": [
+          "incidentlens-hardening-producer@sha256:8e83a459513f56c3fc4221b29b148f4f05ce79510f9ea73b84ac34bde26098c9"
+        ],
+        "Created": "2026-10-03T20:58:01.444309119Z",
+        "Architecture": "amd64",
+        "Os": "linux"
+      },
+      {
+        "Id": "sha256:bfc2716d394de25e299940107d53fe536fc6ca2646a70fefbc767fd45a110662",
+        "RepoTags": [
+          "incidentlens-hardening-api:candidate1"
+        ],
+        "RepoDigests": [
+          "incidentlens-hardening-api@sha256:bfc2716d394de25e299940107d53fe536fc6ca2646a70fefbc767fd45a110662"
+        ],
+        "Created": "2026-10-05T21:51:20.641818842Z",
+        "Architecture": "amd64",
+        "Os": "linux"
+      },
+      {
+        "Id": "sha256:c48c1ed0a54e6e9fde03750860aa86de1e6f40b6fe33c6df540738867b4f6809",
+        "RepoTags": [
+          "clickhouse/clickhouse-server:25.8.4.13"
+        ],
+        "RepoDigests": [
+          "clickhouse/clickhouse-server@sha256:c48c1ed0a54e6e9fde03750860aa86de1e6f40b6fe33c6df540738867b4f6809"
+        ],
+        "Created": "2025-09-18T12:23:28.438783814Z",
+        "Architecture": "amd64",
+        "Os": "linux"
+      }
+    ],
+    "git_head": {
+      "at": "2026-10-06T20:03:25.800639Z",
+      "command": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "returncode": 0,
+      "stdout": "cc67ede8a37c7811d740c0fc076a9896cdc92fc7\n",
+      "stderr": "",
+      "elapsed_seconds": 0.017462654000000022
+    },
+    "git_dirty": {
+      "at": "2026-10-06T20:03:25.818110Z",
+      "command": [
+        "git",
+        "status",
+        "--porcelain=v1"
+      ],
+      "returncode": 0,
+      "stdout": " M README.md\n M backend/cmd/api/main.go\n M backend/cmd/ingest/main.go\n M backend/cmd/stream-ingest/main.go\n M backend/cmd/stream-worker/main.go\n M backend/internal/httpapi/handler.go\n M backend/internal/storage/clickhouse/store.go\n M backend/internal/stream/envelope.go\n M backend/internal/stream/health.go\n M backend/internal/stream/producer.go\n M backend/internal/stream/worker.go\n M backend/tests/streaming/streaming_test.go\n M benchmarks/environment.py\n M benchmarks/run.py\n M docs/ARCHITECTURE.md\n M docs/MILESTONES.md\n M docs/VERIFICATION_PHASE5.md\n M docs/adr/0004-phase5-buffering-and-replay.md\n M frontend/src/App.test.tsx\n M frontend/src/App.tsx\n M frontend/src/IncidentView.test.tsx\n M frontend/src/api.ts\n M frontend/src/style.css\n M tests/e2e/README.md\n?? api/INGESTION_STATUS.md\n?? backend/cmd/bench-lag/\n?? backend/cmd/stream-worker/main_test.go\n?? backend/internal/benchobs/\n?? backend/internal/httpapi/ingestion_status.go\n?? backend/internal/httpapi/ingestion_status_test.go\n?? backend/internal/storage/clickhouse/store_batch_test.go\n?? backend/internal/stream/hardening_test.go\n?? backend/internal/streamstatus/\n?? backend/tests/streaming/hardening_test.go\n?? benchmarks/WORKLOAD_RETROSPECTIVE.md\n?? benchmarks/WORKLOAD_STREAM_HARDENING.md\n?? benchmarks/analyze_retrospective.py\n?? benchmarks/analyze_stream_hardening.py\n?? benchmarks/baselines/\n?? benchmarks/results/20261001-retrospective-smoke1/\n?? benchmarks/results/20261001-retrospective-smoke2/\n?? benchmarks/results/20261001-retrospective/\n?? benchmarks/results/20261002-retrospective-continuation/\n?? benchmarks/retrospective.py\n?? benchmarks/stream_hardening.py\n?? benchmarks/test_analyze_retrospective.py\n?? benchmarks/test_analyze_stream_hardening.py\n?? benchmarks/test_retrospective.py\n?? deploy/benchmark/\n?? deploy/streaming/hardening.yaml\n?? docs/IncidentLens.code-workspace\n?? docs/RETROSPECTIVE_PHASE5.md\n?? docs/adr/0005-hardened-streaming-default.md\n?? docs/evidence/retrospective/\n?? docs/evidence/stream-hardening/\n?? frontend/src/IngestionBanner.test.tsx\n?? frontend/src/IngestionBanner.tsx\n?? tests/e2e/streaming_status.mjs\n",
+      "stderr": "",
+      "elapsed_seconds": 0.03181781599999978
+    },
+    "source_manifest": {
+      "files": {
+        "api/INCIDENTS.md": {
+          "bytes": 6150,
+          "sha256": "3d254d70e1910179b71a624a350ec7d99cb0e0f496f0b1c912fe18637b894d51"
+        },
+        "api/INGESTION_STATUS.md": {
+          "bytes": 2477,
+          "sha256": "1232cb4327bb2bcf870064fbb6b3bc3d86be40a9ede2a6ecec908749ed07c845"
+        },
+        "api/README.md": {
+          "bytes": 6140,
+          "sha256": "23bdb4260ff0fb9bf1af525ee2a44b1047ef09b70bf621129ca36b59999bff52"
+        },
+        "backend/cmd/api/main.go": {
+          "bytes": 1893,
+          "sha256": "e3e0c1bd273bee6a4f8ea74c87e6cff78cc1aca080815d6d97809224d87dc09d"
+        },
+        "backend/cmd/api/main_test.go": {
+          "bytes": 291,
+          "sha256": "0258de4c25d99ca7a4cd00e85baba97fc828f8c5f9bab5a66dda79df31b8cd75"
+        },
+        "backend/cmd/bench-lag/main.go": {
+          "bytes": 5594,
+          "sha256": "5de0163d0a103759b79909df5ca8b8cbff04c850ee58068f9f0bf5fcbf7baae7"
+        },
+        "backend/cmd/bench/bench_test.go": {
+          "bytes": 4480,
+          "sha256": "80a28645b57eb938c8e94a45237de354706040783fcb969228379cfe1d03c7b5"
+        },
+        "backend/cmd/bench/config.go": {
+          "bytes": 7453,
+          "sha256": "7f07f943aad145846ae2ac2ae46193559e6b86e2551d4f028ef6099b42a2590e"
+        },
+        "backend/cmd/bench/http.go": {
+          "bytes": 7087,
+          "sha256": "b93a6d3e97cc64ac69e460a731d4eca66a3fc6e0036d0c39de916b27c7dd8036"
+        },
+        "backend/cmd/bench/main.go": {
+          "bytes": 12137,
+          "sha256": "3905aac48db8f037dc81f7c782362abaae29e0b5bd378cadce50d5f1bdd6a864"
+        },
+        "backend/cmd/bench/reconcile.go": {
+          "bytes": 6386,
+          "sha256": "77ec54c0342cbe0c730ac57e005aa822f5e61c3ded79eee0bf90ffa1f08bd717"
+        },
+        "backend/cmd/bench/record.go": {
+          "bytes": 4405,
+          "sha256": "9d9d6a8b80706cec17fb5697546550dabd54dad4d45842d2ace9e50fbdc10627"
+        },
+        "backend/cmd/bench/summary.go": {
+          "bytes": 4502,
+          "sha256": "3070e29c4262a78c59a2aec43a4f52af3246bd59ae5d28afcae4d027bbef4327"
+        },
+        "backend/cmd/bench/workload.go": {
+          "bytes": 3350,
+          "sha256": "5ab8859cdf256f68192a24bb6a06afb5a5dc5ff419a27c4baad29befe618d144"
+        },
+        "backend/cmd/ingest/main.go": {
+          "bytes": 2620,
+          "sha256": "66c1b5a42b859bc76abbd71605a5318c1740c6586f19e199e9c4ba49740626ba"
+        },
+        "backend/cmd/stream-ingest/main.go": {
+          "bytes": 2571,
+          "sha256": "f9623d9591df80b72c775f6585e427b01a26ff6c673a599d253375c2057b71f2"
+        },
+        "backend/cmd/stream-worker/main.go": {
+          "bytes": 5130,
+          "sha256": "10846e69a2d0b2a00b67da31550e7014cc419c0aec8495f8cbdfdd4a34439dce"
+        },
+        "backend/cmd/stream-worker/main_test.go": {
+          "bytes": 1264,
+          "sha256": "c4c32f97b1ba978dfd1297491d187dc7e18166913d2fefbec6787420c63a1855"
+        },
+        "backend/go.mod": {
+          "bytes": 1320,
+          "sha256": "0d96655e0af480e1e00156828ec36041d754a66ffaa813e132ce8d79d47a8d1b"
+        },
+        "backend/go.sum": {
+          "bytes": 13855,
+          "sha256": "d92a42e66e7b7da61cb11b1be19e99f6da9d25e507d4e6f57fd2a06a81c753d7"
+        },
+        "backend/internal/benchobs/recorder.go": {
+          "bytes": 3576,
+          "sha256": "6e8121b8ff07aa700975f9dd270a271de5c5d79a43a80ef83049f18f205be7c0"
+        },
+        "backend/internal/benchobs/recorder_test.go": {
+          "bytes": 1890,
+          "sha256": "d31da275cc8c90efcba260774fdb98d947ea9aab89bc81b16e32353e3862d6ac"
+        },
+        "backend/internal/detector/detector.go": {
+          "bytes": 19541,
+          "sha256": "26cedaef686decb85e95a6fed40022e2961141698cb101ea685193a3d308c67c"
+        },
+        "backend/internal/detector/detector_test.go": {
+          "bytes": 17047,
+          "sha256": "6a0da28ca85371a73bc97df0dbcb2504c1d9db751f0ac4e8d7fb548ddfab7fbf"
+        },
+        "backend/internal/httpapi/handler.go": {
+          "bytes": 7674,
+          "sha256": "63dc52d327b5e379015bdb1a8c5bf221b13d0da191bfd76202f9c4a5a18ac03c"
+        },
+        "backend/internal/httpapi/handler_test.go": {
+          "bytes": 4390,
+          "sha256": "245b7986deed018d76607fa1361bb08b4dc001898c501879d624e2530e533545"
+        },
+        "backend/internal/httpapi/incidents.go": {
+          "bytes": 2186,
+          "sha256": "b7e2bda87c926503f2fe8c876c17ceb4a060e25a314b6c0aed94a7a9d838185a"
+        },
+        "backend/internal/httpapi/incidents_test.go": {
+          "bytes": 3231,
+          "sha256": "f4e56a14ef7823b4c3c303c66b9e6142a3230384fc88ed0a6da028dd3e41db8f"
+        },
+        "backend/internal/httpapi/ingestion_status.go": {
+          "bytes": 5884,
+          "sha256": "e70bfef999149b3f6105b4d2f6e6124121cd1864718bbca91f98b7322f5c5122"
+        },
+        "backend/internal/httpapi/ingestion_status_test.go": {
+          "bytes": 3771,
+          "sha256": "786185a34fc155297995101c0406a79a41fc17151779529976b5980c292e4275"
+        },
+        "backend/internal/ingest/server.go": {
+          "bytes": 2269,
+          "sha256": "dd8ba9fba4a12354e5327a20fcd5c99132ca872f54c7e38cbaf6fb1692bf07b3"
+        },
+        "backend/internal/ingest/server_test.go": {
+          "bytes": 6728,
+          "sha256": "cd3a50fda207c66101ad1ef6daeb73286e564d460fd4b3c55c589897383260aa"
+        },
+        "backend/internal/query/query.go": {
+          "bytes": 9334,
+          "sha256": "309400a4b5d047200704829b4741e5802a4f38c72f8b7a802f4ca0b3ef2cd26f"
+        },
+        "backend/internal/query/query_test.go": {
+          "bytes": 3957,
+          "sha256": "f1b2c46bbd87d6b98cfb16cd59acd9339eea768a7e62bec9f5bb0c85e03a40a7"
+        },
+        "backend/internal/storage/clickhouse/incidents.go": {
+          "bytes": 2337,
+          "sha256": "dc23e37b92bb16d51b3930592b0854f1e0875a994949b0427c62a229adc74d5a"
+        },
+        "backend/internal/storage/clickhouse/query.go": {
+          "bytes": 8139,
+          "sha256": "f13bd0541eb4341933262640ce48f64efe22102f81dfaa9d60826fabb7864991"
+        },
+        "backend/internal/storage/clickhouse/store.go": {
+          "bytes": 3322,
+          "sha256": "5e72479f919c9ea6fbac96b61e4a19aa525168a782f0d965aaecf096f32651f3"
+        },
+        "backend/internal/storage/clickhouse/store_batch_test.go": {
+          "bytes": 623,
+          "sha256": "7a14d07fff8b16100264f58957fc3241dc060f4d028b78ce3ec0b6b228692cdb"
+        },
+        "backend/internal/stream/envelope.go": {
+          "bytes": 3862,
+          "sha256": "ddb84c0bae745253d94d69db55c3490e67c5f5d0e70c61319cb3b839d16a4466"
+        },
+        "backend/internal/stream/hardening_test.go": {
+          "bytes": 10422,
+          "sha256": "091634e0f7aefc6154791784d2c245379ca1f8a482f12192283f0c88f54a61d8"
+        },
+        "backend/internal/stream/health.go": {
+          "bytes": 1617,
+          "sha256": "681330d622652aedc4c68adb72ea3b1947bbd59ed5832350de3c7b783d3d95a5"
+        },
+        "backend/internal/stream/producer.go": {
+          "bytes": 7452,
+          "sha256": "deba87432221524ab0238da9474f3af621aa3dc879942181bc3bc6de3ce411e0"
+        },
+        "backend/internal/stream/stream_test.go": {
+          "bytes": 9604,
+          "sha256": "e64f95de440ac58c41b7d7406836cae5d79b0dc484b40a96643cdbecd54c8232"
+        },
+        "backend/internal/stream/worker.go": {
+          "bytes": 11533,
+          "sha256": "5e192ca7003169e5c547f8a65105d5a48cac453033d8c5bb20e9d8a4ed3f1552"
+        },
+        "backend/internal/streamstatus/probe.go": {
+          "bytes": 5689,
+          "sha256": "17be62e167887358515c990062f243b444b4b3c168ae1fa7ef3f82f062dc1dfb"
+        },
+        "backend/internal/streamstatus/status.go": {
+          "bytes": 7878,
+          "sha256": "39d471b33defe647baa67dc1a79229b9815cd0a40129c5e5ea7ac11e3588e55a"
+        },
+        "backend/internal/streamstatus/status_test.go": {
+          "bytes": 5625,
+          "sha256": "cd1a9f172ce54b9443fc5ed2846855a2411b147dc10a9b2483413e34bf17b02c"
+        },
+        "backend/internal/trace/normalize.go": {
+          "bytes": 10295,
+          "sha256": "f7c6cda7fe3e193e98b97e6df72fe5645124fb43a8333feefbb2c9275bd0f8f9"
+        },
+        "backend/internal/trace/normalize_test.go": {
+          "bytes": 9517,
+          "sha256": "9eb50dcb69460710105c52735879c8acd51d72422a4cef4bf8a33916a3b42e75"
+        },
+        "backend/tests/integration/README.md": {
+          "bytes": 5450,
+          "sha256": "8bcb130948cf950c165f51368d60d37e9803f271038a93c8ae1dfd14ef1c17aa"
+        },
+        "backend/tests/integration/collector_test.go": {
+          "bytes": 4157,
+          "sha256": "b7d03a82d051e606a0f36ac2bd50a8c10baad4838cf7fb9067fe325d4fe53eae"
+        },
+        "backend/tests/integration/detector_test.go": {
+          "bytes": 7968,
+          "sha256": "8c2819f40952fd273588aeaa9b7b8d0b011181f06cad8566bc36015bf26fe2df"
+        },
+        "backend/tests/integration/failures_test.go": {
+          "bytes": 10368,
+          "sha256": "aec98f4950da6bd15e67a3c2893d38b1c569e800e8f927ccaab34fdb1d88b383"
+        },
+        "backend/tests/integration/query_test.go": {
+          "bytes": 23913,
+          "sha256": "02fed8f52ee2acef152f17b4eb6e9741ad7ae0e380f92aa0bfe389bc41b6a69a"
+        },
+        "backend/tests/integration/storage_test.go": {
+          "bytes": 10777,
+          "sha256": "9e7b620e0992715d63d8971a2858ce6c99f5e13bf1c7fc3d750792aa29fb56bb"
+        },
+        "backend/tests/streaming/hardening_test.go": {
+          "bytes": 22223,
+          "sha256": "3f9517a1990d3e0d0696deab7bc86f792ddfc233ab017f74ccc0a1f63db87b97"
+        },
+        "backend/tests/streaming/memory_test.go": {
+          "bytes": 4897,
+          "sha256": "b01fdfe880ffda811d0a3d59774f38750d67e3b28eacfdde89d56f57367bfc84"
+        },
+        "backend/tests/streaming/poison_test.go": {
+          "bytes": 5685,
+          "sha256": "ceb56e46682063497acc6afe42e1190b80f0494b57834f1fa71cf5c1bf594056"
+        },
+        "backend/tests/streaming/streaming_test.go": {
+          "bytes": 19816,
+          "sha256": "94a433318e940b66dea5c869cf7a7fa7d049290db4e5631a9f8eea8772a4816b"
+        },
+        "benchmarks/README.md": {
+          "bytes": 5551,
+          "sha256": "7c23d57de053e83490eef99ca6ca659feab25a34b401bb7ab42f827733133078"
+        },
+        "benchmarks/WORKLOAD.md": {
+          "bytes": 9751,
+          "sha256": "ec4e1ce18b60cc47dcc4d234c8f1efc62aa05b4331cefa74734821a739581d60"
+        },
+        "benchmarks/WORKLOAD_PHASE5.md": {
+          "bytes": 7312,
+          "sha256": "b88246653f5d8bca6caa4d3aa45120a1e7aa644a0ec76309cb1f00fe048cb11d"
+        },
+        "benchmarks/WORKLOAD_RETROSPECTIVE.md": {
+          "bytes": 6383,
+          "sha256": "fdd1b21ff48cbcab0997a52c8aedb903b66e3248892c0968a23de1f6c79d9f20"
+        },
+        "benchmarks/WORKLOAD_STREAM_HARDENING.md": {
+          "bytes": 6678,
+          "sha256": "abd1f8e7ad59209925a1a9c34ef2c924c895e076ba1353c933926532ec975033"
+        },
+        "benchmarks/analyze.py": {
+          "bytes": 27740,
+          "sha256": "5d300fe67a6724758b63fdb39359ce0f49ca50686d3ef9f693b90c9cb9dd436b"
+        },
+        "benchmarks/analyze_retrospective.py": {
+          "bytes": 31276,
+          "sha256": "07e70b0ed72c5d89ab4ca99e2bdf5189d56de9c703931a735299311a312ab6a4"
+        },
+        "benchmarks/analyze_stream_hardening.py": {
+          "bytes": 21444,
+          "sha256": "2d81151a95281c6a645f465ddc40b23501b89b35142877eabdf7d1f96b6d46d7"
+        },
+        "benchmarks/drain.py": {
+          "bytes": 4245,
+          "sha256": "65d2799629be720eed3a60e0fc1f02b577f66d9764d678c522515d9aeb10af99"
+        },
+        "benchmarks/environment.py": {
+          "bytes": 9967,
+          "sha256": "bc46d6c717a1cb5ca57b00aee8eac3b383951546bf38d3bf00c17dfd5c908697"
+        },
+        "benchmarks/plan-phase5-outage.json": {
+          "bytes": 844,
+          "sha256": "385cfc4f2c786fb814471eb227b92a0b5cce5f25753fae0076a9d1de0ccb6251"
+        },
+        "benchmarks/plan-phase5-outage15.json": {
+          "bytes": 839,
+          "sha256": "2bfcf57cd8c7fed974ed7945d53dd940a49912549049da6e9e869ffcc2dd5b89"
+        },
+        "benchmarks/plan-phase5.json": {
+          "bytes": 5737,
+          "sha256": "cfaba7f90e3efea00c3b473ee4bf85bf597491c633e669e4001fb60a761acb41"
+        },
+        "benchmarks/plan.json": {
+          "bytes": 5730,
+          "sha256": "d5d109f8c2ce2f8b13e1a746b5a99deb5e44e5b6a409f768b1f90baa1d6be2f6"
+        },
+        "benchmarks/retrospective.py": {
+          "bytes": 15195,
+          "sha256": "0f189b5ea058a8d953f0ef2b0feefd63c8c4208e0cddaa7a1981c176f5a38577"
+        },
+        "benchmarks/run.py": {
+          "bytes": 28117,
+          "sha256": "8d64726347f759cc77ad2ddc7365902006a8a6bc62465f758185b8d272673d4a"
+        },
+        "benchmarks/stream_hardening.py": {
+          "bytes": 14074,
+          "sha256": "ebeb6be0174668d3048852d4d86b1331d7dbe93544cc5e28353e8666a62b4374"
+        },
+        "benchmarks/test_analyze.py": {
+          "bytes": 4453,
+          "sha256": "4ac4c4397875b742e5174b80d3d2ba165e0fb75a0beb062cc4c10cf7463226c0"
+        },
+        "benchmarks/test_analyze_retrospective.py": {
+          "bytes": 10854,
+          "sha256": "ad75b562f946d5db39320df26a8aab93ef2a1464ac49e1e255693817f515b128"
+        },
+        "benchmarks/test_analyze_stream_hardening.py": {
+          "bytes": 7017,
+          "sha256": "f6a8131540ee1c876a972ee426e7154f8ab64ea1708787ff49361cf0e2babcaa"
+        },
+        "benchmarks/test_drain.py": {
+          "bytes": 754,
+          "sha256": "dbcf03133d3bff009f0aba6e647edb511b507696224777cf8ded1cd8f40169ce"
+        },
+        "benchmarks/test_retrospective.py": {
+          "bytes": 4337,
+          "sha256": "bef676034c31ef2cd41d2948028c1dde5a0fbe34fd989f094725e6fe2ab1ff8a"
+        },
+        "benchmarks/test_run.py": {
+          "bytes": 16327,
+          "sha256": "fef498b8e43740cd3ee18bbce39139341ef84b95582adce14c7da5e71555391f"
+        },
+        "deploy/benchmark/direct.yaml": {
+          "bytes": 397,
+          "sha256": "f1ca8b3abdbf8f77ff921ac53f8a54529df97148b7f003244dfa39bb7daebce6"
+        },
+        "deploy/benchmark/hardening-acceptance.yaml": {
+          "bytes": 329,
+          "sha256": "49309dc86b22a31b5402cbf4ae09fc68f2f84aa0b635dd7b350b34ea8e77ae9b"
+        },
+        "deploy/benchmark/hardening-baseline.yaml": {
+          "bytes": 295,
+          "sha256": "52be316df1360c98f2a528a38677a795638440c310bfdc963ac6630d2252f0b7"
+        },
+        "deploy/benchmark/hardening-candidate.yaml": {
+          "bytes": 332,
+          "sha256": "6470f96f660fcb007845ddbab3079b8b1cd91dc2112fefcdc08383bf3702fd31"
+        },
+        "deploy/benchmark/streaming.yaml": {
+          "bytes": 639,
+          "sha256": "cbe98c27310160ea98cfc9973992eb53a7b20828f3e69dae3e696d22c782ffa4"
+        },
+        "deploy/local/Dockerfile": {
+          "bytes": 1323,
+          "sha256": "7503e9897fbc432ad820952472879a9ff24461b7c592895c82bcd3cc3668d9b4"
+        },
+        "deploy/local/collector.yaml": {
+          "bytes": 1315,
+          "sha256": "70e509d6f030bd6628d5ba6a7164da10ce61cdccfdf3dccfd10b0ca8f923fb11"
+        },
+        "deploy/local/compose.yaml": {
+          "bytes": 2734,
+          "sha256": "b59527ecfeef2992be11dcd16c31d1c18ced9c7effe7db2095dffe1499ea27d2"
+        },
+        "deploy/local/users.xml": {
+          "bytes": 1630,
+          "sha256": "353ecb410f51094b256ed65454f87218b467f268774970c3110fdfafa1cea892"
+        },
+        "deploy/streaming/README.md": {
+          "bytes": 7321,
+          "sha256": "a73f7074fd709fb4f2cbf7a04c3704383c3d853439f45adb42ab30ee29fb4911"
+        },
+        "deploy/streaming/collector.yaml": {
+          "bytes": 1322,
+          "sha256": "bc4874d5b5b53082c24cf443c4ff602512799e8d899cc32782c5a835db4abaf8"
+        },
+        "deploy/streaming/compose.yaml": {
+          "bytes": 4166,
+          "sha256": "c5679cd71c8c35c6f86cd56369b10bfdee8b9e2598562567ec6ab86442fc0491"
+        },
+        "deploy/streaming/hardening.yaml": {
+          "bytes": 1558,
+          "sha256": "43d76f259279529a2f333a6080f91ce11a7962751779e6bdf1e780508a6aa1d5"
+        },
+        "frontend/README.md": {
+          "bytes": 1009,
+          "sha256": "651d906625c6d5f4e9ee4dea4342411b91e35270563024e3b8d34a05765052d3"
+        },
+        "frontend/index.html": {
+          "bytes": 277,
+          "sha256": "36c143c40fb5541b84c6978ee8e3d1f02dff92ae56bc15e8a025f07007bae10f"
+        },
+        "frontend/package-lock.json": {
+          "bytes": 98009,
+          "sha256": "a81298cf05fc12d1c98b02ac837026a443ef8c11fde79367261db326cef0f0cc"
+        },
+        "frontend/package.json": {
+          "bytes": 563,
+          "sha256": "17fdd6e3ef36bd078d0de276c7a023a10944ade2f909312337eb8ae7f32e26d4"
+        },
+        "frontend/src/App.test.tsx": {
+          "bytes": 15083,
+          "sha256": "b918d5f6fbfd9b54d637d83709b51765b565c9401424e19c0e0d0b4f7b74c412"
+        },
+        "frontend/src/App.tsx": {
+          "bytes": 19825,
+          "sha256": "84d2f493b56af574f1fd006d061a17d2930b8631882e8f1e6e32f8ba12ae849f"
+        },
+        "frontend/src/IncidentView.test.tsx": {
+          "bytes": 12604,
+          "sha256": "a430a3618f35174ba127fe75b8fe670c238dc17af3502446eb4de368d0321641"
+        },
+        "frontend/src/IncidentView.tsx": {
+          "bytes": 16085,
+          "sha256": "dad6f4c6630d2b01b7abfab3ad12828df626cba94e7af69d9a9ba4d190c92e24"
+        },
+        "frontend/src/IngestionBanner.test.tsx": {
+          "bytes": 4366,
+          "sha256": "66815a55861463fc0c2413e8abce44abc986119e88a46b22d8ab370d6f4660a3"
+        },
+        "frontend/src/IngestionBanner.tsx": {
+          "bytes": 4859,
+          "sha256": "34eeb57283a9890e905d6d502533ea26432c698398928c4ef4410e054e2eea2b"
+        },
+        "frontend/src/api.ts": {
+          "bytes": 5213,
+          "sha256": "c751d57606857694849829f14cfa773e42638a14c2b2e7cf73a405720ffb7bad"
+        },
+        "frontend/src/main.tsx": {
+          "bytes": 220,
+          "sha256": "70f1f41a33b464e0a4c349112a35116d0ab68e29a05342f3b59ad0e9fd8b245b"
+        },
+        "frontend/src/style.css": {
+          "bytes": 16194,
+          "sha256": "df7d3dfe1e10ead20ed00e956809c350f39d61c6f9c95dcd58ffa32adc97d781"
+        },
+        "frontend/src/time.test.ts": {
+          "bytes": 988,
+          "sha256": "b797d080dbe49b8c9401db163e9adb3b80a1e3b27ed1d5e51450d3f3e8a4ee27"
+        },
+        "frontend/src/time.ts": {
+          "bytes": 1229,
+          "sha256": "55b815a07fadb25d6b5f3a4d70646ce5fb04300a2eee5a9e44159ff4a3b0636b"
+        },
+        "frontend/tsconfig.json": {
+          "bytes": 521,
+          "sha256": "4ce784ee33a9a8f1e0ade04799dddcd9a78cae9faa163e1799cb176cd006d02e"
+        },
+        "frontend/vite.config.ts": {
+          "bytes": 243,
+          "sha256": "b2085d00b99d90502618de75541bc48930b4bdb41e07c97a043c1900f642950d"
+        },
+        "migrations/clickhouse/001_spans.sql": {
+          "bytes": 1261,
+          "sha256": "3de409be8b7315ab44cf1c09faacffca1f67a69b157aae99fab7d18bf69fad16"
+        },
+        "scripts/test.sh": {
+          "bytes": 140,
+          "sha256": "0ce6557833cc48a2aa89c9df05da2390e9859ffb530170d762955248d4d1df31"
+        },
+        "scripts/verify-storage.sh": {
+          "bytes": 1501,
+          "sha256": "14c1489801e86738139e9e8e588776323f5a31e44e9e8b33d5bc82779181866a"
+        }
+      },
+      "git_inventory_status": [
+        0,
+        0
+      ]
+    },
+    "binary": {
+      "path": "/Users/kousil/Library/Caches/IncidentLens/bin/bench",
+      "sha256": "3f9c4b5bc837387513f8dede5434650e984970237cc0c074f7c15278a418de11",
+      "bytes": 28569728
+    },
+    "host_disk": {
+      "total_bytes": 4001907707904,
+      "used_bytes": 138625187840,
+      "free_bytes": 3863282520064
+    }
+  },
+  "storage": {
+    "at": "2026-10-06T20:03:26.266998Z",
+    "clickhouse_parts": {
+      "at": "2026-10-06T20:03:26.057764Z",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+        "-p",
+        "incidentlens-retro-hardening-acceptance1",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/streaming/compose.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/streaming/hardening.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/benchmark/hardening-candidate.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/benchmark/hardening-acceptance.yaml",
+        "exec",
+        "-T",
+        "clickhouse",
+        "clickhouse-client",
+        "--password",
+        "local-admin",
+        "--query",
+        "SELECT table, count() AS active_parts, sum(rows) AS physical_rows, sum(bytes_on_disk) AS disk_bytes, sum(data_compressed_bytes) AS compressed_bytes, sum(data_uncompressed_bytes) AS uncompressed_bytes FROM system.parts WHERE database='incidentlens' AND active GROUP BY table FORMAT JSON"
+      ],
+      "returncode": 0,
+      "stdout": "{\n\t\"meta\":\n\t[\n\t\t{\n\t\t\t\"name\": \"table\",\n\t\t\t\"type\": \"String\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"active_parts\",\n\t\t\t\"type\": \"UInt64\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"physical_rows\",\n\t\t\t\"type\": \"UInt64\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"disk_bytes\",\n\t\t\t\"type\": \"UInt64\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"compressed_bytes\",\n\t\t\t\"type\": \"UInt64\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"uncompressed_bytes\",\n\t\t\t\"type\": \"UInt64\"\n\t\t}\n\t],\n\n\t\"data\":\n\t[\n\t\t{\n\t\t\t\"table\": \"spans\",\n\t\t\t\"active_parts\": 6,\n\t\t\t\"physical_rows\": 7928,\n\t\t\t\"disk_bytes\": 220645,\n\t\t\t\"compressed_bytes\": 205651,\n\t\t\t\"uncompressed_bytes\": 7233769\n\t\t}\n\t],\n\n\t\"rows\": 1,\n\n\t\"statistics\":\n\t{\n\t\t\"elapsed\": 0.003821286,\n\t\t\"rows_read\": 6,\n\t\t\"bytes_read\": 396\n\t}\n}\n",
+      "stderr": "",
+      "elapsed_seconds": 0.20915454099999975
+    },
+    "clickhouse_disk": {
+      "at": "2026-10-06T20:03:26.267083Z",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+        "-p",
+        "incidentlens-retro-hardening-acceptance1",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/streaming/compose.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/streaming/hardening.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/benchmark/hardening-candidate.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/benchmark/hardening-acceptance.yaml",
+        "exec",
+        "-T",
+        "clickhouse",
+        "df",
+        "-k",
+        "/var/lib/clickhouse"
+      ],
+      "returncode": 0,
+      "stdout": "Filesystem      1K-blocks     Used  Available Use% Mounted on\n/dev/vda1      2112646064 38278780 1966976772   2% /var/lib/clickhouse\n",
+      "stderr": "",
+      "elapsed_seconds": 0.1651263140000001
+    },
+    "host_disk": {
+      "total_bytes": 4001907707904,
+      "used_bytes": 138625232896,
+      "free_bytes": 3863282475008
+    },
+    "kafka_disk": {
+      "at": "2026-10-06T20:03:26.432387Z",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+        "-p",
+        "incidentlens-retro-hardening-acceptance1",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/streaming/compose.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/streaming/hardening.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/benchmark/hardening-candidate.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/benchmark/hardening-acceptance.yaml",
+        "exec",
+        "-T",
+        "kafka",
+        "df",
+        "-k",
+        "/var/lib/kafka/data"
+      ],
+      "returncode": 0,
+      "stdout": "Filesystem      1K-blocks     Used  Available Use% Mounted on\n/dev/vda1      2112646064 38278780 1966976772   2% /var/lib/kafka/data\n",
+      "stderr": "",
+      "elapsed_seconds": 0.17620207799999976
+    },
+    "kafka_volume_usage": {
+      "at": "2026-10-06T20:03:26.608668Z",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+        "-p",
+        "incidentlens-retro-hardening-acceptance1",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/streaming/compose.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/streaming/hardening.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/benchmark/hardening-candidate.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/benchmark/hardening-acceptance.yaml",
+        "exec",
+        "-T",
+        "kafka",
+        "du",
+        "-sk",
+        "/var/lib/kafka/data"
+      ],
+      "returncode": 0,
+      "stdout": "4560\t/var/lib/kafka/data\n",
+      "stderr": "",
+      "elapsed_seconds": 0.16862036199999997
+    },
+    "kafka_group_offsets": {
+      "at": "2026-10-06T20:03:26.777391Z",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+        "-p",
+        "incidentlens-retro-hardening-acceptance1",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/streaming/compose.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/streaming/hardening.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/benchmark/hardening-candidate.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/benchmark/hardening-acceptance.yaml",
+        "exec",
+        "-T",
+        "kafka",
+        "/opt/kafka/bin/kafka-consumer-groups.sh",
+        "--bootstrap-server",
+        "kafka:9092",
+        "--group",
+        "incidentlens-stream-worker-v2",
+        "--describe"
+      ],
+      "returncode": 0,
+      "stdout": "\nGROUP                         TOPIC                 PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                              HOST            CLIENT-ID\nincidentlens-stream-worker-v2 incidentlens-spans-v2 3          238             238             0               kgo-6232cd8d-1be7-4d0e-89c5-1d9b0f99a4a2 /172.19.0.5     kgo\nincidentlens-stream-worker-v2 incidentlens-spans-v2 2          240             240             0               kgo-6232cd8d-1be7-4d0e-89c5-1d9b0f99a4a2 /172.19.0.5     kgo\nincidentlens-stream-worker-v2 incidentlens-spans-v2 1          211             211             0               kgo-6232cd8d-1be7-4d0e-89c5-1d9b0f99a4a2 /172.19.0.5     kgo\nincidentlens-stream-worker-v2 incidentlens-spans-v2 0          214             214             0               kgo-6232cd8d-1be7-4d0e-89c5-1d9b0f99a4a2 /172.19.0.5     kgo\n",
+      "stderr": "",
+      "elapsed_seconds": 2.29415837
+    },
+    "kafka_topic": {
+      "at": "2026-10-06T20:03:29.071615Z",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+        "-p",
+        "incidentlens-retro-hardening-acceptance1",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/streaming/compose.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/streaming/hardening.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/benchmark/hardening-candidate.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/benchmark/hardening-acceptance.yaml",
+        "exec",
+        "-T",
+        "kafka",
+        "/opt/kafka/bin/kafka-topics.sh",
+        "--bootstrap-server",
+        "kafka:9092",
+        "--topic",
+        "incidentlens-spans-v2",
+        "--describe"
+      ],
+      "returncode": 0,
+      "stdout": "Topic: incidentlens-spans-v2\tTopicId: W7O2aTLtRM6VP6WZu5inJA\tPartitionCount: 4\tReplicationFactor: 1\tConfigs: min.insync.replicas=1,segment.bytes=16777216,retention.ms=3600000,max.message.bytes=5242880,retention.bytes=268435456,segment.ms=300000\n\tTopic: incidentlens-spans-v2\tPartition: 0\tLeader: 1\tReplicas: 1\tIsr: 1\tElr: \tLastKnownElr: \n\tTopic: incidentlens-spans-v2\tPartition: 1\tLeader: 1\tReplicas: 1\tIsr: 1\tElr: \tLastKnownElr: \n\tTopic: incidentlens-spans-v2\tPartition: 2\tLeader: 1\tReplicas: 1\tIsr: 1\tElr: \tLastKnownElr: \n\tTopic: incidentlens-spans-v2\tPartition: 3\tLeader: 1\tReplicas: 1\tIsr: 1\tElr: \tLastKnownElr: \n",
+      "stderr": "",
+      "elapsed_seconds": 2.1093940079999998
+    }
+  },
+  "before_volumes": {
+    "at": "2026-10-06T20:03:31.181019Z",
+    "command": [
+      "docker",
+      "volume",
+      "ls",
+      "--filter",
+      "label=com.docker.compose.project=incidentlens-retro-hardening-acceptance1",
+      "--format",
+      "{{.Name}}"
+    ],
+    "returncode": 0,
+    "stdout": "incidentlens-retro-hardening-acceptance1_clickhouse-data\nincidentlens-retro-hardening-acceptance1_kafka-data\n",
+    "stderr": "",
+    "elapsed_seconds": 0.041147065999998844
+  },
+  "down": {
+    "at": "2026-10-06T20:03:31.222268Z",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+      "-p",
+      "incidentlens-retro-hardening-acceptance1",
+      "-f",
+      "/Users/kousil/Documents/IncidentLens/deploy/streaming/compose.yaml",
+      "-f",
+      "/Users/kousil/Documents/IncidentLens/deploy/streaming/hardening.yaml",
+      "-f",
+      "/Users/kousil/Documents/IncidentLens/deploy/benchmark/hardening-candidate.yaml",
+      "-f",
+      "/Users/kousil/Documents/IncidentLens/deploy/benchmark/hardening-acceptance.yaml",
+      "down",
+      "--timeout",
+      "15"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": " Container incidentlens-retro-hardening-acceptance1-stream-worker-1 Stopping \n Container incidentlens-retro-hardening-acceptance1-api-1 Stopping \n Container incidentlens-retro-hardening-acceptance1-collector-1 Stopping \n Container incidentlens-retro-hardening-acceptance1-api-1 Stopped \n Container incidentlens-retro-hardening-acceptance1-api-1 Removing \n Container incidentlens-retro-hardening-acceptance1-api-1 Removed \n Container incidentlens-retro-hardening-acceptance1-collector-1 Stopped \n Container incidentlens-retro-hardening-acceptance1-collector-1 Removing \n Container incidentlens-retro-hardening-acceptance1-collector-1 Removed \n Container incidentlens-retro-hardening-acceptance1-stream-ingest-1 Stopping \n Container incidentlens-retro-hardening-acceptance1-stream-worker-1 Stopped \n Container incidentlens-retro-hardening-acceptance1-stream-worker-1 Removing \n Container incidentlens-retro-hardening-acceptance1-stream-worker-1 Removed \n Container incidentlens-retro-hardening-acceptance1-migrate-1 Stopping \n Container incidentlens-retro-hardening-acceptance1-migrate-1 Stopped \n Container incidentlens-retro-hardening-acceptance1-migrate-1 Removing \n Container incidentlens-retro-hardening-acceptance1-migrate-1 Removed \n Container incidentlens-retro-hardening-acceptance1-clickhouse-1 Stopping \n Container incidentlens-retro-hardening-acceptance1-stream-ingest-1 Stopped \n Container incidentlens-retro-hardening-acceptance1-stream-ingest-1 Removing \n Container incidentlens-retro-hardening-acceptance1-stream-ingest-1 Removed \n Container incidentlens-retro-hardening-acceptance1-kafka-topic-1 Stopping \n Container incidentlens-retro-hardening-acceptance1-kafka-topic-1 Stopped \n Container incidentlens-retro-hardening-acceptance1-kafka-topic-1 Removing \n Container incidentlens-retro-hardening-acceptance1-kafka-topic-1 Removed \n Container incidentlens-retro-hardening-acceptance1-kafka-1 Stopping \n Container incidentlens-retro-hardening-acceptance1-kafka-1 Stopped \n Container incidentlens-retro-hardening-acceptance1-kafka-1 Removing \n Container incidentlens-retro-hardening-acceptance1-kafka-1 Removed \n Container incidentlens-retro-hardening-acceptance1-clickhouse-1 Stopped \n Container incidentlens-retro-hardening-acceptance1-clickhouse-1 Removing \n Container incidentlens-retro-hardening-acceptance1-clickhouse-1 Removed \n Network incidentlens-retro-hardening-acceptance1-telemetry Removing \n Network incidentlens-retro-hardening-acceptance1-telemetry Removed \n",
+    "elapsed_seconds": 3.5902787359999984
+  },
+  "after_volumes": {
+    "at": "2026-10-06T20:03:34.812526Z",
+    "command": [
+      "docker",
+      "volume",
+      "ls",
+      "--filter",
+      "label=com.docker.compose.project=incidentlens-retro-hardening-acceptance1",
+      "--format",
+      "{{.Name}}"
+    ],
+    "returncode": 0,
+    "stdout": "incidentlens-retro-hardening-acceptance1_clickhouse-data\nincidentlens-retro-hardening-acceptance1_kafka-data\n",
+    "stderr": "",
+    "elapsed_seconds": 0.05962921600000115
+  }
+}

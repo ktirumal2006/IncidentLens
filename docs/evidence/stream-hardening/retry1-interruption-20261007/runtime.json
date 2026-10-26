@@ -1,0 +1,166 @@
+{
+  "containers": [
+    "457ce8bb8160",
+    "804f62d249b9",
+    "d637bb52b493",
+    "5732a5863345",
+    "ea404c5d2147",
+    "46d3b1744ff5",
+    "9e8f42886263",
+    "5c16869b975d"
+  ],
+  "volumes": [
+    "incidentlens-retro-ef78e920-5_clickhouse-data",
+    "incidentlens-retro-ef78e920-5_kafka-data"
+  ],
+  "states": [
+    {
+      "name": "/incidentlens-retro-ef78e920-5-collector-1",
+      "state": {
+        "Status": "created",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "0001-01-01T00:00:00Z",
+        "FinishedAt": "0001-01-01T00:00:00Z"
+      },
+      "image": "sha256:886722fe0f37af9d1fe24d29529253ec59fbf263b3b1df4facaf221373e19d23"
+    },
+    {
+      "name": "/incidentlens-retro-ef78e920-5-stream-ingest-1",
+      "state": {
+        "Status": "created",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "0001-01-01T00:00:00Z",
+        "FinishedAt": "0001-01-01T00:00:00Z"
+      },
+      "image": "sha256:8e83a459513f56c3fc4221b29b148f4f05ce79510f9ea73b84ac34bde26098c9"
+    },
+    {
+      "name": "/incidentlens-retro-ef78e920-5-stream-worker-1",
+      "state": {
+        "Status": "created",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "0001-01-01T00:00:00Z",
+        "FinishedAt": "0001-01-01T00:00:00Z"
+      },
+      "image": "sha256:6fe541153b665896590ce22b051d0092ca80e6c6a36f9843d0072ae4154c43fe"
+    },
+    {
+      "name": "/incidentlens-retro-ef78e920-5-api-1",
+      "state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-07T14:52:27.982987538Z",
+        "FinishedAt": "2026-10-07T14:52:46.423313094Z"
+      },
+      "image": "sha256:bfc2716d394de25e299940107d53fe536fc6ca2646a70fefbc767fd45a110662"
+    },
+    {
+      "name": "/incidentlens-retro-ef78e920-5-kafka-topic-1",
+      "state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-07T14:52:31.957012952Z",
+        "FinishedAt": "2026-10-07T14:52:46.426877945Z"
+      },
+      "image": "sha256:0bc1bb2478f45b6cea78864df86acdc11e8df2c5172477819a4d12942cbe5d40"
+    },
+    {
+      "name": "/incidentlens-retro-ef78e920-5-migrate-1",
+      "state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-07T14:52:27.171651409Z",
+        "FinishedAt": "2026-10-07T14:52:27.517996176Z"
+      },
+      "image": "sha256:c48c1ed0a54e6e9fde03750860aa86de1e6f40b6fe33c6df540738867b4f6809"
+    },
+    {
+      "name": "/incidentlens-retro-ef78e920-5-clickhouse-1",
+      "state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 255,
+        "Error": "",
+        "StartedAt": "2026-10-07T14:52:21.296834429Z",
+        "FinishedAt": "2026-10-07T23:47:47.119090812Z",
+        "Health": {
+          "Status": "starting",
+          "FailingStreak": 0,
+          "Log": []
+        }
+      },
+      "image": "sha256:c48c1ed0a54e6e9fde03750860aa86de1e6f40b6fe33c6df540738867b4f6809"
+    },
+    {
+      "name": "/incidentlens-retro-ef78e920-5-kafka-1",
+      "state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 255,
+        "Error": "",
+        "StartedAt": "2026-10-07T14:52:21.659458292Z",
+        "FinishedAt": "2026-10-07T23:47:47.147693951Z",
+        "Health": {
+          "Status": "starting",
+          "FailingStreak": 0,
+          "Log": []
+        }
+      },
+      "image": "sha256:0bc1bb2478f45b6cea78864df86acdc11e8df2c5172477819a4d12942cbe5d40"
+    }
+  ],
+  "measurement_directory_exists": false,
+  "observed_at": "2026-10-07T23:51:19.773641+00:00"
+}

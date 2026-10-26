@@ -1,0 +1,10 @@
+{
+  "timestamp_utc": "2026-10-09T17:08:07.639111+00:00",
+  "runner_pid12056_present": false,
+  "desktop_status": "Name                Value\nStatus              running\nSessionID           9c618ebe-f37f-4278-aafb-8e8dbb2c93c7",
+  "running_containers": [
+    "f5c8bdd48da5 incidentlens-clickhouse-1 Up 16 hours (unhealthy)"
+  ],
+  "volume_count": 379,
+  "volume_inventory_sha256": "13e8727c07e51fb17cf5c44fe5e06ff2500767bf3a41fd284d2c08c6a88af77f"
+}

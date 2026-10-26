@@ -1,0 +1,192 @@
+{
+  "observed_at": "2026-10-07T14:24Z",
+  "process_missing": true,
+  "docker_was_unavailable": true,
+  "containers": [
+    {
+      "name": "/incidentlens-retro-18922738-3-clickhouse-1",
+      "state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 137,
+        "Error": "",
+        "StartedAt": "2026-10-07T02:33:16.917983495Z",
+        "FinishedAt": "2026-10-07T02:34:26.195801726Z",
+        "Health": {
+          "Status": "unhealthy",
+          "FailingStreak": 1,
+          "Log": [
+            {
+              "Start": "2026-10-07T02:34:03.735798582Z",
+              "End": "2026-10-07T02:34:03.845897029Z",
+              "ExitCode": 0,
+              "Output": "1\n"
+            },
+            {
+              "Start": "2026-10-07T02:34:08.847368414Z",
+              "End": "2026-10-07T02:34:08.943354435Z",
+              "ExitCode": 0,
+              "Output": "1\n"
+            },
+            {
+              "Start": "2026-10-07T02:34:13.944855153Z",
+              "End": "2026-10-07T02:34:14.054679495Z",
+              "ExitCode": 0,
+              "Output": "1\n"
+            },
+            {
+              "Start": "2026-10-07T02:34:19.056881856Z",
+              "End": "2026-10-07T02:34:19.148368392Z",
+              "ExitCode": 0,
+              "Output": "1\n"
+            },
+            {
+              "Start": "2026-10-07T02:34:24.150053839Z",
+              "End": "2026-10-07T02:34:24.240951368Z",
+              "ExitCode": 210,
+              "Output": "Code: 210. DB::NetException: Connection refused (localhost:9000). (NETWORK_ERROR)\n\n"
+            }
+          ]
+        }
+      },
+      "image": "sha256:c48c1ed0a54e6e9fde03750860aa86de1e6f40b6fe33c6df540738867b4f6809",
+      "mounts": [
+        {
+          "Type": "volume",
+          "Name": "incidentlens-retro-18922738-3_clickhouse-data",
+          "Source": "/var/lib/docker/volumes/incidentlens-retro-18922738-3_clickhouse-data/_data",
+          "Destination": "/var/lib/clickhouse",
+          "Driver": "local",
+          "Mode": "rw",
+          "RW": true,
+          "Propagation": ""
+        },
+        {
+          "Type": "bind",
+          "Source": "/host_mnt/Users/kousil/Documents/IncidentLens/deploy/local/users.xml",
+          "Destination": "/etc/clickhouse-server/users.d/incidentlens.xml",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ]
+    },
+    {
+      "name": "/incidentlens-retro-18922738-3-kafka-1",
+      "state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 143,
+        "Error": "",
+        "StartedAt": "2026-10-07T02:33:17.340371863Z",
+        "FinishedAt": "2026-10-07T02:34:24.571782777Z",
+        "Health": {
+          "Status": "unhealthy",
+          "FailingStreak": 1,
+          "Log": [
+            {
+              "Start": "2026-10-07T02:33:41.997550579Z",
+              "End": "2026-10-07T02:33:45.96304648Z",
+              "ExitCode": 0,
+              "Output": "kafka:9092 (id: 1 rack: null isFenced: false) -> (\n\tProduce(0): 0 to 13 [usable: 13],\n\tFetch(1): 4 to 18 [usable: 18],\n\tListOffsets(2): 1 to 10 [usable: 10],\n\tMetadata(3): 0 to 13 [usable: 13],\n\tOffsetCommit(8): 2 to 9 [usable: 9],\n\tOffsetFetch(9): 1 to 9 [usable: 9],\n\tFindCoordinator(10): 0 to 6 [usable: 6],\n\tJoinGroup(11): 0 to 9 [usable: 9],\n\tHeartbeat(12): 0 to 4 [usable: 4],\n\tLeaveGroup(13): 0 to 5 [usable: 5],\n\tSyncGroup(14): 0 to 5 [usable: 5],\n\tDescribeGroups(15): 0 to 6 [usable: 6],\n\tListGroups(16): 0 to 5 [usable: 5],\n\tSaslHandshake(17): 0 to 1 [usable: 1],\n\tApiVersions(18): 0 to 4 [usable: 4],\n\tCreateTopics(19): 2 to 7 [usable: 7],\n\tDeleteTopics(20): 1 to 6 [usable: 6],\n\tDeleteRecords(21): 0 to 2 [usable: 2],\n\tInitProducerId(22): 0 to 5 [usable: 5],\n\tOffsetForLeaderEpoch(23): 2 to 4 [usable: 4],\n\tAddPartitionsToTxn(24): 0 to 5 [usable: 5],\n\tAddOffsetsToTxn(25): 0 to 4 [usable: 4],\n\tEndTxn(26): 0 to 5 [usable: 5],\n\tWriteTxnMarkers(27): 1 [usable: 1],\n\tTxnOffsetCommit(28): 0 to 5 [usable: 5],\n\tDescribeAcls(29): 1 to 3 [usable: 3],\n\tCreateAcls(30): 1 to 3 [usable: 3],\n\tDeleteAcls(31): 1 to 3 [usable: 3],\n\tDescribeConfigs(32): 1 to 4 [usable: 4],\n\tAlterConfigs(33): 0 to 2 [usable: 2],\n\tAlterReplicaLogDirs(34): 1 to 2 [usable: 2],\n\tDescribeLogDirs(35): 1 to 4 [usable: 4],\n\tSaslAuthenticate(36): 0 to 2 [usable: 2],\n\tCreatePartitions(37): 0 to 3 [usable: 3],\n\tCreateDelegationToken(38): 1 to 3 [usable: 3],\n\tRenewDelegationToken(39): 1 to 2 [usable: 2],\n\tExpireDelegationToken(40): 1 to 2 [usable: 2],\n\tDescribeDelegationToken(41): 1 to 3 [usable: 3],\n\tDeleteGroups(42): 0 to 2 [usable: 2],\n\tElectLeaders(43): 0 to 2 [usable: 2],\n\tIncrementalAlterConfigs(44): 0 to 1 [usable: 1],\n\tAlterPartitionReassignments(45): 0 to 1 [usable: 1],\n\tListPartitionReassignments(46): 0 [usable: 0],\n\tOffsetDelete(47): 0 [usable: 0],\n\tDescribeClientQuotas(48): 0 to 1 [usable: 1],\n\tAlterClientQuotas(49): 0 to 1 [usable: 1],\n\tDescribeUserScramCredentials(50): 0 [usable: 0],\n\tAlterUserScramCredentials(51): 0 [usable: 0],\n\tDescribeQuorum(55): 0 to 2 [usable: 2],\n\tUpdateFeatures(57): 0 to 2 [usable: 2],\n\tDescribeCluster(60): 0 to 2 [usable: 2],\n\tDescribeProducers(61): 0 [usable: 0],\n\tUnregisterBroker(64): 0 [usable: 0],\n\tDescribeTransactions(65): 0 [usable: 0],\n\tListTransactions(66): 0 to 2 [usable: 2],\n\tConsumerGroupHeartbeat(68): 0 to 1 [usable: 1],\n\tConsumerGroupDescribe(69): 0 to 1 [usable: 1],\n\tGetTelemetrySubscriptions(71): UNSUPPORTED,\n\tPushTelemetry(72): UNSUPPORTED,\n\tListConfigResources(74): 0 to 1 [usable: 1],\n\tDescribeTopicPartitions(75): 0 [usable: 0],\n\tShareGroupHeartbeat(76): 1 [usable: 1],\n\tShareGroupDescribe(77): 1 [usable: 1],\n\tShareFetch(78): 1 [usable: 1],\n\tShareAcknowledge(79): 1 [usable: 1],\n\tAddRaftVoter(80): 0 [usable: 0],\n\tRemoveRaftVoter(81): 0 [usable: 0],\n\tInitializeShareGroupState(83): 0 [usable: 0],\n\tReadShareGroupState(84): 0 [usable: 0],\n\tWriteShareGroupState(85): 0 [usable: 0],\n\tDeleteShareGroupState(86): 0 [usable: 0],\n\tReadShareGroupStateSummary(87): 0 [usable: 0],\n\tStreamsGroupHeartbeat(88): UNSUPPORTED,\n\tStreamsGroupDescribe(89): UNSUPPORTED,\n\tDescribeShareGroupOffsets(90): 0 [usable: 0],\n\tAlterShareGroupOffsets(91): 0 [usable: 0],\n\tDeleteShareGroupOffsets(92): 0 [usable: 0]\n)\n"
+            },
+            {
+              "Start": "2026-10-07T02:33:50.963617969Z",
+              "End": "2026-10-07T02:33:56.061884311Z",
+              "ExitCode": -1,
+              "Output": "Health check exceeded timeout (5s)"
+            },
+            {
+              "Start": "2026-10-07T02:34:01.064622975Z",
+              "End": "2026-10-07T02:34:06.055260095Z",
+              "ExitCode": 0,
+              "Output": "kafka:9092 (id: 1 rack: null isFenced: false) -> (\n\tProduce(0): 0 to 13 [usable: 13],\n\tFetch(1): 4 to 18 [usable: 18],\n\tListOffsets(2): 1 to 10 [usable: 10],\n\tMetadata(3): 0 to 13 [usable: 13],\n\tOffsetCommit(8): 2 to 9 [usable: 9],\n\tOffsetFetch(9): 1 to 9 [usable: 9],\n\tFindCoordinator(10): 0 to 6 [usable: 6],\n\tJoinGroup(11): 0 to 9 [usable: 9],\n\tHeartbeat(12): 0 to 4 [usable: 4],\n\tLeaveGroup(13): 0 to 5 [usable: 5],\n\tSyncGroup(14): 0 to 5 [usable: 5],\n\tDescribeGroups(15): 0 to 6 [usable: 6],\n\tListGroups(16): 0 to 5 [usable: 5],\n\tSaslHandshake(17): 0 to 1 [usable: 1],\n\tApiVersions(18): 0 to 4 [usable: 4],\n\tCreateTopics(19): 2 to 7 [usable: 7],\n\tDeleteTopics(20): 1 to 6 [usable: 6],\n\tDeleteRecords(21): 0 to 2 [usable: 2],\n\tInitProducerId(22): 0 to 5 [usable: 5],\n\tOffsetForLeaderEpoch(23): 2 to 4 [usable: 4],\n\tAddPartitionsToTxn(24): 0 to 5 [usable: 5],\n\tAddOffsetsToTxn(25): 0 to 4 [usable: 4],\n\tEndTxn(26): 0 to 5 [usable: 5],\n\tWriteTxnMarkers(27): 1 [usable: 1],\n\tTxnOffsetCommit(28): 0 to 5 [usable: 5],\n\tDescribeAcls(29): 1 to 3 [usable: 3],\n\tCreateAcls(30): 1 to 3 [usable: 3],\n\tDeleteAcls(31): 1 to 3 [usable: 3],\n\tDescribeConfigs(32): 1 to 4 [usable: 4],\n\tAlterConfigs(33): 0 to 2 [usable: 2],\n\tAlterReplicaLogDirs(34): 1 to 2 [usable: 2],\n\tDescribeLogDirs(35): 1 to 4 [usable: 4],\n\tSaslAuthenticate(36): 0 to 2 [usable: 2],\n\tCreatePartitions(37): 0 to 3 [usable: 3],\n\tCreateDelegationToken(38): 1 to 3 [usable: 3],\n\tRenewDelegationToken(39): 1 to 2 [usable: 2],\n\tExpireDelegationToken(40): 1 to 2 [usable: 2],\n\tDescribeDelegationToken(41): 1 to 3 [usable: 3],\n\tDeleteGroups(42): 0 to 2 [usable: 2],\n\tElectLeaders(43): 0 to 2 [usable: 2],\n\tIncrementalAlterConfigs(44): 0 to 1 [usable: 1],\n\tAlterPartitionReassignments(45): 0 to 1 [usable: 1],\n\tListPartitionReassignments(46): 0 [usable: 0],\n\tOffsetDelete(47): 0 [usable: 0],\n\tDescribeClientQuotas(48): 0 to 1 [usable: 1],\n\tAlterClientQuotas(49): 0 to 1 [usable: 1],\n\tDescribeUserScramCredentials(50): 0 [usable: 0],\n\tAlterUserScramCredentials(51): 0 [usable: 0],\n\tDescribeQuorum(55): 0 to 2 [usable: 2],\n\tUpdateFeatures(57): 0 to 2 [usable: 2],\n\tDescribeCluster(60): 0 to 2 [usable: 2],\n\tDescribeProducers(61): 0 [usable: 0],\n\tUnregisterBroker(64): 0 [usable: 0],\n\tDescribeTransactions(65): 0 [usable: 0],\n\tListTransactions(66): 0 to 2 [usable: 2],\n\tConsumerGroupHeartbeat(68): 0 to 1 [usable: 1],\n\tConsumerGroupDescribe(69): 0 to 1 [usable: 1],\n\tGetTelemetrySubscriptions(71): UNSUPPORTED,\n\tPushTelemetry(72): UNSUPPORTED,\n\tListConfigResources(74): 0 to 1 [usable: 1],\n\tDescribeTopicPartitions(75): 0 [usable: 0],\n\tShareGroupHeartbeat(76): 1 [usable: 1],\n\tShareGroupDescribe(77): 1 [usable: 1],\n\tShareFetch(78): 1 [usable: 1],\n\tShareAcknowledge(79): 1 [usable: 1],\n\tAddRaftVoter(80): 0 [usable: 0],\n\tRemoveRaftVoter(81): 0 [usable: 0],\n\tInitializeShareGroupState(83): 0 [usable: 0],\n\tReadShareGroupState(84): 0 [usable: 0],\n\tWriteShareGroupState(85): 0 [usable: 0],\n\tDeleteShareGroupState(86): 0 [usable: 0],\n\tReadShareGroupStateSummary(87): 0 [usable: 0],\n\tStreamsGroupHeartbeat(88): UNSUPPORTED,\n\tStreamsGroupDescribe(89): UNSUPPORTED,\n\tDescribeShareGroupOffsets(90): 0 [usable: 0],\n\tAlterShareGroupOffsets(91): 0 [usable: 0],\n\tDeleteShareGroupOffsets(92): 0 [usable: 0]\n)\n"
+            },
+            {
+              "Start": "2026-10-07T02:34:11.057401065Z",
+              "End": "2026-10-07T02:34:15.380409398Z",
+              "ExitCode": 0,
+              "Output": "kafka:9092 (id: 1 rack: null isFenced: false) -> (\n\tProduce(0): 0 to 13 [usable: 13],\n\tFetch(1): 4 to 18 [usable: 18],\n\tListOffsets(2): 1 to 10 [usable: 10],\n\tMetadata(3): 0 to 13 [usable: 13],\n\tOffsetCommit(8): 2 to 9 [usable: 9],\n\tOffsetFetch(9): 1 to 9 [usable: 9],\n\tFindCoordinator(10): 0 to 6 [usable: 6],\n\tJoinGroup(11): 0 to 9 [usable: 9],\n\tHeartbeat(12): 0 to 4 [usable: 4],\n\tLeaveGroup(13): 0 to 5 [usable: 5],\n\tSyncGroup(14): 0 to 5 [usable: 5],\n\tDescribeGroups(15): 0 to 6 [usable: 6],\n\tListGroups(16): 0 to 5 [usable: 5],\n\tSaslHandshake(17): 0 to 1 [usable: 1],\n\tApiVersions(18): 0 to 4 [usable: 4],\n\tCreateTopics(19): 2 to 7 [usable: 7],\n\tDeleteTopics(20): 1 to 6 [usable: 6],\n\tDeleteRecords(21): 0 to 2 [usable: 2],\n\tInitProducerId(22): 0 to 5 [usable: 5],\n\tOffsetForLeaderEpoch(23): 2 to 4 [usable: 4],\n\tAddPartitionsToTxn(24): 0 to 5 [usable: 5],\n\tAddOffsetsToTxn(25): 0 to 4 [usable: 4],\n\tEndTxn(26): 0 to 5 [usable: 5],\n\tWriteTxnMarkers(27): 1 [usable: 1],\n\tTxnOffsetCommit(28): 0 to 5 [usable: 5],\n\tDescribeAcls(29): 1 to 3 [usable: 3],\n\tCreateAcls(30): 1 to 3 [usable: 3],\n\tDeleteAcls(31): 1 to 3 [usable: 3],\n\tDescribeConfigs(32): 1 to 4 [usable: 4],\n\tAlterConfigs(33): 0 to 2 [usable: 2],\n\tAlterReplicaLogDirs(34): 1 to 2 [usable: 2],\n\tDescribeLogDirs(35): 1 to 4 [usable: 4],\n\tSaslAuthenticate(36): 0 to 2 [usable: 2],\n\tCreatePartitions(37): 0 to 3 [usable: 3],\n\tCreateDelegationToken(38): 1 to 3 [usable: 3],\n\tRenewDelegationToken(39): 1 to 2 [usable: 2],\n\tExpireDelegationToken(40): 1 to 2 [usable: 2],\n\tDescribeDelegationToken(41): 1 to 3 [usable: 3],\n\tDeleteGroups(42): 0 to 2 [usable: 2],\n\tElectLeaders(43): 0 to 2 [usable: 2],\n\tIncrementalAlterConfigs(44): 0 to 1 [usable: 1],\n\tAlterPartitionReassignments(45): 0 to 1 [usable: 1],\n\tListPartitionReassignments(46): 0 [usable: 0],\n\tOffsetDelete(47): 0 [usable: 0],\n\tDescribeClientQuotas(48): 0 to 1 [usable: 1],\n\tAlterClientQuotas(49): 0 to 1 [usable: 1],\n\tDescribeUserScramCredentials(50): 0 [usable: 0],\n\tAlterUserScramCredentials(51): 0 [usable: 0],\n\tDescribeQuorum(55): 0 to 2 [usable: 2],\n\tUpdateFeatures(57): 0 to 2 [usable: 2],\n\tDescribeCluster(60): 0 to 2 [usable: 2],\n\tDescribeProducers(61): 0 [usable: 0],\n\tUnregisterBroker(64): 0 [usable: 0],\n\tDescribeTransactions(65): 0 [usable: 0],\n\tListTransactions(66): 0 to 2 [usable: 2],\n\tConsumerGroupHeartbeat(68): 0 to 1 [usable: 1],\n\tConsumerGroupDescribe(69): 0 to 1 [usable: 1],\n\tGetTelemetrySubscriptions(71): UNSUPPORTED,\n\tPushTelemetry(72): UNSUPPORTED,\n\tListConfigResources(74): 0 to 1 [usable: 1],\n\tDescribeTopicPartitions(75): 0 [usable: 0],\n\tShareGroupHeartbeat(76): 1 [usable: 1],\n\tShareGroupDescribe(77): 1 [usable: 1],\n\tShareFetch(78): 1 [usable: 1],\n\tShareAcknowledge(79): 1 [usable: 1],\n\tAddRaftVoter(80): 0 [usable: 0],\n\tRemoveRaftVoter(81): 0 [usable: 0],\n\tInitializeShareGroupState(83): 0 [usable: 0],\n\tReadShareGroupState(84): 0 [usable: 0],\n\tWriteShareGroupState(85): 0 [usable: 0],\n\tDeleteShareGroupState(86): 0 [usable: 0],\n\tReadShareGroupStateSummary(87): 0 [usable: 0],\n\tStreamsGroupHeartbeat(88): UNSUPPORTED,\n\tStreamsGroupDescribe(89): UNSUPPORTED,\n\tDescribeShareGroupOffsets(90): 0 [usable: 0],\n\tAlterShareGroupOffsets(91): 0 [usable: 0],\n\tDeleteShareGroupOffsets(92): 0 [usable: 0]\n)\n"
+            },
+            {
+              "Start": "2026-10-07T02:34:20.382697265Z",
+              "End": "2026-10-07T02:34:24.571200321Z",
+              "ExitCode": 137,
+              "Output": "[2026-10-07 02:34:24,343] WARN [LegacyAdminClient clientId=admin-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient)\n[2026-10-07 02:34:24,356] WARN [LegacyAdminClient clientId=admin-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected (org.apache.kafka.clients.NetworkClient)\nRequest METADATA failed on brokers [localhost:9092 (id: -1 rack: null isFenced: false)]\njava.lang.RuntimeException: Request METADATA failed on brokers [localhost:9092 (id: -1 rack: null isFenced: false)]\n\tat org.apache.kafka.tools.BrokerApiVersionsCommand$AdminClient.sendAnyNode(BrokerApiVersionsCommand.java:241)\n\tat org.apache.kafka.tools.BrokerApiVersionsCommand$AdminClient.findAllBrokers(BrokerApiVersionsCommand.java:272)\n\tat org.apache.kafka.tools.BrokerApiVersionsCommand$AdminClient.awaitBrokers(BrokerApiVersionsCommand.java:264)\n\tat org.apache.kafka.tools.BrokerApiVersionsCommand.execute(BrokerApiVersionsCommand.java:86)\n\tat org.apache.kafka.tools.BrokerApiVersionsCommand.mainNoExit(BrokerApiVersionsCommand.java:74)\n\tat org.apache.kafka.tools.BrokerApiVersionsCommand.main(BrokerApiVersionsCommand.java:69)\n\n"
+            }
+          ]
+        }
+      },
+      "image": "sha256:0bc1bb2478f45b6cea78864df86acdc11e8df2c5172477819a4d12942cbe5d40",
+      "mounts": [
+        {
+          "Type": "volume",
+          "Name": "4598996b6d8dfa778b4f7d74978cd90936eb32b71c81d94d03cd27d2e8c4548d",
+          "Source": "/var/lib/docker/volumes/4598996b6d8dfa778b4f7d74978cd90936eb32b71c81d94d03cd27d2e8c4548d/_data",
+          "Destination": "/etc/kafka/secrets",
+          "Driver": "local",
+          "Mode": "",
+          "RW": true,
+          "Propagation": ""
+        },
+        {
+          "Type": "volume",
+          "Name": "bf26460efbe70afb8d0e97b82cbbefb1b2cacbeff01d047aa113b75fd9054710",
+          "Source": "/var/lib/docker/volumes/bf26460efbe70afb8d0e97b82cbbefb1b2cacbeff01d047aa113b75fd9054710/_data",
+          "Destination": "/mnt/shared/config",
+          "Driver": "local",
+          "Mode": "",
+          "RW": true,
+          "Propagation": ""
+        },
+        {
+          "Type": "volume",
+          "Name": "incidentlens-retro-18922738-3_kafka-data",
+          "Source": "/var/lib/docker/volumes/incidentlens-retro-18922738-3_kafka-data/_data",
+          "Destination": "/var/lib/kafka/data",
+          "Driver": "local",
+          "Mode": "rw",
+          "RW": true,
+          "Propagation": ""
+        }
+      ]
+    },
+    {
+      "name": "/incidentlens-retro-18922738-3-stream-worker-1",
+      "state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-07T02:33:51.084673135Z",
+        "FinishedAt": "2026-10-07T02:34:24.933251191Z"
+      },
+      "image": "sha256:6fe541153b665896590ce22b051d0092ca80e6c6a36f9843d0072ae4154c43fe",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/Users/kousil/Documents/IncidentLens/benchmarks/results/20261007-hardening-candidate1/sustained-8000-r1-candidate/operations",
+          "Destination": "/bench-evidence",
+          "Mode": "rw",
+          "RW": true,
+          "Propagation": "rprivate"
+        }
+      ]
+    }
+  ]
+}

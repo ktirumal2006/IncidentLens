@@ -1,0 +1,51 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+        max_recv_msg_size_mib: 4
+processors:
+  memory_limiter:
+    check_interval: 1s
+    limit_mib: 192
+    spike_limit_mib: 32
+  transform/privacy:
+    error_mode: propagate
+    trace_statements:
+      - context: resource
+        statements:
+          - keep_matching_keys(attributes, "^(service\\.(name|namespace|version)|deployment\\.environment\\.name|test\\..*)$")
+      - context: span
+        statements:
+          - keep_matching_keys(attributes, "^(http\\.(request\\.method|response\\.status_code)|rpc\\.(system|service|method)|server\\.(address|port)|error\\.type|test\\..*)$")
+exporters:
+  otlp/ingest:
+    endpoint: stream-ingest:4318
+    tls:
+      insecure: true
+    timeout: 6s
+    sending_queue:
+      enabled: true
+      num_consumers: 2
+      queue_size: 32
+      wait_for_result: true
+      block_on_overflow: false
+      batch:
+        sizer: items
+        min_size: 1
+        max_size: 256
+        flush_timeout: 1s
+    retry_on_failure:
+      enabled: true
+      initial_interval: 1s
+      max_interval: 5s
+      max_elapsed_time: 30s
+service:
+  telemetry:
+    metrics:
+      level: none
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [memory_limiter, transform/privacy]
+      exporters: [otlp/ingest]

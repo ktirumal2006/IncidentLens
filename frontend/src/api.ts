@@ -10,6 +10,7 @@ export type IncidentIdentity = { service_namespace: string; service_name: string
 export type IncidentEvidence = { trace_id: string; span_id: string; start_time: string; duration_ns: string; status_code: number; from: string; to: string; caveats: string[]; downstream_anomalies: IncidentIdentity[]; error_propagation: boolean }
 export type IncidentOperation = IncidentIdentity & { state: 'normal' | 'candidate' | 'insufficient_evidence'; baseline: IncidentStatistics; current: IncidentStatistics; p95_increase_ns: string | null; error_rate_increase: number | null; triggered_rules: Array<'latency' | 'errors'>; evidence: IncidentEvidence[]; caveats: string[]; service_rank?: number }
 export type IncidentEvaluation = { rule_version: string; config: { min_samples: number; latency_ratio_milli: number; latency_delta_ns: string; error_rate_bps: number; error_increase_bps: number }; observed_at: string; end: string; baseline: { from: string; to: string }; current: { from: string; to: string }; operations: IncidentOperation[]; candidates: IncidentOperation[]; caveats: string[] }
+export type IngestionStatus = { mode: 'direct' | 'streaming'; state: 'not_applicable' | 'ok' | 'backlog' | 'unavailable' | 'stale'; scope: string; lag_records: number | null; partitions_total: number; partitions_observed: number; sampled_at: string | null; sample_started_at: string | null; sample_finished_at: string | null; last_write_at: string | null; last_commit_at: string | null; processing_delay_ns: string | null; pending_age_ns: string | null; processing_state: 'idle' | 'running' | 'retrying' | 'failed'; reason_code?: string }
 
 async function get<T>(path: string, params: Record<string, string | number | undefined>, signal?: AbortSignal): Promise<T> {
   const query = new URLSearchParams()
@@ -26,3 +27,4 @@ export const services = (filters: SearchFilters, signal?: AbortSignal) => get<Su
 export const search = (filters: SearchFilters, cursor?: string, signal?: AbortSignal) => get<SearchPage>('/traces', { ...filters, cursor }, signal)
 export const detail = (id: string, from: string, to: string, signal?: AbortSignal) => get<TraceDetail>(`/traces/${encodeURIComponent(id)}`, { from, to }, signal)
 export const incidents = (end: string, service?: string, namespace?: string, signal?: AbortSignal) => get<IncidentEvaluation>('/incidents', { end, service, namespace }, signal)
+export const ingestionStatus = (signal?: AbortSignal) => get<IngestionStatus>('/ingestion-status', {}, signal)

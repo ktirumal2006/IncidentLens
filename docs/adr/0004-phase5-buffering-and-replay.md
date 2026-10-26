@@ -197,3 +197,10 @@ consumer to the captured end offset. Verify FINAL identities before stopping the
 worker. Preserve broker data and group offsets for investigation/replay; never
 remove volumes as a rollback shortcut. Exact commands, observed rollback and
 measured costs are published with the Phase 5 verification report and runbook.
+
+## Subsequent evidence, October 2, 2026 UTC
+
+The [controlled retrospective](../RETROSPECTIVE_PHASE5.md) supports finite
+burst/slowdown admission buffering but shows no consistent sustained storage
+throughput or query-availability gain. Kafka remains opt-in; the direct MVP
+default and the original educational activation decision are unchanged.

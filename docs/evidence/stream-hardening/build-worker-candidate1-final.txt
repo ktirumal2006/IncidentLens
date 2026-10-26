@@ -1,0 +1,64 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.36kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/golang:1.26.8-bookworm
+#2 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/distroless/static-debian12:nonroot
+#3 DONE 0.3s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 207B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 DONE 0.0s
+
+#6 [stream-worker 1/2] FROM gcr.io/distroless/static-debian12:nonroot@sha256:afa5c872c891853ca7fcf1f12c3edb23f7eeef36189728842dd51042ff57f7ab
+#6 resolve gcr.io/distroless/static-debian12:nonroot@sha256:afa5c872c891853ca7fcf1f12c3edb23f7eeef36189728842dd51042ff57f7ab 0.0s done
+#6 DONE 0.0s
+
+#7 [source 1/5] FROM docker.io/library/golang:1.26.8-bookworm@sha256:a688600ca24f8a4d3ca77f95b0dd40704a9fc787c826660eb7ba0b641b8b175d
+#7 resolve docker.io/library/golang:1.26.8-bookworm@sha256:a688600ca24f8a4d3ca77f95b0dd40704a9fc787c826660eb7ba0b641b8b175d 0.0s done
+#7 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 38.80kB 0.0s done
+#5 DONE 0.0s
+
+#8 [source 3/5] COPY backend/go.mod backend/go.sum ./
+#8 CACHED
+
+#9 [source 2/5] WORKDIR /src
+#9 CACHED
+
+#10 [source 4/5] RUN go mod download
+#10 CACHED
+
+#11 [source 5/5] COPY backend/ ./
+#11 DONE 0.1s
+
+#12 [build-stream-worker 1/1] RUN CGO_ENABLED=0 go build -trimpath -o /stream-worker ./cmd/stream-worker
+#12 DONE 51.6s
+
+#6 [stream-worker 1/2] FROM gcr.io/distroless/static-debian12:nonroot@sha256:afa5c872c891853ca7fcf1f12c3edb23f7eeef36189728842dd51042ff57f7ab
+#6 CACHED
+
+#13 [stream-worker 2/2] COPY --from=build-stream-worker /stream-worker /stream-worker
+#13 DONE 0.1s
+
+#14 exporting to image
+#14 exporting layers
+#14 exporting layers 4.1s done
+#14 exporting manifest sha256:0fd7395c1608660404e7c80fb237a9e097b6624d19cef18b68d05382eba75cb1 0.1s done
+#14 exporting config sha256:169feee7635b1062c215f290b6eff9d83bb1f62732271a7b3d9dfad0dc024776 0.0s done
+#14 exporting attestation manifest sha256:f4b7af10d145b34f4505754d6032e961ca8149a8ca24ce50a76cd241f50c8a5d
+#14 exporting attestation manifest sha256:f4b7af10d145b34f4505754d6032e961ca8149a8ca24ce50a76cd241f50c8a5d 0.0s done
+#14 exporting manifest list sha256:32560fe705cda950472d59a9ae21cf73e113245686df431ecc03708467f9c2a7 0.0s done
+#14 naming to docker.io/library/incidentlens-hardening-worker:candidate1 done
+#14 unpacking to docker.io/library/incidentlens-hardening-worker:candidate1
+#14 unpacking to docker.io/library/incidentlens-hardening-worker:candidate1 0.5s done
+#14 DONE 4.9s

@@ -1,0 +1,5 @@
+{
+  "status": "failed",
+  "reason": "started before restarted ClickHouse was ready; nine query connections failed and SYSTEM FLUSH LOGS raised RemoteDisconnected",
+  "usable_performance_evidence": false
+}

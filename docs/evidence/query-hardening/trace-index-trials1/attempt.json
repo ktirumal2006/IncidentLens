@@ -1,0 +1,6 @@
+{
+  "status": "failed_before_schema_change",
+  "reason": "Diagnostic query-log lookup used the context column prefix for the detail query and found no original query.",
+  "usable_performance_evidence": false,
+  "followup": "trace-index-trials2"
+}

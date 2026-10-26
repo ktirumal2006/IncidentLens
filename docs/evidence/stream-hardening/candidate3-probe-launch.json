@@ -1,0 +1,22 @@
+{
+  "pid": 4185,
+  "command": [
+    "/usr/bin/caffeinate",
+    "-i",
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "/Users/kousil/Documents/IncidentLens/benchmarks/stream_hardening.py",
+    "--output",
+    "/Users/kousil/Documents/IncidentLens/benchmarks/results/20261009-hardening-candidate3-probe",
+    "--binary",
+    "/Users/kousil/Library/Caches/IncidentLens/bin/bench-setup-barrier",
+    "--lag-binary",
+    "/Users/kousil/Library/Caches/IncidentLens/bin/bench-lag",
+    "--candidate-tag",
+    "candidate3",
+    "--probe-sustained"
+  ],
+  "started_at": "2026-10-09T00:37:35.082318+00:00",
+  "output": "/Users/kousil/Documents/IncidentLens/benchmarks/results/20261009-hardening-candidate3-probe",
+  "log": "/Users/kousil/Documents/IncidentLens/docs/evidence/stream-hardening/candidate3-probe-driver.txt",
+  "scope": "diagnostic pair only; cannot establish promotion"
+}

@@ -1,0 +1,22 @@
+{
+  "pid": 12056,
+  "command": [
+    "/usr/bin/caffeinate",
+    "-i",
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "/Users/kousil/Documents/IncidentLens/benchmarks/stream_hardening.py",
+    "--output",
+    "/Users/kousil/Documents/IncidentLens/benchmarks/results/20261009-hardening-candidate3-decision",
+    "--binary",
+    "/Users/kousil/Library/Caches/IncidentLens/bin/bench-setup-barrier",
+    "--lag-binary",
+    "/Users/kousil/Library/Caches/IncidentLens/bin/bench-lag",
+    "--candidate-tag",
+    "candidate3",
+    "--probe-sustained"
+  ],
+  "started_at": "2026-10-09T17:05:01.785456+00:00",
+  "output": "/Users/kousil/Documents/IncidentLens/benchmarks/results/20261009-hardening-candidate3-decision",
+  "log": "/Users/kousil/Documents/IncidentLens/docs/evidence/stream-hardening/candidate3-decision-driver.txt",
+  "scope": "one matched diagnostic for bounded promotion decision; full acceptance only if all applicable gates pass"
+}

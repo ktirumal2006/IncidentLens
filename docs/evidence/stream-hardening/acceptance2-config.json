@@ -1,0 +1,350 @@
+{
+  "name": "incidentlens-retro-hardening-acceptance2",
+  "networks": {
+    "telemetry": {
+      "name": "incidentlens-retro-hardening-acceptance2-telemetry",
+      "ipam": {}
+    }
+  },
+  "services": {
+    "api": {
+      "build": {
+        "context": "/Users/kousil/Documents/IncidentLens",
+        "dockerfile": "deploy/local/Dockerfile",
+        "target": "api"
+      },
+      "cpus": 1,
+      "command": null,
+      "depends_on": {
+        "migrate": {
+          "condition": "service_completed_successfully",
+          "required": true
+        }
+      },
+      "entrypoint": null,
+      "environment": {
+        "CLICKHOUSE_ADDRESS": "clickhouse:9000",
+        "CLICKHOUSE_PASSWORD": "local-query",
+        "CLICKHOUSE_USER": "query",
+        "DETECTOR_ERROR_INCREASE_BPS": "500",
+        "DETECTOR_ERROR_RATE_BPS": "500",
+        "DETECTOR_LATENCY_DELTA_NS": "100000000",
+        "DETECTOR_LATENCY_RATIO_MILLI": "2000",
+        "DETECTOR_MIN_SAMPLES": "100",
+        "FRONTEND_DIR": "/web",
+        "HTTP_ADDRESS": "0.0.0.0:8081",
+        "INGESTION_MODE": "streaming",
+        "STREAM_STATUS_URL": "http://stream-worker:8083/internal/stream-status"
+      },
+      "image": "incidentlens-hardening-api:candidate2",
+      "mem_limit": "536870912",
+      "networks": {
+        "telemetry": null
+      },
+      "ports": [
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 8081,
+          "published": "18081",
+          "protocol": "tcp"
+        }
+      ]
+    },
+    "clickhouse": {
+      "cpus": 2,
+      "command": null,
+      "entrypoint": null,
+      "environment": {
+        "CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT": "1",
+        "CLICKHOUSE_PASSWORD": "local-admin",
+        "CLICKHOUSE_USER": "default"
+      },
+      "healthcheck": {
+        "test": [
+          "CMD",
+          "clickhouse-client",
+          "--password",
+          "local-admin",
+          "--query",
+          "SELECT 1"
+        ],
+        "timeout": "3s",
+        "interval": "5s",
+        "retries": 30
+      },
+      "image": "clickhouse/clickhouse-server:25.8.4.13",
+      "mem_limit": "2147483648",
+      "networks": {
+        "telemetry": null
+      },
+      "ports": [
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 8123,
+          "published": "18123",
+          "protocol": "tcp"
+        },
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 9000,
+          "published": "19000",
+          "protocol": "tcp"
+        }
+      ],
+      "volumes": [
+        {
+          "type": "volume",
+          "source": "clickhouse-data",
+          "target": "/var/lib/clickhouse",
+          "volume": {}
+        },
+        {
+          "type": "bind",
+          "source": "/Users/kousil/Documents/IncidentLens/deploy/local/users.xml",
+          "target": "/etc/clickhouse-server/users.d/incidentlens.xml",
+          "read_only": true,
+          "bind": {}
+        }
+      ]
+    },
+    "collector": {
+      "cpus": 1,
+      "command": [
+        "--config=/etc/otelcol/config.yaml"
+      ],
+      "depends_on": {
+        "stream-ingest": {
+          "condition": "service_started",
+          "required": true
+        }
+      },
+      "entrypoint": null,
+      "image": "otel/opentelemetry-collector-contrib:0.137.0",
+      "mem_limit": "268435456",
+      "networks": {
+        "telemetry": null
+      },
+      "ports": [
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 4317,
+          "published": "4317",
+          "protocol": "tcp"
+        }
+      ],
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "/Users/kousil/Documents/IncidentLens/deploy/streaming/collector.yaml",
+          "target": "/etc/otelcol/config.yaml",
+          "read_only": true,
+          "bind": {}
+        }
+      ]
+    },
+    "kafka": {
+      "cpus": 2,
+      "command": null,
+      "entrypoint": null,
+      "environment": {
+        "CLUSTER_ID": "4L6g3nShT-eMCtK--X86sw",
+        "KAFKA_ADVERTISED_LISTENERS": "INTERNAL://kafka:9092,HOST://localhost:19092",
+        "KAFKA_AUTO_CREATE_TOPICS_ENABLE": "false",
+        "KAFKA_CONTROLLER_LISTENER_NAMES": "CONTROLLER",
+        "KAFKA_CONTROLLER_QUORUM_VOTERS": "1@kafka:9093",
+        "KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS": "0",
+        "KAFKA_HEAP_OPTS": "-Xms512m -Xmx512m",
+        "KAFKA_INTER_BROKER_LISTENER_NAME": "INTERNAL",
+        "KAFKA_LISTENERS": "INTERNAL://:9092,CONTROLLER://:9093,HOST://:19092",
+        "KAFKA_LISTENER_SECURITY_PROTOCOL_MAP": "INTERNAL:PLAINTEXT,CONTROLLER:PLAINTEXT,HOST:PLAINTEXT",
+        "KAFKA_LOG_DIRS": "/var/lib/kafka/data",
+        "KAFKA_MESSAGE_MAX_BYTES": "5242880",
+        "KAFKA_METADATA_LOG_DIR": "/var/lib/kafka/data",
+        "KAFKA_NODE_ID": "1",
+        "KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR": "1",
+        "KAFKA_PROCESS_ROLES": "broker,controller",
+        "KAFKA_REPLICA_FETCH_MAX_BYTES": "5242880",
+        "KAFKA_TRANSACTION_STATE_LOG_MIN_ISR": "1",
+        "KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR": "1"
+      },
+      "healthcheck": {
+        "test": [
+          "CMD",
+          "/opt/kafka/bin/kafka-broker-api-versions.sh",
+          "--bootstrap-server",
+          "localhost:9092"
+        ],
+        "timeout": "5s",
+        "interval": "5s",
+        "retries": 30
+      },
+      "image": "apache/kafka:4.1.1@sha256:0bc1bb2478f45b6cea78864df86acdc11e8df2c5172477819a4d12942cbe5d40",
+      "mem_limit": "1073741824",
+      "networks": {
+        "telemetry": null
+      },
+      "ports": [
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 19092,
+          "published": "19092",
+          "protocol": "tcp"
+        }
+      ],
+      "volumes": [
+        {
+          "type": "volume",
+          "source": "kafka-data",
+          "target": "/var/lib/kafka/data",
+          "volume": {}
+        }
+      ]
+    },
+    "kafka-topic": {
+      "command": [
+        "topic=incidentlens-spans-v2\nbin=/opt/kafka/bin/kafka-topics.sh\nif ! \"$$bin\" --bootstrap-server kafka:9092 --describe --topic \"$$topic\" \u003e/dev/null 2\u003e\u00261; then\n  \"$$bin\" --bootstrap-server kafka:9092 --create --topic \"$$topic\" --partitions 4 --replication-factor 1 \\\n    --config retention.ms=3600000 --config retention.bytes=268435456 --config segment.bytes=16777216 --config segment.ms=300000 --config max.message.bytes=5242880\nfi\ndescription=$$(\"$$bin\" --bootstrap-server kafka:9092 --describe --topic \"$$topic\")\necho \"$$description\"\necho \"$$description\" | grep -Eq 'PartitionCount:[[:space:]]+4([[:space:]]|$$)' || { echo 'v2 topic must have exactly four partitions' \u003e\u00262; exit 1; }\n/opt/kafka/bin/kafka-configs.sh --bootstrap-server kafka:9092 --entity-type topics --entity-name \"$$topic\" --alter \\\n  --add-config retention.ms=3600000,retention.bytes=268435456,segment.bytes=16777216,segment.ms=300000,max.message.bytes=5242880\n"
+      ],
+      "depends_on": {
+        "kafka": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "entrypoint": [
+        "/bin/bash",
+        "-ec"
+      ],
+      "image": "apache/kafka:4.1.1@sha256:0bc1bb2478f45b6cea78864df86acdc11e8df2c5172477819a4d12942cbe5d40",
+      "networks": {
+        "telemetry": null
+      }
+    },
+    "migrate": {
+      "command": [
+        "for f in /migrations/*.sql; do clickhouse-client --host clickhouse --password local-admin --multiquery \u003c \"$$f\"; done"
+      ],
+      "depends_on": {
+        "clickhouse": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "entrypoint": [
+        "/bin/sh",
+        "-ec"
+      ],
+      "image": "clickhouse/clickhouse-server:25.8.4.13",
+      "networks": {
+        "telemetry": null
+      },
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "/Users/kousil/Documents/IncidentLens/migrations/clickhouse",
+          "target": "/migrations",
+          "read_only": true,
+          "bind": {}
+        }
+      ]
+    },
+    "stream-ingest": {
+      "build": {
+        "context": "/Users/kousil/Documents/IncidentLens",
+        "dockerfile": "deploy/local/Dockerfile",
+        "target": "stream-ingest"
+      },
+      "cpus": 1,
+      "command": null,
+      "depends_on": {
+        "kafka-topic": {
+          "condition": "service_completed_successfully",
+          "required": true
+        }
+      },
+      "entrypoint": null,
+      "environment": {
+        "KAFKA_BROKERS": "kafka:9092",
+        "KAFKA_TOPIC": "incidentlens-spans-v2",
+        "STREAM_GRPC_ADDRESS": "0.0.0.0:4318",
+        "STREAM_HEALTH_ADDRESS": "0.0.0.0:8082"
+      },
+      "image": "incidentlens-hardening-producer:candidate2",
+      "mem_limit": "536870912",
+      "networks": {
+        "telemetry": null
+      },
+      "ports": [
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 4318,
+          "published": "14318",
+          "protocol": "tcp"
+        },
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 8082,
+          "published": "18082",
+          "protocol": "tcp"
+        }
+      ]
+    },
+    "stream-worker": {
+      "build": {
+        "context": "/Users/kousil/Documents/IncidentLens",
+        "dockerfile": "deploy/local/Dockerfile",
+        "target": "stream-worker"
+      },
+      "cpus": 1,
+      "command": null,
+      "depends_on": {
+        "kafka-topic": {
+          "condition": "service_completed_successfully",
+          "required": true
+        },
+        "migrate": {
+          "condition": "service_completed_successfully",
+          "required": true
+        }
+      },
+      "entrypoint": null,
+      "environment": {
+        "CLICKHOUSE_ADDRESS": "clickhouse:9000",
+        "CLICKHOUSE_PASSWORD": "local-ingest",
+        "CLICKHOUSE_USER": "ingest",
+        "KAFKA_BROKERS": "kafka:9092",
+        "KAFKA_GROUP_ID": "incidentlens-stream-worker-v2",
+        "KAFKA_TOPIC": "incidentlens-spans-v2",
+        "STREAM_HEALTH_ADDRESS": "0.0.0.0:8083"
+      },
+      "image": "incidentlens-hardening-worker:candidate2",
+      "mem_limit": "536870912",
+      "networks": {
+        "telemetry": null
+      },
+      "ports": [
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 8083,
+          "published": "18083",
+          "protocol": "tcp"
+        }
+      ]
+    }
+  },
+  "volumes": {
+    "clickhouse-data": {
+      "name": "incidentlens-retro-hardening-acceptance2_clickhouse-data"
+    },
+    "kafka-data": {
+      "name": "incidentlens-retro-hardening-acceptance2_kafka-data"
+    }
+  }
+}

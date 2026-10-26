@@ -15,7 +15,7 @@ let responses: (url: URL) => Response
 beforeEach(() => {
   requests = []
   responses = url => url.pathname.endsWith('/services') ? apiResponse(summary) : url.pathname.endsWith(`/traces/${traceId}`) ? apiResponse(trace) : apiResponse(page)
-  vi.stubGlobal('fetch', vi.fn((input: string) => { const url = new URL(input, 'http://localhost'); requests.push(url); return Promise.resolve(responses(url)) }))
+  vi.stubGlobal('fetch', vi.fn((input: string) => { const url = new URL(input, 'http://localhost'); requests.push(url); return Promise.resolve(url.pathname.endsWith('/ingestion-status') ? apiResponse({ mode: 'direct', state: 'not_applicable' }) : responses(url)) }))
 })
 afterEach(() => vi.unstubAllGlobals())
 
@@ -40,7 +40,7 @@ describe('trace explorer', () => {
     const heldSearch = new Promise<Response>(resolve => { finishSearch = resolve })
     vi.stubGlobal('fetch', vi.fn((input: string) => {
       const url = new URL(input, 'http://localhost')
-      return url.pathname.endsWith('/services') ? Promise.resolve(apiResponse(summary)) : heldSearch
+      return url.pathname.endsWith('/ingestion-status') ? Promise.resolve(apiResponse({ mode: 'direct', state: 'not_applicable' })) : url.pathname.endsWith('/services') ? Promise.resolve(apiResponse(summary)) : heldSearch
     }))
     const user = userEvent.setup(); render(<App />)
     await user.click(screen.getByRole('button', { name: /Search traces/ }))

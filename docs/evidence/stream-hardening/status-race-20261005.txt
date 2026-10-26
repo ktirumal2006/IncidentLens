@@ -1,0 +1,3 @@
+ok  	incidentlens/backend/internal/streamstatus	1.607s
+ok  	incidentlens/backend/internal/httpapi	(cached)
+ok  	incidentlens/backend/cmd/stream-worker	2.079s

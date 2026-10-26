@@ -1,0 +1,4 @@
+ok  	incidentlens/backend/internal/detector	(cached)
+ok  	incidentlens/backend/internal/storage/clickhouse	(cached)
+ok  	incidentlens/backend/internal/httpapi	(cached)
+ok  	incidentlens/backend/cmd/bench	(cached)

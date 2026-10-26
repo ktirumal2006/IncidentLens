@@ -1,0 +1,6 @@
+{
+  "exact_outputs": "All completed comparisons matched.",
+  "performance_limit": "Repeated predicate reads warmed ClickHouse's query-condition cache; the index-disabled context read changed from 1065342 to 24576 rows. These trials do not isolate index savings.",
+  "followup": "trace-index-trials3 disables the query-condition cache for both arms, keeps resource budgets unchanged, and selects the highest-read original detail/context queries.",
+  "campaign_policy": "The measured campaign keeps the original default query-condition-cache setting. No cache policy change is adopted."
+}

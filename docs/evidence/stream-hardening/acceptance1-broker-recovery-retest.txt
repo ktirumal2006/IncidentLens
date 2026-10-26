@@ -1,0 +1,7 @@
+=== RUN   TestBrokerAckBeforeStorageThenWorkerRecovery
+    streaming_test.go:245: Kafka ACK before retained broker restart: trace=1a154127d0853b3a4831d791b4d09e01 namespace=streamtest-b61ad2e53589
+--- PASS: TestBrokerAckBeforeStorageThenWorkerRecovery (14.86s)
+=== RUN   TestBrokerOutageReturnsRetryableFailure
+--- PASS: TestBrokerOutageReturnsRetryableFailure (25.46s)
+PASS
+ok  	incidentlens/backend/tests/streaming	42.413s

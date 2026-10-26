@@ -3,12 +3,10 @@ package httpapi
 import (
 	"context"
 	"encoding/json"
-	"errors"
 	"net/http"
 	"net/url"
 	"time"
 
-	"github.com/ClickHouse/clickhouse-go/v2/lib/proto"
 	"incidentlens/backend/internal/detector"
 	"incidentlens/backend/internal/query"
 )
@@ -55,24 +53,22 @@ func (h *Handler) serveIncidents(w http.ResponseWriter, r *http.Request) {
 	defer cancel()
 	result, e := h.Incidents.Incidents(ctx, end, now, h.DetectorConfig, f)
 	if e != nil {
-		var chErr *proto.Exception
-		switch {
-		case errors.Is(e, context.DeadlineExceeded) || errors.Is(ctx.Err(), context.DeadlineExceeded) || (errors.As(e, &chErr) && chErr.Code == 159):
-			respondError(w, 504, "deadline_exceeded", "query deadline exceeded")
-		case errors.Is(e, query.ErrInvalid):
-			respondError(w, 400, "invalid_request", "invalid evaluation request")
-		default:
-			respondError(w, 503, "unavailable", "query unavailable or resource cap reached")
+		status, code, message, cause := queryFailure(e, ctx.Err())
+		if status == 400 {
+			message = "invalid evaluation request"
+		} else if status == 404 {
+			status, code, message, cause = 503, "unavailable", "query unavailable or resource cap reached", "other_query_error"
 		}
+		respondQueryFailure(w, status, code, message, cause)
 		return
 	}
 	b, e := json.Marshal(result)
 	if e != nil {
-		respondError(w, 503, "unavailable", "invalid evaluation data")
+		respondQueryFailure(w, 503, "unavailable", "invalid evaluation data", "invalid_stored_data")
 		return
 	}
 	if len(b) > query.MaxResponse {
-		respondError(w, 503, "unavailable", "response cap reached")
+		respondQueryFailure(w, 503, "unavailable", "response cap reached", "response_cap")
 		return
 	}
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")

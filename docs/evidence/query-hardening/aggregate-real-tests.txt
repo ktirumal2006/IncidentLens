@@ -1,0 +1,19 @@
+=== RUN   TestDetectorClickHouseReplayCutoffPercentileAndRelationships
+    detector_test.go:154: historical detector fixture namespace=detector-83e0018ea7 end=2026-10-10T01:56:58Z raw_parent=221 dedup_base=100 dedup_current=100 p95=195000000/495000000 candidates=1
+--- PASS: TestDetectorClickHouseReplayCutoffPercentileAndRelationships (1.16s)
+=== RUN   TestDetectorClickHouseGroupCapFailsWholeEvaluation
+--- PASS: TestDetectorClickHouseGroupCapFailsWholeEvaluation (0.09s)
+=== RUN   TestDetectorClickHouseHalfOpenWindows
+--- PASS: TestDetectorClickHouseHalfOpenWindows (0.08s)
+=== RUN   TestDetectorClickHouseAggregateEvidenceDistinctTraceOrder
+    detector_test.go:232: aggregate evidence selection={RuleVersion:trace-v2 Config:{MinSamples:1 LatencyRatioMilli:2000 LatencyDeltaNS:1 ErrorRateBPS:500 ErrorIncreaseBPS:500} ObservedAt:2026-10-10 03:56:59.361109 +0000 UTC End:2026-10-10 00:56:59 +0000 UTC BaselineWindow:{From:2026-10-10 00:21:59 +0000 UTC To:2026-10-10 00:51:59 +0000 UTC} CurrentWindow:{From:2026-10-10 00:51:59 +0000 UTC To:2026-10-10 00:56:59 +0000 UTC} Operations:[] Candidates:[] Caveats:[no_server_coverage relationship_context_sampled]}
+--- FAIL: TestDetectorClickHouseAggregateEvidenceDistinctTraceOrder (0.04s)
+=== RUN   TestQueryHardeningDetectorRowCeilingAndDetail
+    query_hardening_test.go:146: seed 100002 rows: unsupported query parameter type
+--- FAIL: TestQueryHardeningDetectorRowCeilingAndDetail (0.00s)
+=== RUN   TestQueryHardeningDetectorByteCeiling
+    query_hardening_test.go:243: seed 33002 rows: unsupported query parameter type
+--- FAIL: TestQueryHardeningDetectorByteCeiling (0.01s)
+FAIL
+FAIL	incidentlens/backend/tests/integration	2.516s
+FAIL

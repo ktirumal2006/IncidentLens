@@ -1,0 +1,12 @@
+{
+  "exit_code": 0,
+  "cwd": "/Users/kousil/Library/Caches/IncidentLens/query-control-source/backend",
+  "command": [
+    "go",
+    "test",
+    "./internal/httpapi",
+    "./internal/query",
+    "./internal/storage/clickhouse"
+  ],
+  "at": "2026-10-10T16:12:18.457672+00:00"
+}

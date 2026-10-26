@@ -1,0 +1,6 @@
+# Query-hardening candidate only until the unchanged promotion gates pass.
+# Paths resolve relative to the first Compose file, deploy/local/compose.yaml.
+services:
+  migrate:
+    volumes:
+      - ../../migrations/query-hardening/002_trace_id_index.sql:/migrations/002_trace_id_index.sql:ro

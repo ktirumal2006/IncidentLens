@@ -1,0 +1,30 @@
+{
+  "scope": "Read-only classification of the completed candidate3 diagnostic baseline; candidate3 failed startup before measurement",
+  "source_case": "benchmarks/results/20261009-hardening-candidate3-probe/sustained-8000-r1-baseline",
+  "measurement_window_utc": ["2026-10-09T00:40:31.718379Z", "2026-10-09T00:42:31.718379Z"],
+  "evidence": {
+    "server_queries": "server-queries.json: post-load bounded query of system.query_log, query user SELECTs, no SQL text or query ID in captured fields; return code 0, 1621 rows, below 50001-row cap",
+    "harness_events": "measurement/harness/events.jsonl: raw HTTP status, route, and request timing",
+    "worker_events": "operations/worker.jsonl: 2449 clickhouse_write and 2449 consumer_commit events, no recorded worker errors",
+    "code": ["backend/internal/storage/clickhouse/incidents.go", "backend/internal/detector/detector.go", "backend/internal/httpapi/incidents.go", "backend/internal/storage/clickhouse/query.go", "backend/internal/httpapi/handler.go"]
+  },
+  "baseline_observations": {
+    "measured_http_incidents": {"200": 36, "503": 53, "504": 25},
+    "measured_http_other": {"services": {"200": 68, "503": 48}, "traces": {"200": 79, "503": 36}, "detail": {"404": 74, "503": 46}},
+    "measured_query_log": {"all_entries": 1197, "query_finish": 562, "successful_selects_with_exactly_100001_result_rows": 17, "successful_selects_with_more_than_100000_result_rows": 17, "exception_while_processing_by_code": {"210": 35, "735": 2}},
+    "all_case_query_log": {"all_entries": 1621, "query_finish": 772, "successful_selects_with_exactly_100001_result_rows": 18, "successful_selects_with_more_than_100000_result_rows": 28, "exception_while_processing_by_code": {"210": 37, "735": 2}},
+    "first_100001_row_select_start_utc": "2026-10-09T00:42:04.977596Z",
+    "incidents_started_before_first_100001_row_select": {"200": 36, "503": 27, "504": 24},
+    "incidents_started_at_or_after_first_100001_row_select": {"503": 26, "504": 1},
+    "first_incident_503_start_utc": "2026-10-09T00:40:39.468651Z"
+  },
+  "contract_and_classification": {
+    "detector_cap": "Incidents SQL uses LIMIT MaxSpans+1; MaxSpans is 100000. Fetching the 100001st deduplicated row returns detector.ErrLimit and the incidents endpoint maps that error to HTTP 503. Successful 100001-row SELECTs are strong evidence that this cap was reached during the baseline measurement, but captured log fields cannot associate a SELECT with a specific HTTP request.",
+    "other_503_causes": "Incident HTTP 503 occurred before the first observed 100001-row SELECT. The same generic HTTP 503 also covers ClickHouse/storage errors, the four-slot query admission cap, response or detector resource caps, and invalid output. Other query routes had 503s and cannot be explained by the incident detector cap.",
+    "504": "Incident HTTP 504 maps context deadline or ClickHouse exception code 159. The captured query-log exception codes 210 and 735 show server-side SELECT exceptions but cannot be mapped to individual HTTP responses; client cancellation after a detector cap or deadline could itself yield such an exception, so these are not independent evidence of a storage outage.",
+    "transport_and_storage": "The worker event stream recorded writes and commits without a worker error. This does not prove individual query failures were caused by the detector; HTTP query transport, API slot admission, and ClickHouse read failures remain separate possible classes.",
+    "per_request_attribution": "unknown: no request ID, SQL text, structured API error cause, or join key links the HTTP event to system.query_log"
+  },
+  "acceptance_effect": "Every non-404 HTTP failure remains in the original query failure gate, including detector input-limit 503s. This evidence explains possible causes but does not waive or reclassify any failure as success. Faster persistence can reach the fixed detector cap sooner; the baseline itself also reached that cap. Candidate3 has no completed diagnostic pair in this probe, so no comparative promotion conclusion follows.",
+  "fresh_pair_classification_without_app_image_changes": "Keep raw per-route HTTP status/time and the bounded system.query_log SELECT capture for both variants. Classify a 100001-row successful SELECT as detector-cap evidence at the case/time-window level; preserve query-log exception codes separately without inferring their trigger. Correlate timing only as suggestive. Preserve per-request cause as unknown unless an existing response has a distinct cause or a request-to-query join key; report all original failures and thresholds unchanged. The existing candidate2 correlation is additional timing evidence, not per-request proof."
+}

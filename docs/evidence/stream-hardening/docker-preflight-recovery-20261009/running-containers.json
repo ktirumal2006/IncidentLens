@@ -1,0 +1,11 @@
+{
+  "command": [
+    "docker",
+    "ps",
+    "--format",
+    "{{.ID}} {{.Names}} {{.Status}}"
+  ],
+  "returncode": 0,
+  "stdout": "f5c8bdd48da5 incidentlens-clickhouse-1 Up 16 hours (unhealthy)\n",
+  "stderr": ""
+}

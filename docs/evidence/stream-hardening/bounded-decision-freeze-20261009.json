@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-09T17:02:16.208538+00:00",
+  "candidate": "candidate3",
+  "frozen_source_archive": "docs/evidence/stream-hardening/candidate3-source-archive.json",
+  "authorized_readiness_protocol_files": [
+    "benchmarks/WORKLOAD_STREAM_HARDENING.md",
+    "deploy/streaming/compose.yaml"
+  ],
+  "unexpected_source_drift": [],
+  "application_images": {
+    "producer": "sha256:8e83a459513f56c3fc4221b29b148f4f05ce79510f9ea73b84ac34bde26098c9",
+    "worker": "sha256:c2ce7cbd08d106118166a906fd6c5d5271823835e76bb1a3e2f20d58f6997f06",
+    "api": "sha256:bfc2716d394de25e299940107d53fe536fc6ca2646a70fefbc767fd45a110662"
+  },
+  "decision_rule": "One valid fresh matched diagnostic pair; proceed to full acceptance only if every applicable numerical gate passes. Otherwise report no promotion and stop tuning."
+}

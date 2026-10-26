@@ -1,0 +1,15 @@
+ok  	incidentlens/backend/internal/benchobs	(cached)
+ok  	incidentlens/backend/internal/detector	(cached)
+ok  	incidentlens/backend/internal/httpapi	(cached)
+ok  	incidentlens/backend/internal/ingest	(cached)
+ok  	incidentlens/backend/internal/query	(cached)
+ok  	incidentlens/backend/internal/storage/clickhouse	(cached)
+ok  	incidentlens/backend/internal/stream	4.530s
+ok  	incidentlens/backend/internal/streamstatus	(cached)
+ok  	incidentlens/backend/internal/trace	(cached)
+ok  	incidentlens/backend/cmd/api	3.937s
+ok  	incidentlens/backend/cmd/bench	(cached)
+?   	incidentlens/backend/cmd/bench-lag	[no test files]
+?   	incidentlens/backend/cmd/ingest	[no test files]
+?   	incidentlens/backend/cmd/stream-ingest	[no test files]
+ok  	incidentlens/backend/cmd/stream-worker	5.098s

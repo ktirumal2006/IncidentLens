@@ -1,0 +1,20 @@
+[
+  {
+    "name": "/incidentlens-retro-b3845940-0-clickhouse-1",
+    "image_id": "sha256:c48c1ed0a54e6e9fde03750860aa86de1e6f40b6fe33c6df540738867b4f6809",
+    "cpus_nano": 2000000000,
+    "memory_bytes": 2147483648
+  },
+  {
+    "name": "/incidentlens-retro-b3845940-0-kafka-1",
+    "image_id": "sha256:0bc1bb2478f45b6cea78864df86acdc11e8df2c5172477819a4d12942cbe5d40",
+    "cpus_nano": 2000000000,
+    "memory_bytes": 1073741824
+  },
+  {
+    "name": "/incidentlens-retro-b3845940-0-stream-worker-1",
+    "image_id": "sha256:554a2583bab603277b344cdc322c19e2c45976e72560ea6b7b6ad0ad53478f30",
+    "cpus_nano": 1000000000,
+    "memory_bytes": 536870912
+  }
+]

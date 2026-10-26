@@ -1,0 +1,15 @@
+{
+  "scope": "read-only review; no new performance acceptance",
+  "source_archive_sha256": "c9ae991dac0134ba4aef2d8183840f7a633724f1919f18b4c34a320562af055a",
+  "correctness": {
+    "agent": "/root/query_validation",
+    "finding": "No concrete correctness defect found in exact aggregates, FINAL/cutoff, per-operation evidence ordering, cross-service context, caps and failclosed errors.",
+    "evidence": "query3-real-tests.txt; query3-unit-tests-final.txt",
+    "remaining": "500-operation fanout may exhaust unchanged five-second deadline; benchmark gates pending. Detail PREWHERE diagnostic has equal read cost and supports no speedup claim."
+  },
+  "control_attribution": {
+    "agent": "/root/final_pair_review",
+    "finding": "Original control archive/patch/saved image IDs agree; failed campaign stopped on baseline before candidate. Later baseline recovery does not complete the pair.",
+    "next": "Fresh probe-sustained baseline/control pair with same binary and candidate3-query-control; preserve failed attempt. Count actual cause headers; do not infer an exact fraction from 75 cap-sized SELECTs and 95 HTTP 503s."
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "harness_and_module_files_compared": 10,
+  "changed": [],
+  "note": "Temporary binaries lost after host downtime. Rebuild with pinned Go1.26.8; identical rebuilt harness used for baseline and candidate."
+}

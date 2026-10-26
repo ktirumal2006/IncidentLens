@@ -1,0 +1,20 @@
+{
+  "command": [
+    "/Users/kousil/Library/Caches/IncidentLens/toolchain/go/bin/go",
+    "test",
+    "./tests/integration",
+    "-run",
+    "^TestQueryHardening",
+    "-v",
+    "-count=1"
+  ],
+  "cwd": "backend",
+  "env_overrides": {
+    "INCIDENTLENS_INTEGRATION": "1",
+    "INCIDENTLENS_DETECTOR_INTEGRATION": "1",
+    "INCIDENTLENS_QUERY_HARDENING_INTEGRATION": "1",
+    "CLICKHOUSE_TEST_ADDRESS": "127.0.0.1:19000"
+  },
+  "exit_code": 1,
+  "duration_seconds": 6.428942680358887
+}

@@ -1,0 +1,29 @@
+{
+  "at": "2026-10-12T01:25:33.989116Z",
+  "command": [
+    "docker",
+    "compose",
+    "-f",
+    "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+    "-p",
+    "incidentlens-retro-3239782f-0",
+    "-f",
+    "/Users/kousil/Documents/IncidentLens/deploy/streaming/compose.yaml",
+    "-f",
+    "/Users/kousil/Documents/IncidentLens/deploy/benchmark/streaming.yaml",
+    "-f",
+    "/Users/kousil/Documents/IncidentLens/deploy/benchmark/hardening-baseline.yaml",
+    "exec",
+    "-T",
+    "clickhouse",
+    "clickhouse-client",
+    "--password",
+    "local-admin",
+    "--query",
+    "SELECT name,expr,type,granularity FROM system.data_skipping_indices WHERE database='incidentlens' AND table='spans' ORDER BY name FORMAT JSON"
+  ],
+  "elapsed_seconds": 0.5310920320000037,
+  "returncode": 0,
+  "stderr": "",
+  "stdout": "{\n\t\"meta\":\n\t[\n\t\t{\n\t\t\t\"name\": \"name\",\n\t\t\t\"type\": \"String\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"expr\",\n\t\t\t\"type\": \"String\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"type\",\n\t\t\t\"type\": \"String\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"granularity\",\n\t\t\t\"type\": \"UInt64\"\n\t\t}\n\t],\n\n\t\"data\":\n\t[\n\n\t],\n\n\t\"rows\": 0,\n\n\t\"statistics\":\n\t{\n\t\t\"elapsed\": 0.009694989,\n\t\t\"rows_read\": 0,\n\t\t\"bytes_read\": 0\n\t}\n}\n"
+}

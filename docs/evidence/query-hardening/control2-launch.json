@@ -1,0 +1,33 @@
+{
+  "at": "2026-10-11T16:16:01.884158+00:00",
+  "pid": 26774,
+  "command": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "-u",
+    "/Users/kousil/Documents/IncidentLens/benchmarks/stream_hardening.py",
+    "--output",
+    "/Users/kousil/Documents/IncidentLens/benchmarks/results/20261011-candidate3-query-control2",
+    "--binary",
+    "/Users/kousil/Library/Caches/IncidentLens/bin/bench-query-diagnostics",
+    "--lag-binary",
+    "/Users/kousil/Library/Caches/IncidentLens/bin/bench-lag",
+    "--candidate-tag",
+    "candidate3-query-control",
+    "--probe-sustained"
+  ],
+  "images": {
+    "producer": {
+      "reference": "incidentlens-hardening-producer:candidate3-query-control",
+      "id": "sha256:8e83a459513f56c3fc4221b29b148f4f05ce79510f9ea73b84ac34bde26098c9"
+    },
+    "worker": {
+      "reference": "incidentlens-hardening-worker:candidate3-query-control",
+      "id": "sha256:c2ce7cbd08d106118166a906fd6c5d5271823835e76bb1a3e2f20d58f6997f06"
+    },
+    "api": {
+      "reference": "incidentlens-hardening-api:candidate3-query-control",
+      "id": "sha256:5006c00f106940d544105eb8cd77a58fb1fd70558829ecac0c918328140b3cc9"
+    }
+  },
+  "purpose": "Attribute original Candidate 3 query failures with diagnostics-only API; not a new-query promotion result."
+}

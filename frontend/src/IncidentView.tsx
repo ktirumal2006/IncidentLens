@@ -46,6 +46,10 @@ const identity = (entry: {
 }) =>
   `${entry.service_namespace ? `${entry.service_namespace}/` : ''}${entry.service_name} · ${entry.operation}`
 const caveatLabels: Record<string, string> = {
+  relationship_context_sampled:
+    'Relationship checks cover supporting traces only; other traces may have missing context.',
+  trace_context_not_evaluated:
+    'Trace context has not been checked exhaustively for this operation.',
   missing_parent: 'A parent span is missing from the observed trace.',
   missing_root: 'No root span was observed in the trace interval.',
   cycle: 'Observed parent links contain a cycle.',

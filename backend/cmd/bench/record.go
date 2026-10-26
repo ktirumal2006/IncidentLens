@@ -25,6 +25,7 @@ type Event struct {
 	SchedulingDelayNS int64     `json:"scheduling_delay_ns,omitempty"`
 	Status            string    `json:"status,omitempty"`
 	HTTPStatus        int       `json:"http_status,omitempty"`
+	QueryFailure      string    `json:"query_failure,omitempty"`
 	Route             string    `json:"route,omitempty"`
 	Error             string    `json:"error,omitempty"`
 	RejectedSpans     int64     `json:"rejected_spans,omitempty"`

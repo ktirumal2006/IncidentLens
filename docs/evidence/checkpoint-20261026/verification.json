@@ -1,0 +1,19 @@
+{
+  "scope": "Checkpoint verification; not Kafka promotion acceptance.",
+  "go_command": "go test -race ./internal/... ./cmd/...",
+  "go_status": "passed; Go may reuse valid cached results",
+  "frontend_tests": 30,
+  "frontend_build": "passed",
+  "benchmark_python_tests": 60,
+  "real_dependency_tests": "Historical evidence retained; not rerun for this commit.",
+  "secret_scan": {
+    "tool": "gitleaks",
+    "version": "8.30.1",
+    "scope": "Changed/staged file snapshot including nested evidence archives to depth 4; no file-size limit",
+    "scanned_bytes": 1858882081,
+    "exit_code": 0,
+    "findings": 0
+  },
+  "diff_check": "Application/source changes clean. Original captured logs and generated evidence retain trailing whitespace.",
+  "unfinished": "Kafka promotion, optional index candidate startup, full campaign and cutover acceptance remain pending."
+}

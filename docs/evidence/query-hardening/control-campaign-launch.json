@@ -1,0 +1,19 @@
+{
+  "pid": 10417,
+  "command": [
+    "python3",
+    "-u",
+    "/Users/kousil/Documents/IncidentLens/benchmarks/stream_hardening.py",
+    "--output",
+    "/Users/kousil/Documents/IncidentLens/benchmarks/results/20261010-candidate3-query-control",
+    "--binary",
+    "/Users/kousil/Library/Caches/IncidentLens/bin/bench-query-diagnostics",
+    "--lag-binary",
+    "/Users/kousil/Library/Caches/IncidentLens/bin/bench-lag",
+    "--candidate-tag",
+    "candidate3-query-control",
+    "--probe-sustained"
+  ],
+  "started_at": "2026-10-10T16:38:31.212284+00:00",
+  "log": "docs/evidence/query-hardening/control-campaign-launch.txt"
+}

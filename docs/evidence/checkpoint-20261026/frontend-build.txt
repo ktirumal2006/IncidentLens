@@ -1,0 +1,13 @@
+
+> incidentlens-explorer@0.1.0 build
+> tsc -b && vite build
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 33 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.38 kB │ gzip:  0.28 kB
+dist/assets/index-CPCo4W91.css   16.13 kB │ gzip:  4.16 kB
+dist/assets/index-WfIEX37u.js   254.20 kB │ gzip: 78.97 kB
+✓ built in 2.48s

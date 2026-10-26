@@ -1,0 +1,27 @@
+{
+  "command": [
+    "docker",
+    "compose",
+    "-p",
+    "incidentlens-retro-18922738-3",
+    "-f",
+    "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+    "-f",
+    "/Users/kousil/Documents/IncidentLens/deploy/streaming/compose.yaml",
+    "-f",
+    "/Users/kousil/Documents/IncidentLens/deploy/benchmark/streaming.yaml",
+    "-f",
+    "/Users/kousil/Documents/IncidentLens/deploy/streaming/hardening.yaml",
+    "-f",
+    "/Users/kousil/Documents/IncidentLens/deploy/benchmark/hardening-candidate.yaml",
+    "up",
+    "-d",
+    "--no-build",
+    "clickhouse",
+    "kafka",
+    "stream-worker"
+  ],
+  "returncode": 0,
+  "stdout": "",
+  "stderr": " Container incidentlens-retro-18922738-3-stream-worker-1 Recreate \n Container incidentlens-retro-18922738-3-stream-worker-1 Recreated \n Container incidentlens-retro-18922738-3-kafka-1 Starting \n Container incidentlens-retro-18922738-3-clickhouse-1 Starting \n Container incidentlens-retro-18922738-3-kafka-1 Started \n Container incidentlens-retro-18922738-3-kafka-1 Waiting \n Container incidentlens-retro-18922738-3-clickhouse-1 Started \n Container incidentlens-retro-18922738-3-clickhouse-1 Waiting \n Container incidentlens-retro-18922738-3-clickhouse-1 Healthy \n Container incidentlens-retro-18922738-3-migrate-1 Starting \n Container incidentlens-retro-18922738-3-migrate-1 Started \n Container incidentlens-retro-18922738-3-kafka-1 Healthy \n Container incidentlens-retro-18922738-3-kafka-topic-1 Starting \n Container incidentlens-retro-18922738-3-kafka-topic-1 Started \n Container incidentlens-retro-18922738-3-kafka-topic-1 Waiting \n Container incidentlens-retro-18922738-3-migrate-1 Waiting \n Container incidentlens-retro-18922738-3-migrate-1 Exited \n Container incidentlens-retro-18922738-3-kafka-topic-1 Exited \n Container incidentlens-retro-18922738-3-stream-worker-1 Starting \n Container incidentlens-retro-18922738-3-stream-worker-1 Started \n"
+}

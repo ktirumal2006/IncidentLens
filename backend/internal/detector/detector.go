@@ -210,6 +210,55 @@ func latencyFires(b, c Stats, cfg Config) bool {
 	required := new(big.Int).Mul(bv, bigU(cfg.LatencyRatioMilli))
 	return ratio.Cmp(required) >= 0 && new(big.Int).Sub(cv, bv).Cmp(delta) >= 0
 }
+func operationFromStats(k key, base, current Stats, caveats []string, cfg Config) Operation {
+	op := Operation{Identity: identity(k), State: "normal", Baseline: base, Current: current, TriggeredRules: []string{}, Evidence: []Evidence{}, Caveats: caveats}
+	if base.Count == 0 || current.Count == 0 {
+		op.Caveats = addCaveat(op.Caveats, "no_server_coverage")
+	}
+	sort.Strings(op.Caveats)
+	if base.Count > 0 && current.Count > 0 {
+		v := latencyDelta(base, current).String()
+		op.P95IncreaseNS = &v
+		f, _ := errorDelta(base, current).Float64()
+		op.ErrorRateIncrease = &f
+	}
+	if base.Count < cfg.MinSamples || current.Count < cfg.MinSamples {
+		op.State = "insufficient_evidence"
+	} else {
+		if latencyFires(base, current, cfg) {
+			op.TriggeredRules = append(op.TriggeredRules, "latency")
+		}
+		if rateGE(current.ErrorCount, current.Count, cfg.ErrorRateBPS) && deltaGE(base, current, cfg.ErrorIncreaseBPS) {
+			op.TriggeredRules = append(op.TriggeredRules, "errors")
+		}
+		if len(op.TriggeredRules) > 0 {
+			op.State = "candidate"
+		}
+	}
+	return op
+}
+func rankCandidates(out *Result) {
+	sort.Slice(out.Candidates, func(i, j int) bool {
+		a, b := out.Candidates[i], out.Candidates[j]
+		if n := errorDelta(a.Baseline, a.Current).Cmp(errorDelta(b.Baseline, b.Current)); n != 0 {
+			return n > 0
+		}
+		if n := latencyDelta(a.Baseline, a.Current).Cmp(latencyDelta(b.Baseline, b.Current)); n != 0 {
+			return n > 0
+		}
+		return lessKey(key{a.Namespace, a.Service, a.Operation}, key{b.Namespace, b.Service, b.Operation})
+	})
+	rank := 0
+	services := map[[2]string]int{}
+	for i := range out.Candidates {
+		k := [2]string{out.Candidates[i].Namespace, out.Candidates[i].Service}
+		if services[k] == 0 {
+			rank++
+			services[k] = rank
+		}
+		out.Candidates[i].ServiceRank = services[k]
+	}
+}
 func hasDrops(s *Span) bool {
 	if s.DroppedAttributesCount > 0 || s.DroppedEventsCount > 0 || s.DroppedLinksCount > 0 || s.ResourceDroppedAttributesCount > 0 || s.ScopeDroppedAttributesCount > 0 {
 		return true
@@ -477,7 +526,7 @@ func EvaluateContext(ctx context.Context, rows []Span, end, observed time.Time, 
 	}
 	for _, k := range sortedKeys(groups) {
 		b := groups[k]
-		op := Operation{Identity: identity(k), State: "normal", Baseline: stats(b.base), Current: stats(b.cur), TriggeredRules: []string{}, Evidence: []Evidence{}, Caveats: []string{}}
+		caveats := []string{}
 		if err := ctx.Err(); err != nil {
 			return out, err
 		}
@@ -488,35 +537,10 @@ func EvaluateContext(ctx context.Context, rows []Span, end, observed time.Time, 
 			}
 			seenTrace[span.TraceID] = true
 			for _, c := range traces[span.TraceID].caveats {
-				op.Caveats = addCaveat(op.Caveats, c)
+				caveats = addCaveat(caveats, c)
 			}
 		}
-		if op.Baseline.Count == 0 || op.Current.Count == 0 {
-			op.Caveats = addCaveat(op.Caveats, "no_server_coverage")
-		}
-		sort.Strings(op.Caveats)
-		if op.Baseline.Count > 0 && op.Current.Count > 0 {
-			d := latencyDelta(op.Baseline, op.Current)
-			v := d.String()
-			op.P95IncreaseNS = &v
-			r := errorDelta(op.Baseline, op.Current)
-			f, _ := r.Float64()
-			op.ErrorRateIncrease = &f
-		}
-		if op.Baseline.Count < cfg.MinSamples || op.Current.Count < cfg.MinSamples {
-			op.State = "insufficient_evidence"
-		} else {
-			if latencyFires(op.Baseline, op.Current, cfg) {
-				op.TriggeredRules = append(op.TriggeredRules, "latency")
-			}
-			if rateGE(op.Current.ErrorCount, op.Current.Count, cfg.ErrorRateBPS) && deltaGE(op.Baseline, op.Current, cfg.ErrorIncreaseBPS) {
-				op.TriggeredRules = append(op.TriggeredRules, "errors")
-			}
-			if len(op.TriggeredRules) > 0 {
-				op.State = "candidate"
-			}
-		}
-		out.Operations = append(out.Operations, op)
+		out.Operations = append(out.Operations, operationFromStats(k, stats(b.base), stats(b.cur), caveats, cfg))
 	}
 	candidates := map[key]bool{}
 	for _, op := range out.Operations {
@@ -593,29 +617,7 @@ func EvaluateContext(ctx context.Context, rows []Span, end, observed time.Time, 
 		}
 		out.Candidates = append(out.Candidates, *op)
 	}
-	sort.Slice(out.Candidates, func(i, j int) bool {
-		a, b := out.Candidates[i], out.Candidates[j]
-		ra := errorDelta(a.Baseline, a.Current)
-		rb := errorDelta(b.Baseline, b.Current)
-		if n := ra.Cmp(rb); n != 0 {
-			return n > 0
-		}
-		da, db := latencyDelta(a.Baseline, a.Current), latencyDelta(b.Baseline, b.Current)
-		if n := da.Cmp(db); n != 0 {
-			return n > 0
-		}
-		return lessKey(key{a.Namespace, a.Service, a.Operation}, key{b.Namespace, b.Service, b.Operation})
-	})
-	rank := 0
-	services := map[[2]string]int{}
-	for i := range out.Candidates {
-		k := [2]string{out.Candidates[i].Namespace, out.Candidates[i].Service}
-		if services[k] == 0 {
-			rank++
-			services[k] = rank
-		}
-		out.Candidates[i].ServiceRank = services[k]
-	}
+	rankCandidates(&out)
 	if err := ctx.Err(); err != nil {
 		return out, err
 	}

@@ -1,6 +1,6 @@
 # IncidentLens milestones
 
-Status: Phases 1–4 are complete. Phase 4 reports measured target failures and limits; completion does not mean every performance budget passed. Phase 5 is now in progress as an explicitly requested learning exercise despite the measured deferral. Phases 6–9 require a separate request.
+Status: Phases 1–4 are complete. Phase 4 reports measured target failures and limits; completion does not mean every performance budget passed. Phase 5 is complete as an explicitly requested learning exercise despite the measured deferral. Phases 6–9 require a separate request.
 
 Phases 1–3 form the functional trace-only MVP. Phase 4 establishes measured performance. Phases 5–8 are conditional extensions: each requires a concrete need and an ADR before implementation; defer or skip a phase when evidence does not justify it. Phase 9 can polish the trace-only product even if extensions are skipped. Redis, PostgreSQL, and AI/LLMs have no planned phase and remain excluded without a separately justified scope change.
 
@@ -100,7 +100,7 @@ Acceptance criteria:
 
 ## Phase 5: streaming architecture — conditional
 
-Complete and verified, 2026-10-01 UTC, as an opt-in educational extension. The user explicitly selected a Kafka learning exercise despite Phase 4’s deferral. [ADR 0004](adr/0004-phase5-buffering-and-replay.md) records that scope exception, alternatives and delivery contracts. The [Phase 5 report](VERIFICATION_PHASE5.md) proves delivery/replay checks, comparable measured workloads, both storage outages and retained-volume rollback, while preserving failed performance targets and attempts. Phase 4 remains evidence for deferral in the default MVP.
+Complete and verified, 2026-10-01 UTC, as an opt-in educational extension. The user explicitly selected a Kafka learning exercise despite Phase 4’s deferral. [ADR 0004](adr/0004-phase5-buffering-and-replay.md) records that scope exception, alternatives and delivery contracts. The [Phase 5 report](VERIFICATION_PHASE5.md) proves delivery/replay checks, comparable measured workloads, both storage outages and retained-volume rollback, while preserving failed performance targets and attempts. Phase 4 remains evidence for deferral in the default MVP. The [controlled retrospective](RETROSPECTIVE_PHASE5.md), completed October 2 UTC, adds 28 paired sustained/burst/slowdown cases and retains the direct default: buffering improves admission, not demonstrated sustained storage capacity.
 
 Gate: phase 4 demonstrates a specific ingestion, replay, or outage-buffering limitation that the simpler architecture cannot reasonably address.
 
@@ -110,6 +110,30 @@ Acceptance criteria if activated:
 - Define the revised producer/consumer boundary, acknowledgment point, ordering, replay, retention, backpressure, and duplicate semantics before implementation.
 - Verify consumer crash/restart, replay, broker outage, and duplicate delivery against known fixtures without inflated query/detection results.
 - Repeat the phase 4 workload on comparable hardware and publish both benefits and operational costs, plus a migration/rollback procedure.
+
+### Phase 5 hardening — bounded decision complete; default not promoted
+
+On October 3, 2026 the user selected Kafka as the target ingestion architecture
+and requested reduced backlog/visibility penalties. [ADR 0005](adr/0005-hardened-streaming-default.md)
+and the [predeclared comparison](../benchmarks/WORKLOAD_STREAM_HARDENING.md)
+govern bounded batching, partition parallelism, product-visible progress,
+recovery checks and the quantitative default-promotion gates. The existing
+Phase 5 streaming baseline is frozen for paired measurements. On October 9,
+candidate 3 passed correctness and five diagnostic performance gates but failed
+visibility and query error/drop gates. The [bounded decision](PHASE5_PROMOTION_DECISION.md)
+retains the direct default and stops tuning. Full acceptance and cutover were
+not started; another candidate or Phase 6 requires a separate request.
+
+### Phase 5 query hardening — in progress
+
+The user separately authorized resolving Candidate 3's downstream visibility,
+query-failure, and scheduling bottlenecks on October 9. This supersedes the prior
+stop-tuning instruction for query-side work only; the historical failed promotion
+stands. [ADR 0006](adr/0006-bounded-detector-query-plan.md) defines exact database
+statistics, bounded supporting trace evidence, explicit caveat coverage, and
+selective detail reads. Candidate 3 ingestion and runtime quotas remain frozen.
+The same promotion gates must pass before any default change. Phase 6 is not
+started.
 
 ## Phase 6: metrics/logs — conditional
 

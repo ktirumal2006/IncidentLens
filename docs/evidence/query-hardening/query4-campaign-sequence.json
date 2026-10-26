@@ -1,0 +1,33 @@
+{
+  "pid": 36556,
+  "started_at": "2026-10-12T01:24:40.066775Z",
+  "status": "failed",
+  "stages": [
+    {
+      "name": "smoke",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-u",
+        "/Users/kousil/Documents/IncidentLens/benchmarks/stream_hardening.py",
+        "--output",
+        "/Users/kousil/Documents/IncidentLens/benchmarks/results/20261012-candidate3-query4-smoke",
+        "--binary",
+        "/Users/kousil/Library/Caches/IncidentLens/bin/bench-query-diagnostics",
+        "--lag-binary",
+        "/Users/kousil/Library/Caches/IncidentLens/bin/bench-lag",
+        "--candidate-tag",
+        "candidate3-query4",
+        "--candidate-query-index",
+        "--smoke"
+      ],
+      "output": "/Users/kousil/Documents/IncidentLens/benchmarks/results/20261012-candidate3-query4-smoke",
+      "started_at": "2026-10-12T01:24:40.388148Z",
+      "pid": 36559,
+      "returncode": 1,
+      "ended_at": "2026-10-12T01:26:54.232833Z",
+      "status": "failed"
+    }
+  ],
+  "error": "AssertionError('smoke runner failed')",
+  "ended_at": "2026-10-12T01:26:54.233900Z"
+}

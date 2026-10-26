@@ -1,0 +1,230 @@
+{
+  "name": "incidentlens",
+  "networks": {
+    "telemetry": {
+      "name": "incidentlens-telemetry",
+      "ipam": {}
+    }
+  },
+  "services": {
+    "api": {
+      "build": {
+        "context": "/Users/kousil/Documents/IncidentLens",
+        "dockerfile": "deploy/local/Dockerfile",
+        "target": "api"
+      },
+      "cpus": 1,
+      "command": null,
+      "depends_on": {
+        "migrate": {
+          "condition": "service_completed_successfully",
+          "required": true
+        }
+      },
+      "entrypoint": null,
+      "environment": {
+        "CLICKHOUSE_ADDRESS": "clickhouse:9000",
+        "CLICKHOUSE_PASSWORD": "local-query",
+        "CLICKHOUSE_USER": "query",
+        "DETECTOR_ERROR_INCREASE_BPS": "500",
+        "DETECTOR_ERROR_RATE_BPS": "500",
+        "DETECTOR_LATENCY_DELTA_NS": "100000000",
+        "DETECTOR_LATENCY_RATIO_MILLI": "2000",
+        "DETECTOR_MIN_SAMPLES": "100",
+        "FRONTEND_DIR": "/web",
+        "HTTP_ADDRESS": "0.0.0.0:8081"
+      },
+      "mem_limit": "536870912",
+      "networks": {
+        "telemetry": null
+      },
+      "ports": [
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 8081,
+          "published": "18081",
+          "protocol": "tcp"
+        }
+      ]
+    },
+    "clickhouse": {
+      "cpus": 2,
+      "command": null,
+      "entrypoint": null,
+      "environment": {
+        "CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT": "1",
+        "CLICKHOUSE_PASSWORD": "local-admin",
+        "CLICKHOUSE_USER": "default"
+      },
+      "healthcheck": {
+        "test": [
+          "CMD",
+          "clickhouse-client",
+          "--password",
+          "local-admin",
+          "--query",
+          "SELECT 1"
+        ],
+        "timeout": "3s",
+        "interval": "5s",
+        "retries": 30
+      },
+      "image": "clickhouse/clickhouse-server:25.8.4.13",
+      "mem_limit": "2147483648",
+      "networks": {
+        "telemetry": null
+      },
+      "ports": [
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 8123,
+          "published": "18123",
+          "protocol": "tcp"
+        },
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 9000,
+          "published": "19000",
+          "protocol": "tcp"
+        }
+      ],
+      "volumes": [
+        {
+          "type": "volume",
+          "source": "clickhouse-data",
+          "target": "/var/lib/clickhouse",
+          "volume": {}
+        },
+        {
+          "type": "bind",
+          "source": "/Users/kousil/Documents/IncidentLens/deploy/local/users.xml",
+          "target": "/etc/clickhouse-server/users.d/incidentlens.xml",
+          "read_only": true,
+          "bind": {}
+        }
+      ]
+    },
+    "collector": {
+      "cpus": 1,
+      "command": [
+        "--config=/etc/otelcol/config.yaml"
+      ],
+      "depends_on": {
+        "ingest": {
+          "condition": "service_started",
+          "required": true
+        }
+      },
+      "entrypoint": null,
+      "image": "otel/opentelemetry-collector-contrib:0.137.0",
+      "mem_limit": "268435456",
+      "networks": {
+        "telemetry": null
+      },
+      "ports": [
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 4317,
+          "published": "4317",
+          "protocol": "tcp"
+        }
+      ],
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "/Users/kousil/Documents/IncidentLens/deploy/local/collector.yaml",
+          "target": "/etc/otelcol/config.yaml",
+          "read_only": true,
+          "bind": {}
+        }
+      ]
+    },
+    "ingest": {
+      "build": {
+        "context": "/Users/kousil/Documents/IncidentLens",
+        "dockerfile": "deploy/local/Dockerfile",
+        "target": "ingest"
+      },
+      "cpus": 1,
+      "command": null,
+      "depends_on": {
+        "migrate": {
+          "condition": "service_completed_successfully",
+          "required": true
+        }
+      },
+      "entrypoint": null,
+      "environment": {
+        "CLICKHOUSE_ADDRESS": "clickhouse:9000",
+        "CLICKHOUSE_PASSWORD": "local-ingest",
+        "CLICKHOUSE_USER": "ingest",
+        "GRPC_ADDRESS": "0.0.0.0:4317",
+        "HEALTH_ADDRESS": "0.0.0.0:8080"
+      },
+      "mem_limit": "536870912",
+      "networks": {
+        "telemetry": null
+      },
+      "ports": [
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 4317,
+          "published": "14317",
+          "protocol": "tcp"
+        },
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 8080,
+          "published": "18080",
+          "protocol": "tcp"
+        }
+      ]
+    },
+    "migrate": {
+      "command": [
+        "for f in /migrations/*.sql; do clickhouse-client --host clickhouse --password local-admin --multiquery \u003c \"$$f\"; done"
+      ],
+      "depends_on": {
+        "clickhouse": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "entrypoint": [
+        "/bin/sh",
+        "-ec"
+      ],
+      "image": "clickhouse/clickhouse-server:25.8.4.13",
+      "networks": {
+        "telemetry": null
+      },
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "/Users/kousil/Documents/IncidentLens/migrations/clickhouse",
+          "target": "/migrations",
+          "read_only": true,
+          "bind": {}
+        },
+        {
+          "type": "bind",
+          "source": "/Users/kousil/Documents/IncidentLens/migrations/query-hardening/002_trace_id_index.sql",
+          "target": "/migrations/002_trace_id_index.sql",
+          "read_only": true,
+          "bind": {}
+        }
+      ]
+    }
+  },
+  "volumes": {
+    "clickhouse-data": {
+      "name": "incidentlens_clickhouse-data"
+    }
+  }
+}

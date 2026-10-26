@@ -1,0 +1,23 @@
+{
+  "command": [
+    "/Users/kousil/Library/Caches/IncidentLens/toolchain/go/bin/go",
+    "test",
+    "./tests/integration",
+    "-run",
+    "^(TestDetectorClickHouse|TestQueryHardening)",
+    "-count=1",
+    "-v",
+    "-timeout=5m"
+  ],
+  "cwd": "/Users/kousil/Documents/IncidentLens/backend",
+  "environment_overrides": {
+    "INCIDENTLENS_INTEGRATION": "1",
+    "INCIDENTLENS_DETECTOR_INTEGRATION": "1",
+    "INCIDENTLENS_QUERY_HARDENING_INTEGRATION": "1",
+    "CLICKHOUSE_TEST_ADDRESS": "127.0.0.1:19000"
+  },
+  "started_at": "2026-10-10T23:09:43.947620+00:00",
+  "exit_code": 0,
+  "ended_at": "2026-10-10T23:09:50.979024+00:00",
+  "stdout_file": "query2-real-tests.txt"
+}

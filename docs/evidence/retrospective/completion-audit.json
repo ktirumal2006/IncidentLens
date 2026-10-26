@@ -1,0 +1,19 @@
+{
+  "checks": {
+    "complete_28_case_schedule": true,
+    "all_emitted_eventually_accounted": true,
+    "four_verified_slowdowns": true,
+    "required_metrics": true,
+    "all_streaming_drains_observed": true,
+    "burst_table_cohorts_equal": true,
+    "restored_readiness": true,
+    "restored_smoke_120": true
+  },
+  "all_passed": true,
+  "readiness": {
+    "api": 200,
+    "ingestion": 200
+  },
+  "analysis_path": "benchmarks/results/20261002-retrospective-continuation/analysis/analysis.json",
+  "scope": "Finite local comparison; does not assert production capacity or loss beyond observed recovery."
+}

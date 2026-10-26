@@ -1,0 +1,89 @@
+{
+  "status": "correctness_checks_passed_per_case_performance_and_cutover_pending",
+  "real_dependency_initial_suite": {
+    "path": "acceptance1-streaming-tests.txt",
+    "outcome": "11 passing top-level tests, broker-outage test Compose dependency-restart timeout"
+  },
+  "corrected_recovery_tests": {
+    "started_at": "2026-10-06T19:59:06.326770+00:00",
+    "command": [
+      "/Users/kousil/Library/Caches/IncidentLens/toolchain/go/bin/go",
+      "test",
+      "-race",
+      "./tests/streaming",
+      "-run",
+      "TestBroker(AckBeforeStorageThenWorkerRecovery|OutageReturnsRetryableFailure)$",
+      "-count=1",
+      "-v",
+      "-timeout",
+      "8m"
+    ],
+    "compose_files": [
+      "deploy/local/compose.yaml",
+      "deploy/streaming/compose.yaml",
+      "deploy/streaming/hardening.yaml",
+      "deploy/benchmark/hardening-candidate.yaml",
+      "deploy/benchmark/hardening-acceptance.yaml"
+    ],
+    "project": "incidentlens-retro-hardening-acceptance1",
+    "returncode": 0,
+    "finished_at": "2026-10-06T19:59:50.408390+00:00"
+  },
+  "browser_status": {
+    "path": "status-browser2/result.json",
+    "status": "passed",
+    "prime_reconciliation": {
+      "settled": true,
+      "snapshot_verified": true,
+      "verified": true,
+      "planned_spans": 288,
+      "emitted_spans": 288,
+      "acked_spans": 288,
+      "raw_rows": 288,
+      "final_unique_spans": 288,
+      "expected_stored": 288,
+      "planned_missing": 0,
+      "emitted_missing": 0,
+      "acked_missing": 0,
+      "never_acked_stored": 0,
+      "unknown": 0,
+      "physical_duplicates_remaining": 0,
+      "duplicate_logical_identities": 0,
+      "ledger": "reconciliation.jsonl"
+    },
+    "stalled_reconciliation": {
+      "settled": true,
+      "snapshot_verified": true,
+      "verified": true,
+      "planned_spans": 3600,
+      "emitted_spans": 3600,
+      "acked_spans": 3600,
+      "raw_rows": 3600,
+      "final_unique_spans": 3600,
+      "expected_stored": 3600,
+      "planned_missing": 0,
+      "emitted_missing": 0,
+      "acked_missing": 0,
+      "never_acked_stored": 0,
+      "unknown": 0,
+      "physical_duplicates_remaining": 0,
+      "duplicate_logical_identities": 0,
+      "ledger": "reconciliation.jsonl"
+    },
+    "stale_test_scope": "browser-only frozen real response; worker-unavailable/recovery used real process pause"
+  },
+  "unit_race_log": "unit-race-20261006.txt",
+  "python_log": "python-tests-20261006.txt",
+  "remaining": [
+    "paired measured performance campaign",
+    "clean Kafka-default startup",
+    "retained v1/v2 cutover and rollback reconciliation",
+    "final documentation and secrets review"
+  ],
+  "test_source_sha256": {
+    "backend/tests/streaming/streaming_test.go": "94a433318e940b66dea5c869cf7a7fa7d049290db4e5631a9f8eea8772a4816b",
+    "backend/tests/streaming/poison_test.go": "ceb56e46682063497acc6afe42e1190b80f0494b57834f1fa71cf5c1bf594056",
+    "backend/tests/streaming/memory_test.go": "b01fdfe880ffda811d0a3d59774f38750d67e3b28eacfdde89d56f57367bfc84",
+    "backend/tests/streaming/hardening_test.go": "3f9517a1990d3e0d0696deab7bc86f792ddfc233ab017f74ccc0a1f63db87b97"
+  }
+}

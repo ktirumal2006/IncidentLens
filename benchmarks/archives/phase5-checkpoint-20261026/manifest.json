@@ -1,0 +1,189 @@
+{
+  "scope": "All locally retained files in the previously untracked Phase 5 campaigns; failed and interrupted attempts included. Compact summaries also remain at their original repository paths.",
+  "campaigns": [
+    {
+      "campaign": "20261001-retrospective",
+      "archive": "benchmarks/archives/phase5-checkpoint-20261026/20261001-retrospective.tar.gz",
+      "sha256": "dfb855f0bb5aa34f5fd54e5caa32ecc46468e913b381b4ef742121d32ab20eb3",
+      "archive_bytes": 45082770,
+      "raw_bytes": 490425354,
+      "files": 486
+    },
+    {
+      "campaign": "20261001-retrospective-smoke1",
+      "archive": "benchmarks/archives/phase5-checkpoint-20261026/20261001-retrospective-smoke1.tar.gz",
+      "sha256": "65e81ed8951b3f688295cd35ff85e138e6f16288654dc1e0a48900c6e4ed1b81",
+      "archive_bytes": 1180,
+      "raw_bytes": 2444,
+      "files": 1
+    },
+    {
+      "campaign": "20261001-retrospective-smoke2",
+      "archive": "benchmarks/archives/phase5-checkpoint-20261026/20261001-retrospective-smoke2.tar.gz",
+      "sha256": "a53cee5b6daa17436c05b9669ac52587734782df44c695f9e77d5d17661c42e9",
+      "archive_bytes": 56923,
+      "raw_bytes": 400870,
+      "files": 38
+    },
+    {
+      "campaign": "20261002-retrospective-continuation",
+      "archive": "benchmarks/archives/phase5-checkpoint-20261026/20261002-retrospective-continuation.tar.gz",
+      "sha256": "a7670075acc245f2a57374f1b50bc36397c81ec9017e36f5ace2d32a1748ea5e",
+      "archive_bytes": 7104564,
+      "raw_bytes": 129010004,
+      "files": 44
+    },
+    {
+      "campaign": "20261006-hardening-candidate1",
+      "archive": "benchmarks/archives/phase5-checkpoint-20261026/20261006-hardening-candidate1.tar.gz",
+      "sha256": "6a75ba5665d6fab5b557d6f9e97361e7c6767c428c017950b577ba90c92b343e",
+      "archive_bytes": 3876712,
+      "raw_bytes": 46356482,
+      "files": 43
+    },
+    {
+      "campaign": "20261006-hardening-smoke1",
+      "archive": "benchmarks/archives/phase5-checkpoint-20261026/20261006-hardening-smoke1.tar.gz",
+      "sha256": "2cafc14c61cdcb152cea051ec939fd07fb628659b6ca874c0c182c25de7747d1",
+      "archive_bytes": 110321,
+      "raw_bytes": 1002335,
+      "files": 43
+    },
+    {
+      "campaign": "20261007-hardening-candidate1",
+      "archive": "benchmarks/archives/phase5-checkpoint-20261026/20261007-hardening-candidate1.tar.gz",
+      "sha256": "280f75c3bd224d877e7a805f57590804d09cb9477fdc932ef23b218163b9b146",
+      "archive_bytes": 11044850,
+      "raw_bytes": 131133192,
+      "files": 85
+    },
+    {
+      "campaign": "20261007-hardening-candidate1-retry1",
+      "archive": "benchmarks/archives/phase5-checkpoint-20261026/20261007-hardening-candidate1-retry1.tar.gz",
+      "sha256": "d2ade2c3998da79575d873ca88f169c6534bd93a9eb19637cbb2c96d849a53c6",
+      "archive_bytes": 18054906,
+      "raw_bytes": 194433041,
+      "files": 111
+    },
+    {
+      "campaign": "20261007-hardening-smoke2",
+      "archive": "benchmarks/archives/phase5-checkpoint-20261026/20261007-hardening-smoke2.tar.gz",
+      "sha256": "00f487defccc6e92f2945cf569e209b14b0365c31efb852da0c4159769f0bf81",
+      "archive_bytes": 112680,
+      "raw_bytes": 1043050,
+      "files": 43
+    },
+    {
+      "campaign": "20261008-hardening-candidate2-probe",
+      "archive": "benchmarks/archives/phase5-checkpoint-20261026/20261008-hardening-candidate2-probe.tar.gz",
+      "sha256": "1da1494d166154036d78d7a68e2bfb08617600a9237584602992caca28f65b9a",
+      "archive_bytes": 11287135,
+      "raw_bytes": 109537982,
+      "files": 48
+    },
+    {
+      "campaign": "20261008-hardening-candidate2-smoke",
+      "archive": "benchmarks/archives/phase5-checkpoint-20261026/20261008-hardening-candidate2-smoke.tar.gz",
+      "sha256": "3680a0a45993f9bbb6fa86708254425658632d762fff431f0c29113d62e0dcc3",
+      "archive_bytes": 108321,
+      "raw_bytes": 873331,
+      "files": 44
+    },
+    {
+      "campaign": "20261009-hardening-candidate3-decision",
+      "archive": "benchmarks/archives/phase5-checkpoint-20261026/20261009-hardening-candidate3-decision.tar.gz",
+      "sha256": "5dc228decca8251d51d8173ebf31d3af5a658cf52d441773e34a348323422748",
+      "archive_bytes": 11171440,
+      "raw_bytes": 109324185,
+      "files": 48
+    },
+    {
+      "campaign": "20261009-hardening-candidate3-probe",
+      "archive": "benchmarks/archives/phase5-checkpoint-20261026/20261009-hardening-candidate3-probe.tar.gz",
+      "sha256": "d473e9c8f1c0fd04a5a6a732be28452454e2838e7386ccf7e514ea56fdb50551",
+      "archive_bytes": 5637737,
+      "raw_bytes": 56214045,
+      "files": 26
+    },
+    {
+      "campaign": "20261009-hardening-candidate3-smoke",
+      "archive": "benchmarks/archives/phase5-checkpoint-20261026/20261009-hardening-candidate3-smoke.tar.gz",
+      "sha256": "b8292f8211d93005533d09575fa09691c96fc358a32731c7a8e6f47396fc12d0",
+      "archive_bytes": 114021,
+      "raw_bytes": 896533,
+      "files": 46
+    },
+    {
+      "campaign": "20261010-candidate3-query-control",
+      "archive": "benchmarks/archives/phase5-checkpoint-20261026/20261010-candidate3-query-control.tar.gz",
+      "sha256": "75855e1764f806fb090558adf80c16d6db022f0de35b54e5401971753b7ab97d",
+      "archive_bytes": 5989534,
+      "raw_bytes": 59781884,
+      "files": 26
+    },
+    {
+      "campaign": "20261010-candidate3-query1-probe",
+      "archive": "benchmarks/archives/phase5-checkpoint-20261026/20261010-candidate3-query1-probe.tar.gz",
+      "sha256": "a553362a18805e8d433fdb29ada70b469bbbf30e7eb84aa5377b28f12531e77e",
+      "archive_bytes": 11997940,
+      "raw_bytes": 127063796,
+      "files": 48
+    },
+    {
+      "campaign": "20261010-candidate3-query1-smoke",
+      "archive": "benchmarks/archives/phase5-checkpoint-20261026/20261010-candidate3-query1-smoke.tar.gz",
+      "sha256": "72a75632c300d5ca8f3c8f1a296e30068e6bfce5287702fd725b5b682a7fa38b",
+      "archive_bytes": 109021,
+      "raw_bytes": 893176,
+      "files": 46
+    },
+    {
+      "campaign": "20261010-candidate3-query2-probe",
+      "archive": "benchmarks/archives/phase5-checkpoint-20261026/20261010-candidate3-query2-probe.tar.gz",
+      "sha256": "678c0c12d28b32ef9dc97a65f6284f63063ac5e63a086107f5787761d7bc0178",
+      "archive_bytes": 11658694,
+      "raw_bytes": 117208483,
+      "files": 50
+    },
+    {
+      "campaign": "20261010-candidate3-query2-smoke",
+      "archive": "benchmarks/archives/phase5-checkpoint-20261026/20261010-candidate3-query2-smoke.tar.gz",
+      "sha256": "4ee19a798bb70b9e35bd7889a2817b57dd215e51d11c0a8a97b9a439d281d209",
+      "archive_bytes": 109160,
+      "raw_bytes": 885955,
+      "files": 46
+    },
+    {
+      "campaign": "20261011-candidate3-query-control2",
+      "archive": "benchmarks/archives/phase5-checkpoint-20261026/20261011-candidate3-query-control2.tar.gz",
+      "sha256": "982f873f0b051f218bf5f886da6167c7eed207ca83a73f0eeaaa06ba4e704368",
+      "archive_bytes": 12014688,
+      "raw_bytes": 126701843,
+      "files": 48
+    },
+    {
+      "campaign": "20261011-candidate3-query3-probe",
+      "archive": "benchmarks/archives/phase5-checkpoint-20261026/20261011-candidate3-query3-probe.tar.gz",
+      "sha256": "1615745c36f5d6ab0815955167c2914beb0ff9424433889dc5f3aefa4b8f3973",
+      "archive_bytes": 11677625,
+      "raw_bytes": 119285339,
+      "files": 48
+    },
+    {
+      "campaign": "20261011-candidate3-query3-smoke",
+      "archive": "benchmarks/archives/phase5-checkpoint-20261026/20261011-candidate3-query3-smoke.tar.gz",
+      "sha256": "2d2ce490678e8d5f5cfe497ed3ed10d895f759db5c8e7afe0e0a010890b59eb3",
+      "archive_bytes": 109618,
+      "raw_bytes": 894330,
+      "files": 46
+    },
+    {
+      "campaign": "20261012-candidate3-query4-smoke",
+      "archive": "benchmarks/archives/phase5-checkpoint-20261026/20261012-candidate3-query4-smoke.tar.gz",
+      "sha256": "0f88771cf31ba4a5aaca952f2a4f1193b7843e9b218f376cb12e5672743fd450",
+      "archive_bytes": 64966,
+      "raw_bytes": 522599,
+      "files": 25
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "audited_at": "2026-10-09T16:58:12.137978+00:00",
+  "driver_process_present": false,
+  "process_evidence": "ps -axo pid,ppid,etime,args found no stream_hardening.py, streaming.test, docker compose or caffeinate processes",
+  "full_16_case_acceptance_completed": false,
+  "default_promoted": false,
+  "campaigns": [
+    {
+      "path": "benchmarks/results/20261006-hardening-candidate1/campaign.json",
+      "status": "failed",
+      "started_at": "2026-10-06T20:07:00.468962Z",
+      "ended_at": "2026-10-06T20:14:50.806072Z",
+      "cases": [
+        {
+          "label": "sustained-2000-r1-baseline",
+          "status": "completed"
+        },
+        {
+          "label": "sustained-2000-r1-candidate",
+          "status": "evidence_incomplete"
+        }
+      ],
+      "error": "RuntimeError(\"case evidence incomplete: ['lag sample unavailable or inconsistent during load/settling']\")"
+    },
+    {
+      "path": "benchmarks/results/20261006-hardening-smoke1/campaign.json",
+      "status": "completed",
+      "started_at": "2026-10-06T20:04:07.869576Z",
+      "ended_at": "2026-10-06T20:06:26.108339Z",
+      "cases": [
+        {
+          "label": "smoke-r1-baseline",
+          "status": "completed"
+        },
+        {
+          "label": "smoke-r1-candidate",
+          "status": "completed"
+        }
+      ],
+      "error": null
+    },
+    {
+      "path": "benchmarks/results/20261007-hardening-candidate1/campaign.json",
+      "status": "interrupted",
+      "started_at": "2026-10-07T02:19:42.058937Z",
+      "ended_at": null,
+      "cases": [
+        {
+          "label": "sustained-2000-r1-baseline",
+          "status": "completed"
+        },
+        {
+          "label": "sustained-2000-r1-candidate",
+          "status": "completed"
+        },
+        {
+          "label": "sustained-8000-r1-baseline",
+          "status": "completed"
+        },
+        {
+          "label": "sustained-8000-r1-candidate",
+          "status": "interrupted"
+        }
+      ],
+      "error": "Driver process absent and Docker daemon unavailable at recovery audit; cause not established."
+    },
+    {
+      "path": "benchmarks/results/20261007-hardening-candidate1-retry1/campaign.json",
+      "status": "interrupted",
+      "started_at": "2026-10-07T14:31:20.719537Z",
+      "ended_at": null,
+      "cases": [
+        {
+          "label": "sustained-2000-r1-baseline",
+          "status": "completed"
+        },
+        {
+          "label": "sustained-2000-r1-candidate",
+          "status": "completed"
+        },
+        {
+          "label": "sustained-8000-r1-baseline",
+          "status": "completed"
+        },
+        {
+          "label": "sustained-8000-r1-candidate",
+          "status": "completed"
+        },
+        {
+          "label": "burst-32000-r1-baseline",
+          "status": "completed"
+        },
+        {
+          "label": "burst-32000-r1-candidate",
+          "status": "interrupted_before_measurement"
+        }
+      ],
+      "error": "Driver absent and Docker unavailable; first8k pair already failed performance gates."
+    },
+    {
+      "path": "benchmarks/results/20261007-hardening-smoke2/campaign.json",
+      "status": "completed",
+      "started_at": "2026-10-07T02:16:39.690594Z",
+      "ended_at": "2026-10-07T02:19:24.459795Z",
+      "cases": [
+        {
+          "label": "smoke-r1-baseline",
+          "status": "completed"
+        },
+        {
+          "label": "smoke-r1-candidate",
+          "status": "completed"
+        }
+      ],
+      "error": null
+    },
+    {
+      "path": "benchmarks/results/20261008-hardening-candidate2-probe/campaign.json",
+      "status": "completed",
+      "started_at": "2026-10-08T19:00:32.616506Z",
+      "ended_at": "2026-10-08T19:14:33.324198Z",
+      "cases": [
+        {
+          "label": "sustained-8000-r1-baseline",
+          "status": "completed"
+        },
+        {
+          "label": "sustained-8000-r1-candidate",
+          "status": "completed"
+        }
+      ],
+      "error": null
+    },
+    {
+      "path": "benchmarks/results/20261008-hardening-candidate2-smoke/campaign.json",
+      "status": "completed",
+      "started_at": "2026-10-08T18:55:05.210352Z",
+      "ended_at": "2026-10-08T18:59:54.310494Z",
+      "cases": [
+        {
+          "label": "smoke-r1-baseline",
+          "status": "completed"
+        },
+        {
+          "label": "smoke-r1-candidate",
+          "status": "completed"
+        }
+      ],
+      "error": null
+    },
+    {
+      "path": "benchmarks/results/20261009-hardening-candidate3-probe/campaign.json",
+      "status": "failed",
+      "started_at": "2026-10-09T00:37:37.260632Z",
+      "ended_at": "2026-10-09T00:50:47.400542Z",
+      "cases": [
+        {
+          "label": "sustained-8000-r1-baseline",
+          "status": "completed"
+        },
+        {
+          "label": "sustained-8000-r1-candidate",
+          "status": "starting"
+        }
+      ],
+      "error": "RuntimeError(\"command failed: ['docker', 'compose', '-f', '/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml', '-p', 'incidentlens-retro-b6906113-1', '-f', '/Users/kousil/Documents/IncidentLens/deploy/streaming/compose.yaml', '-f', '/Users/kousil/Documents/IncidentLens/deploy/benchmark/streaming.yaml', '-f', '/Users/kousil/Documents/IncidentLens/deploy/streaming/hardening.yaml', '-f', '/Users/kousil/Documents/IncidentLens/deploy/benchmark/hardening-candidate.yaml', 'up', '-d', '--no-build']\")"
+    },
+    {
+      "path": "benchmarks/results/20261009-hardening-candidate3-smoke/campaign.json",
+      "status": "completed",
+      "started_at": "2026-10-09T00:30:24.118365Z",
+      "ended_at": "2026-10-09T00:36:56.481169Z",
+      "cases": [
+        {
+          "label": "smoke-r1-baseline",
+          "status": "completed"
+        },
+        {
+          "label": "smoke-r1-candidate",
+          "status": "completed"
+        }
+      ],
+      "error": null
+    }
+  ],
+  "next_diagnosis": [
+    "Inspect retained candidate3 Kafka startup health/log evidence before restarting anything.",
+    "Separate fixed detector input-cap failures from transport/storage failures in interpreting query gate.",
+    "Obtain a complete matched candidate3 result before further application tuning."
+  ]
+}

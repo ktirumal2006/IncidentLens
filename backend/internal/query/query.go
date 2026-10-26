@@ -21,6 +21,10 @@ const (
 
 var ErrInvalid = errors.New("invalid request")
 var ErrTooLarge = errors.New("query resource cap")
+
+// ErrBusy identifies a full query admission pool while remaining compatible
+// with callers that already handle ErrTooLarge as a resource-cap error.
+var ErrBusy = fmt.Errorf("%w: query admission busy", ErrTooLarge)
 var ErrNotFound = errors.New("trace not found")
 
 type Window struct {

@@ -1,0 +1,17 @@
+ok  	incidentlens/backend/cmd/api	6.849s
+ok  	incidentlens/backend/cmd/bench	8.712s
+?   	incidentlens/backend/cmd/bench-lag	[no test files]
+?   	incidentlens/backend/cmd/ingest	[no test files]
+?   	incidentlens/backend/cmd/stream-ingest	[no test files]
+ok  	incidentlens/backend/cmd/stream-worker	2.936s
+ok  	incidentlens/backend/internal/benchobs	5.960s
+ok  	incidentlens/backend/internal/detector	8.416s
+ok  	incidentlens/backend/internal/httpapi	9.307s
+ok  	incidentlens/backend/internal/ingest	4.787s
+ok  	incidentlens/backend/internal/query	13.059s
+ok  	incidentlens/backend/internal/storage/clickhouse	11.461s
+ok  	incidentlens/backend/internal/stream	6.356s
+ok  	incidentlens/backend/internal/streamstatus	9.680s
+ok  	incidentlens/backend/internal/trace	11.059s
+ok  	incidentlens/backend/tests/integration	12.529s
+ok  	incidentlens/backend/tests/streaming	13.078s

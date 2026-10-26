@@ -1,0 +1,28 @@
+# Candidate overlay until ADR 0005 promotion gates pass. Apply after the local
+# compose file and streaming/compose.yaml. Never repartition the retained v1 log.
+services:
+  kafka-topic:
+    command:
+      - |
+        topic=incidentlens-spans-v2
+        bin=/opt/kafka/bin/kafka-topics.sh
+        if ! "$$bin" --bootstrap-server kafka:9092 --describe --topic "$$topic" >/dev/null 2>&1; then
+          "$$bin" --bootstrap-server kafka:9092 --create --topic "$$topic" --partitions 4 --replication-factor 1 \
+            --config retention.ms=3600000 --config retention.bytes=268435456 --config segment.bytes=16777216 --config segment.ms=300000 --config max.message.bytes=5242880
+        fi
+        description=$$("$$bin" --bootstrap-server kafka:9092 --describe --topic "$$topic")
+        echo "$$description"
+        echo "$$description" | grep -Eq 'PartitionCount:[[:space:]]+4([[:space:]]|$$)' || { echo 'v2 topic must have exactly four partitions' >&2; exit 1; }
+        /opt/kafka/bin/kafka-configs.sh --bootstrap-server kafka:9092 --entity-type topics --entity-name "$$topic" --alter \
+          --add-config retention.ms=3600000,retention.bytes=268435456,segment.bytes=16777216,segment.ms=300000,max.message.bytes=5242880
+  stream-ingest:
+    environment:
+      KAFKA_TOPIC: incidentlens-spans-v2
+  stream-worker:
+    environment:
+      KAFKA_TOPIC: incidentlens-spans-v2
+      KAFKA_GROUP_ID: incidentlens-stream-worker-v2
+  api:
+    environment:
+      INGESTION_MODE: streaming
+      STREAM_STATUS_URL: http://stream-worker:8083/internal/stream-status

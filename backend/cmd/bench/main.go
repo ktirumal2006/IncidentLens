@@ -285,6 +285,15 @@ func run(c Config) error {
 			break
 		}
 	}
+	if e == nil && c.SetupLagFile != "" {
+		barrierStart := time.Now()
+		barrierCtx, cancelBarrier := context.WithTimeout(offerCtx, 30*time.Second)
+		e = waitSetupOffsets(barrierCtx, c.SetupLagFile, barrierStart)
+		cancelBarrier()
+		if e == nil {
+			e = h.rec.record(Event{Kind: "setup_offsets_ready", Started: barrierStart})
+		}
+	}
 	h.start = time.Now().UTC()
 	tasks := h.buildLoad(h.start)
 	h.batches = append(h.batches, tasks...)

@@ -1,0 +1,61 @@
+{
+  "collected_utc": "2026-10-09T17:04:10.877157+00:00",
+  "original_failure_container": "incidentlens-retro-b6906113-1-kafka-1",
+  "original_failure_evidence": "../progress-audit-kafka-state-20261009.json",
+  "verification_container": "incidentlens-readiness-20261009-kafka-1",
+  "same_broker_image": "apache/kafka:4.1.1@sha256:0bc1bb2478f45b6cea78864df86acdc11e8df2c5172477819a4d12942cbe5d40",
+  "broker_cpus": 2,
+  "broker_mem_bytes": 1073741824,
+  "broker_heap": "-Xms512m -Xmx512m",
+  "old_probe": {
+    "interval_s": 5,
+    "timeout_s": 5,
+    "retries": 30,
+    "failure_count_reported": 23,
+    "first_direct_success_ms": 12394,
+    "second_direct_success_ms": 4233
+  },
+  "revised_probe": {
+    "test": [
+      "CMD",
+      "/opt/kafka/bin/kafka-broker-api-versions.sh",
+      "--bootstrap-server",
+      "localhost:9092"
+    ],
+    "timeout": "20s",
+    "interval": "30s",
+    "retries": 5,
+    "start_period": "30s"
+  },
+  "actual_health": "healthy",
+  "health_samples": [
+    {
+      "start": "2026-10-09T17:03:24.267356648Z",
+      "end": "2026-10-09T17:03:32.842926904Z",
+      "exit_code": 1,
+      "output_prefix": "[2026-10-09 17:03:32,123] WARN [LegacyAdminClient clientId=admin-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available. "
+    },
+    {
+      "start": "2026-10-09T17:03:37.844361587Z",
+      "end": "2026-10-09T17:03:42.017031859Z",
+      "exit_code": 0,
+      "output_prefix": "kafka:9092 (id: 1 rack: null isFenced: false) -> (\n\tProduce(0): 0 to 13 [usable: 13],\n\tFetch(1): 4 to 18 [usable: 18],\n\tListOffsets(2): 1 to 10 [usable: 10],\n\tMetadata(3)"
+    }
+  ],
+  "negative_probe": {
+    "command": "timeout 25s /opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server localhost:19093",
+    "exit_code": 1,
+    "duration_ms": 3895
+  },
+  "notes": [
+    "Fresh named Compose project and Kafka volume; other campaign containers and volumes were not touched.",
+    "Kafka command continues to validate the broker protocol rather than TCP reachability.",
+    "The first revised health check failed before the broker was ready and a later check succeeded.",
+    "The negative probe to an unused port failed in under four seconds."
+  ],
+  "cleanup": {
+    "test_container_removed": true,
+    "test_volume_retained": true,
+    "original_failure_container_retained": true
+  }
+}

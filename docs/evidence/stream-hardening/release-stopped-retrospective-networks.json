@@ -1,0 +1,656 @@
+{
+  "at": "2026-10-03T20:54:03.591836+00:00",
+  "before_volumes": {
+    "command": [
+      "docker",
+      "volume",
+      "ls",
+      "--format",
+      "{{.Name}}"
+    ],
+    "returncode": 0,
+    "stdout": "0a7a2188afcb14548830e26f4fe95baaf8319b712b283abd5c27578084cdb95d\n0a38d985079671fdfddcc7b5880660627c8fc5306fd504704d023662461bc55a\n00ac399a13db636254222e745dc8f9fce8845b08552a2a7cc5fa9c58dae0d058\n1b8323b7c8e09f899d10e1a228008191c90b42cf4530e04e62391dc6e6743d76\n1d5bf147ce54f798af87a08acd8f5940c059f79decddf6b5bcc25c042c7e6673\n2c4cf278523a973fdfed7b28e766209165ceceaee4878bb3e6f7d079a3d0ed67\n3a8e0ab53ea374715ecec6a8a4b6fe75c40dc2206b686d2224667fb09bab0c66\n3dd7bb15a2e8228d5a450de97ff13a72b03daa97c132e99eb7f03b547275be59\n3e5747f6873a248a6ad98b5c4af0ea3912ffe6fe8f1130afea1d1d308db0e0e7\n4a7d9de892efc9a1701ecb3649264fd0ae77d5173087e765c1a1e34c8185144f\n4b7b6465af0f7db5143887838a7d9040a2044ce67f1e6b8fadf6ad13006792e3\n4e08769a8c764d4f7fd3cc4c59fd9de42897c6578af482ee3a5a9004542b2647\n5b2ff30de83c823f25468c3a396ade027e620a367afae6fc5d53c812169a534b\n5bc992a472314c92486731ba1ce5946f82ad2ffefa34687477156f3840fefe7d\n5c8846479b6dfd48e7731935cd6863a709d2b486e585964a7516fd7508f2f1cf\n5f5fe02b8f3c78ba48832f411716829b4df375b5087feed2cc1cbda1fe99aac0\n6ea6c554e1c34dceaf8d1ef7e5315479943beb442c329205c7276788a225c729\n7c46866a4ff9b17290294d95e9826d35b23a57e850bcb8331d7ac688c8d5b054\n7d5abf4a33660bb2554578e32d6a812e5a7c6923b74da042c22c4434f0af7a4f\n7d35b20e7fa3a026c8dd61be692c64ba45a096962d1f790e39e614b839f67c5b\n7e99c5ba73dc9c9a22cc269f504e5b63175fabcd1f7feeba295d9889a9097d5f\n7eee2ba1064b46c1a8563e5b7bc004f53c8904f5833d48e79bcbb8ff0662d2f8\n7ef2b561eb58470585c8206245b8f1a0140cc6a6130f3fc1bbf5c1912322ecc5\n8abb35bc80c6832fe2ea63729542294aebc7a0c1c4b0b21a2baffeb816f15f01\n8e84f6f9bec78b8fb84717d1fde58d112834fd41eb394efdab89514173e2c2e6\n08e81a1e7900f15f9a7b1913e592eb5ebf247cf3bf541f2c8c6cb2f9527c260a\n9aa63fcbdba43d31ea19a4a4ec8716e98bcdd08c92120fc4185fbd9685450a64\n9b75b2498acc09bf668dbd8adbe200e1373abc51e8233d057ab33a5ed05abcef\n9f260514f953e04f5c6073ee3508832c30d2146402506deb5d1b430d286c43f0\n10dafbc4020bafdb325d3b071ce7133c3eaf2904ae8ff065ea73a1d99d4c4e3a\n12a0c2aad643a5fa3c387633c2a95154f3e86d9b96759540758e82eaa564901b\n16a6c48948822be5148ee09becc871f82b81f0aa57a26baec9b1969114ec55d9\n20e9d457bfbca91a1e133a068de5c96879ec372aacda7f702defaeaac86fd3fe\n22fd8e227d7b08023fedbbb9c29b6fd4d71b36981abe74201afad61ecb394fd3\n022baa0f6c40530d65266294e73e07d018e7b7bec219aa22a63e8f66a708b017\n37c18f40989d779578628bd36e87839a218b8cd755464b8ae683f139c8a6ec9f\n38d83aa2feb29cf4a9f77dc2d704cd7589f00ae1c5ee20482113799f49a16773\n40e2c07525874b8040480f0328a976b970009163c4c1d722750325bb2b64747e\n44dd92472b23d97385438d6109d7eb21d3f03d669ec50a4d37da56b8297da011\n60c266392886d9ed89bf9e43f9bf510e3ca9d7185ceee7d4b251acb25ebada9b\n75b4025249d2500c9f72a57c6df1ef24d7d18cad38c18c82828ac417b7d72e7c\n82d6f7b2ad0b89a610ed38b1b13d9ebca45be62fd0797e4aaf64dbcc1e56531b\n85a7b117fed40a7a290018f15ee16f51801eef301a3ca67beb109f33a83fb41d\n88fbec12b78dbca36a98dfc05c95fe0f6f60110f3aad14ba7e965d297e9adf9a\n92da142be77f493e1d4a12f4e8e49ca9c8c98625da85adaac3e44d382d2d1480\n93a7e21e9937dcb9af44f7ff9844c34c31300b6b6f504c3a0d7c30ead0879847\n93ad251a5320b0c75e57a6c31d3e8109812933134c442510fc6a1327382e41a3\n171a9f29e5d22dcbe24f1665c7e393aae50599f7fcfe939a1103efcbe4c26e4d\n186e5d80508e220c83711ca16cddced95fd12a19be0a713388703c7b2ff1d0d8\n380cf0b5a2399565d9e13f702aef77a5d8ec204403ba0b18ef0d1130e3b9057e\n408b73200b8e5178bc89d89ba6f6df293f9605ad209669582169710fea99e41a\n654a848a7846648817ea3d003ee4e9a10b6526149015c6e04586a6e158a44419\n665f993ec0bf30fee5f9f0b3962e8faaa1317aa32124282dfd4c38dbd0685f0b\n760b2ac77aacb89c5ad456604fd8a802f1c143f2bc98fc58c97d1c42008b9d1b\n856fd82f83a1c58a00a8c0ea2c486cb83f1ba3821bf404eafe9abbf3fdef9c2b\n896f5b29f7a42ac19b0845626e3cf4a4f40ccb39992c47fa46248bd2e7645d2a\n920b5d84016dadcaedcfe3ff87b5214cbbe567671de20293552a27f4a49757fc\n965b5ccafd3b74b73d5368c771cdad23e3cc43669ecf783d7c4a99c48fd59fc9\n3246d5d8d1b161602ed073a465e79380ad79e497db18e39ac8013370ea2647a3\n3436cee8e514c302c9052d7aabfa86e659fbe95f4bbb575ea92c57ced6406622\n3739ec98fc519b9b1ed61409e0adbc31f7520364e3cb4af6145457821a431f70\n3846db7bbc27e408172e7508a5ef5c4dc9d6661a5951d84cca527f416d960bd5\n5747f0944213a46e1bc922218df2dd3072c622eaf152066459dd27be4595b434\n6604c1e28b18a7076ee8a36d0be95b7e4c4958626511da8643b2822fbbe71ee7\n9539b59478462abaa353908c9517eab9aa1c83463af20c76a239f809d11fac0d\n36657c229e85e137b73a5b052d1dabb33ad4f96eed3c6e82ec73071a1caf12c5\n65377f4667bd48984d3546947be7e2f0452633347eb1d4e2bc3aeb63a458c40a\n123133a572351527e8b16189b1395cef92d56702bcd2abcf11f3f8b0eaca406b\n220490a8db76e5593c6761dbd533820525659713ac987985f026716b83044da5\n802157fb792c2b351ceb9336a43177d989d94399bba2a11965f322312dfd6160\n854073db9a75e0adcee3a794570da6aea2783a14d81bc141ba87b39db8ba5603\n15568200a3ade40acd273c7da51c776e020adbfebc385c1940e599b6b6f074cf\n421124755f8d874995af29d2d2645aaea382058bd555fa135d0ffa7e26c6273a\na4d227d3812d74c9027d23a3d742d25e521272710a917830ef4a162f89a418f1\na89abc507ad5f7080d217adfb1086d110cc861188bd4b6334e6f9528fc57e8e8\na7849dc3d135e8c705a8844f01cf186dcff60852512bb57715c50b67cff53a57\na82761190e00c724eed81d5aa383a82ae857e48de9d656aa635b0b3deccdd80b\naa2454d683abe3de60e134c3ba7e4a5badd156b17588cbcc86938284adf3fd56\nafa3ac1fc70044e2727aa9e88f6c9582fca307e24a0f0635483c4b4ff5da4a6d\nb0affc713a8ab4cbe5c2aa36af99713fdfdc0352b5a06001bec349fa5bef498a\nb5b7f5db2a597591de2d77fbc1b1eefd33f12169b0e7ad9690b2621cb1bbd20d\nb6a5262bb40e0da39ed30962e17c16ce9bce1e6f0f3df44cbc2b581e46134e0e\nb43fd07383a0f2543ede100df7dde102e066c853c453b638019d3cb24069e7e2\nb91a2b3feda546570cc9a410dcd0b52d0c0c01bffa658c82d3a812efecbf16e4\nb8418fdaf1e8fee5bf02a51e86dfbf5854fc3e11d5a0bf292962fce4de0a0274\nbd4a061f26631652062bec88abf314743b529dc39852fa9d18c1f7e784fba390\nbd61fc7b2b8f5768d31457689fb426b4cbde681d2429b71ebd779331829f7468\nbe0b6f5ec5880e6fc0b98116d7784397122bfa1c281326b74578c26a343069ea\nc7ae5249e764c6f4994c105eeb172136d86b456d2022d17a52e8ae0a6f25c04a\nc980251a6bb9d6f7637820d550c9dc4379ea3077d5cd1d4b492c932721559b36\ncc30ab741d1f5648711a752f0ea0116a8ddc2168657a697e2b36b2692a7b3d5f\nce859ca4aa800c4181fe439b8ef31c4a4797bf92fa361504b936f8779505c5aa\nce996521b79dceec158c650f65bb3833ef27848fb1d65a11dbedb1bff9ec8c4c\nd91f2013abf9c7d4a3a57fe71d23c0edc402fc3b46f03ccd7de5c0015d991709\nd6446d2cefc54d1e5957c1d5362018b3831d167fa5a8227a720f52a17b3cf913\nd56658f8fb2fee66789a882c07ca93584db9365218f22fdc742707934625c217\ndda5bba466d4d0016fab9ad4ca049a0e4ef1ac5e0652ba86d533bb88d45cb2e3\ne3ef9782c91ca2e37aed8b246757db5c14a8a568b1d3f41bb314a2ae94c8c43d\ne6b74edc5e11b8a0fdbd068f24724cd87354966bf8a4fe8a2ee88793f09c2171\ne8ca40b58cfd81de2d18a54408a74b76a039d3c6090712495d260d4f56f29741\ne0455e97dcd0397c48327c1cd7feb39c76d2ceca3958bde7c2cdf752a00f7623\neb6ba1f3b4727f57b309194f86e6511422015f145f1fe72c86dc1b4810b12bf0\ned5f5d6a6381b94a9a28c71009048158882a58c6e88a5d98ea8c69cbc82da3ba\nee7b3d87068c356a2f2bcdcd903eb5eb6400037899565fff64bb317d35cd3fb0\nf7b2621c9adcd5f3c3c846fdb3e686e5a3ffeb8e41a53a341044029f13e352c6\nf34b17b214d5342895a8e555f71a418d0fe1a245c66724a92ea367fe9a121589\nf36ed2503ea046cf0736edc411f29a563ac54ba08603c6307d007c6bc699ff11\nf3912982c2fd08ee634e94ecf0983c2d8f1da062d7b2ff8b301b7c8528bf49b8\nf64789497843c50f819deffce4f4f140465dc7f3f1a36a2fd49ce6f7ebc0363a\nfbb2a192cdf329b2e4a29dcb09e4e78c81f8edbc25797f45fb9c9446c1ef8102\nff4c5125fb3fa913c0bb3896f449d13326da491d003f66acacd9c0cfa88ac4ff\nincidentlens-retro-4f5f3b21-0_clickhouse-data\nincidentlens-retro-4f5f3b21-0_kafka-data\nincidentlens-retro-4f5f3b21-1_clickhouse-data\nincidentlens-retro-24abaea4-0_clickhouse-data\nincidentlens-retro-24abaea4-1_clickhouse-data\nincidentlens-retro-24abaea4-1_kafka-data\nincidentlens-retro-24abaea4-2_clickhouse-data\nincidentlens-retro-24abaea4-3_clickhouse-data\nincidentlens-retro-24abaea4-3_kafka-data\nincidentlens-retro-24abaea4-4_clickhouse-data\nincidentlens-retro-24abaea4-5_clickhouse-data\nincidentlens-retro-24abaea4-5_kafka-data\nincidentlens-retro-24abaea4-6_clickhouse-data\nincidentlens-retro-24abaea4-7_clickhouse-data\nincidentlens-retro-24abaea4-7_kafka-data\nincidentlens-retro-24abaea4-8_clickhouse-data\nincidentlens-retro-24abaea4-9_clickhouse-data\nincidentlens-retro-24abaea4-9_kafka-data\nincidentlens-retro-24abaea4-10_clickhouse-data\nincidentlens-retro-24abaea4-11_clickhouse-data\nincidentlens-retro-24abaea4-11_kafka-data\nincidentlens-retro-24abaea4-12_clickhouse-data\nincidentlens-retro-24abaea4-13_clickhouse-data\nincidentlens-retro-24abaea4-13_kafka-data\nincidentlens-retro-24abaea4-14_clickhouse-data\nincidentlens-retro-24abaea4-14_kafka-data\nincidentlens-retro-24abaea4-15_clickhouse-data\nincidentlens-retro-24abaea4-16_clickhouse-data\nincidentlens-retro-24abaea4-16_kafka-data\nincidentlens-retro-24abaea4-17_clickhouse-data\nincidentlens-retro-24abaea4-18_clickhouse-data\nincidentlens-retro-24abaea4-18_kafka-data\nincidentlens-retro-24abaea4-19_clickhouse-data\nincidentlens-retro-24abaea4-20_clickhouse-data\nincidentlens-retro-24abaea4-20_kafka-data\nincidentlens-retro-24abaea4-21_clickhouse-data\nincidentlens-retro-24abaea4-22_clickhouse-data\nincidentlens-retro-24abaea4-22_kafka-data\nincidentlens-retro-24abaea4-23_clickhouse-data\nincidentlens-retro-24abaea4-24_clickhouse-data\nincidentlens-retro-24abaea4-24_kafka-data\nincidentlens-retro-24abaea4-25_clickhouse-data\nincidentlens-retro-24abaea4-26_clickhouse-data\nincidentlens-retro-24abaea4-26_kafka-data\nincidentlens-retro-be898079-0_clickhouse-data\nincidentlens-retro-be898079-1_clickhouse-data\nincidentlens-retro-be898079-1_kafka-data\nincidentlens_clickhouse-data\nincidentlens_kafka-data\n",
+    "stderr": ""
+  },
+  "commands": [
+    {
+      "command": [
+        "docker",
+        "network",
+        "inspect",
+        "incidentlens-retro-24abaea4-0-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "[\n    {\n        \"Name\": \"incidentlens-retro-24abaea4-0-telemetry\",\n        \"Id\": \"88e634e42b37c9dddee69faefb6f591d8263e3566f93957e321f80608ab1976f\",\n        \"Created\": \"2026-10-01T22:16:01.63228212Z\",\n        \"Scope\": \"local\",\n        \"Driver\": \"bridge\",\n        \"EnableIPv4\": true,\n        \"EnableIPv6\": false,\n        \"IPAM\": {\n            \"Driver\": \"default\",\n            \"Options\": null,\n            \"Config\": [\n                {\n                    \"Subnet\": \"172.21.0.0/16\",\n                    \"Gateway\": \"172.21.0.1\"\n                }\n            ]\n        },\n        \"Internal\": false,\n        \"Attachable\": false,\n        \"Ingress\": false,\n        \"ConfigFrom\": {\n            \"Network\": \"\"\n        },\n        \"ConfigOnly\": false,\n        \"Options\": {\n            \"com.docker.network.enable_ipv4\": \"true\",\n            \"com.docker.network.enable_ipv6\": \"false\"\n        },\n        \"Labels\": {\n            \"com.docker.compose.config-hash\": \"8bfb0173d9f6418c7db062ff76c07346dcfe7a4780b01f3f1ce2c06882635785\",\n            \"com.docker.compose.network\": \"telemetry\",\n            \"com.docker.compose.project\": \"incidentlens-retro-24abaea4-0\",\n            \"com.docker.compose.version\": \"5.5.1\"\n        },\n        \"Containers\": {},\n        \"Status\": {\n            \"IPAM\": {\n                \"Subnets\": {\n                    \"172.21.0.0/16\": {\n                        \"IPsInUse\": 3,\n                        \"DynamicIPsAvailable\": 65533\n                    }\n                }\n            }\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "rm",
+        "incidentlens-retro-24abaea4-0-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "incidentlens-retro-24abaea4-0-telemetry\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "inspect",
+        "incidentlens-retro-24abaea4-1-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "[\n    {\n        \"Name\": \"incidentlens-retro-24abaea4-1-telemetry\",\n        \"Id\": \"c658e798546eb7f41208989474c1a7eca6745b7ebb925b1ef4eed74f37d043cb\",\n        \"Created\": \"2026-10-01T22:19:05.471218021Z\",\n        \"Scope\": \"local\",\n        \"Driver\": \"bridge\",\n        \"EnableIPv4\": true,\n        \"EnableIPv6\": false,\n        \"IPAM\": {\n            \"Driver\": \"default\",\n            \"Options\": null,\n            \"Config\": [\n                {\n                    \"Subnet\": \"172.22.0.0/16\",\n                    \"Gateway\": \"172.22.0.1\"\n                }\n            ]\n        },\n        \"Internal\": false,\n        \"Attachable\": false,\n        \"Ingress\": false,\n        \"ConfigFrom\": {\n            \"Network\": \"\"\n        },\n        \"ConfigOnly\": false,\n        \"Options\": {\n            \"com.docker.network.enable_ipv4\": \"true\",\n            \"com.docker.network.enable_ipv6\": \"false\"\n        },\n        \"Labels\": {\n            \"com.docker.compose.config-hash\": \"4cf5ba0607a64c66019096399b4a03efbfd3ef1974bc26f067b00dcc1dcbce21\",\n            \"com.docker.compose.network\": \"telemetry\",\n            \"com.docker.compose.project\": \"incidentlens-retro-24abaea4-1\",\n            \"com.docker.compose.version\": \"5.5.1\"\n        },\n        \"Containers\": {},\n        \"Status\": {\n            \"IPAM\": {\n                \"Subnets\": {\n                    \"172.22.0.0/16\": {\n                        \"IPsInUse\": 3,\n                        \"DynamicIPsAvailable\": 65533\n                    }\n                }\n            }\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "rm",
+        "incidentlens-retro-24abaea4-1-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "incidentlens-retro-24abaea4-1-telemetry\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "inspect",
+        "incidentlens-retro-24abaea4-10-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "[\n    {\n        \"Name\": \"incidentlens-retro-24abaea4-10-telemetry\",\n        \"Id\": \"f1bb2fa3700bb992b926772ed1f50206bd07ffb63b4befb6b7d7b9d4b54efd1a\",\n        \"Created\": \"2026-10-01T22:43:55.725340758Z\",\n        \"Scope\": \"local\",\n        \"Driver\": \"bridge\",\n        \"EnableIPv4\": true,\n        \"EnableIPv6\": false,\n        \"IPAM\": {\n            \"Driver\": \"default\",\n            \"Options\": null,\n            \"Config\": [\n                {\n                    \"Subnet\": \"172.31.0.0/16\",\n                    \"Gateway\": \"172.31.0.1\"\n                }\n            ]\n        },\n        \"Internal\": false,\n        \"Attachable\": false,\n        \"Ingress\": false,\n        \"ConfigFrom\": {\n            \"Network\": \"\"\n        },\n        \"ConfigOnly\": false,\n        \"Options\": {\n            \"com.docker.network.enable_ipv4\": \"true\",\n            \"com.docker.network.enable_ipv6\": \"false\"\n        },\n        \"Labels\": {\n            \"com.docker.compose.config-hash\": \"104291d8039d6ecc9883847ac8019f2bfd9d06e4e834e90e9bd1de2c0b6cd8f6\",\n            \"com.docker.compose.network\": \"telemetry\",\n            \"com.docker.compose.project\": \"incidentlens-retro-24abaea4-10\",\n            \"com.docker.compose.version\": \"5.5.1\"\n        },\n        \"Containers\": {},\n        \"Status\": {\n            \"IPAM\": {\n                \"Subnets\": {\n                    \"172.31.0.0/16\": {\n                        \"IPsInUse\": 3,\n                        \"DynamicIPsAvailable\": 65533\n                    }\n                }\n            }\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "rm",
+        "incidentlens-retro-24abaea4-10-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "incidentlens-retro-24abaea4-10-telemetry\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "inspect",
+        "incidentlens-retro-24abaea4-11-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "[\n    {\n        \"Name\": \"incidentlens-retro-24abaea4-11-telemetry\",\n        \"Id\": \"7570a0f544ad6e1ceb48aa5a973524a352fca3a9d6049c9d16a5962de7635ef5\",\n        \"Created\": \"2026-10-01T22:45:02.133511572Z\",\n        \"Scope\": \"local\",\n        \"Driver\": \"bridge\",\n        \"EnableIPv4\": true,\n        \"EnableIPv6\": false,\n        \"IPAM\": {\n            \"Driver\": \"default\",\n            \"Options\": null,\n            \"Config\": [\n                {\n                    \"Subnet\": \"192.168.0.0/20\",\n                    \"Gateway\": \"192.168.0.1\"\n                }\n            ]\n        },\n        \"Internal\": false,\n        \"Attachable\": false,\n        \"Ingress\": false,\n        \"ConfigFrom\": {\n            \"Network\": \"\"\n        },\n        \"ConfigOnly\": false,\n        \"Options\": {\n            \"com.docker.network.enable_ipv4\": \"true\",\n            \"com.docker.network.enable_ipv6\": \"false\"\n        },\n        \"Labels\": {\n            \"com.docker.compose.config-hash\": \"aec9a2ef6ce406dc7000ae6329f8eae3d69f1e9a46e6a4ed02225537cdff2202\",\n            \"com.docker.compose.network\": \"telemetry\",\n            \"com.docker.compose.project\": \"incidentlens-retro-24abaea4-11\",\n            \"com.docker.compose.version\": \"5.5.1\"\n        },\n        \"Containers\": {},\n        \"Status\": {\n            \"IPAM\": {\n                \"Subnets\": {\n                    \"192.168.0.0/20\": {\n                        \"IPsInUse\": 3,\n                        \"DynamicIPsAvailable\": 4093\n                    }\n                }\n            }\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "rm",
+        "incidentlens-retro-24abaea4-11-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "incidentlens-retro-24abaea4-11-telemetry\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "inspect",
+        "incidentlens-retro-24abaea4-12-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "[\n    {\n        \"Name\": \"incidentlens-retro-24abaea4-12-telemetry\",\n        \"Id\": \"fe04dde81059de4cdc39884c136daac7b3259544fc97b4dae77761df559fdf9f\",\n        \"Created\": \"2026-10-01T22:46:58.185121465Z\",\n        \"Scope\": \"local\",\n        \"Driver\": \"bridge\",\n        \"EnableIPv4\": true,\n        \"EnableIPv6\": false,\n        \"IPAM\": {\n            \"Driver\": \"default\",\n            \"Options\": null,\n            \"Config\": [\n                {\n                    \"Subnet\": \"192.168.16.0/20\",\n                    \"Gateway\": \"192.168.16.1\"\n                }\n            ]\n        },\n        \"Internal\": false,\n        \"Attachable\": false,\n        \"Ingress\": false,\n        \"ConfigFrom\": {\n            \"Network\": \"\"\n        },\n        \"ConfigOnly\": false,\n        \"Options\": {\n            \"com.docker.network.enable_ipv4\": \"true\",\n            \"com.docker.network.enable_ipv6\": \"false\"\n        },\n        \"Labels\": {\n            \"com.docker.compose.config-hash\": \"c11786907b0317a9dc62c62bbdb98c4068a3171893505f21880c03381a59748e\",\n            \"com.docker.compose.network\": \"telemetry\",\n            \"com.docker.compose.project\": \"incidentlens-retro-24abaea4-12\",\n            \"com.docker.compose.version\": \"5.5.1\"\n        },\n        \"Containers\": {},\n        \"Status\": {\n            \"IPAM\": {\n                \"Subnets\": {\n                    \"192.168.16.0/20\": {\n                        \"IPsInUse\": 3,\n                        \"DynamicIPsAvailable\": 4093\n                    }\n                }\n            }\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "rm",
+        "incidentlens-retro-24abaea4-12-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "incidentlens-retro-24abaea4-12-telemetry\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "inspect",
+        "incidentlens-retro-24abaea4-13-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "[\n    {\n        \"Name\": \"incidentlens-retro-24abaea4-13-telemetry\",\n        \"Id\": \"6e5515ca738e6812790d6bc0247fb495d85dce1572fdf2cf295e433997a9e2cb\",\n        \"Created\": \"2026-10-01T22:50:04.559692269Z\",\n        \"Scope\": \"local\",\n        \"Driver\": \"bridge\",\n        \"EnableIPv4\": true,\n        \"EnableIPv6\": false,\n        \"IPAM\": {\n            \"Driver\": \"default\",\n            \"Options\": null,\n            \"Config\": [\n                {\n                    \"Subnet\": \"192.168.32.0/20\",\n                    \"Gateway\": \"192.168.32.1\"\n                }\n            ]\n        },\n        \"Internal\": false,\n        \"Attachable\": false,\n        \"Ingress\": false,\n        \"ConfigFrom\": {\n            \"Network\": \"\"\n        },\n        \"ConfigOnly\": false,\n        \"Options\": {\n            \"com.docker.network.enable_ipv4\": \"true\",\n            \"com.docker.network.enable_ipv6\": \"false\"\n        },\n        \"Labels\": {\n            \"com.docker.compose.config-hash\": \"bfc70bb2a8f55f676b8c68011deffbaf8adc1e79b50965a922f61f49b851e70d\",\n            \"com.docker.compose.network\": \"telemetry\",\n            \"com.docker.compose.project\": \"incidentlens-retro-24abaea4-13\",\n            \"com.docker.compose.version\": \"5.5.1\"\n        },\n        \"Containers\": {},\n        \"Status\": {\n            \"IPAM\": {\n                \"Subnets\": {\n                    \"192.168.32.0/20\": {\n                        \"IPsInUse\": 3,\n                        \"DynamicIPsAvailable\": 4093\n                    }\n                }\n            }\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "rm",
+        "incidentlens-retro-24abaea4-13-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "incidentlens-retro-24abaea4-13-telemetry\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "inspect",
+        "incidentlens-retro-24abaea4-14-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "[\n    {\n        \"Name\": \"incidentlens-retro-24abaea4-14-telemetry\",\n        \"Id\": \"d434b22e292e13c94248e6be6d086ea0c62397907ae01333f3b8aea71b54623d\",\n        \"Created\": \"2026-10-01T22:53:49.4478573Z\",\n        \"Scope\": \"local\",\n        \"Driver\": \"bridge\",\n        \"EnableIPv4\": true,\n        \"EnableIPv6\": false,\n        \"IPAM\": {\n            \"Driver\": \"default\",\n            \"Options\": null,\n            \"Config\": [\n                {\n                    \"Subnet\": \"192.168.48.0/20\",\n                    \"Gateway\": \"192.168.48.1\"\n                }\n            ]\n        },\n        \"Internal\": false,\n        \"Attachable\": false,\n        \"Ingress\": false,\n        \"ConfigFrom\": {\n            \"Network\": \"\"\n        },\n        \"ConfigOnly\": false,\n        \"Options\": {\n            \"com.docker.network.enable_ipv4\": \"true\",\n            \"com.docker.network.enable_ipv6\": \"false\"\n        },\n        \"Labels\": {\n            \"com.docker.compose.config-hash\": \"7bdd6902f6f84d4644ec1a699beca835a71404083b62a368aff1798812945f43\",\n            \"com.docker.compose.network\": \"telemetry\",\n            \"com.docker.compose.project\": \"incidentlens-retro-24abaea4-14\",\n            \"com.docker.compose.version\": \"5.5.1\"\n        },\n        \"Containers\": {},\n        \"Status\": {\n            \"IPAM\": {\n                \"Subnets\": {\n                    \"192.168.48.0/20\": {\n                        \"IPsInUse\": 3,\n                        \"DynamicIPsAvailable\": 4093\n                    }\n                }\n            }\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "rm",
+        "incidentlens-retro-24abaea4-14-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "incidentlens-retro-24abaea4-14-telemetry\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "inspect",
+        "incidentlens-retro-24abaea4-15-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "[\n    {\n        \"Name\": \"incidentlens-retro-24abaea4-15-telemetry\",\n        \"Id\": \"0ce9fdbd86558b7b0a7d98f2eb5b289ba1f1e783495a01e9fd986bf8659d6deb\",\n        \"Created\": \"2026-10-01T22:57:31.650781691Z\",\n        \"Scope\": \"local\",\n        \"Driver\": \"bridge\",\n        \"EnableIPv4\": true,\n        \"EnableIPv6\": false,\n        \"IPAM\": {\n            \"Driver\": \"default\",\n            \"Options\": null,\n            \"Config\": [\n                {\n                    \"Subnet\": \"192.168.80.0/20\",\n                    \"Gateway\": \"192.168.80.1\"\n                }\n            ]\n        },\n        \"Internal\": false,\n        \"Attachable\": false,\n        \"Ingress\": false,\n        \"ConfigFrom\": {\n            \"Network\": \"\"\n        },\n        \"ConfigOnly\": false,\n        \"Options\": {\n            \"com.docker.network.enable_ipv4\": \"true\",\n            \"com.docker.network.enable_ipv6\": \"false\"\n        },\n        \"Labels\": {\n            \"com.docker.compose.config-hash\": \"57054e1d286ab2ffcefe2ed9ee61049b3870f72e2b2f33d21bf15a925c70a924\",\n            \"com.docker.compose.network\": \"telemetry\",\n            \"com.docker.compose.project\": \"incidentlens-retro-24abaea4-15\",\n            \"com.docker.compose.version\": \"5.5.1\"\n        },\n        \"Containers\": {},\n        \"Status\": {\n            \"IPAM\": {\n                \"Subnets\": {\n                    \"192.168.80.0/20\": {\n                        \"IPsInUse\": 3,\n                        \"DynamicIPsAvailable\": 4093\n                    }\n                }\n            }\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "rm",
+        "incidentlens-retro-24abaea4-15-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "incidentlens-retro-24abaea4-15-telemetry\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "inspect",
+        "incidentlens-retro-24abaea4-16-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "[\n    {\n        \"Name\": \"incidentlens-retro-24abaea4-16-telemetry\",\n        \"Id\": \"4734c5273a7ddc0ecc3b9cf79b02f67dbae7c3c5256809d8104dba1a4765e8ac\",\n        \"Created\": \"2026-10-01T23:00:36.802110955Z\",\n        \"Scope\": \"local\",\n        \"Driver\": \"bridge\",\n        \"EnableIPv4\": true,\n        \"EnableIPv6\": false,\n        \"IPAM\": {\n            \"Driver\": \"default\",\n            \"Options\": null,\n            \"Config\": [\n                {\n                    \"Subnet\": \"192.168.96.0/20\",\n                    \"Gateway\": \"192.168.96.1\"\n                }\n            ]\n        },\n        \"Internal\": false,\n        \"Attachable\": false,\n        \"Ingress\": false,\n        \"ConfigFrom\": {\n            \"Network\": \"\"\n        },\n        \"ConfigOnly\": false,\n        \"Options\": {\n            \"com.docker.network.enable_ipv4\": \"true\",\n            \"com.docker.network.enable_ipv6\": \"false\"\n        },\n        \"Labels\": {\n            \"com.docker.compose.config-hash\": \"28c4be0d16e196497f4c48f29cbf5fefd5e9476714f2f138b264a303fa420817\",\n            \"com.docker.compose.network\": \"telemetry\",\n            \"com.docker.compose.project\": \"incidentlens-retro-24abaea4-16\",\n            \"com.docker.compose.version\": \"5.5.1\"\n        },\n        \"Containers\": {},\n        \"Status\": {\n            \"IPAM\": {\n                \"Subnets\": {\n                    \"192.168.96.0/20\": {\n                        \"IPsInUse\": 3,\n                        \"DynamicIPsAvailable\": 4093\n                    }\n                }\n            }\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "rm",
+        "incidentlens-retro-24abaea4-16-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "incidentlens-retro-24abaea4-16-telemetry\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "inspect",
+        "incidentlens-retro-24abaea4-17-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "[\n    {\n        \"Name\": \"incidentlens-retro-24abaea4-17-telemetry\",\n        \"Id\": \"52155fc88ea9856cd63cd95b8696dd1ac7a6755711608bf1197bf060bceaf488\",\n        \"Created\": \"2026-10-01T23:04:17.308576546Z\",\n        \"Scope\": \"local\",\n        \"Driver\": \"bridge\",\n        \"EnableIPv4\": true,\n        \"EnableIPv6\": false,\n        \"IPAM\": {\n            \"Driver\": \"default\",\n            \"Options\": null,\n            \"Config\": [\n                {\n                    \"Subnet\": \"192.168.112.0/20\",\n                    \"Gateway\": \"192.168.112.1\"\n                }\n            ]\n        },\n        \"Internal\": false,\n        \"Attachable\": false,\n        \"Ingress\": false,\n        \"ConfigFrom\": {\n            \"Network\": \"\"\n        },\n        \"ConfigOnly\": false,\n        \"Options\": {\n            \"com.docker.network.enable_ipv4\": \"true\",\n            \"com.docker.network.enable_ipv6\": \"false\"\n        },\n        \"Labels\": {\n            \"com.docker.compose.config-hash\": \"fdd962c7ee13ca31cd0d8679569320b49d8138de735f84224eb482041fcda5e2\",\n            \"com.docker.compose.network\": \"telemetry\",\n            \"com.docker.compose.project\": \"incidentlens-retro-24abaea4-17\",\n            \"com.docker.compose.version\": \"5.5.1\"\n        },\n        \"Containers\": {},\n        \"Status\": {\n            \"IPAM\": {\n                \"Subnets\": {\n                    \"192.168.112.0/20\": {\n                        \"IPsInUse\": 3,\n                        \"DynamicIPsAvailable\": 4093\n                    }\n                }\n            }\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "rm",
+        "incidentlens-retro-24abaea4-17-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "incidentlens-retro-24abaea4-17-telemetry\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "inspect",
+        "incidentlens-retro-24abaea4-18-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "[\n    {\n        \"Name\": \"incidentlens-retro-24abaea4-18-telemetry\",\n        \"Id\": \"f9e65239009f555addf20a5fea8fe704c9bc90e91e3dba9d6feba1f01b851291\",\n        \"Created\": \"2026-10-01T23:07:23.10664171Z\",\n        \"Scope\": \"local\",\n        \"Driver\": \"bridge\",\n        \"EnableIPv4\": true,\n        \"EnableIPv6\": false,\n        \"IPAM\": {\n            \"Driver\": \"default\",\n            \"Options\": null,\n            \"Config\": [\n                {\n                    \"Subnet\": \"192.168.128.0/20\",\n                    \"Gateway\": \"192.168.128.1\"\n                }\n            ]\n        },\n        \"Internal\": false,\n        \"Attachable\": false,\n        \"Ingress\": false,\n        \"ConfigFrom\": {\n            \"Network\": \"\"\n        },\n        \"ConfigOnly\": false,\n        \"Options\": {\n            \"com.docker.network.enable_ipv4\": \"true\",\n            \"com.docker.network.enable_ipv6\": \"false\"\n        },\n        \"Labels\": {\n            \"com.docker.compose.config-hash\": \"c18bccabba2348a6a17681bfe45ed2d911b7d9defb9ca5a6577c7176f86e07f8\",\n            \"com.docker.compose.network\": \"telemetry\",\n            \"com.docker.compose.project\": \"incidentlens-retro-24abaea4-18\",\n            \"com.docker.compose.version\": \"5.5.1\"\n        },\n        \"Containers\": {},\n        \"Status\": {\n            \"IPAM\": {\n                \"Subnets\": {\n                    \"192.168.128.0/20\": {\n                        \"IPsInUse\": 3,\n                        \"DynamicIPsAvailable\": 4093\n                    }\n                }\n            }\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "rm",
+        "incidentlens-retro-24abaea4-18-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "incidentlens-retro-24abaea4-18-telemetry\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "inspect",
+        "incidentlens-retro-24abaea4-19-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "[\n    {\n        \"Name\": \"incidentlens-retro-24abaea4-19-telemetry\",\n        \"Id\": \"463e0cbbf3d0666eb43796e91a643b4d30059b18fe976cf5175d0e7fb70c97e8\",\n        \"Created\": \"2026-10-01T23:12:32.483966081Z\",\n        \"Scope\": \"local\",\n        \"Driver\": \"bridge\",\n        \"EnableIPv4\": true,\n        \"EnableIPv6\": false,\n        \"IPAM\": {\n            \"Driver\": \"default\",\n            \"Options\": null,\n            \"Config\": [\n                {\n                    \"Subnet\": \"192.168.144.0/20\",\n                    \"Gateway\": \"192.168.144.1\"\n                }\n            ]\n        },\n        \"Internal\": false,\n        \"Attachable\": false,\n        \"Ingress\": false,\n        \"ConfigFrom\": {\n            \"Network\": \"\"\n        },\n        \"ConfigOnly\": false,\n        \"Options\": {\n            \"com.docker.network.enable_ipv4\": \"true\",\n            \"com.docker.network.enable_ipv6\": \"false\"\n        },\n        \"Labels\": {\n            \"com.docker.compose.config-hash\": \"179af74e02592154b9c70870e11fb954cbed98f4ff914b68546a680c475f2a61\",\n            \"com.docker.compose.network\": \"telemetry\",\n            \"com.docker.compose.project\": \"incidentlens-retro-24abaea4-19\",\n            \"com.docker.compose.version\": \"5.5.1\"\n        },\n        \"Containers\": {},\n        \"Status\": {\n            \"IPAM\": {\n                \"Subnets\": {\n                    \"192.168.144.0/20\": {\n                        \"IPsInUse\": 3,\n                        \"DynamicIPsAvailable\": 4093\n                    }\n                }\n            }\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "rm",
+        "incidentlens-retro-24abaea4-19-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "incidentlens-retro-24abaea4-19-telemetry\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "inspect",
+        "incidentlens-retro-24abaea4-2-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "[\n    {\n        \"Name\": \"incidentlens-retro-24abaea4-2-telemetry\",\n        \"Id\": \"fdbda6011ae1994d7868156a9c8b73ea9d742f9ef7f047b86c7f6cae32531bf8\",\n        \"Created\": \"2026-10-01T22:22:48.850085523Z\",\n        \"Scope\": \"local\",\n        \"Driver\": \"bridge\",\n        \"EnableIPv4\": true,\n        \"EnableIPv6\": false,\n        \"IPAM\": {\n            \"Driver\": \"default\",\n            \"Options\": null,\n            \"Config\": [\n                {\n                    \"Subnet\": \"172.23.0.0/16\",\n                    \"Gateway\": \"172.23.0.1\"\n                }\n            ]\n        },\n        \"Internal\": false,\n        \"Attachable\": false,\n        \"Ingress\": false,\n        \"ConfigFrom\": {\n            \"Network\": \"\"\n        },\n        \"ConfigOnly\": false,\n        \"Options\": {\n            \"com.docker.network.enable_ipv4\": \"true\",\n            \"com.docker.network.enable_ipv6\": \"false\"\n        },\n        \"Labels\": {\n            \"com.docker.compose.config-hash\": \"40dc7fef7716399384f2722d6230c3ca784959b6979eee5e7145a853fc5d4215\",\n            \"com.docker.compose.network\": \"telemetry\",\n            \"com.docker.compose.project\": \"incidentlens-retro-24abaea4-2\",\n            \"com.docker.compose.version\": \"5.5.1\"\n        },\n        \"Containers\": {},\n        \"Status\": {\n            \"IPAM\": {\n                \"Subnets\": {\n                    \"172.23.0.0/16\": {\n                        \"IPsInUse\": 3,\n                        \"DynamicIPsAvailable\": 65533\n                    }\n                }\n            }\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "rm",
+        "incidentlens-retro-24abaea4-2-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "incidentlens-retro-24abaea4-2-telemetry\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "inspect",
+        "incidentlens-retro-24abaea4-20-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "[\n    {\n        \"Name\": \"incidentlens-retro-24abaea4-20-telemetry\",\n        \"Id\": \"62e00609953373b7be646910d399ec9e7a91dc1a96e0353914308c0aced4ca3c\",\n        \"Created\": \"2026-10-01T23:15:45.407083335Z\",\n        \"Scope\": \"local\",\n        \"Driver\": \"bridge\",\n        \"EnableIPv4\": true,\n        \"EnableIPv6\": false,\n        \"IPAM\": {\n            \"Driver\": \"default\",\n            \"Options\": null,\n            \"Config\": [\n                {\n                    \"Subnet\": \"192.168.160.0/20\",\n                    \"Gateway\": \"192.168.160.1\"\n                }\n            ]\n        },\n        \"Internal\": false,\n        \"Attachable\": false,\n        \"Ingress\": false,\n        \"ConfigFrom\": {\n            \"Network\": \"\"\n        },\n        \"ConfigOnly\": false,\n        \"Options\": {\n            \"com.docker.network.enable_ipv4\": \"true\",\n            \"com.docker.network.enable_ipv6\": \"false\"\n        },\n        \"Labels\": {\n            \"com.docker.compose.config-hash\": \"d4b439e4ea49b83c51ae5df16b308a1aa8cccaffaaed354cc0db451387765326\",\n            \"com.docker.compose.network\": \"telemetry\",\n            \"com.docker.compose.project\": \"incidentlens-retro-24abaea4-20\",\n            \"com.docker.compose.version\": \"5.5.1\"\n        },\n        \"Containers\": {},\n        \"Status\": {\n            \"IPAM\": {\n                \"Subnets\": {\n                    \"192.168.160.0/20\": {\n                        \"IPsInUse\": 3,\n                        \"DynamicIPsAvailable\": 4093\n                    }\n                }\n            }\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "rm",
+        "incidentlens-retro-24abaea4-20-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "incidentlens-retro-24abaea4-20-telemetry\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "inspect",
+        "incidentlens-retro-24abaea4-21-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "[\n    {\n        \"Name\": \"incidentlens-retro-24abaea4-21-telemetry\",\n        \"Id\": \"755a0f95eccf99c6032fb72f7c2631f8c3e93b87c8ea071cb75cc47af0eb8585\",\n        \"Created\": \"2026-10-01T23:17:24.501834772Z\",\n        \"Scope\": \"local\",\n        \"Driver\": \"bridge\",\n        \"EnableIPv4\": true,\n        \"EnableIPv6\": false,\n        \"IPAM\": {\n            \"Driver\": \"default\",\n            \"Options\": null,\n            \"Config\": [\n                {\n                    \"Subnet\": \"192.168.176.0/20\",\n                    \"Gateway\": \"192.168.176.1\"\n                }\n            ]\n        },\n        \"Internal\": false,\n        \"Attachable\": false,\n        \"Ingress\": false,\n        \"ConfigFrom\": {\n            \"Network\": \"\"\n        },\n        \"ConfigOnly\": false,\n        \"Options\": {\n            \"com.docker.network.enable_ipv4\": \"true\",\n            \"com.docker.network.enable_ipv6\": \"false\"\n        },\n        \"Labels\": {\n            \"com.docker.compose.config-hash\": \"833dd7bfbc2d02481c3b027994f48af5f463937a5c1d9657661a328e6a159bb2\",\n            \"com.docker.compose.network\": \"telemetry\",\n            \"com.docker.compose.project\": \"incidentlens-retro-24abaea4-21\",\n            \"com.docker.compose.version\": \"5.5.1\"\n        },\n        \"Containers\": {},\n        \"Status\": {\n            \"IPAM\": {\n                \"Subnets\": {\n                    \"192.168.176.0/20\": {\n                        \"IPsInUse\": 3,\n                        \"DynamicIPsAvailable\": 4093\n                    }\n                }\n            }\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "rm",
+        "incidentlens-retro-24abaea4-21-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "incidentlens-retro-24abaea4-21-telemetry\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "inspect",
+        "incidentlens-retro-24abaea4-22-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "[\n    {\n        \"Name\": \"incidentlens-retro-24abaea4-22-telemetry\",\n        \"Id\": \"af542c4fa54e9f86386a23bf5300525727392ac11a570ad0f78cc0434ba6a064\",\n        \"Created\": \"2026-10-01T23:18:28.58343713Z\",\n        \"Scope\": \"local\",\n        \"Driver\": \"bridge\",\n        \"EnableIPv4\": true,\n        \"EnableIPv6\": false,\n        \"IPAM\": {\n            \"Driver\": \"default\",\n            \"Options\": null,\n            \"Config\": [\n                {\n                    \"Subnet\": \"192.168.192.0/20\",\n                    \"Gateway\": \"192.168.192.1\"\n                }\n            ]\n        },\n        \"Internal\": false,\n        \"Attachable\": false,\n        \"Ingress\": false,\n        \"ConfigFrom\": {\n            \"Network\": \"\"\n        },\n        \"ConfigOnly\": false,\n        \"Options\": {\n            \"com.docker.network.enable_ipv4\": \"true\",\n            \"com.docker.network.enable_ipv6\": \"false\"\n        },\n        \"Labels\": {\n            \"com.docker.compose.config-hash\": \"f0a1f1b5a68ff09c3fe7670a062b6618acfef81f5889cf29b61f8df594339e84\",\n            \"com.docker.compose.network\": \"telemetry\",\n            \"com.docker.compose.project\": \"incidentlens-retro-24abaea4-22\",\n            \"com.docker.compose.version\": \"5.5.1\"\n        },\n        \"Containers\": {},\n        \"Status\": {\n            \"IPAM\": {\n                \"Subnets\": {\n                    \"192.168.192.0/20\": {\n                        \"IPsInUse\": 3,\n                        \"DynamicIPsAvailable\": 4093\n                    }\n                }\n            }\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "rm",
+        "incidentlens-retro-24abaea4-22-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "incidentlens-retro-24abaea4-22-telemetry\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "inspect",
+        "incidentlens-retro-24abaea4-23-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "[\n    {\n        \"Name\": \"incidentlens-retro-24abaea4-23-telemetry\",\n        \"Id\": \"45b236a88755a250ce22785f3db44341222df4a0dce129f0abb4d9aa0c557e51\",\n        \"Created\": \"2026-10-01T23:20:14.441107125Z\",\n        \"Scope\": \"local\",\n        \"Driver\": \"bridge\",\n        \"EnableIPv4\": true,\n        \"EnableIPv6\": false,\n        \"IPAM\": {\n            \"Driver\": \"default\",\n            \"Options\": null,\n            \"Config\": [\n                {\n                    \"Subnet\": \"192.168.208.0/20\",\n                    \"Gateway\": \"192.168.208.1\"\n                }\n            ]\n        },\n        \"Internal\": false,\n        \"Attachable\": false,\n        \"Ingress\": false,\n        \"ConfigFrom\": {\n            \"Network\": \"\"\n        },\n        \"ConfigOnly\": false,\n        \"Options\": {\n            \"com.docker.network.enable_ipv4\": \"true\",\n            \"com.docker.network.enable_ipv6\": \"false\"\n        },\n        \"Labels\": {\n            \"com.docker.compose.config-hash\": \"e5f4864dd0cc9065d232634b3ee45762a835abe958de02be5a072c5c64aab1eb\",\n            \"com.docker.compose.network\": \"telemetry\",\n            \"com.docker.compose.project\": \"incidentlens-retro-24abaea4-23\",\n            \"com.docker.compose.version\": \"5.5.1\"\n        },\n        \"Containers\": {},\n        \"Status\": {\n            \"IPAM\": {\n                \"Subnets\": {\n                    \"192.168.208.0/20\": {\n                        \"IPsInUse\": 3,\n                        \"DynamicIPsAvailable\": 4093\n                    }\n                }\n            }\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "rm",
+        "incidentlens-retro-24abaea4-23-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "incidentlens-retro-24abaea4-23-telemetry\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "inspect",
+        "incidentlens-retro-24abaea4-24-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "[\n    {\n        \"Name\": \"incidentlens-retro-24abaea4-24-telemetry\",\n        \"Id\": \"5ab015f056a0f083270429921c8076481ee5eba00173b1807de0403dff93ad21\",\n        \"Created\": \"2026-10-01T23:21:19.142677098Z\",\n        \"Scope\": \"local\",\n        \"Driver\": \"bridge\",\n        \"EnableIPv4\": true,\n        \"EnableIPv6\": false,\n        \"IPAM\": {\n            \"Driver\": \"default\",\n            \"Options\": null,\n            \"Config\": [\n                {\n                    \"Subnet\": \"192.168.224.0/20\",\n                    \"Gateway\": \"192.168.224.1\"\n                }\n            ]\n        },\n        \"Internal\": false,\n        \"Attachable\": false,\n        \"Ingress\": false,\n        \"ConfigFrom\": {\n            \"Network\": \"\"\n        },\n        \"ConfigOnly\": false,\n        \"Options\": {\n            \"com.docker.network.enable_ipv4\": \"true\",\n            \"com.docker.network.enable_ipv6\": \"false\"\n        },\n        \"Labels\": {\n            \"com.docker.compose.config-hash\": \"4d2ad62d7fdd86aa8fd4db5b151b2ca6f17bdc242b4d0c231442082ff051e78e\",\n            \"com.docker.compose.network\": \"telemetry\",\n            \"com.docker.compose.project\": \"incidentlens-retro-24abaea4-24\",\n            \"com.docker.compose.version\": \"5.5.1\"\n        },\n        \"Containers\": {},\n        \"Status\": {\n            \"IPAM\": {\n                \"Subnets\": {\n                    \"192.168.224.0/20\": {\n                        \"IPsInUse\": 3,\n                        \"DynamicIPsAvailable\": 4093\n                    }\n                }\n            }\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "rm",
+        "incidentlens-retro-24abaea4-24-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "incidentlens-retro-24abaea4-24-telemetry\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "inspect",
+        "incidentlens-retro-24abaea4-25-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "[\n    {\n        \"Name\": \"incidentlens-retro-24abaea4-25-telemetry\",\n        \"Id\": \"5176167e4cb393d0edd3c66ea5cd62e2cf641d783c458e964e48a3c7aae1664b\",\n        \"Created\": \"2026-10-01T23:23:10.359684048Z\",\n        \"Scope\": \"local\",\n        \"Driver\": \"bridge\",\n        \"EnableIPv4\": true,\n        \"EnableIPv6\": false,\n        \"IPAM\": {\n            \"Driver\": \"default\",\n            \"Options\": null,\n            \"Config\": [\n                {\n                    \"Subnet\": \"192.168.240.0/20\",\n                    \"Gateway\": \"192.168.240.1\"\n                }\n            ]\n        },\n        \"Internal\": false,\n        \"Attachable\": false,\n        \"Ingress\": false,\n        \"ConfigFrom\": {\n            \"Network\": \"\"\n        },\n        \"ConfigOnly\": false,\n        \"Options\": {\n            \"com.docker.network.enable_ipv4\": \"true\",\n            \"com.docker.network.enable_ipv6\": \"false\"\n        },\n        \"Labels\": {\n            \"com.docker.compose.config-hash\": \"0cef8c6688a27aa7e07eda1014d2ff79dfcd65f43a2a5a785e196b19a08732f0\",\n            \"com.docker.compose.network\": \"telemetry\",\n            \"com.docker.compose.project\": \"incidentlens-retro-24abaea4-25\",\n            \"com.docker.compose.version\": \"5.5.1\"\n        },\n        \"Containers\": {},\n        \"Status\": {\n            \"IPAM\": {\n                \"Subnets\": {\n                    \"192.168.240.0/20\": {\n                        \"IPsInUse\": 3,\n                        \"DynamicIPsAvailable\": 4093\n                    }\n                }\n            }\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "rm",
+        "incidentlens-retro-24abaea4-25-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "incidentlens-retro-24abaea4-25-telemetry\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "inspect",
+        "incidentlens-retro-24abaea4-26-telemetry"
+      ],
+      "returncode": 1,
+      "stdout": "[]\n",
+      "stderr": "Error response from daemon: network incidentlens-retro-24abaea4-26-telemetry not found\n"
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "inspect",
+        "incidentlens-retro-24abaea4-3-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "[\n    {\n        \"Name\": \"incidentlens-retro-24abaea4-3-telemetry\",\n        \"Id\": \"fb68f36e275df177d579a0a940bfc414c3db956c1f47b2d76662071b7de308b0\",\n        \"Created\": \"2026-10-01T22:25:53.671069443Z\",\n        \"Scope\": \"local\",\n        \"Driver\": \"bridge\",\n        \"EnableIPv4\": true,\n        \"EnableIPv6\": false,\n        \"IPAM\": {\n            \"Driver\": \"default\",\n            \"Options\": null,\n            \"Config\": [\n                {\n                    \"Subnet\": \"172.24.0.0/16\",\n                    \"Gateway\": \"172.24.0.1\"\n                }\n            ]\n        },\n        \"Internal\": false,\n        \"Attachable\": false,\n        \"Ingress\": false,\n        \"ConfigFrom\": {\n            \"Network\": \"\"\n        },\n        \"ConfigOnly\": false,\n        \"Options\": {\n            \"com.docker.network.enable_ipv4\": \"true\",\n            \"com.docker.network.enable_ipv6\": \"false\"\n        },\n        \"Labels\": {\n            \"com.docker.compose.config-hash\": \"d6f05697eaa2570c73f5008eec7fd6c2394096c823b40d587a37e9e4566b830f\",\n            \"com.docker.compose.network\": \"telemetry\",\n            \"com.docker.compose.project\": \"incidentlens-retro-24abaea4-3\",\n            \"com.docker.compose.version\": \"5.5.1\"\n        },\n        \"Containers\": {},\n        \"Status\": {\n            \"IPAM\": {\n                \"Subnets\": {\n                    \"172.24.0.0/16\": {\n                        \"IPsInUse\": 3,\n                        \"DynamicIPsAvailable\": 65533\n                    }\n                }\n            }\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "rm",
+        "incidentlens-retro-24abaea4-3-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "incidentlens-retro-24abaea4-3-telemetry\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "inspect",
+        "incidentlens-retro-24abaea4-4-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "[\n    {\n        \"Name\": \"incidentlens-retro-24abaea4-4-telemetry\",\n        \"Id\": \"02ed483009a5884771a58a6cbd4f44b1eaeeabe45da6ba28929cfe1833d6711e\",\n        \"Created\": \"2026-10-01T22:29:35.322013904Z\",\n        \"Scope\": \"local\",\n        \"Driver\": \"bridge\",\n        \"EnableIPv4\": true,\n        \"EnableIPv6\": false,\n        \"IPAM\": {\n            \"Driver\": \"default\",\n            \"Options\": null,\n            \"Config\": [\n                {\n                    \"Subnet\": \"172.25.0.0/16\",\n                    \"Gateway\": \"172.25.0.1\"\n                }\n            ]\n        },\n        \"Internal\": false,\n        \"Attachable\": false,\n        \"Ingress\": false,\n        \"ConfigFrom\": {\n            \"Network\": \"\"\n        },\n        \"ConfigOnly\": false,\n        \"Options\": {\n            \"com.docker.network.enable_ipv4\": \"true\",\n            \"com.docker.network.enable_ipv6\": \"false\"\n        },\n        \"Labels\": {\n            \"com.docker.compose.config-hash\": \"5be8cddd24b47a69f299b72f9101479ec2bda0a9c9fbfc0ae16f82380463d3e4\",\n            \"com.docker.compose.network\": \"telemetry\",\n            \"com.docker.compose.project\": \"incidentlens-retro-24abaea4-4\",\n            \"com.docker.compose.version\": \"5.5.1\"\n        },\n        \"Containers\": {},\n        \"Status\": {\n            \"IPAM\": {\n                \"Subnets\": {\n                    \"172.25.0.0/16\": {\n                        \"IPsInUse\": 3,\n                        \"DynamicIPsAvailable\": 65533\n                    }\n                }\n            }\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "rm",
+        "incidentlens-retro-24abaea4-4-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "incidentlens-retro-24abaea4-4-telemetry\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "inspect",
+        "incidentlens-retro-24abaea4-5-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "[\n    {\n        \"Name\": \"incidentlens-retro-24abaea4-5-telemetry\",\n        \"Id\": \"d3fd8b06417af41ca87433928825592a7ae955a462a67e54fcc9a408d2291918\",\n        \"Created\": \"2026-10-01T22:32:54.889863959Z\",\n        \"Scope\": \"local\",\n        \"Driver\": \"bridge\",\n        \"EnableIPv4\": true,\n        \"EnableIPv6\": false,\n        \"IPAM\": {\n            \"Driver\": \"default\",\n            \"Options\": null,\n            \"Config\": [\n                {\n                    \"Subnet\": \"172.26.0.0/16\",\n                    \"Gateway\": \"172.26.0.1\"\n                }\n            ]\n        },\n        \"Internal\": false,\n        \"Attachable\": false,\n        \"Ingress\": false,\n        \"ConfigFrom\": {\n            \"Network\": \"\"\n        },\n        \"ConfigOnly\": false,\n        \"Options\": {\n            \"com.docker.network.enable_ipv4\": \"true\",\n            \"com.docker.network.enable_ipv6\": \"false\"\n        },\n        \"Labels\": {\n            \"com.docker.compose.config-hash\": \"5891cae7b8d1ab8de45b8494bc92dd7f78296849a8142d2144b5d496ef48c544\",\n            \"com.docker.compose.network\": \"telemetry\",\n            \"com.docker.compose.project\": \"incidentlens-retro-24abaea4-5\",\n            \"com.docker.compose.version\": \"5.5.1\"\n        },\n        \"Containers\": {},\n        \"Status\": {\n            \"IPAM\": {\n                \"Subnets\": {\n                    \"172.26.0.0/16\": {\n                        \"IPsInUse\": 3,\n                        \"DynamicIPsAvailable\": 65533\n                    }\n                }\n            }\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "rm",
+        "incidentlens-retro-24abaea4-5-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "incidentlens-retro-24abaea4-5-telemetry\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "inspect",
+        "incidentlens-retro-24abaea4-6-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "[\n    {\n        \"Name\": \"incidentlens-retro-24abaea4-6-telemetry\",\n        \"Id\": \"3a8e1d27867dbc41773feb3bc8ef3db64aecc98684b9b0add24e225b81ecba45\",\n        \"Created\": \"2026-10-01T22:38:09.891289704Z\",\n        \"Scope\": \"local\",\n        \"Driver\": \"bridge\",\n        \"EnableIPv4\": true,\n        \"EnableIPv6\": false,\n        \"IPAM\": {\n            \"Driver\": \"default\",\n            \"Options\": null,\n            \"Config\": [\n                {\n                    \"Subnet\": \"172.27.0.0/16\",\n                    \"Gateway\": \"172.27.0.1\"\n                }\n            ]\n        },\n        \"Internal\": false,\n        \"Attachable\": false,\n        \"Ingress\": false,\n        \"ConfigFrom\": {\n            \"Network\": \"\"\n        },\n        \"ConfigOnly\": false,\n        \"Options\": {\n            \"com.docker.network.enable_ipv4\": \"true\",\n            \"com.docker.network.enable_ipv6\": \"false\"\n        },\n        \"Labels\": {\n            \"com.docker.compose.config-hash\": \"a2d2141e0c43e2f372a8fba355069f2e6b3e4e0794ce96ab1d2382a330c9205c\",\n            \"com.docker.compose.network\": \"telemetry\",\n            \"com.docker.compose.project\": \"incidentlens-retro-24abaea4-6\",\n            \"com.docker.compose.version\": \"5.5.1\"\n        },\n        \"Containers\": {},\n        \"Status\": {\n            \"IPAM\": {\n                \"Subnets\": {\n                    \"172.27.0.0/16\": {\n                        \"IPsInUse\": 3,\n                        \"DynamicIPsAvailable\": 65533\n                    }\n                }\n            }\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "rm",
+        "incidentlens-retro-24abaea4-6-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "incidentlens-retro-24abaea4-6-telemetry\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "inspect",
+        "incidentlens-retro-24abaea4-7-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "[\n    {\n        \"Name\": \"incidentlens-retro-24abaea4-7-telemetry\",\n        \"Id\": \"3cabdceb3d39b3e72a5ef584fdd74a6263c13669f0536eeea12251f35c1aa3e7\",\n        \"Created\": \"2026-10-01T22:39:15.43828208Z\",\n        \"Scope\": \"local\",\n        \"Driver\": \"bridge\",\n        \"EnableIPv4\": true,\n        \"EnableIPv6\": false,\n        \"IPAM\": {\n            \"Driver\": \"default\",\n            \"Options\": null,\n            \"Config\": [\n                {\n                    \"Subnet\": \"172.28.0.0/16\",\n                    \"Gateway\": \"172.28.0.1\"\n                }\n            ]\n        },\n        \"Internal\": false,\n        \"Attachable\": false,\n        \"Ingress\": false,\n        \"ConfigFrom\": {\n            \"Network\": \"\"\n        },\n        \"ConfigOnly\": false,\n        \"Options\": {\n            \"com.docker.network.enable_ipv4\": \"true\",\n            \"com.docker.network.enable_ipv6\": \"false\"\n        },\n        \"Labels\": {\n            \"com.docker.compose.config-hash\": \"ac3d6b915ded7db327c17f543ca3d6339cb1349a869e6bd865725a2c7248fca9\",\n            \"com.docker.compose.network\": \"telemetry\",\n            \"com.docker.compose.project\": \"incidentlens-retro-24abaea4-7\",\n            \"com.docker.compose.version\": \"5.5.1\"\n        },\n        \"Containers\": {},\n        \"Status\": {\n            \"IPAM\": {\n                \"Subnets\": {\n                    \"172.28.0.0/16\": {\n                        \"IPsInUse\": 3,\n                        \"DynamicIPsAvailable\": 65533\n                    }\n                }\n            }\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "rm",
+        "incidentlens-retro-24abaea4-7-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "incidentlens-retro-24abaea4-7-telemetry\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "inspect",
+        "incidentlens-retro-24abaea4-8-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "[\n    {\n        \"Name\": \"incidentlens-retro-24abaea4-8-telemetry\",\n        \"Id\": \"d3486e8fdcbca9177a31ad7e32f1b7f8cc3b305e132b1d1cfc7d5085f95206d9\",\n        \"Created\": \"2026-10-01T22:40:57.341353649Z\",\n        \"Scope\": \"local\",\n        \"Driver\": \"bridge\",\n        \"EnableIPv4\": true,\n        \"EnableIPv6\": false,\n        \"IPAM\": {\n            \"Driver\": \"default\",\n            \"Options\": null,\n            \"Config\": [\n                {\n                    \"Subnet\": \"172.29.0.0/16\",\n                    \"Gateway\": \"172.29.0.1\"\n                }\n            ]\n        },\n        \"Internal\": false,\n        \"Attachable\": false,\n        \"Ingress\": false,\n        \"ConfigFrom\": {\n            \"Network\": \"\"\n        },\n        \"ConfigOnly\": false,\n        \"Options\": {\n            \"com.docker.network.enable_ipv4\": \"true\",\n            \"com.docker.network.enable_ipv6\": \"false\"\n        },\n        \"Labels\": {\n            \"com.docker.compose.config-hash\": \"a34a25072c848feee966743da823770582375538a66022363f81e6e09b8ee633\",\n            \"com.docker.compose.network\": \"telemetry\",\n            \"com.docker.compose.project\": \"incidentlens-retro-24abaea4-8\",\n            \"com.docker.compose.version\": \"5.5.1\"\n        },\n        \"Containers\": {},\n        \"Status\": {\n            \"IPAM\": {\n                \"Subnets\": {\n                    \"172.29.0.0/16\": {\n                        \"IPsInUse\": 3,\n                        \"DynamicIPsAvailable\": 65533\n                    }\n                }\n            }\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "rm",
+        "incidentlens-retro-24abaea4-8-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "incidentlens-retro-24abaea4-8-telemetry\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "inspect",
+        "incidentlens-retro-24abaea4-9-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "[\n    {\n        \"Name\": \"incidentlens-retro-24abaea4-9-telemetry\",\n        \"Id\": \"9c41c17a408c7e65bdea1b32ab9aa02e915ac6595e566ec33f106ffdfe1406bd\",\n        \"Created\": \"2026-10-01T22:42:03.854337752Z\",\n        \"Scope\": \"local\",\n        \"Driver\": \"bridge\",\n        \"EnableIPv4\": true,\n        \"EnableIPv6\": false,\n        \"IPAM\": {\n            \"Driver\": \"default\",\n            \"Options\": null,\n            \"Config\": [\n                {\n                    \"Subnet\": \"172.30.0.0/16\",\n                    \"Gateway\": \"172.30.0.1\"\n                }\n            ]\n        },\n        \"Internal\": false,\n        \"Attachable\": false,\n        \"Ingress\": false,\n        \"ConfigFrom\": {\n            \"Network\": \"\"\n        },\n        \"ConfigOnly\": false,\n        \"Options\": {\n            \"com.docker.network.enable_ipv4\": \"true\",\n            \"com.docker.network.enable_ipv6\": \"false\"\n        },\n        \"Labels\": {\n            \"com.docker.compose.config-hash\": \"a7318747570e9049d7de99af82b67d6b79534e91f615023267cae7048486a8d8\",\n            \"com.docker.compose.network\": \"telemetry\",\n            \"com.docker.compose.project\": \"incidentlens-retro-24abaea4-9\",\n            \"com.docker.compose.version\": \"5.5.1\"\n        },\n        \"Containers\": {},\n        \"Status\": {\n            \"IPAM\": {\n                \"Subnets\": {\n                    \"172.30.0.0/16\": {\n                        \"IPsInUse\": 3,\n                        \"DynamicIPsAvailable\": 65533\n                    }\n                }\n            }\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "rm",
+        "incidentlens-retro-24abaea4-9-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "incidentlens-retro-24abaea4-9-telemetry\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "inspect",
+        "incidentlens-retro-4f5f3b21-0-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "[\n    {\n        \"Name\": \"incidentlens-retro-4f5f3b21-0-telemetry\",\n        \"Id\": \"d25f517ac43baa055044a86eeebeff68de596ec74f2b743d088336b7478220cf\",\n        \"Created\": \"2026-10-02T03:37:24.020356165Z\",\n        \"Scope\": \"local\",\n        \"Driver\": \"bridge\",\n        \"EnableIPv4\": true,\n        \"EnableIPv6\": false,\n        \"IPAM\": {\n            \"Driver\": \"default\",\n            \"Options\": null,\n            \"Config\": [\n                {\n                    \"Subnet\": \"172.19.0.0/16\",\n                    \"Gateway\": \"172.19.0.1\"\n                }\n            ]\n        },\n        \"Internal\": false,\n        \"Attachable\": false,\n        \"Ingress\": false,\n        \"ConfigFrom\": {\n            \"Network\": \"\"\n        },\n        \"ConfigOnly\": false,\n        \"Options\": {\n            \"com.docker.network.enable_ipv4\": \"true\",\n            \"com.docker.network.enable_ipv6\": \"false\"\n        },\n        \"Labels\": {\n            \"com.docker.compose.config-hash\": \"7edcca041938a1829d7da3dadc89dfcd55f8bd3b77bdd4b656eb5a06b244ffa1\",\n            \"com.docker.compose.network\": \"telemetry\",\n            \"com.docker.compose.project\": \"incidentlens-retro-4f5f3b21-0\",\n            \"com.docker.compose.version\": \"5.5.1\"\n        },\n        \"Containers\": {},\n        \"Status\": {\n            \"IPAM\": {\n                \"Subnets\": {\n                    \"172.19.0.0/16\": {\n                        \"IPsInUse\": 3,\n                        \"DynamicIPsAvailable\": 65533\n                    }\n                }\n            }\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "rm",
+        "incidentlens-retro-4f5f3b21-0-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "incidentlens-retro-4f5f3b21-0-telemetry\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "inspect",
+        "incidentlens-retro-4f5f3b21-1-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "[\n    {\n        \"Name\": \"incidentlens-retro-4f5f3b21-1-telemetry\",\n        \"Id\": \"31527ae611f4331ea88f426cf9ce4a78631031a8152ef84ce0be0e437a6938e6\",\n        \"Created\": \"2026-10-02T03:42:07.028402972Z\",\n        \"Scope\": \"local\",\n        \"Driver\": \"bridge\",\n        \"EnableIPv4\": true,\n        \"EnableIPv6\": false,\n        \"IPAM\": {\n            \"Driver\": \"default\",\n            \"Options\": null,\n            \"Config\": [\n                {\n                    \"Subnet\": \"172.20.0.0/16\",\n                    \"Gateway\": \"172.20.0.1\"\n                }\n            ]\n        },\n        \"Internal\": false,\n        \"Attachable\": false,\n        \"Ingress\": false,\n        \"ConfigFrom\": {\n            \"Network\": \"\"\n        },\n        \"ConfigOnly\": false,\n        \"Options\": {\n            \"com.docker.network.enable_ipv4\": \"true\",\n            \"com.docker.network.enable_ipv6\": \"false\"\n        },\n        \"Labels\": {\n            \"com.docker.compose.config-hash\": \"b0ed1218a4285f3124bd6a4bef908856292d0f87f0622742c5919601773e5f20\",\n            \"com.docker.compose.network\": \"telemetry\",\n            \"com.docker.compose.project\": \"incidentlens-retro-4f5f3b21-1\",\n            \"com.docker.compose.version\": \"5.5.1\"\n        },\n        \"Containers\": {},\n        \"Status\": {\n            \"IPAM\": {\n                \"Subnets\": {\n                    \"172.20.0.0/16\": {\n                        \"IPsInUse\": 3,\n                        \"DynamicIPsAvailable\": 65533\n                    }\n                }\n            }\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "rm",
+        "incidentlens-retro-4f5f3b21-1-telemetry"
+      ],
+      "returncode": 0,
+      "stdout": "incidentlens-retro-4f5f3b21-1-telemetry\n",
+      "stderr": ""
+    }
+  ],
+  "after_volumes": {
+    "command": [
+      "docker",
+      "volume",
+      "ls",
+      "--format",
+      "{{.Name}}"
+    ],
+    "returncode": 0,
+    "stdout": "0a7a2188afcb14548830e26f4fe95baaf8319b712b283abd5c27578084cdb95d\n0a38d985079671fdfddcc7b5880660627c8fc5306fd504704d023662461bc55a\n00ac399a13db636254222e745dc8f9fce8845b08552a2a7cc5fa9c58dae0d058\n1b8323b7c8e09f899d10e1a228008191c90b42cf4530e04e62391dc6e6743d76\n1d5bf147ce54f798af87a08acd8f5940c059f79decddf6b5bcc25c042c7e6673\n2c4cf278523a973fdfed7b28e766209165ceceaee4878bb3e6f7d079a3d0ed67\n3a8e0ab53ea374715ecec6a8a4b6fe75c40dc2206b686d2224667fb09bab0c66\n3dd7bb15a2e8228d5a450de97ff13a72b03daa97c132e99eb7f03b547275be59\n3e5747f6873a248a6ad98b5c4af0ea3912ffe6fe8f1130afea1d1d308db0e0e7\n4a7d9de892efc9a1701ecb3649264fd0ae77d5173087e765c1a1e34c8185144f\n4b7b6465af0f7db5143887838a7d9040a2044ce67f1e6b8fadf6ad13006792e3\n4e08769a8c764d4f7fd3cc4c59fd9de42897c6578af482ee3a5a9004542b2647\n5b2ff30de83c823f25468c3a396ade027e620a367afae6fc5d53c812169a534b\n5bc992a472314c92486731ba1ce5946f82ad2ffefa34687477156f3840fefe7d\n5c8846479b6dfd48e7731935cd6863a709d2b486e585964a7516fd7508f2f1cf\n5f5fe02b8f3c78ba48832f411716829b4df375b5087feed2cc1cbda1fe99aac0\n6ea6c554e1c34dceaf8d1ef7e5315479943beb442c329205c7276788a225c729\n7c46866a4ff9b17290294d95e9826d35b23a57e850bcb8331d7ac688c8d5b054\n7d5abf4a33660bb2554578e32d6a812e5a7c6923b74da042c22c4434f0af7a4f\n7d35b20e7fa3a026c8dd61be692c64ba45a096962d1f790e39e614b839f67c5b\n7e99c5ba73dc9c9a22cc269f504e5b63175fabcd1f7feeba295d9889a9097d5f\n7eee2ba1064b46c1a8563e5b7bc004f53c8904f5833d48e79bcbb8ff0662d2f8\n7ef2b561eb58470585c8206245b8f1a0140cc6a6130f3fc1bbf5c1912322ecc5\n8abb35bc80c6832fe2ea63729542294aebc7a0c1c4b0b21a2baffeb816f15f01\n8e84f6f9bec78b8fb84717d1fde58d112834fd41eb394efdab89514173e2c2e6\n08e81a1e7900f15f9a7b1913e592eb5ebf247cf3bf541f2c8c6cb2f9527c260a\n9aa63fcbdba43d31ea19a4a4ec8716e98bcdd08c92120fc4185fbd9685450a64\n9b75b2498acc09bf668dbd8adbe200e1373abc51e8233d057ab33a5ed05abcef\n9f260514f953e04f5c6073ee3508832c30d2146402506deb5d1b430d286c43f0\n10dafbc4020bafdb325d3b071ce7133c3eaf2904ae8ff065ea73a1d99d4c4e3a\n12a0c2aad643a5fa3c387633c2a95154f3e86d9b96759540758e82eaa564901b\n16a6c48948822be5148ee09becc871f82b81f0aa57a26baec9b1969114ec55d9\n20e9d457bfbca91a1e133a068de5c96879ec372aacda7f702defaeaac86fd3fe\n22fd8e227d7b08023fedbbb9c29b6fd4d71b36981abe74201afad61ecb394fd3\n022baa0f6c40530d65266294e73e07d018e7b7bec219aa22a63e8f66a708b017\n37c18f40989d779578628bd36e87839a218b8cd755464b8ae683f139c8a6ec9f\n38d83aa2feb29cf4a9f77dc2d704cd7589f00ae1c5ee20482113799f49a16773\n40e2c07525874b8040480f0328a976b970009163c4c1d722750325bb2b64747e\n44dd92472b23d97385438d6109d7eb21d3f03d669ec50a4d37da56b8297da011\n60c266392886d9ed89bf9e43f9bf510e3ca9d7185ceee7d4b251acb25ebada9b\n75b4025249d2500c9f72a57c6df1ef24d7d18cad38c18c82828ac417b7d72e7c\n82d6f7b2ad0b89a610ed38b1b13d9ebca45be62fd0797e4aaf64dbcc1e56531b\n85a7b117fed40a7a290018f15ee16f51801eef301a3ca67beb109f33a83fb41d\n88fbec12b78dbca36a98dfc05c95fe0f6f60110f3aad14ba7e965d297e9adf9a\n92da142be77f493e1d4a12f4e8e49ca9c8c98625da85adaac3e44d382d2d1480\n93a7e21e9937dcb9af44f7ff9844c34c31300b6b6f504c3a0d7c30ead0879847\n93ad251a5320b0c75e57a6c31d3e8109812933134c442510fc6a1327382e41a3\n171a9f29e5d22dcbe24f1665c7e393aae50599f7fcfe939a1103efcbe4c26e4d\n186e5d80508e220c83711ca16cddced95fd12a19be0a713388703c7b2ff1d0d8\n380cf0b5a2399565d9e13f702aef77a5d8ec204403ba0b18ef0d1130e3b9057e\n408b73200b8e5178bc89d89ba6f6df293f9605ad209669582169710fea99e41a\n654a848a7846648817ea3d003ee4e9a10b6526149015c6e04586a6e158a44419\n665f993ec0bf30fee5f9f0b3962e8faaa1317aa32124282dfd4c38dbd0685f0b\n760b2ac77aacb89c5ad456604fd8a802f1c143f2bc98fc58c97d1c42008b9d1b\n856fd82f83a1c58a00a8c0ea2c486cb83f1ba3821bf404eafe9abbf3fdef9c2b\n896f5b29f7a42ac19b0845626e3cf4a4f40ccb39992c47fa46248bd2e7645d2a\n920b5d84016dadcaedcfe3ff87b5214cbbe567671de20293552a27f4a49757fc\n965b5ccafd3b74b73d5368c771cdad23e3cc43669ecf783d7c4a99c48fd59fc9\n3246d5d8d1b161602ed073a465e79380ad79e497db18e39ac8013370ea2647a3\n3436cee8e514c302c9052d7aabfa86e659fbe95f4bbb575ea92c57ced6406622\n3739ec98fc519b9b1ed61409e0adbc31f7520364e3cb4af6145457821a431f70\n3846db7bbc27e408172e7508a5ef5c4dc9d6661a5951d84cca527f416d960bd5\n5747f0944213a46e1bc922218df2dd3072c622eaf152066459dd27be4595b434\n6604c1e28b18a7076ee8a36d0be95b7e4c4958626511da8643b2822fbbe71ee7\n9539b59478462abaa353908c9517eab9aa1c83463af20c76a239f809d11fac0d\n36657c229e85e137b73a5b052d1dabb33ad4f96eed3c6e82ec73071a1caf12c5\n65377f4667bd48984d3546947be7e2f0452633347eb1d4e2bc3aeb63a458c40a\n123133a572351527e8b16189b1395cef92d56702bcd2abcf11f3f8b0eaca406b\n220490a8db76e5593c6761dbd533820525659713ac987985f026716b83044da5\n802157fb792c2b351ceb9336a43177d989d94399bba2a11965f322312dfd6160\n854073db9a75e0adcee3a794570da6aea2783a14d81bc141ba87b39db8ba5603\n15568200a3ade40acd273c7da51c776e020adbfebc385c1940e599b6b6f074cf\n421124755f8d874995af29d2d2645aaea382058bd555fa135d0ffa7e26c6273a\na4d227d3812d74c9027d23a3d742d25e521272710a917830ef4a162f89a418f1\na89abc507ad5f7080d217adfb1086d110cc861188bd4b6334e6f9528fc57e8e8\na7849dc3d135e8c705a8844f01cf186dcff60852512bb57715c50b67cff53a57\na82761190e00c724eed81d5aa383a82ae857e48de9d656aa635b0b3deccdd80b\naa2454d683abe3de60e134c3ba7e4a5badd156b17588cbcc86938284adf3fd56\nafa3ac1fc70044e2727aa9e88f6c9582fca307e24a0f0635483c4b4ff5da4a6d\nb0affc713a8ab4cbe5c2aa36af99713fdfdc0352b5a06001bec349fa5bef498a\nb5b7f5db2a597591de2d77fbc1b1eefd33f12169b0e7ad9690b2621cb1bbd20d\nb6a5262bb40e0da39ed30962e17c16ce9bce1e6f0f3df44cbc2b581e46134e0e\nb43fd07383a0f2543ede100df7dde102e066c853c453b638019d3cb24069e7e2\nb91a2b3feda546570cc9a410dcd0b52d0c0c01bffa658c82d3a812efecbf16e4\nb8418fdaf1e8fee5bf02a51e86dfbf5854fc3e11d5a0bf292962fce4de0a0274\nbd4a061f26631652062bec88abf314743b529dc39852fa9d18c1f7e784fba390\nbd61fc7b2b8f5768d31457689fb426b4cbde681d2429b71ebd779331829f7468\nbe0b6f5ec5880e6fc0b98116d7784397122bfa1c281326b74578c26a343069ea\nc7ae5249e764c6f4994c105eeb172136d86b456d2022d17a52e8ae0a6f25c04a\nc980251a6bb9d6f7637820d550c9dc4379ea3077d5cd1d4b492c932721559b36\ncc30ab741d1f5648711a752f0ea0116a8ddc2168657a697e2b36b2692a7b3d5f\nce859ca4aa800c4181fe439b8ef31c4a4797bf92fa361504b936f8779505c5aa\nce996521b79dceec158c650f65bb3833ef27848fb1d65a11dbedb1bff9ec8c4c\nd91f2013abf9c7d4a3a57fe71d23c0edc402fc3b46f03ccd7de5c0015d991709\nd6446d2cefc54d1e5957c1d5362018b3831d167fa5a8227a720f52a17b3cf913\nd56658f8fb2fee66789a882c07ca93584db9365218f22fdc742707934625c217\ndda5bba466d4d0016fab9ad4ca049a0e4ef1ac5e0652ba86d533bb88d45cb2e3\ne3ef9782c91ca2e37aed8b246757db5c14a8a568b1d3f41bb314a2ae94c8c43d\ne6b74edc5e11b8a0fdbd068f24724cd87354966bf8a4fe8a2ee88793f09c2171\ne8ca40b58cfd81de2d18a54408a74b76a039d3c6090712495d260d4f56f29741\ne0455e97dcd0397c48327c1cd7feb39c76d2ceca3958bde7c2cdf752a00f7623\neb6ba1f3b4727f57b309194f86e6511422015f145f1fe72c86dc1b4810b12bf0\ned5f5d6a6381b94a9a28c71009048158882a58c6e88a5d98ea8c69cbc82da3ba\nee7b3d87068c356a2f2bcdcd903eb5eb6400037899565fff64bb317d35cd3fb0\nf7b2621c9adcd5f3c3c846fdb3e686e5a3ffeb8e41a53a341044029f13e352c6\nf34b17b214d5342895a8e555f71a418d0fe1a245c66724a92ea367fe9a121589\nf36ed2503ea046cf0736edc411f29a563ac54ba08603c6307d007c6bc699ff11\nf3912982c2fd08ee634e94ecf0983c2d8f1da062d7b2ff8b301b7c8528bf49b8\nf64789497843c50f819deffce4f4f140465dc7f3f1a36a2fd49ce6f7ebc0363a\nfbb2a192cdf329b2e4a29dcb09e4e78c81f8edbc25797f45fb9c9446c1ef8102\nff4c5125fb3fa913c0bb3896f449d13326da491d003f66acacd9c0cfa88ac4ff\nincidentlens-retro-4f5f3b21-0_clickhouse-data\nincidentlens-retro-4f5f3b21-0_kafka-data\nincidentlens-retro-4f5f3b21-1_clickhouse-data\nincidentlens-retro-24abaea4-0_clickhouse-data\nincidentlens-retro-24abaea4-1_clickhouse-data\nincidentlens-retro-24abaea4-1_kafka-data\nincidentlens-retro-24abaea4-2_clickhouse-data\nincidentlens-retro-24abaea4-3_clickhouse-data\nincidentlens-retro-24abaea4-3_kafka-data\nincidentlens-retro-24abaea4-4_clickhouse-data\nincidentlens-retro-24abaea4-5_clickhouse-data\nincidentlens-retro-24abaea4-5_kafka-data\nincidentlens-retro-24abaea4-6_clickhouse-data\nincidentlens-retro-24abaea4-7_clickhouse-data\nincidentlens-retro-24abaea4-7_kafka-data\nincidentlens-retro-24abaea4-8_clickhouse-data\nincidentlens-retro-24abaea4-9_clickhouse-data\nincidentlens-retro-24abaea4-9_kafka-data\nincidentlens-retro-24abaea4-10_clickhouse-data\nincidentlens-retro-24abaea4-11_clickhouse-data\nincidentlens-retro-24abaea4-11_kafka-data\nincidentlens-retro-24abaea4-12_clickhouse-data\nincidentlens-retro-24abaea4-13_clickhouse-data\nincidentlens-retro-24abaea4-13_kafka-data\nincidentlens-retro-24abaea4-14_clickhouse-data\nincidentlens-retro-24abaea4-14_kafka-data\nincidentlens-retro-24abaea4-15_clickhouse-data\nincidentlens-retro-24abaea4-16_clickhouse-data\nincidentlens-retro-24abaea4-16_kafka-data\nincidentlens-retro-24abaea4-17_clickhouse-data\nincidentlens-retro-24abaea4-18_clickhouse-data\nincidentlens-retro-24abaea4-18_kafka-data\nincidentlens-retro-24abaea4-19_clickhouse-data\nincidentlens-retro-24abaea4-20_clickhouse-data\nincidentlens-retro-24abaea4-20_kafka-data\nincidentlens-retro-24abaea4-21_clickhouse-data\nincidentlens-retro-24abaea4-22_clickhouse-data\nincidentlens-retro-24abaea4-22_kafka-data\nincidentlens-retro-24abaea4-23_clickhouse-data\nincidentlens-retro-24abaea4-24_clickhouse-data\nincidentlens-retro-24abaea4-24_kafka-data\nincidentlens-retro-24abaea4-25_clickhouse-data\nincidentlens-retro-24abaea4-26_clickhouse-data\nincidentlens-retro-24abaea4-26_kafka-data\nincidentlens-retro-be898079-0_clickhouse-data\nincidentlens-retro-be898079-1_clickhouse-data\nincidentlens-retro-be898079-1_kafka-data\nincidentlens_clickhouse-data\nincidentlens_kafka-data\n",
+    "stderr": ""
+  }
+}

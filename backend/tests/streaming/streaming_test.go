@@ -15,6 +15,7 @@ import (
 	"os/exec"
 	"path/filepath"
 	"reflect"
+	"strings"
 	"testing"
 	"time"
 
@@ -110,20 +111,53 @@ func seed(t *testing.T) string {
 
 func compose(t *testing.T, args ...string) {
 	t.Helper()
-	base, err := filepath.Abs("../../../deploy/local/compose.yaml")
-	if err != nil {
-		t.Fatal(err)
-	}
-	overlay, err := filepath.Abs("../../../deploy/streaming/compose.yaml")
-	if err != nil {
-		t.Fatal(err)
+	if len(args) > 0 && args[0] == "start" {
+		// A recovery test restarts only the named existing services. Compose
+		// start also traverses dependencies and reruns completed topic/migration
+		// jobs, obscuring broker recovery with unrelated initialization work.
+		args = append([]string{"up", "-d", "--no-deps", "--no-recreate", "--no-build"}, args[1:]...)
 	}
 	ctx, cancel := context.WithTimeout(context.Background(), 75*time.Second)
 	defer cancel()
-	cmd := exec.CommandContext(ctx, "docker", append([]string{"compose", "-f", base, "-f", overlay}, args...)...)
+	cmd := composeCommand(t, ctx, args...)
 	if output, err := cmd.CombinedOutput(); err != nil {
 		t.Fatalf("compose %v: %v: %s", args, err, output)
 	}
+}
+
+func composeCommand(t *testing.T, ctx context.Context, args ...string) *exec.Cmd {
+	t.Helper()
+	files := []string{}
+	if configured := os.Getenv("INCIDENTLENS_STREAM_TEST_COMPOSE_FILES"); configured != "" {
+		for _, file := range strings.Split(configured, string(os.PathListSeparator)) {
+			if !filepath.IsAbs(file) {
+				t.Fatalf("test Compose file must be absolute: %q", file)
+			}
+			files = append(files, file)
+		}
+	} else {
+		for _, relative := range []string{"../../../deploy/local/compose.yaml", "../../../deploy/streaming/compose.yaml"} {
+			absolute, err := filepath.Abs(relative)
+			if err != nil {
+				t.Fatal(err)
+			}
+			files = append(files, absolute)
+		}
+	}
+	command := []string{"compose"}
+	for _, file := range files {
+		command = append(command, "-f", file)
+	}
+	project := os.Getenv("INCIDENTLENS_STREAM_TEST_PROJECT")
+	if project != "" {
+		if !strings.HasPrefix(project, "incidentlens-retro-hardening-") || strings.Trim(project, "abcdefghijklmnopqrstuvwxyz0123456789-") != "" {
+			t.Fatalf("unsafe isolated test project %q", project)
+		}
+		command = append(command, "-p", project)
+	} else if os.Getenv("INCIDENTLENS_STREAM_TEST_COMPOSE_FILES") != "" {
+		t.Fatal("isolated Compose file override requires an explicit test project")
+	}
+	return exec.CommandContext(ctx, "docker", append(command, args...)...)
 }
 
 func waitHTTP(t *testing.T, address string) {
@@ -352,11 +386,9 @@ func TestWriteBeforeCommitCrashAndFreshGroupReplay(t *testing.T) {
 	if got := stored(t, conn, id, namespace); got != 0 {
 		t.Fatalf("isolated topic has no consumer but trace already stored: %d", got)
 	}
-	base, _ := filepath.Abs("../../../deploy/local/compose.yaml")
-	overlay, _ := filepath.Abs("../../../deploy/streaming/compose.yaml")
 	ctx, cancel := context.WithTimeout(context.Background(), 60*time.Second)
 	defer cancel()
-	command := exec.CommandContext(ctx, "docker", "compose", "-f", base, "-f", overlay,
+	command := composeCommand(t, ctx,
 		"run", "--rm", "--no-deps", "-e", "KAFKA_GROUP_ID="+group,
 		"-e", "KAFKA_TOPIC="+topic,
 		"-e", "STREAM_TEST_EXIT_AFTER_WRITE_TRACE_ID="+id, "stream-worker")

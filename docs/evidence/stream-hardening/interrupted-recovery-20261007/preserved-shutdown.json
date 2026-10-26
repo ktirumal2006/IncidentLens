@@ -1,0 +1,13 @@
+{
+  "returncode": 0,
+  "stdout": "",
+  "stderr": " Container incidentlens-retro-18922738-3-api-1 Stopping \n Container incidentlens-retro-18922738-3-stream-worker-1 Stopping \n Container incidentlens-retro-18922738-3-collector-1 Stopping \n Container incidentlens-retro-18922738-3-stream-worker-1 Stopped \n Container incidentlens-retro-18922738-3-stream-worker-1 Removing \n Container incidentlens-retro-18922738-3-collector-1 Stopped \n Container incidentlens-retro-18922738-3-collector-1 Removing \n Container incidentlens-retro-18922738-3-api-1 Stopped \n Container incidentlens-retro-18922738-3-api-1 Removing \n Container incidentlens-retro-18922738-3-api-1 Removed \n Container incidentlens-retro-18922738-3-stream-worker-1 Removed \n Container incidentlens-retro-18922738-3-migrate-1 Stopping \n Container incidentlens-retro-18922738-3-migrate-1 Stopped \n Container incidentlens-retro-18922738-3-migrate-1 Removing \n Container incidentlens-retro-18922738-3-collector-1 Removed \n Container incidentlens-retro-18922738-3-stream-ingest-1 Stopping \n Container incidentlens-retro-18922738-3-stream-ingest-1 Stopped \n Container incidentlens-retro-18922738-3-stream-ingest-1 Removing \n Container incidentlens-retro-18922738-3-migrate-1 Removed \n Container incidentlens-retro-18922738-3-clickhouse-1 Stopping \n Container incidentlens-retro-18922738-3-stream-ingest-1 Removed \n Container incidentlens-retro-18922738-3-kafka-topic-1 Stopping \n Container incidentlens-retro-18922738-3-kafka-topic-1 Stopped \n Container incidentlens-retro-18922738-3-kafka-topic-1 Removing \n Container incidentlens-retro-18922738-3-kafka-topic-1 Removed \n Container incidentlens-retro-18922738-3-kafka-1 Stopping \n Container incidentlens-retro-18922738-3-kafka-1 Stopped \n Container incidentlens-retro-18922738-3-kafka-1 Removing \n Container incidentlens-retro-18922738-3-kafka-1 Removed \n Container incidentlens-retro-18922738-3-clickhouse-1 Stopped \n Container incidentlens-retro-18922738-3-clickhouse-1 Removing \n Container incidentlens-retro-18922738-3-clickhouse-1 Removed \n Network incidentlens-retro-18922738-3-telemetry Removing \n Network incidentlens-retro-18922738-3-telemetry Removed \n",
+  "volumes_before": [
+    "incidentlens-retro-18922738-3_clickhouse-data",
+    "incidentlens-retro-18922738-3_kafka-data"
+  ],
+  "volumes_after": [
+    "incidentlens-retro-18922738-3_clickhouse-data",
+    "incidentlens-retro-18922738-3_kafka-data"
+  ]
+}

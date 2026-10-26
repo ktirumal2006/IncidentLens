@@ -1,0 +1,4647 @@
+{
+  "baseline": {
+    "counts": {
+      "acked_full_run_spans": 498240,
+      "acked_measured_spans": 446784,
+      "acked_within_window_spans": 431616,
+      "emitted_full_run_spans": 498240,
+      "emitted_measured_spans": 446784,
+      "generated_full_run_spans": 498240,
+      "generated_measured_spans": 446784,
+      "never_emitted_driver_spans": 542526,
+      "physical_rows_at_snapshot": 234368,
+      "planned_spans": 1040766,
+      "stored_unique_at_original_snapshot_spans": 234432,
+      "stored_unique_final_spans": 234432,
+      "unresolved_acked_at_original_deadline": 263808,
+      "unresolved_emitted_at_original_deadline": 263808
+    },
+    "ack_latency": {
+      "count": 2327,
+      "max_ns": 1490153000,
+      "p50_ns": 797675000,
+      "p95_ns": 1096579000,
+      "p99_ns": 1225502000,
+      "p99_tail_samples": 23
+    },
+    "lag": {
+      "drain": {
+        "first_zero_started_ns": 1791486457561099000,
+        "lower_bound_ns": 164889147000,
+        "second_zero_finished_ns": 1791486458575032000,
+        "stable_end": 2595,
+        "status": "observed_bounded",
+        "upper_bound_ns": 166901936000
+      },
+      "first_observed_lag_records": 3,
+      "growth_from_first_to_max_records": 1915,
+      "last_observed_lag_records": 0,
+      "max_observed_lag_records": 1918,
+      "net_observed_lag_change_records": -3,
+      "note": "Sequential committed/end reads are not an atomic snapshot; lag is records, not spans.",
+      "post_offering_sample_count": 198,
+      "sample_count": 331,
+      "samples": [
+        {
+          "committed": 1,
+          "end": 4,
+          "finished_ns": 1791486159587164000,
+          "lag_records": 3,
+          "started_ns": 1791486159573436000
+        },
+        {
+          "committed": 4,
+          "end": 4,
+          "finished_ns": 1791486160592674000,
+          "lag_records": 0,
+          "started_ns": 1791486160572928000
+        },
+        {
+          "committed": 4,
+          "end": 4,
+          "finished_ns": 1791486161587997000,
+          "lag_records": 0,
+          "started_ns": 1791486161572993000
+        },
+        {
+          "committed": 11,
+          "end": 23,
+          "finished_ns": 1791486162645589000,
+          "lag_records": 12,
+          "started_ns": 1791486162573234000
+        },
+        {
+          "committed": 19,
+          "end": 41,
+          "finished_ns": 1791486163596923000,
+          "lag_records": 22,
+          "started_ns": 1791486163572800000
+        },
+        {
+          "committed": 27,
+          "end": 59,
+          "finished_ns": 1791486164641135000,
+          "lag_records": 32,
+          "started_ns": 1791486164573309000
+        },
+        {
+          "committed": 35,
+          "end": 77,
+          "finished_ns": 1791486165598340000,
+          "lag_records": 42,
+          "started_ns": 1791486165573072000
+        },
+        {
+          "committed": 45,
+          "end": 98,
+          "finished_ns": 1791486166597353000,
+          "lag_records": 53,
+          "started_ns": 1791486166573059000
+        },
+        {
+          "committed": 54,
+          "end": 115,
+          "finished_ns": 1791486167593452000,
+          "lag_records": 61,
+          "started_ns": 1791486167572712000
+        },
+        {
+          "committed": 62,
+          "end": 133,
+          "finished_ns": 1791486168603464000,
+          "lag_records": 71,
+          "started_ns": 1791486168573617000
+        },
+        {
+          "committed": 69,
+          "end": 150,
+          "finished_ns": 1791486169599539000,
+          "lag_records": 81,
+          "started_ns": 1791486169573102000
+        },
+        {
+          "committed": 73,
+          "end": 167,
+          "finished_ns": 1791486170599564000,
+          "lag_records": 94,
+          "started_ns": 1791486170573459000
+        },
+        {
+          "committed": 76,
+          "end": 187,
+          "finished_ns": 1791486171586661000,
+          "lag_records": 111,
+          "started_ns": 1791486171572717000
+        },
+        {
+          "committed": 81,
+          "end": 209,
+          "finished_ns": 1791486172643600000,
+          "lag_records": 128,
+          "started_ns": 1791486172573006000
+        },
+        {
+          "committed": 85,
+          "end": 227,
+          "finished_ns": 1791486173595614000,
+          "lag_records": 142,
+          "started_ns": 1791486173574068000
+        },
+        {
+          "committed": 89,
+          "end": 245,
+          "finished_ns": 1791486174591122000,
+          "lag_records": 156,
+          "started_ns": 1791486174572969000
+        },
+        {
+          "committed": 92,
+          "end": 264,
+          "finished_ns": 1791486175595961000,
+          "lag_records": 172,
+          "started_ns": 1791486175573695000
+        },
+        {
+          "committed": 96,
+          "end": 287,
+          "finished_ns": 1791486176587384000,
+          "lag_records": 191,
+          "started_ns": 1791486176573766000
+        },
+        {
+          "committed": 101,
+          "end": 306,
+          "finished_ns": 1791486177590470000,
+          "lag_records": 205,
+          "started_ns": 1791486177574685000
+        },
+        {
+          "committed": 108,
+          "end": 327,
+          "finished_ns": 1791486178596773000,
+          "lag_records": 219,
+          "started_ns": 1791486178572744000
+        },
+        {
+          "committed": 119,
+          "end": 348,
+          "finished_ns": 1791486179592956000,
+          "lag_records": 229,
+          "started_ns": 1791486179572695000
+        },
+        {
+          "committed": 125,
+          "end": 365,
+          "finished_ns": 1791486180590323000,
+          "lag_records": 240,
+          "started_ns": 1791486180573228000
+        },
+        {
+          "committed": 133,
+          "end": 378,
+          "finished_ns": 1791486181646747000,
+          "lag_records": 245,
+          "started_ns": 1791486181574072000
+        },
+        {
+          "committed": 140,
+          "end": 397,
+          "finished_ns": 1791486182601725000,
+          "lag_records": 257,
+          "started_ns": 1791486182574577000
+        },
+        {
+          "committed": 144,
+          "end": 413,
+          "finished_ns": 1791486183599545000,
+          "lag_records": 269,
+          "started_ns": 1791486183572823000
+        },
+        {
+          "committed": 150,
+          "end": 429,
+          "finished_ns": 1791486184606248000,
+          "lag_records": 279,
+          "started_ns": 1791486184573521000
+        },
+        {
+          "committed": 156,
+          "end": 441,
+          "finished_ns": 1791486185598305000,
+          "lag_records": 285,
+          "started_ns": 1791486185572610000
+        },
+        {
+          "committed": 161,
+          "end": 454,
+          "finished_ns": 1791486186611409000,
+          "lag_records": 293,
+          "started_ns": 1791486186572538000
+        },
+        {
+          "committed": 165,
+          "end": 477,
+          "finished_ns": 1791486187595986000,
+          "lag_records": 312,
+          "started_ns": 1791486187572885000
+        },
+        {
+          "committed": 168,
+          "end": 504,
+          "finished_ns": 1791486188590008000,
+          "lag_records": 336,
+          "started_ns": 1791486188572713000
+        },
+        {
+          "committed": 172,
+          "end": 526,
+          "finished_ns": 1791486189598252000,
+          "lag_records": 354,
+          "started_ns": 1791486189572640000
+        },
+        {
+          "committed": 176,
+          "end": 547,
+          "finished_ns": 1791486190590947000,
+          "lag_records": 371,
+          "started_ns": 1791486190572935000
+        },
+        {
+          "committed": 184,
+          "end": 567,
+          "finished_ns": 1791486191591167000,
+          "lag_records": 383,
+          "started_ns": 1791486191572539000
+        },
+        {
+          "committed": 188,
+          "end": 584,
+          "finished_ns": 1791486192602676000,
+          "lag_records": 396,
+          "started_ns": 1791486192573361000
+        },
+        {
+          "committed": 194,
+          "end": 600,
+          "finished_ns": 1791486193587435000,
+          "lag_records": 406,
+          "started_ns": 1791486193573105000
+        },
+        {
+          "committed": 198,
+          "end": 618,
+          "finished_ns": 1791486194593062000,
+          "lag_records": 420,
+          "started_ns": 1791486194572588000
+        },
+        {
+          "committed": 205,
+          "end": 639,
+          "finished_ns": 1791486195587820000,
+          "lag_records": 434,
+          "started_ns": 1791486195573262000
+        },
+        {
+          "committed": 210,
+          "end": 661,
+          "finished_ns": 1791486196587482000,
+          "lag_records": 451,
+          "started_ns": 1791486196573576000
+        },
+        {
+          "committed": 215,
+          "end": 679,
+          "finished_ns": 1791486197603850000,
+          "lag_records": 464,
+          "started_ns": 1791486197574386000
+        },
+        {
+          "committed": 220,
+          "end": 699,
+          "finished_ns": 1791486198593319000,
+          "lag_records": 479,
+          "started_ns": 1791486198572490000
+        },
+        {
+          "committed": 224,
+          "end": 718,
+          "finished_ns": 1791486199596314000,
+          "lag_records": 494,
+          "started_ns": 1791486199572432000
+        },
+        {
+          "committed": 231,
+          "end": 736,
+          "finished_ns": 1791486200594766000,
+          "lag_records": 505,
+          "started_ns": 1791486200572653000
+        },
+        {
+          "committed": 234,
+          "end": 745,
+          "finished_ns": 1791486201591532000,
+          "lag_records": 511,
+          "started_ns": 1791486201572662000
+        },
+        {
+          "committed": 237,
+          "end": 766,
+          "finished_ns": 1791486202593056000,
+          "lag_records": 529,
+          "started_ns": 1791486202572558000
+        },
+        {
+          "committed": 242,
+          "end": 787,
+          "finished_ns": 1791486203591854000,
+          "lag_records": 545,
+          "started_ns": 1791486203572628000
+        },
+        {
+          "committed": 246,
+          "end": 808,
+          "finished_ns": 1791486204594632000,
+          "lag_records": 562,
+          "started_ns": 1791486204572645000
+        },
+        {
+          "committed": 250,
+          "end": 830,
+          "finished_ns": 1791486205590833000,
+          "lag_records": 580,
+          "started_ns": 1791486205572778000
+        },
+        {
+          "committed": 256,
+          "end": 851,
+          "finished_ns": 1791486206587499000,
+          "lag_records": 595,
+          "started_ns": 1791486206572374000
+        },
+        {
+          "committed": 261,
+          "end": 870,
+          "finished_ns": 1791486207588917000,
+          "lag_records": 609,
+          "started_ns": 1791486207572526000
+        },
+        {
+          "committed": 265,
+          "end": 893,
+          "finished_ns": 1791486208591416000,
+          "lag_records": 628,
+          "started_ns": 1791486208573047000
+        },
+        {
+          "committed": 269,
+          "end": 913,
+          "finished_ns": 1791486209591631000,
+          "lag_records": 644,
+          "started_ns": 1791486209572558000
+        },
+        {
+          "committed": 278,
+          "end": 936,
+          "finished_ns": 1791486210598197000,
+          "lag_records": 658,
+          "started_ns": 1791486210572863000
+        },
+        {
+          "committed": 287,
+          "end": 955,
+          "finished_ns": 1791486211587240000,
+          "lag_records": 668,
+          "started_ns": 1791486211572546000
+        },
+        {
+          "committed": 294,
+          "end": 973,
+          "finished_ns": 1791486212602746000,
+          "lag_records": 679,
+          "started_ns": 1791486212572295000
+        },
+        {
+          "committed": 299,
+          "end": 989,
+          "finished_ns": 1791486213608161000,
+          "lag_records": 690,
+          "started_ns": 1791486213572608000
+        },
+        {
+          "committed": 305,
+          "end": 1003,
+          "finished_ns": 1791486214624774000,
+          "lag_records": 698,
+          "started_ns": 1791486214574345000
+        },
+        {
+          "committed": 309,
+          "end": 1021,
+          "finished_ns": 1791486215594723000,
+          "lag_records": 712,
+          "started_ns": 1791486215573092000
+        },
+        {
+          "committed": 313,
+          "end": 1038,
+          "finished_ns": 1791486216694810000,
+          "lag_records": 725,
+          "started_ns": 1791486216572932000
+        },
+        {
+          "committed": 317,
+          "end": 1056,
+          "finished_ns": 1791486217585288000,
+          "lag_records": 739,
+          "started_ns": 1791486217572276000
+        },
+        {
+          "committed": 321,
+          "end": 1074,
+          "finished_ns": 1791486218581548000,
+          "lag_records": 753,
+          "started_ns": 1791486218572362000
+        },
+        {
+          "committed": 325,
+          "end": 1097,
+          "finished_ns": 1791486219585214000,
+          "lag_records": 772,
+          "started_ns": 1791486219572430000
+        },
+        {
+          "committed": 328,
+          "end": 1124,
+          "finished_ns": 1791486220598728000,
+          "lag_records": 796,
+          "started_ns": 1791486220572642000
+        },
+        {
+          "committed": 331,
+          "end": 1146,
+          "finished_ns": 1791486221594092000,
+          "lag_records": 815,
+          "started_ns": 1791486221572326000
+        },
+        {
+          "committed": 334,
+          "end": 1163,
+          "finished_ns": 1791486222595851000,
+          "lag_records": 829,
+          "started_ns": 1791486222573166000
+        },
+        {
+          "committed": 337,
+          "end": 1183,
+          "finished_ns": 1791486223646322000,
+          "lag_records": 846,
+          "started_ns": 1791486223582225000
+        },
+        {
+          "committed": 341,
+          "end": 1207,
+          "finished_ns": 1791486224586507000,
+          "lag_records": 866,
+          "started_ns": 1791486224572357000
+        },
+        {
+          "committed": 344,
+          "end": 1227,
+          "finished_ns": 1791486225589948000,
+          "lag_records": 883,
+          "started_ns": 1791486225572315000
+        },
+        {
+          "committed": 348,
+          "end": 1247,
+          "finished_ns": 1791486226584692000,
+          "lag_records": 899,
+          "started_ns": 1791486226573026000
+        },
+        {
+          "committed": 353,
+          "end": 1267,
+          "finished_ns": 1791486227592040000,
+          "lag_records": 914,
+          "started_ns": 1791486227572331000
+        },
+        {
+          "committed": 358,
+          "end": 1283,
+          "finished_ns": 1791486228597537000,
+          "lag_records": 925,
+          "started_ns": 1791486228572211000
+        },
+        {
+          "committed": 364,
+          "end": 1298,
+          "finished_ns": 1791486229591540000,
+          "lag_records": 934,
+          "started_ns": 1791486229572488000
+        },
+        {
+          "committed": 369,
+          "end": 1316,
+          "finished_ns": 1791486230591329000,
+          "lag_records": 947,
+          "started_ns": 1791486230572340000
+        },
+        {
+          "committed": 373,
+          "end": 1330,
+          "finished_ns": 1791486231599065000,
+          "lag_records": 957,
+          "started_ns": 1791486231572341000
+        },
+        {
+          "committed": 378,
+          "end": 1349,
+          "finished_ns": 1791486232601204000,
+          "lag_records": 971,
+          "started_ns": 1791486232573137000
+        },
+        {
+          "committed": 382,
+          "end": 1366,
+          "finished_ns": 1791486233592460000,
+          "lag_records": 984,
+          "started_ns": 1791486233572101000
+        },
+        {
+          "committed": 386,
+          "end": 1385,
+          "finished_ns": 1791486234591416000,
+          "lag_records": 999,
+          "started_ns": 1791486234572266000
+        },
+        {
+          "committed": 389,
+          "end": 1408,
+          "finished_ns": 1791486235591294000,
+          "lag_records": 1019,
+          "started_ns": 1791486235573914000
+        },
+        {
+          "committed": 392,
+          "end": 1429,
+          "finished_ns": 1791486236588916000,
+          "lag_records": 1037,
+          "started_ns": 1791486236572074000
+        },
+        {
+          "committed": 394,
+          "end": 1451,
+          "finished_ns": 1791486237584995000,
+          "lag_records": 1057,
+          "started_ns": 1791486237572320000
+        },
+        {
+          "committed": 398,
+          "end": 1473,
+          "finished_ns": 1791486238589962000,
+          "lag_records": 1075,
+          "started_ns": 1791486238573280000
+        },
+        {
+          "committed": 403,
+          "end": 1496,
+          "finished_ns": 1791486239587974000,
+          "lag_records": 1093,
+          "started_ns": 1791486239574104000
+        },
+        {
+          "committed": 409,
+          "end": 1518,
+          "finished_ns": 1791486240583715000,
+          "lag_records": 1109,
+          "started_ns": 1791486240572152000
+        },
+        {
+          "committed": 413,
+          "end": 1540,
+          "finished_ns": 1791486241612122000,
+          "lag_records": 1127,
+          "started_ns": 1791486241572146000
+        },
+        {
+          "committed": 417,
+          "end": 1562,
+          "finished_ns": 1791486242590342000,
+          "lag_records": 1145,
+          "started_ns": 1791486242572240000
+        },
+        {
+          "committed": 422,
+          "end": 1576,
+          "finished_ns": 1791486243590522000,
+          "lag_records": 1154,
+          "started_ns": 1791486243572036000
+        },
+        {
+          "committed": 428,
+          "end": 1591,
+          "finished_ns": 1791486244587883000,
+          "lag_records": 1163,
+          "started_ns": 1791486244572381000
+        },
+        {
+          "committed": 432,
+          "end": 1608,
+          "finished_ns": 1791486245597727000,
+          "lag_records": 1176,
+          "started_ns": 1791486245572705000
+        },
+        {
+          "committed": 437,
+          "end": 1624,
+          "finished_ns": 1791486246620639000,
+          "lag_records": 1187,
+          "started_ns": 1791486246571993000
+        },
+        {
+          "committed": 441,
+          "end": 1644,
+          "finished_ns": 1791486247597437000,
+          "lag_records": 1203,
+          "started_ns": 1791486247574273000
+        },
+        {
+          "committed": 450,
+          "end": 1668,
+          "finished_ns": 1791486248594825000,
+          "lag_records": 1218,
+          "started_ns": 1791486248571995000
+        },
+        {
+          "committed": 456,
+          "end": 1692,
+          "finished_ns": 1791486249587824000,
+          "lag_records": 1236,
+          "started_ns": 1791486249573664000
+        },
+        {
+          "committed": 461,
+          "end": 1715,
+          "finished_ns": 1791486250587319000,
+          "lag_records": 1254,
+          "started_ns": 1791486250572006000
+        },
+        {
+          "committed": 468,
+          "end": 1734,
+          "finished_ns": 1791486251587523000,
+          "lag_records": 1266,
+          "started_ns": 1791486251572054000
+        },
+        {
+          "committed": 473,
+          "end": 1752,
+          "finished_ns": 1791486252592534000,
+          "lag_records": 1279,
+          "started_ns": 1791486252573565000
+        },
+        {
+          "committed": 477,
+          "end": 1771,
+          "finished_ns": 1791486253593754000,
+          "lag_records": 1294,
+          "started_ns": 1791486253571963000
+        },
+        {
+          "committed": 483,
+          "end": 1793,
+          "finished_ns": 1791486254595270000,
+          "lag_records": 1310,
+          "started_ns": 1791486254572575000
+        },
+        {
+          "committed": 491,
+          "end": 1813,
+          "finished_ns": 1791486255595980000,
+          "lag_records": 1322,
+          "started_ns": 1791486255572235000
+        },
+        {
+          "committed": 497,
+          "end": 1836,
+          "finished_ns": 1791486256590485000,
+          "lag_records": 1339,
+          "started_ns": 1791486256572430000
+        },
+        {
+          "committed": 503,
+          "end": 1859,
+          "finished_ns": 1791486257589882000,
+          "lag_records": 1356,
+          "started_ns": 1791486257571980000
+        },
+        {
+          "committed": 509,
+          "end": 1879,
+          "finished_ns": 1791486258596668000,
+          "lag_records": 1370,
+          "started_ns": 1791486258573929000
+        },
+        {
+          "committed": 512,
+          "end": 1899,
+          "finished_ns": 1791486259594294000,
+          "lag_records": 1387,
+          "started_ns": 1791486259572032000
+        },
+        {
+          "committed": 515,
+          "end": 1916,
+          "finished_ns": 1791486260590353000,
+          "lag_records": 1401,
+          "started_ns": 1791486260572381000
+        },
+        {
+          "committed": 519,
+          "end": 1930,
+          "finished_ns": 1791486261611839000,
+          "lag_records": 1411,
+          "started_ns": 1791486261571916000
+        },
+        {
+          "committed": 523,
+          "end": 1950,
+          "finished_ns": 1791486262590622000,
+          "lag_records": 1427,
+          "started_ns": 1791486262572283000
+        },
+        {
+          "committed": 528,
+          "end": 1969,
+          "finished_ns": 1791486263600804000,
+          "lag_records": 1441,
+          "started_ns": 1791486263572006000
+        },
+        {
+          "committed": 534,
+          "end": 1987,
+          "finished_ns": 1791486264656938000,
+          "lag_records": 1453,
+          "started_ns": 1791486264572107000
+        },
+        {
+          "committed": 539,
+          "end": 2007,
+          "finished_ns": 1791486265585538000,
+          "lag_records": 1468,
+          "started_ns": 1791486265571899000
+        },
+        {
+          "committed": 541,
+          "end": 2028,
+          "finished_ns": 1791486266590913000,
+          "lag_records": 1487,
+          "started_ns": 1791486266573878000
+        },
+        {
+          "committed": 544,
+          "end": 2051,
+          "finished_ns": 1791486267583432000,
+          "lag_records": 1507,
+          "started_ns": 1791486267571929000
+        },
+        {
+          "committed": 546,
+          "end": 2070,
+          "finished_ns": 1791486268587445000,
+          "lag_records": 1524,
+          "started_ns": 1791486268571836000
+        },
+        {
+          "committed": 550,
+          "end": 2088,
+          "finished_ns": 1791486269600015000,
+          "lag_records": 1538,
+          "started_ns": 1791486269572273000
+        },
+        {
+          "committed": 556,
+          "end": 2105,
+          "finished_ns": 1791486270592979000,
+          "lag_records": 1549,
+          "started_ns": 1791486270572036000
+        },
+        {
+          "committed": 558,
+          "end": 2122,
+          "finished_ns": 1791486271581054000,
+          "lag_records": 1564,
+          "started_ns": 1791486271571884000
+        },
+        {
+          "committed": 563,
+          "end": 2146,
+          "finished_ns": 1791486272591991000,
+          "lag_records": 1583,
+          "started_ns": 1791486272571773000
+        },
+        {
+          "committed": 566,
+          "end": 2165,
+          "finished_ns": 1791486273659919000,
+          "lag_records": 1599,
+          "started_ns": 1791486273572544000
+        },
+        {
+          "committed": 568,
+          "end": 2184,
+          "finished_ns": 1791486274592203000,
+          "lag_records": 1616,
+          "started_ns": 1791486274571763000
+        },
+        {
+          "committed": 572,
+          "end": 2199,
+          "finished_ns": 1791486275589647000,
+          "lag_records": 1627,
+          "started_ns": 1791486275571785000
+        },
+        {
+          "committed": 578,
+          "end": 2216,
+          "finished_ns": 1791486276584255000,
+          "lag_records": 1638,
+          "started_ns": 1791486276572550000
+        },
+        {
+          "committed": 583,
+          "end": 2238,
+          "finished_ns": 1791486277583198000,
+          "lag_records": 1655,
+          "started_ns": 1791486277571929000
+        },
+        {
+          "committed": 586,
+          "end": 2260,
+          "finished_ns": 1791486278585451000,
+          "lag_records": 1674,
+          "started_ns": 1791486278571682000
+        },
+        {
+          "committed": 590,
+          "end": 2288,
+          "finished_ns": 1791486279592797000,
+          "lag_records": 1698,
+          "started_ns": 1791486279573688000
+        },
+        {
+          "committed": 594,
+          "end": 2310,
+          "finished_ns": 1791486280583153000,
+          "lag_records": 1716,
+          "started_ns": 1791486280572298000
+        },
+        {
+          "committed": 598,
+          "end": 2333,
+          "finished_ns": 1791486281590268000,
+          "lag_records": 1735,
+          "started_ns": 1791486281574896000
+        },
+        {
+          "committed": 601,
+          "end": 2354,
+          "finished_ns": 1791486282592297000,
+          "lag_records": 1753,
+          "started_ns": 1791486282572250000
+        },
+        {
+          "committed": 605,
+          "end": 2374,
+          "finished_ns": 1791486283596367000,
+          "lag_records": 1769,
+          "started_ns": 1791486283573404000
+        },
+        {
+          "committed": 608,
+          "end": 2391,
+          "finished_ns": 1791486284594295000,
+          "lag_records": 1783,
+          "started_ns": 1791486284571851000
+        },
+        {
+          "committed": 613,
+          "end": 2407,
+          "finished_ns": 1791486285591231000,
+          "lag_records": 1794,
+          "started_ns": 1791486285572382000
+        },
+        {
+          "committed": 617,
+          "end": 2422,
+          "finished_ns": 1791486286590881000,
+          "lag_records": 1805,
+          "started_ns": 1791486286571801000
+        },
+        {
+          "committed": 622,
+          "end": 2445,
+          "finished_ns": 1791486287588564000,
+          "lag_records": 1823,
+          "started_ns": 1791486287571639000
+        },
+        {
+          "committed": 629,
+          "end": 2464,
+          "finished_ns": 1791486288589802000,
+          "lag_records": 1835,
+          "started_ns": 1791486288572946000
+        },
+        {
+          "committed": 636,
+          "end": 2481,
+          "finished_ns": 1791486289601667000,
+          "lag_records": 1845,
+          "started_ns": 1791486289571694000
+        },
+        {
+          "committed": 643,
+          "end": 2497,
+          "finished_ns": 1791486290590506000,
+          "lag_records": 1854,
+          "started_ns": 1791486290571701000
+        },
+        {
+          "committed": 646,
+          "end": 2515,
+          "finished_ns": 1791486291585564000,
+          "lag_records": 1869,
+          "started_ns": 1791486291571669000
+        },
+        {
+          "committed": 651,
+          "end": 2534,
+          "finished_ns": 1791486292590908000,
+          "lag_records": 1883,
+          "started_ns": 1791486292571651000
+        },
+        {
+          "committed": 656,
+          "end": 2557,
+          "finished_ns": 1791486293590267000,
+          "lag_records": 1901,
+          "started_ns": 1791486293571647000
+        },
+        {
+          "committed": 666,
+          "end": 2576,
+          "finished_ns": 1791486294585968000,
+          "lag_records": 1910,
+          "started_ns": 1791486294571662000
+        },
+        {
+          "committed": 677,
+          "end": 2595,
+          "finished_ns": 1791486295605115000,
+          "lag_records": 1918,
+          "started_ns": 1791486295571888000
+        },
+        {
+          "committed": 690,
+          "end": 2595,
+          "finished_ns": 1791486296588609000,
+          "lag_records": 1905,
+          "started_ns": 1791486296573559000
+        },
+        {
+          "committed": 704,
+          "end": 2595,
+          "finished_ns": 1791486297582665000,
+          "lag_records": 1891,
+          "started_ns": 1791486297571520000
+        },
+        {
+          "committed": 716,
+          "end": 2595,
+          "finished_ns": 1791486298595853000,
+          "lag_records": 1879,
+          "started_ns": 1791486298573542000
+        },
+        {
+          "committed": 723,
+          "end": 2595,
+          "finished_ns": 1791486299593678000,
+          "lag_records": 1872,
+          "started_ns": 1791486299571674000
+        },
+        {
+          "committed": 728,
+          "end": 2595,
+          "finished_ns": 1791486300596130000,
+          "lag_records": 1867,
+          "started_ns": 1791486300573547000
+        },
+        {
+          "committed": 734,
+          "end": 2595,
+          "finished_ns": 1791486301592318000,
+          "lag_records": 1861,
+          "started_ns": 1791486301572178000
+        },
+        {
+          "committed": 743,
+          "end": 2595,
+          "finished_ns": 1791486302586210000,
+          "lag_records": 1852,
+          "started_ns": 1791486302572310000
+        },
+        {
+          "committed": 756,
+          "end": 2595,
+          "finished_ns": 1791486303585442000,
+          "lag_records": 1839,
+          "started_ns": 1791486303573453000
+        },
+        {
+          "committed": 769,
+          "end": 2595,
+          "finished_ns": 1791486304585925000,
+          "lag_records": 1826,
+          "started_ns": 1791486304571836000
+        },
+        {
+          "committed": 781,
+          "end": 2595,
+          "finished_ns": 1791486305593155000,
+          "lag_records": 1814,
+          "started_ns": 1791486305572622000
+        },
+        {
+          "committed": 796,
+          "end": 2595,
+          "finished_ns": 1791486306588953000,
+          "lag_records": 1799,
+          "started_ns": 1791486306572408000
+        },
+        {
+          "committed": 813,
+          "end": 2595,
+          "finished_ns": 1791486307592841000,
+          "lag_records": 1782,
+          "started_ns": 1791486307571706000
+        },
+        {
+          "committed": 829,
+          "end": 2595,
+          "finished_ns": 1791486308587456000,
+          "lag_records": 1766,
+          "started_ns": 1791486308571455000
+        },
+        {
+          "committed": 845,
+          "end": 2595,
+          "finished_ns": 1791486309587345000,
+          "lag_records": 1750,
+          "started_ns": 1791486309571432000
+        },
+        {
+          "committed": 861,
+          "end": 2595,
+          "finished_ns": 1791486310583460000,
+          "lag_records": 1734,
+          "started_ns": 1791486310572217000
+        },
+        {
+          "committed": 879,
+          "end": 2595,
+          "finished_ns": 1791486311583264000,
+          "lag_records": 1716,
+          "started_ns": 1791486311571441000
+        },
+        {
+          "committed": 893,
+          "end": 2595,
+          "finished_ns": 1791486312591306000,
+          "lag_records": 1702,
+          "started_ns": 1791486312572308000
+        },
+        {
+          "committed": 902,
+          "end": 2595,
+          "finished_ns": 1791486313590448000,
+          "lag_records": 1693,
+          "started_ns": 1791486313571458000
+        },
+        {
+          "committed": 912,
+          "end": 2595,
+          "finished_ns": 1791486314633454000,
+          "lag_records": 1683,
+          "started_ns": 1791486314571472000
+        },
+        {
+          "committed": 922,
+          "end": 2595,
+          "finished_ns": 1791486315592517000,
+          "lag_records": 1673,
+          "started_ns": 1791486315571538000
+        },
+        {
+          "committed": 930,
+          "end": 2595,
+          "finished_ns": 1791486316659008000,
+          "lag_records": 1665,
+          "started_ns": 1791486316571347000
+        },
+        {
+          "committed": 940,
+          "end": 2595,
+          "finished_ns": 1791486317588481000,
+          "lag_records": 1655,
+          "started_ns": 1791486317572731000
+        },
+        {
+          "committed": 956,
+          "end": 2595,
+          "finished_ns": 1791486318584878000,
+          "lag_records": 1639,
+          "started_ns": 1791486318571432000
+        },
+        {
+          "committed": 971,
+          "end": 2595,
+          "finished_ns": 1791486319585146000,
+          "lag_records": 1624,
+          "started_ns": 1791486319571572000
+        },
+        {
+          "committed": 987,
+          "end": 2595,
+          "finished_ns": 1791486320581300000,
+          "lag_records": 1608,
+          "started_ns": 1791486320571442000
+        },
+        {
+          "committed": 1002,
+          "end": 2595,
+          "finished_ns": 1791486321583299000,
+          "lag_records": 1593,
+          "started_ns": 1791486321572308000
+        },
+        {
+          "committed": 1021,
+          "end": 2595,
+          "finished_ns": 1791486322583165000,
+          "lag_records": 1574,
+          "started_ns": 1791486322571309000
+        },
+        {
+          "committed": 1035,
+          "end": 2595,
+          "finished_ns": 1791486323590906000,
+          "lag_records": 1560,
+          "started_ns": 1791486323571520000
+        },
+        {
+          "committed": 1048,
+          "end": 2595,
+          "finished_ns": 1791486324586943000,
+          "lag_records": 1547,
+          "started_ns": 1791486324573256000
+        },
+        {
+          "committed": 1063,
+          "end": 2595,
+          "finished_ns": 1791486325585035000,
+          "lag_records": 1532,
+          "started_ns": 1791486325571579000
+        },
+        {
+          "committed": 1075,
+          "end": 2595,
+          "finished_ns": 1791486326585635000,
+          "lag_records": 1520,
+          "started_ns": 1791486326571554000
+        },
+        {
+          "committed": 1087,
+          "end": 2595,
+          "finished_ns": 1791486327590388000,
+          "lag_records": 1508,
+          "started_ns": 1791486327571500000
+        },
+        {
+          "committed": 1098,
+          "end": 2595,
+          "finished_ns": 1791486328590797000,
+          "lag_records": 1497,
+          "started_ns": 1791486328572538000
+        },
+        {
+          "committed": 1109,
+          "end": 2595,
+          "finished_ns": 1791486329594798000,
+          "lag_records": 1486,
+          "started_ns": 1791486329574024000
+        },
+        {
+          "committed": 1119,
+          "end": 2595,
+          "finished_ns": 1791486330590365000,
+          "lag_records": 1476,
+          "started_ns": 1791486330572234000
+        },
+        {
+          "committed": 1126,
+          "end": 2595,
+          "finished_ns": 1791486331696384000,
+          "lag_records": 1469,
+          "started_ns": 1791486331571409000
+        },
+        {
+          "committed": 1133,
+          "end": 2595,
+          "finished_ns": 1791486332592285000,
+          "lag_records": 1462,
+          "started_ns": 1791486332573176000
+        },
+        {
+          "committed": 1148,
+          "end": 2595,
+          "finished_ns": 1791486333587783000,
+          "lag_records": 1447,
+          "started_ns": 1791486333573205000
+        },
+        {
+          "committed": 1163,
+          "end": 2595,
+          "finished_ns": 1791486334582135000,
+          "lag_records": 1432,
+          "started_ns": 1791486334571239000
+        },
+        {
+          "committed": 1175,
+          "end": 2595,
+          "finished_ns": 1791486335583996000,
+          "lag_records": 1420,
+          "started_ns": 1791486335571371000
+        },
+        {
+          "committed": 1191,
+          "end": 2595,
+          "finished_ns": 1791486336580894000,
+          "lag_records": 1404,
+          "started_ns": 1791486336571336000
+        },
+        {
+          "committed": 1204,
+          "end": 2595,
+          "finished_ns": 1791486337587815000,
+          "lag_records": 1391,
+          "started_ns": 1791486337572717000
+        },
+        {
+          "committed": 1214,
+          "end": 2595,
+          "finished_ns": 1791486338590904000,
+          "lag_records": 1381,
+          "started_ns": 1791486338571454000
+        },
+        {
+          "committed": 1223,
+          "end": 2595,
+          "finished_ns": 1791486339591185000,
+          "lag_records": 1372,
+          "started_ns": 1791486339571139000
+        },
+        {
+          "committed": 1230,
+          "end": 2595,
+          "finished_ns": 1791486340593640000,
+          "lag_records": 1365,
+          "started_ns": 1791486340571853000
+        },
+        {
+          "committed": 1240,
+          "end": 2595,
+          "finished_ns": 1791486341590059000,
+          "lag_records": 1355,
+          "started_ns": 1791486341571227000
+        },
+        {
+          "committed": 1254,
+          "end": 2595,
+          "finished_ns": 1791486342592735000,
+          "lag_records": 1341,
+          "started_ns": 1791486342571344000
+        },
+        {
+          "committed": 1265,
+          "end": 2595,
+          "finished_ns": 1791486343602800000,
+          "lag_records": 1330,
+          "started_ns": 1791486343571227000
+        },
+        {
+          "committed": 1275,
+          "end": 2595,
+          "finished_ns": 1791486344602481000,
+          "lag_records": 1320,
+          "started_ns": 1791486344571304000
+        },
+        {
+          "committed": 1283,
+          "end": 2595,
+          "finished_ns": 1791486345595157000,
+          "lag_records": 1312,
+          "started_ns": 1791486345571183000
+        },
+        {
+          "committed": 1293,
+          "end": 2595,
+          "finished_ns": 1791486346631603000,
+          "lag_records": 1302,
+          "started_ns": 1791486346572871000
+        },
+        {
+          "committed": 1303,
+          "end": 2595,
+          "finished_ns": 1791486347631112000,
+          "lag_records": 1292,
+          "started_ns": 1791486347571168000
+        },
+        {
+          "committed": 1313,
+          "end": 2595,
+          "finished_ns": 1791486348594959000,
+          "lag_records": 1282,
+          "started_ns": 1791486348571383000
+        },
+        {
+          "committed": 1321,
+          "end": 2595,
+          "finished_ns": 1791486349599547000,
+          "lag_records": 1274,
+          "started_ns": 1791486349571137000
+        },
+        {
+          "committed": 1328,
+          "end": 2595,
+          "finished_ns": 1791486350596807000,
+          "lag_records": 1267,
+          "started_ns": 1791486350571112000
+        },
+        {
+          "committed": 1336,
+          "end": 2595,
+          "finished_ns": 1791486351586762000,
+          "lag_records": 1259,
+          "started_ns": 1791486351571021000
+        },
+        {
+          "committed": 1349,
+          "end": 2595,
+          "finished_ns": 1791486352592243000,
+          "lag_records": 1246,
+          "started_ns": 1791486352571023000
+        },
+        {
+          "committed": 1362,
+          "end": 2595,
+          "finished_ns": 1791486353590144000,
+          "lag_records": 1233,
+          "started_ns": 1791486353571486000
+        },
+        {
+          "committed": 1373,
+          "end": 2595,
+          "finished_ns": 1791486354584751000,
+          "lag_records": 1222,
+          "started_ns": 1791486354571333000
+        },
+        {
+          "committed": 1383,
+          "end": 2595,
+          "finished_ns": 1791486355585233000,
+          "lag_records": 1212,
+          "started_ns": 1791486355571423000
+        },
+        {
+          "committed": 1392,
+          "end": 2595,
+          "finished_ns": 1791486356634557000,
+          "lag_records": 1203,
+          "started_ns": 1791486356571283000
+        },
+        {
+          "committed": 1402,
+          "end": 2595,
+          "finished_ns": 1791486357632031000,
+          "lag_records": 1193,
+          "started_ns": 1791486357570956000
+        },
+        {
+          "committed": 1412,
+          "end": 2595,
+          "finished_ns": 1791486358585137000,
+          "lag_records": 1183,
+          "started_ns": 1791486358571646000
+        },
+        {
+          "committed": 1422,
+          "end": 2595,
+          "finished_ns": 1791486359630179000,
+          "lag_records": 1173,
+          "started_ns": 1791486359571379000
+        },
+        {
+          "committed": 1432,
+          "end": 2595,
+          "finished_ns": 1791486360591298000,
+          "lag_records": 1163,
+          "started_ns": 1791486360571347000
+        },
+        {
+          "committed": 1440,
+          "end": 2595,
+          "finished_ns": 1791486361583304000,
+          "lag_records": 1155,
+          "started_ns": 1791486361571068000
+        },
+        {
+          "committed": 1452,
+          "end": 2595,
+          "finished_ns": 1791486362582149000,
+          "lag_records": 1143,
+          "started_ns": 1791486362571129000
+        },
+        {
+          "committed": 1465,
+          "end": 2595,
+          "finished_ns": 1791486363589373000,
+          "lag_records": 1130,
+          "started_ns": 1791486363570939000
+        },
+        {
+          "committed": 1475,
+          "end": 2595,
+          "finished_ns": 1791486364585529000,
+          "lag_records": 1120,
+          "started_ns": 1791486364572885000
+        },
+        {
+          "committed": 1483,
+          "end": 2595,
+          "finished_ns": 1791486365631846000,
+          "lag_records": 1112,
+          "started_ns": 1791486365571587000
+        },
+        {
+          "committed": 1494,
+          "end": 2595,
+          "finished_ns": 1791486366588287000,
+          "lag_records": 1101,
+          "started_ns": 1791486366570950000
+        },
+        {
+          "committed": 1504,
+          "end": 2595,
+          "finished_ns": 1791486367636832000,
+          "lag_records": 1091,
+          "started_ns": 1791486367572444000
+        },
+        {
+          "committed": 1515,
+          "end": 2595,
+          "finished_ns": 1791486368640794000,
+          "lag_records": 1080,
+          "started_ns": 1791486368572845000
+        },
+        {
+          "committed": 1531,
+          "end": 2595,
+          "finished_ns": 1791486369586081000,
+          "lag_records": 1064,
+          "started_ns": 1791486369570894000
+        },
+        {
+          "committed": 1548,
+          "end": 2595,
+          "finished_ns": 1791486370585069000,
+          "lag_records": 1047,
+          "started_ns": 1791486370570916000
+        },
+        {
+          "committed": 1566,
+          "end": 2595,
+          "finished_ns": 1791486371588182000,
+          "lag_records": 1029,
+          "started_ns": 1791486371572645000
+        },
+        {
+          "committed": 1583,
+          "end": 2595,
+          "finished_ns": 1791486372594761000,
+          "lag_records": 1012,
+          "started_ns": 1791486372572821000
+        },
+        {
+          "committed": 1595,
+          "end": 2595,
+          "finished_ns": 1791486373595727000,
+          "lag_records": 1000,
+          "started_ns": 1791486373570971000
+        },
+        {
+          "committed": 1604,
+          "end": 2595,
+          "finished_ns": 1791486374595168000,
+          "lag_records": 991,
+          "started_ns": 1791486374571761000
+        },
+        {
+          "committed": 1614,
+          "end": 2595,
+          "finished_ns": 1791486375601577000,
+          "lag_records": 981,
+          "started_ns": 1791486375572346000
+        },
+        {
+          "committed": 1622,
+          "end": 2595,
+          "finished_ns": 1791486376631639000,
+          "lag_records": 973,
+          "started_ns": 1791486376574470000
+        },
+        {
+          "committed": 1629,
+          "end": 2595,
+          "finished_ns": 1791486377593042000,
+          "lag_records": 966,
+          "started_ns": 1791486377569314000
+        },
+        {
+          "committed": 1641,
+          "end": 2595,
+          "finished_ns": 1791486378589203000,
+          "lag_records": 954,
+          "started_ns": 1791486378570768000
+        },
+        {
+          "committed": 1657,
+          "end": 2595,
+          "finished_ns": 1791486379583664000,
+          "lag_records": 938,
+          "started_ns": 1791486379568323000
+        },
+        {
+          "committed": 1674,
+          "end": 2595,
+          "finished_ns": 1791486380582093000,
+          "lag_records": 921,
+          "started_ns": 1791486380569235000
+        },
+        {
+          "committed": 1688,
+          "end": 2595,
+          "finished_ns": 1791486381582681000,
+          "lag_records": 907,
+          "started_ns": 1791486381569597000
+        },
+        {
+          "committed": 1701,
+          "end": 2595,
+          "finished_ns": 1791486382602556000,
+          "lag_records": 894,
+          "started_ns": 1791486382567812000
+        },
+        {
+          "committed": 1710,
+          "end": 2595,
+          "finished_ns": 1791486383583908000,
+          "lag_records": 885,
+          "started_ns": 1791486383568494000
+        },
+        {
+          "committed": 1725,
+          "end": 2595,
+          "finished_ns": 1791486384579637000,
+          "lag_records": 870,
+          "started_ns": 1791486384566405000
+        },
+        {
+          "committed": 1740,
+          "end": 2595,
+          "finished_ns": 1791486385578343000,
+          "lag_records": 855,
+          "started_ns": 1791486385566385000
+        },
+        {
+          "committed": 1753,
+          "end": 2595,
+          "finished_ns": 1791486386581195000,
+          "lag_records": 842,
+          "started_ns": 1791486386565900000
+        },
+        {
+          "committed": 1770,
+          "end": 2595,
+          "finished_ns": 1791486387582521000,
+          "lag_records": 825,
+          "started_ns": 1791486387567413000
+        },
+        {
+          "committed": 1783,
+          "end": 2595,
+          "finished_ns": 1791486388589275000,
+          "lag_records": 812,
+          "started_ns": 1791486388565300000
+        },
+        {
+          "committed": 1791,
+          "end": 2595,
+          "finished_ns": 1791486389589290000,
+          "lag_records": 804,
+          "started_ns": 1791486389565035000
+        },
+        {
+          "committed": 1799,
+          "end": 2595,
+          "finished_ns": 1791486390587365000,
+          "lag_records": 796,
+          "started_ns": 1791486390565736000
+        },
+        {
+          "committed": 1805,
+          "end": 2595,
+          "finished_ns": 1791486391601590000,
+          "lag_records": 790,
+          "started_ns": 1791486391564752000
+        },
+        {
+          "committed": 1809,
+          "end": 2595,
+          "finished_ns": 1791486392578478000,
+          "lag_records": 786,
+          "started_ns": 1791486392564636000
+        },
+        {
+          "committed": 1818,
+          "end": 2595,
+          "finished_ns": 1791486393581938000,
+          "lag_records": 777,
+          "started_ns": 1791486393564642000
+        },
+        {
+          "committed": 1830,
+          "end": 2595,
+          "finished_ns": 1791486394575594000,
+          "lag_records": 765,
+          "started_ns": 1791486394564055000
+        },
+        {
+          "committed": 1843,
+          "end": 2595,
+          "finished_ns": 1791486395582898000,
+          "lag_records": 752,
+          "started_ns": 1791486395564007000
+        },
+        {
+          "committed": 1855,
+          "end": 2595,
+          "finished_ns": 1791486396576331000,
+          "lag_records": 740,
+          "started_ns": 1791486396563713000
+        },
+        {
+          "committed": 1868,
+          "end": 2595,
+          "finished_ns": 1791486397577641000,
+          "lag_records": 727,
+          "started_ns": 1791486397564534000
+        },
+        {
+          "committed": 1882,
+          "end": 2595,
+          "finished_ns": 1791486398581576000,
+          "lag_records": 713,
+          "started_ns": 1791486398563431000
+        },
+        {
+          "committed": 1896,
+          "end": 2595,
+          "finished_ns": 1791486399572445000,
+          "lag_records": 699,
+          "started_ns": 1791486399563281000
+        },
+        {
+          "committed": 1915,
+          "end": 2595,
+          "finished_ns": 1791486400576992000,
+          "lag_records": 680,
+          "started_ns": 1791486400565122000
+        },
+        {
+          "committed": 1922,
+          "end": 2595,
+          "finished_ns": 1791486401583006000,
+          "lag_records": 673,
+          "started_ns": 1791486401563280000
+        },
+        {
+          "committed": 1932,
+          "end": 2595,
+          "finished_ns": 1791486402573674000,
+          "lag_records": 663,
+          "started_ns": 1791486402563115000
+        },
+        {
+          "committed": 1945,
+          "end": 2595,
+          "finished_ns": 1791486403579103000,
+          "lag_records": 650,
+          "started_ns": 1791486403563707000
+        },
+        {
+          "committed": 1954,
+          "end": 2595,
+          "finished_ns": 1791486404579700000,
+          "lag_records": 641,
+          "started_ns": 1791486404562977000
+        },
+        {
+          "committed": 1963,
+          "end": 2595,
+          "finished_ns": 1791486405589011000,
+          "lag_records": 632,
+          "started_ns": 1791486405564589000
+        },
+        {
+          "committed": 1973,
+          "end": 2595,
+          "finished_ns": 1791486406584389000,
+          "lag_records": 622,
+          "started_ns": 1791486406562503000
+        },
+        {
+          "committed": 1978,
+          "end": 2595,
+          "finished_ns": 1791486407575143000,
+          "lag_records": 617,
+          "started_ns": 1791486407562608000
+        },
+        {
+          "committed": 1992,
+          "end": 2595,
+          "finished_ns": 1791486408575479000,
+          "lag_records": 603,
+          "started_ns": 1791486408563319000
+        },
+        {
+          "committed": 2003,
+          "end": 2595,
+          "finished_ns": 1791486409573463000,
+          "lag_records": 592,
+          "started_ns": 1791486409564298000
+        },
+        {
+          "committed": 2019,
+          "end": 2595,
+          "finished_ns": 1791486410573572000,
+          "lag_records": 576,
+          "started_ns": 1791486410562470000
+        },
+        {
+          "committed": 2033,
+          "end": 2595,
+          "finished_ns": 1791486411591548000,
+          "lag_records": 562,
+          "started_ns": 1791486411563669000
+        },
+        {
+          "committed": 2046,
+          "end": 2595,
+          "finished_ns": 1791486412572196000,
+          "lag_records": 549,
+          "started_ns": 1791486412562215000
+        },
+        {
+          "committed": 2063,
+          "end": 2595,
+          "finished_ns": 1791486413574866000,
+          "lag_records": 532,
+          "started_ns": 1791486413562156000
+        },
+        {
+          "committed": 2079,
+          "end": 2595,
+          "finished_ns": 1791486414574039000,
+          "lag_records": 516,
+          "started_ns": 1791486414562070000
+        },
+        {
+          "committed": 2094,
+          "end": 2595,
+          "finished_ns": 1791486415575472000,
+          "lag_records": 501,
+          "started_ns": 1791486415562092000
+        },
+        {
+          "committed": 2110,
+          "end": 2595,
+          "finished_ns": 1791486416573125000,
+          "lag_records": 485,
+          "started_ns": 1791486416562074000
+        },
+        {
+          "committed": 2126,
+          "end": 2595,
+          "finished_ns": 1791486417580273000,
+          "lag_records": 469,
+          "started_ns": 1791486417561920000
+        },
+        {
+          "committed": 2141,
+          "end": 2595,
+          "finished_ns": 1791486418581729000,
+          "lag_records": 454,
+          "started_ns": 1791486418562740000
+        },
+        {
+          "committed": 2150,
+          "end": 2595,
+          "finished_ns": 1791486419581015000,
+          "lag_records": 445,
+          "started_ns": 1791486419561844000
+        },
+        {
+          "committed": 2160,
+          "end": 2595,
+          "finished_ns": 1791486420579569000,
+          "lag_records": 435,
+          "started_ns": 1791486420561822000
+        },
+        {
+          "committed": 2167,
+          "end": 2595,
+          "finished_ns": 1791486421582456000,
+          "lag_records": 428,
+          "started_ns": 1791486421561777000
+        },
+        {
+          "committed": 2173,
+          "end": 2595,
+          "finished_ns": 1791486422578669000,
+          "lag_records": 422,
+          "started_ns": 1791486422561824000
+        },
+        {
+          "committed": 2187,
+          "end": 2595,
+          "finished_ns": 1791486423582865000,
+          "lag_records": 408,
+          "started_ns": 1791486423561809000
+        },
+        {
+          "committed": 2202,
+          "end": 2595,
+          "finished_ns": 1791486424570757000,
+          "lag_records": 393,
+          "started_ns": 1791486424561584000
+        },
+        {
+          "committed": 2216,
+          "end": 2595,
+          "finished_ns": 1791486425575214000,
+          "lag_records": 379,
+          "started_ns": 1791486425561663000
+        },
+        {
+          "committed": 2232,
+          "end": 2595,
+          "finished_ns": 1791486426578644000,
+          "lag_records": 363,
+          "started_ns": 1791486426561924000
+        },
+        {
+          "committed": 2249,
+          "end": 2595,
+          "finished_ns": 1791486427582119000,
+          "lag_records": 346,
+          "started_ns": 1791486427562129000
+        },
+        {
+          "committed": 2262,
+          "end": 2595,
+          "finished_ns": 1791486428577939000,
+          "lag_records": 333,
+          "started_ns": 1791486428562145000
+        },
+        {
+          "committed": 2275,
+          "end": 2595,
+          "finished_ns": 1791486429577437000,
+          "lag_records": 320,
+          "started_ns": 1791486429561570000
+        },
+        {
+          "committed": 2291,
+          "end": 2595,
+          "finished_ns": 1791486430576050000,
+          "lag_records": 304,
+          "started_ns": 1791486430563015000
+        },
+        {
+          "committed": 2302,
+          "end": 2595,
+          "finished_ns": 1791486431591889000,
+          "lag_records": 293,
+          "started_ns": 1791486431561472000
+        },
+        {
+          "committed": 2314,
+          "end": 2595,
+          "finished_ns": 1791486432579562000,
+          "lag_records": 281,
+          "started_ns": 1791486432561673000
+        },
+        {
+          "committed": 2329,
+          "end": 2595,
+          "finished_ns": 1791486433575924000,
+          "lag_records": 266,
+          "started_ns": 1791486433561771000
+        },
+        {
+          "committed": 2340,
+          "end": 2595,
+          "finished_ns": 1791486434584196000,
+          "lag_records": 255,
+          "started_ns": 1791486434561618000
+        },
+        {
+          "committed": 2350,
+          "end": 2595,
+          "finished_ns": 1791486435584959000,
+          "lag_records": 245,
+          "started_ns": 1791486435561568000
+        },
+        {
+          "committed": 2359,
+          "end": 2595,
+          "finished_ns": 1791486436645796000,
+          "lag_records": 236,
+          "started_ns": 1791486436561356000
+        },
+        {
+          "committed": 2364,
+          "end": 2595,
+          "finished_ns": 1791486437578780000,
+          "lag_records": 231,
+          "started_ns": 1791486437561584000
+        },
+        {
+          "committed": 2378,
+          "end": 2595,
+          "finished_ns": 1791486438579008000,
+          "lag_records": 217,
+          "started_ns": 1791486438561364000
+        },
+        {
+          "committed": 2392,
+          "end": 2595,
+          "finished_ns": 1791486439585790000,
+          "lag_records": 203,
+          "started_ns": 1791486439563254000
+        },
+        {
+          "committed": 2408,
+          "end": 2595,
+          "finished_ns": 1791486440573973000,
+          "lag_records": 187,
+          "started_ns": 1791486440563441000
+        },
+        {
+          "committed": 2420,
+          "end": 2595,
+          "finished_ns": 1791486441603336000,
+          "lag_records": 175,
+          "started_ns": 1791486441565534000
+        },
+        {
+          "committed": 2427,
+          "end": 2595,
+          "finished_ns": 1791486442576684000,
+          "lag_records": 168,
+          "started_ns": 1791486442563054000
+        },
+        {
+          "committed": 2441,
+          "end": 2595,
+          "finished_ns": 1791486443580318000,
+          "lag_records": 154,
+          "started_ns": 1791486443561249000
+        },
+        {
+          "committed": 2455,
+          "end": 2595,
+          "finished_ns": 1791486444575999000,
+          "lag_records": 140,
+          "started_ns": 1791486444561277000
+        },
+        {
+          "committed": 2471,
+          "end": 2595,
+          "finished_ns": 1791486445573092000,
+          "lag_records": 124,
+          "started_ns": 1791486445561656000
+        },
+        {
+          "committed": 2485,
+          "end": 2595,
+          "finished_ns": 1791486446572872000,
+          "lag_records": 110,
+          "started_ns": 1791486446561248000
+        },
+        {
+          "committed": 2497,
+          "end": 2595,
+          "finished_ns": 1791486447575762000,
+          "lag_records": 98,
+          "started_ns": 1791486447561155000
+        },
+        {
+          "committed": 2512,
+          "end": 2595,
+          "finished_ns": 1791486448575126000,
+          "lag_records": 83,
+          "started_ns": 1791486448561340000
+        },
+        {
+          "committed": 2523,
+          "end": 2595,
+          "finished_ns": 1791486449578621000,
+          "lag_records": 72,
+          "started_ns": 1791486449561285000
+        },
+        {
+          "committed": 2533,
+          "end": 2595,
+          "finished_ns": 1791486450577049000,
+          "lag_records": 62,
+          "started_ns": 1791486450561141000
+        },
+        {
+          "committed": 2542,
+          "end": 2595,
+          "finished_ns": 1791486451599762000,
+          "lag_records": 53,
+          "started_ns": 1791486451561478000
+        },
+        {
+          "committed": 2545,
+          "end": 2595,
+          "finished_ns": 1791486452575454000,
+          "lag_records": 50,
+          "started_ns": 1791486452561177000
+        },
+        {
+          "committed": 2551,
+          "end": 2595,
+          "finished_ns": 1791486453576643000,
+          "lag_records": 44,
+          "started_ns": 1791486453563124000
+        },
+        {
+          "committed": 2566,
+          "end": 2595,
+          "finished_ns": 1791486454574697000,
+          "lag_records": 29,
+          "started_ns": 1791486454561107000
+        },
+        {
+          "committed": 2580,
+          "end": 2595,
+          "finished_ns": 1791486455575031000,
+          "lag_records": 15,
+          "started_ns": 1791486455561329000
+        },
+        {
+          "committed": 2594,
+          "end": 2595,
+          "finished_ns": 1791486456576476000,
+          "lag_records": 1,
+          "started_ns": 1791486456562243000
+        },
+        {
+          "committed": 2595,
+          "end": 2595,
+          "finished_ns": 1791486457574324000,
+          "lag_records": 0,
+          "started_ns": 1791486457561099000
+        },
+        {
+          "committed": 2595,
+          "end": 2595,
+          "finished_ns": 1791486458575032000,
+          "lag_records": 0,
+          "started_ns": 1791486458561427000
+        },
+        {
+          "committed": 2595,
+          "end": 2595,
+          "finished_ns": 1791486459576574000,
+          "lag_records": 0,
+          "started_ns": 1791486459563061000
+        },
+        {
+          "committed": 2595,
+          "end": 2595,
+          "finished_ns": 1791486460569374000,
+          "lag_records": 0,
+          "started_ns": 1791486460561225000
+        },
+        {
+          "committed": 2595,
+          "end": 2595,
+          "finished_ns": 1791486461570236000,
+          "lag_records": 0,
+          "started_ns": 1791486461561108000
+        },
+        {
+          "committed": 2595,
+          "end": 2595,
+          "finished_ns": 1791486462574889000,
+          "lag_records": 0,
+          "started_ns": 1791486462561435000
+        },
+        {
+          "committed": 2595,
+          "end": 2595,
+          "finished_ns": 1791486463570975000,
+          "lag_records": 0,
+          "started_ns": 1791486463562491000
+        },
+        {
+          "committed": 2595,
+          "end": 2595,
+          "finished_ns": 1791486464575732000,
+          "lag_records": 0,
+          "started_ns": 1791486464561409000
+        },
+        {
+          "committed": 2595,
+          "end": 2595,
+          "finished_ns": 1791486465577798000,
+          "lag_records": 0,
+          "started_ns": 1791486465561002000
+        },
+        {
+          "committed": 2595,
+          "end": 2595,
+          "finished_ns": 1791486466614069000,
+          "lag_records": 0,
+          "started_ns": 1791486466561193000
+        },
+        {
+          "committed": 2595,
+          "end": 2595,
+          "finished_ns": 1791486467574671000,
+          "lag_records": 0,
+          "started_ns": 1791486467561054000
+        },
+        {
+          "committed": 2595,
+          "end": 2595,
+          "finished_ns": 1791486468572402000,
+          "lag_records": 0,
+          "started_ns": 1791486468562187000
+        },
+        {
+          "committed": 2595,
+          "end": 2595,
+          "finished_ns": 1791486469575064000,
+          "lag_records": 0,
+          "started_ns": 1791486469561194000
+        },
+        {
+          "committed": 2595,
+          "end": 2595,
+          "finished_ns": 1791486470569569000,
+          "lag_records": 0,
+          "started_ns": 1791486470560990000
+        },
+        {
+          "committed": 2595,
+          "end": 2595,
+          "finished_ns": 1791486471575165000,
+          "lag_records": 0,
+          "started_ns": 1791486471561353000
+        },
+        {
+          "committed": 2595,
+          "end": 2595,
+          "finished_ns": 1791486472574570000,
+          "lag_records": 0,
+          "started_ns": 1791486472560995000
+        },
+        {
+          "committed": 2595,
+          "end": 2595,
+          "finished_ns": 1791486473572810000,
+          "lag_records": 0,
+          "started_ns": 1791486473562055000
+        },
+        {
+          "committed": 2595,
+          "end": 2595,
+          "finished_ns": 1791486474577068000,
+          "lag_records": 0,
+          "started_ns": 1791486474561023000
+        },
+        {
+          "committed": 2595,
+          "end": 2595,
+          "finished_ns": 1791486475581290000,
+          "lag_records": 0,
+          "started_ns": 1791486475563126000
+        },
+        {
+          "committed": 2595,
+          "end": 2595,
+          "finished_ns": 1791486476580970000,
+          "lag_records": 0,
+          "started_ns": 1791486476560980000
+        },
+        {
+          "committed": 2595,
+          "end": 2595,
+          "finished_ns": 1791486477574962000,
+          "lag_records": 0,
+          "started_ns": 1791486477561313000
+        },
+        {
+          "committed": 2595,
+          "end": 2595,
+          "finished_ns": 1791486478630382000,
+          "lag_records": 0,
+          "started_ns": 1791486478561102000
+        },
+        {
+          "committed": 2595,
+          "end": 2595,
+          "finished_ns": 1791486479621428000,
+          "lag_records": 0,
+          "started_ns": 1791486479562812000
+        },
+        {
+          "committed": 2595,
+          "end": 2595,
+          "finished_ns": 1791486480577728000,
+          "lag_records": 0,
+          "started_ns": 1791486480561119000
+        },
+        {
+          "committed": 2595,
+          "end": 2595,
+          "finished_ns": 1791486481576882000,
+          "lag_records": 0,
+          "started_ns": 1791486481562883000
+        },
+        {
+          "committed": 2595,
+          "end": 2595,
+          "finished_ns": 1791486482575742000,
+          "lag_records": 0,
+          "started_ns": 1791486482560909000
+        },
+        {
+          "committed": 2595,
+          "end": 2595,
+          "finished_ns": 1791486483574517000,
+          "lag_records": 0,
+          "started_ns": 1791486483561027000
+        },
+        {
+          "committed": 2595,
+          "end": 2595,
+          "finished_ns": 1791486484577722000,
+          "lag_records": 0,
+          "started_ns": 1791486484560883000
+        },
+        {
+          "committed": 2595,
+          "end": 2595,
+          "finished_ns": 1791486485577675000,
+          "lag_records": 0,
+          "started_ns": 1791486485561214000
+        },
+        {
+          "committed": 2595,
+          "end": 2595,
+          "finished_ns": 1791486486579752000,
+          "lag_records": 0,
+          "started_ns": 1791486486561606000
+        },
+        {
+          "committed": 2595,
+          "end": 2595,
+          "finished_ns": 1791486487575395000,
+          "lag_records": 0,
+          "started_ns": 1791486487560897000
+        },
+        {
+          "committed": 2595,
+          "end": 2595,
+          "finished_ns": 1791486488575125000,
+          "lag_records": 0,
+          "started_ns": 1791486488561480000
+        },
+        {
+          "committed": 2595,
+          "end": 2595,
+          "finished_ns": 1791486489580778000,
+          "lag_records": 0,
+          "started_ns": 1791486489561046000
+        }
+      ]
+    },
+    "visibility": {
+      "censored_count": 231,
+      "first_send_to_observation": {
+        "count": 0,
+        "max_ns": null,
+        "p50_ns": null,
+        "p95_ns": null,
+        "p99_ns": null,
+        "p99_tail_samples": 0
+      },
+      "note": "Probe HTTP traffic is separate from the four-route paced query mix.",
+      "observed_count": 0,
+      "probe_http_failures": 847,
+      "probe_http_requests_measured_phase": 847,
+      "probe_http_statuses": {
+        "0": 57,
+        "404": 329,
+        "503": 461
+      },
+      "probe_request_latency": {
+        "count": 847,
+        "p50_ns": 54234000,
+        "p95_ns": 240305000,
+        "p99_ns": 336844000
+      },
+      "probe_response_bytes": 58728,
+      "sample_count": 231
+    },
+    "queries": {
+      "detail": {
+        "error_fraction": "1",
+        "failure_count": 118,
+        "statuses": {
+          "404": 80,
+          "503": 38
+        },
+        "success_count": 0,
+        "successful_p50_ns": null,
+        "successful_p95_ns": null,
+        "successful_p99_ns": null
+      },
+      "incidents": {
+        "error_fraction": "62/117",
+        "failure_count": 62,
+        "statuses": {
+          "200": 55,
+          "503": 56,
+          "504": 6
+        },
+        "success_count": 55,
+        "successful_p50_ns": 2289700000,
+        "successful_p95_ns": 4704419000,
+        "successful_p99_ns": 4782021000
+      },
+      "services": {
+        "error_fraction": "18/59",
+        "failure_count": 36,
+        "statuses": {
+          "200": 82,
+          "503": 36
+        },
+        "success_count": 82,
+        "successful_p50_ns": 459180000,
+        "successful_p95_ns": 954534000,
+        "successful_p99_ns": 1110344000
+      },
+      "traces": {
+        "error_fraction": "5/19",
+        "failure_count": 30,
+        "statuses": {
+          "200": 84,
+          "503": 30
+        },
+        "success_count": 84,
+        "successful_p50_ns": 598927000,
+        "successful_p95_ns": 1154833000,
+        "successful_p99_ns": 1705564000
+      }
+    },
+    "query_schedule": {
+      "detail": {
+        "issued_measured": 118,
+        "late_start": 0,
+        "queue_dropped": 2,
+        "scheduled_measured": 120,
+        "skipped_no_acknowledged_trace": 0,
+        "started_in_window": 118
+      },
+      "incidents": {
+        "issued_measured": 117,
+        "late_start": 0,
+        "queue_dropped": 3,
+        "scheduled_measured": 120,
+        "skipped_no_acknowledged_trace": 0,
+        "started_in_window": 117
+      },
+      "services": {
+        "issued_measured": 118,
+        "late_start": 0,
+        "queue_dropped": 2,
+        "scheduled_measured": 120,
+        "skipped_no_acknowledged_trace": 0,
+        "started_in_window": 118
+      },
+      "traces": {
+        "issued_measured": 114,
+        "late_start": 0,
+        "queue_dropped": 6,
+        "scheduled_measured": 120,
+        "skipped_no_acknowledged_trace": 0,
+        "started_in_window": 114
+      }
+    },
+    "operations": {
+      "producer": {
+        "kafka_produce": {
+          "all_successful_rows_include_replays": true,
+          "completed_rows_per_second": "18624/5",
+          "completed_window_failed_operations": 0,
+          "completed_window_successful_operations": 2328,
+          "completed_window_successful_rows": 446976,
+          "latency": {
+            "total": {
+              "count": 2328,
+              "p50_ns": 8796072,
+              "p95_ns": 47774270,
+              "p99_ns": 63518936
+            }
+          },
+          "started_window_attempted_rows": 446976,
+          "started_window_attempts": 2328,
+          "started_window_failed_operations": 0,
+          "started_window_successful_operations": 2328,
+          "started_window_successful_rows": 446976
+        }
+      },
+      "worker": {
+        "clickhouse_write": {
+          "all_successful_rows_include_replays": true,
+          "completed_rows_per_second": "4552/5",
+          "completed_window_failed_operations": 0,
+          "completed_window_successful_operations": 569,
+          "completed_window_successful_rows": 109248,
+          "latency": {
+            "append": {
+              "count": 570,
+              "p50_ns": 7687876,
+              "p95_ns": 17984080,
+              "p99_ns": 34956599
+            },
+            "prepare": {
+              "count": 570,
+              "p50_ns": 32714595,
+              "p95_ns": 103468340,
+              "p99_ns": 145331799
+            },
+            "send": {
+              "count": 570,
+              "p50_ns": 92486947,
+              "p95_ns": 204017764,
+              "p99_ns": 296024717
+            },
+            "total": {
+              "count": 570,
+              "p50_ns": 134836412,
+              "p95_ns": 331056760,
+              "p99_ns": 435362832
+            }
+          },
+          "started_window_attempted_rows": 109440,
+          "started_window_attempts": 570,
+          "started_window_failed_operations": 0,
+          "started_window_successful_operations": 570,
+          "started_window_successful_rows": 109440
+        },
+        "consumer_commit": {
+          "all_successful_rows_include_replays": true,
+          "completed_rows_per_second": "4552/5",
+          "completed_window_failed_operations": 0,
+          "completed_window_successful_operations": 569,
+          "completed_window_successful_rows": 109248,
+          "latency": {
+            "total": {
+              "count": 569,
+              "p50_ns": 13544458,
+              "p95_ns": 23439731,
+              "p99_ns": 43973710
+            }
+          },
+          "started_window_attempted_rows": 109248,
+          "started_window_attempts": 569,
+          "started_window_failed_operations": 0,
+          "started_window_successful_operations": 569,
+          "started_window_successful_rows": 109248
+        }
+      }
+    }
+  },
+  "candidate": {
+    "counts": {
+      "acked_full_run_spans": 909246,
+      "acked_measured_spans": 828414,
+      "acked_within_window_spans": 813120,
+      "emitted_full_run_spans": 909246,
+      "emitted_measured_spans": 828414,
+      "generated_full_run_spans": 909246,
+      "generated_measured_spans": 828414,
+      "never_emitted_driver_spans": 131520,
+      "physical_rows_at_snapshot": 779090,
+      "planned_spans": 1040766,
+      "stored_unique_at_original_snapshot_spans": 779090,
+      "stored_unique_final_spans": 779090,
+      "unresolved_acked_at_original_deadline": 130156,
+      "unresolved_emitted_at_original_deadline": 130156
+    },
+    "ack_latency": {
+      "count": 4315,
+      "max_ns": 1079554000,
+      "p50_ns": 417507000,
+      "p95_ns": 701432000,
+      "p99_ns": 900582000,
+      "p99_tail_samples": 43
+    },
+    "lag": {
+      "drain": {
+        "first_zero_started_ns": 1791486797059980000,
+        "lower_bound_ns": 87923612000,
+        "second_zero_finished_ns": 1791486798066866000,
+        "stable_end": 18943,
+        "status": "observed_bounded",
+        "upper_bound_ns": 89935234000
+      },
+      "first_observed_lag_records": 0,
+      "growth_from_first_to_max_records": 8856,
+      "last_observed_lag_records": 0,
+      "max_observed_lag_records": 8856,
+      "net_observed_lag_change_records": 0,
+      "note": "Sequential committed/end reads are not an atomic snapshot; lag is records, not spans.",
+      "post_offering_sample_count": 131,
+      "sample_count": 263,
+      "samples": [
+        {
+          "committed": 16,
+          "end": 16,
+          "finished_ns": 1791486577064318000,
+          "lag_records": 0,
+          "started_ns": 1791486577057555000
+        },
+        {
+          "committed": 16,
+          "end": 16,
+          "finished_ns": 1791486578068020000,
+          "lag_records": 0,
+          "started_ns": 1791486578057758000
+        },
+        {
+          "committed": 113,
+          "end": 168,
+          "finished_ns": 1791486579064548000,
+          "lag_records": 55,
+          "started_ns": 1791486579055773000
+        },
+        {
+          "committed": 286,
+          "end": 336,
+          "finished_ns": 1791486580064333000,
+          "lag_records": 50,
+          "started_ns": 1791486580055955000
+        },
+        {
+          "committed": 476,
+          "end": 504,
+          "finished_ns": 1791486581064289000,
+          "lag_records": 28,
+          "started_ns": 1791486581056288000
+        },
+        {
+          "committed": 619,
+          "end": 664,
+          "finished_ns": 1791486582078299000,
+          "lag_records": 45,
+          "started_ns": 1791486582056449000
+        },
+        {
+          "committed": 702,
+          "end": 780,
+          "finished_ns": 1791486583067200000,
+          "lag_records": 78,
+          "started_ns": 1791486583055875000
+        },
+        {
+          "committed": 793,
+          "end": 912,
+          "finished_ns": 1791486584131858000,
+          "lag_records": 119,
+          "started_ns": 1791486584056478000
+        },
+        {
+          "committed": 847,
+          "end": 1020,
+          "finished_ns": 1791486585102435000,
+          "lag_records": 173,
+          "started_ns": 1791486585055797000
+        },
+        {
+          "committed": 928,
+          "end": 1172,
+          "finished_ns": 1791486586066965000,
+          "lag_records": 244,
+          "started_ns": 1791486586055756000
+        },
+        {
+          "committed": 1030,
+          "end": 1308,
+          "finished_ns": 1791486587070152000,
+          "lag_records": 278,
+          "started_ns": 1791486587055762000
+        },
+        {
+          "committed": 1156,
+          "end": 1448,
+          "finished_ns": 1791486588100557000,
+          "lag_records": 292,
+          "started_ns": 1791486588055883000
+        },
+        {
+          "committed": 1259,
+          "end": 1604,
+          "finished_ns": 1791486589066992000,
+          "lag_records": 345,
+          "started_ns": 1791486589055926000
+        },
+        {
+          "committed": 1369,
+          "end": 1748,
+          "finished_ns": 1791486590067251000,
+          "lag_records": 379,
+          "started_ns": 1791486590056091000
+        },
+        {
+          "committed": 1540,
+          "end": 1944,
+          "finished_ns": 1791486591065472000,
+          "lag_records": 404,
+          "started_ns": 1791486591055742000
+        },
+        {
+          "committed": 1699,
+          "end": 2144,
+          "finished_ns": 1791486592064321000,
+          "lag_records": 445,
+          "started_ns": 1791486592056338000
+        },
+        {
+          "committed": 1847,
+          "end": 2332,
+          "finished_ns": 1791486593068411000,
+          "lag_records": 485,
+          "started_ns": 1791486593056773000
+        },
+        {
+          "committed": 2000,
+          "end": 2508,
+          "finished_ns": 1791486594063669000,
+          "lag_records": 508,
+          "started_ns": 1791486594055680000
+        },
+        {
+          "committed": 2146,
+          "end": 2664,
+          "finished_ns": 1791486595108884000,
+          "lag_records": 518,
+          "started_ns": 1791486595055671000
+        },
+        {
+          "committed": 2286,
+          "end": 2824,
+          "finished_ns": 1791486596065976000,
+          "lag_records": 538,
+          "started_ns": 1791486596056153000
+        },
+        {
+          "committed": 2382,
+          "end": 2996,
+          "finished_ns": 1791486597065628000,
+          "lag_records": 614,
+          "started_ns": 1791486597055664000
+        },
+        {
+          "committed": 2555,
+          "end": 3180,
+          "finished_ns": 1791486598068319000,
+          "lag_records": 625,
+          "started_ns": 1791486598055646000
+        },
+        {
+          "committed": 2658,
+          "end": 3320,
+          "finished_ns": 1791486599065672000,
+          "lag_records": 662,
+          "started_ns": 1791486599055984000
+        },
+        {
+          "committed": 2731,
+          "end": 3440,
+          "finished_ns": 1791486600071055000,
+          "lag_records": 709,
+          "started_ns": 1791486600057391000
+        },
+        {
+          "committed": 2771,
+          "end": 3584,
+          "finished_ns": 1791486601063212000,
+          "lag_records": 813,
+          "started_ns": 1791486601055856000
+        },
+        {
+          "committed": 2819,
+          "end": 3740,
+          "finished_ns": 1791486602065095000,
+          "lag_records": 921,
+          "started_ns": 1791486602055681000
+        },
+        {
+          "committed": 2867,
+          "end": 3892,
+          "finished_ns": 1791486603065151000,
+          "lag_records": 1025,
+          "started_ns": 1791486603057196000
+        },
+        {
+          "committed": 2970,
+          "end": 4052,
+          "finished_ns": 1791486604098845000,
+          "lag_records": 1082,
+          "started_ns": 1791486604056043000
+        },
+        {
+          "committed": 3038,
+          "end": 4192,
+          "finished_ns": 1791486605068154000,
+          "lag_records": 1154,
+          "started_ns": 1791486605056345000
+        },
+        {
+          "committed": 3176,
+          "end": 4336,
+          "finished_ns": 1791486606067906000,
+          "lag_records": 1160,
+          "started_ns": 1791486606056262000
+        },
+        {
+          "committed": 3288,
+          "end": 4492,
+          "finished_ns": 1791486607064652000,
+          "lag_records": 1204,
+          "started_ns": 1791486607055616000
+        },
+        {
+          "committed": 3409,
+          "end": 4659,
+          "finished_ns": 1791486608068405000,
+          "lag_records": 1250,
+          "started_ns": 1791486608056291000
+        },
+        {
+          "committed": 3446,
+          "end": 4772,
+          "finished_ns": 1791486609068896000,
+          "lag_records": 1326,
+          "started_ns": 1791486609055862000
+        },
+        {
+          "committed": 3488,
+          "end": 4888,
+          "finished_ns": 1791486610074157000,
+          "lag_records": 1400,
+          "started_ns": 1791486610055798000
+        },
+        {
+          "committed": 3521,
+          "end": 4980,
+          "finished_ns": 1791486611068588000,
+          "lag_records": 1459,
+          "started_ns": 1791486611055661000
+        },
+        {
+          "committed": 3575,
+          "end": 5132,
+          "finished_ns": 1791486612065454000,
+          "lag_records": 1557,
+          "started_ns": 1791486612056044000
+        },
+        {
+          "committed": 3631,
+          "end": 5268,
+          "finished_ns": 1791486613105369000,
+          "lag_records": 1637,
+          "started_ns": 1791486613055982000
+        },
+        {
+          "committed": 3679,
+          "end": 5403,
+          "finished_ns": 1791486614064858000,
+          "lag_records": 1724,
+          "started_ns": 1791486614055586000
+        },
+        {
+          "committed": 3746,
+          "end": 5540,
+          "finished_ns": 1791486615064886000,
+          "lag_records": 1794,
+          "started_ns": 1791486615055605000
+        },
+        {
+          "committed": 3820,
+          "end": 5700,
+          "finished_ns": 1791486616066104000,
+          "lag_records": 1880,
+          "started_ns": 1791486616056309000
+        },
+        {
+          "committed": 3968,
+          "end": 5872,
+          "finished_ns": 1791486617069219000,
+          "lag_records": 1904,
+          "started_ns": 1791486617057025000
+        },
+        {
+          "committed": 4104,
+          "end": 6024,
+          "finished_ns": 1791486618067901000,
+          "lag_records": 1920,
+          "started_ns": 1791486618055845000
+        },
+        {
+          "committed": 4195,
+          "end": 6152,
+          "finished_ns": 1791486619068421000,
+          "lag_records": 1957,
+          "started_ns": 1791486619056234000
+        },
+        {
+          "committed": 4276,
+          "end": 6268,
+          "finished_ns": 1791486620128798000,
+          "lag_records": 1992,
+          "started_ns": 1791486620058017000
+        },
+        {
+          "committed": 4351,
+          "end": 6420,
+          "finished_ns": 1791486621064914000,
+          "lag_records": 2069,
+          "started_ns": 1791486621056263000
+        },
+        {
+          "committed": 4479,
+          "end": 6580,
+          "finished_ns": 1791486622064943000,
+          "lag_records": 2101,
+          "started_ns": 1791486622055807000
+        },
+        {
+          "committed": 4570,
+          "end": 6716,
+          "finished_ns": 1791486623064907000,
+          "lag_records": 2146,
+          "started_ns": 1791486623055555000
+        },
+        {
+          "committed": 4692,
+          "end": 6868,
+          "finished_ns": 1791486624070439000,
+          "lag_records": 2176,
+          "started_ns": 1791486624056193000
+        },
+        {
+          "committed": 4770,
+          "end": 7012,
+          "finished_ns": 1791486625068155000,
+          "lag_records": 2242,
+          "started_ns": 1791486625055661000
+        },
+        {
+          "committed": 4903,
+          "end": 7156,
+          "finished_ns": 1791486626064378000,
+          "lag_records": 2253,
+          "started_ns": 1791486626055911000
+        },
+        {
+          "committed": 5003,
+          "end": 7292,
+          "finished_ns": 1791486627067883000,
+          "lag_records": 2289,
+          "started_ns": 1791486627055490000
+        },
+        {
+          "committed": 5068,
+          "end": 7440,
+          "finished_ns": 1791486628070093000,
+          "lag_records": 2372,
+          "started_ns": 1791486628055526000
+        },
+        {
+          "committed": 5107,
+          "end": 7536,
+          "finished_ns": 1791486629069284000,
+          "lag_records": 2429,
+          "started_ns": 1791486629055571000
+        },
+        {
+          "committed": 5188,
+          "end": 7652,
+          "finished_ns": 1791486630111122000,
+          "lag_records": 2464,
+          "started_ns": 1791486630056175000
+        },
+        {
+          "committed": 5292,
+          "end": 7780,
+          "finished_ns": 1791486631065779000,
+          "lag_records": 2488,
+          "started_ns": 1791486631055625000
+        },
+        {
+          "committed": 5354,
+          "end": 7952,
+          "finished_ns": 1791486632066544000,
+          "lag_records": 2598,
+          "started_ns": 1791486632055493000
+        },
+        {
+          "committed": 5427,
+          "end": 8072,
+          "finished_ns": 1791486633069441000,
+          "lag_records": 2645,
+          "started_ns": 1791486633055523000
+        },
+        {
+          "committed": 5534,
+          "end": 8208,
+          "finished_ns": 1791486634067841000,
+          "lag_records": 2674,
+          "started_ns": 1791486634057408000
+        },
+        {
+          "committed": 5624,
+          "end": 8336,
+          "finished_ns": 1791486635064210000,
+          "lag_records": 2712,
+          "started_ns": 1791486635056014000
+        },
+        {
+          "committed": 5709,
+          "end": 8496,
+          "finished_ns": 1791486636071554000,
+          "lag_records": 2787,
+          "started_ns": 1791486636056604000
+        },
+        {
+          "committed": 5767,
+          "end": 8648,
+          "finished_ns": 1791486637064178000,
+          "lag_records": 2881,
+          "started_ns": 1791486637055999000
+        },
+        {
+          "committed": 5812,
+          "end": 8824,
+          "finished_ns": 1791486638077059000,
+          "lag_records": 3012,
+          "started_ns": 1791486638055501000
+        },
+        {
+          "committed": 5861,
+          "end": 8944,
+          "finished_ns": 1791486639065918000,
+          "lag_records": 3083,
+          "started_ns": 1791486639055548000
+        },
+        {
+          "committed": 5940,
+          "end": 9052,
+          "finished_ns": 1791486640082889000,
+          "lag_records": 3112,
+          "started_ns": 1791486640055474000
+        },
+        {
+          "committed": 6004,
+          "end": 9208,
+          "finished_ns": 1791486641065859000,
+          "lag_records": 3204,
+          "started_ns": 1791486641055502000
+        },
+        {
+          "committed": 6078,
+          "end": 9360,
+          "finished_ns": 1791486642064972000,
+          "lag_records": 3282,
+          "started_ns": 1791486642055373000
+        },
+        {
+          "committed": 6120,
+          "end": 9512,
+          "finished_ns": 1791486643066366000,
+          "lag_records": 3392,
+          "started_ns": 1791486643055784000
+        },
+        {
+          "committed": 6178,
+          "end": 9664,
+          "finished_ns": 1791486644064393000,
+          "lag_records": 3486,
+          "started_ns": 1791486644055397000
+        },
+        {
+          "committed": 6247,
+          "end": 9828,
+          "finished_ns": 1791486645061586000,
+          "lag_records": 3581,
+          "started_ns": 1791486645055417000
+        },
+        {
+          "committed": 6315,
+          "end": 10008,
+          "finished_ns": 1791486646062562000,
+          "lag_records": 3693,
+          "started_ns": 1791486646055891000
+        },
+        {
+          "committed": 6390,
+          "end": 10204,
+          "finished_ns": 1791486647061847000,
+          "lag_records": 3814,
+          "started_ns": 1791486647055496000
+        },
+        {
+          "committed": 6456,
+          "end": 10392,
+          "finished_ns": 1791486648065634000,
+          "lag_records": 3936,
+          "started_ns": 1791486648055374000
+        },
+        {
+          "committed": 6497,
+          "end": 10524,
+          "finished_ns": 1791486649072352000,
+          "lag_records": 4027,
+          "started_ns": 1791486649057202000
+        },
+        {
+          "committed": 6529,
+          "end": 10626,
+          "finished_ns": 1791486650089568000,
+          "lag_records": 4097,
+          "started_ns": 1791486650055370000
+        },
+        {
+          "committed": 6587,
+          "end": 10780,
+          "finished_ns": 1791486651064914000,
+          "lag_records": 4193,
+          "started_ns": 1791486651055796000
+        },
+        {
+          "committed": 6641,
+          "end": 10944,
+          "finished_ns": 1791486652064601000,
+          "lag_records": 4303,
+          "started_ns": 1791486652055489000
+        },
+        {
+          "committed": 6683,
+          "end": 11080,
+          "finished_ns": 1791486653064169000,
+          "lag_records": 4397,
+          "started_ns": 1791486653055772000
+        },
+        {
+          "committed": 6715,
+          "end": 11212,
+          "finished_ns": 1791486654100928000,
+          "lag_records": 4497,
+          "started_ns": 1791486654055641000
+        },
+        {
+          "committed": 6775,
+          "end": 11348,
+          "finished_ns": 1791486655066035000,
+          "lag_records": 4573,
+          "started_ns": 1791486655055353000
+        },
+        {
+          "committed": 6840,
+          "end": 11536,
+          "finished_ns": 1791486656067611000,
+          "lag_records": 4696,
+          "started_ns": 1791486656055500000
+        },
+        {
+          "committed": 6886,
+          "end": 11708,
+          "finished_ns": 1791486657063868000,
+          "lag_records": 4822,
+          "started_ns": 1791486657055302000
+        },
+        {
+          "committed": 6946,
+          "end": 11893,
+          "finished_ns": 1791486658065629000,
+          "lag_records": 4947,
+          "started_ns": 1791486658055391000
+        },
+        {
+          "committed": 6999,
+          "end": 12032,
+          "finished_ns": 1791486659064827000,
+          "lag_records": 5033,
+          "started_ns": 1791486659056261000
+        },
+        {
+          "committed": 7063,
+          "end": 12148,
+          "finished_ns": 1791486660065979000,
+          "lag_records": 5085,
+          "started_ns": 1791486660056135000
+        },
+        {
+          "committed": 7187,
+          "end": 12275,
+          "finished_ns": 1791486661072355000,
+          "lag_records": 5088,
+          "started_ns": 1791486661055668000
+        },
+        {
+          "committed": 7253,
+          "end": 12379,
+          "finished_ns": 1791486662065237000,
+          "lag_records": 5126,
+          "started_ns": 1791486662056013000
+        },
+        {
+          "committed": 7303,
+          "end": 12527,
+          "finished_ns": 1791486663063946000,
+          "lag_records": 5224,
+          "started_ns": 1791486663056330000
+        },
+        {
+          "committed": 7360,
+          "end": 12691,
+          "finished_ns": 1791486664063679000,
+          "lag_records": 5331,
+          "started_ns": 1791486664055577000
+        },
+        {
+          "committed": 7454,
+          "end": 12875,
+          "finished_ns": 1791486665064969000,
+          "lag_records": 5421,
+          "started_ns": 1791486665055241000
+        },
+        {
+          "committed": 7580,
+          "end": 13047,
+          "finished_ns": 1791486666065735000,
+          "lag_records": 5467,
+          "started_ns": 1791486666055235000
+        },
+        {
+          "committed": 7736,
+          "end": 13211,
+          "finished_ns": 1791486667068586000,
+          "lag_records": 5475,
+          "started_ns": 1791486667057142000
+        },
+        {
+          "committed": 7876,
+          "end": 13375,
+          "finished_ns": 1791486668065815000,
+          "lag_records": 5499,
+          "started_ns": 1791486668055453000
+        },
+        {
+          "committed": 7968,
+          "end": 13507,
+          "finished_ns": 1791486669062750000,
+          "lag_records": 5539,
+          "started_ns": 1791486669055264000
+        },
+        {
+          "committed": 8055,
+          "end": 13635,
+          "finished_ns": 1791486670064580000,
+          "lag_records": 5580,
+          "started_ns": 1791486670055892000
+        },
+        {
+          "committed": 8114,
+          "end": 13791,
+          "finished_ns": 1791486671064392000,
+          "lag_records": 5677,
+          "started_ns": 1791486671055941000
+        },
+        {
+          "committed": 8183,
+          "end": 13947,
+          "finished_ns": 1791486672072784000,
+          "lag_records": 5764,
+          "started_ns": 1791486672056119000
+        },
+        {
+          "committed": 8224,
+          "end": 14091,
+          "finished_ns": 1791486673061337000,
+          "lag_records": 5867,
+          "started_ns": 1791486673055309000
+        },
+        {
+          "committed": 8324,
+          "end": 14283,
+          "finished_ns": 1791486674063433000,
+          "lag_records": 5959,
+          "started_ns": 1791486674055632000
+        },
+        {
+          "committed": 8387,
+          "end": 14459,
+          "finished_ns": 1791486675060602000,
+          "lag_records": 6072,
+          "started_ns": 1791486675055599000
+        },
+        {
+          "committed": 8458,
+          "end": 14651,
+          "finished_ns": 1791486676063713000,
+          "lag_records": 6193,
+          "started_ns": 1791486676055169000
+        },
+        {
+          "committed": 8502,
+          "end": 14847,
+          "finished_ns": 1791486677063865000,
+          "lag_records": 6345,
+          "started_ns": 1791486677056359000
+        },
+        {
+          "committed": 8581,
+          "end": 14999,
+          "finished_ns": 1791486678065910000,
+          "lag_records": 6418,
+          "started_ns": 1791486678055311000
+        },
+        {
+          "committed": 8655,
+          "end": 15139,
+          "finished_ns": 1791486679066617000,
+          "lag_records": 6484,
+          "started_ns": 1791486679055690000
+        },
+        {
+          "committed": 8678,
+          "end": 15239,
+          "finished_ns": 1791486680132686000,
+          "lag_records": 6561,
+          "started_ns": 1791486680055291000
+        },
+        {
+          "committed": 8723,
+          "end": 15347,
+          "finished_ns": 1791486681064886000,
+          "lag_records": 6624,
+          "started_ns": 1791486681055125000
+        },
+        {
+          "committed": 8775,
+          "end": 15495,
+          "finished_ns": 1791486682066613000,
+          "lag_records": 6720,
+          "started_ns": 1791486682056879000
+        },
+        {
+          "committed": 8856,
+          "end": 15651,
+          "finished_ns": 1791486683064113000,
+          "lag_records": 6795,
+          "started_ns": 1791486683055914000
+        },
+        {
+          "committed": 8922,
+          "end": 15827,
+          "finished_ns": 1791486684060584000,
+          "lag_records": 6905,
+          "started_ns": 1791486684055137000
+        },
+        {
+          "committed": 8980,
+          "end": 15975,
+          "finished_ns": 1791486685063515000,
+          "lag_records": 6995,
+          "started_ns": 1791486685055276000
+        },
+        {
+          "committed": 9016,
+          "end": 16119,
+          "finished_ns": 1791486686063176000,
+          "lag_records": 7103,
+          "started_ns": 1791486686055128000
+        },
+        {
+          "committed": 9061,
+          "end": 16279,
+          "finished_ns": 1791486687061036000,
+          "lag_records": 7218,
+          "started_ns": 1791486687055101000
+        },
+        {
+          "committed": 9120,
+          "end": 16447,
+          "finished_ns": 1791486688073642000,
+          "lag_records": 7327,
+          "started_ns": 1791486688055192000
+        },
+        {
+          "committed": 9145,
+          "end": 16543,
+          "finished_ns": 1791486689066817000,
+          "lag_records": 7398,
+          "started_ns": 1791486689055369000
+        },
+        {
+          "committed": 9166,
+          "end": 16615,
+          "finished_ns": 1791486690072752000,
+          "lag_records": 7449,
+          "started_ns": 1791486690055958000
+        },
+        {
+          "committed": 9203,
+          "end": 16695,
+          "finished_ns": 1791486691244268000,
+          "lag_records": 7492,
+          "started_ns": 1791486691055259000
+        },
+        {
+          "committed": 9215,
+          "end": 16783,
+          "finished_ns": 1791486692065681000,
+          "lag_records": 7568,
+          "started_ns": 1791486692055494000
+        },
+        {
+          "committed": 9246,
+          "end": 16859,
+          "finished_ns": 1791486693067910000,
+          "lag_records": 7613,
+          "started_ns": 1791486693055667000
+        },
+        {
+          "committed": 9278,
+          "end": 16999,
+          "finished_ns": 1791486694065089000,
+          "lag_records": 7721,
+          "started_ns": 1791486694055032000
+        },
+        {
+          "committed": 9309,
+          "end": 17151,
+          "finished_ns": 1791486695062582000,
+          "lag_records": 7842,
+          "started_ns": 1791486695055470000
+        },
+        {
+          "committed": 9375,
+          "end": 17303,
+          "finished_ns": 1791486696064008000,
+          "lag_records": 7928,
+          "started_ns": 1791486696055130000
+        },
+        {
+          "committed": 9432,
+          "end": 17439,
+          "finished_ns": 1791486697064562000,
+          "lag_records": 8007,
+          "started_ns": 1791486697056789000
+        },
+        {
+          "committed": 9504,
+          "end": 17579,
+          "finished_ns": 1791486698069884000,
+          "lag_records": 8075,
+          "started_ns": 1791486698055618000
+        },
+        {
+          "committed": 9533,
+          "end": 17667,
+          "finished_ns": 1791486699066001000,
+          "lag_records": 8134,
+          "started_ns": 1791486699055062000
+        },
+        {
+          "committed": 9557,
+          "end": 17755,
+          "finished_ns": 1791486700073208000,
+          "lag_records": 8198,
+          "started_ns": 1791486700055038000
+        },
+        {
+          "committed": 9578,
+          "end": 17823,
+          "finished_ns": 1791486701067274000,
+          "lag_records": 8245,
+          "started_ns": 1791486701054998000
+        },
+        {
+          "committed": 9599,
+          "end": 17919,
+          "finished_ns": 1791486702123035000,
+          "lag_records": 8320,
+          "started_ns": 1791486702055164000
+        },
+        {
+          "committed": 9611,
+          "end": 17975,
+          "finished_ns": 1791486703103297000,
+          "lag_records": 8364,
+          "started_ns": 1791486703055281000
+        },
+        {
+          "committed": 9645,
+          "end": 18083,
+          "finished_ns": 1791486704063328000,
+          "lag_records": 8438,
+          "started_ns": 1791486704054990000
+        },
+        {
+          "committed": 9713,
+          "end": 18243,
+          "finished_ns": 1791486705068476000,
+          "lag_records": 8530,
+          "started_ns": 1791486705055030000
+        },
+        {
+          "committed": 9772,
+          "end": 18379,
+          "finished_ns": 1791486706069561000,
+          "lag_records": 8607,
+          "started_ns": 1791486706055002000
+        },
+        {
+          "committed": 9834,
+          "end": 18495,
+          "finished_ns": 1791486707065668000,
+          "lag_records": 8661,
+          "started_ns": 1791486707056116000
+        },
+        {
+          "committed": 9875,
+          "end": 18616,
+          "finished_ns": 1791486708066622000,
+          "lag_records": 8741,
+          "started_ns": 1791486708054953000
+        },
+        {
+          "committed": 9941,
+          "end": 18719,
+          "finished_ns": 1791486709068626000,
+          "lag_records": 8778,
+          "started_ns": 1791486709055119000
+        },
+        {
+          "committed": 9989,
+          "end": 18811,
+          "finished_ns": 1791486710079000000,
+          "lag_records": 8822,
+          "started_ns": 1791486710055102000
+        },
+        {
+          "committed": 10043,
+          "end": 18899,
+          "finished_ns": 1791486711109611000,
+          "lag_records": 8856,
+          "started_ns": 1791486711056975000
+        },
+        {
+          "committed": 10118,
+          "end": 18943,
+          "finished_ns": 1791486712099793000,
+          "lag_records": 8825,
+          "started_ns": 1791486712056523000
+        },
+        {
+          "committed": 10201,
+          "end": 18943,
+          "finished_ns": 1791486713074807000,
+          "lag_records": 8742,
+          "started_ns": 1791486713056439000
+        },
+        {
+          "committed": 10243,
+          "end": 18943,
+          "finished_ns": 1791486714070534000,
+          "lag_records": 8700,
+          "started_ns": 1791486714056949000
+        },
+        {
+          "committed": 10341,
+          "end": 18943,
+          "finished_ns": 1791486715064511000,
+          "lag_records": 8602,
+          "started_ns": 1791486715055004000
+        },
+        {
+          "committed": 10483,
+          "end": 18943,
+          "finished_ns": 1791486716063037000,
+          "lag_records": 8460,
+          "started_ns": 1791486716055219000
+        },
+        {
+          "committed": 10607,
+          "end": 18943,
+          "finished_ns": 1791486717062474000,
+          "lag_records": 8336,
+          "started_ns": 1791486717056635000
+        },
+        {
+          "committed": 10754,
+          "end": 18943,
+          "finished_ns": 1791486718067501000,
+          "lag_records": 8189,
+          "started_ns": 1791486718055687000
+        },
+        {
+          "committed": 10828,
+          "end": 18943,
+          "finished_ns": 1791486719071651000,
+          "lag_records": 8115,
+          "started_ns": 1791486719055346000
+        },
+        {
+          "committed": 10882,
+          "end": 18943,
+          "finished_ns": 1791486720070709000,
+          "lag_records": 8061,
+          "started_ns": 1791486720055314000
+        },
+        {
+          "committed": 10948,
+          "end": 18943,
+          "finished_ns": 1791486721073489000,
+          "lag_records": 7995,
+          "started_ns": 1791486721055098000
+        },
+        {
+          "committed": 11024,
+          "end": 18943,
+          "finished_ns": 1791486722075016000,
+          "lag_records": 7919,
+          "started_ns": 1791486722056085000
+        },
+        {
+          "committed": 11113,
+          "end": 18943,
+          "finished_ns": 1791486723065183000,
+          "lag_records": 7830,
+          "started_ns": 1791486723054928000
+        },
+        {
+          "committed": 11201,
+          "end": 18943,
+          "finished_ns": 1791486724074565000,
+          "lag_records": 7742,
+          "started_ns": 1791486724055302000
+        },
+        {
+          "committed": 11298,
+          "end": 18943,
+          "finished_ns": 1791486725065495000,
+          "lag_records": 7645,
+          "started_ns": 1791486725054917000
+        },
+        {
+          "committed": 11481,
+          "end": 18943,
+          "finished_ns": 1791486726062953000,
+          "lag_records": 7462,
+          "started_ns": 1791486726055287000
+        },
+        {
+          "committed": 11619,
+          "end": 18943,
+          "finished_ns": 1791486727063691000,
+          "lag_records": 7324,
+          "started_ns": 1791486727055374000
+        },
+        {
+          "committed": 11795,
+          "end": 18943,
+          "finished_ns": 1791486728066941000,
+          "lag_records": 7148,
+          "started_ns": 1791486728054903000
+        },
+        {
+          "committed": 11907,
+          "end": 18943,
+          "finished_ns": 1791486729066884000,
+          "lag_records": 7036,
+          "started_ns": 1791486729054841000
+        },
+        {
+          "committed": 11981,
+          "end": 18943,
+          "finished_ns": 1791486730084800000,
+          "lag_records": 6962,
+          "started_ns": 1791486730054883000
+        },
+        {
+          "committed": 12096,
+          "end": 18943,
+          "finished_ns": 1791486731062767000,
+          "lag_records": 6847,
+          "started_ns": 1791486731055078000
+        },
+        {
+          "committed": 12236,
+          "end": 18943,
+          "finished_ns": 1791486732062457000,
+          "lag_records": 6707,
+          "started_ns": 1791486732054980000
+        },
+        {
+          "committed": 12394,
+          "end": 18943,
+          "finished_ns": 1791486733063626000,
+          "lag_records": 6549,
+          "started_ns": 1791486733055211000
+        },
+        {
+          "committed": 12570,
+          "end": 18943,
+          "finished_ns": 1791486734064306000,
+          "lag_records": 6373,
+          "started_ns": 1791486734054836000
+        },
+        {
+          "committed": 12778,
+          "end": 18943,
+          "finished_ns": 1791486735060055000,
+          "lag_records": 6165,
+          "started_ns": 1791486735054911000
+        },
+        {
+          "committed": 12951,
+          "end": 18943,
+          "finished_ns": 1791486736061689000,
+          "lag_records": 5992,
+          "started_ns": 1791486736055006000
+        },
+        {
+          "committed": 13158,
+          "end": 18943,
+          "finished_ns": 1791486737061173000,
+          "lag_records": 5785,
+          "started_ns": 1791486737055477000
+        },
+        {
+          "committed": 13376,
+          "end": 18943,
+          "finished_ns": 1791486738063968000,
+          "lag_records": 5567,
+          "started_ns": 1791486738054782000
+        },
+        {
+          "committed": 13512,
+          "end": 18943,
+          "finished_ns": 1791486739064229000,
+          "lag_records": 5431,
+          "started_ns": 1791486739054816000
+        },
+        {
+          "committed": 13651,
+          "end": 18943,
+          "finished_ns": 1791486740062895000,
+          "lag_records": 5292,
+          "started_ns": 1791486740054983000
+        },
+        {
+          "committed": 13813,
+          "end": 18943,
+          "finished_ns": 1791486741065750000,
+          "lag_records": 5130,
+          "started_ns": 1791486741054884000
+        },
+        {
+          "committed": 13944,
+          "end": 18943,
+          "finished_ns": 1791486742063948000,
+          "lag_records": 4999,
+          "started_ns": 1791486742054789000
+        },
+        {
+          "committed": 14127,
+          "end": 18943,
+          "finished_ns": 1791486743060261000,
+          "lag_records": 4816,
+          "started_ns": 1791486743054756000
+        },
+        {
+          "committed": 14346,
+          "end": 18943,
+          "finished_ns": 1791486744060089000,
+          "lag_records": 4597,
+          "started_ns": 1791486744054755000
+        },
+        {
+          "committed": 14556,
+          "end": 18943,
+          "finished_ns": 1791486745061056000,
+          "lag_records": 4387,
+          "started_ns": 1791486745055461000
+        },
+        {
+          "committed": 14765,
+          "end": 18943,
+          "finished_ns": 1791486746064796000,
+          "lag_records": 4178,
+          "started_ns": 1791486746055657000
+        },
+        {
+          "committed": 14903,
+          "end": 18943,
+          "finished_ns": 1791486747063232000,
+          "lag_records": 4040,
+          "started_ns": 1791486747054728000
+        },
+        {
+          "committed": 15032,
+          "end": 18943,
+          "finished_ns": 1791486748071818000,
+          "lag_records": 3911,
+          "started_ns": 1791486748055083000
+        },
+        {
+          "committed": 15125,
+          "end": 18943,
+          "finished_ns": 1791486749068143000,
+          "lag_records": 3818,
+          "started_ns": 1791486749055008000
+        },
+        {
+          "committed": 15216,
+          "end": 18943,
+          "finished_ns": 1791486750091294000,
+          "lag_records": 3727,
+          "started_ns": 1791486750055467000
+        },
+        {
+          "committed": 15333,
+          "end": 18943,
+          "finished_ns": 1791486751063816000,
+          "lag_records": 3610,
+          "started_ns": 1791486751055172000
+        },
+        {
+          "committed": 15483,
+          "end": 18943,
+          "finished_ns": 1791486752061845000,
+          "lag_records": 3460,
+          "started_ns": 1791486752054902000
+        },
+        {
+          "committed": 15661,
+          "end": 18943,
+          "finished_ns": 1791486753062193000,
+          "lag_records": 3282,
+          "started_ns": 1791486753054759000
+        },
+        {
+          "committed": 15855,
+          "end": 18943,
+          "finished_ns": 1791486754062031000,
+          "lag_records": 3088,
+          "started_ns": 1791486754055147000
+        },
+        {
+          "committed": 16021,
+          "end": 18943,
+          "finished_ns": 1791486755062580000,
+          "lag_records": 2922,
+          "started_ns": 1791486755055786000
+        },
+        {
+          "committed": 16203,
+          "end": 18943,
+          "finished_ns": 1791486756075426000,
+          "lag_records": 2740,
+          "started_ns": 1791486756054786000
+        },
+        {
+          "committed": 16291,
+          "end": 18943,
+          "finished_ns": 1791486757070900000,
+          "lag_records": 2652,
+          "started_ns": 1791486757055416000
+        },
+        {
+          "committed": 16360,
+          "end": 18943,
+          "finished_ns": 1791486758063751000,
+          "lag_records": 2583,
+          "started_ns": 1791486758054710000
+        },
+        {
+          "committed": 16431,
+          "end": 18943,
+          "finished_ns": 1791486759070387000,
+          "lag_records": 2512,
+          "started_ns": 1791486759054728000
+        },
+        {
+          "committed": 16480,
+          "end": 18943,
+          "finished_ns": 1791486760070552000,
+          "lag_records": 2463,
+          "started_ns": 1791486760054818000
+        },
+        {
+          "committed": 16536,
+          "end": 18943,
+          "finished_ns": 1791486761216479000,
+          "lag_records": 2407,
+          "started_ns": 1791486761056614000
+        },
+        {
+          "committed": 16601,
+          "end": 18943,
+          "finished_ns": 1791486762066360000,
+          "lag_records": 2342,
+          "started_ns": 1791486762054713000
+        },
+        {
+          "committed": 16694,
+          "end": 18943,
+          "finished_ns": 1791486763065858000,
+          "lag_records": 2249,
+          "started_ns": 1791486763054894000
+        },
+        {
+          "committed": 16794,
+          "end": 18943,
+          "finished_ns": 1791486764066107000,
+          "lag_records": 2149,
+          "started_ns": 1791486764054640000
+        },
+        {
+          "committed": 16896,
+          "end": 18943,
+          "finished_ns": 1791486765065257000,
+          "lag_records": 2047,
+          "started_ns": 1791486765054801000
+        },
+        {
+          "committed": 17012,
+          "end": 18943,
+          "finished_ns": 1791486766065876000,
+          "lag_records": 1931,
+          "started_ns": 1791486766054787000
+        },
+        {
+          "committed": 17135,
+          "end": 18943,
+          "finished_ns": 1791486767067539000,
+          "lag_records": 1808,
+          "started_ns": 1791486767054581000
+        },
+        {
+          "committed": 17218,
+          "end": 18943,
+          "finished_ns": 1791486768069838000,
+          "lag_records": 1725,
+          "started_ns": 1791486768056397000
+        },
+        {
+          "committed": 17293,
+          "end": 18943,
+          "finished_ns": 1791486769126832000,
+          "lag_records": 1650,
+          "started_ns": 1791486769054811000
+        },
+        {
+          "committed": 17345,
+          "end": 18943,
+          "finished_ns": 1791486770104685000,
+          "lag_records": 1598,
+          "started_ns": 1791486770054598000
+        },
+        {
+          "committed": 17402,
+          "end": 18943,
+          "finished_ns": 1791486771107067000,
+          "lag_records": 1541,
+          "started_ns": 1791486771055703000
+        },
+        {
+          "committed": 17467,
+          "end": 18943,
+          "finished_ns": 1791486772099404000,
+          "lag_records": 1476,
+          "started_ns": 1791486772055670000
+        },
+        {
+          "committed": 17549,
+          "end": 18943,
+          "finished_ns": 1791486773064098000,
+          "lag_records": 1394,
+          "started_ns": 1791486773054689000
+        },
+        {
+          "committed": 17612,
+          "end": 18943,
+          "finished_ns": 1791486774070238000,
+          "lag_records": 1331,
+          "started_ns": 1791486774055138000
+        },
+        {
+          "committed": 17688,
+          "end": 18943,
+          "finished_ns": 1791486775071369000,
+          "lag_records": 1255,
+          "started_ns": 1791486775054953000
+        },
+        {
+          "committed": 17750,
+          "end": 18943,
+          "finished_ns": 1791486776070007000,
+          "lag_records": 1193,
+          "started_ns": 1791486776055052000
+        },
+        {
+          "committed": 17844,
+          "end": 18943,
+          "finished_ns": 1791486777064268000,
+          "lag_records": 1099,
+          "started_ns": 1791486777054738000
+        },
+        {
+          "committed": 17908,
+          "end": 18943,
+          "finished_ns": 1791486778098765000,
+          "lag_records": 1035,
+          "started_ns": 1791486778054765000
+        },
+        {
+          "committed": 17972,
+          "end": 18943,
+          "finished_ns": 1791486779099207000,
+          "lag_records": 971,
+          "started_ns": 1791486779054523000
+        },
+        {
+          "committed": 18011,
+          "end": 18943,
+          "finished_ns": 1791486780109209000,
+          "lag_records": 932,
+          "started_ns": 1791486780054606000
+        },
+        {
+          "committed": 18056,
+          "end": 18943,
+          "finished_ns": 1791486781106947000,
+          "lag_records": 887,
+          "started_ns": 1791486781055257000
+        },
+        {
+          "committed": 18130,
+          "end": 18943,
+          "finished_ns": 1791486782064865000,
+          "lag_records": 813,
+          "started_ns": 1791486782054501000
+        },
+        {
+          "committed": 18201,
+          "end": 18943,
+          "finished_ns": 1791486783069099000,
+          "lag_records": 742,
+          "started_ns": 1791486783054500000
+        },
+        {
+          "committed": 18247,
+          "end": 18943,
+          "finished_ns": 1791486784076814000,
+          "lag_records": 696,
+          "started_ns": 1791486784054907000
+        },
+        {
+          "committed": 18309,
+          "end": 18943,
+          "finished_ns": 1791486785076968000,
+          "lag_records": 634,
+          "started_ns": 1791486785054639000
+        },
+        {
+          "committed": 18368,
+          "end": 18943,
+          "finished_ns": 1791486786066913000,
+          "lag_records": 575,
+          "started_ns": 1791486786056480000
+        },
+        {
+          "committed": 18443,
+          "end": 18943,
+          "finished_ns": 1791486787079569000,
+          "lag_records": 500,
+          "started_ns": 1791486787054577000
+        },
+        {
+          "committed": 18483,
+          "end": 18943,
+          "finished_ns": 1791486788094057000,
+          "lag_records": 460,
+          "started_ns": 1791486788065506000
+        },
+        {
+          "committed": 18521,
+          "end": 18943,
+          "finished_ns": 1791486789076546000,
+          "lag_records": 422,
+          "started_ns": 1791486789054543000
+        },
+        {
+          "committed": 18562,
+          "end": 18943,
+          "finished_ns": 1791486790075709000,
+          "lag_records": 381,
+          "started_ns": 1791486790054428000
+        },
+        {
+          "committed": 18601,
+          "end": 18943,
+          "finished_ns": 1791486791081198000,
+          "lag_records": 342,
+          "started_ns": 1791486791054603000
+        },
+        {
+          "committed": 18657,
+          "end": 18943,
+          "finished_ns": 1791486792118035000,
+          "lag_records": 286,
+          "started_ns": 1791486792055755000
+        },
+        {
+          "committed": 18703,
+          "end": 18943,
+          "finished_ns": 1791486793074032000,
+          "lag_records": 240,
+          "started_ns": 1791486793054880000
+        },
+        {
+          "committed": 18766,
+          "end": 18943,
+          "finished_ns": 1791486794078795000,
+          "lag_records": 177,
+          "started_ns": 1791486794054545000
+        },
+        {
+          "committed": 18812,
+          "end": 18943,
+          "finished_ns": 1791486795078641000,
+          "lag_records": 131,
+          "started_ns": 1791486795055082000
+        },
+        {
+          "committed": 18879,
+          "end": 18943,
+          "finished_ns": 1791486796111338000,
+          "lag_records": 64,
+          "started_ns": 1791486796055244000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486797075775000,
+          "lag_records": 0,
+          "started_ns": 1791486797059980000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486798066866000,
+          "lag_records": 0,
+          "started_ns": 1791486798054446000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486799067149000,
+          "lag_records": 0,
+          "started_ns": 1791486799054465000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486800067785000,
+          "lag_records": 0,
+          "started_ns": 1791486800054434000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486801069278000,
+          "lag_records": 0,
+          "started_ns": 1791486801054468000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486802068196000,
+          "lag_records": 0,
+          "started_ns": 1791486802054404000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486803068446000,
+          "lag_records": 0,
+          "started_ns": 1791486803054689000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486804092872000,
+          "lag_records": 0,
+          "started_ns": 1791486804055047000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486805077439000,
+          "lag_records": 0,
+          "started_ns": 1791486805054576000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486806078635000,
+          "lag_records": 0,
+          "started_ns": 1791486806054396000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486807070055000,
+          "lag_records": 0,
+          "started_ns": 1791486807056116000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486808065015000,
+          "lag_records": 0,
+          "started_ns": 1791486808054574000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486809076783000,
+          "lag_records": 0,
+          "started_ns": 1791486809054568000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486810076577000,
+          "lag_records": 0,
+          "started_ns": 1791486810055197000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486811115095000,
+          "lag_records": 0,
+          "started_ns": 1791486811058680000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486812071143000,
+          "lag_records": 0,
+          "started_ns": 1791486812054433000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486813072776000,
+          "lag_records": 0,
+          "started_ns": 1791486813054375000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486814063753000,
+          "lag_records": 0,
+          "started_ns": 1791486814054623000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486815065647000,
+          "lag_records": 0,
+          "started_ns": 1791486815054597000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486816065910000,
+          "lag_records": 0,
+          "started_ns": 1791486816055045000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486817065401000,
+          "lag_records": 0,
+          "started_ns": 1791486817055512000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486818069538000,
+          "lag_records": 0,
+          "started_ns": 1791486818056253000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486819116319000,
+          "lag_records": 0,
+          "started_ns": 1791486819054425000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486820108407000,
+          "lag_records": 0,
+          "started_ns": 1791486820054414000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486821114698000,
+          "lag_records": 0,
+          "started_ns": 1791486821054362000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486822106516000,
+          "lag_records": 0,
+          "started_ns": 1791486822055746000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486823106495000,
+          "lag_records": 0,
+          "started_ns": 1791486823054644000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486824106322000,
+          "lag_records": 0,
+          "started_ns": 1791486824054565000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486825068330000,
+          "lag_records": 0,
+          "started_ns": 1791486825056222000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486826076280000,
+          "lag_records": 0,
+          "started_ns": 1791486826054825000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486827066017000,
+          "lag_records": 0,
+          "started_ns": 1791486827054314000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486828069373000,
+          "lag_records": 0,
+          "started_ns": 1791486828056247000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486829069345000,
+          "lag_records": 0,
+          "started_ns": 1791486829055340000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486830102333000,
+          "lag_records": 0,
+          "started_ns": 1791486830055409000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486831097702000,
+          "lag_records": 0,
+          "started_ns": 1791486831055176000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486832104898000,
+          "lag_records": 0,
+          "started_ns": 1791486832055769000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486833107908000,
+          "lag_records": 0,
+          "started_ns": 1791486833054154000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486834101346000,
+          "lag_records": 0,
+          "started_ns": 1791486834054156000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486835074888000,
+          "lag_records": 0,
+          "started_ns": 1791486835054501000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486836075297000,
+          "lag_records": 0,
+          "started_ns": 1791486836055266000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486837065432000,
+          "lag_records": 0,
+          "started_ns": 1791486837054097000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486838065136000,
+          "lag_records": 0,
+          "started_ns": 1791486838054308000
+        },
+        {
+          "committed": 18943,
+          "end": 18943,
+          "finished_ns": 1791486839066226000,
+          "lag_records": 0,
+          "started_ns": 1791486839054249000
+        }
+      ]
+    },
+    "visibility": {
+      "censored_count": 381,
+      "first_send_to_observation": {
+        "count": 44,
+        "max_ns": 9765766000,
+        "p50_ns": 4343542000,
+        "p95_ns": 9058510000,
+        "p99_ns": 9765766000,
+        "p99_tail_samples": 1
+      },
+      "note": "Probe HTTP traffic is separate from the four-route paced query mix.",
+      "observed_count": 44,
+      "probe_http_failures": 1026,
+      "probe_http_requests_measured_phase": 1070,
+      "probe_http_statuses": {
+        "0": 63,
+        "200": 44,
+        "404": 416,
+        "503": 547
+      },
+      "probe_request_latency": {
+        "count": 1070,
+        "p50_ns": 16291000,
+        "p95_ns": 185468000,
+        "p99_ns": 386798000
+      },
+      "probe_response_bytes": 487904,
+      "sample_count": 425
+    },
+    "queries": {
+      "detail": {
+        "error_fraction": "1",
+        "failure_count": 108,
+        "statuses": {
+          "404": 67,
+          "503": 41
+        },
+        "success_count": 0,
+        "successful_p50_ns": null,
+        "successful_p95_ns": null,
+        "successful_p99_ns": null
+      },
+      "incidents": {
+        "error_fraction": "103/109",
+        "failure_count": 103,
+        "statuses": {
+          "200": 6,
+          "503": 100,
+          "504": 3
+        },
+        "success_count": 6,
+        "successful_p50_ns": 822003000,
+        "successful_p95_ns": 1247475000,
+        "successful_p99_ns": 1247475000
+      },
+      "services": {
+        "error_fraction": "25/108",
+        "failure_count": 25,
+        "statuses": {
+          "200": 83,
+          "503": 25
+        },
+        "success_count": 83,
+        "successful_p50_ns": 415693000,
+        "successful_p95_ns": 1612933000,
+        "successful_p99_ns": 1990583000
+      },
+      "traces": {
+        "error_fraction": "29/107",
+        "failure_count": 29,
+        "statuses": {
+          "200": 78,
+          "503": 29
+        },
+        "success_count": 78,
+        "successful_p50_ns": 656949000,
+        "successful_p95_ns": 3094060000,
+        "successful_p99_ns": 3901032000
+      }
+    },
+    "query_schedule": {
+      "detail": {
+        "issued_measured": 109,
+        "late_start": 1,
+        "queue_dropped": 11,
+        "scheduled_measured": 120,
+        "skipped_no_acknowledged_trace": 0,
+        "started_in_window": 108
+      },
+      "incidents": {
+        "issued_measured": 110,
+        "late_start": 1,
+        "queue_dropped": 10,
+        "scheduled_measured": 120,
+        "skipped_no_acknowledged_trace": 0,
+        "started_in_window": 109
+      },
+      "services": {
+        "issued_measured": 109,
+        "late_start": 1,
+        "queue_dropped": 11,
+        "scheduled_measured": 120,
+        "skipped_no_acknowledged_trace": 0,
+        "started_in_window": 108
+      },
+      "traces": {
+        "issued_measured": 108,
+        "late_start": 1,
+        "queue_dropped": 12,
+        "scheduled_measured": 120,
+        "skipped_no_acknowledged_trace": 0,
+        "started_in_window": 107
+      }
+    },
+    "operations": {
+      "producer": {
+        "kafka_produce": {
+          "all_successful_rows_include_replays": true,
+          "completed_rows_per_second": "34336/5",
+          "completed_window_failed_operations": 0,
+          "completed_window_successful_operations": 4292,
+          "completed_window_successful_rows": 824064,
+          "latency": {
+            "total": {
+              "count": 4292,
+              "p50_ns": 3940127,
+              "p95_ns": 41349480,
+              "p99_ns": 53839019
+            }
+          },
+          "started_window_attempted_rows": 824064,
+          "started_window_attempts": 4292,
+          "started_window_failed_operations": 0,
+          "started_window_successful_operations": 4292,
+          "started_window_successful_rows": 824064
+        }
+      },
+      "worker": {
+        "clickhouse_write": {
+          "all_successful_rows_include_replays": true,
+          "completed_rows_per_second": "17436/5",
+          "completed_window_failed_operations": 0,
+          "completed_window_successful_operations": 540,
+          "completed_window_successful_rows": 418464,
+          "latency": {
+            "append": {
+              "count": 541,
+              "p50_ns": 6339381,
+              "p95_ns": 17248949,
+              "p99_ns": 25926264
+            },
+            "prepare": {
+              "count": 541,
+              "p50_ns": 21326459,
+              "p95_ns": 77966207,
+              "p99_ns": 152260108
+            },
+            "send": {
+              "count": 541,
+              "p50_ns": 18414206,
+              "p95_ns": 201323216,
+              "p99_ns": 394045179
+            },
+            "total": {
+              "count": 541,
+              "p50_ns": 72563204,
+              "p95_ns": 308774575,
+              "p99_ns": 551014734
+            }
+          },
+          "started_window_attempted_rows": 419400,
+          "started_window_attempts": 541,
+          "started_window_failed_operations": 0,
+          "started_window_successful_operations": 541,
+          "started_window_successful_rows": 419400
+        },
+        "consumer_commit": {
+          "all_successful_rows_include_replays": true,
+          "completed_rows_per_second": "17436/5",
+          "completed_window_failed_operations": 0,
+          "completed_window_successful_operations": 540,
+          "completed_window_successful_rows": 418464,
+          "latency": {
+            "total": {
+              "count": 540,
+              "p50_ns": 8807986,
+              "p95_ns": 13811618,
+              "p99_ns": 38053313
+            }
+          },
+          "started_window_attempted_rows": 418464,
+          "started_window_attempts": 540,
+          "started_window_failed_operations": 0,
+          "started_window_successful_operations": 540,
+          "started_window_successful_rows": 418464
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+# Apply after the existing streaming overlay; same quotas and topic settings.
+services:
+  stream-ingest:
+    image: incidentlens-retro-stream-ingest
+    environment:
+      BENCH_OPS_FILE: /bench-evidence/producer.jsonl
+    volumes:
+      - ${BENCH_EVIDENCE_DIR:?set new evidence directory}:/bench-evidence
+  stream-worker:
+    image: incidentlens-retro-stream-worker
+    environment:
+      BENCH_OPS_FILE: /bench-evidence/worker.jsonl
+    volumes:
+      - ${BENCH_EVIDENCE_DIR:?set new evidence directory}:/bench-evidence
+  api:
+    image: incidentlens-api
+networks:
+  telemetry:
+    name: ${RETRO_PROJECT:?set isolated project}-telemetry

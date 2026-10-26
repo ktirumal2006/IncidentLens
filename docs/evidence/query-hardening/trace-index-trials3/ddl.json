@@ -1,0 +1,4 @@
+[
+  "ALTER TABLE spans ADD INDEX trace_id_bloom_trial trace_id TYPE bloom_filter(0.001) GRANULARITY 1",
+  "ALTER TABLE spans MATERIALIZE INDEX trace_id_bloom_trial SETTINGS mutations_sync=1"
+]

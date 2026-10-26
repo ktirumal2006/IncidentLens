@@ -1,0 +1,1032 @@
+[
+  {
+    "variant": "window",
+    "repetition": 1,
+    "query_id": "seed-plan-d88b0424ec0d4589a2c93a6d49c6724e",
+    "rows": 11,
+    "exact_rows_match": true,
+    "output": [
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-api",
+        "span_name": "Request",
+        "trace_id": "382a2d253d04c8d40679db87d9dda795",
+        "span_id": "0000000000000003",
+        "start_time": "2026-10-10 17:00:04.612706000",
+        "duration_ns": 260000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-api",
+        "span_name": "Request",
+        "trace_id": "fe73ee75a92ea32754241c52fa5b31af",
+        "span_id": "0000000000000003",
+        "start_time": "2026-10-10 17:00:04.612706000",
+        "duration_ns": 260000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-api",
+        "span_name": "Request",
+        "trace_id": "1443842357965cceaa64c0cb591c2a3d",
+        "span_id": "0000000000000003",
+        "start_time": "2026-10-10 17:00:04.636706000",
+        "duration_ns": 260000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-api",
+        "span_name": "Request",
+        "trace_id": "56d24663f334f9e379ac1ddec9a296b9",
+        "span_id": "0000000000000003",
+        "start_time": "2026-10-10 17:00:04.636706000",
+        "duration_ns": 260000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-api",
+        "span_name": "Request",
+        "trace_id": "27e7efbc79b1af26a9fb1e50f9129ec9",
+        "span_id": "0000000000000003",
+        "start_time": "2026-10-10 17:00:04.660706000",
+        "duration_ns": 260000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-frontend",
+        "span_name": "Request",
+        "trace_id": "382a2d253d04c8d40679db87d9dda795",
+        "span_id": "0000000000000001",
+        "start_time": "2026-10-10 17:00:04.610706000",
+        "duration_ns": 300000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-frontend",
+        "span_name": "Request",
+        "trace_id": "fe73ee75a92ea32754241c52fa5b31af",
+        "span_id": "0000000000000001",
+        "start_time": "2026-10-10 17:00:04.610706000",
+        "duration_ns": 300000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-frontend",
+        "span_name": "Request",
+        "trace_id": "1443842357965cceaa64c0cb591c2a3d",
+        "span_id": "0000000000000001",
+        "start_time": "2026-10-10 17:00:04.634706000",
+        "duration_ns": 300000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-frontend",
+        "span_name": "Request",
+        "trace_id": "56d24663f334f9e379ac1ddec9a296b9",
+        "span_id": "0000000000000001",
+        "start_time": "2026-10-10 17:00:04.634706000",
+        "duration_ns": 300000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-frontend",
+        "span_name": "Request",
+        "trace_id": "27e7efbc79b1af26a9fb1e50f9129ec9",
+        "span_id": "0000000000000001",
+        "start_time": "2026-10-10 17:00:04.658706000",
+        "duration_ns": 300000000,
+        "status_code": 2
+      },
+      {
+        "exception": "Code: 159. DB::Exception: Timeout exceeded: elapsed 5001.153373 ms, maximum: 5000 ms. (TIMEOUT_EXCEEDED) (version 25.8.4.13 (official build))"
+      }
+    ],
+    "elapsed_seconds": 5.026014231,
+    "server": [
+      {
+        "type": "ExceptionWhileProcessing",
+        "query_duration_ms": 5001,
+        "read_rows": 1065576,
+        "read_bytes": 96808610,
+        "memory_usage": 131755534,
+        "exception_code": 159
+      }
+    ]
+  },
+  {
+    "variant": "aggregate_top5",
+    "repetition": 1,
+    "query_id": "seed-plan-7576e3294e834f4f971b534a39c90cfd",
+    "error": "<HTTPError 500: 'Internal Server Error'>",
+    "server_error": "{\"exception\": \"Code: 241. DB::Exception: Query memory limit exceeded: would use 259.28 MiB (attempt to allocate chunk of 9.39 MiB bytes), maximum: 256.00 MiB: While executing AggregatingTransform. (MEMORY_LIMIT_EXCEEDED) (version 25.8.4.13 (official build))\"}\n",
+    "elapsed_seconds": 0.45812502699999946,
+    "server": [
+      {
+        "type": "ExceptionWhileProcessing",
+        "query_duration_ms": 292,
+        "read_rows": 561476,
+        "read_bytes": 51183320,
+        "memory_usage": 266218568,
+        "exception_code": 241
+      }
+    ]
+  },
+  {
+    "variant": "ordered_distinct",
+    "repetition": 1,
+    "query_id": "seed-plan-dfcd6aee94114ee3a957b3a4f55edbd8",
+    "rows": 15,
+    "exact_rows_match": false,
+    "output": [
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-api",
+        "span_name": "Request",
+        "trace_id": "382a2d253d04c8d40679db87d9dda795",
+        "span_id": "0000000000000003",
+        "start_time": "2026-10-10 17:00:04.612706000",
+        "duration_ns": 260000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-api",
+        "span_name": "Request",
+        "trace_id": "fe73ee75a92ea32754241c52fa5b31af",
+        "span_id": "0000000000000003",
+        "start_time": "2026-10-10 17:00:04.612706000",
+        "duration_ns": 260000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-api",
+        "span_name": "Request",
+        "trace_id": "1443842357965cceaa64c0cb591c2a3d",
+        "span_id": "0000000000000003",
+        "start_time": "2026-10-10 17:00:04.636706000",
+        "duration_ns": 260000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-api",
+        "span_name": "Request",
+        "trace_id": "56d24663f334f9e379ac1ddec9a296b9",
+        "span_id": "0000000000000003",
+        "start_time": "2026-10-10 17:00:04.636706000",
+        "duration_ns": 260000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-api",
+        "span_name": "Request",
+        "trace_id": "27e7efbc79b1af26a9fb1e50f9129ec9",
+        "span_id": "0000000000000003",
+        "start_time": "2026-10-10 17:00:04.660706000",
+        "duration_ns": 260000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-frontend",
+        "span_name": "Request",
+        "trace_id": "382a2d253d04c8d40679db87d9dda795",
+        "span_id": "0000000000000001",
+        "start_time": "2026-10-10 17:00:04.610706000",
+        "duration_ns": 300000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-frontend",
+        "span_name": "Request",
+        "trace_id": "fe73ee75a92ea32754241c52fa5b31af",
+        "span_id": "0000000000000001",
+        "start_time": "2026-10-10 17:00:04.610706000",
+        "duration_ns": 300000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-frontend",
+        "span_name": "Request",
+        "trace_id": "1443842357965cceaa64c0cb591c2a3d",
+        "span_id": "0000000000000001",
+        "start_time": "2026-10-10 17:00:04.634706000",
+        "duration_ns": 300000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-frontend",
+        "span_name": "Request",
+        "trace_id": "56d24663f334f9e379ac1ddec9a296b9",
+        "span_id": "0000000000000001",
+        "start_time": "2026-10-10 17:00:04.634706000",
+        "duration_ns": 300000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-frontend",
+        "span_name": "Request",
+        "trace_id": "27e7efbc79b1af26a9fb1e50f9129ec9",
+        "span_id": "0000000000000001",
+        "start_time": "2026-10-10 17:00:04.658706000",
+        "duration_ns": 300000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-store",
+        "span_name": "Request",
+        "trace_id": "382a2d253d04c8d40679db87d9dda795",
+        "span_id": "0000000000000005",
+        "start_time": "2026-10-10 17:00:04.614706000",
+        "duration_ns": 220000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-store",
+        "span_name": "Request",
+        "trace_id": "fe73ee75a92ea32754241c52fa5b31af",
+        "span_id": "0000000000000005",
+        "start_time": "2026-10-10 17:00:04.614706000",
+        "duration_ns": 220000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-store",
+        "span_name": "Request",
+        "trace_id": "1443842357965cceaa64c0cb591c2a3d",
+        "span_id": "0000000000000005",
+        "start_time": "2026-10-10 17:00:04.638706000",
+        "duration_ns": 220000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-store",
+        "span_name": "Request",
+        "trace_id": "56d24663f334f9e379ac1ddec9a296b9",
+        "span_id": "0000000000000005",
+        "start_time": "2026-10-10 17:00:04.638706000",
+        "duration_ns": 220000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-store",
+        "span_name": "Request",
+        "trace_id": "27e7efbc79b1af26a9fb1e50f9129ec9",
+        "span_id": "0000000000000005",
+        "start_time": "2026-10-10 17:00:04.662706000",
+        "duration_ns": 220000000,
+        "status_code": 2
+      }
+    ],
+    "elapsed_seconds": 1.04196649,
+    "server": [
+      {
+        "type": "QueryFinish",
+        "query_duration_ms": 1039,
+        "read_rows": 1065576,
+        "read_bytes": 96808610,
+        "memory_usage": 112573255,
+        "exception_code": 0
+      }
+    ]
+  },
+  {
+    "variant": "ordered_distinct",
+    "repetition": 2,
+    "query_id": "seed-plan-f36f9f5a051d41d5a42398994ac0ed9c",
+    "rows": 15,
+    "exact_rows_match": false,
+    "output": [
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-api",
+        "span_name": "Request",
+        "trace_id": "382a2d253d04c8d40679db87d9dda795",
+        "span_id": "0000000000000003",
+        "start_time": "2026-10-10 17:00:04.612706000",
+        "duration_ns": 260000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-api",
+        "span_name": "Request",
+        "trace_id": "fe73ee75a92ea32754241c52fa5b31af",
+        "span_id": "0000000000000003",
+        "start_time": "2026-10-10 17:00:04.612706000",
+        "duration_ns": 260000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-api",
+        "span_name": "Request",
+        "trace_id": "1443842357965cceaa64c0cb591c2a3d",
+        "span_id": "0000000000000003",
+        "start_time": "2026-10-10 17:00:04.636706000",
+        "duration_ns": 260000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-api",
+        "span_name": "Request",
+        "trace_id": "56d24663f334f9e379ac1ddec9a296b9",
+        "span_id": "0000000000000003",
+        "start_time": "2026-10-10 17:00:04.636706000",
+        "duration_ns": 260000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-api",
+        "span_name": "Request",
+        "trace_id": "27e7efbc79b1af26a9fb1e50f9129ec9",
+        "span_id": "0000000000000003",
+        "start_time": "2026-10-10 17:00:04.660706000",
+        "duration_ns": 260000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-frontend",
+        "span_name": "Request",
+        "trace_id": "382a2d253d04c8d40679db87d9dda795",
+        "span_id": "0000000000000001",
+        "start_time": "2026-10-10 17:00:04.610706000",
+        "duration_ns": 300000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-frontend",
+        "span_name": "Request",
+        "trace_id": "fe73ee75a92ea32754241c52fa5b31af",
+        "span_id": "0000000000000001",
+        "start_time": "2026-10-10 17:00:04.610706000",
+        "duration_ns": 300000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-frontend",
+        "span_name": "Request",
+        "trace_id": "1443842357965cceaa64c0cb591c2a3d",
+        "span_id": "0000000000000001",
+        "start_time": "2026-10-10 17:00:04.634706000",
+        "duration_ns": 300000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-frontend",
+        "span_name": "Request",
+        "trace_id": "56d24663f334f9e379ac1ddec9a296b9",
+        "span_id": "0000000000000001",
+        "start_time": "2026-10-10 17:00:04.634706000",
+        "duration_ns": 300000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-frontend",
+        "span_name": "Request",
+        "trace_id": "27e7efbc79b1af26a9fb1e50f9129ec9",
+        "span_id": "0000000000000001",
+        "start_time": "2026-10-10 17:00:04.658706000",
+        "duration_ns": 300000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-store",
+        "span_name": "Request",
+        "trace_id": "382a2d253d04c8d40679db87d9dda795",
+        "span_id": "0000000000000005",
+        "start_time": "2026-10-10 17:00:04.614706000",
+        "duration_ns": 220000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-store",
+        "span_name": "Request",
+        "trace_id": "fe73ee75a92ea32754241c52fa5b31af",
+        "span_id": "0000000000000005",
+        "start_time": "2026-10-10 17:00:04.614706000",
+        "duration_ns": 220000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-store",
+        "span_name": "Request",
+        "trace_id": "1443842357965cceaa64c0cb591c2a3d",
+        "span_id": "0000000000000005",
+        "start_time": "2026-10-10 17:00:04.638706000",
+        "duration_ns": 220000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-store",
+        "span_name": "Request",
+        "trace_id": "56d24663f334f9e379ac1ddec9a296b9",
+        "span_id": "0000000000000005",
+        "start_time": "2026-10-10 17:00:04.638706000",
+        "duration_ns": 220000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-store",
+        "span_name": "Request",
+        "trace_id": "27e7efbc79b1af26a9fb1e50f9129ec9",
+        "span_id": "0000000000000005",
+        "start_time": "2026-10-10 17:00:04.662706000",
+        "duration_ns": 220000000,
+        "status_code": 2
+      }
+    ],
+    "elapsed_seconds": 0.9648880430000002,
+    "server": [
+      {
+        "type": "QueryFinish",
+        "query_duration_ms": 961,
+        "read_rows": 1065576,
+        "read_bytes": 96808610,
+        "memory_usage": 113304749,
+        "exception_code": 0
+      }
+    ]
+  },
+  {
+    "variant": "aggregate_top5",
+    "repetition": 2,
+    "query_id": "seed-plan-9fbb3e9089d14abfa1339281465af7fb",
+    "error": "<HTTPError 500: 'Internal Server Error'>",
+    "server_error": "{\"exception\": \"Code: 241. DB::Exception: Query memory limit exceeded: would use 256.00 MiB (attempt to allocate chunk of 4.00 MiB bytes), maximum: 256.00 MiB: While executing AggregatingTransform. (MEMORY_LIMIT_EXCEEDED) (version 25.8.4.13 (official build))\"}\n",
+    "elapsed_seconds": 0.6592754430000003,
+    "server": [
+      {
+        "type": "ExceptionWhileProcessing",
+        "query_duration_ms": 420,
+        "read_rows": 564788,
+        "read_bytes": 51645952,
+        "memory_usage": 264246080,
+        "exception_code": 241
+      }
+    ]
+  },
+  {
+    "variant": "window",
+    "repetition": 2,
+    "query_id": "seed-plan-8a52d09edb664a9da9ec7fb25d64effa",
+    "rows": 16,
+    "exact_rows_match": false,
+    "output": [
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-api",
+        "span_name": "Request",
+        "trace_id": "382a2d253d04c8d40679db87d9dda795",
+        "span_id": "0000000000000003",
+        "start_time": "2026-10-10 17:00:04.612706000",
+        "duration_ns": 260000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-api",
+        "span_name": "Request",
+        "trace_id": "fe73ee75a92ea32754241c52fa5b31af",
+        "span_id": "0000000000000003",
+        "start_time": "2026-10-10 17:00:04.612706000",
+        "duration_ns": 260000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-api",
+        "span_name": "Request",
+        "trace_id": "1443842357965cceaa64c0cb591c2a3d",
+        "span_id": "0000000000000003",
+        "start_time": "2026-10-10 17:00:04.636706000",
+        "duration_ns": 260000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-api",
+        "span_name": "Request",
+        "trace_id": "56d24663f334f9e379ac1ddec9a296b9",
+        "span_id": "0000000000000003",
+        "start_time": "2026-10-10 17:00:04.636706000",
+        "duration_ns": 260000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-api",
+        "span_name": "Request",
+        "trace_id": "27e7efbc79b1af26a9fb1e50f9129ec9",
+        "span_id": "0000000000000003",
+        "start_time": "2026-10-10 17:00:04.660706000",
+        "duration_ns": 260000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-frontend",
+        "span_name": "Request",
+        "trace_id": "382a2d253d04c8d40679db87d9dda795",
+        "span_id": "0000000000000001",
+        "start_time": "2026-10-10 17:00:04.610706000",
+        "duration_ns": 300000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-frontend",
+        "span_name": "Request",
+        "trace_id": "fe73ee75a92ea32754241c52fa5b31af",
+        "span_id": "0000000000000001",
+        "start_time": "2026-10-10 17:00:04.610706000",
+        "duration_ns": 300000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-frontend",
+        "span_name": "Request",
+        "trace_id": "1443842357965cceaa64c0cb591c2a3d",
+        "span_id": "0000000000000001",
+        "start_time": "2026-10-10 17:00:04.634706000",
+        "duration_ns": 300000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-frontend",
+        "span_name": "Request",
+        "trace_id": "56d24663f334f9e379ac1ddec9a296b9",
+        "span_id": "0000000000000001",
+        "start_time": "2026-10-10 17:00:04.634706000",
+        "duration_ns": 300000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-frontend",
+        "span_name": "Request",
+        "trace_id": "27e7efbc79b1af26a9fb1e50f9129ec9",
+        "span_id": "0000000000000001",
+        "start_time": "2026-10-10 17:00:04.658706000",
+        "duration_ns": 300000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-store",
+        "span_name": "Request",
+        "trace_id": "382a2d253d04c8d40679db87d9dda795",
+        "span_id": "0000000000000005",
+        "start_time": "2026-10-10 17:00:04.614706000",
+        "duration_ns": 220000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-store",
+        "span_name": "Request",
+        "trace_id": "fe73ee75a92ea32754241c52fa5b31af",
+        "span_id": "0000000000000005",
+        "start_time": "2026-10-10 17:00:04.614706000",
+        "duration_ns": 220000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-store",
+        "span_name": "Request",
+        "trace_id": "1443842357965cceaa64c0cb591c2a3d",
+        "span_id": "0000000000000005",
+        "start_time": "2026-10-10 17:00:04.638706000",
+        "duration_ns": 220000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-store",
+        "span_name": "Request",
+        "trace_id": "56d24663f334f9e379ac1ddec9a296b9",
+        "span_id": "0000000000000005",
+        "start_time": "2026-10-10 17:00:04.638706000",
+        "duration_ns": 220000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-store",
+        "span_name": "Request",
+        "trace_id": "27e7efbc79b1af26a9fb1e50f9129ec9",
+        "span_id": "0000000000000005",
+        "start_time": "2026-10-10 17:00:04.662706000",
+        "duration_ns": 220000000,
+        "status_code": 2
+      },
+      {
+        "exception": "Code: 159. DB::Exception: Timeout exceeded: elapsed 5000.535994 ms, maximum: 5000 ms. (TIMEOUT_EXCEEDED) (version 25.8.4.13 (official build))"
+      }
+    ],
+    "elapsed_seconds": 5.023142545999999,
+    "server": [
+      {
+        "type": "ExceptionWhileProcessing",
+        "query_duration_ms": 5000,
+        "read_rows": 1065576,
+        "read_bytes": 96808610,
+        "memory_usage": 130879814,
+        "exception_code": 159
+      }
+    ]
+  },
+  {
+    "variant": "window",
+    "repetition": 3,
+    "query_id": "seed-plan-6f6a464a71624a08a378d21cc08f887d",
+    "rows": 15,
+    "exact_rows_match": false,
+    "output": [
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-api",
+        "span_name": "Request",
+        "trace_id": "382a2d253d04c8d40679db87d9dda795",
+        "span_id": "0000000000000003",
+        "start_time": "2026-10-10 17:00:04.612706000",
+        "duration_ns": 260000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-api",
+        "span_name": "Request",
+        "trace_id": "fe73ee75a92ea32754241c52fa5b31af",
+        "span_id": "0000000000000003",
+        "start_time": "2026-10-10 17:00:04.612706000",
+        "duration_ns": 260000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-api",
+        "span_name": "Request",
+        "trace_id": "1443842357965cceaa64c0cb591c2a3d",
+        "span_id": "0000000000000003",
+        "start_time": "2026-10-10 17:00:04.636706000",
+        "duration_ns": 260000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-api",
+        "span_name": "Request",
+        "trace_id": "56d24663f334f9e379ac1ddec9a296b9",
+        "span_id": "0000000000000003",
+        "start_time": "2026-10-10 17:00:04.636706000",
+        "duration_ns": 260000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-api",
+        "span_name": "Request",
+        "trace_id": "27e7efbc79b1af26a9fb1e50f9129ec9",
+        "span_id": "0000000000000003",
+        "start_time": "2026-10-10 17:00:04.660706000",
+        "duration_ns": 260000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-frontend",
+        "span_name": "Request",
+        "trace_id": "382a2d253d04c8d40679db87d9dda795",
+        "span_id": "0000000000000001",
+        "start_time": "2026-10-10 17:00:04.610706000",
+        "duration_ns": 300000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-frontend",
+        "span_name": "Request",
+        "trace_id": "fe73ee75a92ea32754241c52fa5b31af",
+        "span_id": "0000000000000001",
+        "start_time": "2026-10-10 17:00:04.610706000",
+        "duration_ns": 300000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-frontend",
+        "span_name": "Request",
+        "trace_id": "1443842357965cceaa64c0cb591c2a3d",
+        "span_id": "0000000000000001",
+        "start_time": "2026-10-10 17:00:04.634706000",
+        "duration_ns": 300000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-frontend",
+        "span_name": "Request",
+        "trace_id": "56d24663f334f9e379ac1ddec9a296b9",
+        "span_id": "0000000000000001",
+        "start_time": "2026-10-10 17:00:04.634706000",
+        "duration_ns": 300000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-frontend",
+        "span_name": "Request",
+        "trace_id": "27e7efbc79b1af26a9fb1e50f9129ec9",
+        "span_id": "0000000000000001",
+        "start_time": "2026-10-10 17:00:04.658706000",
+        "duration_ns": 300000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-store",
+        "span_name": "Request",
+        "trace_id": "382a2d253d04c8d40679db87d9dda795",
+        "span_id": "0000000000000005",
+        "start_time": "2026-10-10 17:00:04.614706000",
+        "duration_ns": 220000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-store",
+        "span_name": "Request",
+        "trace_id": "fe73ee75a92ea32754241c52fa5b31af",
+        "span_id": "0000000000000005",
+        "start_time": "2026-10-10 17:00:04.614706000",
+        "duration_ns": 220000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-store",
+        "span_name": "Request",
+        "trace_id": "1443842357965cceaa64c0cb591c2a3d",
+        "span_id": "0000000000000005",
+        "start_time": "2026-10-10 17:00:04.638706000",
+        "duration_ns": 220000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-store",
+        "span_name": "Request",
+        "trace_id": "56d24663f334f9e379ac1ddec9a296b9",
+        "span_id": "0000000000000005",
+        "start_time": "2026-10-10 17:00:04.638706000",
+        "duration_ns": 220000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-store",
+        "span_name": "Request",
+        "trace_id": "27e7efbc79b1af26a9fb1e50f9129ec9",
+        "span_id": "0000000000000005",
+        "start_time": "2026-10-10 17:00:04.662706000",
+        "duration_ns": 220000000,
+        "status_code": 2
+      }
+    ],
+    "elapsed_seconds": 4.343911873,
+    "server": [
+      {
+        "type": "QueryFinish",
+        "query_duration_ms": 4342,
+        "read_rows": 1065576,
+        "read_bytes": 96808610,
+        "memory_usage": 126206598,
+        "exception_code": 0
+      }
+    ]
+  },
+  {
+    "variant": "aggregate_top5",
+    "repetition": 3,
+    "query_id": "seed-plan-8a6e434183dc4ea7a4888d777e0fa8ed",
+    "error": "<HTTPError 500: 'Internal Server Error'>",
+    "server_error": "{\"exception\": \"Code: 241. DB::Exception: Query memory limit exceeded: would use 263.28 MiB (attempt to allocate chunk of 11.11 MiB bytes), maximum: 256.00 MiB: While executing AggregatingTransform. (MEMORY_LIMIT_EXCEEDED) (version 25.8.4.13 (official build))\"}\n",
+    "elapsed_seconds": 0.4224762300000009,
+    "server": [
+      {
+        "type": "ExceptionWhileProcessing",
+        "query_duration_ms": 194,
+        "read_rows": 569610,
+        "read_bytes": 51911338,
+        "memory_usage": 267214772,
+        "exception_code": 241
+      }
+    ]
+  },
+  {
+    "variant": "ordered_distinct",
+    "repetition": 3,
+    "query_id": "seed-plan-630c3254a6624422a0e42ebe33d17f14",
+    "rows": 15,
+    "exact_rows_match": false,
+    "output": [
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-api",
+        "span_name": "Request",
+        "trace_id": "382a2d253d04c8d40679db87d9dda795",
+        "span_id": "0000000000000003",
+        "start_time": "2026-10-10 17:00:04.612706000",
+        "duration_ns": 260000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-api",
+        "span_name": "Request",
+        "trace_id": "fe73ee75a92ea32754241c52fa5b31af",
+        "span_id": "0000000000000003",
+        "start_time": "2026-10-10 17:00:04.612706000",
+        "duration_ns": 260000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-api",
+        "span_name": "Request",
+        "trace_id": "1443842357965cceaa64c0cb591c2a3d",
+        "span_id": "0000000000000003",
+        "start_time": "2026-10-10 17:00:04.636706000",
+        "duration_ns": 260000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-api",
+        "span_name": "Request",
+        "trace_id": "56d24663f334f9e379ac1ddec9a296b9",
+        "span_id": "0000000000000003",
+        "start_time": "2026-10-10 17:00:04.636706000",
+        "duration_ns": 260000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-api",
+        "span_name": "Request",
+        "trace_id": "27e7efbc79b1af26a9fb1e50f9129ec9",
+        "span_id": "0000000000000003",
+        "start_time": "2026-10-10 17:00:04.660706000",
+        "duration_ns": 260000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-frontend",
+        "span_name": "Request",
+        "trace_id": "382a2d253d04c8d40679db87d9dda795",
+        "span_id": "0000000000000001",
+        "start_time": "2026-10-10 17:00:04.610706000",
+        "duration_ns": 300000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-frontend",
+        "span_name": "Request",
+        "trace_id": "fe73ee75a92ea32754241c52fa5b31af",
+        "span_id": "0000000000000001",
+        "start_time": "2026-10-10 17:00:04.610706000",
+        "duration_ns": 300000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-frontend",
+        "span_name": "Request",
+        "trace_id": "1443842357965cceaa64c0cb591c2a3d",
+        "span_id": "0000000000000001",
+        "start_time": "2026-10-10 17:00:04.634706000",
+        "duration_ns": 300000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-frontend",
+        "span_name": "Request",
+        "trace_id": "56d24663f334f9e379ac1ddec9a296b9",
+        "span_id": "0000000000000001",
+        "start_time": "2026-10-10 17:00:04.634706000",
+        "duration_ns": 300000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-frontend",
+        "span_name": "Request",
+        "trace_id": "27e7efbc79b1af26a9fb1e50f9129ec9",
+        "span_id": "0000000000000001",
+        "start_time": "2026-10-10 17:00:04.658706000",
+        "duration_ns": 300000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-store",
+        "span_name": "Request",
+        "trace_id": "382a2d253d04c8d40679db87d9dda795",
+        "span_id": "0000000000000005",
+        "start_time": "2026-10-10 17:00:04.614706000",
+        "duration_ns": 220000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-store",
+        "span_name": "Request",
+        "trace_id": "fe73ee75a92ea32754241c52fa5b31af",
+        "span_id": "0000000000000005",
+        "start_time": "2026-10-10 17:00:04.614706000",
+        "duration_ns": 220000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-store",
+        "span_name": "Request",
+        "trace_id": "1443842357965cceaa64c0cb591c2a3d",
+        "span_id": "0000000000000005",
+        "start_time": "2026-10-10 17:00:04.638706000",
+        "duration_ns": 220000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-store",
+        "span_name": "Request",
+        "trace_id": "56d24663f334f9e379ac1ddec9a296b9",
+        "span_id": "0000000000000005",
+        "start_time": "2026-10-10 17:00:04.638706000",
+        "duration_ns": 220000000,
+        "status_code": 2
+      },
+      {
+        "service_namespace": "bench-d1c1eacb747c",
+        "service_name": "bench-store",
+        "span_name": "Request",
+        "trace_id": "27e7efbc79b1af26a9fb1e50f9129ec9",
+        "span_id": "0000000000000005",
+        "start_time": "2026-10-10 17:00:04.662706000",
+        "duration_ns": 220000000,
+        "status_code": 2
+      }
+    ],
+    "elapsed_seconds": 3.2306855190000014,
+    "server": [
+      {
+        "type": "QueryFinish",
+        "query_duration_ms": 3228,
+        "read_rows": 1065576,
+        "read_bytes": 96808610,
+        "memory_usage": 112814665,
+        "exception_code": 0
+      }
+    ]
+  }
+]

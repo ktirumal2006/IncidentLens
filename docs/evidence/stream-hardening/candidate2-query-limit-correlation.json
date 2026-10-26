@@ -1,0 +1,38 @@
+{
+  "scope": "Candidate2 raw phase=measured incident requests; not identical to started-window gate denominators",
+  "evidence_root": "benchmarks/results/20261008-hardening-candidate2-probe",
+  "classification": "strong correlation, not per-request proven error cause",
+  "candidate": {
+    "before_100000_completed_write_rows": {
+      "200": 6
+    },
+    "at_or_after_100000_completed_write_rows": {
+      "503": 101,
+      "504": 3
+    },
+    "last_success_completed_rows_at_query_start": 95958,
+    "first_503_completed_rows_at_query_start": 101850
+  },
+  "baseline": {
+    "before_100000_completed_write_rows": {
+      "200": 55,
+      "503": 26,
+      "504": 6
+    },
+    "at_or_after_100000_completed_write_rows": {
+      "503": 30
+    }
+  },
+  "contract_sources": [
+    "backend/internal/storage/clickhouse/incidents.go",
+    "backend/internal/detector/detector.go",
+    "backend/internal/httpapi/incidents.go"
+  ],
+  "limitations": [
+    "Physical completed rows are compared with a deduplicated input cap; no observed replay in this pair.",
+    "Harness records status and response size, not underlying API errors.",
+    "HTTP 503 also represents database and API concurrency failures.",
+    "Faster persistence can reach unchanged detector input limits sooner."
+  ],
+  "next_diagnostic": "Post-load bounded SELECT query log on both candidate3 pair variants; no query cap or gate changes."
+}

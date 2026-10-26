@@ -1,0 +1,34 @@
+{
+  "images": {
+    "baseline": {
+      "stream-ingest": {
+        "reference": "incidentlens-phase5-baseline-producer:20261003",
+        "id": "sha256:30e660bb7ce6d7813a946fc139512a91bf75d5b141533f0d4e68277d25aef4b6"
+      },
+      "stream-worker": {
+        "reference": "incidentlens-phase5-baseline-worker:20261003",
+        "id": "sha256:554a2583bab603277b344cdc322c19e2c45976e72560ea6b7b6ad0ad53478f30"
+      },
+      "api": {
+        "reference": "incidentlens-phase5-baseline-api:20261003",
+        "id": "sha256:557c5eef138ff6e6339a2539cc7226ca7417a1216352415f6a110adf75d01c48"
+      }
+    },
+    "candidate": {
+      "stream-ingest": {
+        "reference": "incidentlens-hardening-producer:candidate1",
+        "id": "sha256:8e83a459513f56c3fc4221b29b148f4f05ce79510f9ea73b84ac34bde26098c9"
+      },
+      "stream-worker": {
+        "reference": "incidentlens-hardening-worker:candidate1",
+        "id": "sha256:6fe541153b665896590ce22b051d0092ca80e6c6a36f9843d0072ae4154c43fe"
+      },
+      "api": {
+        "reference": "incidentlens-hardening-api:candidate1",
+        "id": "sha256:bfc2716d394de25e299940107d53fe536fc6ca2646a70fefbc767fd45a110662"
+      }
+    }
+  },
+  "harness_sha256": "3f9c4b5bc837387513f8dede5434650e984970237cc0c074f7c15278a418de11",
+  "lag_observer_sha256": "659df221e8ea4d2118f215413cb8e87f9d34a0c487060d09273fca9300285f3d"
+}

@@ -1,0 +1,12 @@
+{
+  "timestamp_utc": "2026-10-09T17:09:13.341181+00:00",
+  "desktop_status": "Name                Value\nStatus              starting\nSessionID           561135a9-197f-466f-9a17-e3b000e87de0",
+  "volume_count_before": 379,
+  "volume_count_after": 379,
+  "volume_inventory_identical": true,
+  "missing_volumes": [],
+  "extra_volumes": [],
+  "volume_inventory_sha256_before": "13e8727c07e51fb17cf5c44fe5e06ff2500767bf3a41fd284d2c08c6a88af77f",
+  "volume_inventory_sha256_after": "13e8727c07e51fb17cf5c44fe5e06ff2500767bf3a41fd284d2c08c6a88af77f",
+  "running_containers": []
+}

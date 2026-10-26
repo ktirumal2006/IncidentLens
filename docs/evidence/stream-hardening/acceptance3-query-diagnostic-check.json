@@ -1,0 +1,65 @@
+{
+  "checked_at_utc": "2026-10-09T00:29:10.413799+00:00",
+  "project": "incidentlens-retro-hardening-acceptance3",
+  "query": "SELECT type,event_time_microseconds,query_start_time_microseconds,query_duration_ms,read_rows,result_rows,result_bytes,memory_usage,exception_code FROM system.query_log WHERE initial_user='query' AND query_kind='Select' ORDER BY query_start_time_microseconds,event_time_microseconds LIMIT 50001 SETTINGS max_execution_time=5 FORMAT JSONEachRow",
+  "exit_code": 0,
+  "row_count": 6,
+  "sample_rows": [
+    {
+      "type": "QueryStart",
+      "event_time_microseconds": "2026-10-09 00:28:14.514674",
+      "query_start_time_microseconds": "2026-10-09 00:28:14.514674",
+      "query_duration_ms": 0,
+      "read_rows": 0,
+      "result_rows": 0,
+      "result_bytes": 0,
+      "memory_usage": 0,
+      "exception_code": 0
+    },
+    {
+      "type": "QueryFinish",
+      "event_time_microseconds": "2026-10-09 00:28:14.532589",
+      "query_start_time_microseconds": "2026-10-09 00:28:14.514674",
+      "query_duration_ms": 18,
+      "read_rows": 2454,
+      "result_rows": 2454,
+      "result_bytes": 518708,
+      "memory_usage": 541150,
+      "exception_code": 0
+    },
+    {
+      "type": "QueryStart",
+      "event_time_microseconds": "2026-10-09 00:28:59.733767",
+      "query_start_time_microseconds": "2026-10-09 00:28:59.733767",
+      "query_duration_ms": 0,
+      "read_rows": 0,
+      "result_rows": 0,
+      "result_bytes": 0,
+      "memory_usage": 0,
+      "exception_code": 0
+    },
+    {
+      "type": "QueryFinish",
+      "event_time_microseconds": "2026-10-09 00:28:59.752078",
+      "query_start_time_microseconds": "2026-10-09 00:28:59.733767",
+      "query_duration_ms": 18,
+      "read_rows": 3,
+      "result_rows": 1,
+      "result_bytes": 7168,
+      "memory_usage": 96124,
+      "exception_code": 0
+    },
+    {
+      "type": "QueryStart",
+      "event_time_microseconds": "2026-10-09 00:28:59.755042",
+      "query_start_time_microseconds": "2026-10-09 00:28:59.755042",
+      "query_duration_ms": 0,
+      "read_rows": 0,
+      "result_rows": 0,
+      "result_bytes": 0,
+      "memory_usage": 0,
+      "exception_code": 0
+    }
+  ],
+  "stderr": ""
+}

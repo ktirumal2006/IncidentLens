@@ -1,0 +1,167 @@
+[
+  {
+    "phase": "detail",
+    "type": "QueryStart",
+    "exception_code": 0,
+    "count": 1089,
+    "p50_ms": 0,
+    "p95_ms": 0,
+    "max_ms": 0,
+    "max_memory": 0,
+    "max_read_rows": 0
+  },
+  {
+    "phase": "detail",
+    "type": "QueryFinish",
+    "exception_code": 0,
+    "count": 1083,
+    "p50_ms": 14,
+    "p95_ms": 105,
+    "max_ms": 488,
+    "max_memory": 27585844,
+    "max_read_rows": 526346
+  },
+  {
+    "phase": "detail",
+    "type": "ExceptionWhileProcessing",
+    "exception_code": 210,
+    "count": 6,
+    "p50_ms": 94,
+    "p95_ms": 181,
+    "max_ms": 181,
+    "max_memory": 4353718,
+    "max_read_rows": 30392
+  },
+  {
+    "phase": "evidence_context",
+    "type": "QueryStart",
+    "exception_code": 0,
+    "count": 108,
+    "p50_ms": 0,
+    "p95_ms": 0,
+    "max_ms": 0,
+    "max_memory": 0,
+    "max_read_rows": 0
+  },
+  {
+    "phase": "evidence_context",
+    "type": "QueryFinish",
+    "exception_code": 0,
+    "count": 108,
+    "p50_ms": 108,
+    "p95_ms": 597,
+    "max_ms": 682,
+    "max_memory": 4307165,
+    "max_read_rows": 888431
+  },
+  {
+    "phase": "evidence_selection",
+    "type": "QueryStart",
+    "exception_code": 0,
+    "count": 324,
+    "p50_ms": 0,
+    "p95_ms": 0,
+    "max_ms": 0,
+    "max_memory": 0,
+    "max_read_rows": 0
+  },
+  {
+    "phase": "evidence_selection",
+    "type": "QueryFinish",
+    "exception_code": 0,
+    "count": 324,
+    "p50_ms": 97,
+    "p95_ms": 700,
+    "max_ms": 908,
+    "max_memory": 24513098,
+    "max_read_rows": 378728
+  },
+  {
+    "phase": "other",
+    "type": "QueryStart",
+    "exception_code": 0,
+    "count": 9,
+    "p50_ms": 0,
+    "p95_ms": 0,
+    "max_ms": 0,
+    "max_memory": 0,
+    "max_read_rows": 0
+  },
+  {
+    "phase": "other",
+    "type": "QueryFinish",
+    "exception_code": 0,
+    "count": 9,
+    "p50_ms": 8,
+    "p95_ms": 211,
+    "max_ms": 211,
+    "max_memory": 12259589,
+    "max_read_rows": 393656
+  },
+  {
+    "phase": "search",
+    "type": "QueryStart",
+    "exception_code": 0,
+    "count": 103,
+    "p50_ms": 0,
+    "p95_ms": 0,
+    "max_ms": 0,
+    "max_memory": 0,
+    "max_read_rows": 0
+  },
+  {
+    "phase": "search",
+    "type": "QueryFinish",
+    "exception_code": 0,
+    "count": 103,
+    "p50_ms": 247,
+    "p95_ms": 2297,
+    "max_ms": 2500,
+    "max_memory": 97094475,
+    "max_read_rows": 866723
+  },
+  {
+    "phase": "services",
+    "type": "QueryStart",
+    "exception_code": 0,
+    "count": 105,
+    "p50_ms": 0,
+    "p95_ms": 0,
+    "max_ms": 0,
+    "max_memory": 0,
+    "max_read_rows": 0
+  },
+  {
+    "phase": "services",
+    "type": "QueryFinish",
+    "exception_code": 0,
+    "count": 105,
+    "p50_ms": 194,
+    "p95_ms": 1296,
+    "max_ms": 1497,
+    "max_memory": 31003751,
+    "max_read_rows": 859367
+  },
+  {
+    "phase": "statistics",
+    "type": "QueryStart",
+    "exception_code": 0,
+    "count": 108,
+    "p50_ms": 0,
+    "p95_ms": 0,
+    "max_ms": 0,
+    "max_memory": 0,
+    "max_read_rows": 0
+  },
+  {
+    "phase": "statistics",
+    "type": "QueryFinish",
+    "exception_code": 0,
+    "count": 108,
+    "p50_ms": 128,
+    "p95_ms": 1297,
+    "max_ms": 1702,
+    "max_memory": 29878918,
+    "max_read_rows": 873179
+  }
+]

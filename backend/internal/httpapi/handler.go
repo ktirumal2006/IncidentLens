@@ -3,24 +3,23 @@ package httpapi
 import (
 	"context"
 	"encoding/json"
-	"errors"
 	"net/http"
 	"net/url"
 	"strconv"
 	"strings"
 	"time"
 
-	"github.com/ClickHouse/clickhouse-go/v2/lib/proto"
 	"incidentlens/backend/internal/detector"
 	"incidentlens/backend/internal/query"
 )
 
 type Handler struct {
-	Store          query.Store
-	StaticDir      string
-	Incidents      detector.Store
-	DetectorConfig detector.Config
-	Now            func() time.Time
+	Store           query.Store
+	StaticDir       string
+	Incidents       detector.Store
+	DetectorConfig  detector.Config
+	Now             func() time.Time
+	IngestionStatus *IngestionStatusProxy
 }
 
 func NewHandler(store query.Store, staticDir string) http.Handler {
@@ -60,6 +59,17 @@ func (h *Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		return
 	case r.URL.Path == "/api/v1/incidents":
 		h.serveIncidents(w, r)
+		return
+	case r.URL.Path == "/api/v1/ingestion-status":
+		if r.Method != http.MethodGet {
+			method(w)
+			return
+		}
+		if h.IngestionStatus == nil {
+			writeJSON(w, 200, directStatus())
+			return
+		}
+		writeJSON(w, 200, h.IngestionStatus.Get())
 		return
 	case r.URL.Path == "/api/v1/services":
 		h.serveQuery(w, r, "services")
@@ -241,16 +251,11 @@ func (h *Handler) serveQuery(w http.ResponseWriter, r *http.Request, kind string
 		result, e = h.Store.Detail(ctx, f.Window, id, now)
 	}
 	if e != nil {
-		var chErr *proto.Exception
-		if errors.Is(e, context.DeadlineExceeded) || errors.Is(ctx.Err(), context.DeadlineExceeded) || (errors.As(e, &chErr) && chErr.Code == 159) {
-			respondError(w, 504, "deadline_exceeded", "query deadline exceeded")
-		} else if errors.Is(e, query.ErrInvalid) {
-			respondError(w, 400, "invalid_request", "invalid query parameters")
-		} else if kind == "detail" && errors.Is(e, query.ErrNotFound) {
-			respondError(w, 404, "not_found", "trace not found")
-		} else {
-			respondError(w, 503, "unavailable", "query unavailable or resource cap reached")
+		status, code, message, cause := queryFailure(e, ctx.Err())
+		if status == 404 && kind != "detail" {
+			status, code, message, cause = 503, "unavailable", "query unavailable or resource cap reached", "other_query_error"
 		}
+		respondQueryFailure(w, status, code, message, cause)
 		return
 	}
 	if kind == "detail" {
@@ -258,7 +263,7 @@ func (h *Handler) serveQuery(w http.ResponseWriter, r *http.Request, kind string
 		for {
 			b, err := json.Marshal(d)
 			if err != nil {
-				respondError(w, 503, "unavailable", "invalid stored trace data")
+				respondQueryFailure(w, 503, "unavailable", "invalid stored trace data", "invalid_stored_data")
 				return
 			}
 			if len(b) <= query.MaxResponse {
@@ -266,7 +271,7 @@ func (h *Handler) serveQuery(w http.ResponseWriter, r *http.Request, kind string
 				break
 			}
 			if len(d.Spans) == 0 {
-				respondError(w, 503, "unavailable", "response cap reached")
+				respondQueryFailure(w, 503, "unavailable", "response cap reached", "response_cap")
 				return
 			}
 			d.Spans = d.Spans[:len(d.Spans)-1]
@@ -277,11 +282,11 @@ func (h *Handler) serveQuery(w http.ResponseWriter, r *http.Request, kind string
 	}
 	b, e := json.Marshal(result)
 	if e != nil {
-		respondError(w, 503, "unavailable", "invalid stored data")
+		respondQueryFailure(w, 503, "unavailable", "invalid stored data", "invalid_stored_data")
 		return
 	}
 	if len(b) > query.MaxResponse {
-		respondError(w, 503, "unavailable", "response cap reached")
+		respondQueryFailure(w, 503, "unavailable", "response cap reached", "response_cap")
 		return
 	}
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")

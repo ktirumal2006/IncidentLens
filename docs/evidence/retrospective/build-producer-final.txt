@@ -1,0 +1,61 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.36kB 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/golang:1.26.8-bookworm
+#2 DONE 0.3s
+
+#3 [internal] load metadata for gcr.io/distroless/static-debian12:nonroot
+#3 DONE 0.3s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 207B done
+#4 DONE 0.0s
+
+#5 [source 1/5] FROM docker.io/library/golang:1.26.8-bookworm@sha256:a688600ca24f8a4d3ca77f95b0dd40704a9fc787c826660eb7ba0b641b8b175d
+#5 resolve docker.io/library/golang:1.26.8-bookworm@sha256:a688600ca24f8a4d3ca77f95b0dd40704a9fc787c826660eb7ba0b641b8b175d 0.1s done
+#5 DONE 0.1s
+
+#6 [internal] load build context
+#6 transferring context: 3.42kB 0.0s done
+#6 DONE 0.0s
+
+#7 [stream-ingest 1/2] FROM gcr.io/distroless/static-debian12:nonroot@sha256:afa5c872c891853ca7fcf1f12c3edb23f7eeef36189728842dd51042ff57f7ab
+#7 resolve gcr.io/distroless/static-debian12:nonroot@sha256:afa5c872c891853ca7fcf1f12c3edb23f7eeef36189728842dd51042ff57f7ab 0.1s done
+#7 DONE 0.1s
+
+#8 [source 2/5] WORKDIR /src
+#8 CACHED
+
+#9 [source 3/5] COPY backend/go.mod backend/go.sum ./
+#9 CACHED
+
+#10 [source 4/5] RUN go mod download
+#10 CACHED
+
+#11 [source 5/5] COPY backend/ ./
+#11 CACHED
+
+#12 [build-stream-ingest 1/1] RUN CGO_ENABLED=0 go build -trimpath -o /stream-ingest ./cmd/stream-ingest
+#12 DONE 35.5s
+
+#7 [stream-ingest 1/2] FROM gcr.io/distroless/static-debian12:nonroot@sha256:afa5c872c891853ca7fcf1f12c3edb23f7eeef36189728842dd51042ff57f7ab
+#7 CACHED
+
+#13 [stream-ingest 2/2] COPY --from=build-stream-ingest /stream-ingest /stream-ingest
+#13 DONE 0.1s
+
+#14 exporting to image
+#14 exporting layers
+#14 exporting layers 2.5s done
+#14 exporting manifest sha256:c604a1049b717e139fd518fd0f2712e7615b232c43af75fef310f6680b0cfb75 0.0s done
+#14 exporting config sha256:283781ec88b876e54d3644091ac6429ed85a8e1c256c676adcda929f51b02515 0.0s done
+#14 exporting attestation manifest sha256:ab23d467433e83989ce0756b873693439cbcdc5322dcd23120c46ea413b5720f 0.0s done
+#14 exporting manifest list sha256:30e660bb7ce6d7813a946fc139512a91bf75d5b141533f0d4e68277d25aef4b6 0.0s done
+#14 naming to docker.io/library/incidentlens-retro-stream-ingest:latest
+#14 naming to docker.io/library/incidentlens-retro-stream-ingest:latest done
+#14 unpacking to docker.io/library/incidentlens-retro-stream-ingest:latest
+#14 unpacking to docker.io/library/incidentlens-retro-stream-ingest:latest 0.4s done
+#14 DONE 3.1s

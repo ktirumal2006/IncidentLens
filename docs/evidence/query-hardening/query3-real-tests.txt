@@ -1,0 +1,24 @@
+=== RUN   TestDetectorClickHouseReplayCutoffPercentileAndRelationships
+    detector_test.go:154: historical detector fixture namespace=detector-5028210a3f end=2026-10-11T13:59:54Z raw_parent=221 dedup_base=100 dedup_current=100 p95=195000000/495000000 candidates=1
+--- PASS: TestDetectorClickHouseReplayCutoffPercentileAndRelationships (0.37s)
+=== RUN   TestDetectorClickHouseGroupCapFailsWholeEvaluation
+--- PASS: TestDetectorClickHouseGroupCapFailsWholeEvaluation (0.04s)
+=== RUN   TestDetectorClickHouseHalfOpenWindows
+--- PASS: TestDetectorClickHouseHalfOpenWindows (0.04s)
+=== RUN   TestDetectorClickHouseAggregateEvidenceDistinctTraceOrder
+--- PASS: TestDetectorClickHouseAggregateEvidenceDistinctTraceOrder (0.05s)
+=== RUN   TestQueryHardeningDetectorRowCeilingAndDetail
+    query_hardening_test.go:151: old raw evaluator rejects rows=100002 accounted_bytes=25300506 row_limit=100000 byte_limit=33554432
+    query_hardening_test.go:152: exact FINAL aggregate rows=100002 baseline=100000 current=2 evidence=2
+    query_hardening_test.go:230: detail prewhere=false read_rows=1698 read_bytes=164722 duration_ms=5
+    query_hardening_test.go:230: detail prewhere=true read_rows=1698 read_bytes=164722 duration_ms=6
+--- PASS: TestQueryHardeningDetectorRowCeilingAndDetail (0.57s)
+=== RUN   TestQueryHardeningDetectorByteCeiling
+    query_hardening_test.go:245: old raw evaluator rejects rows=33002 accounted_bytes=42605582 row_limit=100000 byte_limit=33554432
+    query_hardening_test.go:246: exact FINAL aggregate rows=33002 baseline=33000 current=2 evidence=2
+    query_hardening_test.go:247: old detector input accounting=42605582 bytes exceeds 33554432; exact aggregate succeeded
+--- PASS: TestQueryHardeningDetectorByteCeiling (0.29s)
+=== RUN   TestDetectorClickHouseSelectiveEvidenceAcrossOperations
+--- PASS: TestDetectorClickHouseSelectiveEvidenceAcrossOperations (0.21s)
+PASS
+ok  	incidentlens/backend/tests/integration	2.607s

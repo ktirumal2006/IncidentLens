@@ -1,0 +1,82 @@
+{
+  "at": "2026-10-07T14:28:29.556463+00:00",
+  "observations": [
+    {
+      "label": "starts",
+      "command": [
+        "docker",
+        "compose",
+        "-p",
+        "incidentlens-retro-18922738-3",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/streaming/compose.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/benchmark/streaming.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/streaming/hardening.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/benchmark/hardening-candidate.yaml",
+        "exec",
+        "-T",
+        "kafka",
+        "/opt/kafka/bin/kafka-get-offsets.sh",
+        "--bootstrap-server",
+        "kafka:9092",
+        "--topic",
+        "incidentlens-spans-v2",
+        "--time",
+        "-2"
+      ],
+      "returncode": 0,
+      "stdout": "incidentlens-spans-v2:0:124\nincidentlens-spans-v2:1:124\nincidentlens-spans-v2:2:124\nincidentlens-spans-v2:3:124\n",
+      "stderr": ""
+    },
+    {
+      "label": "ends",
+      "command": [
+        "docker",
+        "compose",
+        "-p",
+        "incidentlens-retro-18922738-3",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/local/compose.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/streaming/compose.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/benchmark/streaming.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/streaming/hardening.yaml",
+        "-f",
+        "/Users/kousil/Documents/IncidentLens/deploy/benchmark/hardening-candidate.yaml",
+        "exec",
+        "-T",
+        "kafka",
+        "/opt/kafka/bin/kafka-get-offsets.sh",
+        "--bootstrap-server",
+        "kafka:9092",
+        "--topic",
+        "incidentlens-spans-v2",
+        "--time",
+        "-1"
+      ],
+      "returncode": 0,
+      "stdout": "incidentlens-spans-v2:0:124\nincidentlens-spans-v2:1:124\nincidentlens-spans-v2:2:124\nincidentlens-spans-v2:3:124\n",
+      "stderr": ""
+    },
+    {
+      "label": "worker-log",
+      "command": [
+        "docker",
+        "logs",
+        "--tail",
+        "40",
+        "incidentlens-retro-18922738-3-stream-worker-1"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "2026/10/07 14:26:02 stream worker started\n2026/10/07 14:26:36 fetch incidentlens-spans-v2/0: OFFSET_OUT_OF_RANGE: The requested offset is not within the range of offsets maintained by the server.\n"
+    }
+  ]
+}

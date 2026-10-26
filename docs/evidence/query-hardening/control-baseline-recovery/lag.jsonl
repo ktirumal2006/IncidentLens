@@ -1,0 +1,5 @@
+{"committed":5278,"duration_ns":60573555,"end":5278,"finished_ns":1791651008489870000,"kind":"lag","lag_records":0,"partitions":[{"partition":0,"committed":5278,"end":5278}],"started_ns":1791651008429296000}
+{"committed":5278,"duration_ns":12662720,"end":5278,"finished_ns":1791651009443035000,"kind":"lag","lag_records":0,"partitions":[{"partition":0,"committed":5278,"end":5278}],"started_ns":1791651009430372000}
+{"committed":5278,"duration_ns":7399681,"end":5278,"finished_ns":1791651010436886000,"kind":"lag","lag_records":0,"partitions":[{"partition":0,"committed":5278,"end":5278}],"started_ns":1791651010429487000}
+{"committed":5278,"duration_ns":9758682,"end":5278,"finished_ns":1791651011439759000,"kind":"lag","lag_records":0,"partitions":[{"partition":0,"committed":5278,"end":5278}],"started_ns":1791651011430000000}
+{"finished_ns":1791651012420040000,"kind":"observer_end","samples":4}

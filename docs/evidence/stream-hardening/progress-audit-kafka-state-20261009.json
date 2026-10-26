@@ -1,0 +1,5 @@
+{
+  "returncode": 0,
+  "stdout": "{\"Status\":\"exited\",\"Running\":false,\"Paused\":false,\"Restarting\":false,\"OOMKilled\":false,\"Dead\":false,\"Pid\":0,\"ExitCode\":143,\"Error\":\"\",\"StartedAt\":\"2026-10-09T00:46:33.034302408Z\",\"FinishedAt\":\"2026-10-09T00:50:31.160819542Z\",\"Health\":{\"Status\":\"unhealthy\",\"FailingStreak\":23,\"Log\":[{\"Start\":\"2026-10-09T00:49:41.766641004Z\",\"End\":\"2026-10-09T00:49:46.89082587Z\",\"ExitCode\":-1,\"Output\":\"Health check exceeded timeout (5s)\"},{\"Start\":\"2026-10-09T00:49:51.894826797Z\",\"End\":\"2026-10-09T00:49:57.028489413Z\",\"ExitCode\":-1,\"Output\":\"Health check exceeded timeout (5s)\"},{\"Start\":\"2026-10-09T00:50:02.030376224Z\",\"End\":\"2026-10-09T00:50:07.147744576Z\",\"ExitCode\":-1,\"Output\":\"Health check exceeded timeout (5s)\"},{\"Start\":\"2026-10-09T00:50:12.148784793Z\",\"End\":\"2026-10-09T00:50:17.28133238Z\",\"ExitCode\":-1,\"Output\":\"Health check exceeded timeout (5s)\"},{\"Start\":\"2026-10-09T00:50:22.280608941Z\",\"End\":\"2026-10-09T00:50:27.406978188Z\",\"ExitCode\":-1,\"Output\":\"Health check exceeded timeout (5s)\"}]}}\n",
+  "stderr": ""
+}

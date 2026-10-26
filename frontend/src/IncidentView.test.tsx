@@ -175,7 +175,7 @@ beforeEach(() => {
     vi.fn((input: string) => {
       const url = new URL(input, 'http://localhost')
       requests.push(url)
-      return respond(url)
+      return url.pathname.endsWith('/ingestion-status') ? Promise.resolve(json({ mode: 'direct', state: 'not_applicable' })) : respond(url)
     }),
   )
 })
@@ -189,6 +189,19 @@ async function openIncidents() {
 }
 
 describe('incident investigation', () => {
+  it('makes sampled relationship coverage explicit for a normal v2 result', async () => {
+    const result = evaluation([{ ...normal, caveats: ['trace_context_not_evaluated'] }])
+    result.rule_version = 'trace-v2'
+    result.caveats = ['relationship_context_sampled']
+    respond = async () => json(result)
+    await openIncidents()
+    expect(await screen.findByText(/Relationship checks cover supporting traces only/)).toBeTruthy()
+    expect(screen.getByText(/Rule trace-v2/)).toBeTruthy()
+    await userEvent.click(screen.getByText(/Other operation evaluations/))
+    expect(screen.getByText(/Trace context has not been checked exhaustively/)).toBeTruthy()
+    expect(screen.getByText('Normal')).toBeTruthy()
+  })
+
   it('shows a healthy evaluation with window, rule, thresholds and counts', async () => {
     await openIncidents()
     expect(await screen.findByText('0 candidate operations')).toBeTruthy()

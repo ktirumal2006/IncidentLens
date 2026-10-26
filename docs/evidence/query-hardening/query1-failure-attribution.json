@@ -1,0 +1,162 @@
+{
+  "baseline": {
+    "scheduled_query_started_window_causes": [
+      {
+        "route": "detail",
+        "http_status": 404,
+        "cause": "unclassified",
+        "count": 104
+      },
+      {
+        "route": "detail",
+        "http_status": 503,
+        "cause": "unclassified",
+        "count": 16
+      },
+      {
+        "route": "incidents",
+        "http_status": 200,
+        "cause": "unclassified",
+        "count": 12
+      },
+      {
+        "route": "incidents",
+        "http_status": 503,
+        "cause": "unclassified",
+        "count": 108
+      },
+      {
+        "route": "services",
+        "http_status": 200,
+        "cause": "unclassified",
+        "count": 117
+      },
+      {
+        "route": "services",
+        "http_status": 503,
+        "cause": "unclassified",
+        "count": 3
+      },
+      {
+        "route": "traces",
+        "http_status": 200,
+        "cause": "unclassified",
+        "count": 114
+      },
+      {
+        "route": "traces",
+        "http_status": 503,
+        "cause": "unclassified",
+        "count": 6
+      }
+    ],
+    "measured_phase_visibility_probe_causes": [
+      {
+        "http_status": 0,
+        "cause": "unclassified",
+        "count": 104
+      },
+      {
+        "http_status": 200,
+        "cause": "unclassified",
+        "count": 9
+      },
+      {
+        "http_status": 404,
+        "cause": "unclassified",
+        "count": 808
+      },
+      {
+        "http_status": 503,
+        "cause": "unclassified",
+        "count": 66
+      }
+    ]
+  },
+  "candidate": {
+    "scheduled_query_started_window_causes": [
+      {
+        "route": "detail",
+        "http_status": 404,
+        "cause": "unclassified",
+        "count": 74
+      },
+      {
+        "route": "detail",
+        "http_status": 503,
+        "cause": "admission_busy",
+        "count": 23
+      },
+      {
+        "route": "incidents",
+        "http_status": 200,
+        "cause": "unclassified",
+        "count": 26
+      },
+      {
+        "route": "incidents",
+        "http_status": 503,
+        "cause": "admission_busy",
+        "count": 19
+      },
+      {
+        "route": "incidents",
+        "http_status": 503,
+        "cause": "other_query_error",
+        "count": 3
+      },
+      {
+        "route": "incidents",
+        "http_status": 504,
+        "cause": "deadline",
+        "count": 46
+      },
+      {
+        "route": "services",
+        "http_status": 200,
+        "cause": "unclassified",
+        "count": 83
+      },
+      {
+        "route": "services",
+        "http_status": 503,
+        "cause": "admission_busy",
+        "count": 20
+      },
+      {
+        "route": "traces",
+        "http_status": 200,
+        "cause": "unclassified",
+        "count": 75
+      },
+      {
+        "route": "traces",
+        "http_status": 503,
+        "cause": "admission_busy",
+        "count": 21
+      }
+    ],
+    "measured_phase_visibility_probe_causes": [
+      {
+        "http_status": 0,
+        "cause": "unclassified",
+        "count": 12
+      },
+      {
+        "http_status": 200,
+        "cause": "unclassified",
+        "count": 188
+      },
+      {
+        "http_status": 404,
+        "cause": "unclassified",
+        "count": 263
+      },
+      {
+        "http_status": 503,
+        "cause": "admission_busy",
+        "count": 832
+      }
+    ]
+  }
+}
